@@ -1,12 +1,7 @@
 import { esc } from './sanitize.mjs';
+import { makeUrls } from './urls.mjs';
 
-const postUrl = (id) => `/p/${id}`;
-const sourceUrl = (id) => `/s/${id}`;
-const pageUrl = (page) => (page <= 1 ? '/' : `/page/${page}`);
-
-function absoluteUrl(siteUrl, path) {
-  return `${siteUrl}${path}`;
-}
+const urlsOf = (config) => makeUrls(config.site.basePath, config.site.origin);
 
 const dateFmt = new Map();
 function formatter(lang, options) {
@@ -55,7 +50,7 @@ function navItem(href, label, active) {
     : `<a href="${href}">${label}</a>`;
 }
 
-function layout({ config, title, description, active = '', head = '', body }) {
+function layout({ config, urls, title, description, active = '', head = '', body }) {
   const { site } = config;
   const pageTitle = title ? `${title} · ${site.title}` : site.title;
   const desc = description || site.description;
@@ -66,19 +61,19 @@ function layout({ config, title, description, active = '', head = '', body }) {
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>${esc(pageTitle)}</title>
 <meta name="description" content="${esc(desc)}">
-${site.noindex ? '<meta name="robots" content="noindex,follow">\n' : ''}<link rel="alternate" type="application/rss+xml" title="${esc(site.title)} 聚合输出" href="/feed.xml">
-<link rel="stylesheet" href="/style.css">
+${site.noindex ? '<meta name="robots" content="noindex,follow">\n' : ''}<link rel="alternate" type="application/rss+xml" title="${esc(site.title)} 聚合输出" href="${urls.u('/feed.xml')}">
+<link rel="stylesheet" href="${urls.u('/style.css')}">
 ${head}</head>
 <body>
 <a class="skip-link" href="#main">跳到正文</a>
 <header class="site-head">
-<p class="site-title"><a href="/">${esc(site.title)}</a></p>
+<p class="site-title"><a href="${urls.u('/')}">${esc(site.title)}</a></p>
 <p class="site-desc">${esc(site.description)}</p>
 <nav class="site-nav">
-${navItem('/', '最新', active)}
-${navItem('/sources/', '订阅源', active)}
-${navItem('/about/', '关于', active)}
-${navItem('/feed.xml', 'RSS', active)}
+${navItem(urls.u('/'), '最新', active)}
+${navItem(urls.u('/sources/'), '订阅源', active)}
+${navItem(urls.u('/about/'), '关于', active)}
+${navItem(urls.u('/feed.xml'), 'RSS', active)}
 </nav>
 </header>
 <main id="main">
@@ -92,28 +87,29 @@ ${body}
 `;
 }
 
-function postMeta(post, lang) {
+function postMeta(urls, post, lang) {
   const parts = [`<time datetime="${isoDate(post.published_at)}">${formatDate(post.published_at, lang)}</time>`];
-  parts.push(`来自 <a href="${sourceUrl(post.source_id)}">${esc(post.source_title ?? '未知来源')}</a>`);
+  parts.push(`来自 <a href="${urls.sourceUrl(post.source_id)}">${esc(post.source_title ?? '未知来源')}</a>`);
   if (post.author) parts.push(`作者 ${esc(post.author)}`);
   if (post.source_mode === 'excerpt') parts.push('仅摘要');
   return parts.join(' · ');
 }
 
-function postCard(post, lang) {
+function postCard(urls, post, lang) {
   return `<article class="post-card">
-<h2 class="post-card-title"><a href="${postUrl(post.id)}">${esc(post.title)}</a></h2>
-<p class="meta">${postMeta(post, lang)}</p>
+<h2 class="post-card-title"><a href="${urls.postUrl(post.id)}">${esc(post.title)}</a></h2>
+<p class="meta">${postMeta(urls, post, lang)}</p>
 ${post.summary ? `<p class="excerpt">${esc(post.summary)}</p>` : ''}
 </article>`;
 }
 
 export function renderList({ config, posts, page, totalPages, heading, note, active = '最新', base = '' }) {
+  const urls = urlsOf(config);
   const lang = config.site.lang;
   // base 为来源筛选页时，翻页必须留在该来源下，否则会跳回全站列表
-  const href = (n) => (base ? (n <= 1 ? base : `${base}/page/${n}`) : pageUrl(n));
+  const href = (n) => urls.pagedUrl(base || urls.u('/'), n);
   const items = posts.length
-    ? posts.map((post) => postCard(post, lang)).join('\n')
+    ? posts.map((post) => postCard(urls, post, lang)).join('\n')
     : '<p class="empty">还没有文章。先跑一次 <code>npm run sync</code>。</p>';
 
   const pager =
@@ -130,10 +126,11 @@ ${note ? `<p class="note">${note}</p>` : ''}
 ${items}
 ${pager}`;
 
-  return layout({ config, title: heading, active, body });
+  return layout({ config, urls, title: heading, active, body });
 }
 
 export function renderPost({ config, post }) {
+  const urls = urlsOf(config);
   const lang = config.site.lang;
   const original = esc(post.link);
   // 镜像页的 canonical 指向原文，这是给搜索引擎的正确信号
@@ -150,7 +147,7 @@ ${post.summary ? `<blockquote class="excerpt-block"><p>${esc(post.summary)}</p><
 
   const body = `<article>
 <h1 class="post-title">${esc(post.title)}</h1>
-<p class="meta">${postMeta(post, lang)}</p>
+<p class="meta">${postMeta(urls, post, lang)}</p>
 <p class="meta origin">原文发布于 <a href="${original}" rel="external nofollow noopener noreferrer" target="_blank">${esc(
     new URL(post.link).hostname,
   )}</a></p>
@@ -159,20 +156,21 @@ ${bodyHtml}
 <p>转载自 <a href="${original}" rel="external nofollow noopener noreferrer" target="_blank">${esc(
     post.source_title ?? post.link,
   )}</a>${post.author ? `，原作者 ${esc(post.author)}` : ''}。内容版权归原作者与原站所有，本站仅作归档与索引。</p>
-<p class="back"><a href="/">← 返回最新</a></p>
+<p class="back"><a href="${urls.u('/')}">← 返回最新</a></p>
 </footer>
 </article>`;
 
-  return layout({ config, title: post.title, description: post.summary ?? undefined, head, body, active: '' });
+  return layout({ config, urls, title: post.title, description: post.summary ?? undefined, head, body, active: '' });
 }
 
 export function renderSources({ config, sources }) {
+  const urls = urlsOf(config);
   const lang = config.site.lang;
   const rows = sources.map((s) => {
     const status = s.last_status ?? '未同步';
     const ok = status === 'ok' || status === 'not-modified';
     return `<tr>
-<td><a href="${sourceUrl(s.id)}">${esc(s.title ?? s.url)}</a>${s.active ? '' : ' <span class="badge">已停用</span>'}</td>
+<td><a href="${urls.sourceUrl(s.id)}">${esc(s.title ?? s.url)}</a>${s.active ? '' : ' <span class="badge">已停用</span>'}</td>
 <td class="num">${s.post_count}</td>
 <td>${esc(s.mode === 'excerpt' ? '仅摘要' : '全文')}</td>
 <td>${s.last_fetched_at ? `<time datetime="${isoDate(s.last_fetched_at)}">${formatDateTime(s.last_fetched_at, lang)}</time>` : '—'}</td>
@@ -191,15 +189,16 @@ ${rows.join('\n') || '<tr><td colspan="5">尚未配置任何订阅源。</td></t
 </table>
 </div>`;
 
-  return layout({ config, title: '订阅源', active: '订阅源', body });
+  return layout({ config, urls, title: '订阅源', active: '订阅源', body });
 }
 
 export function renderAbout({ config, stats }) {
+  const urls = urlsOf(config);
   const { site } = config;
   const body = `<h1 class="list-heading">关于</h1>
 <div class="post-body">
 <p>${esc(site.description)}</p>
-<p>这是一个<strong>自动聚合博客</strong>：程序定时抓取若干 RSS / Atom / JSON Feed 订阅源，把其中的条目原样镜像成本站文章，全程无人工写作。当前库内有 ${
+<p>这是一个<strong>自动聚合博客</strong>：程序抓取若干 RSS / Atom / JSON Feed 订阅源，把其中的条目原样镜像成本站文章，全程无人工写作。当前库内有 ${
     stats.posts
   } 篇文章，来自 ${stats.sources} 个订阅源。</p>
 <h2>版权说明</h2>
@@ -211,33 +210,28 @@ export function renderAbout({ config, stats }) {
       : '本站允许搜索引擎收录，但每篇镜像文章的 canonical 仍指向原文。'
   }</p>
 <h2>技术实现</h2>
-<p>纯 Node.js 标准库实现：内置 <code>node:sqlite</code> 存储、原生 <code>fetch</code> 抓取、模板字符串渲染，仅引入 XML 解析与 HTML 清洗两个依赖。所有外部正文经白名单清洗后才入库。</p>
+<p>纯 Node.js 标准库实现：原生 <code>fetch</code> 抓取、JSON 快照存储、模板字符串渲染，本地构建成静态文件后托管，仅引入 XML 解析与 HTML 清洗两个依赖。所有外部正文经白名单清洗后才入库。</p>
 </div>
-<p class="back"><a href="/">← 返回最新</a></p>`;
+<p class="back"><a href="${urls.u('/')}">← 返回最新</a></p>`;
 
-  return layout({ config, title: '关于', active: '关于', body });
+  return layout({ config, urls, title: '关于', active: '关于', body });
 }
 
 export function renderNotFound({ config }) {
+  const urls = urlsOf(config);
   const body = `<h1 class="list-heading">404 · 页面不存在</h1>
 <p class="empty">要找的东西不在这里。</p>
-<p class="back"><a href="/">← 返回最新</a></p>`;
-  return layout({ config, title: '404', body });
-}
-
-export function renderError({ config, message }) {
-  const body = `<h1 class="list-heading">500 · 服务器错误</h1>
-<p class="empty">${esc(message)}</p>
-<p class="back"><a href="/">← 返回最新</a></p>`;
-  return layout({ config, title: '错误', body });
+<p class="back"><a href="${urls.u('/')}">← 返回最新</a></p>`;
+  return layout({ config, urls, title: '404', body });
 }
 
 export function renderFeedXml({ config, posts }) {
+  const urls = urlsOf(config);
   const { site } = config;
-  const selfUrl = absoluteUrl(site.url, '/feed.xml');
+  const selfUrl = urls.absolute(urls.u('/feed.xml'));
   const items = posts
     .map((post) => {
-      const permalink = absoluteUrl(site.url, postUrl(post.id));
+      const permalink = urls.absolute(urls.postUrl(post.id));
       const description = esc(
         `${post.summary ?? ''}\n\n原文链接: ${post.link}\n转载自: ${post.source_title ?? post.link}`,
       );

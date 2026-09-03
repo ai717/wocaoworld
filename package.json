@@ -1,16 +1,18 @@
 {
   "name": "wocao-world",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "private": true,
   "type": "module",
-  "description": "由 RSS/Atom 订阅源自动聚合生成的极简博客",
+  "description": "由 RSS/Atom 订阅源自动聚合生成的极简博客，本地构建为静态站点发布到 GitHub Pages",
   "engines": {
-    "node": ">=22.5.0"
+    "node": ">=20.11.0"
   },
   "scripts": {
-    "start": "node --no-warnings=ExperimentalWarning src/index.mjs",
-    "sync": "node --no-warnings=ExperimentalWarning src/cli.mjs sync",
-    "stats": "node --no-warnings=ExperimentalWarning src/cli.mjs stats"
+    "sync": "node src/cli.mjs sync",
+    "build": "node src/cli.mjs build",
+    "preview": "node src/cli.mjs preview",
+    "stats": "node src/cli.mjs stats",
+    "deploy": "bash deploy/publish-github.sh"
   },
   "dependencies": {
     "fast-xml-parser": "^5.11.1",

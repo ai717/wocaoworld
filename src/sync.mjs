@@ -8,14 +8,15 @@ import {
   findPostByLink,
   insertPost,
   postId,
-} from './db.mjs';
+  saveStore,
+} from './store.mjs';
 
 export const MAX_ITEMS_PER_SOURCE = 100;
 const SOURCE_DELAY_MS = 1500;
 
 const sleep = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
 
-async function syncSource(db, source, log) {
+async function syncSource(store, source, log) {
   const started = Date.now();
   try {
     const res = await fetchFeed(source.url, {
@@ -24,7 +25,7 @@ async function syncSource(db, source, log) {
     });
 
     if (res.status === 'not-modified') {
-      markFetch(db, source.id, {
+      markFetch(store, source.id, {
         status: 'not-modified',
         etag: res.etag,
         lastModified: res.lastModified,
@@ -34,7 +35,7 @@ async function syncSource(db, source, log) {
     }
 
     const feed = parseFeed(res.text, res.finalUrl);
-    markFetch(db, source.id, {
+    markFetch(store, source.id, {
       status: 'ok',
       etag: res.etag,
       lastModified: res.lastModified,
@@ -53,7 +54,7 @@ async function syncSource(db, source, log) {
         skipped += 1;
         continue;
       }
-      if (findPostByLink(db, source.id, item.link)) {
+      if (findPostByLink(store, source.id, item.link)) {
         skipped += 1;
         continue;
       }
@@ -67,7 +68,7 @@ async function syncSource(db, source, log) {
       const clamped = clampContent(safeHtml);
       if (clamped.truncated) truncated += 1;
 
-      const inserted = insertPost(db, {
+      const inserted = insertPost(store, {
         id: postId(source.url, item.guid),
         sourceId: source.id,
         guid: item.guid,
@@ -94,16 +95,17 @@ async function syncSource(db, source, log) {
     log(`  + ${notes.join('，')}`);
     return { added, skipped, failed: false };
   } catch (err) {
-    markFetch(db, source.id, { status: `失败: ${err.message}` });
+    markFetch(store, source.id, { status: `失败: ${err.message}` });
     log(`  ! ${source.url} → ${err.message}`);
     return { added: 0, skipped: 0, failed: true };
   }
 }
 
 /** @returns {Promise<number>} 失败的源数量，>0 时调用方应以非零码退出 */
-export async function runSync(db, config, log = console.log) {
-  const { deactivated } = reconcileSources(db, config.sources);
-  const sources = listActiveSources(db);
+export async function runSync(store, config, log = console.log) {
+  const { deactivated } = reconcileSources(store, config.sources);
+  saveStore(store);
+  const sources = listActiveSources(store);
   log(
     `开始同步 ${sources.length} 个订阅源` +
       (deactivated ? `（本次停用 ${deactivated} 个已从 config 移除的源）` : ''),
@@ -114,7 +116,10 @@ export async function runSync(db, config, log = console.log) {
   for (const [index, source] of sources.entries()) {
     // 源之间串行并留间隔，避免同时打满对方服务器
     if (index > 0) await sleep(SOURCE_DELAY_MS);
-    const result = await syncSource(db, source, log);
+    const result = await syncSource(store, source, log);
+    // 每个源同步完就落盘一次。每条一存会把同一个文件重写上百遍，
+    // 全部结束才存则中途崩溃会丢掉整轮；按源存盘把损失上限压到一个批次。
+    saveStore(store);
     addedTotal += result.added;
     if (result.failed) failed += 1;
   }

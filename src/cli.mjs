@@ -1,11 +1,12 @@
 import { loadConfig, dataDir } from './config.mjs';
-import { openDb, getStats, listSourcesWithCounts } from './db.mjs';
+import { openStore, getStats, listSourcesWithCounts } from './store.mjs';
 
 const USAGE = `用法: node src/cli.mjs <command>
 
-  sync    拉取全部订阅源并入库（systemd timer 调用的就是这个）
-  stats   打印库内源与文章的统计
-  serve   前台启动 Web 服务（等价于 npm start）
+  sync     拉取全部订阅源，写入 data/*.json
+  build    把库里的内容构建成 dist/ 静态站点
+  preview  在本地按 basePath 前缀预览 dist/（可选端口，默认 4000）
+  stats    打印库内源与文章的统计
 `;
 
 function formatTime(ms) {
@@ -13,53 +14,62 @@ function formatTime(ms) {
 }
 
 function stats() {
-  const db = openDb();
-  try {
-    const { sources, posts } = getStats(db);
-    console.log(`数据库: ${dataDir()}`);
-    console.log(`订阅源: ${sources.active ?? 0} 个启用 / 共 ${sources.total} 个`);
-    console.log(`文章:   ${posts.total} 篇`);
-    if (posts.total > 0) {
-      console.log(`时间跨度: ${formatTime(posts.oldest)} → ${formatTime(posts.newest)}`);
-    }
-    console.log('');
-    for (const s of listSourcesWithCounts(db)) {
-      const flag = s.active ? '✓' : '✗';
-      console.log(
-        `${flag} #${s.id} [${s.mode}] ${s.post_count} 篇  ${s.title ?? s.url}\n` +
-          `    ${s.url}\n` +
-          `    最近同步: ${formatTime(s.last_fetched_at)}  状态: ${s.last_status ?? '未同步'}`,
-      );
-    }
-  } finally {
-    db.close();
+  const store = openStore();
+  const { sources, posts } = getStats(store);
+  console.log(`数据目录: ${dataDir()}`);
+  console.log(`订阅源: ${sources.active ?? 0} 个启用 / 共 ${sources.total} 个`);
+  console.log(`文章:   ${posts.total} 篇`);
+  if (posts.total > 0) {
+    console.log(`时间跨度: ${formatTime(posts.oldest)} → ${formatTime(posts.newest)}`);
+  }
+  console.log('');
+  for (const s of listSourcesWithCounts(store)) {
+    const flag = s.active ? '✓' : '✗';
+    console.log(
+      `${flag} #${s.id} [${s.mode}] ${s.post_count} 篇  ${s.title ?? s.url}\n` +
+        `    ${s.url}\n` +
+        `    最近同步: ${formatTime(s.last_fetched_at)}  状态: ${s.last_status ?? '未同步'}`,
+    );
   }
 }
 
 async function sync() {
   const config = loadConfig();
   const { runSync } = await import('./sync.mjs');
-  const db = openDb();
+  const store = openStore();
   let failed;
   try {
-    failed = await runSync(db, config);
+    failed = await runSync(store, config);
   } finally {
-    db.close();
+    store.close();
   }
   if (failed > 0) process.exitCode = 1;
 }
 
-async function serve() {
-  // index.mjs 的顶层代码即启动流程，导入它就等于 npm start
-  await import('./index.mjs');
+async function build() {
+  const config = loadConfig();
+  const { runBuild } = await import('./build.mjs');
+  runBuild(config, openStore());
+}
+
+async function preview() {
+  const config = loadConfig();
+  const { startPreview } = await import('./preview.mjs');
+  const raw = process.argv[3];
+  const port = Number(raw ?? 4000);
+  if (!Number.isInteger(port) || port < 1 || port > 65535) {
+    throw new Error(`端口必须是 1-65535 的整数，收到 ${JSON.stringify(raw)}`);
+  }
+  startPreview({ config, port });
 }
 
 const [command] = process.argv.slice(2);
 
 try {
   if (command === 'sync') await sync();
+  else if (command === 'build') await build();
+  else if (command === 'preview') await preview();
   else if (command === 'stats') stats();
-  else if (command === 'serve') await serve();
   else {
     console.error(USAGE);
     process.exitCode = command === undefined ? 1 : 2;

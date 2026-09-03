@@ -1,4 +1,4 @@
-# deploy/ 下的文件最终跑在 Linux 上，CRLF 会让 bash 与 systemd 直接解析失败。
+# deploy/publish-github.sh 由 bash 执行，CRLF 会让它直接解析失败。
 * text=auto eol=lf
 
 *.png binary

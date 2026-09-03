@@ -11,6 +11,14 @@ export function dataDir() {
     : path.join(ROOT, 'data');
 }
 
+export function distDir() {
+  return path.join(ROOT, 'dist');
+}
+
+export function publicDir() {
+  return path.join(ROOT, 'public');
+}
+
 function assertHttpUrl(value, where) {
   let parsed;
   try {
@@ -37,6 +45,9 @@ export function loadConfig(file = path.join(ROOT, 'config.json')) {
   const site = raw.site ?? {};
   if (!site.title) throw new Error('config.json 缺少 site.title');
   const siteUrl = assertHttpUrl(site.url ?? '', 'site.url');
+  // 不能用 siteUrl.origin：它会吞掉路径，而 GitHub Pages 项目站点的
+  // /repo 前缀就住在路径里。这里把前缀单独提出来当 basePath。
+  const basePath = siteUrl.pathname.replace(/\/+$/, '');
 
   const rawSources = raw.sources ?? [];
   if (!Array.isArray(rawSources)) throw new Error('config.json 的 sources 必须是数组');
@@ -65,7 +76,9 @@ export function loadConfig(file = path.join(ROOT, 'config.json')) {
     site: {
       title: String(site.title),
       description: String(site.description ?? ''),
-      url: siteUrl.origin,
+      origin: siteUrl.origin,
+      basePath,
+      url: `${siteUrl.origin}${basePath}`,
       lang: String(site.lang ?? 'zh-CN'),
       postsPerPage,
       noindex: site.noindex !== false,

@@ -1,68 +1,63 @@
 # wocao.world
 
-由 RSS / Atom / JSON Feed 订阅源**自动聚合生成**的极简博客。不写原创，只做搬运与归档：程序定时抓取若干订阅源，把条目镜像成本站文章，每篇都保留原文永久链接与署名。
+由 RSS / Atom / JSON Feed 订阅源**自动聚合生成**的极简博客。不写原创，只做搬运与归档：程序抓取若干订阅源，把条目镜像成本站文章，每篇都保留原文永久链接与署名。
 
-纯 Node.js 标准库实现，只有 2 个依赖，不需要编译任何原生模块，不需要 Docker。
+**本地抓取、本地构建、发布到 GitHub Pages。** 线上没有任何计算，只有静态文件。纯 Node.js 标准库实现，只有 2 个依赖，不编译任何原生模块，不需要 Docker，不需要服务器。
 
 ---
 
 ## 架构
 
-两个独立进程共用同一个 SQLite 库，互不阻塞：
-
 ```
-wocao-sync.service   （systemd timer 每 30 分钟触发，oneshot，跑完即退）
-  fetch-feed → parse-feed → sanitize → 写入 SQLite
-
-wocao-web.service    （常驻，只监听 127.0.0.1:3000）
-  HTTP 请求 → routes → 查 SQLite → 模板字符串 → HTML
-
-Caddy                （唯一对外入口，自动 HTTPS，反代到 3000）
+本地                                     GitHub
+────                                     ──────
+npm run sync     抓订阅源 → data/*.json
+npm run build    读 JSON  → dist/**（约 140 个文件）
+npm run deploy   把 dist/ 推到 gh-pages 分支  →  GitHub Pages CDN  →  读者
 ```
 
-拆成两个 unit 的理由：同步要碰外部网络和不可信 XML，是最容易出问题的环节。拆开之后一次失败的抓取绝不会带下 Web 进程，`journalctl -u wocao-sync` 能直接看到同步历史。
+三段都是手动触发，**没有定时任务**。这是相对旧方案（VPS 上 systemd timer 每 30 分钟自动抓一次）最实质的行为变化：内容更新取决于你什么时候跑命令。想自动化就自己挂 cron / 任务计划，或者加一条 GitHub Actions——但那要求把抓取搬上 CI，每轮都得全量重抓，因为 `data/` 不在仓库里。
 
-**不用进程内 `setInterval`** —— 调度完全交给 systemd timer，避免两套定时机制互相打架。本机开发时手动 `npm run sync && npm start`。
+**为什么不留运行时服务。** 静态化之后 ETag / 304 缓存协商、gzip、HTTPS 全部由 GitHub Pages CDN 负责，本地不需要实现；同时 URL 只剩一套真值（构建产物），不再有「路由表说的」和「实际生成的」两份需要互相对齐。
 
-**按需渲染而非预生成静态文件** —— SQLite 已是唯一事实来源，再落一份 HTML 会引入双状态同步与孤儿页清理问题。模板字符串 + ETag 的开销是微秒级，博客流量完全够用。
+**为什么用 JSON 快照而不是 SQLite。** 旧方案依赖 `node:sqlite`，把 Node 版本硬钉在 ≥ 22.5，而且该模块在部分构建里不可用。换成两个 JSON 文件之后 Node 门槛降到 ≥ 20.11，仓库里也不再有二进制文件。代价是原子写、id 分配、去重索引都要自己实现——都在 `src/store.mjs` 里，见下文。
+
+**增量同步能力保留。** `data/sources.json` 持久保存每个源的 ETag / Last-Modified，`data/posts.json` 保存已入库的 guid 与链接集合。只要 `data/` 目录还在，第二轮同步就是条件请求，源返回 304 直接跳过。
 
 ## 目录结构
 
 ```
-├── package.json            # type: module；scripts: start / sync / stats
+├── package.json            # type: module；scripts: sync / build / preview / stats / deploy
 ├── config.json             # 站点信息 + 订阅源清单（唯一内容源入口）
-├── public/style.css        # 极简单栏排版，零 JS
-├── data/                   # 运行时生成，已 gitignore；blog.sqlite(+wal/shm)
+├── public/style.css        # 极简单栏排版，零 JS，构建时原样拷进 dist/
+├── data/                   # 同步产物，已 gitignore：sources.json + posts.json
+├── dist/                   # 构建产物，已 gitignore，可随时删掉重建
 ├── src/
-│   ├── index.mjs           # Web 进程入口
-│   ├── cli.mjs             # 子命令 sync / stats / serve
-│   ├── config.mjs          # 读取校验 config.json
-│   ├── db.mjs              # node:sqlite 初始化、PRAGMA、建表、全部查询
-│   ├── sync.mjs            # 同步编排：源间串行、入库统计、失败隔离
+│   ├── cli.mjs             # 子命令 sync / build / preview / stats
+│   ├── config.mjs          # 读取校验 config.json，派生 basePath
+│   ├── urls.mjs            # 站内 URL 的唯一真值来源（含 basePath 前缀与尾斜杠）
+│   ├── store.mjs           # JSON 持久化：原子写、稳定 id、去重索引
+│   ├── sync.mjs            # 同步编排：源间串行、按源存盘、失败隔离
 │   ├── fetch-feed.mjs      # 抓取：UA、超时、体积上限、条件请求
 │   ├── parse-feed.mjs      # RSS 2.0 / RSS 1.0 / Atom / JSON Feed → 统一结构
 │   ├── sanitize.mjs        # 白名单清洗 + 相对链接与图片地址绝对化
 │   ├── render.mjs          # 布局与页面模板（纯函数返回字符串）
-│   ├── routes.mjs          # URL → 处理函数 分发
-│   └── server.mjs          # node:http、ETag、Cache-Control、错误页
+│   ├── build.mjs           # 静态站点生成器：清空 dist → 渲染全部页面 → 拷静态资源
+│   └── preview.mjs         # 极简静态服务器，按 basePath 前缀挂载 dist/
 └── deploy/
-    ├── setup.sh            # VPS 首次部署（一次性，root 执行）
-    ├── update.sh           # 拉新代码后重装依赖并重启
-    ├── wocao-web.service
-    ├── wocao-sync.service
-    ├── wocao-sync.timer
-    └── Caddyfile
+    └── publish-github.sh   # 把 dist/ 推到 gh-pages 分支
 ```
 
 ## 本机开发
 
-需要 **Node ≥ 22.5**（`node:sqlite` 的起点），推荐 24 LTS。
+需要 **Node ≥ 20.11**（`import.meta.dirname` 的起点）。
 
 ```bash
 npm install
-npm run sync     # 抓取全部订阅源入库
-npm run stats    # 看库内统计
-npm start        # 起 Web，默认 http://127.0.0.1:3000/
+npm run sync      # 抓取全部订阅源 → data/*.json
+npm run build     # 构建 → dist/
+npm run preview   # 本地预览，默认 http://127.0.0.1:4000/<basePath>/
+npm run stats     # 看库内统计
 ```
 
 `npm run sync` 的典型输出：
@@ -70,32 +65,41 @@ npm start        # 起 Web，默认 http://127.0.0.1:3000/
 ```
 开始同步 4 个订阅源
   = https://simonwillison.net/atom/everything/ 未变更
-  + Daring Fireball: 新增 0，跳过 48
+  + Daring Fireball: 新增 1，跳过 47
   = https://jvns.ca/atom.xml 未变更
   = https://blog.cloudflare.com/rss/ 未变更
-同步完成：新增 0 篇，失败 0/4 个源
+同步完成：新增 1 篇，失败 0/4 个源
 ```
 
-`=` 表示源返回 304（条件请求命中，没重新下载），`+` 表示重新抓取并入库。任何源失败都会以 `!` 标出，并让进程以非零码退出。
+`=` 表示源返回 304（条件请求命中，没重新下载），`+` 表示重新抓取并入库，`!` 表示该源失败。任何源失败都会让进程以非零码退出，但不影响其他源。
+
+`npm run build` 的典型输出：
+
+```
+构建完成 → G:\...\wocao.world\dist
+  basePath: /wocao.world
+  119 篇文章 / 4 个源 / 首页 6 页 / 源页 7 页
+  写出 137 个页面 + 1 个静态资源
+```
+
+`preview` 只监听 `127.0.0.1`，端口可作为参数传入（`npm run preview -- 8080`）。它**按 basePath 前缀挂载** `dist/`——basePath 是 `/wocao.world` 时本地地址就是 `http://127.0.0.1:4000/wocao.world/`，与线上路径完全一致，链接写错在本地就能发现，不用推上去才看见。
 
 可用环境变量：
 
 | 变量 | 默认 | 说明 |
 |---|---|---|
-| `HOST` | `127.0.0.1` | 监听地址。**生产环境不要改成 0.0.0.0**，对外交给 Caddy |
-| `PORT` | `3000` | 监听端口 |
-| `BLOG_DATA_DIR` | `<项目>/data` | SQLite 存放目录 |
+| `BLOG_DATA_DIR` | `<项目>/data` | JSON 快照存放目录 |
 
 ## 配置
 
-`config.json` 是订阅源的**唯一事实来源**，不提供任何网页端添加入口（这是刻意的功能缺失，见下文「安全边界」）。
+`config.json` 是订阅源的**唯一事实来源**，不提供任何网页端添加入口（这是刻意的功能缺失，见「安全边界」）。
 
 ```json
 {
   "site": {
     "title": "我操世界",
     "description": "一个由订阅源自动聚合生成的博客，不写原创，只做搬运与归档。",
-    "url": "https://wocao.world",
+    "url": "https://ai717.github.io/wocao.world",
     "lang": "zh-CN",
     "postsPerPage": 20,
     "noindex": true
@@ -107,229 +111,164 @@ npm start        # 起 Web，默认 http://127.0.0.1:3000/
 }
 ```
 
+### `site.url` 决定 basePath
+
+`site.url` 必须与站点**实际对外的地址完全一致**，路径部分会被自动提取成 basePath：
+
+| `site.url` | 派生 basePath | 场景 |
+|---|---|---|
+| `https://ai717.github.io/wocao.world` | `/wocao.world` | GitHub Pages 项目站点（仓库名即路径） |
+| `https://ai717.github.io` | `''` | GitHub Pages 用户站点（`<user>.github.io` 仓库） |
+| `https://wocao.world` | `''` | 自定义域名 |
+
+同一份代码三种形态都能构建，换域名只需要改这一个字段再重新 `build`。填错的症状很具体：站内链接全部 404，或者 feed 里的 `<link rel="self">` 指向不存在的地址。
+
+> 这里刻意不用 `new URL(...).origin`——`origin` 会吞掉路径，而 GitHub Pages 项目站点的 `/repo` 前缀就住在路径里。
+
 ### `mode` 与版权
 
 | mode | 行为 | 用在哪 |
 |---|---|---|
-| `full` | 清洗后的正文全文落库，本站可完整阅读 | 明确允许转载、或 CC 协议的源 |
-| `excerpt` | **只存摘要**，正文不落库，页面引导读者回原文 | 未明确授权转载的源 |
+| `full` | 清洗后的正文全文落盘并构建进 `dist/`，本站可完整阅读 | 明确允许转载、或 CC 协议的源 |
+| `excerpt` | **只存摘要**，正文不落盘，页面引导读者回原文 | 未明确授权转载的源 |
 
-纯镜像全文有转载版权风险，且搜索引擎会判定重复内容。除 `mode` 之外还有三项缓解已内建：
+除 `mode` 之外还有三项缓解已内建：
 
 - 文章页强制显示来源名、原作者、原文永久链接，正文内所有链接指向原站
 - `<head>` 输出 `<meta name="robots" content="noindex,follow">`（`noindex: false` 可关）
 - 每篇文章的 `<link rel="canonical">` 指向**原文**而非本站
 
+> ⚠️ **发布到公开 GitHub 仓库会新增一个暴露面。** `gh-pages` 分支上的全部 HTML 任何人都能直接 clone 和爬取，`noindex` 只约束搜索引擎的**索引**行为，挡不住仓库内容公开可读。所以：**未明确允许转载的源，应该配 `excerpt` 而不是 `full`**，让正文根本不进产物。当前 `config.json` 里 4 个源有 3 个是 `full`（Simon Willison、Daring Fireball、jvns.ca），发布到公开仓库前请自行重新评估——仓库里没有替你改。
+
 ### 改订阅源
 
-改完 `config.json` 后：
+改完 `config.json` 后跑 `npm run sync && npm run build`。
 
-- 本机：`npm run sync`
-- VPS：`sudo systemctl start wocao-sync`
+每轮同步开始时会与 `data/sources.json` 对账：新增的源分配 id 并插入，从 config 移除的源置 `active: false`。
 
-每轮同步开始时会与 `sources` 表对账：新增的源插入，从 config 移除的源置 `active = 0`。**移除源不会删历史文章**，只是不再抓取、列表页不再显示。
+**移除源不会删历史文章**，而且它已经入库的文章**仍然会出现在首页列表和 `/s/<id>/` 页面上**——`active` 只影响「还抓不抓」，不影响「显不显示」。可见的变化只有两处：`npm run sync` 跳过它，以及 `/sources/` 列表里它排到末尾并带一个「已停用」标记。想让文章彻底消失，得手动从 `data/posts.json` 里删掉对应条目再重新构建。
 
-## 页面路由
+源的 id 只增不减且永不复用，因为 `/s/<id>/` 是已经发布出去的 URL。
 
-| 路径 | 内容 |
+## 构建产物
+
+```
+dist/
+├── index.html                    首页第 1 页
+├── page/<n>/index.html           n = 2..totalPages
+├── p/<id>/index.html             每篇文章一个目录，id 是 12 位 sha256 前缀
+├── s/<id>/index.html             每个源第 1 页
+├── s/<id>/page/<n>/index.html    源内分页
+├── sources/index.html            订阅源列表与同步状态
+├── about/index.html              说明页，含来源与版权声明
+├── 404.html                      GitHub Pages 对未命中路径服务这个
+├── .nojekyll                     空文件，关掉 Jekyll
+├── feed.xml                      本站聚合输出的 RSS 2.0，最新 30 条
+└── style.css                     从 public/ 原样拷贝
+```
+
+三个设计决定：
+
+1. **`.nojekyll` 不是可选的。** GitHub Pages 默认跑 Jekyll，会对 HTML 做 Liquid 模板处理。本站镜像的是**外部博客正文**，真的会出现 `{{ }}` 与 `{% %}`（现有文章里就有一篇含 `{% querystring date=nav.prev_date %}`），Jekyll 会尝试解析并可能改坏内容。一个空文件彻底关掉它。
+2. **构建前先清空 `dist/`。** 否则删掉的文章会留下孤儿目录，越积越多。`dist/` 是纯产物，整体重建是唯一正确做法。
+3. **产物可重现，页面里不嵌构建时间戳。** 否则每次发布都是全仓 diff，`gh-pages` 分支历史迅速膨胀到无法阅读。源页面上的「最近同步」时间来自 `lastFetchedAt`，只在真正同步过时才变——那是数据不是噪声。
+
+所有站内链接一律**带尾斜杠**（`/sources/` 而不是 `/sources`）。GitHub Pages 对存在 `dir/index.html` 的无尾斜杠路径会自行跳转，但没有服务端 301 可以依赖，从源头规避比依赖它可靠。
+
+## 发布到 GitHub Pages
+
+### 一次性准备
+
+1. 在 GitHub 上建一个仓库，把本地目录推上去：
+   ```bash
+   git remote add origin <你的仓库地址>
+   git push -u origin main
+   ```
+2. 仓库 **Settings → Pages → Build and deployment**，Source 选 **Deploy from a branch**，Branch 选 **`gh-pages`** 与 **`/ (root)`**，Save。（分支还不存在也没关系，第一次发布会创建它。）
+3. 把 `config.json` 的 `site.url` 改成 Pages 实际会用的地址，形如 `https://<用户名>.github.io/<仓库名>`，然后 `npm run build`。
+
+> 免费账户的 Pages 要求仓库是 **public**。私有仓库需要 GitHub Pro / Team。而 public 意味着上面那条版权提示生效。
+
+### 日常发布
+
+```bash
+npm run sync      # 抓新内容（可跳过，只改模板时不必抓）
+npm run build     # 重建 dist/
+npm run deploy    # 推 dist/ 到 gh-pages 分支
+```
+
+`npm run deploy` 就是 `bash deploy/publish-github.sh`。它会：检查前置条件（`dist/` 完整、是 git 仓库、有 `origin`）→ 在临时目录里浅 clone 已有的 `gh-pages` 分支，或新建一个孤儿分支 → **清空分支内容**（保留 `.git`）→ `cp -r dist/.` 进去 → `git add -A` → 无变更则直接退出并提示 → 提交（消息带文章数与源数）→ 推送 → 清理临时目录。
+
+用临时 clone 而不是 `git worktree`：worktree 会在主仓库留下注册状态，异常退出后需要手工清理，对一个发布脚本来说是不必要的复杂度。
+
+**这个脚本会向远端推送，是对外可见的操作。** 推送后 GitHub Pages 重新生效通常要一两分钟，可在仓库的 **Actions** 页看 `pages build and deployment` 工作流。
+
+## 数据与备份
+
+`data/` 里就是全部状态，两个 JSON 文件，分开存以便 diff 可读：
+
+| 文件 | 内容 |
 |---|---|
-| `/` | 首页，最新 `postsPerPage` 篇 |
-| `/page/<n>` | 分页 |
-| `/p/<id>` | 文章页：清洗后正文 + 来源署名 + 原文链接 |
-| `/s/<source_id>` | 按来源筛选，`/s/<id>/page/<n>` 翻页 |
-| `/sources/` | 订阅源列表、各自同步状态与条目数 |
-| `/feed.xml` | 本站聚合输出的 RSS 2.0，让别人能订阅这个聚合站 |
-| `/about/` | 说明页，含来源与版权声明 |
-| `/style.css` | 静态文件，从 `public/` 读取 |
+| `sources.json` | `{ nextId, items[] }`：订阅源注册表 + 每个源的 ETag / Last-Modified / 最近同步状态。易变、小 |
+| `posts.json` | 文章数组：`id` / `sourceId` / `guid` / `title` / `link` / `author` / `publishedAt` / `fetchedAt` / `contentHtml` / `summary` |
 
----
+**写入是原子的**：先写 `*.json.tmp` → `fsync` → `rename` 覆盖。rename 在同一文件系统上是原子的，中途崩溃只会留下一个 tmp 文件，不会写坏主文件。存盘时机是**每个源同步完一次**——每条一存会把同一个文件重写上百遍，全部结束才存则中途崩溃丢掉整轮，按源存盘把损失上限压到一个批次。
 
-## VPS 部署
+**其实这个站可以不备份。** 所有内容都来自公开订阅源，删掉 `data/` 重跑一次 `npm run sync` 就能重建，代价只是丢失历史条目（feed 通常只保留最近几十条，抓不回来）。真正不可再生的只有 `config.json`，而它在 git 里。
 
-### 前置条件
-
-- **Debian 或 Ubuntu**（`setup.sh` 用 apt；Alpine / Arch / RHEL 系需自行改包管理部分）
-- **systemd ≥ 245**（unit 里用了 `ProtectKernelLogs`、`ProtectClock` 等指令；更旧的版本会忽略未知指令并告警，仍能启动，只是加固项少一些）
-- 域名 A / AAAA 记录已指向 VPS 公网 IP，且 80、443 可从公网访问 —— Caddy 要靠这个签 Let's Encrypt 证书
-- 1 GB 内存 / 10 GB 磁盘的最低配即可
-
-### 步骤
-
-```bash
-# 1. 把代码放到 VPS 上（任意目录，不要放 /opt/wocao）
-git clone <你的仓库地址> ~/wocao.world
-cd ~/wocao.world
-
-# 2. 先改配置：站点标题、域名、订阅源
-vim config.json
-vim deploy/Caddyfile          # 把 wocao.world 换成你的域名
-
-# 3. 部署
-sudo bash deploy/setup.sh
-```
-
-`setup.sh` 会依次：装 NodeSource 24.x 与 Caddy → 验证 `node:sqlite` 可用 → 建无登录 shell 的系统用户 `wocao` → 拷代码到 `/opt/wocao` → `npm ci --omit=dev` → 收紧权限 → 装三个 systemd 单元与 Caddyfile → `caddy validate` → 启动 → 立即跑一次首同步 → `curl 127.0.0.1:3000` 自检。
-
-脚本**幂等可重跑**，且从不覆盖服务器上已存在的 `config.json`。
-
-### 防火墙
-
-```bash
-sudo ufw allow OpenSSH                                  # 先放 SSH，避免把自己锁在外面
-sudo ufw allow 80/tcp && sudo ufw allow 443/tcp
-sudo ufw status numbered
-```
-
-**不要放行 3000。** Node 只监听 `127.0.0.1`，对外一律由 Caddy 代理。确认没有意外暴露：
-
-```bash
-ss -ltnp | grep -E ':(80|443|3000)\b'
-# 3000 那行的 Local Address 必须是 127.0.0.1:3000，不能是 0.0.0.0:3000
-```
-
-### 验证部署
-
-```bash
-systemctl status wocao-web              # 应为 active (running)
-systemctl list-timers wocao-sync.timer  # 应显示下次触发时间
-curl -I http://127.0.0.1:3000/          # HTTP/1.1 200 OK
-curl -I https://你的域名/                # 证书签出后应为 200；之前会是 Caddy 的暂时无服务
-journalctl -u caddy -f                  # 看证书签发过程
-```
-
-Caddy 首次签发通常在 10 秒内完成。若卡住，九成是 DNS 未生效或 80/443 不可达（云厂商安全组也要放行，不只是 ufw）。
-
-## 日常运维
-
-### 更新代码
-
-```bash
-cd ~/wocao.world
-git pull
-sudo bash deploy/update.sh
-```
-
-`update.sh` 拷代码 → `npm ci --omit=dev` → 更新 systemd 单元（有变化才 `daemon-reload`）→ 重启 `wocao-web` → 自检 → 触发一次同步 → 打印最近日志。
-
-它**不动 Caddy 配置**，也从不覆盖 `/opt/wocao/config.json` 与 `data/`。改了 Caddyfile 就单独：
-
-```bash
-sudo vim /etc/caddy/Caddyfile && sudo caddy validate --config /etc/caddy/Caddyfile && sudo systemctl reload caddy
-```
-
-改了 `/opt/wocao/config.json`（增删订阅源）之后跑一次 `sudo systemctl start wocao-sync`。
-
-### 手动同步与查看状态
-
-```bash
-sudo systemctl start wocao-sync                              # 强制立即同步
-sudo journalctl -u wocao-sync -n 50 --no-pager               # 看这次同步干了什么
-cd /opt/wocao && sudo -u wocao npm run stats                  # 库内统计
-```
-
-### 日志
-
-```bash
-journalctl -u wocao-web -f        # Web 访问日志，每个请求一行：METHOD PATH STATUS 耗时
-journalctl -u wocao-sync -f       # 同步日志
-journalctl -u caddy -f            # TLS 签发、反代错误
-tail -f /var/log/caddy/wocao.world.access.log   # Caddy 访问日志（JSON）
-```
-
-### 调整同步频率
-
-```bash
-sudo systemctl edit wocao-sync.timer
-```
-
-在打开的 override 文件里写：
-
-```ini
-[Timer]
-OnUnitActiveSec=10min
-```
-
-`systemctl edit` 生成的是 drop-in，不会被 `update.sh` 覆盖。别直接改 `/etc/systemd/system/wocao-sync.timer`，那个文件归 `update.sh` 管。
-
-## 备份与恢复
-
-`data/` 里就是全部状态，三个文件：`blog.sqlite`、`blog.sqlite-wal`、`blog.sqlite-shm`。后两个是 WAL 模式的附属文件，属正常现象。
-
-**不要直接 `cp` 正在运行的库文件** —— WAL 未 checkpoint 时拷出来的三个文件可能不一致。用 SQLite 自己的在线备份：
-
-```bash
-sudo -u wocao node -e "
-const {DatabaseSync}=require('node:sqlite');
-const db=new DatabaseSync('/opt/wocao/data/blog.sqlite');
-db.exec(\"VACUUM INTO '/tmp/blog-backup.sqlite'\");
-db.close();
-"
-sudo mv /tmp/blog-backup.sqlite ~/blog-$(date +%F).sqlite
-```
-
-`VACUUM INTO` 产出的是一个自包含的普通库文件，不需要 wal/shm。
-
-恢复：
-
-```bash
-sudo systemctl stop wocao-web
-sudo cp ~/blog-2026-09-02.sqlite /opt/wocao/data/blog.sqlite
-sudo rm -f /opt/wocao/data/blog.sqlite-wal /opt/wocao/data/blog.sqlite-shm
-sudo chown wocao:wocao /opt/wocao/data/blog.sqlite
-sudo systemctl start wocao-web
-```
-
-其实**这个站可以不备份**：所有内容都来自公开订阅源，删库重跑一次 `npm run sync` 就能重建，代价只是丢失历史条目（feed 通常只保留最近几十条）。真正不可再生的只有 `config.json`，而它在 git 里。
+`data/` 默认被 gitignore。如果你确实想把内容快照纳入版本管理以便 diff，从 `.gitignore` 里删掉 `data/` 那一行即可——但那意味着数 MB 的第三方全文进入公开仓库历史，与上面的版权顾虑直接冲突，**不建议**。
 
 ## 排障
 
 | 症状 | 先看 | 常见原因 |
 |---|---|---|
-| `wocao-web` 起不来 | `journalctl -u wocao-web -n 50` | 端口被占（`EADDRINUSE`）；`config.json` 有语法错或缺字段——报错信息会直接指出是哪个字段 |
-| 页面能开但没文章 | `journalctl -u wocao-sync -n 50` | 首同步还没跑过或全失败；`npm run stats` 看每个源的 `last_status` |
-| 某个源一直失败 | `/sources/` 页面的状态列 | 源地址变了、被墙、超时。失败是隔离的，不影响其他源 |
-| 同步报网络错但本机能抓 | `systemd-analyze security wocao-sync` | 沙箱限制。先试把 unit 里的 `RestrictAddressFamilies` 加上 `AF_NETLINK`，或临时注释掉 `ProtectSystem=strict` 定位 |
-| HTTPS 证书签不出来 | `journalctl -u caddy -f` | DNS 未生效；80/443 被云厂商安全组或 ufw 挡住 |
-| 页面样式没了 | `curl -I http://127.0.0.1:3000/style.css` | `/opt/wocao/public/` 权限不对，`chmod -R a+rX /opt/wocao/public` |
-| 数据库锁死 `SQLITE_BUSY` | — | 正常情况下不会出现（已开 WAL + `busy_timeout=5000`）。若出现，检查是不是有第三方工具以独占方式打开了库 |
+| `npm run sync` 报配置错 | 报错信息本身 | `config.json` 语法错、缺 `site.title`、`site.url` 不是合法 http(s) URL、`mode` 拼错、源地址重复。报错会直接指出是哪个字段 |
+| 页面能开但没文章 | `npm run stats` | 首同步还没跑过或全失败；看每个源的「状态」列 |
+| 某个源一直失败 | `/sources/` 页面的状态列 | 源地址变了、被墙、超时、返回非 feed 内容。失败是隔离的，不影响其他源 |
+| 第二轮同步仍然全量重抓 | `data/sources.json` | 该源不返回 ETag / Last-Modified（有些源就是不给），只能每次重抓；只要 guid 没变就不会重复入库 |
+| `npm run preview` 报 dist 不存在 | — | 先跑 `npm run build` |
+| 预览时全部链接 404 | `config.json` 的 `site.url` | basePath 与实际挂载路径不一致。preview 会打印它认为的根地址，对照一下 |
+| 线上样式没了 | `dist/style.css` 是否存在 | `public/` 下没有该文件；或 `gh-pages` 分支推送不完整 |
+| 线上页面内容被改坏、含 Liquid 报错 | `dist/.nojekyll` 是否存在 | 少了它 GitHub Pages 会跑 Jekyll 解析镜像正文里的 `{{ }}` |
+| 发布脚本说「无需发布」 | — | `dist/` 与线上 `gh-pages` 内容一致，这是正常结果不是错误 |
+| 端口被占 `EADDRINUSE` | — | 换一个端口：`npm run preview -- 8080` |
 
 ## 安全边界
 
 镜像进来的正文是**他人可控的不可信输入**，直接插入页面就是 XSS。这个项目的安全设计围绕这一点：
 
-1. **XSS** —— `sanitize-html` 白名单清洗，绝不用正则剥标签。允许标签共 56 个；`script` / `iframe` / `style` / `form` / `input` / `object` / `embed` 连同其文本内容一并移除；所有 `on*` 事件属性移除；`javascript:` / `vbscript:` 协议移除；`class` 与 `style` 属性不在白名单里，外部内容无法注入本站样式。标题、作者等文本字段一律经 `esc()` 转义后才进模板，绝不裸插。
+1. **XSS** —— `sanitize-html` 白名单清洗，绝不用正则剥标签。允许标签共 56 个；`script` / `style` / `textarea` / `noscript` / `iframe` / `object` / `embed` / `template` 连同其文本内容一并移除；所有 `on*` 事件属性移除；`javascript:` / `vbscript:` 协议移除；`class` 与 `style` 属性根本不在白名单里，外部内容无法注入本站样式。标题、作者等文本字段一律经 `esc()` 转义后才进模板，绝不裸插。**静态化之后这些内容会永久躺在公开仓库里，这一层比运行时更重要。**
 2. **SSRF** —— 不提供任何「网页上添加订阅源」的接口，源清单只能由站长改 `config.json`。这是刻意的功能缺失，不是待补的功能。URL 协议限定 http/https，`file://` 之类一律拒绝。
-3. **资源上限** —— 单响应体 ≤ 5 MB（流式读取，超限即中断）、超时 15 s、每源每轮最多入库 100 条、单条正文存储 ≤ 200 KB（超限则不落库正文，页面降级为摘要 + 原文链接）。防异常源撑爆内存。
+3. **资源上限** —— 单响应体 ≤ 5 MB（流式读取，超限即中断）、超时 15 s、每源每轮最多入库 100 条、单条正文存储 ≤ 200 KB（超限则不落盘正文，页面降级为摘要 + 原文链接）。防异常源撑爆内存和仓库。
 4. **抓取礼仪** —— 真实 UA 与 `Accept`；带上一轮 ETag / `If-Modified-Since`，304 直接跳过；源间**串行**并间隔 1.5 s，不并发轰炸同一台服务器。
-5. **失败隔离** —— 单源失败只写 `sources.last_status`，不影响其他源；sync 进程以非零码退出，让 systemd 与 journal 记录到。
-6. **进程隔离与最小权限** —— 专用系统用户 `wocao`（无登录 shell），代码归 root 只读、只有 `data/` 归它可写；unit 加 `ProtectSystem=strict`、`ReadWritePaths=/opt/wocao/data`、`ProtectHome`、`PrivateTmp`、`PrivateDevices`、`NoNewPrivileges`、`CapabilityBoundingSet=`、`RestrictAddressFamilies`、`RestrictSUIDSGID` 等。
-   > 刻意**没有**加 `MemoryDenyWriteExecute=true` —— V8 的 JIT 需要可写可执行内存，加上之后 Node 直接起不来。`SystemCallFilter` 同理留给运维自行收紧。
-7. **Caddy 侧** —— `encode zstd gzip`、自动 HTTPS 与 HTTP→HTTPS 跳转、`header -Server` 隐藏版本号；本站全是 GET，不代理任何写操作。
-8. **静态文件** —— `path.normalize` 之后校验目标仍在 `public/` 内，防目录穿越。
+5. **失败隔离** —— 单源失败只写 `sources.json` 的 `lastStatus`，不影响其他源；sync 进程以非零码退出。
+6. **本地预览的目录穿越防护** —— 先 `decodeURIComponent` 再 `path.normalize`，然后校验目标仍在 `dist/` 内。裸 `../`、`%2e%2e/`、`..%2f`、反斜杠四类写法都测过，一律 404 且不泄漏 `config.json` / `data/` / `package.json`。
+7. **发布脚本不碰主分支** —— 全部 git 操作发生在临时目录里的 `gh-pages` 克隆上，主仓库的工作区与当前分支不受影响。
 
 ### 已验证 / 待验证
 
 **本机（Windows / Node v24）已实测通过：**
 
-- 三种 feed 格式（RSS 2.0 / Atom / JSON Feed，另含 RSS 1.0 RDF）解析，含 CDATA、`content:encoded` 命名空间、Atom `type="xhtml"` 混排内容、单条目非数组、8 种日期格式
-- 清洗层对 18 组攻击与排版样本的行为，以及全站 118 篇文章页的危险模式扫描（0 命中）
-- 条件请求缓存：第二轮同步全部返回 304、新增 0
-- 失败隔离：DNS 失败源与 404 源被记录到 `last_status`，其余源照常同步，进程退出码 1
-- WAL 并发：Web 常驻期间并行跑 sync，无 `SQLITE_BUSY`
-- 在线备份：Web 进程持有 WAL 库时用 `VACUUM INTO` 导出，产出可独立打开的自包含库文件，118 篇完整
-- ETag / 304、Cache-Control、405、404、301、目录穿越拦截
-- `deploy/*.sh` 的 `bash -n` 语法检查，以及全部部署物料为 LF 行尾（`.gitattributes` 已锁定）
+- **SQLite → JSON 迁移保真**：4 个源 / 118 篇文章，`getStats`、`listSourcesWithCounts`、`listActiveSources`、全量 `listPosts`、每源分页 `listPosts`、全部 118 次 `getPost` 与 `findPostByLink`、4 次不存在的查询——两个后端逐字段一致
+- **JSON 往返**：写盘后重新打开再比一次，仍一致；ETag / Last-Modified 状态在 JSON 里存活；只读一轮后 dirty 标志为 false，不产生无谓写入
+- **条件请求**：迁移后第一轮同步即有 2 个源返回 304，证明从 SQLite 导出的 ETag 被正确读回并作为条件头发出；第二轮 4 个源全部「未变更，新增 0」
+- **渲染层重构无回归**：重构前抓下 134 个页面的黄金样本，重构后逐文件 diff——133 个只差刻意加的尾斜杠，1 个（`/about/`）只差 2 行刻意改的说明文字，0 个缺失
+- **basePath 全覆盖**：分别以 `/wocao.world` 和 `''` 各构建一次，扫描 `dist/` 里全部 3073 个 `href`/`src`，站内 1681 个全部带正确前缀，**0 个漏前缀的根绝对路径**，目录型链接全部带尾斜杠
+- **产物文件集合**：独立于 `build.mjs` 重新推导一遍期望集合，与实际 138 个文件完全吻合（两种 basePath 下均如此）；`dist/style.css` 与 `public/style.css` 字节一致（8578 字节）
+- **可重现性**：连续构建两次，138 个文件逐字节相同
+- **孤儿清理**：从 `posts.json` 删掉一篇再构建，对应 `dist/p/<id>/` 消失；恢复后重新出现
+- **XSS 复扫**：`dist/` 下 136 个 HTML/XML 文件（968 KB），17 条危险模式 0 命中。扫描器先对一段已知恶意样本自检，确认 17 条规则全部会响，再开始扫——写错的扫描器「0 命中」和干净的站点看起来一模一样
+- **feed 回灌**：用项目自己的 `parseFeed` 解析 `dist/feed.xml`，30 条全部有 guid / link / title / pubDate，link 全部是带 basePath 的绝对文章地址且指向的页面真实存在，description 全部是纯文本（摘要已剥净标签）并保留指向外部原始出处的「原文链接」
+- **preview 全路由**：11 种路由形态 200 且 content-type 正确；6 组分页链接的 prev/next 目标逐个断言（含源内翻页必须留在该源下）；4 组无尾斜杠路径 301 到带斜杠版本；4 组不存在路径返回 404 且响应体是 404 页面；basePath 之外的路径一律 404（basePath 为空时反过来，根路径一律 200）；11 种目录穿越写法全部 404 无泄漏；HEAD 返回 200 且无响应体；POST 返回 405 且带 `Allow: GET, HEAD`
+- `deploy/publish-github.sh` 的 `bash -n` 语法检查通过，LF 行尾（`.gitattributes` 已锁定），可执行位已设
 
-**本机无法实测、需在 VPS 上验证（不假装通过）：**
+**本机无法实测、需你实际发布后验证（不假装通过）：**
 
-- systemd 单元的实际加载、重启策略、各加固指令是否被目标发行版支持
-- **SIGTERM / SIGINT 优雅关闭** —— 在 Windows 上无法验证：Node 不会把这两个信号投递给处理器（实测进程自发 `SIGTERM` / `SIGINT` 后直接以退出码 1 终止，`index.mjs` 里的关闭日志从未打印）。请在 VPS 上用 `systemctl stop wocao-web` 验证，预期日志出现「收到 SIGTERM，正在关闭…」后进程干净退出。
-  风险可控：SQLite 处于 WAL 模式，即便退化到被 SIGKILL 也不会损坏数据；`wocao-web.service` 已设 `TimeoutStopSec=15`，不会卡在默认的 90 秒。
-- Caddy 自动签发 Let's Encrypt 证书（依赖 DNS 已解析 + 80/443 公网可达）
-- `setup.sh` 在真实 Debian / Ubuntu 上的端到端执行
-- `node:sqlite` 在 VPS 所装 Node 24 构建中的可用性（`setup.sh` 开头有显式检查，不可用会立即停下并说明）
-
-这些物料只能保证语法正确与逻辑自洽，实机行为以部署时的输出为准。
+- `gh-pages` 分支推送后 GitHub Pages 的实际构建与生效（依赖你的仓库与 Pages 设置）——**发布脚本本身也从未被执行过**，它会向远端推送，属于对外可见操作
+- GitHub Pages 对无尾斜杠目录路径的跳转行为（本地 preview 是照它的行为实现的，不是反过来）
+- `.nojekyll` 在真实 Jekyll 管线下的效果
+- `404.html` 是否被正确用于未命中路径
+- 线上 CDN 的缓存表现
 
 ## 依赖
 
@@ -340,4 +279,4 @@ sudo systemctl start wocao-web
 | `fast-xml-parser` | 解析 RSS / Atom | 手写 XML 解析在 CDATA、命名空间、嵌套实体上必然出错 |
 | `sanitize-html` | 清洗外部 HTML | 这是安全边界，绝不能自己用正则剥标签 |
 
-其余全用标准库：`node:sqlite`、`node:http`、`node:crypto`、原生 `fetch`。
+其余全用标准库：`node:fs`、`node:http`、`node:crypto`、原生 `fetch`。
