@@ -1,0 +1,33 @@
+# 装到 /etc/caddy/Caddyfile。Caddy 会为下面的域名自动申请并续期 Let's Encrypt 证书，
+# 并自动把 80 端口的 HTTP 请求 301 到 HTTPS。
+#
+# 前提：wocao.world 的 A / AAAA 记录已解析到本机公网 IP，且 80、443 可从公网访问。
+# 域名不同就改这一行，其他不用动。
+
+wocao.world {
+	encode zstd gzip
+
+	reverse_proxy 127.0.0.1:3000 {
+		# Node 端只监听回环，这里是唯一的对外入口
+		health_uri /
+		health_interval 30s
+		health_timeout 5s
+	}
+
+	header {
+		# 隐藏 Caddy 版本号
+		-Server
+		X-Content-Type-Options nosniff
+		X-Frame-Options DENY
+		Referrer-Policy strict-origin-when-cross-origin
+	}
+
+	# 3000 端口不应对外开放；若 ufw 已启用，确认没有放行它
+	log {
+		output file /var/log/caddy/wocao.world.access.log {
+			roll_size 10mb
+			roll_keep 5
+		}
+		format json
+	}
+}

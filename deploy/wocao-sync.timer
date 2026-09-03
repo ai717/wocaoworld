@@ -1,0 +1,16 @@
+[Unit]
+Description=每 30 分钟触发一次 wocao-sync
+Documentation=file:/opt/wocao/README.md
+
+[Timer]
+Unit=wocao-sync.service
+OnBootSec=2min
+OnUnitActiveSec=30min
+# 宕机期间错过的同步，开机后立即补跑一次
+Persistent=true
+# 错开整点，避免和其他站一起在同一秒敲源站
+RandomizedDelaySec=2min
+AccuracySec=1min
+
+[Install]
+WantedBy=timers.target

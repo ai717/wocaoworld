@@ -1,0 +1,28 @@
+{
+  "site": {
+    "title": "我操世界",
+    "description": "一个由订阅源自动聚合生成的博客，不写原创，只做搬运与归档。",
+    "url": "https://wocao.world",
+    "lang": "zh-CN",
+    "postsPerPage": 20,
+    "noindex": true
+  },
+  "sources": [
+    {
+      "url": "https://simonwillison.net/atom/everything/",
+      "mode": "full"
+    },
+    {
+      "url": "https://daringfireball.net/feeds/json",
+      "mode": "full"
+    },
+    {
+      "url": "https://jvns.ca/atom.xml",
+      "mode": "full"
+    },
+    {
+      "url": "https://blog.cloudflare.com/rss/",
+      "mode": "excerpt"
+    }
+  ]
+}

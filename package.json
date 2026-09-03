@@ -1,0 +1,19 @@
+{
+  "name": "wocao-world",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "由 RSS/Atom 订阅源自动聚合生成的极简博客",
+  "engines": {
+    "node": ">=22.5.0"
+  },
+  "scripts": {
+    "start": "node --no-warnings=ExperimentalWarning src/index.mjs",
+    "sync": "node --no-warnings=ExperimentalWarning src/cli.mjs sync",
+    "stats": "node --no-warnings=ExperimentalWarning src/cli.mjs stats"
+  },
+  "dependencies": {
+    "fast-xml-parser": "^5.11.1",
+    "sanitize-html": "^2.17.7"
+  }
+}

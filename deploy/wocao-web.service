@@ -1,0 +1,46 @@
+[Unit]
+Description=wocao.world 博客 Web 服务
+Documentation=file:/opt/wocao/README.md
+After=network.target
+
+[Service]
+Type=simple
+User=wocao
+Group=wocao
+WorkingDirectory=/opt/wocao
+ExecStart=/usr/bin/node --no-warnings=ExperimentalWarning /opt/wocao/src/index.mjs
+Restart=always
+RestartSec=5
+# index.mjs 自带 5 秒兜底强制退出，15 秒足够；不设的话 systemd 默认要等 90 秒才 SIGKILL
+TimeoutStopSec=15
+
+# 只监听回环，对外由 Caddy 反代
+Environment=HOST=127.0.0.1
+Environment=PORT=3000
+Environment=NODE_ENV=production
+
+# --- 最小权限加固 ---
+NoNewPrivileges=true
+ProtectSystem=strict
+ProtectHome=true
+PrivateTmp=true
+PrivateDevices=true
+ProtectKernelTunables=true
+ProtectKernelModules=true
+ProtectKernelLogs=true
+ProtectControlGroups=true
+ProtectClock=true
+ProtectHostname=true
+RestrictNamespaces=true
+RestrictRealtime=true
+RestrictSUIDSGID=true
+RestrictAddressFamilies=AF_INET AF_INET6 AF_UNIX
+LockPersonality=true
+CapabilityBoundingSet=
+# 整个文件系统只读，只有数据库目录可写
+ReadWritePaths=/opt/wocao/data
+# 注意：不要加 MemoryDenyWriteExecute=true —— V8 的 JIT 需要可写可执行内存，
+# 加上之后 Node 会直接起不来。同理 SystemCallFilter 也留给用户自行收紧。
+
+[Install]
+WantedBy=multi-user.target

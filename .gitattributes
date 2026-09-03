@@ -1,0 +1,12 @@
+# deploy/ 下的文件最终跑在 Linux 上，CRLF 会让 bash 与 systemd 直接解析失败。
+* text=auto eol=lf
+
+*.png binary
+*.jpg binary
+*.jpeg binary
+*.gif binary
+*.webp binary
+*.ico binary
+*.woff binary
+*.woff2 binary
+*.sqlite binary
