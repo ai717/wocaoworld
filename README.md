@@ -58,6 +58,9 @@ npm run sync      # 抓取全部订阅源 → data/*.json
 npm run build     # 构建 → dist/
 npm run preview   # 本地预览，默认 http://127.0.0.1:4000/<basePath>/
 npm run stats     # 看库内统计
+
+# Windows 一键启动（双击根目录 start-local.cmd）
+# 以 65354 端口同时打开前台预览与 CMS；再次双击会先重启旧服务（不会自动构建）
 ```
 
 `npm run sync` 的典型输出：
@@ -132,13 +135,15 @@ npm run stats     # 看库内统计
 | `full` | 清洗后的正文全文落盘并构建进 `dist/`，本站可完整阅读 | 明确允许转载、或 CC 协议的源 |
 | `excerpt` | **只存摘要**，正文不落盘，页面引导读者回原文 | 未明确授权转载的源 |
 
+> ⚠️ **改 `mode` 不会回溯已入库的文章。** `mode` 只在新条目入库那一刻决定是否存正文（`sync.mjs` 的 `storeFullText`），已经躺在 `data/posts.json` 里的正文**不会自动消失**，照旧渲染进 `dist/`。把源从 `full` 改成 `excerpt` 之后，必须再把它已入库的历史正文清掉才真的生效。这一步不可逆——feed 通常只保留最近几十条，删掉的历史抓不回来——**动手前先备份 `data/`**。
+
 除 `mode` 之外还有三项缓解已内建：
 
 - 文章页强制显示来源名、原作者、原文永久链接，正文内所有链接指向原站
 - `<head>` 输出 `<meta name="robots" content="noindex,follow">`（`noindex: false` 可关）
 - 每篇文章的 `<link rel="canonical">` 指向**原文**而非本站
 
-> ⚠️ **发布到公开 GitHub 仓库会新增一个暴露面。** `gh-pages` 分支上的全部 HTML 任何人都能直接 clone 和爬取，`noindex` 只约束搜索引擎的**索引**行为，挡不住仓库内容公开可读。所以：**未明确允许转载的源，应该配 `excerpt` 而不是 `full`**，让正文根本不进产物。当前 `config.json` 里 4 个源有 3 个是 `full`（Simon Willison、Daring Fireball、jvns.ca），发布到公开仓库前请自行重新评估——仓库里没有替你改。
+> ⚠️ **发布到公开 GitHub 仓库会新增一个暴露面。** `gh-pages` 分支上的全部 HTML 任何人都能直接 clone 和爬取，`noindex` 只约束搜索引擎的**索引**行为，挡不住仓库内容公开可读。所以：**未明确允许转载的源，应该配 `excerpt` 而不是 `full`**，让正文根本不进产物。当前 `config.json` 里 4 个源**全部是 `excerpt`**，产物中不含任何第三方正文。若日后把某个源改回 `full`，上面那条「改 mode 不回溯」的陷阱与这个公开暴露面会同时生效。
 
 ### 改订阅源
 

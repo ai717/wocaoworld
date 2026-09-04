@@ -11,6 +11,7 @@
     "sync": "node src/cli.mjs sync",
     "build": "node src/cli.mjs build",
     "preview": "node src/cli.mjs preview",
+    "cms": "node src/cli.mjs cms",
     "stats": "node src/cli.mjs stats",
     "deploy": "bash deploy/publish-github.sh"
   },

@@ -14,14 +14,19 @@ import {
 export const MAX_ITEMS_PER_SOURCE = 100;
 const SOURCE_DELAY_MS = 1500;
 
+function userAgentFor(config) {
+  return `wocao.world/0.2 (feed aggregator; +${config.site.url}/about/)`;
+}
+
 const sleep = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
 
-async function syncSource(store, source, log) {
+async function syncSource(store, source, config, log) {
   const started = Date.now();
   try {
     const res = await fetchFeed(source.url, {
       etag: source.etag ?? undefined,
       lastModified: source.last_modified ?? undefined,
+      userAgent: userAgentFor(config),
     });
 
     if (res.status === 'not-modified') {
@@ -116,7 +121,7 @@ export async function runSync(store, config, log = console.log) {
   for (const [index, source] of sources.entries()) {
     // 源之间串行并留间隔，避免同时打满对方服务器
     if (index > 0) await sleep(SOURCE_DELAY_MS);
-    const result = await syncSource(store, source, log);
+    const result = await syncSource(store, source, config, log);
     // 每个源同步完就落盘一次。每条一存会把同一个文件重写上百遍，
     // 全部结束才存则中途崩溃会丢掉整轮；按源存盘把损失上限压到一个批次。
     saveStore(store);

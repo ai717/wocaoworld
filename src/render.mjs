@@ -61,6 +61,13 @@ function layout({ config, urls, title, description, active = '', head = '', body
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>${esc(pageTitle)}</title>
 <meta name="description" content="${esc(desc)}">
+<link rel="icon" type="image/svg+xml" href="${urls.u('/favicon.svg')}">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="${esc(site.title)}">
+<meta property="og:title" content="${esc(pageTitle)}">
+<meta property="og:description" content="${esc(desc)}">
+<meta property="og:url" content="${esc(urls.absolute(urls.u('/')))}">
+<meta name="twitter:card" content="summary">
 ${site.noindex ? '<meta name="robots" content="noindex,follow">\n' : ''}<link rel="alternate" type="application/rss+xml" title="${esc(site.title)} 聚合输出" href="${urls.u('/feed.xml')}">
 <link rel="stylesheet" href="${urls.u('/style.css')}">
 ${head}</head>
@@ -71,7 +78,6 @@ ${head}</head>
 <p class="site-desc">${esc(site.description)}</p>
 <nav class="site-nav">
 ${navItem(urls.u('/'), '最新', active)}
-${navItem(urls.u('/sources/'), '订阅源', active)}
 ${navItem(urls.u('/about/'), '关于', active)}
 ${navItem(urls.u('/feed.xml'), 'RSS', active)}
 </nav>
@@ -80,7 +86,7 @@ ${navItem(urls.u('/feed.xml'), 'RSS', active)}
 ${body}
 </main>
 <footer class="site-foot">
-<p>${esc(site.title)} — 本站内容全部转载自各订阅源，版权归原作者与原站所有。</p>
+<p>${esc(site.footer || `${site.title} — 本站内容全部转载自各订阅源，版权归原作者与原站所有。`)}</p>
 </footer>
 </body>
 </html>
@@ -98,7 +104,7 @@ function postMeta(urls, post, lang) {
 function postCard(urls, post, lang) {
   return `<article class="post-card">
 <h2 class="post-card-title"><a href="${urls.postUrl(post.id)}">${esc(post.title)}</a></h2>
-<p class="meta">${postMeta(urls, post, lang)}</p>
+<p class="meta"><time datetime="${isoDate(post.published_at)}">${formatDate(post.published_at, lang)}</time></p>
 ${post.summary ? `<p class="excerpt">${esc(post.summary)}</p>` : ''}
 </article>`;
 }
@@ -147,17 +153,8 @@ ${post.summary ? `<blockquote class="excerpt-block"><p>${esc(post.summary)}</p><
 
   const body = `<article>
 <h1 class="post-title">${esc(post.title)}</h1>
-<p class="meta">${postMeta(urls, post, lang)}</p>
-<p class="meta origin">原文发布于 <a href="${original}" rel="external nofollow noopener noreferrer" target="_blank">${esc(
-    new URL(post.link).hostname,
-  )}</a></p>
 ${bodyHtml}
-<footer class="post-foot">
-<p>转载自 <a href="${original}" rel="external nofollow noopener noreferrer" target="_blank">${esc(
-    post.source_title ?? post.link,
-  )}</a>${post.author ? `，原作者 ${esc(post.author)}` : ''}。内容版权归原作者与原站所有，本站仅作归档与索引。</p>
 <p class="back"><a href="${urls.u('/')}">← 返回最新</a></p>
-</footer>
 </article>`;
 
   return layout({ config, urls, title: post.title, description: post.summary ?? undefined, head, body, active: '' });

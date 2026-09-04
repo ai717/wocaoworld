@@ -218,6 +218,16 @@ export function insertPost(store, post) {
   return true;
 }
 
+export function deletePostsForSource(store, sourceId) {
+  const before = store.posts.length;
+  store.posts = store.posts.filter((p) => p.sourceId !== sourceId);
+  if (before === store.posts.length) return 0;
+  store.guidIndex = new Set(store.posts.map((p) => `${p.sourceId}\n${p.guid}`));
+  store.linkIndex = new Map(store.posts.map((p) => [`${p.sourceId}\n${p.link}`, p.id]));
+  store.postsDirty = true;
+  return before - store.posts.length;
+}
+
 // 排序与 SQL 的 ORDER BY published_at DESC, id DESC 一致；
 // id 是 sha256 前缀，按二进制字典序比。
 function byNewest(a, b) {

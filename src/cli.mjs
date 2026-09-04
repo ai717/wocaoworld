@@ -6,6 +6,7 @@ const USAGE = `用法: node src/cli.mjs <command>
   sync     拉取全部订阅源，写入 data/*.json
   build    把库里的内容构建成 dist/ 静态站点
   preview  在本地按 basePath 前缀预览 dist/（可选端口，默认 4000）
+  cms      启动本地 CMS（随机端口）
   stats    打印库内源与文章的统计
 `;
 
@@ -63,12 +64,23 @@ async function preview() {
   startPreview({ config, port });
 }
 
+async function cms() {
+  const { startCms } = await import('./cms.mjs');
+  const raw = process.argv[3];
+  const port = raw === undefined ? 65354 : Number(raw);
+  if (!Number.isInteger(port) || port < 1 || port > 65535) {
+    throw new Error(`端口必须是 1-65535 的整数，收到 ${JSON.stringify(raw)}`);
+  }
+  startCms({ port });
+}
+
 const [command] = process.argv.slice(2);
 
 try {
   if (command === 'sync') await sync();
   else if (command === 'build') await build();
   else if (command === 'preview') await preview();
+  else if (command === 'cms') await cms();
   else if (command === 'stats') stats();
   else {
     console.error(USAGE);

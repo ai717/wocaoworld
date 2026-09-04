@@ -5,6 +5,35 @@
 
 ---
 
+## 2026-09-03 · 订阅源降级为 excerpt：改 mode 不回溯，连带清理已入库正文
+
+### 决策
+
+用户确认 GitHub 用户名 `ai717`，`config.json` 的 `site.url` 恰好已是 `https://ai717.github.io/wocao.world`，**无需修改**。免费账户的 Pages 要求仓库 public，产物可被任意 clone，因此把仍是 `full` 的 3 个源（Simon Willison、Daring Fireball、Julia Evans）全部降级为 `excerpt`。Cloudflare Blog 本来就已是 excerpt。
+
+### 做了什么
+
+1. 改 `config.json`：3 个源 `full` → `excerpt`。
+2. **发现并填了一个坑**：`sync.mjs:46` 的 `storeFullText = source.mode === 'full'` 只在**新条目入库那一刻**决定是否存正文，没有任何清理逻辑。已入库的 99 篇正文（源 1/2/3 各 30/49/20 篇）改了 config 也照旧渲染进 `dist/`——光改 config 达不到降级目的。
+3. 临时脚本把 `excerpt` 源的 `contentHtml` 置 null（走 `store.mjs` 的原子写），保留 `summary`。清理前把 `data/` 完整备份到 `G:/tmp/wocao-data-backup-20260903-144903`（项目外，不污染仓库）。
+4. 同步更新 README 两处：mode 表格后补「改 mode 不回溯」的警告；原「3 个是 full，请自行重新评估」的提示改为当前事实。
+
+### 验证结果（全部实测）
+
+- 清理输出 99 篇 / 475 KB，与清理前逐源统计（30+49+20）完全吻合，剩余带正文 0 篇
+- 重建后 119 篇文章页**全部**含「本站未保存这篇的正文」与「该订阅源配置为仅摘要模式」；`post-body` 纯文本长度 min 197 / 中位 333 / max 357（摘要量级，非正文）
+- **正文探针反查**：从备份取 70 篇正文的第 500–560 字片段（避开会被留作摘要的开头），在 `dist/` 全文里 0 命中。扫描器先对备份自身正文自检，70/70 全部命中，确认探针有效
+- 连续两次构建逐字节一致（可重现性未破坏）
+- `stats` 显示 4 个源全部 `[excerpt]`，文章数不变（119 篇）；`dist/` 138 个文件 546 KB
+
+### 遗留
+
+- 临时脚本 `_downgrade-fulltext.mjs`、`_verify-excerpt.mjs` 已删除，未进仓库。日后回归需重写，断言口径已记在本节。
+- 备份 `G:/tmp/wocao-data-backup-20260903-144903` 含全部 99 篇正文，**想长期保留请自行移到安全位置**（`/tmp` 会被清理）。正文一旦想恢复只能从这个备份回灌，feed 抓不回历史。
+- 仓库尚未创建，`git remote -v` 仍为空。本机 gh 登录了 `ai919`（active）与 `ai717`（非 active）两个账号，**建仓前必须先确认 active 账号**，否则仓库会建到 `ai919` 名下。用户选择推送时由 GCM 弹窗手选 `ai717`，不改任何全局配置。
+
+---
+
 ## 2026-09-03 · 改造为本地构建的静态站点，发布到 GitHub Pages
 
 提交 `1435d3d`（基线 `b93c77a`）。25 个文件，+908/−1193。

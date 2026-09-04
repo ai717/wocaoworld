@@ -1,4 +1,4 @@
-const USER_AGENT = 'wocao.world/0.1 (feed aggregator; +https://wocao.world/about/)';
+const DEFAULT_USER_AGENT = 'wocao.world/0.2 (feed aggregator)';
 const ACCEPT =
   'application/rss+xml, application/atom+xml, application/feed+json, application/xml;q=0.9, text/xml;q=0.9, application/json;q=0.8, */*;q=0.5';
 
@@ -50,8 +50,8 @@ async function readBodyCapped(res) {
  * @returns {Promise<{status:'ok'|'not-modified', text?:string, etag?:string,
  *   lastModified?:string, contentType?:string, finalUrl:string}>}
  */
-export async function fetchFeed(url, { etag, lastModified } = {}) {
-  const headers = { 'user-agent': USER_AGENT, accept: ACCEPT };
+export async function fetchFeed(url, { etag, lastModified, userAgent = DEFAULT_USER_AGENT } = {}) {
+  const headers = { 'user-agent': userAgent, accept: ACCEPT };
   if (etag) headers['if-none-match'] = etag;
   if (lastModified) headers['if-modified-since'] = lastModified;
 

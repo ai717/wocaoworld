@@ -76,6 +76,7 @@ export function loadConfig(file = path.join(ROOT, 'config.json')) {
     site: {
       title: String(site.title),
       description: String(site.description ?? ''),
+      footer: String(site.footer || `${site.title} — 本站内容全部转载自各订阅源，版权归原作者与原站所有。`),
       origin: siteUrl.origin,
       basePath,
       url: `${siteUrl.origin}${basePath}`,
