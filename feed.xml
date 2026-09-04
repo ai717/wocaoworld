@@ -1,0 +1,311 @@
+<?xml version="1.0" encoding="utf-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>wocao.world</title>
+    <link>https://wocao.world</link>
+    <description>wocao.world</description>
+    <language>zh-CN</language>
+    <atom:link href="https://wocao.world/feed.xml" rel="self" type="application/rss+xml"/>
+    <lastBuildDate>Fri, 04 Sep 2026 07:22:16 GMT</lastBuildDate>
+    <item>
+      <title>August newsletter is out</title>
+      <link>https://wocao.world/p/596dcd2ea9a3/</link>
+      <guid isPermaLink="false">596dcd2ea9a3</guid>
+      <pubDate>Fri, 04 Sep 2026 05:54:40 GMT</pubDate>
+      <description>The August edition of my sponsors-only monthly newsletter is out. If you are a sponsor (or if you start a sponsorship now) you can access it here. This month: We got more details on OpenAl&#39;s accidental cyberattacks One-shotting Raccoon Heist games with Fable 5 and Sol 5.6 Claude auto mode Understand…
+
+原文链接: https://simonwillison.net/2026/Sep/4/august-newsletter/
+转载自: Simon Willison&#39;s Weblog</description>
+    </item>
+    <item>
+      <title>OpenAI Soft-Releases GPT‑6 Astra</title>
+      <link>https://wocao.world/p/fb79aa8acce9/</link>
+      <guid isPermaLink="false">fb79aa8acce9</guid>
+      <pubDate>Fri, 04 Sep 2026 01:35:24 GMT</pubDate>
+      <description>Simon Willison: GPT-6 Astra is “rolling out today to a limited set of organizations and over the coming days will become available to all ChatGPT Plus, Pro, Business, and Enterprise users, as well as through the OpenAI API and AWS” — I’ve not tried it yet myself, so I don’t have a great deal to say …
+
+原文链接: https://daringfireball.net/linked/2026/09/03/gpt-6-astra
+转载自: Daring Fireball</description>
+    </item>
+    <item>
+      <title>Introducing context-aware vulnerability discovery and remediation with Cloudflare Managed Defense and OpenAI Daybreak models</title>
+      <link>https://wocao.world/p/4e40221fc56a/</link>
+      <guid isPermaLink="false">4e40221fc56a</guid>
+      <pubDate>Thu, 03 Sep 2026 21:03:02 GMT</pubDate>
+      <description>Your scanner just flagged 4,000 new vulnerabilities, 78 of them critical. Which one do you fix first? To answer that question, Cloudflare is announcing early access to Vulnerability Discovery and Remediation, now part of Cloudflare Managed Defense. Vulnerability Discovery and Remediation is a new, i…
+
+原文链接: https://blog.cloudflare.com/vulnerability-discovery-remediation/
+转载自: Cloudflare Blog</description>
+    </item>
+    <item>
+      <title>GPT‑6 Astra</title>
+      <link>https://wocao.world/p/b0b95aeb4aeb/</link>
+      <guid isPermaLink="false">b0b95aeb4aeb</guid>
+      <pubDate>Thu, 03 Sep 2026 20:18:41 GMT</pubDate>
+      <description>GPT‑6 Astra GPT-6 Astra is &quot;rolling out today to a limited set of organizations and over the coming days will become available to all ChatGPT Plus, Pro, Business, and Enterprise users, as well as through the OpenAI API and AWS&quot; - I&#39;ve not tried it yet myself, so I don&#39;t have a great deal to say abou…
+
+原文链接: https://simonwillison.net/2026/Sep/3/gpt6-astra/
+转载自: Simon Willison&#39;s Weblog</description>
+    </item>
+    <item>
+      <title>Phil Schiller Steps Down From Running App Store and Product Events</title>
+      <link>https://wocao.world/p/c82568fb1f19/</link>
+      <guid isPermaLink="false">c82568fb1f19</guid>
+      <pubDate>Thu, 03 Sep 2026 16:39:09 GMT</pubDate>
+      <description>Mark Gurman: Apple Inc.’s Phil Schiller, one of the most visible and influential executives across both the Steve Jobs and Tim Cook eras, has stepped down from his role leading the App Store and product events. The 66-year-old executive, who was Apple’s senior vice president of marketing until leavi…
+
+原文链接: https://daringfireball.net/linked/2026/09/03/schiller-steps-down
+转载自: Daring Fireball</description>
+    </item>
+    <item>
+      <title>MapQuest Refuses to Relabel Lake Ontario, Rewarded With Surge in Popularity</title>
+      <link>https://wocao.world/p/59b78e5e5537/</link>
+      <guid isPermaLink="false">59b78e5e5537</guid>
+      <pubDate>Thu, 03 Sep 2026 16:30:09 GMT</pubDate>
+      <description>Finya Swai, reporting for The Hill two days ago: MapQuest has surged in popularity on the app charts after the mapping service said it would not rename Lake Ontario to “Lake America” after President Trump signed an executive order changing its name. The company said its mobile app received hundreds …
+
+原文链接: https://daringfireball.net/linked/2026/09/03/mapquest-surge
+转载自: Daring Fireball</description>
+    </item>
+    <item>
+      <title>iOS 27 Introduces New ‘iPhone Handoff’ Feature</title>
+      <link>https://wocao.world/p/ddabb8a79492/</link>
+      <guid isPermaLink="false">ddabb8a79492</guid>
+      <pubDate>Wed, 02 Sep 2026 20:58:28 GMT</pubDate>
+      <description>Joe Rossignol, MacRumors: “iPhone Handoff” can be set up from the Settings app, under the Cellular menu. During the setup process, you can choose which iPhone you want to be the main device that you use most often and which one you want to be the companion device. Apple says a user’s main eSIM will …
+
+原文链接: https://daringfireball.net/linked/2026/09/02/iphone-handoff
+转载自: Daring Fireball</description>
+    </item>
+    <item>
+      <title>llm-gemini 0.34</title>
+      <link>https://wocao.world/p/04f237529486/</link>
+      <guid isPermaLink="false">04f237529486</guid>
+      <pubDate>Wed, 02 Sep 2026 16:39:38 GMT</pubDate>
+      <description>Release: llm-gemini 0.34 New model gemini-3.8-flash for Gemini 3.8 Flash, with low, medium and high thinking levels. #146 Fixed async responses failing to record the resolved model version. Thanks, Charlie Tonneslan. #137 Tags: llm, gemini
+
+原文链接: https://simonwillison.net/2026/Sep/2/llm-gemini/
+转载自: Simon Willison&#39;s Weblog</description>
+    </item>
+    <item>
+      <title>Claude&#39;s new system prompt really doesn&#39;t want to reproduce song lyrics</title>
+      <link>https://wocao.world/p/43d588562ca0/</link>
+      <guid isPermaLink="false">43d588562ca0</guid>
+      <pubDate>Wed, 02 Sep 2026 14:16:42 GMT</pubDate>
+      <description>Anthropic publish the system prompts for their Claude consumer applications (Claude.ai and the Claude mobile apps - sadly not for Claude Cowork or Claude Code). I love that they do this, and that they share not just the current prompts but historic changes to their prompts as well. They used to keep…
+
+原文链接: https://simonwillison.net/2026/Sep/2/claudes-new-system-prompt/
+转载自: Simon Willison&#39;s Weblog</description>
+    </item>
+    <item>
+      <title>Quoting Rick Brewster</title>
+      <link>https://wocao.world/p/046262f3c041/</link>
+      <guid isPermaLink="false">046262f3c041</guid>
+      <pubDate>Wed, 02 Sep 2026 05:50:57 GMT</pubDate>
+      <description>Direct2D has always been the biggest hurdle for Paint.NET on WINE, and it&#39;s clear that it will never be completed enough for Paint.NET&#39;s use. And I can&#39;t just &quot;disable&quot; the use of Direct2D. So, instead, Paint.NET now has an internal, from-scratch, clean-room reverse-engineered rewrite of Direct2D th…
+
+原文链接: https://simonwillison.net/2026/Sep/2/rick-brewster/
+转载自: Simon Willison&#39;s Weblog</description>
+    </item>
+    <item>
+      <title>Claude Fable 5.1 made me a really nice animated pelican</title>
+      <link>https://wocao.world/p/26c649ead536/</link>
+      <guid isPermaLink="false">26c649ead536</guid>
+      <pubDate>Tue, 01 Sep 2026 23:57:28 GMT</pubDate>
+      <description>Today is Claude Fable (and Mythos) 5.1 day. Anthropic say that Fable 5.1 &quot;sets a new standard for coding, knowledge work, and long-running problem-solving tasks&quot;. Their announcement spends a notable amount of time on scientific research, boasting of a 52.6% score on the brand new Terminal-Bench-Scie…
+
+原文链接: https://simonwillison.net/2026/Sep/1/claude-fable-5-1/
+转载自: Simon Willison&#39;s Weblog</description>
+    </item>
+    <item>
+      <title>Codex bundles LibreOffice</title>
+      <link>https://wocao.world/p/e884c7f86f03/</link>
+      <guid isPermaLink="false">e884c7f86f03</guid>
+      <pubDate>Tue, 01 Sep 2026 19:03:01 GMT</pubDate>
+      <description>I was poking around in my ~/.cache/ folder using OmniDiskSweeper when I spotted something interesting. The OpenAI Codex desktop app (since rebranded to just ChatGPT) has 1.7GB of stuff in there in a folder called codex-primary-runtime, including a full Python installation, a full Node.js installatio…
+
+原文链接: https://simonwillison.net/2026/Sep/1/codex-libreoffice/
+转载自: Simon Willison&#39;s Weblog</description>
+    </item>
+    <item>
+      <title>Tim Cook’s Departure Memo on His Last Day as CEO</title>
+      <link>https://wocao.world/p/ebd72bc17a43/</link>
+      <guid isPermaLink="false">ebd72bc17a43</guid>
+      <pubDate>Tue, 01 Sep 2026 18:11:57 GMT</pubDate>
+      <description>Tim Cook: There is something truly special about Apple. I am most proud of what an annual report could never capture. This place is proof that culture triumphs over everything. We share a belief that what we build matters, and that we have both the opportunity and the responsibility to leave the wor…
+
+原文链接: https://daringfireball.net/linked/2026/09/01/tim-cook-departure-memo
+转载自: Daring Fireball</description>
+    </item>
+    <item>
+      <title>GeoJSON Map Viewer</title>
+      <link>https://wocao.world/p/8689e61b9d31/</link>
+      <guid isPermaLink="false">8689e61b9d31</guid>
+      <pubDate>Tue, 01 Sep 2026 18:05:45 GMT</pubDate>
+      <description>Tool: GeoJSON Map Viewer I was helping Natalie gather some maps of local political boundaries (for the Granada Community Services District and the Midcoast Community Council) and found a need to display some GeoJSON files on a map and export that as a PNG. I asked GPT-5.6-Sol for suggestions of tool…
+
+原文链接: https://simonwillison.net/2026/Sep/1/geojson/
+转载自: Simon Willison&#39;s Weblog</description>
+    </item>
+    <item>
+      <title>Apple Reveals Forensic Evidence From Chang Liu’s MacBook in OpenAI Lawsuit</title>
+      <link>https://wocao.world/p/6608ccebacef/</link>
+      <guid isPermaLink="false">6608ccebacef</guid>
+      <pubDate>Tue, 01 Sep 2026 17:36:08 GMT</pubDate>
+      <description>Chance Miller, 9to5Mac: In today’s filing, Apple says that Liu’s lawyers recently handed over his MacBook that he used after leaving Apple. According to Apple, an “initial forensic analysis” of that MacBook revealed four things, quoted from Apple’s filing: Mr. Liu not only downloaded a confidential …
+
+原文链接: https://daringfireball.net/linked/2026/09/01/apple-reveals-change-liu-evidence-openai-lawsuit
+转载自: Daring Fireball</description>
+    </item>
+    <item>
+      <title>Quoting Tarn Adams</title>
+      <link>https://wocao.world/p/0dddf3858761/</link>
+      <guid isPermaLink="false">0dddf3858761</guid>
+      <pubDate>Tue, 01 Sep 2026 17:01:11 GMT</pubDate>
+      <description>They took the letters from me! I have to talk about dwarf behavior now. I can&#39;t even talk about dwarf AI. It doesn&#39;t exist. It&#39;s dwarf behavior, and they misbehave sometimes — Tarn Adams, co-creator of Dwarf Fortress Tags: ai, game-design
+
+原文链接: https://simonwillison.net/2026/Sep/1/tarn-adams/
+转载自: Simon Willison&#39;s Weblog</description>
+    </item>
+    <item>
+      <title>datasette-mcp 0.2</title>
+      <link>https://wocao.world/p/651796c1abe4/</link>
+      <guid isPermaLink="false">651796c1abe4</guid>
+      <pubDate>Tue, 01 Sep 2026 15:30:12 GMT</pubDate>
+      <description>Release: datasette-mcp 0.2 &quot;rows&quot; from execute_sql is now an array of objects. Previously it was an array of arrays. This should help weaker models avoid losing track of which positional array element maps to which column. #1 Now depends on mcp&amp;gt;=2.1.1. This is the first non-alpha release of the p…
+
+原文链接: https://simonwillison.net/2026/Sep/1/datasette-mcp/
+转载自: Simon Willison&#39;s Weblog</description>
+    </item>
+    <item>
+      <title>Python 3.15.0 candidate 2 is here!</title>
+      <link>https://wocao.world/p/bfd7a5b39176/</link>
+      <guid isPermaLink="false">bfd7a5b39176</guid>
+      <pubDate>Tue, 01 Sep 2026 14:59:18 GMT</pubDate>
+      <description>Python 3.15.0 candidate 2 is here! Hugo van Kemenade (release manager for Python 3.14 and 3.15) announces the final release candidate for Python 3.15, scheduled for release in October: Entering the release candidate phase, only reviewed code changes which are clear bug fixes are allowed between this…
+
+原文链接: https://simonwillison.net/2026/Sep/1/python-315-rc-2/
+转载自: Simon Willison&#39;s Weblog</description>
+    </item>
+    <item>
+      <title>How we could save petabytes of cache storage with Zstandard and Pingora</title>
+      <link>https://wocao.world/p/85276035e8e9/</link>
+      <guid isPermaLink="false">85276035e8e9</guid>
+      <pubDate>Tue, 01 Sep 2026 12:59:00 GMT</pubDate>
+      <description>Memory costs are increasing dramatically. Both RAM and hard disk drive prices have exploded over the past year. At Cloudflare, we run several massively distributed storage products (including our famous CDN) that rely on making efficient use of the memory we have deployed so we can continue to serve…
+
+原文链接: https://blog.cloudflare.com/cache-transcoding/
+转载自: Cloudflare Blog</description>
+    </item>
+    <item>
+      <title>[Sponsor] WorkOS: How to Give an Agent a Task Instead of a Token</title>
+      <link>https://wocao.world/p/c5eb891a17d5/</link>
+      <guid isPermaLink="false">c5eb891a17d5</guid>
+      <pubDate>Tue, 01 Sep 2026 07:59:07 GMT</pubDate>
+      <description>Give an agent an access token and it spreads: into the context window, into tool call logs, into notes it keeps between steps. Each copy works from anywhere, long after the fact. Relay keeps the credential at WorkOS. Your agent names the user, WorkOS attaches that token, refreshes it, and releases i…
+
+原文链接: https://daringfireball.net/feeds/sponsors/2026/09/workos_how_to_give_an_agent_a
+转载自: Daring Fireball</description>
+    </item>
+    <item>
+      <title>Introducing wrapture</title>
+      <link>https://wocao.world/p/fd091e8656ea/</link>
+      <guid isPermaLink="false">fd091e8656ea</guid>
+      <pubDate>Mon, 31 Aug 2026 23:59:36 GMT</pubDate>
+      <description>Introducing wrapture New from Graham Dumpleton (of wrapt, mod_wsgi, and New Relic&#39;s Python agent fame), who describes Wrapture as taking the monkeypatching ideas from wrapt and extending them to apply to testing and tracing at the same time. Wrapture (full documentation here) makes it easy to wrap a…
+
+原文链接: https://simonwillison.net/2026/Aug/31/introducing-wrapture/
+转载自: Simon Willison&#39;s Weblog</description>
+    </item>
+    <item>
+      <title>Quoting Andrew Digby</title>
+      <link>https://wocao.world/p/c7abda528651/</link>
+      <guid isPermaLink="false">c7abda528651</guid>
+      <pubDate>Mon, 31 Aug 2026 22:25:02 GMT</pubDate>
+      <description>325 #kakapo! The chicks from this year&#39;s record breeding season are now juveniles and so have been added to the population. In 1995 there were just 51 kākāpō left. Recovery of critically endangered species is possible with sustained effort. — Andrew Digby, providing the best news of the year Tags: k…
+
+原文链接: https://simonwillison.net/2026/Aug/31/andrew-digby/
+转载自: Simon Willison&#39;s Weblog</description>
+    </item>
+    <item>
+      <title>Introducing Adaptive Intelligence: Undermining the economics of every bot attack</title>
+      <link>https://wocao.world/p/c2466a0341ca/</link>
+      <guid isPermaLink="false">c2466a0341ca</guid>
+      <pubDate>Mon, 31 Aug 2026 12:59:00 GMT</pubDate>
+      <description>Modern bot threats are increasingly driven by determined, sophisticated attackers. Often it is not even one person, but a group trading techniques with each other or a commercial service sold to anyone willing to pay. For many of them, getting past bot detection is a full-time job they genuinely enj…
+
+原文链接: https://blog.cloudflare.com/introducing-adaptive-intelligence/
+转载自: Cloudflare Blog</description>
+    </item>
+    <item>
+      <title>Understanding ChatGPT Work</title>
+      <link>https://wocao.world/p/34f4fb3eb9ae/</link>
+      <guid isPermaLink="false">34f4fb3eb9ae</guid>
+      <pubDate>Sun, 30 Aug 2026 23:59:47 GMT</pubDate>
+      <description>OpenAI announced ChatGPT Work on July 9th, and have been furiously iterating on it ever since. It is an extraordinarily confusing and very powerful product. Here&#39;s what I&#39;ve figured out about it so far. ChatGPT Work is actually two products The more interesting version of ChatGPT Work is the one tha…
+
+原文链接: https://simonwillison.net/2026/Aug/30/understanding-chatgpt-work/
+转载自: Simon Willison&#39;s Weblog</description>
+    </item>
+    <item>
+      <title>Finalist 4</title>
+      <link>https://wocao.world/p/469b7a31c6d9/</link>
+      <guid isPermaLink="false">469b7a31c6d9</guid>
+      <pubDate>Sun, 30 Aug 2026 18:35:22 GMT</pubDate>
+      <description>My thanks to Finalist for sponsoring last week at Daring Fireball. Finalist is a remarkable, ambitious, and novel app for iPhone, iPad, and the Mac from indie developer Slaven Radic. It’s a planner inspired by paper day planners. I wrote quite a bit about Finalist when it first sponsored DF back in …
+
+原文链接: https://daringfireball.net/linked/2026/08/30/finalist-4
+转载自: Daring Fireball</description>
+    </item>
+    <item>
+      <title>Introducing Hy4 Preview</title>
+      <link>https://wocao.world/p/f10462bf7026/</link>
+      <guid isPermaLink="false">f10462bf7026</guid>
+      <pubDate>Sat, 29 Aug 2026 23:53:13 GMT</pubDate>
+      <description>Introducing Hy4 Preview New open weight text input (no vision) LLM from Chinese company Tencent today: 770B total parameters, 49B active parameters, 1M token context window, 1.56TB on Hugging Face. This is a big size increase from their previous Hy3 in July, which was 295B, 21B active, 256,000 conte…
+
+原文链接: https://simonwillison.net/2026/Aug/29/hy4/
+转载自: Simon Willison&#39;s Weblog</description>
+    </item>
+    <item>
+      <title>★ Thoughts and Observations on Apple’s First Immersive MLB Broadcast, a Yankees 1-0 Win Over the Red Sox</title>
+      <link>https://wocao.world/p/ec27107e4e00/</link>
+      <guid isPermaLink="false">ec27107e4e00</guid>
+      <pubDate>Sat, 29 Aug 2026 17:53:34 GMT</pubDate>
+      <description>Jason Snell, writing at Six Colors, has an exemplary review of the experience: I didn’t mind the reduced pace of the NBA broadcast, which toggled between cameras under each basket, but Stratechery’s Ben Thompson felt strongly that the best option would’ve been a single camera at mid-court, to comple…
+
+原文链接: https://daringfireball.net/2026/08/thoughts_and_observations_apple_immersive_mlb_broadcast
+转载自: Daring Fireball</description>
+    </item>
+    <item>
+      <title>Just a rumour of a bug is enough to find a security exploit these days</title>
+      <link>https://wocao.world/p/3045caf20080/</link>
+      <guid isPermaLink="false">3045caf20080</guid>
+      <pubDate>Fri, 28 Aug 2026 22:12:02 GMT</pubDate>
+      <description>Just a rumour of a bug is enough to find a security exploit these days Anil Madhavapeddy is a professor of computer science at Cambridge and a core maintainer of the OCaml compiler. In this somewhat alarming post he reports that security issues in OCaml projects are seeing evidence of attempted expl…
+
+原文链接: https://simonwillison.net/2026/Aug/28/just-a-rumour-of-a-bug/
+转载自: Simon Willison&#39;s Weblog</description>
+    </item>
+    <item>
+      <title>Apple Announces Price Increase for Apple TV and Apple One Subscriptions</title>
+      <link>https://wocao.world/p/bf7d0e21c3c7/</link>
+      <guid isPermaLink="false">bf7d0e21c3c7</guid>
+      <pubDate>Fri, 28 Aug 2026 21:52:37 GMT</pubDate>
+      <description>Chance Miller, 9to5Mac: Here are the full details on the price increases: Apple TV (monthly): $14.99 (up from $12.99) Apple TV (annual): $119 (up from $99) Apple One Individual: $21.95 (up from $19.95) Prices for other Apple One plans are unchanged. When Apple increased the price of Apple Music last…
+
+原文链接: https://daringfireball.net/linked/2026/08/28/apple-tv-price-hike
+转载自: Daring Fireball</description>
+    </item>
+    <item>
+      <title>‘I’m the Guy Who Destroys Antique Books After We Scan Them Into Our Company’s Insatiable AI Platform’</title>
+      <link>https://wocao.world/p/cfe101c58e76/</link>
+      <guid isPermaLink="false">cfe101c58e76</guid>
+      <pubDate>Fri, 28 Aug 2026 21:35:22 GMT</pubDate>
+      <description>Jack Loftus, writing at McSweeney’s: People assume scanning is the exciting part. And, sure, it is impressive. They shear off the spine, separate the pages, and run everything through these enormous machines so the computer can absorb every sentence ever written and use it to create some fairly comp…
+
+原文链接: https://daringfireball.net/linked/2026/08/28/mcsweeneys-book-destroyer
+转载自: Daring Fireball</description>
+    </item>
+  </channel>
+</rss>
