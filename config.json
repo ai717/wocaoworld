@@ -9,20 +9,8 @@
   },
   "sources": [
     {
-      "url": "https://simonwillison.net/atom/everything/",
-      "mode": "excerpt"
-    },
-    {
-      "url": "https://daringfireball.net/feeds/json",
-      "mode": "excerpt"
-    },
-    {
-      "url": "https://jvns.ca/atom.xml",
-      "mode": "excerpt"
-    },
-    {
-      "url": "https://blog.cloudflare.com/rss/",
-      "mode": "excerpt"
+      "url": "https://www.moyunews.com/feed/",
+      "mode": "full"
     }
   ]
 }

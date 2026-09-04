@@ -24,6 +24,11 @@ function Stop-OldServices {
 
 Stop-OldServices
 $port = 65354
+$env:NODE_USE_ENV_PROXY = '1'
+$env:HTTP_PROXY = 'http://127.0.0.1:7897'
+$env:HTTPS_PROXY = 'http://127.0.0.1:7897'
+$env:http_proxy = $env:HTTP_PROXY
+$env:https_proxy = $env:HTTPS_PROXY
 $cms = Start-Process -FilePath 'node.exe' -WorkingDirectory $ProjectRoot -WindowStyle Hidden `
   -ArgumentList @('src/cli.mjs', 'cms', "$port") -PassThru
 

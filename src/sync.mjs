@@ -27,6 +27,7 @@ async function syncSource(store, source, config, log) {
       etag: source.etag ?? undefined,
       lastModified: source.last_modified ?? undefined,
       userAgent: userAgentFor(config),
+      proxy: config.site.proxy || undefined,
     });
 
     if (res.status === 'not-modified') {

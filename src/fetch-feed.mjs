@@ -15,10 +15,22 @@ function detectCharset(buffer, contentType) {
 
 function decode(buffer, contentType) {
   const charset = detectCharset(buffer, contentType);
-  try {
-    return new TextDecoder(charset).decode(buffer);
-  } catch {
+  if (buffer[0] === 0xef && buffer[1] === 0xbb && buffer[2] === 0xbf) {
     return new TextDecoder('utf-8').decode(buffer);
+  }
+  try {
+    const text = new TextDecoder(charset).decode(buffer);
+    // 中文站点偶尔错误声明 UTF-8，出现替换字符时尝试 GB18030。
+    // 只在确实检测到替换字符时回退，正常 UTF-8 不增加额外成本。
+    if (charset.toLowerCase() === 'utf-8' && text.includes('\uFFFD')) {
+      const legacy = new TextDecoder('gb18030').decode(buffer);
+      const badUtf8 = (text.match(/\uFFFD/g) || []).length;
+      const badLegacy = (legacy.match(/\uFFFD/g) || []).length;
+      if (badLegacy < badUtf8) return legacy;
+    }
+    return text;
+  } catch {
+    try { return new TextDecoder('gb18030').decode(buffer); } catch { return new TextDecoder('utf-8').decode(buffer); }
   }
 }
 
@@ -50,16 +62,28 @@ async function readBodyCapped(res) {
  * @returns {Promise<{status:'ok'|'not-modified', text?:string, etag?:string,
  *   lastModified?:string, contentType?:string, finalUrl:string}>}
  */
-export async function fetchFeed(url, { etag, lastModified, userAgent = DEFAULT_USER_AGENT } = {}) {
+export async function fetchFeed(url, { etag, lastModified, userAgent = DEFAULT_USER_AGENT, proxy } = {}) {
   const headers = { 'user-agent': userAgent, accept: ACCEPT };
   if (etag) headers['if-none-match'] = etag;
   if (lastModified) headers['if-modified-since'] = lastModified;
 
-  const res = await fetch(url, {
-    headers,
-    redirect: 'follow',
-    signal: AbortSignal.timeout(TIMEOUT_MS),
-  });
+  let res;
+  if (proxy) {
+    process.env.NODE_USE_ENV_PROXY = '1';
+    process.env.HTTP_PROXY = proxy;
+    process.env.HTTPS_PROXY = proxy;
+    process.env.http_proxy = proxy;
+    process.env.https_proxy = proxy;
+  }
+  try {
+    res = await fetch(url, {
+      headers,
+      redirect: 'follow',
+      signal: AbortSignal.timeout(TIMEOUT_MS),
+    });
+  } catch (err) {
+    throw new Error(`请求失败: ${err.cause?.code ?? err.message}`);
+  }
 
   const nextEtag = res.headers.get('etag') ?? undefined;
   const nextLastModified = res.headers.get('last-modified') ?? undefined;

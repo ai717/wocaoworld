@@ -45,6 +45,7 @@ export function loadConfig(file = path.join(ROOT, 'config.json')) {
   const site = raw.site ?? {};
   if (!site.title) throw new Error('config.json 缺少 site.title');
   const siteUrl = assertHttpUrl(site.url ?? '', 'site.url');
+  const proxy = site.proxy ? String(site.proxy) : '';
   // 不能用 siteUrl.origin：它会吞掉路径，而 GitHub Pages 项目站点的
   // /repo 前缀就住在路径里。这里把前缀单独提出来当 basePath。
   const basePath = siteUrl.pathname.replace(/\/+$/, '');
@@ -77,6 +78,7 @@ export function loadConfig(file = path.join(ROOT, 'config.json')) {
       title: String(site.title),
       description: String(site.description ?? ''),
       footer: String(site.footer || `${site.title} — 本站内容全部转载自各订阅源，版权归原作者与原站所有。`),
+      proxy,
       origin: siteUrl.origin,
       basePath,
       url: `${siteUrl.origin}${basePath}`,

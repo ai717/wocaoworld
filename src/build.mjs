@@ -111,6 +111,8 @@ export function runBuild(config, store, log = console.log) {
   write('404.html', renderNotFound({ config }));
   write('feed.xml', renderFeedXml({ config, posts: listPosts(store, { limit: FEED_LIMIT }) }));
   write('robots.txt', `User-agent: *\n${config.site.noindex ? 'Disallow: /\n' : `Allow: /\nSitemap: ${config.site.url}/sitemap.xml\n`}`);
+  const host = new URL(config.site.url).hostname;
+  if (!host.endsWith('.github.io')) write('CNAME', host + '\n');
   const sitemapPosts = listPosts(store, { limit: total }).map((post) => `  <url><loc>${esc(urls.absolute(urls.postUrl(post.id)))}</loc><lastmod>${new Date(post.published_at).toISOString()}</lastmod></url>`).join('\n');
   write('sitemap.xml', `<?xml version="1.0" encoding="UTF-8"?><urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"><url><loc>${esc(urls.absolute(urls.u('/')))}</loc></url><url><loc>${esc(urls.absolute(urls.u('/about/')))}</loc></url><url><loc>${esc(urls.absolute(urls.u('/sources/')))}</loc></url>${sitemapPosts ? `\n${sitemapPosts}` : ''}</urlset>\n`);
 
