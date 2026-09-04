@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Codex桌面端换肤工具：本机CDP注入与自定义主题教程 · wocao.world</title>
+<meta name="description" content="给 Codex 桌面端换一张会呼吸的脸：Codex Dream Skin 本地主题工具 写代码不一定要面对一块毫无情绪的灰色界面。 Codex Dream Skin 是一套面向 Codex 桌面端的外部主题与换肤工具。它通过本机回环地址上的 CDP 注入，为 Codex 添加可更换的全窗口背景、浅色与暗色主题适配、本地主题保存以及一键恢复功能。 它不修改 Codex 官方安装包，也不会改动 .app、app.asar 或 WindowsApps 中的文件。 更准确地说，它不是重新做了一个 Codex 界面，而是在保留 Codex 原生交互能力的前提下，为桌面端增加一层真正可用的视觉主题。 一张…">
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="wocao.world">
+<meta property="og:title" content="Codex桌面端换肤工具：本机CDP注入与自定义主题教程 · wocao.world">
+<meta property="og:description" content="给 Codex 桌面端换一张会呼吸的脸：Codex Dream Skin 本地主题工具 写代码不一定要面对一块毫无情绪的灰色界面。 Codex Dream Skin 是一套面向 Codex 桌面端的外部主题与换肤工具。它通过本机回环地址上的 CDP 注入，为 Codex 添加可更换的全窗口背景、浅色与暗色主题适配、本地主题保存以及一键恢复功能。 它不修改 Codex 官方安装包，也不会改动 .app、app.asar 或 WindowsApps 中的文件。 更准确地说，它不是重新做了一个 Codex 界面，而是在保留 Codex 原生交互能力的前提下，为桌面端增加一层真正可用的视觉主题。 一张…">
+<meta property="og:url" content="https://wocao.world/">
+<meta name="twitter:card" content="summary">
+<meta name="robots" content="noindex,follow">
+<link rel="alternate" type="application/rss+xml" title="wocao.world 聚合输出" href="/feed.xml">
+<link rel="stylesheet" href="/style.css">
+<link rel="canonical" href="https://www.moyunews.com/codex-desktop-theme-skin/">
+</head>
+<body>
+<a class="skip-link" href="#main">跳到正文</a>
+<header class="site-head">
+<p class="site-title"><a href="/">wocao.world</a></p>
+<p class="site-desc">wocao.world</p>
+<nav class="site-nav">
+<a href="/">最新</a>
+<a href="/about/">关于</a>
+<a href="/feed.xml">RSS</a>
+</nav>
+</header>
+<main id="main">
+<article>
+<h1 class="post-title">Codex桌面端换肤工具：本机CDP注入与自定义主题教程</h1>
+<div class="post-body"><h2>给 Codex 桌面端换一张会呼吸的脸：Codex Dream Skin 本地主题工具</h2>
+<p>写代码不一定要面对一块毫无情绪的灰色界面。</p>
+<p><strong>Codex Dream Skin</strong> 是一套面向 Codex 桌面端的外部主题与换肤工具。它通过本机回环地址上的 CDP 注入，为 Codex 添加可更换的全窗口背景、浅色与暗色主题适配、本地主题保存以及一键恢复功能。</p>
+<p>它不修改 Codex 官方安装包，也不会改动 <code>.app</code>、<code>app.asar</code> 或 WindowsApps 中的文件。</p>
+<p>更准确地说，它不是重新做了一个 Codex 界面，而是在保留 Codex 原生交互能力的前提下，为桌面端增加一层真正可用的视觉主题。</p>
+<p><img src="https://moyu.18uk.uk/2026/20260717-eed5b402-c601-4b14-96c9-d59e50fee92c.webp" alt="Codex桌面端换肤" width="720" loading="lazy" referrerpolicy="no-referrer" /></p>
+<blockquote><p>一张图，一种心情。写代码，也可以有氛围感。</p></blockquote>
+<p><strong>声明：Codex Dream Skin 为非 OpenAI 官方产品，不代表 OpenAI 或 Codex 官方视觉与产品背书。</strong></p>
+<p>https://github.com/Fei-Away/Codex-Dream-Skin</p>
+<h2>它解决的不是功能问题，而是界面疲劳</h2>
+<p>开发者每天可能要在 Codex 中停留数小时。</p>
+<p>侧栏、建议卡片、项目选择器和输入框固然足够实用，但长期使用默认界面，也很容易产生视觉疲劳。传统的“换肤”方案往往只有两种：</p>
+<ul>
+<li>修改客户端安装文件，更新后容易失效；</li>
+<li>在窗口上覆盖一张完整截图，看起来像主题，实际上无法正常交互。</li>
+</ul>
+<p>Codex Dream Skin 选择了第三条路：</p>
+<p><strong>保留原生界面，只重构背景层与视觉氛围。</strong></p>
+<p>主题启动后，侧栏、卡片、输入区域和项目选择仍然是 Codex 原生控件。背景则以连续的 16:9 画面铺满窗口，并根据首页、任务页、浅色模式和暗色模式自动调整干扰程度。</p>
+<p>它不是一张贴在窗口上的假皮肤，而是一套可操作、可切换、可恢复的 Codex 桌面端主题系统。</p>
+<h2>已验证的「桥本有菜」浅色与暗色主题</h2>
+<p>项目内预置了一套「桥本有菜 / Arina Hashimoto」主题，并已在真实 Codex 首页分别验证浅色和暗色外观。</p>
+<p>测试使用的用户源 PNG 分辨率为 <strong>1672 × 941</strong>。主题包在保留原图接近 16:9 构图的前提下，将其规范化导出为 <strong>2560 × 1440 JPEG</strong>。</p>
+<p>需要注意的是，尺寸规范化只是为了满足主题背景的输出规格，<strong>并不意味着原始图片增加了新的真实细节</strong>。</p>
+<p>实机效果图中的以下元素均为 Codex 原生控件：</p>
+<ul>
+<li>左侧导航栏；</li>
+<li>首页建议卡片；</li>
+<li>项目选择区域；</li>
+<li>消息输入框；</li>
+<li>浅色与暗色界面组件。</li>
+</ul>
+<p>截图中尚未发送的输入内容已在预览时遮蔽。效果截图只用于展示真实注入后的界面状态，不能直接作为主题背景导入。</p>
+<h3>浅色模式</h3>
+<p>浅色主题更适合高亮度、柔和、清透的背景素材。</p>
+<p>在「桥本有菜」浅色预设中，人物视觉集中于窗口主要留白区域，Codex 原生卡片和输入框仍然保持足够的对比度，不会因为背景过亮而失去可读性。</p>
+<h3>暗色模式</h3>
+<p>暗色模式会进一步控制背景亮度和视觉权重。</p>
+<p>主题背景依然完整保留，但任务区域会降低干扰，使文字、输入框和功能控件成为视觉核心。对于长时间写代码、深夜工作或低亮度显示器环境，暗色主题的沉浸感更强。</p>
+<h2>macOS：从仓库安装并一键切换主题</h2>
+<p>macOS 用户可以进入项目的 <code>macos</code> 目录执行安装脚本：</p>
+<pre><code>cd macos
+./scripts/install-dream-skin-macos.sh --no-launch
+</code></pre>
+<p>安装完成后，通过主题切换脚本启用「桥本有菜」预设：</p>
+<pre><code>~/.codex/codex-dream-skin-studio/scripts/switch-theme-macos.sh \
+  --id preset-romantic-rose
+</code></pre>
+<p>项目同时为 Apple Silicon 与 Intel Mac 提供了图形化入口，也可以直接双击：</p>
+<pre><code>Install Codex Dream Skin.command
+</code></pre>
+<p>macOS 版本支持从菜单栏保存、切换和恢复本地主题，适合不希望频繁使用终端命令的用户。</p>
+<h2>Windows：本地主题仓库与系统托盘控制</h2>
+<p>Windows 版本使用本地主题仓库和系统托盘管理主题。</p>
+<p>首次从仓库运行时，依次执行：</p>
+<pre><code>powershell -ExecutionPolicy Bypass -File .\windows\scripts\install-dream-skin.ps1
+powershell -ExecutionPolicy Bypass -File .\windows\scripts\start-dream-skin.ps1
+</code></pre>
+<p>启动完成后，可以直接在：</p>
+<pre><code>已保存主题 → 桥本有菜
+</code></pre>
+<p>中切换预置主题，不需要再跨目录手动导入图片。</p>
+<p>系统托盘中的「更换背景图」功能仍然保留。用户可以导入自己的纯背景图片，完成保存后继续一键切换。</p>
+<p>这意味着 Windows 用户不只是安装一张固定皮肤，而是获得了一个可持续管理的 Codex 本地主题库。</p>
+<h2>源图、主题背景和效果图必须分清</h2>
+<p>项目中同时存在三类视觉素材，它们的用途不同。</p>
+<h3>用户源图</h3>
+<p>可下载的用户源图路径为：</p>
+<pre><code>docs/images/presets/romantic-rose-source.png
+</code></pre>
+<p>图片尺寸为 <strong>1672 × 941</strong>，它是主题生成时使用的原始素材。</p>
+<h3>规范化主题背景</h3>
+<p>macOS 一键预设使用的背景文件为：</p>
+<pre><code>macos/presets/preset-romantic-rose/background.jpg
+</code></pre>
+<p>该文件是从用户源图规范化派生的 <strong>2560 × 1440 JPEG</strong>，用于实际主题加载。</p>
+<h3>实机效果图</h3>
+<p>浅色与暗色效果图包含完整 Codex UI，只用于展示主题注入后的真实效果。</p>
+<p><strong>不要将效果图重新导入为背景。</strong></p>
+<p>否则会出现界面叠加：截图里的输入框、卡片和侧栏会与真实 Codex 控件重合，既影响观感，也会破坏正常使用。</p>
+<h2>八种 Codex 主题视觉方向</h2>
+<p>除实机验证的「桥本有菜」主题外，项目还提供了八种概念视觉方向：</p>
+<h3>粉系定制</h3>
+<p>柔和粉色、轻量渐变和低对比人物构图，适合浅色模式以及偏治愈的桌面氛围。</p>
+<h3>财神打工版</h3>
+<p>将传统吉祥元素与程序员工作场景结合，适合节日主题、开工主题和带有幽默感的开发者桌面。</p>
+<h3>红白科幻</h3>
+<p>高纯度红色搭配白色科技界面，视觉冲击更强，适合未来感、实验室或机甲方向。</p>
+<h3>清透定制</h3>
+<p>使用留白、透明感、自然光和低饱和色调，最大限度降低背景对代码工作的干扰。</p>
+<h3>灵感小宇宙</h3>
+<p>将星球、宇宙、手绘元素与创意工作场景结合，适合写作、头脑风暴和产品构思。</p>
+<h3>紫夜限定</h3>
+<p>紫色霓虹、夜景和低照度氛围，适合暗色模式和夜间开发。</p>
+<h3>青蓝虚拟歌姬</h3>
+<p>青蓝色虚拟人物与数字空间风格，适合二次元、未来音乐和虚拟偶像方向。</p>
+<h3>舞台黑金</h3>
+<p>黑色基底配合金色灯光和舞台质感，视觉更克制，也更适合高对比暗色主题。</p>
+<p>这些图片是表达视觉方向的概念效果图，并非可以直接导入的纯背景。</p>
+<p>需要制作同类主题时，应先根据参考提示词生成一张<strong>不包含侧栏、输入框、卡片、文字和窗口控件</strong>的 2560 × 1440 纯背景，再导入主题工具。</p>
+<p>参考文件包括：</p>
+<pre><code>docs/reference-background-prompt-guide.md
+docs/background-generation-prompts.md
+</code></pre>
+<h2>Codex Dream Skin 能做什么</h2>
+<h3>真正可交互</h3>
+<p>侧栏、建议卡片、项目选择和输入框都来自 Codex 原生界面，不是将整张 UI 截图覆盖在窗口上。</p>
+<h3>真正的背景层</h3>
+<p>一张 16:9 纯壁纸可以连续铺满整窗。首页强调视觉氛围，进入任务页面后自动降低背景干扰。</p>
+<h3>支持自定义图片</h3>
+<p>用户可以替换为自己的纯背景图。工具会根据焦点、安全区和主题配色进行适配。</p>
+<h3>支持保存多个主题</h3>
+<p>macOS 菜单栏和 Windows 系统托盘都能保存、管理并切换本地主题，无需每次重新配置。</p>
+<h3>一键恢复官方外观</h3>
+<p>不喜欢当前主题，或者 Codex 更新后需要排查问题，可以通过 Restore 功能恢复默认界面。</p>
+<h3>不修改官方二进制文件</h3>
+<p>工具采用本机 CDP 注入，不修改 Codex 官方安装目录、客户端二进制文件和代码签名。</p>
+<h2>为什么选择本机 CDP 注入</h2>
+<p>CDP，即 Chrome DevTools Protocol，是 Chromium 系应用常见的调试与控制接口。</p>
+<p>Codex Dream Skin 将 CDP 服务限制在：</p>
+<pre><code>127.0.0.1
+</code></pre>
+<p>也就是本机回环地址。</p>
+<p>与直接修改 <code>app.asar</code> 或客户端资源文件相比，这种方式有几个明显优势：</p>
+<ul>
+<li>不破坏官方应用代码签名；</li>
+<li>不直接修改安装目录；</li>
+<li>更容易恢复默认外观；</li>
+<li>官方客户端升级时更容易排查兼容问题；</li>
+<li>主题、中转 API 和 Codex 配置彼此分离。</li>
+</ul>
+<p>不过，本地注入不等于绝对安全。</p>
+<p>主题运行期间，不要同时运行来源不明的本机脚本和程序。因为任何能够访问本机调试端口的恶意程序，都可能扩大安全风险。</p>
+<h2>不会修改 API Key 或 Base URL</h2>
+<p>Codex Dream Skin 只负责视觉主题。</p>
+<p>它不会自动修改：</p>
+<ul>
+<li>OpenAI API Key；</li>
+<li>Codex 登录状态；</li>
+<li>API Base URL；</li>
+<li>第三方中转地址；</li>
+<li>模型提供商配置；</li>
+<li>Codex 项目文件。</li>
+</ul>
+<p>换肤与模型中转是两个完全独立的系统。即使用户同时使用自定义模型服务，也应分别配置和审查。</p>
+<h2>项目目录与使用入口</h2>
+<table>
+<thead>
+<tr>
+<th>平台</th>
+<th>目录</th>
+<th>入口</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Apple Silicon / Intel Mac</td>
+<td><code>macos/</code></td>
+<td>双击 <code>Install Codex Dream Skin.command</code></td>
+</tr>
+<tr>
+<td>Windows</td>
+<td><code>windows/</code></td>
+<td><code>install-dream-skin.ps1</code> → <code>start-dream-skin.ps1</code></td>
+</tr>
+</tbody>
+</table>
+<p>更详细的说明可以查看：</p>
+<pre><code>macos/README.md
+windows/SKILL.md
+docs/platforms.md
+docs/reference-background-prompt-guide.md
+docs/background-generation-prompts.md
+docs/PROJECT.md
+</code></pre>
+<h2>反馈、Issue 与贡献方式</h2>
+<p>遇到 Bug 或希望增加新功能时，应使用仓库提供的 Issue 模板。项目已关闭空白 Issue，以减少缺少环境、版本和复现步骤的问题报告。</p>
+<p>提交 Issue 前，建议先执行 Verify 或 Restore 自检，确认问题来自主题工具，而不是 Codex 客户端本身。</p>
+<p>提交 Pull Request 时，需要按照 PR 模板说明：</p>
+<ul>
+<li>修改了什么；</li>
+<li>影响哪个平台；</li>
+<li>是否涉及主题加载逻辑；</li>
+<li>是否完成 Verify；</li>
+<li>是否完成 Restore；</li>
+<li>是否运行对应测试。</li>
+</ul>
+<p>macOS 相关改动可以运行：</p>
+<pre><code>macos/tests/run-tests.sh
+</code></pre>
+<h2>素材与人物权利声明</h2>
+<p>预置背景使用用户提供的 AI 生成示例，仅用于演示主题系统的视觉能力，不代表 OpenAI 或 Codex 官方视觉。</p>
+<p>仓库中的人物、IP、效果图和预设素材，在商用、公开传播或再次分发前，都应自行确认：</p>
+<ul>
+<li>肖像权；</li>
+<li>图片素材许可；</li>
+<li>人物名称使用范围；</li>
+<li>商标与品牌权利；</li>
+<li>AI 生成素材平台的再分发条款。</li>
+</ul>
+<p>项目许可与补充声明见：</p>
+<pre><code>macos/LICENSE
+macos/NOTICE.md
+</code></pre>
+<p>其中代码部分采用 MIT License，但代码许可不自动覆盖人物图片、品牌素材和第三方视觉资产。</p>
+<h2></h2>
+<p>工具可以提升效率，但界面决定你是否愿意长时间留在工具里。</p>
+<p>Codex Dream Skin 没有重做 Codex，也没有触碰官方安装包。它只是给原本冷静、统一的开发界面，留出了一块属于使用者自己的空间。</p>
+<p>一张图，一种心情。</p>
+<p>挑一张背景，把 Codex 变成今天想要的样子。</p>
+<p>本文来源：<a href="https://www.moyunews.com/" rel="external nofollow noopener noreferrer" target="_blank">摸鱼杂货店</a>。查看原文：<a href="https://www.moyunews.com/codex-desktop-theme-skin/" rel="external nofollow noopener noreferrer" target="_blank">Codex桌面端换肤工具：本机CDP注入与自定义主题教程</a>。</p></div>
+<p class="back"><a href="/">← 返回最新</a></p>
+</article>
+</main>
+<footer class="site-foot">
+<p>wocao.world — 本站内容全部转载自各订阅源，版权归原作者与原站所有。</p>
+</footer>
+</body>
+</html>

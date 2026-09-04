@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>10 分钟Cloudflare 构建永久免费高速节点 · wocao.world</title>
+<meta name="description" content="在 2026 年，寻找一个既稳定又免费的网络出口似乎已成奢望。然而，回归技术本质，利用 Cloudflare 的全球边缘计算网络（Edge Network），我们依然能构建出一套“一次部署，终身免维护”的轻量级代理方案。 这套方案不仅能解锁 ChatGPT 与 Gemini，更因其依托于 Cloudflare 的原生骨干网，在稳定性与抗封锁能力上远超传统 VPS。 一、 基础设施：注册永久免费域名 一切稳健的连接都始于一个属于你自己的域名。2026 年，我们依然有渠道获取免费资产。 资源获取： 渠道一：https://ccwu.cc 或 https://us.ci 优势：注册后可获得 5 个永…">
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="wocao.world">
+<meta property="og:title" content="10 分钟Cloudflare 构建永久免费高速节点 · wocao.world">
+<meta property="og:description" content="在 2026 年，寻找一个既稳定又免费的网络出口似乎已成奢望。然而，回归技术本质，利用 Cloudflare 的全球边缘计算网络（Edge Network），我们依然能构建出一套“一次部署，终身免维护”的轻量级代理方案。 这套方案不仅能解锁 ChatGPT 与 Gemini，更因其依托于 Cloudflare 的原生骨干网，在稳定性与抗封锁能力上远超传统 VPS。 一、 基础设施：注册永久免费域名 一切稳健的连接都始于一个属于你自己的域名。2026 年，我们依然有渠道获取免费资产。 资源获取： 渠道一：https://ccwu.cc 或 https://us.ci 优势：注册后可获得 5 个永…">
+<meta property="og:url" content="https://wocao.world/">
+<meta name="twitter:card" content="summary">
+<meta name="robots" content="noindex,follow">
+<link rel="alternate" type="application/rss+xml" title="wocao.world 聚合输出" href="/feed.xml">
+<link rel="stylesheet" href="/style.css">
+<link rel="canonical" href="https://www.moyunews.com/permanent-free-vpn-cloudflare-pages/">
+</head>
+<body>
+<a class="skip-link" href="#main">跳到正文</a>
+<header class="site-head">
+<p class="site-title"><a href="/">wocao.world</a></p>
+<p class="site-desc">wocao.world</p>
+<nav class="site-nav">
+<a href="/">最新</a>
+<a href="/about/">关于</a>
+<a href="/feed.xml">RSS</a>
+</nav>
+</header>
+<main id="main">
+<article>
+<h1 class="post-title">10 分钟Cloudflare 构建永久免费高速节点</h1>
+<div class="post-body"><p>在 2026 年，寻找一个既稳定又免费的网络出口似乎已成奢望。然而，回归技术本质，利用 Cloudflare 的全球边缘计算网络（Edge Network），我们依然能构建出一套“一次部署，终身免维护”的轻量级代理方案。</p>
+<p>这套方案不仅能解锁 ChatGPT 与 Gemini，更因其依托于 Cloudflare 的原生骨干网，在稳定性与抗封锁能力上远超传统 VPS。</p>
+<p><img loading="lazy" src="https://files.seeusercontent.com/2026/04/11/ea8U/pasted-image-1775902954903.webp" alt="Cloudflare 免费节点搭建" width="720" height="483" referrerpolicy="no-referrer" /></p>
+<h4>一、 基础设施：注册永久免费域名</h4>
+<p>一切稳健的连接都始于一个属于你自己的域名。2026 年，我们依然有渠道获取免费资产。</p>
+<ul>
+<li>
+<p><b>资源获取</b>：</p>
+<ul>
+<li>
+<p>渠道一：<a href="https://ccwu.cc/" target="_blank" rel="external nofollow noopener noreferrer">https://ccwu.cc</a> 或 <a href="https://us.ci/" target="_blank" rel="external nofollow noopener noreferrer">https://us.ci</a></p>
+</li>
+<li>
+<p>优势：注册后可获得 5 个永久免费域名，根域名选择建议优先考虑 <code>.ccwu.cc</code> 或 <code>.us.ci</code>。</p>
+</li>
+</ul>
+</li>
+<li>
+<p><b>解析托管</b>：将注册好的域名托管至 Cloudflare (<a href="https://www.cloudflare.com/" target="_blank" rel="external nofollow noopener noreferrer">https://www.cloudflare.com/</a>)。这是所有后续操作的控制中心。</p>
+</li>
+</ul>
+<h4>二、 云端配置：存储与计算的结合</h4>
+<p>我们需要在 Cloudflare 内部构建一个微型应用。</p>
+<ol>
+<li>
+<p><b>创建 KV 空间</b>：进入 Cloudflare 后台，导航至 <code>存储和数据库</code> -&gt; <code>Worker KV</code>。创建一个命名空间，它将作为配置信息的“持久化记忆”。</p>
+</li>
+<li>
+<p><b>部署 Pages 服务</b>：</p>
+<ul>
+<li>
+<p>进入 <code>Workers 和 Pages</code>，选择创建 Pages 应用。</p>
+</li>
+<li>
+<p><b>核心源码</b>：使用由 <b>CMliu</b> 开源的节点程序。你可以从 GitHub (<a href="https://github.com/cmliu/edgetunnel" target="_blank" rel="external nofollow noopener noreferrer">https://github.com/cmliu/edgetunnel</a>) 获取，或直接下载预打包的 <code>main.zip</code>。</p>
+</li>
+<li>
+<p><b>上传与构建</b>：直接上传压缩包，CF 会自动完成边缘部署。</p>
+</li>
+</ul>
+</li>
+</ol>
+<h4>三、 逻辑绑定：环境变量与 CNAME</h4>
+<p>这是决定节点能否正常“呼吸”的关键步骤。</p>
+<ul>
+<li>
+<p><b>ADMIN 变量</b>：在设置中添加环境变量 <code>ADMIN</code>，值即为你的管理员后台密码。</p>
+</li>
+<li>
+<p><b>KV 绑定</b>：将之前创建的 KV 空间绑定至 Pages，变量名统一填写为 <code>KV</code>。</p>
+</li>
+<li>
+<p><b>自定义域（CNAME）</b>：不要直接使用 CF 分配的 <code>.pages.dev</code>（容易被墙）。在自定义域选项卡中，填入你的二级域名（如 <code>moyu.ccwu.cc</code>），并根据提示完成 DNS 的 CNAME 解析。</p>
+</li>
+</ul>
+<h4>四、 最终形态：全协议支持与优选加速</h4>
+<p>通过访问 <code>https://你的域名/admin</code>，你将进入一个可视化的管理后台。</p>
+<ul>
+<li>
+<p><b>协议全家桶</b>：支持 VLESS、Trojan 等主流加密协议。</p>
+</li>
+<li>
+<p><b>订阅系统</b>：内置订阅转换，支持 Clash、Sing-box、Surge 等全平台客户端。</p>
+</li>
+<li>
+<p><b>高手进阶</b>：支持自定义 <b>ProxyIP</b> 链式代理及优选 API。通过优选 Cloudflare 的边缘节点 IP，你可以显著降低延迟，将 4K 视频体验提升至秒开级别。</p>
+</li>
+</ul>
+<p>这不只是一个简单的翻墙教程，这是一次对边缘计算能力的极限压榨。在零成本的前提下，你获得的是一个由全球顶级 CDN 支撑的永久节点。</p>
+<div>
+<div></div>
+</div>
+<p>本文来源：<a href="https://www.moyunews.com/" rel="external nofollow noopener noreferrer" target="_blank">摸鱼杂货店</a>。查看原文：<a href="https://www.moyunews.com/permanent-free-vpn-cloudflare-pages/" rel="external nofollow noopener noreferrer" target="_blank">10 分钟Cloudflare 构建永久免费高速节点</a>。</p></div>
+<p class="back"><a href="/">← 返回最新</a></p>
+</article>
+</main>
+<footer class="site-foot">
+<p>wocao.world — 本站内容全部转载自各订阅源，版权归原作者与原站所有。</p>
+</footer>
+</body>
+</html>

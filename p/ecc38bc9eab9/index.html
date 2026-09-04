@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>WinPodX让Windows窗口钉上Linux任务栏：不是Wine，也不是轻虚拟机 · wocao.world</title>
+<meta name="description" content="双击能开，底下仍是一套完整的Windows kernalix7/winpodx 把 Word、微信、行业软件收成 Linux 桌面上的独立窗口：图标真、能钉任务栏、Alt+Tab 能切。剪贴板、声音可双向走，USB 能透传，家目录默认可被客户机看见。它不是把 API 翻译成 Linux 的 Wine，也不是你每天开机先点进一块完整桌面的重虚拟机。 背后是 rootless Podman 拉起 dockur/windows，再用 FreeRDP 的 RemoteApp 把每个程序画成单独窗口。首次要跑无人值守的 Windows 安装和 RemoteApp 代理，官方写大约五到十分钟，实际取决于镜…">
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="wocao.world">
+<meta property="og:title" content="WinPodX让Windows窗口钉上Linux任务栏：不是Wine，也不是轻虚拟机 · wocao.world">
+<meta property="og:description" content="双击能开，底下仍是一套完整的Windows kernalix7/winpodx 把 Word、微信、行业软件收成 Linux 桌面上的独立窗口：图标真、能钉任务栏、Alt+Tab 能切。剪贴板、声音可双向走，USB 能透传，家目录默认可被客户机看见。它不是把 API 翻译成 Linux 的 Wine，也不是你每天开机先点进一块完整桌面的重虚拟机。 背后是 rootless Podman 拉起 dockur/windows，再用 FreeRDP 的 RemoteApp 把每个程序画成单独窗口。首次要跑无人值守的 Windows 安装和 RemoteApp 代理，官方写大约五到十分钟，实际取决于镜…">
+<meta property="og:url" content="https://wocao.world/">
+<meta name="twitter:card" content="summary">
+<meta name="robots" content="noindex,follow">
+<link rel="alternate" type="application/rss+xml" title="wocao.world 聚合输出" href="/feed.xml">
+<link rel="stylesheet" href="/style.css">
+<link rel="canonical" href="https://www.moyunews.com/winpodx-windows-apps-on-linux/">
+</head>
+<body>
+<a class="skip-link" href="#main">跳到正文</a>
+<header class="site-head">
+<p class="site-title"><a href="/">wocao.world</a></p>
+<p class="site-desc">wocao.world</p>
+<nav class="site-nav">
+<a href="/">最新</a>
+<a href="/about/">关于</a>
+<a href="/feed.xml">RSS</a>
+</nav>
+</header>
+<main id="main">
+<article>
+<h1 class="post-title">WinPodX让Windows窗口钉上Linux任务栏：不是Wine，也不是轻虚拟机</h1>
+<div class="post-body"><h2>双击能开，底下仍是一套完整的Windows</h2>
+<p><a href="https://github.com/kernalix7/winpodx" rel="external nofollow noopener noreferrer" target="_blank">kernalix7/winpodx</a> 把 Word、微信、行业软件收成 Linux 桌面上的独立窗口：图标真、能钉任务栏、Alt+Tab 能切。剪贴板、声音可双向走，USB 能透传，家目录默认可被客户机看见。它不是把 API 翻译成 Linux 的 Wine，也不是你每天开机先点进一块完整桌面的重虚拟机。</p>
+<p><img src="https://moyu.18uk.uk/2026/20260828-16d1257a-fce4-444c-b49c-e37eeccba475.webp" alt="Linux运行Windows" width="700" loading="lazy" referrerpolicy="no-referrer" /></p>
+<p>背后是 rootless Podman 拉起 dockur/windows，再用 FreeRDP 的 RemoteApp 把每个程序画成单独窗口。首次要跑无人值守的 Windows 安装和 RemoteApp 代理，官方写大约五到十分钟，实际取决于镜像下载和磁盘。之后客户机常驻，再开应用接近秒开。机器要有虚拟化扩展，内存建议 8GB 起、12GB 更稳，磁盘大约预留 30GB。</p>
+<h2>和Wine、整机虚拟机各管一段</h2>
+<p>Wine 轻，兼容名单却短，行业套件、带驱动的工具、杀软和部分游戏仍会摔。整机虚拟机兼容最好，窗口却困在一块屏幕里，剪贴板和文件来回拷。WinPodX 用真 Windows 换兼容，用 RemoteApp 换窗口观感。双击本机 docx 可以唤起客户机里的 Word；第二个文件会进已打开的进程。官网还写了反向打开：Windows 里「打开方式」可以出现 Linux 应用。</p>
+<table>
+<thead>
+<tr>
+<th>方案</th>
+<th>跑的是什么</th>
+<th>窗口观感</th>
+<th>先付的成本</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Wine / CrossOver</td>
+<td>API 翻译</td>
+<td>接近原生</td>
+<td>兼容性排查</td>
+</tr>
+<tr>
+<td>VirtualBox / Boxes</td>
+<td>完整虚拟机</td>
+<td>一块桌面</td>
+<td>内存和来回拷文件</td>
+</tr>
+<tr>
+<td>WinPodX</td>
+<td>容器里的真 Windows + RDP</td>
+<td>每个程序一扇窗</td>
+<td>KVM、磁盘、Windows 授权</td>
+</tr>
+</tbody>
+</table>
+<p>同赛道还有 winapps、WinBoat、LinOffice。WinPodX 走 Python 加 Qt6，一条安装命令覆盖 Fedora、Debian、Ubuntu、Arch、openSUSE、NixOS 等，也可下 AppImage。当前版本约 0.10.4，MIT，自称无遥测，状态仍是 beta。默认会把整个家目录挂进客户机，新版本可改成只共享一个目录，避免 SSH 密钥和浏览器配置被对面看见。</p>
+<h2>秒开之前，授权和隔离要先算清</h2>
+<p>dockur 会去拉官方镜像做无人值守安装，并不等于免授权。打印机、USB、剪贴板打通之后，客户机对主机的可见范围变大。需要图形性能的游戏和专业卡驱动，容器加 RDP 这条路仍可能不够。Wine 能稳住的小工具，不必为它再养一套 Windows。</p>
+<p>适合的是必须跑真 Windows 的办公和行业软件，又不想每天盯着虚拟机桌面。不适合的是没开虚拟化的老机器，以及把「一条命令」理解成没有磁盘、没有授权、没有安全边界。任务栏上的图标可以像原生，许可证和隔离策略不能装成原生。</p>
+<p>本文来源：<a href="https://www.moyunews.com/" rel="external nofollow noopener noreferrer" target="_blank">摸鱼杂货店</a>。查看原文：<a href="https://www.moyunews.com/winpodx-windows-apps-on-linux/" rel="external nofollow noopener noreferrer" target="_blank">WinPodX让Windows窗口钉上Linux任务栏：不是Wine，也不是轻虚拟机</a>。</p></div>
+<p class="back"><a href="/">← 返回最新</a></p>
+</article>
+</main>
+<footer class="site-foot">
+<p>wocao.world — 本站内容全部转载自各订阅源，版权归原作者与原站所有。</p>
+</footer>
+</body>
+</html>

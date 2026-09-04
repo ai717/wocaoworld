@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>紫微斗数开源引擎ziwei-doushu：51.8万盘能训模型，不能当因果 · wocao.world</title>
+<meta name="description" content="仓库摊开的是排盘规则，不是一张命定证明 Renhuai123/ziwei-doushu 把倪海厦《天纪》教学口径写成 TypeScript 排盘引擎：安命宫、定五行局、安主星辅星、排大限流年，再叠四化飞星。格局知识库超过 1100 行，覆盖紫府同宫、日月并明、七杀朝斗一类名称。另附《骨髓赋》《紫微斗数全集》等古籍原文，以及 14 主星乘 12 宫的条目。线上演示在 metisziwei.com。作者署王多鱼AI，星标约 3800。 样本标签写着 518,400 条，压缩分三卷约 5.5 GB，每条带命盘 JSON 和财运、事业、感情、健康等主题解读。口径与线上站一致，并称男女命、子午流注、女命…">
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="wocao.world">
+<meta property="og:title" content="紫微斗数开源引擎ziwei-doushu：51.8万盘能训模型，不能当因果 · wocao.world">
+<meta property="og:description" content="仓库摊开的是排盘规则，不是一张命定证明 Renhuai123/ziwei-doushu 把倪海厦《天纪》教学口径写成 TypeScript 排盘引擎：安命宫、定五行局、安主星辅星、排大限流年，再叠四化飞星。格局知识库超过 1100 行，覆盖紫府同宫、日月并明、七杀朝斗一类名称。另附《骨髓赋》《紫微斗数全集》等古籍原文，以及 14 主星乘 12 宫的条目。线上演示在 metisziwei.com。作者署王多鱼AI，星标约 3800。 样本标签写着 518,400 条，压缩分三卷约 5.5 GB，每条带命盘 JSON 和财运、事业、感情、健康等主题解读。口径与线上站一致，并称男女命、子午流注、女命…">
+<meta property="og:url" content="https://wocao.world/">
+<meta name="twitter:card" content="summary">
+<meta name="robots" content="noindex,follow">
+<link rel="alternate" type="application/rss+xml" title="wocao.world 聚合输出" href="/feed.xml">
+<link rel="stylesheet" href="/style.css">
+<link rel="canonical" href="https://www.moyunews.com/ziwei-doushu-open-engine/">
+</head>
+<body>
+<a class="skip-link" href="#main">跳到正文</a>
+<header class="site-head">
+<p class="site-title"><a href="/">wocao.world</a></p>
+<p class="site-desc">wocao.world</p>
+<nav class="site-nav">
+<a href="/">最新</a>
+<a href="/about/">关于</a>
+<a href="/feed.xml">RSS</a>
+</nav>
+</header>
+<main id="main">
+<article>
+<h1 class="post-title">紫微斗数开源引擎ziwei-doushu：51.8万盘能训模型，不能当因果</h1>
+<div class="post-body"><h2>仓库摊开的是排盘规则，不是一张命定证明</h2>
+<p><a href="https://github.com/Renhuai123/ziwei-doushu" rel="external nofollow noopener noreferrer" target="_blank">Renhuai123/ziwei-doushu</a> 把倪海厦《天纪》教学口径写成 TypeScript 排盘引擎：安命宫、定五行局、安主星辅星、排大限流年，再叠四化飞星。格局知识库超过 1100 行，覆盖紫府同宫、日月并明、七杀朝斗一类名称。另附《骨髓赋》《紫微斗数全集》等古籍原文，以及 14 主星乘 12 宫的条目。线上演示在 <a href="https://metisziwei.com/" rel="external nofollow noopener noreferrer" target="_blank">metisziwei.com</a>。作者署王多鱼AI，星标约 3800。</p>
+<p>样本标签写着 <strong>518,400</strong> 条，压缩分三卷约 5.5 GB，每条带命盘 JSON 和财运、事业、感情、健康等主题解读。口径与线上站一致，并称男女命、子午流注、女命保养字段做了覆盖检查。这是同一套规则批量展开后的语料，不是流行病学随访。拿它训命理模型，省的是爬盘时间，不是验证「说中了」。</p>
+<blockquote><p>开源内容含排盘、四化、格局库和古籍数据；不含 AI 解读 prompt、后端 API、用户系统、支付和部署配置。</p></blockquote>
+<p>v3.0-samples 在 2026 年 5 月 1 日打的这个包。想上线收费站，还得自己补账号、账单和那层会说话的提示词。</p>
+<p><img src="https://moyu.18uk.uk/2026/20260902-2cbd2c72-4223-4f2d-b094-3a270082b085.webp" alt=" 命理AI" width="700" loading="lazy" referrerpolicy="no-referrer" /></p>
+<h2>抄源码能起排盘页，训模型先把许可证读完</h2>
+<p>前端是 Next.js 14：排盘工作台、古籍阅读器、百科页。规则可参考 <code>lib/ziwei/patterns.ts</code> 一类文件自己拼 LLM 提示，仓库故意不把现成解读提示词放出来。代码常见 MIT；姊妹语料库写过 CC BY-NC-SA。样本要求在产品页或页脚标明来源。古籍和当代讲课整理还涉及原书与课程权利，商用前应单独核对，不能默认「开源等于可卖命书」。</p>
+<p>紫微斗数内部本就有三合与飞星、全书与全集四化表的分歧。庚年化科、壬年化科在不同传本上不一致。这套引擎选定《天纪》飞星口径，并写明纯飞星派页面已下线。和轻量库 <a href="https://github.com/SylarLong/iztro" rel="external nofollow noopener noreferrer" target="_blank">iztro</a> 比，那边提供多语言排盘 API，不附带五十万条解读文本。要网站交互抄本仓库更近；只要星盘数据结构，iztro 更瘦。</p>
+<table>
+<thead>
+<tr>
+<th>你想做的</th>
+<th>这个仓库直接给的</th>
+<th>你还要补的</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>排盘网站</td>
+<td>算法、Next 界面、宫星关系</td>
+<td>服务器、隐私政策和免责声明</td>
+</tr>
+<tr>
+<td>训解读模型</td>
+<td>51.8 万条同口径样本</td>
+<td>许可证、去重、防止把文本当事实</td>
+</tr>
+<tr>
+<td>合盘功能</td>
+<td>双盘比对逻辑说明</td>
+<td>产品层怎么展示不确定性</td>
+</tr>
+<tr>
+<td>SEO 词条</td>
+<td>14 星×12 宫图谱</td>
+<td>原创阐释，避免整页搬运古籍</td>
+</tr>
+</tbody>
+</table>
+<h3>健康和财运字段最容易被当成医嘱</h3>
+<p>样本里的健康主题含子午流注表述，女命含保养字段。这是命理文本的结构标签，不是诊疗记录。产品若把模型输出写成「必病」「必财」，就把规则引擎的确定性，偷换成身体和金钱上的确定性。排盘输入还是出生时分，时差、历法转换错一格，后面的四化全会偏。</p>
+<h2>数据平了路，因果还是平不了</h2>
+<ul>
+<li>做工具：先跑通安星与四化，再决定要不要加载 5.5 GB 样本</li>
+<li>做模型：把格局判定当分类标签，不要当预测标签</li>
+<li>做内容站：古籍当引用，页脚标明样本来源，正文写清娱乐与文化属性</li>
+<li>做决策：医疗、投资、婚恋仍应找对应专业，不找宫位</li>
+</ul>
+<p>开源降低的是「从零手写飞星表」的成本。它不能降低的是：不同流派互斥、解读文本自我强化、用户把文案当成命运。路铺平了，指的是工程路。把紫微斗数写成可运行的规则很好核对；把运行结果写成人生因果，规则帮不上忙。</p>
+<p>本文来源：<a href="https://www.moyunews.com/" rel="external nofollow noopener noreferrer" target="_blank">摸鱼杂货店</a>。查看原文：<a href="https://www.moyunews.com/ziwei-doushu-open-engine/" rel="external nofollow noopener noreferrer" target="_blank">紫微斗数开源引擎ziwei-doushu：51.8万盘能训模型，不能当因果</a>。</p></div>
+<p class="back"><a href="/">← 返回最新</a></p>
+</article>
+</main>
+<footer class="site-foot">
+<p>wocao.world — 本站内容全部转载自各订阅源，版权归原作者与原站所有。</p>
+</footer>
+</body>
+</html>

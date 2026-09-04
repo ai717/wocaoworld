@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Breeze-TTS-2开源了：能克隆、能捏声，权重却不能商用 · wocao.world</title>
+<meta name="description" content="开源的是推理代码和权重，不是一张商用许可证 BreezeBlue 放出 Breeze-TTS-2 的模型权重和 PyTorch 推理代码。公司由前 MiniMax 技术合伙人杨斌创立，做实时语音交互。中英都能读，宣传里把语音克隆、按描述捏声、指挥情绪语速、以及括号里的笑声叹气都写进同一套模型。仓库许可证要先读完：推理代码走 Apache 2.0，权重、衍生模型和自托管输出只允许研究与非商用。 参数大约 3B，官方推理需要一块能跑 CUDA 的英伟达卡。常规路径大约占用 8GB 显存，加速路径更高。托管 API 另算，公开标价大约每百万字符 34 美元。把 GitHub 克隆下来，不等于可以把生…">
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="wocao.world">
+<meta property="og:title" content="Breeze-TTS-2开源了：能克隆、能捏声，权重却不能商用 · wocao.world">
+<meta property="og:description" content="开源的是推理代码和权重，不是一张商用许可证 BreezeBlue 放出 Breeze-TTS-2 的模型权重和 PyTorch 推理代码。公司由前 MiniMax 技术合伙人杨斌创立，做实时语音交互。中英都能读，宣传里把语音克隆、按描述捏声、指挥情绪语速、以及括号里的笑声叹气都写进同一套模型。仓库许可证要先读完：推理代码走 Apache 2.0，权重、衍生模型和自托管输出只允许研究与非商用。 参数大约 3B，官方推理需要一块能跑 CUDA 的英伟达卡。常规路径大约占用 8GB 显存，加速路径更高。托管 API 另算，公开标价大约每百万字符 34 美元。把 GitHub 克隆下来，不等于可以把生…">
+<meta property="og:url" content="https://wocao.world/">
+<meta name="twitter:card" content="summary">
+<meta name="robots" content="noindex,follow">
+<link rel="alternate" type="application/rss+xml" title="wocao.world 聚合输出" href="/feed.xml">
+<link rel="stylesheet" href="/style.css">
+<link rel="canonical" href="https://www.moyunews.com/breeze-tts-2-open-weights/">
+</head>
+<body>
+<a class="skip-link" href="#main">跳到正文</a>
+<header class="site-head">
+<p class="site-title"><a href="/">wocao.world</a></p>
+<p class="site-desc">wocao.world</p>
+<nav class="site-nav">
+<a href="/">最新</a>
+<a href="/about/">关于</a>
+<a href="/feed.xml">RSS</a>
+</nav>
+</header>
+<main id="main">
+<article>
+<h1 class="post-title">Breeze-TTS-2开源了：能克隆、能捏声，权重却不能商用</h1>
+<div class="post-body"><h2>开源的是推理代码和权重，不是一张商用许可证</h2>
+<p>BreezeBlue 放出 Breeze-TTS-2 的模型权重和 PyTorch 推理代码。公司由前 MiniMax 技术合伙人杨斌创立，做实时语音交互。中英都能读，宣传里把<strong>语音克隆</strong>、按描述捏声、指挥情绪语速、以及括号里的笑声叹气都写进同一套模型。仓库许可证要先读完：推理代码走 Apache 2.0，权重、衍生模型和自托管输出只允许研究与非商用。</p>
+<p>参数大约 3B，官方推理需要一块能跑 CUDA 的英伟达卡。常规路径大约占用 8GB 显存，加速路径更高。托管 API 另算，公开标价大约每百万字符 34 美元。把 GitHub 克隆下来，不等于可以把生成的声音拿去接客服或卖有声书。</p>
+<p><img src="https://moyu.18uk.uk/2026/20260827-385d230f-d811-4580-bd5e-ae13a63b69a6.webp" alt="语音克隆" width="700" loading="lazy" referrerpolicy="no-referrer" /></p>
+<h2>四项能力，对应四种输入</h2>
+<p>克隆声音要同时给清晰录音和一字不差的文稿，模型按音色和口气续读新文本。设计声音不需要样本，直接写「声音温暖、语气平静的年轻女生」这类句子，生成一条新声线。指挥情绪和语速是在已有声音上加指令：慢一点、严肃一点、再热情一些；中文稿就用中文写指令。语气事件写在正文里：英文用括号，如 (laugh)、(sigh)、(clears throat)；中文用方括号，如 [笑]、[叹气]、[清嗓子]。</p>
+<p>公司还公开过语音设计、语音指挥和延迟评测集。Artificial Analysis 的 Provider Voices 赛道上，开源权重组里它一度排到前列，大约 1215 Elo，高于 Fish Audio S2 Pro 一带。总榜仍有闭源系统压在前面。官方还写过预热后的首包音频延迟，那是实验室卡上的快路径，笔记本上的数字会差一截。</p>
+<table>
+<thead>
+<tr>
+<th>你想做的事</th>
+<th>需要准备什么</th>
+<th>别踩的线</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>克隆一条声线</td>
+<td>干净录音加对齐文稿</td>
+<td>未授权去仿真人、公众人物</td>
+</tr>
+<tr>
+<td>从零捏声</td>
+<td>一段角色描述</td>
+<td>描述越空，声线越飘</td>
+</tr>
+<tr>
+<td>改情绪和语速</td>
+<td>同一条声音加指令</td>
+<td>指令语言最好和正文一致</td>
+</tr>
+<tr>
+<td>加笑声叹气</td>
+<td>按中英格式写进稿子</td>
+<td>事件堆太多会像音效轨</td>
+</tr>
+<tr>
+<td>上线收费产品</td>
+<td>走官方 API 或另签商用授权</td>
+<td>自托管输出默认不能商用</td>
+</tr>
+</tbody>
+</table>
+<h2>实时交互和内容生产不是同一条部署</h2>
+<p>模型冲着语音助手、边说边出声去的，WebSocket 可以跨轮次保持连接。做视频配音、有声书，更在乎稳定和授权，不一定要上最低延迟那条快路径。社区已有 ComfyUI 节点，方便把克隆、设计和指挥接进现有出图出视频工作流，许可证并不因此变松。</p>
+<p>开源降低的是把玩和复现的门槛。声线好不好听，听一段就知道；能不能拿去赚钱，看的是权重协议和录音权利。先确认样本来自本人同意，再决定是本地研究，还是付托管接口的钱。</p>
+<p>本文来源：<a href="https://www.moyunews.com/" rel="external nofollow noopener noreferrer" target="_blank">摸鱼杂货店</a>。查看原文：<a href="https://www.moyunews.com/breeze-tts-2-open-weights/" rel="external nofollow noopener noreferrer" target="_blank">Breeze-TTS-2开源了：能克隆、能捏声，权重却不能商用</a>。</p></div>
+<p class="back"><a href="/">← 返回最新</a></p>
+</article>
+</main>
+<footer class="site-foot">
+<p>wocao.world — 本站内容全部转载自各订阅源，版权归原作者与原站所有。</p>
+</footer>
+</body>
+</html>

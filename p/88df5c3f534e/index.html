@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>清华开源OpenMAIC：一句话能出互动课，替代不了教研组 · wocao.world</title>
+<meta name="description" content="开源的是课堂生成器，不是一所学校 THU-MAIC/OpenMAIC 全称 Open Multi-Agent Interactive Classroom。丢一个话题或一份材料，它能规划大纲，再生成幻灯片、测验、互动页，课堂上有 AI 老师讲、AI 同学讨论，课件可导出。仓库星标已过两万，团队来自清华，论文写过从 MOOC 到 MAIC 的路线，并称在校内数百名学生里做过较长周期试用。 2026 年 8 月底的 v1.0.0 加上 Pro 工作台：可以跟智能体改每一页，上传文档、音频、视频当教材，会话能中断再续。底层仍要你自己接大模型、语音和可选的视频导出服务。没有 Key，界面只是空壳。 能自…">
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="wocao.world">
+<meta property="og:title" content="清华开源OpenMAIC：一句话能出互动课，替代不了教研组 · wocao.world">
+<meta property="og:description" content="开源的是课堂生成器，不是一所学校 THU-MAIC/OpenMAIC 全称 Open Multi-Agent Interactive Classroom。丢一个话题或一份材料，它能规划大纲，再生成幻灯片、测验、互动页，课堂上有 AI 老师讲、AI 同学讨论，课件可导出。仓库星标已过两万，团队来自清华，论文写过从 MOOC 到 MAIC 的路线，并称在校内数百名学生里做过较长周期试用。 2026 年 8 月底的 v1.0.0 加上 Pro 工作台：可以跟智能体改每一页，上传文档、音频、视频当教材，会话能中断再续。底层仍要你自己接大模型、语音和可选的视频导出服务。没有 Key，界面只是空壳。 能自…">
+<meta property="og:url" content="https://wocao.world/">
+<meta name="twitter:card" content="summary">
+<meta name="robots" content="noindex,follow">
+<link rel="alternate" type="application/rss+xml" title="wocao.world 聚合输出" href="/feed.xml">
+<link rel="stylesheet" href="/style.css">
+<link rel="canonical" href="https://www.moyunews.com/openmaic-ai-classroom-2/">
+</head>
+<body>
+<a class="skip-link" href="#main">跳到正文</a>
+<header class="site-head">
+<p class="site-title"><a href="/">wocao.world</a></p>
+<p class="site-desc">wocao.world</p>
+<nav class="site-nav">
+<a href="/">最新</a>
+<a href="/about/">关于</a>
+<a href="/feed.xml">RSS</a>
+</nav>
+</header>
+<main id="main">
+<article>
+<h1 class="post-title">清华开源OpenMAIC：一句话能出互动课，替代不了教研组</h1>
+<div class="post-body"><h2>开源的是课堂生成器，不是一所学校</h2>
+<p><a href="https://github.com/THU-MAIC/OpenMAIC" rel="external nofollow noopener noreferrer" target="_blank">THU-MAIC/OpenMAIC</a> 全称 Open Multi-Agent Interactive Classroom。丢一个话题或一份材料，它能规划大纲，再生成幻灯片、测验、互动页，课堂上有 AI 老师讲、AI 同学讨论，课件可导出。仓库星标已过两万，团队来自清华，论文写过从 MOOC 到 MAIC 的路线，并称在校内数百名学生里做过较长周期试用。</p>
+<p>2026 年 8 月底的 v1.0.0 加上 Pro 工作台：可以跟智能体改每一页，上传文档、音频、视频当教材，会话能中断再续。底层仍要你自己接大模型、语音和可选的视频导出服务。没有 Key，界面只是空壳。</p>
+<p><img src="https://moyu.18uk.uk/2026/20260830-7732bf6c-5518-4a13-bca5-d7f94536d8a6.webp" alt="清华开源" width="700" loading="lazy" referrerpolicy="no-referrer" /></p>
+<h2>能自动走完的，和必须人盯的</h2>
+<p>经典模式偏一键出课：主题进，课堂出。Pro 模式把规划、改页、配图、测验、PBL、检索网页拆成可调用的工具，大约二十个内置技能。导出可走 PPT 或 HTML，视频导出是可选的重镜像，要另开 profile。飞书、Slack 一类入口靠集成，不是安装包自带全网教室。</p>
+<table>
+<thead>
+<tr>
+<th>它生成的</th>
+<th>课堂上像什么</th>
+<th>仍然容易漏</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>大纲和幻灯片</td>
+<td>有人在讲、有板书</td>
+<td>事实错误、过时例子</td>
+</tr>
+<tr>
+<td>测验和互动件</td>
+<td>能点、能答</td>
+<td>难度是否贴合真实学情</td>
+</tr>
+<tr>
+<td>AI 同学讨论</td>
+<td>不像对着空白对话框</td>
+<td>讨论是否在原地打转</td>
+</tr>
+<tr>
+<td>从材料拆课</td>
+<td>论文、讲义能进课堂</td>
+<td>版权、敏感内容和课标对齐</td>
+</tr>
+</tbody>
+</table>
+<p>许可证已从 AGPL 改到 MIT，二次开发比早期宽松。部署可用 Docker、Vercel 或本地 Node。模型可选 OpenAI、Anthropic、Gemini、DeepSeek 以及兼容接口。课生成得快，不等于教研组可以解散：课标、作业批改、情绪和安全，系统不会签字负责。</p>
+<h2>创业公司怕的不该是这个仓库本身</h2>
+<p>把「完整互动课」写进产品简介的团队，会感到压力，因为演示路径被开源摊平了。真正难卖的仍是内容质检、校本数据、账号体系和过审。OpenMAIC 把教室皮肤和多智能体编排交出来，API 账单和幻觉留给部署者。用它打样一节公开课很合适；用它宣布某种商业模式死刑，还早。</p>
+<p>本文来源：<a href="https://www.moyunews.com/" rel="external nofollow noopener noreferrer" target="_blank">摸鱼杂货店</a>。查看原文：<a href="https://www.moyunews.com/openmaic-ai-classroom-2/" rel="external nofollow noopener noreferrer" target="_blank">清华开源OpenMAIC：一句话能出互动课，替代不了教研组</a>。</p></div>
+<p class="back"><a href="/">← 返回最新</a></p>
+</article>
+</main>
+<footer class="site-foot">
+<p>wocao.world — 本站内容全部转载自各订阅源，版权归原作者与原站所有。</p>
+</footer>
+</body>
+</html>

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>中文Token成本暴增71%？Anthropic分词器被指“歧视”非英语 · wocao.world</title>
+<meta name="description" content="大模型API按Token计费，但你是否知道，说中文可能比说英语更贵？最新研究揭示了一个残酷现实：不同模型的分词器对非英语文本的处理效率差异巨大，直接导致Token成本天差地别。这项由Aran Komatsuzaki（@arankomatsuzaki）发起的测试，首次量化了主流模型在非英语语言上的隐性开销，其中Anthropic的Claude模型在处理中文时Token消耗竟然比OpenAI高出71%，堪称“昂贵的中文”。 核心发现：谁在“歧视”非英语语言？ 研究人员以经典论文《苦涩的教训》的翻译文本为基准，对比了多个模型在处理相同非英语内容时的Token生成量。结果令人咋舌：在处理中文时，Ant…">
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="wocao.world">
+<meta property="og:title" content="中文Token成本暴增71%？Anthropic分词器被指“歧视”非英语 · wocao.world">
+<meta property="og:description" content="大模型API按Token计费，但你是否知道，说中文可能比说英语更贵？最新研究揭示了一个残酷现实：不同模型的分词器对非英语文本的处理效率差异巨大，直接导致Token成本天差地别。这项由Aran Komatsuzaki（@arankomatsuzaki）发起的测试，首次量化了主流模型在非英语语言上的隐性开销，其中Anthropic的Claude模型在处理中文时Token消耗竟然比OpenAI高出71%，堪称“昂贵的中文”。 核心发现：谁在“歧视”非英语语言？ 研究人员以经典论文《苦涩的教训》的翻译文本为基准，对比了多个模型在处理相同非英语内容时的Token生成量。结果令人咋舌：在处理中文时，Ant…">
+<meta property="og:url" content="https://wocao.world/">
+<meta name="twitter:card" content="summary">
+<meta name="robots" content="noindex,follow">
+<link rel="alternate" type="application/rss+xml" title="wocao.world 聚合输出" href="/feed.xml">
+<link rel="stylesheet" href="/style.css">
+<link rel="canonical" href="https://www.moyunews.com/anthropic-chinese-token-cost-71-percent/">
+</head>
+<body>
+<a class="skip-link" href="#main">跳到正文</a>
+<header class="site-head">
+<p class="site-title"><a href="/">wocao.world</a></p>
+<p class="site-desc">wocao.world</p>
+<nav class="site-nav">
+<a href="/">最新</a>
+<a href="/about/">关于</a>
+<a href="/feed.xml">RSS</a>
+</nav>
+</header>
+<main id="main">
+<article>
+<h1 class="post-title">中文Token成本暴增71%？Anthropic分词器被指“歧视”非英语</h1>
+<div class="post-body"><p>大模型API按Token计费，但你是否知道，<strong>说中文可能比说英语更贵</strong>？最新研究揭示了一个残酷现实：不同模型的分词器对非英语文本的处理效率差异巨大，直接导致Token成本天差地别。这项由Aran Komatsuzaki（@arankomatsuzaki）发起的测试，首次量化了主流模型在非英语语言上的隐性开销，其中Anthropic的Claude模型在处理中文时Token消耗竟然比OpenAI高出71%，堪称“昂贵的中文”。</p>
+<h2>核心发现：谁在“歧视”非英语语言？</h2>
+<p>研究人员以经典论文《苦涩的教训》的翻译文本为基准，对比了多个模型在处理相同非英语内容时的Token生成量。结果令人咋舌：在处理中文时，Anthropic模型的Token消耗是OpenAI的1.71倍；印地语的情况更为夸张，高达3.24倍；阿拉伯语也达到2.86倍。这意味着，如果你用Claude处理中文长文档，账单可能比使用GPT-4o平白多出七成，堪称“语言税”。</p>
+<h3>模型对比：Gemini和Qwen最“公平”，Anthropic和Kimi垫底</h3>
+<p>在后续扩展测试中，研究人员纳入了更多模型-语言对。数据显示，Gemini和Qwen在处理非英语语言时额外开销最小，展现出更均衡的分词器设计。而Anthropic是额外开销最高的模型，Kimi紧随其后。值得注意的是，<strong>中国主流模型在处理中文时，Token效率甚至反超英语</strong>，体现出对母语文本的深度优化。印地语虽然拥有全球最多的母语使用者，但在所有测试模型中Token效率都是最低的，技术资源分配的不均衡在此暴露无遗。</p>
+<h2>为什么Token成本差异如此重要？</h2>
+<p>对于开发者与企业用户而言，Token效率直接转化为美元成本。尤其是在处理大规模非英语语料、多语言客服、跨境内容生产等场景中，选择模型不慎可能导致月账单轻松翻倍。这项研究提醒我们，<strong>模型选型不应只看Benchmark跑分，分词器的语言友好度同样是关键生产力指标</strong>。如果你主要服务中文用户，使用Qwen或Gemini可能比盲目迷信海外明星模型更省钱。</p>
+<p><img src="https://my.18uk.uk/file/AgACAgUAAyEGAATpoe1oAAMbakw3Mn99n3AHT1rqg2-kaYFSvrcAAtoSaxtOaGFW4Sm5W4-ntkwBAAMCAAN5AAM8BA.webp" alt="" loading="lazy" referrerpolicy="no-referrer" /></p>
+<p> </p>
+<p>#Token成本 #大模型 #Anthropic #OpenAI #多语言</p>
+<p>本文来源：<a href="https://www.moyunews.com/" rel="external nofollow noopener noreferrer" target="_blank">摸鱼杂货店</a>。查看原文：<a href="https://www.moyunews.com/anthropic-chinese-token-cost-71-percent/" rel="external nofollow noopener noreferrer" target="_blank">中文Token成本暴增71%？Anthropic分词器被指“歧视”非英语</a>。</p></div>
+<p class="back"><a href="/">← 返回最新</a></p>
+</article>
+</main>
+<footer class="site-foot">
+<p>wocao.world — 本站内容全部转载自各订阅源，版权归原作者与原站所有。</p>
+</footer>
+</body>
+</html>

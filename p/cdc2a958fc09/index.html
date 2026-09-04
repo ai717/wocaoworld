@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>开启Chrome隐藏AI功能：Gemini与AI搜索一键解锁脚本教程 · wocao.world</title>
+<meta name="description" content="解禁 Chrome 隐藏战力：三步开启谷歌浏览器原生 Gemini 与 AI 搜索功能 在 AI 浏览器大战中，Google Chrome 其实内置了极为强大的 AI 全家桶——从侧边栏的 Gemini 到 AI 驱动的历史记录搜索，再到 DevTools AI。然而，由于地理位置限制或灰度测试，这些功能对许多用户来说依然处于“封印”状态。 以往我们需要通过复杂的 Flag 设置甚至重装系统来尝试解锁，但现在，一个名为 Enable Chrome AI 的轻量级 Python 工具彻底改变了规则。无需清除数据，无需代理到特定节点，直接在底层完成“降维打击”。 一、 它是如何运作的？（技术解密）…">
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="wocao.world">
+<meta property="og:title" content="开启Chrome隐藏AI功能：Gemini与AI搜索一键解锁脚本教程 · wocao.world">
+<meta property="og:description" content="解禁 Chrome 隐藏战力：三步开启谷歌浏览器原生 Gemini 与 AI 搜索功能 在 AI 浏览器大战中，Google Chrome 其实内置了极为强大的 AI 全家桶——从侧边栏的 Gemini 到 AI 驱动的历史记录搜索，再到 DevTools AI。然而，由于地理位置限制或灰度测试，这些功能对许多用户来说依然处于“封印”状态。 以往我们需要通过复杂的 Flag 设置甚至重装系统来尝试解锁，但现在，一个名为 Enable Chrome AI 的轻量级 Python 工具彻底改变了规则。无需清除数据，无需代理到特定节点，直接在底层完成“降维打击”。 一、 它是如何运作的？（技术解密）…">
+<meta property="og:url" content="https://wocao.world/">
+<meta name="twitter:card" content="summary">
+<meta name="robots" content="noindex,follow">
+<link rel="alternate" type="application/rss+xml" title="wocao.world 聚合输出" href="/feed.xml">
+<link rel="stylesheet" href="/style.css">
+<link rel="canonical" href="https://www.moyunews.com/enable-chrome-hidden-ai-features-guide/">
+</head>
+<body>
+<a class="skip-link" href="#main">跳到正文</a>
+<header class="site-head">
+<p class="site-title"><a href="/">wocao.world</a></p>
+<p class="site-desc">wocao.world</p>
+<nav class="site-nav">
+<a href="/">最新</a>
+<a href="/about/">关于</a>
+<a href="/feed.xml">RSS</a>
+</nav>
+</header>
+<main id="main">
+<article>
+<h1 class="post-title">开启Chrome隐藏AI功能：Gemini与AI搜索一键解锁脚本教程</h1>
+<div class="post-body"><h2><b>解禁 Chrome 隐藏战力：三步开启谷歌浏览器原生 Gemini 与 AI 搜索功能</b></h2>
+<p>在 AI 浏览器大战中，Google Chrome 其实内置了极为强大的 AI 全家桶——从侧边栏的 <b>Gemini</b> 到 AI 驱动的<b>历史记录搜索</b>，再到 <b>DevTools AI</b>。然而，由于地理位置限制或灰度测试，这些功能对许多用户来说依然处于“封印”状态。</p>
+<p>以往我们需要通过复杂的 Flag 设置甚至重装系统来尝试解锁，但现在，一个名为 <b>Enable Chrome AI</b> 的轻量级 Python 工具彻底改变了规则。无需清除数据，无需代理到特定节点，直接在底层完成“降维打击”。</p>
+<p><img src="https://s2.loli.net/2026/02/07/KJm7HBEdQGaZTrz.png" alt="开启Chrome隐藏AI功能" width="500" loading="lazy" referrerpolicy="no-referrer" /></p>
+<h2>一、 它是如何运作的？（技术解密）</h2>
+<p><b>Enable Chrome AI</b> 的核心逻辑并非通过前端 Flag 撞大运气，而是直接对 Chrome 的本地配置文件（Local State）进行“微创手术”。</p>
+<ul>
+<li>
+<p><b>绕过地理限制</b>：自动将 <code>variations_country</code> 设置为 “us”。</p>
+</li>
+<li>
+<p><b>激活 AI 准入</b>：递归搜索并将所有 <code>is_glic_eligible</code> 标志设为 <code>true</code>。</p>
+</li>
+<li>
+<p><b>持久化生效</b>：通过修改一致性国家代码，确保重启后功能依然常驻。</p>
+</li>
+</ul>
+<h2>二、 准备工作</h2>
+<p>在开始这场极客冒险前，请确保您的环境满足以下条件：</p>
+<ul>
+<li>
+<p><b>Python 版本</b>：需要 Python 3.13+（这符合 2026 年的主流开发标准）。</p>
+</li>
+<li>
+<p><b>浏览器状态</b>：支持 Chrome 的所有版本（Stable / Canary / Dev / Beta）。</p>
+</li>
+</ul>
+<h2>三、 闪电开启步骤（以 uv 为例）</h2>
+<p>推荐使用高性能的 <code>uv</code> 工具，它可以自动为您管理虚拟环境和依赖。</p>
+<ol>
+<li>
+<p><b>安装 uv（如果尚未安装）</b>：</p>
+<ul>
+<li>
+<p>Windows: <code>powershell -ExecutionPolicy ByPass -c "irm https://astral.sh/uv/install.ps1 | iex"</code></p>
+</li>
+<li>
+<p>macOS / Linux: <code>curl -LsSf https://astral.sh/uv/install.sh | sh</code></p>
+</li>
+</ul>
+</li>
+<li>
+<p><b>执行 Patch</b>： 进入项目目录后，直接运行：</p>
+<div>
+<div><span>Bash</span><p></p>
+<div></div>
+</div>
+<div>
+<div>
+<pre><code>uv sync
+uv run main.py
+</code></pre>
+</div>
+</div>
+</div>
+</li>
+<li>
+<p><b>重启 Chrome</b>： 脚本会自动检测并关闭 Chrome 进程，完成修改后自动拉起。按下回车，你将看到一个“脱胎换骨”的 AI 浏览器。</p>
+</li>
+</ol>
+<h2>四、 风险与提示</h2>
+<ul>
+<li>
+<p><b>数据安全</b>：脚本会直接写入您的配置文件，建议在运行前备份 <code>User Data</code> 目录。</p>
+</li>
+<li>
+<p><b>独立性</b>：此工具为开源社区项目，非 Google 官方提供，请在知晓风险的情况下使用。</p>
+</li>
+</ul>
+<p><b><img src="https://s.w.org/images/core/emoji/17.0.2/72x72/1f517.png" alt="🔗" loading="lazy" referrerpolicy="no-referrer" /> GitHub 项目地址：</b> <a href="https://github.com/lcandy2/enable-chrome-ai" target="_blank" rel="external nofollow noopener noreferrer">https://github.com/lcandy2/enable-chrome-ai</a></p>
+<p>
+</p><p><img src="https://s.w.org/images/core/emoji/17.0.2/svg/2764.svg" alt="❤" loading="lazy" referrerpolicy="no-referrer" />X关注： <a href="https://x.com/MoyuAI" target="_blank" rel="external nofollow noopener noreferrer">https://x.com/MoyuAI</a></p>
+<p><img src="https://s.w.org/images/core/emoji/17.0.2/svg/2728.svg" alt="✨" loading="lazy" referrerpolicy="no-referrer" />提示词案例：<a href="https://www.moyunews.com/ai/" target="_blank" rel="external nofollow noopener noreferrer">https://www.moyunews.com/ai/</a></p>
+<p>本文来源：<a href="https://www.moyunews.com/" rel="external nofollow noopener noreferrer" target="_blank">摸鱼杂货店</a>。查看原文：<a href="https://www.moyunews.com/enable-chrome-hidden-ai-features-guide/" rel="external nofollow noopener noreferrer" target="_blank">开启Chrome隐藏AI功能：Gemini与AI搜索一键解锁脚本教程</a>。</p></div>
+<p class="back"><a href="/">← 返回最新</a></p>
+</article>
+</main>
+<footer class="site-foot">
+<p>wocao.world — 本站内容全部转载自各订阅源，版权归原作者与原站所有。</p>
+</footer>
+</body>
+</html>

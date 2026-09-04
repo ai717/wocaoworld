@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>打造“拆解与重构大师”的三联画工业叙事 · wocao.world</title>
+<meta name="description" content="模型拆解重构 在工业设计和模型制作领域，“Kitbashing（零件混搭/杀肉）”是一种极具创造力的方法——通过拆解现有的模型套件或物品，利用其零件创造出全新的东西。今天分享的**“拆解与重构大师 (V1.0)”**，将这种物理世界的硬核玩法完美移植到了 AI 世界，利用强大的 Prompt 逻辑，生成令人惊叹的工业叙事三联画。 核心特征说明 三联画叙事：一张图讲完故事。左边是原物，右上是拆解零件图（Knolling），右下是重组后的新物，结构清晰。 Kitbashing 思维：核心玩法！把现成物品当成零件库，拆散后重新组合，脑洞大开。 材质一致性：新的创造物必须保留原物品的涂装、Logo和质…">
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="wocao.world">
+<meta property="og:title" content="打造“拆解与重构大师”的三联画工业叙事 · wocao.world">
+<meta property="og:description" content="模型拆解重构 在工业设计和模型制作领域，“Kitbashing（零件混搭/杀肉）”是一种极具创造力的方法——通过拆解现有的模型套件或物品，利用其零件创造出全新的东西。今天分享的**“拆解与重构大师 (V1.0)”**，将这种物理世界的硬核玩法完美移植到了 AI 世界，利用强大的 Prompt 逻辑，生成令人惊叹的工业叙事三联画。 核心特征说明 三联画叙事：一张图讲完故事。左边是原物，右上是拆解零件图（Knolling），右下是重组后的新物，结构清晰。 Kitbashing 思维：核心玩法！把现成物品当成零件库，拆散后重新组合，脑洞大开。 材质一致性：新的创造物必须保留原物品的涂装、Logo和质…">
+<meta property="og:url" content="https://wocao.world/">
+<meta name="twitter:card" content="summary">
+<meta name="robots" content="noindex,follow">
+<link rel="alternate" type="application/rss+xml" title="wocao.world 聚合输出" href="/feed.xml">
+<link rel="stylesheet" href="/style.css">
+<link rel="canonical" href="https://www.moyunews.com/ai-kitbashing-triptych-prompt/">
+</head>
+<body>
+<a class="skip-link" href="#main">跳到正文</a>
+<header class="site-head">
+<p class="site-title"><a href="/">wocao.world</a></p>
+<p class="site-desc">wocao.world</p>
+<nav class="site-nav">
+<a href="/">最新</a>
+<a href="/about/">关于</a>
+<a href="/feed.xml">RSS</a>
+</nav>
+</header>
+<main id="main">
+<article>
+<h1 class="post-title">打造“拆解与重构大师”的三联画工业叙事</h1>
+<div class="post-body"><h2>模型拆解重构</h2>
+<p>在工业设计和模型制作领域，“Kitbashing（零件混搭/杀肉）”是一种极具创造力的方法——通过拆解现有的模型套件或物品，利用其零件创造出全新的东西。今天分享的**“拆解与重构大师 (V1.0)”**，将这种物理世界的硬核玩法完美移植到了 AI 世界，利用强大的 Prompt 逻辑，生成令人惊叹的工业叙事三联画。</p>
+<p><img src="https://s2.loli.net/2026/02/01/wj4gtRXFIcydJ9W.png" alt="模型拆解重构" width="750" loading="lazy" referrerpolicy="no-referrer" /></p>
+<h2><b>核心特征说明</b></h2>
+<p><img src="https://s.w.org/images/core/emoji/17.0.2/72x72/1f5bc.png" alt="🖼" loading="lazy" referrerpolicy="no-referrer" /> <b>三联画叙事</b>：一张图讲完故事。左边是原物，右上是拆解零件图（Knolling），右下是重组后的新物，结构清晰。 <img src="https://s.w.org/images/core/emoji/17.0.2/72x72/1f6e0.png" alt="🛠" loading="lazy" referrerpolicy="no-referrer" /> <b>Kitbashing 思维</b>：核心玩法！把现成物品当成零件库，拆散后重新组合，脑洞大开。 <img src="https://s.w.org/images/core/emoji/17.0.2/72x72/1f9ec.png" alt="🧬" loading="lazy" referrerpolicy="no-referrer" /> <b>材质一致性</b>：新的创造物必须保留原物品的涂装、Logo和质感，确保改装的真实度。 <img src="https://s.w.org/images/core/emoji/17.0.2/72x72/1f529.png" alt="🔩" loading="lazy" referrerpolicy="no-referrer" /> <b>制造痕迹</b>：细节控福音。画面里有散落的螺丝、切割边缘和手工痕迹。</p>
+<h2><b>关键技术拆解</b></h2>
+<p><b><img src="https://s.w.org/images/core/emoji/17.0.2/72x72/1f511.png" alt="🔑" loading="lazy" referrerpolicy="no-referrer" /> 视觉结构：Triptych Layout Control (三联画布局控制)</b> 这套 Prompt 的成功建立在 nanobanana 等模型强大的构图控制力之上。我们使用了明确的分镜标签：<code>[LEFT PANEL]</code>, <code>[TOP RIGHT PANEL]</code>, <code>[BOTTOM RIGHT PANEL]</code>。这种强制性的布局指令，让 AI 能够在单张画布上精确地划分区域，讲述一个关于“进化”的故事。</p>
+<p><b><img src="https://s.w.org/images/core/emoji/17.0.2/72x72/1f511.png" alt="🔑" loading="lazy" referrerpolicy="no-referrer" /> 创意逻辑：The Kitbashing Mindset (Kitbashing 思维)</b> 我们不仅是在要求一张图，更是在要求一种设计思维。Prompt 强调新物体必须 <code>constructed ENTIRELY from the cut-up parts</code>。这意味着 AI 需要“理解”原物体的几何结构，思考如何把一个球体的篮球拆解成片，再重新拼装成一个机械蝎子的装甲。这是一种高级的空间推理能力。</p>
+<p><b><img src="https://s.w.org/images/core/emoji/17.0.2/72x72/1f511.png" alt="🔑" loading="lazy" referrerpolicy="no-referrer" /> 扩展玩法：Organic Mechanization (有机生物机械化)</b> 这套逻辑不仅限于工业品。</p>
+<ul>
+<li>
+<p><b>Source Object</b>: 输入一只活物，如 “A Lobster (一只龙虾)”。</p>
+</li>
+<li>
+<p><b>Material Logic</b>: 描述其生物特征，如 “Red chitinous shells, jointed limbs, organic textures (红色几丁质外壳、关节肢体、有机纹理)”。</p>
+</li>
+<li>
+<p><b>Target Creation</b>: 重组为 “A Mecha-Lobster Submarine (机械龙虾潜艇)”。 AI 会生成一个保留了龙虾甲壳颜色和纹理，但结构上是机械潜艇的惊艳作品，完美融合生物感与机械感。</p>
+</li>
+</ul>
+<p><img src="https://s2.loli.net/2026/02/01/8Gm4Pu176EQnrOb.png" alt="模型拆解重构" width="600" loading="lazy" referrerpolicy="no-referrer" /></p>
+<p><img src="https://s2.loli.net/2026/02/01/i2xQVRdUu5Bpyg6.png" alt="模型拆解重构" width="600" loading="lazy" referrerpolicy="no-referrer" /></p>
+<p><img src="https://s2.loli.net/2026/02/01/2eEgO3V7hScPTJU.png" alt="模型拆解重构" width="600" loading="lazy" referrerpolicy="no-referrer" /></p>
+<h2><b>实际使用场景</b></h2>
+<p>这套系统是极客和设计师的灵感引擎：</p>
+<p><b>场景一：工业/概念设计练习（原案例）</b>。探索如何将日常物品（如相机）转化为科幻载具。 <b>场景二：环保/回收利用宣传</b>。直观地展示废旧物品如何被创造性地重用。 <b>场景三：模型/Maker 社区内容</b>。生成虚拟的模型改装方案，寻找制作灵感。 <b>场景四：游戏/影视概念艺术</b>。快速生成具有特定风格（如废土风、赛博朋克风）的道具设计。</p>
+<h2><b>结语 &amp; 提示词下载</b></h2>
+<p>AI 让我们拥有了无限的“数字零件库”。这套 Prompt 是你释放创造力的瑞士军刀。以下是完整的 JSON 协议，复制它，选择你的“受害者”（Source Object），开始你的疯狂改装吧。</p>
+<p><img src="https://s.w.org/images/core/emoji/17.0.2/svg/1f5bc.svg" alt="🖼" loading="lazy" referrerpolicy="no-referrer" />更多案例：<a href="https://my.feishu.cn/wiki/OzfIw5oTii0C60k9baLcGbdFnie?from=from_copylink" target="_blank" rel="external nofollow noopener noreferrer">https://my.feishu.cn/wiki/OzfIw5oTii0C60k9baLcGbdFnie?from=from_copylink</a></p>
+<div>
+<p><img src="https://s.w.org/images/core/emoji/17.0.2/svg/2728.svg" alt="✨" loading="lazy" referrerpolicy="no-referrer" />专题：<a href="https://www.moyunews.com/ai/" target="_blank" rel="external nofollow noopener noreferrer">https://www.moyunews.com/ai/</a></p>
+<p><img src="https://s.w.org/images/core/emoji/17.0.2/svg/2764.svg" alt="❤" loading="lazy" referrerpolicy="no-referrer" />关注：<a href="https://x.com/MoyuAI" target="_blank" rel="external nofollow noopener noreferrer">https://x.com/MoyuAI</a></p>
+<table>
+<tbody>
+<tr>
+<td>{<br />
+“template_name”: “Deconstruct_Reconstruct_Master_V1”,<br />
+“template_version”: “1.0.0”,<br />
+“template_purpose”: “Generates a comprehensive 3-panel storyboard (Triptych) showing the transformation of an object: Original -&gt; Disassembled Parts -&gt; New Creation. It emphasizes the logic of industrial design and model kitbashing.”,<br />
+“applicable_models”: [<br />
+“Midjourney v6 (Best for Multi-panel composition)”,<br />
+“DALL-E 3 (Good for logic, but grid might need specific prompting)”,<br />
+“Stable Diffusion XL (ControlNet recommended for strict layout)”<br />
+],<br />
+“input_assumptions”: “The system acts as a Master Model Maker. It takes a source object, conceptually breaks it down into components, and reassembles them into a new form, maintaining material and color consistency.”,<br />
+“editable_fields”: [<br />
+{<br />
+“field_key”: “source_object”,<br />
+“label_cn”: “原始物品 (Source Object)”,<br />
+“description_cn”: “您上传的图片内容，或者您想要拆解的物品。”,<br />
+“example_values”: [<br />
+“A white Monster Energy drink can (白色魔爪能量饮料罐)”,<br />
+“A vintage SLR camera (复古单反相机)”,<br />
+“A Nintendo Gameboy (任天堂游戏机)”,<br />
+“A leather basketball (真皮篮球)”<br />
+]<br />
+},<br />
+{<br />
+“field_key”: “target_creation”,<br />
+“label_cn”: “重组新物品 (New Creation)”,<br />
+“description_cn”: “拆解后组装成什么？若不填，AI将根据原物形状自动联想（如：金属罐-&gt;战斗机）。”,<br />
+“example_values”: [<br />
+“A futuristic fighter jet (未来战斗机)”,<br />
+“A mechanical scorpion (机械蝎子)”,<br />
+“A mini cybernetic robot (迷你赛博机器人)”,<br />
+“A scifi heavy tank (科幻重型坦克)”<br />
+]<br />
+},<br />
+{<br />
+“field_key”: “environment_context”,<br />
+“label_cn”: “背景环境 (Background)”,<br />
+“description_cn”: “符合物品属性的制作环境，建议带有景深虚化。”,<br />
+“example_values”: [<br />
+“Wooden workbench with cutting mats and tools (带有切割垫和工具的木质工作台)”,<br />
+“Clean laboratory desk (干净的实验室桌面)”,<br />
+“Garage mechanic table with oil stains (带有油渍的车库机械桌)”,<br />
+“Marble dining table (大理石餐桌)”<br />
+]<br />
+},<br />
+{<br />
+“field_key”: “material_logic”,<br />
+“label_cn”: “材质逻辑 (Material Details)”,<br />
+“description_cn”: “描述拆解后的核心材质，确保新旧物品质感统一。”,<br />
+“example_values”: [<br />
+“Thin aluminum sheets, jagged edges, silver metallic interiors (薄铝片、锯齿状边缘、银色金属内壁)”,<br />
+“Black plastic shells, green circuit boards, copper wires (黑色塑料外壳、绿色电路板、铜线)”,<br />
+“Worn leather texture, rubber bladder pieces (磨损的皮革纹理、橡胶内胆碎片)”<br />
+]<br />
+}<br />
+],<br />
+“generation_constraints”: {<br />
+“composition”: [<br />
+“Triptych Layout (Three Panels)”,<br />
+“Left Panel (Vertical): Original Object”,<br />
+“Right Top Panel (Square): Exploded View / Knolling”,<br />
+“Right Bottom Panel (Square): Reassembled Result”,<br />
+“16:9 Aspect Ratio”<br />
+],<br />
+“logic_enforcement”: [<br />
+“Conservation of Mass: The new object must look like it is made of the OLD parts.”,<br />
+“Color Consistency: If source is white/silver, the result must be white/silver.”,<br />
+“Visible Construction: Show screws, cut edges, glue marks, or bent metal to prove it’s a DIY build.”<br />
+],<br />
+“quality”: [<br />
+“Macro Photography”,<br />
+“Depth of Field”,<br />
+“Industrial Design Render”,<br />
+“Octane Render”,<br />
+“Hyper-realistic”<br />
+],<br />
+“negative”: [<br />
+“morphing”,<br />
+“magic transformation”,<br />
+“cartoon”,<br />
+“impossible geometry”,<br />
+“clean CGI (should look like a physical model)”,<br />
+“plain white background (unless specified)”<br />
+]<br />
+},<br />
+“final_image_prompt”: “A photorealistic triptych collage image with a split-screen layout, 16:9 aspect ratio, showcasing a creative ‘Kitbashing’ industrial design project. The background is a {{environment_context}} with shallow depth of field. [LEFT PANEL – THE SOURCE]: Displays a pristine, whole {{source_object}} standing upright, establishing the source material. [TOP RIGHT PANEL – THE AUTOPSY]: Shows the {{source_object}} completely disassembled in a ‘Knolling’ layout. We see {{material_logic}}, scattered screws, and internal components neatly arranged on the cutting mat. [BOTTOM RIGHT PANEL – THE REBIRTH]: Displays a miniature {{target_creation}} constructed ENTIRELY from the cut-up parts of the {{source_object}}. The new object retains the branding, colors, and surface textures of the original item, showing visible cut lines, bent metal/plastic, and clever use of the original geometry. The lighting is cinematic studio lighting highlighting the textures. –ar 16:9 –v 6.0”<br />
+}</td>
+</tr>
+</tbody>
+</table>
+</div>
+<hr />
+<h2>AI Industrial Design: The “Deconstruct &amp; Reconstruct Master” Triptych Workflow</h2>
+<p>Want to turn a vintage camera into a sci-fi walker robot? This article introduces the “Deconstruct &amp; Reconstruct Master” prompt. Utilizing a triptych layout and “Kitbashing Mindset,” it uses nanobanana logic to generate a stunning visual narrative showing an object’s transformation from original, to disassembled parts, to a new creation.</p>
+<p>#AIIndustrialDesign #Kitbashing #ConceptArt #PromptEngineering #TriptychArt #ModelMaking #Cyberpunk #VisualStorytelling #nanobanana #CreativeDesign #moyuai</p>
+<p>In industrial design and model making, “Kitbashing” is the creative art of dismantling existing kits or objects to build something entirely new. Today, I’m sharing the <b>“Deconstruct &amp; Reconstruct Master (V1.0),”</b> a workflow that translates this hardcore physical process into the digital AI realm, generating powerful triptych industrial narratives.</p>
+<h2><b>Core Features</b></h2>
+<p><img src="https://s.w.org/images/core/emoji/17.0.2/72x72/1f5bc.png" alt="🖼" loading="lazy" referrerpolicy="no-referrer" /> <b>Triptych Narrative</b>: Tells a complete story in one image. Left: Source Object; Top Right: Disassembled Knolling; Bottom Right: Reassembled Creation. <img src="https://s.w.org/images/core/emoji/17.0.2/72x72/1f6e0.png" alt="🛠" loading="lazy" referrerpolicy="no-referrer" /> <b>Kitbashing Mindset</b>: Treat existing objects as parts libraries. Dismantle and recombine them creatively. <img src="https://s.w.org/images/core/emoji/17.0.2/72x72/1f9ec.png" alt="🧬" loading="lazy" referrerpolicy="no-referrer" /> <b>Material Consistency</b>: The new creation must retain the branding, color, and texture of the original object, ensuring a realistic “modded” look. <img src="https://s.w.org/images/core/emoji/17.0.2/72x72/1f529.png" alt="🔩" loading="lazy" referrerpolicy="no-referrer" /> <b>Construction Traces</b>: Adds details like scattered screws and cut edges for a DIY, handmade feel.</p>
+<h2><b>Technical Breakdown</b></h2>
+<p><b><img src="https://s.w.org/images/core/emoji/17.0.2/72x72/1f511.png" alt="🔑" loading="lazy" referrerpolicy="no-referrer" /> Visual Structure: Triptych Layout Control</b> This prompt’s success relies on the compositional control of advanced AI models. We use explicit layout tags: <code>[LEFT PANEL]</code>, <code>[TOP RIGHT PANEL]</code>, <code>[BOTTOM RIGHT PANEL]</code>. This forced structure allows the AI to cleanly partition the canvas and tell a story of evolution.</p>
+<p><b><img src="https://s.w.org/images/core/emoji/17.0.2/72x72/1f511.png" alt="🔑" loading="lazy" referrerpolicy="no-referrer" /> Creative Logic: The Kitbashing Mindset</b> We aren’t just asking for an image; we’re asking for a design process. The prompt emphasizes that the new object must be <code>constructed ENTIRELY from the cut-up parts</code>. This forces the AI to use spatial reasoning, figuring out how to unfold a cylindrical soda can and refold it into a fighter jet’s wing.</p>
+<p><b><img src="https://s.w.org/images/core/emoji/17.0.2/72x72/1f511.png" alt="🔑" loading="lazy" referrerpolicy="no-referrer" /> Expansion: Organic Mechanization</b> This logic extends beyond industrial objects.</p>
+<ul>
+<li>
+<p><b>Source</b>: Input a living creature, like “A Lobster.”</p>
+</li>
+<li>
+<p><b>Logic</b>: Describe its bio-features, “Red chitinous shells, jointed limbs.”</p>
+</li>
+<li>
+<p><b>Target</b>: Reassemble into “A Mecha-Lobster Submarine.” The AI will generate a stunning fusion, creating a mechanical vehicle that retains the organic texture and color of the lobster shell.</p>
+</li>
+</ul>
+<h2><b>Use Cases</b></h2>
+<p>This system is an inspiration engine for makers and designers:</p>
+<p><b>Case 1: Industrial/Concept Design</b>. Exploring how to transform everyday objects into sci-fi props. <b>Case 2: Upcycling/Sustainability</b>. Visually demonstrating creative reuse of waste materials. <b>Case 3: Maker Community Content</b>. Generating virtual modding concepts for inspiration. <b>Case 4: Game Concept Art</b>. Rapidly generating props with specific aesthetics (e.g., wasteland, cyberpunk).</p>
+<p>本文来源：<a href="https://www.moyunews.com/" rel="external nofollow noopener noreferrer" target="_blank">摸鱼杂货店</a>。查看原文：<a href="https://www.moyunews.com/ai-kitbashing-triptych-prompt/" rel="external nofollow noopener noreferrer" target="_blank">打造“拆解与重构大师”的三联画工业叙事</a>。</p></div>
+<p class="back"><a href="/">← 返回最新</a></p>
+</article>
+</main>
+<footer class="site-foot">
+<p>wocao.world — 本站内容全部转载自各订阅源，版权归原作者与原站所有。</p>
+</footer>
+</body>
+</html>

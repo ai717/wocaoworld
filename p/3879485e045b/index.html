@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>把agency-agents喂进Cursor之前，先看.md里写了什么 · wocao.world</title>
+<meta name="description" content="十五万星的目录里，每一份都是可审计的提示词 msitarzewski/agency-agents 把 CEO、程序员、律师、增长黑客写成一份份 Markdown。Agent角色 在这里不是进程，是带个性、流程和交付物说明的系统提示。2026 年 9 月初星标约 15 万、分叉约 2.4 万，MIT 许可。安全页写明：代理文件不应夹密钥；install.sh、convert.sh 会改本机目录，跑之前要自己读。 2026 年 7 月已有盘点写过约 16 个部门、232 个专家。8 月后研究综合、知识图谱、隐私工程还在往里加，「200 多个」只是当下的约数。打开任意一份就能看到口吻、禁止事项和作者…">
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="wocao.world">
+<meta property="og:title" content="把agency-agents喂进Cursor之前，先看.md里写了什么 · wocao.world">
+<meta property="og:description" content="十五万星的目录里，每一份都是可审计的提示词 msitarzewski/agency-agents 把 CEO、程序员、律师、增长黑客写成一份份 Markdown。Agent角色 在这里不是进程，是带个性、流程和交付物说明的系统提示。2026 年 9 月初星标约 15 万、分叉约 2.4 万，MIT 许可。安全页写明：代理文件不应夹密钥；install.sh、convert.sh 会改本机目录，跑之前要自己读。 2026 年 7 月已有盘点写过约 16 个部门、232 个专家。8 月后研究综合、知识图谱、隐私工程还在往里加，「200 多个」只是当下的约数。打开任意一份就能看到口吻、禁止事项和作者…">
+<meta property="og:url" content="https://wocao.world/">
+<meta name="twitter:card" content="summary">
+<meta name="robots" content="noindex,follow">
+<link rel="alternate" type="application/rss+xml" title="wocao.world 聚合输出" href="/feed.xml">
+<link rel="stylesheet" href="/style.css">
+<link rel="canonical" href="https://www.moyunews.com/agency-agents-markdown-personas/">
+</head>
+<body>
+<a class="skip-link" href="#main">跳到正文</a>
+<header class="site-head">
+<p class="site-title"><a href="/">wocao.world</a></p>
+<p class="site-desc">wocao.world</p>
+<nav class="site-nav">
+<a href="/">最新</a>
+<a href="/about/">关于</a>
+<a href="/feed.xml">RSS</a>
+</nav>
+</header>
+<main id="main">
+<article>
+<h1 class="post-title">把agency-agents喂进Cursor之前，先看.md里写了什么</h1>
+<div class="post-body"><h2>十五万星的目录里，每一份都是可审计的提示词</h2>
+<p><a href="https://github.com/msitarzewski/agency-agents" rel="external nofollow noopener noreferrer" target="_blank">msitarzewski/agency-agents</a> 把 CEO、程序员、律师、增长黑客写成一份份 Markdown。<strong>Agent角色</strong> 在这里不是进程，是带个性、流程和交付物说明的系统提示。2026 年 9 月初星标约 15 万、分叉约 2.4 万，MIT 许可。安全页写明：代理文件不应夹密钥；<code>install.sh</code>、<code>convert.sh</code> 会改本机目录，跑之前要自己读。</p>
+<p>2026 年 7 月已有盘点写过约 16 个部门、232 个专家。8 月后研究综合、知识图谱、隐私工程还在往里加，「200 多个」只是当下的约数。打开任意一份就能看到口吻、禁止事项和作者设想的产出格式。那句仓库介绍里的 proven deliverables，是提示词作者的验收想象，不是你的业务回测。</p>
+<blockquote><p>A complete AI agency at your fingertips.</p></blockquote>
+<p>指尖上的是通讯录。公司主体、保险和客户合同都不在仓库里。</p>
+<p><img src="https://moyu.18uk.uk/2026/20260902-4f533a74-42c0-4403-a649-7ab6f633dff2.webp" alt=" Agent角色" width="720" loading="lazy" referrerpolicy="no-referrer" /></p>
+<h2>同一份人设要写成 Claude Code 和 Cursor 两套路径</h2>
+<p>Claude Code 常见做法是 <code>./scripts/install.sh --tool claude-code</code>，或把 <code>engineering/*.md</code> 拷进 <code>~/.claude/agents/</code>，再在对话里点名 Frontend Developer。Cursor、Codex、Gemini CLI 要的目录和文件名略有差别，所以后来才有桌面安装器 Agency Agents：浏览部门、预览原文、按工具写出确定性文件，并在本机记安装账。全源码、MIT、宣称无遥测，仍然是把提示词写进编辑器，不是把员工雇进编辑器。</p>
+<p>几个角色同时干活，等于多个系统提示抢同一份 diff。设计要叙事，工程要最小补丁，现实检查要砍掉无法验证的句子。冲突不会自动消失，只会堆在你的工作区。</p>
+<ul>
+<li>一次只启用当前仓库缺的两三个角色</li>
+<li>法律、医疗、金融人设默认禁止外发和下单</li>
+<li>每个角色补一句「不准编造未检索的出处」</li>
+<li>任务结束就停用，避免目录变成集市</li>
+</ul>
+<h3>组队和开公司之间缺的那一层</h3>
+<p>组队在编辑器里成立：子代理、多会话、把审稿交给 Reality Checker。开公司要决策权、事故簿和谁在监管问询上签字。律师角色能列出争点，不能出庭；增长角色能写实验假设，不能保证投放回本。把星标理解成「这套口吻有人用」，不要理解成「编制已经批下来」。</p>
+<h2>按事故类型选角色，比按岗位名装全库干净</h2>
+<p>代码红了，请 engineering 里的实现和审查，自己跑测试。文案在吹牛，请现实检查，用真实数据打脸。活动假设请 marketing 或 paid-media，预算和平台规则留在人这边。合同草稿可以让法务人设起结构，发出去前必须持证审阅。</p>
+<table>
+<thead>
+<tr>
+<th>事故</th>
+<th>人设能做的</th>
+<th>人设做不了的</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>功能做不出来</td>
+<td>拆步骤、写补丁草稿</td>
+<td>替你看生产日志</td>
+</tr>
+<tr>
+<td>方案像演示稿</td>
+<td>列出无证据句子</td>
+<td>替你做用户访谈</td>
+</tr>
+<tr>
+<td>投放不知道从哪试</td>
+<td>写出假设和指标</td>
+<td>替你付广告费</td>
+</tr>
+<tr>
+<td>条款看不懂</td>
+<td>标出风险段落</td>
+<td>提供法律意见</td>
+</tr>
+</tbody>
+</table>
+<p>全量安装会让路由变慢、人格互相改同一句话。与其宣布虚拟公司开张，不如把这份库当工牌抽屉：需要哪一张就别在项目里，活干完放回去。顾问口吻可以复制，责任链条不能复制。</p>
+<p>本文来源：<a href="https://www.moyunews.com/" rel="external nofollow noopener noreferrer" target="_blank">摸鱼杂货店</a>。查看原文：<a href="https://www.moyunews.com/agency-agents-markdown-personas/" rel="external nofollow noopener noreferrer" target="_blank">把agency-agents喂进Cursor之前，先看.md里写了什么</a>。</p></div>
+<p class="back"><a href="/">← 返回最新</a></p>
+</article>
+</main>
+<footer class="site-foot">
+<p>wocao.world — 本站内容全部转载自各订阅源，版权归原作者与原站所有。</p>
+</footer>
+</body>
+</html>

@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>OpenMontage不是一键成片：它把编程助手变成制片组 · wocao.world</title>
+<meta name="description" content="控制面是Agent，Python只是工具箱 calesthio/OpenMontage 自称开源的智能体视频生产系统，星标已数万。它不是再做一个文生视频按钮。研究、提案、脚本、分镜、找素材、剪辑、配音字幕和渲染，写在 YAML 流水线和 Markdown 技能里，由 Claude Code、Cursor、Copilot 这类编程助手按阶段执行。架构文档写得很直：没有单独的 Python 总导演，Agent 本身就是控制面。 仓库里大约十二条生产线，覆盖讲解片、口播、录屏、纪录片蒙太奇、电影感预告、动画、播客切片、本地化配音等。多数骨架仍是研究到发布那几站。每站有验收标准和可选人工卡点，贵的生成…">
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="wocao.world">
+<meta property="og:title" content="OpenMontage不是一键成片：它把编程助手变成制片组 · wocao.world">
+<meta property="og:description" content="控制面是Agent，Python只是工具箱 calesthio/OpenMontage 自称开源的智能体视频生产系统，星标已数万。它不是再做一个文生视频按钮。研究、提案、脚本、分镜、找素材、剪辑、配音字幕和渲染，写在 YAML 流水线和 Markdown 技能里，由 Claude Code、Cursor、Copilot 这类编程助手按阶段执行。架构文档写得很直：没有单独的 Python 总导演，Agent 本身就是控制面。 仓库里大约十二条生产线，覆盖讲解片、口播、录屏、纪录片蒙太奇、电影感预告、动画、播客切片、本地化配音等。多数骨架仍是研究到发布那几站。每站有验收标准和可选人工卡点，贵的生成…">
+<meta property="og:url" content="https://wocao.world/">
+<meta name="twitter:card" content="summary">
+<meta name="robots" content="noindex,follow">
+<link rel="alternate" type="application/rss+xml" title="wocao.world 聚合输出" href="/feed.xml">
+<link rel="stylesheet" href="/style.css">
+<link rel="canonical" href="https://www.moyunews.com/openmontage-agentic-video/">
+</head>
+<body>
+<a class="skip-link" href="#main">跳到正文</a>
+<header class="site-head">
+<p class="site-title"><a href="/">wocao.world</a></p>
+<p class="site-desc">wocao.world</p>
+<nav class="site-nav">
+<a href="/">最新</a>
+<a href="/about/">关于</a>
+<a href="/feed.xml">RSS</a>
+</nav>
+</header>
+<main id="main">
+<article>
+<h1 class="post-title">OpenMontage不是一键成片：它把编程助手变成制片组</h1>
+<div class="post-body"><h2>控制面是Agent，Python只是工具箱</h2>
+<p><a href="https://github.com/calesthio/OpenMontage" rel="external nofollow noopener noreferrer" target="_blank">calesthio/OpenMontage</a> 自称开源的智能体视频生产系统，星标已数万。它不是再做一个文生视频按钮。研究、提案、脚本、分镜、找素材、剪辑、配音字幕和渲染，写在 YAML 流水线和 Markdown 技能里，由 Claude Code、Cursor、Copilot 这类编程助手按阶段执行。架构文档写得很直：没有单独的 Python 总导演，Agent 本身就是控制面。</p>
+<p>仓库里大约十二条生产线，覆盖讲解片、口播、录屏、纪录片蒙太奇、电影感预告、动画、播客切片、本地化配音等。多数骨架仍是研究到发布那几站。每站有验收标准和可选人工卡点，贵的生成步骤前先看方案，比一键烧完额度更像摄制组。</p>
+<h2><img src="https://moyu.18uk.uk/2026/20260830-c030635f-3e10-4cb7-bfb8-661baa26d3ca.webp" alt=" AI视频制作" width="750" loading="lazy" referrerpolicy="no-referrer" /></h2>
+<h2>两种成片路径，别混成同一种「AI视频」</h2>
+<p>一条路用免费库存和公开档案拼真运动镜头，再剪时间线、渲染。另一条路调 Veo、Kling、Seedance 一类模型出画面，再用 Remotion 或 FFmpeg 合成。官方示例里有过大约五美元打出预告片的记录，那是生成成本，不含你的时间和返工。从 YouTube、Shorts、Reel 或本地成片反推方案也可以，但平台条款和素材版权不因开源而消失。</p>
+<table>
+<thead>
+<tr>
+<th>流水线类型</th>
+<th>更适合</th>
+<th>先准备什么</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>讲解 / 动画生成</td>
+<td>科普、产品说明</td>
+<td>模型 Key、预算上限</td>
+</tr>
+<tr>
+<td>口播 / 录屏</td>
+<td>已有人声或操作画面</td>
+<td>素材文件、字幕语言</td>
+</tr>
+<tr>
+<td>纪录片蒙太奇</td>
+<td>少花钱的真镜头</td>
+<td>可合法使用的库存源</td>
+</tr>
+<tr>
+<td>切片 / 配音</td>
+<td>长视频再利用</td>
+<td>原片授权、目标语言</td>
+</tr>
+</tbody>
+</table>
+<p>工具层接图像、视频、TTS、音乐和分析，具体供应商可替换。技能文件教 Agent 怎么选工具、怎么记决策。这能减少「每次重写提示词」，不能保证口播不漂、字幕不错、事实引用都对。卡点关掉之后，它会一直往下做。</p>
+<h2>把它当制片系统，而不是成片按钮</h2>
+<p>需要编程助手、Python 环境和至少一条可用的生成或库存通道。适合已经能写提示词、也愿意在方案页点同意的人。只想输一句话出竖屏的，会觉得重。团队感来自分工文件，不是来自自动上班的员工。先选一条流水线跑通研究到成片，再谈把剪辑台交给仓库。</p>
+<p>本文来源：<a href="https://www.moyunews.com/" rel="external nofollow noopener noreferrer" target="_blank">摸鱼杂货店</a>。查看原文：<a href="https://www.moyunews.com/openmontage-agentic-video/" rel="external nofollow noopener noreferrer" target="_blank">OpenMontage不是一键成片：它把编程助手变成制片组</a>。</p></div>
+<p class="back"><a href="/">← 返回最新</a></p>
+</article>
+</main>
+<footer class="site-foot">
+<p>wocao.world — 本站内容全部转载自各订阅源，版权归原作者与原站所有。</p>
+</footer>
+</body>
+</html>

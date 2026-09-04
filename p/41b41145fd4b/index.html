@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Seedance 2.0 提示词别再堆形容词了：开源技能先读场面再导戏 · wocao.world</title>
+<meta name="description" content="为什么普通 Seedance 提示词总是“电影感”却不出片 打开 Seedance 2.0 相关社区，最常见的提示词写法几乎千篇一律：电影感、高级感、氛围感、光影绝美、电影级运镜……一堆形容词砸下去，模型却经常给出空泛、重复、缺少意图的画面。问题不在模型，而在提示词本身把“导演工作”偷换成了“形容词堆砌”。 字节跳动的 Seedance 2.0 是多模态音视频联合生成模型，支持文本、图片、视频、音频混合输入，单次可生成最长约 15 秒、带同步音频的片段。它真正吃的是清晰的场面意图，而不是“看起来很高级”的形容词。这时一个开源技能出现了：seedance-2.0。 它的核心逻辑只有一句话——先读…">
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="wocao.world">
+<meta property="og:title" content="Seedance 2.0 提示词别再堆形容词了：开源技能先读场面再导戏 · wocao.world">
+<meta property="og:description" content="为什么普通 Seedance 提示词总是“电影感”却不出片 打开 Seedance 2.0 相关社区，最常见的提示词写法几乎千篇一律：电影感、高级感、氛围感、光影绝美、电影级运镜……一堆形容词砸下去，模型却经常给出空泛、重复、缺少意图的画面。问题不在模型，而在提示词本身把“导演工作”偷换成了“形容词堆砌”。 字节跳动的 Seedance 2.0 是多模态音视频联合生成模型，支持文本、图片、视频、音频混合输入，单次可生成最长约 15 秒、带同步音频的片段。它真正吃的是清晰的场面意图，而不是“看起来很高级”的形容词。这时一个开源技能出现了：seedance-2.0。 它的核心逻辑只有一句话——先读…">
+<meta property="og:url" content="https://wocao.world/">
+<meta name="twitter:card" content="summary">
+<meta name="robots" content="noindex,follow">
+<link rel="alternate" type="application/rss+xml" title="wocao.world 聚合输出" href="/feed.xml">
+<link rel="stylesheet" href="/style.css">
+<link rel="canonical" href="https://www.moyunews.com/seedance-2-0-director-skill/">
+</head>
+<body>
+<a class="skip-link" href="#main">跳到正文</a>
+<header class="site-head">
+<p class="site-title"><a href="/">wocao.world</a></p>
+<p class="site-desc">wocao.world</p>
+<nav class="site-nav">
+<a href="/">最新</a>
+<a href="/about/">关于</a>
+<a href="/feed.xml">RSS</a>
+</nav>
+</header>
+<main id="main">
+<article>
+<h1 class="post-title">Seedance 2.0 提示词别再堆形容词了：开源技能先读场面再导戏</h1>
+<div class="post-body"><h2>为什么普通 Seedance 提示词总是“电影感”却不出片</h2>
+<p>打开 Seedance 2.0 相关社区，最常见的提示词写法几乎千篇一律：电影感、高级感、氛围感、光影绝美、电影级运镜……一堆形容词砸下去，模型却经常给出空泛、重复、缺少意图的画面。问题不在模型，而在提示词本身把“导演工作”偷换成了“形容词堆砌”。</p>
+<p>字节跳动的 Seedance 2.0 是多模态音视频联合生成模型，支持文本、图片、视频、音频混合输入，单次可生成最长约 15 秒、带同步音频的片段。它真正吃的是清晰的场面意图，而不是“看起来很高级”的形容词。这时一个开源技能出现了：<a href="https://github.com/Emily2040/seedance-2.0" rel="external nofollow noopener noreferrer" target="_blank">seedance-2.0</a>。</p>
+<p>它的核心逻辑只有一句话——先读场面，再导戏。镜头、光线、走位、声音一起排，而不是事后再补“电影感”。</p>
+<p><img src="https://moyu.18uk.uk/2026/20260902-964fdb68-593e-4a25-a4f1-866af418bfc4.webp" alt="Seedance提示词" width="750" loading="lazy" referrerpolicy="no-referrer" /></p>
+<h2>这个开源技能到底在做什么</h2>
+<p>seedance-2.0 不是简单的提示词模板库，而是一套面向 AI 助手的“导演操作系统”。它强制在写任何叙事或表演类提示词前，先完成一次 Director’s Read（导演读戏）：这场戏的功能是什么、转折点在哪、视角是谁、权力如何转移、角色目标与障碍、可见的压抑行为、不可转移的细节，以及明确拒绝的类型套路。</p>
+<p>读完之后，技能再把这些判断翻译成可见、可听的载体：主体动作放在最前，镜头、光线、声音紧随其后。顺序本身就是导演语言——模型会优先锁定“这场戏是谁的”，而不是先锁定“中近景、平视”这种参数。</p>
+<p>它支持图、视频、音频参考，标签必须原样保留（@Image1、@Video1、@Audio1 或中文 @图片1、@视频1）。连续剧情不会一次写完整结局，而是先生成 Clip 01，观察真实结尾，再用 continuation 技能写下一镜。中文用户可以直接写中文提示词，不必先翻译成英文。</p>
+<h2>弱提示词与强提示词对照</h2>
+<p>社区里常见的写法往往是这样：</p>
+<blockquote><p>史诗级电影感镜头，一个女人在读信，很有情绪，光影很美，4K</p></blockquote>
+<p>技能给出的导演版则变成：</p>
+<blockquote><p>一位穿羊毛开衫的女人坐在厨房餐桌前，读着一张信纸。她的目光在同一行上走了两遍，随后双手把信纸放到桌面，彻底静止。镜头保持平视中近景，缓慢推近，在她双手停住时停下。左侧阴天窗光压平她的脸，不做补光。声音：室内底噪，一声椅子摩擦，随后近乎无声。</p></blockquote>
+<p>差别不在词更华丽，而在信息密度与层级：主体与动作优先，镜头、光、声服务于同一个意图。空泛的“电影感”被拆成具体的景别、运镜时机、光源方向与声音节奏。</p>
+<table>
+<thead>
+<tr>
+<th>维度</th>
+<th>堆形容词写法</th>
+<th>导演写法（seedance-2.0）</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>开场</td>
+<td>电影感、高级感、氛围感</td>
+<td>主体 + 正在做的事</td>
+</tr>
+<tr>
+<td>镜头</td>
+<td>电影级运镜</td>
+<td>中近景、平视、缓慢推近并在动作停止时定格</td>
+</tr>
+<tr>
+<td>光线</td>
+<td>光影绝美</td>
+<td>左侧阴天窗光，压平面部，无补光</td>
+</tr>
+<tr>
+<td>声音</td>
+<td>很少提及</td>
+<td>室内底噪 + 椅子摩擦 + 近乎无声</td>
+</tr>
+<tr>
+<td>意图</td>
+<td>模糊的情绪</td>
+<td>读信后的静止即 realization</td>
+</tr>
+</tbody>
+</table>
+<h2>中文创作者怎么直接上手</h2>
+<p>仓库提供完整中文入口与快速上手文档。安装后只需把整个仓库当作名为 seedance-20 的根技能加载，子技能与参考资料会自动按相对路径生效。常见客户端包括 Claude Code、Cursor、Codex 等，也可手动复制到对应 skills 目录。</p>
+<ul>
+<li>写中文提示词时先锁定参考角色，再写动作、镜头、光线、声音</li>
+<li>绝不翻译或改写参考标签</li>
+<li>不用“电影感”“高级感”“氛围感”这类空词，改拆成景别、运镜、光源、材质、色彩、空气</li>
+<li>字幕、广告文案、法务文字留给后期，不要让模型生成</li>
+<li>连续剧情先出 Clip 01，再根据真实结尾写下一镜</li>
+</ul>
+<p>涉及受保护角色、明星、品牌、真实人脸或声音时，技能会走版权安全改写路径，保留创意功能但替换成原创或已授权方案，而不是简单换语言隐藏。</p>
+<h2>它真正解决的是“跟模型吵架”的问题</h2>
+<p>很多人生成失败后会反复加词、删词、换说法，本质上是在跟模型讨价还价。seedance-2.0 把流程反过来：你先当导演，把场面读清楚，再让技能把意图编译成可执行的提示词。模型不再需要猜测你想要什么“感觉”，而是执行已经排好的镜头、光、走位与声音。</p>
+<p>仓库目前已迭代到 v6.7.0 附近，包含大量子技能、参考文档、评估用例与多语言支持。它面向的不只是偶尔玩玩的提示词作者，也包括需要连续剧情、产品片、音乐视频、专业流程交接的创作者与小团队。</p>
+<p>下次再写 Seedance 提示词时，先停一秒问自己：这场戏在做什么？镜头怎么说出来？光在帮什么忙？声音在完成什么？把答案写清楚，比再堆三斤形容词管用得多。项目地址：<a href="https://github.com/Emily2040/seedance-2.0" rel="external nofollow noopener noreferrer" target="_blank">https://github.com/Emily2040/seedance-2.0</a>。</p>
+<p>本文来源：<a href="https://www.moyunews.com/" rel="external nofollow noopener noreferrer" target="_blank">摸鱼杂货店</a>。查看原文：<a href="https://www.moyunews.com/seedance-2-0-director-skill/" rel="external nofollow noopener noreferrer" target="_blank">Seedance 2.0 提示词别再堆形容词了：开源技能先读场面再导戏</a>。</p></div>
+<p class="back"><a href="/">← 返回最新</a></p>
+</article>
+</main>
+<footer class="site-foot">
+<p>wocao.world — 本站内容全部转载自各订阅源，版权归原作者与原站所有。</p>
+</footer>
+</body>
+</html>

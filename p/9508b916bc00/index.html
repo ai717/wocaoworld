@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>MoneyPrinterTurbo近12万星：能批量出片，印不出平台分成 · wocao.world</title>
+<meta name="description" content="仓库很勤快，名字比现金流更夸张 harry0703/MoneyPrinterTurbo 把关键词变成一条流水线：大模型写文案、按关键词去素材库拉片子、配旁白和字幕、压上 BGM，最后用 ffmpeg 合成 MP4。星标大约 12 万，MIT 协议，Web 界面加 API，还能批量出几条再挑。本地、Docker、Colab 都能跑。它叠的是无脸频道那套工序，不是一台提款机。 模型可接 Claude、DeepSeek、GPT、Gemini、Kimi 以及兼容网关；语音有 Edge TTS、Azure、MiniMax、Fish Audio 等。画幅在 16:9 和 9:16 之间切。素材默认走 Pe…">
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="wocao.world">
+<meta property="og:title" content="MoneyPrinterTurbo近12万星：能批量出片，印不出平台分成 · wocao.world">
+<meta property="og:description" content="仓库很勤快，名字比现金流更夸张 harry0703/MoneyPrinterTurbo 把关键词变成一条流水线：大模型写文案、按关键词去素材库拉片子、配旁白和字幕、压上 BGM，最后用 ffmpeg 合成 MP4。星标大约 12 万，MIT 协议，Web 界面加 API，还能批量出几条再挑。本地、Docker、Colab 都能跑。它叠的是无脸频道那套工序，不是一台提款机。 模型可接 Claude、DeepSeek、GPT、Gemini、Kimi 以及兼容网关；语音有 Edge TTS、Azure、MiniMax、Fish Audio 等。画幅在 16:9 和 9:16 之间切。素材默认走 Pe…">
+<meta property="og:url" content="https://wocao.world/">
+<meta name="twitter:card" content="summary">
+<meta name="robots" content="noindex,follow">
+<link rel="alternate" type="application/rss+xml" title="wocao.world 聚合输出" href="/feed.xml">
+<link rel="stylesheet" href="/style.css">
+<link rel="canonical" href="https://www.moyunews.com/moneyprinterturbo-ai-short-video/">
+</head>
+<body>
+<a class="skip-link" href="#main">跳到正文</a>
+<header class="site-head">
+<p class="site-title"><a href="/">wocao.world</a></p>
+<p class="site-desc">wocao.world</p>
+<nav class="site-nav">
+<a href="/">最新</a>
+<a href="/about/">关于</a>
+<a href="/feed.xml">RSS</a>
+</nav>
+</header>
+<main id="main">
+<article>
+<h1 class="post-title">MoneyPrinterTurbo近12万星：能批量出片，印不出平台分成</h1>
+<div class="post-body"><h2>仓库很勤快，名字比现金流更夸张</h2>
+<p><a href="https://github.com/harry0703/MoneyPrinterTurbo" rel="external nofollow noopener noreferrer" target="_blank">harry0703/MoneyPrinterTurbo</a> 把关键词变成一条流水线：大模型写文案、按关键词去素材库拉片子、配旁白和字幕、压上 BGM，最后用 ffmpeg 合成 MP4。星标大约 12 万，MIT 协议，Web 界面加 API，还能批量出几条再挑。本地、Docker、Colab 都能跑。它叠的是无脸频道那套工序，不是一台提款机。</p>
+<p>模型可接 Claude、DeepSeek、GPT、Gemini、Kimi 以及兼容网关；语音有 Edge TTS、Azure、MiniMax、Fish Audio 等。画幅在 16:9 和 9:16 之间切。素材默认走 Pexels、Pixabay 这类需申请密钥的库存源，新版本也接了部分文生视频通道，并可改用本地文件。没有 LLM 密钥和素材密钥，界面只是空表单。</p>
+<p><img src="https://moyu.18uk.uk/2026/20260830-5df6a23b-1bbe-49bf-9824-fc8f139b4e09.webp" alt="AI短视频赚钱" width="700" loading="lazy" referrerpolicy="no-referrer" /></p>
+<h2>自动的是装配，不是选题和过审</h2>
+<p>同一关键词连出五条，画面仍可能是通用航拍加正确的废话。库存片段的授权通常允许个人和部分商业使用，不等于可以无视署名、再包装转售，也不等于短视频平台会给流量。账号被判同质化、搬运或误导时，合成速度帮不上忙。</p>
+<table>
+<thead>
+<tr>
+<th>环节</th>
+<th>工具能代劳</th>
+<th>仍然要人判</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>文案</td>
+<td>按主题起草</td>
+<td>事实、立场、平台违禁词</td>
+</tr>
+<tr>
+<td>画面</td>
+<td>按关键词检索或生视频</td>
+<td>是否对得上旁白、会否重复</td>
+</tr>
+<tr>
+<td>声音字幕</td>
+<td>TTS 加描边字幕</td>
+<td>口误、节奏、字体可读</td>
+</tr>
+<tr>
+<td>发布变现</td>
+<td>最多生成各平台说明文案</td>
+<td>审核、投流、版权投诉</td>
+</tr>
+</tbody>
+</table>
+<p>运行要 Python 3.11 和 ffmpeg，文档建议至少四核、4GB 内存，显卡不是必须。v1.3.5 起可为接口加密钥，避免局域网里谁都能调生成任务。配置文件和预设导出里可能带着各类 API Key，不能提交进公开仓库。</p>
+<h2>造片成本下降，频道策略没有跟着下降</h2>
+<p>无脸科普、清单、冷知识这条流水线被摊开后，后来者用同一套库存镜头会更挤。适合拿它打样、测旁白和字幕样式；不适合把「近 12 万星」读成稳赚信号。先算清每次生成烧掉的模型和素材额度，再决定要不要养号。印钞机印的是成片文件，分成表还在平台手里。</p>
+<p>本文来源：<a href="https://www.moyunews.com/" rel="external nofollow noopener noreferrer" target="_blank">摸鱼杂货店</a>。查看原文：<a href="https://www.moyunews.com/moneyprinterturbo-ai-short-video/" rel="external nofollow noopener noreferrer" target="_blank">MoneyPrinterTurbo近12万星：能批量出片，印不出平台分成</a>。</p></div>
+<p class="back"><a href="/">← 返回最新</a></p>
+</article>
+</main>
+<footer class="site-foot">
+<p>wocao.world — 本站内容全部转载自各订阅源，版权归原作者与原站所有。</p>
+</footer>
+</body>
+</html>

@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Qwen熊对打GLM牛算哪门SOTA？Gear Zero把脑洞做成了街机 · wocao.world</title>
+<meta name="description" content="这场对打测的不是模型，是脑洞能不能变成游戏 有人把 Qwen-3.8-Flash-Next 和「牛来」丢进九十年代横版街机，让它们全自动对打，谁倒地谁就算当天 SOTA。这不是评测，是把模型争论做成可玩的玩笑。真正被演示的，是 Gear Zero 这类AI做游戏智能体：角色、场景、技能和随机事件可以接着往下长，作者声称一行代码没写。 两条模型路线本身差得很开。Qwen-3.8-Flash-Next 是开源权重的多模态 MoE，125B 主模型外加约 51B 的 N-gram 嵌入，每 token 大约激活 6B，社区已经在讨论量化、本地 runtime。牛来是 Ox-Alpha 的中文绰号，智…">
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="wocao.world">
+<meta property="og:title" content="Qwen熊对打GLM牛算哪门SOTA？Gear Zero把脑洞做成了街机 · wocao.world">
+<meta property="og:description" content="这场对打测的不是模型，是脑洞能不能变成游戏 有人把 Qwen-3.8-Flash-Next 和「牛来」丢进九十年代横版街机，让它们全自动对打，谁倒地谁就算当天 SOTA。这不是评测，是把模型争论做成可玩的玩笑。真正被演示的，是 Gear Zero 这类AI做游戏智能体：角色、场景、技能和随机事件可以接着往下长，作者声称一行代码没写。 两条模型路线本身差得很开。Qwen-3.8-Flash-Next 是开源权重的多模态 MoE，125B 主模型外加约 51B 的 N-gram 嵌入，每 token 大约激活 6B，社区已经在讨论量化、本地 runtime。牛来是 Ox-Alpha 的中文绰号，智…">
+<meta property="og:url" content="https://wocao.world/">
+<meta name="twitter:card" content="summary">
+<meta name="robots" content="noindex,follow">
+<link rel="alternate" type="application/rss+xml" title="wocao.world 聚合输出" href="/feed.xml">
+<link rel="stylesheet" href="/style.css">
+<link rel="canonical" href="https://www.moyunews.com/gear-zero-vibe-gaming-arcade/">
+</head>
+<body>
+<a class="skip-link" href="#main">跳到正文</a>
+<header class="site-head">
+<p class="site-title"><a href="/">wocao.world</a></p>
+<p class="site-desc">wocao.world</p>
+<nav class="site-nav">
+<a href="/">最新</a>
+<a href="/about/">关于</a>
+<a href="/feed.xml">RSS</a>
+</nav>
+</header>
+<main id="main">
+<article>
+<h1 class="post-title">Qwen熊对打GLM牛算哪门SOTA？Gear Zero把脑洞做成了街机</h1>
+<div class="post-body"><h2>这场对打测的不是模型，是脑洞能不能变成游戏</h2>
+<p>有人把 Qwen-3.8-Flash-Next 和「牛来」丢进九十年代横版街机，让它们全自动对打，谁倒地谁就算当天 SOTA。这不是评测，是把模型争论做成可玩的玩笑。真正被演示的，是 Gear Zero 这类<strong>AI做游戏</strong>智能体：角色、场景、技能和随机事件可以接着往下长，作者声称一行代码没写。</p>
+<p>两条模型路线本身差得很开。Qwen-3.8-Flash-Next 是开源权重的多模态 MoE，125B 主模型外加约 51B 的 N-gram 嵌入，每 token 大约激活 6B，社区已经在讨论量化、本地 runtime。牛来是 Ox-Alpha 的中文绰号，智谱已认领为 GLM-5.3-Flash：约 320B 总参、激活约 18B，能力强，对普通人谈本地部署基本没意义。街机里谁把谁打趴，改变不了这些事实。</p>
+<p><img src="https://moyu.18uk.uk/2026/20260827-42aa2b2b-668f-49e0-b172-24184b2cb305.webp" alt="AI做游戏" width="700" loading="lazy" referrerpolicy="no-referrer" /></p>
+<h2>Vibe Gaming 接在 Vibe Coding 后面</h2>
+<p>以前一个逗比点子，笑完就没了。现在可以把句子丢给 <a href="https://zero.alayalab.ai/" rel="external nofollow noopener noreferrer" target="_blank">Gear Zero</a>：我要一只 Qwen 熊狠狠干 GLM 牛。它先把规则补全，再写逻辑、摆场景、加技能。Alaya Lab 把产品写成专门干游戏开发的 Agent，人负责说清楚想玩什么，实现细节交给它。</p>
+<p>这和在编辑器里让 Codex 写仓库不是同一层。Vibe Coding 交付的是代码和测试；Vibe Gaming 交付的是能在浏览器里按键的一局。首版往往粗糙：判定飘、连招虚、随机事件像彩蛋。能玩，不等于能当作品发行，更不等于替代基准测试。</p>
+<h3>这种脑洞适合写成怎样的一句话</h3>
+<ul>
+<li>点名双方外形和武器，避免只说「两个大模型打架」</li>
+<li>写死胜负：血条打空、击飞出屏，还是限时内伤害更高</li>
+<li>限制地图：一条横版街、两个平台，比开放世界更容易一次做完</li>
+<li>随机事件给上限，例如每三十秒只掉一种道具</li>
+<li>验收只看「能开局、能受伤、能分出胜负」，不要把爆款写进提示词</li>
+</ul>
+<h2>玩完再决定要不要当真</h2>
+<table>
+<thead>
+<tr>
+<th>你看到的</th>
+<th>它实际证明了什么</th>
+<th>它证明不了什么</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>熊把牛打趴</td>
+<td>战斗循环能跑通</td>
+<td>Qwen 比 GLM 更强</td>
+</tr>
+<tr>
+<td>一行代码没写</td>
+<td>自然语言可以驱动出原型</td>
+<td>不需要人验收手感</td>
+</tr>
+<tr>
+<td>技能和随机事件齐全</td>
+<td>Agent 会主动补玩法零件</td>
+<td>数值已经平衡</td>
+</tr>
+<tr>
+<td>评论区互相丢作品</td>
+<td>分享链接降低试玩成本</td>
+<td>批量开会话就能出爆款</td>
+</tr>
+</tbody>
+</table>
+<p>Gear Zero 创建通常要登录，构建有每日额度。把「有问题自己解决直到交付」丢给另一个编码智能体去盯页面，可以减少你点按钮的次数，也会在额度耗尽、登录过期时空转。更稳的做法是人负责选题和胜负规则，机器负责出第一版，再人工打两局看连招虚不虚。</p>
+<p>模型之争还会继续用基准、本地部署和价格说话。街机只负责把争论变成能转发的一局。你也可以注册后做一个自己的对打，把链接丢给别人玩；玩之前先分清：这是作品演示，不是排行榜。</p>
+<p>本文来源：<a href="https://www.moyunews.com/" rel="external nofollow noopener noreferrer" target="_blank">摸鱼杂货店</a>。查看原文：<a href="https://www.moyunews.com/gear-zero-vibe-gaming-arcade/" rel="external nofollow noopener noreferrer" target="_blank">Qwen熊对打GLM牛算哪门SOTA？Gear Zero把脑洞做成了街机</a>。</p></div>
+<p class="back"><a href="/">← 返回最新</a></p>
+</article>
+</main>
+<footer class="site-foot">
+<p>wocao.world — 本站内容全部转载自各订阅源，版权归原作者与原站所有。</p>
+</footer>
+</body>
+</html>
