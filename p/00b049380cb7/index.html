@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>微信个人情报库开源：几万条聊天秒变自动情报助理 · wocao.world</title>
+<meta name="description" content="微信聊天堆积成山，真正有用的信息却总被淹没 很多人每天微信私聊加群聊能刷出几百条消息，商单线索、合作意向、待回复承诺、临近截止事项全混在一起。翻历史记录费时费力，等到想起时已经错过最佳跟进窗口。Rion-Wu-tech 正式开源的 微信个人情报库（WeChat Intelligence Hub）把这个问题直接解决了：把本地几万条微信聊天记录变成每天自动列出待办、总结群聊、发现赚钱机会、检索历史、生成可交互报告的超级小助理。 项目仓库地址：https://github.com/Rion-Wu-tech/wechat-intelligence-hub。当前版本 v0.9.2-preview.2，完…">
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="wocao.world">
+<meta property="og:title" content="微信个人情报库开源：几万条聊天秒变自动情报助理 · wocao.world">
+<meta property="og:description" content="微信聊天堆积成山，真正有用的信息却总被淹没 很多人每天微信私聊加群聊能刷出几百条消息，商单线索、合作意向、待回复承诺、临近截止事项全混在一起。翻历史记录费时费力，等到想起时已经错过最佳跟进窗口。Rion-Wu-tech 正式开源的 微信个人情报库（WeChat Intelligence Hub）把这个问题直接解决了：把本地几万条微信聊天记录变成每天自动列出待办、总结群聊、发现赚钱机会、检索历史、生成可交互报告的超级小助理。 项目仓库地址：https://github.com/Rion-Wu-tech/wechat-intelligence-hub。当前版本 v0.9.2-preview.2，完…">
+<meta property="og:url" content="https://wocao.world/">
+<meta name="twitter:card" content="summary">
+<meta name="robots" content="noindex,follow">
+<link rel="alternate" type="application/rss+xml" title="wocao.world 聚合输出" href="/feed.xml">
+<link rel="stylesheet" href="/style.css">
+<link rel="canonical" href="https://www.moyunews.com/wechat-intelligence-hub-open-source/">
+</head>
+<body>
+<a class="skip-link" href="#main">跳到正文</a>
+<header class="site-head">
+<p class="site-title"><a href="/">wocao.world</a></p>
+<p class="site-desc">wocao.world</p>
+<nav class="site-nav">
+<a href="/">最新</a>
+<a href="/about/">关于</a>
+<a href="/feed.xml">RSS</a>
+</nav>
+</header>
+<main id="main">
+<article>
+<h1 class="post-title">微信个人情报库开源：几万条聊天秒变自动情报助理</h1>
+<div class="post-body"><h2>微信聊天堆积成山，真正有用的信息却总被淹没</h2>
+<p>很多人每天微信私聊加群聊能刷出几百条消息，商单线索、合作意向、待回复承诺、临近截止事项全混在一起。翻历史记录费时费力，等到想起时已经错过最佳跟进窗口。Rion-Wu-tech 正式开源的 <strong>微信个人情报库</strong>（WeChat Intelligence Hub）把这个问题直接解决了：把本地几万条微信聊天记录变成每天自动列出待办、总结群聊、发现赚钱机会、检索历史、生成可交互报告的超级小助理。</p>
+<p>项目仓库地址：<a href="https://github.com/Rion-Wu-tech/wechat-intelligence-hub" rel="external nofollow noopener noreferrer" target="_blank">https://github.com/Rion-Wu-tech/wechat-intelligence-hub</a>。当前版本 v0.9.2-preview.2，完全本地只读运行。</p>
+<p><img src="https://moyu.18uk.uk/2026/20260905-3c180fbf-a4a9-4754-b7d6-2855f2675fb6.webp" alt="微信个人情报库" width="700" loading="lazy" referrerpolicy="no-referrer" /></p>
+<h2>它到底能做什么：从日报到长期商机管线</h2>
+<p>系统不是简单摘要工具，而是把聊天变成可核查、可行动的个人情报。核心能力覆盖日常高频场景：</p>
+<ul>
+<li>总结过去任意时间段（默认24小时）的重要群聊与私聊</li>
+<li>自动找出待回复、待兑现承诺和临近截止事项</li>
+<li>识别商单、培训、咨询、项目合作与复联线索</li>
+<li>按联系人、标签、具体事物、主题和日期精准检索历史聊天</li>
+<li>生成 Markdown 与可交互 HTML 双版本报告</li>
+<li>持久化机会管道：识别出的商机不会只活在一份日报里，而是进入长期机会库持续跟踪</li>
+<li>首次使用可建立本地用户画像与当前计划，让排序更贴合个人业务</li>
+<li>只生成个性化回复建议，绝不替用户发送任何消息</li>
+<li>重点联系人管理，针对个人微信关系生成定向情报</li>
+<li>本地索引与维护，支持全虚构 Demo 与真实数据隔离测试</li>
+</ul>
+<p>完整日报默认同时输出 Markdown（便于归档与二次加工）和旗舰交互式 HTML（支持搜索、筛选、主题切换、分区导航与打印）。</p>
+<h2>严格只读架构与隐私边界</h2>
+<p>项目把数据读取与情报分析拆成清晰层级：rion-wechat-cli 作为只读 Reader 入口，wechat-intelligence-hub 负责判断、报告与机会管线。所有真实聊天、联系人、个人 Profile 与生成报告只留在本机，不会上传任何外部服务。</p>
+<p>关键安全承诺写得很清楚：系统不会替你发微信，不做重签名、注入或 Hook，不从微信进程提取密钥。完整数据库模式需要使用者自行提供有权访问的本地数据库与访问材料；没有条件时仍可运行仓库内全虚构 Demo 验证整条链路。仓库还配套 162 项自动化测试、隐私扫描与边界文档，确保公开代码可独立验证。</p>
+<h2>安装与日常使用方式</h2>
+<p>克隆仓库后执行一键安装脚本即可：</p>
+<p><code>git clone https://github.com/Rion-Wu-tech/wechat-intelligence-hub.git</code><br />
+<code>cd wechat-intelligence-hub</code><br />
+<code>./scripts/install.sh --with-sqlcipher</code></p>
+<p>安装完成后建议先做个人 Profile 初始化，把身份、当前项目、重点联系人标签写进本地配置，日报排序会立刻变得更贴身。日常在 Codex 里直接用自然语言调用即可，例如：</p>
+<ul>
+<li>生成过去24小时完整微信情报日报，同时输出 Markdown 和交互式 HTML</li>
+<li>总结我和某位联系人最近聊到哪里，还有哪些承诺未兑现</li>
+<li>搜索过去7天所有关于「AI培训」的讨论</li>
+<li>查看今天最需要处理的10件事</li>
+<li>根据最新上下文给某联系人写一条符合我语气的回复草稿</li>
+</ul>
+<p>时间范围完全灵活，不限于24小时，可以指定任意起止日期或已有索引覆盖的更长区间。</p>
+<h2>谁最适合立刻上手</h2>
+<p>做自媒体、接商单、跑培训咨询、维护品牌方关系、同时泡多个资源群的人，会最先感受到效率提升。群聊再杂，系统也能把 brief、报价、排期、结算信号抽出来；私聊里的承诺和待回复也不会再被淹没。长期机会库更是把一次性发现变成可持续推进的管线，而不是看完日报就忘。</p>
+<p>项目强调「真实聊天和联系人留在本机，系统只读不写」。如果你也受够了在微信里大海捞针，可以直接去仓库体验，并给它一个 Star：<a href="https://github.com/Rion-Wu-tech/wechat-intelligence-hub" rel="external nofollow noopener noreferrer" target="_blank">https://github.com/Rion-Wu-tech/wechat-intelligence-hub</a>。</p>
+<p>本文来源：<a href="https://www.moyunews.com/" rel="external nofollow noopener noreferrer" target="_blank">摸鱼杂货店</a>。查看原文：<a href="https://www.moyunews.com/wechat-intelligence-hub-open-source/" rel="external nofollow noopener noreferrer" target="_blank">微信个人情报库开源：几万条聊天秒变自动情报助理</a>。</p></div>
+<p class="back"><a href="/">← 返回最新</a></p>
+</article>
+</main>
+<footer class="site-foot">
+<p>wocao.world — 本站内容全部转载自各订阅源，版权归原作者与原站所有。</p>
+</footer>
+</body>
+</html>

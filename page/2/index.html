@@ -31,6 +31,16 @@
 
 
 <article class="post-card">
+<h2 class="post-card-title"><a href="/p/d1c7d549af99/">宝藏GitHub仓库：全网最全Gemini 3 Pro提示词合集</a></h2>
+<p class="meta"><time datetime="2026-08-25T07:49:50.000Z">2026/08/25</time></p>
+<p class="excerpt">在日常用AI生成网站或应用时，最让人头疼的不是技术实现，而是如何写出能直接产出高质量结果的提示词。一个写不好的Prompt，可能让你反复调试数小时。而今天发现的一个宝藏GitHub仓库，恰好解决了这个痛点——它收录了大量由X平台大神创作的Gemini 3 Pro提示词，覆盖多种高价值场景，堪称AI创作者的弹药库。 为什么这个仓库值得收藏？ 这个名为 awesome-gemini-ai 的仓库（https://github.com/ZeroLu/awesome-gemini-ai）并非简单罗列，而是经过筛选的实战级Gemini 3 Pro提示词集合。每一类提示词都对应一个可直接落地的应用方向，省…</p>
+</article>
+<article class="post-card">
+<h2 class="post-card-title"><a href="/p/d9576274c7ea/">AI Agent进化论：从对话助手到自主执行的关键跃迁</a></h2>
+<p class="meta"><time datetime="2026-08-25T07:47:52.000Z">2026/08/25</time></p>
+<p class="excerpt">AI Agent 不是新词，但它真正的边界正在快速改写。过去我们习惯于把大模型当作“问答机”，输入问题、得到答案，任务结束。而如今，AI 正在从“你问我答”的对话助手，进化为能够规划、调用工具并自主执行任务的 Agent。这条进化路径到底怎么走？最近一份名为 Learn Claude Agents 的教程给出了清晰的拆解。 AI Agent 的进化：不是功能叠加，而是角色跃迁 理解 AI Agent 的关键，不是记住它的定义，而是看清它与传统对话助手的本质区别。对话助手处理的是“单次交互”——理解意图、生成回复。而 Agent 面对的是“任务闭环”：理解目标、制定计划、调用工具、观察结果、调整…</p>
+</article>
+<article class="post-card">
 <h2 class="post-card-title"><a href="/p/4da8b4fc7c8b/">Voicebox免费开源本地语音克隆工具，几秒复刻人声</a></h2>
 <p class="meta"><time datetime="2026-08-25T07:44:35.000Z">2026/08/25</time></p>
 <p class="excerpt">语音克隆工具Voicebox近期在开发者社区引发关注。这款免费开源软件彻底改变了传统文本转语音（TTS）的工作流：它无需安装Python、无需依赖云端服务，仅凭几秒钟的音频样本就能克隆任意音色，并在本地完成录音棚级别的多声道项目制作。 语音克隆工具为何转向本地运行? 在云端TTS服务普及的今天，Voicebox选择反其道而行之。对于那些对隐私敏感、网络环境不稳定或需要离线批量处理的创作者而言，本地化部署意味着：你的声音数据永远不出设备，处理速度不受服务器排队影响，更不存在按字符计费的商业限制。 核心功能亮点 · 极简克隆流程：下载模型后，只需提供数秒清晰人声样本，系统即可提取声纹特征。· 多声…</p>
@@ -169,16 +179,6 @@
 <h2 class="post-card-title"><a href="/p/d374909e5615/">天涯论坛疑遭拖库：1.27亿用户记录据称在暗网叫卖</a></h2>
 <p class="meta"><time datetime="2026-07-06T23:18:24.000Z">2026/07/06</time></p>
 <p class="excerpt">沉寂已久的天涯论坛数据泄露风波再起。近日，有威胁行为者在暗网发帖声称，已成功窃取天涯论坛约1.27亿条用户记录，数据包含账号、密码哈希及注册邮箱。发帖者自称，此事发生在天涯重启后的运营不稳定期，通过弱内部账户与直接数据库访问长期拖库完成。目前该说法尚未获得独立验证，具体规模与真实性仍待确认。 事件还原：暗网兜售天涯论坛数据泄露数据库 根据暗网情报，威胁行为者声称在天涯论坛恢复运营但安全薄弱的窗口期，利用内部系统弱口令与直接数据库连接，逐步导出全部用户表。若属实，这将是中文互联网史上规模最大的社区数据泄露之一。安全分析师指出，即便密码以哈希形式存储，仍可能被离线彩虹表或暴力破解，加之多数用户习惯…</p>
-</article>
-<article class="post-card">
-<h2 class="post-card-title"><a href="/p/c10f769d148e/">中文Token成本暴增71%？Anthropic分词器被指“歧视”非英语</a></h2>
-<p class="meta"><time datetime="2026-07-06T23:17:05.000Z">2026/07/06</time></p>
-<p class="excerpt">大模型API按Token计费，但你是否知道，说中文可能比说英语更贵？最新研究揭示了一个残酷现实：不同模型的分词器对非英语文本的处理效率差异巨大，直接导致Token成本天差地别。这项由Aran Komatsuzaki（@arankomatsuzaki）发起的测试，首次量化了主流模型在非英语语言上的隐性开销，其中Anthropic的Claude模型在处理中文时Token消耗竟然比OpenAI高出71%，堪称“昂贵的中文”。 核心发现：谁在“歧视”非英语语言？ 研究人员以经典论文《苦涩的教训》的翻译文本为基准，对比了多个模型在处理相同非英语内容时的Token生成量。结果令人咋舌：在处理中文时，Ant…</p>
-</article>
-<article class="post-card">
-<h2 class="post-card-title"><a href="/p/c2e23681f695/">OpenAI 为 Codex 推出 iOS 构建插件，SwiftUI 预览与热重载一步到位</a></h2>
-<p class="meta"><time datetime="2026-07-06T18:01:22.000Z">2026/07/06</time></p>
-<p class="excerpt">OpenAI 为 Codex 推出了一款全新的 Codex iOS应用构建插件，彻底打通了从代码生成到实时预览的最后一公里。开发者现在可以直接在 Codex 的应用内浏览器中查看和测试 iOS 应用、打开 SwiftUI 预览，并享受热重载功能，无需在多个工具之间反复横跳。 核心亮点：Codex iOS应用构建插件如何重塑开发流程 长期以来，iOS 开发受困于繁琐的构建与预览环节。此次推出的 Codex iOS应用构建插件 精准解决了这一痛点。它内嵌高性能浏览器引擎，原生支持 SwiftUI 预览渲染，每次代码改动都能即时推送到预览窗口，实现真正的热重载。这意味着开发者可以在一个窗口内完成编码…</p>
 </article>
 <nav class="pagination" aria-label="分页">
 <a href="/" rel="prev">← 上一页</a>

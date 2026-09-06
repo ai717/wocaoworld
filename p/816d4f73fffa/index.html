@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>SyncPilot 怎么用？Gemini 代码毫秒直写本地硬盘的纯前端扩展 · wocao.world</title>
+<meta name="description" content="开发者用 Gemini 写代码时最烦的痛点 很多人用 Google Gemini 生成多文件代码时，最大的痛苦不是等模型思考，而是看着它一次吐出五六个文件后，自己只能当“Ctrl+C / Ctrl+V 搬砖工”。在 VS Code 里挨个建目录、建文件、粘贴内容、核对路径，稍有疏忽就会路径错位或代码被网页按钮文字污染。 SyncPilot 就是为彻底干掉这种无效机械劳动而生的轻量 Chrome 开源扩展。它让你在 Gemini 网页上点一下按钮，代码就能毫秒级直接写入本地物理硬盘，完全不需要任何本地后台服务。 SyncPilot 是什么？纯前端 Zero-Daemon 架构 一句话概括：在 G…">
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="wocao.world">
+<meta property="og:title" content="SyncPilot 怎么用？Gemini 代码毫秒直写本地硬盘的纯前端扩展 · wocao.world">
+<meta property="og:description" content="开发者用 Gemini 写代码时最烦的痛点 很多人用 Google Gemini 生成多文件代码时，最大的痛苦不是等模型思考，而是看着它一次吐出五六个文件后，自己只能当“Ctrl+C / Ctrl+V 搬砖工”。在 VS Code 里挨个建目录、建文件、粘贴内容、核对路径，稍有疏忽就会路径错位或代码被网页按钮文字污染。 SyncPilot 就是为彻底干掉这种无效机械劳动而生的轻量 Chrome 开源扩展。它让你在 Gemini 网页上点一下按钮，代码就能毫秒级直接写入本地物理硬盘，完全不需要任何本地后台服务。 SyncPilot 是什么？纯前端 Zero-Daemon 架构 一句话概括：在 G…">
+<meta property="og:url" content="https://wocao.world/">
+<meta name="twitter:card" content="summary">
+<meta name="robots" content="noindex,follow">
+<link rel="alternate" type="application/rss+xml" title="wocao.world 聚合输出" href="/feed.xml">
+<link rel="stylesheet" href="/style.css">
+<link rel="canonical" href="https://www.moyunews.com/syncpilot-gemini-code-direct-save/">
+</head>
+<body>
+<a class="skip-link" href="#main">跳到正文</a>
+<header class="site-head">
+<p class="site-title"><a href="/">wocao.world</a></p>
+<p class="site-desc">wocao.world</p>
+<nav class="site-nav">
+<a href="/">最新</a>
+<a href="/about/">关于</a>
+<a href="/feed.xml">RSS</a>
+</nav>
+</header>
+<main id="main">
+<article>
+<h1 class="post-title">SyncPilot 怎么用？Gemini 代码毫秒直写本地硬盘的纯前端扩展</h1>
+<div class="post-body"><h2>开发者用 Gemini 写代码时最烦的痛点</h2>
+<p>很多人用 Google Gemini 生成多文件代码时，最大的痛苦不是等模型思考，而是看着它一次吐出五六个文件后，自己只能当“Ctrl+C / Ctrl+V 搬砖工”。在 VS Code 里挨个建目录、建文件、粘贴内容、核对路径，稍有疏忽就会路径错位或代码被网页按钮文字污染。</p>
+<p><strong>SyncPilot</strong> 就是为彻底干掉这种无效机械劳动而生的轻量 Chrome 开源扩展。它让你在 Gemini 网页上点一下按钮，代码就能毫秒级直接写入本地物理硬盘，完全不需要任何本地后台服务。</p>
+<p><img src="https://moyu.18uk.uk/2026/20260904-f9b58fbd-5d06-49d4-abc4-e2f69625deed.webp" alt=" 代码直存" width="650" loading="lazy" referrerpolicy="no-referrer" /></p>
+<h2>SyncPilot 是什么？纯前端 Zero-Daemon 架构</h2>
+<p>一句话概括：在 Gemini 页面点击按钮，代码立刻落盘到你指定的项目根目录。市面上同类工具大多要在本地常驻一个 Node.js 或 Python 守护进程，开着黑窗口，既占内存又容易断连。SyncPilot 走了完全不同的路线——基于现代浏览器原生的 <strong>File System Access API</strong>，实现真正的零后台依赖。</p>
+<ul>
+<li><img src="https://s.w.org/images/core/emoji/17.0.2/72x72/26a1.png" alt="⚡" loading="lazy" referrerpolicy="no-referrer" /> 零后台：不需要启动任何本地脚本或黑窗口</li>
+<li><img src="https://s.w.org/images/core/emoji/17.0.2/72x72/1f4c1.png" alt="📁" loading="lazy" referrerpolicy="no-referrer" /> 一次授权，静默直存：绑定项目根目录后，单个代码块或整轮多文件都能一键写入</li>
+<li><img src="https://s.w.org/images/core/emoji/17.0.2/72x72/1f9fc.png" alt="🧼" loading="lazy" referrerpolicy="no-referrer" /> 代码深度净化：自动切除 // filepath: 标记和网页注入的 UI 文本，保证落盘代码 100% 纯净</li>
+<li><img src="https://s.w.org/images/core/emoji/17.0.2/72x72/1f4e6.png" alt="📦" loading="lazy" referrerpolicy="no-referrer" /> 本轮批量写入：右下角自动出现检测胶囊，一键写完当前对话所有文件</li>
+<li><img src="https://s.w.org/images/core/emoji/17.0.2/72x72/1f310.png" alt="🌐" loading="lazy" referrerpolicy="no-referrer" /> 中英双语：内置一键切换，并自带可复制给 AI 的文件路径规范 Prompt</li>
+</ul>
+<p>项目完全开源，地址在 <a href="https://github.com/ai919/SyncPilot" rel="external nofollow noopener noreferrer" target="_blank">https://github.com/ai919/SyncPilot</a>，采用 MIT 协议，个人和商业使用都免费。</p>
+<h2>核心技术亮点：File System Access API 如何实现安全直写</h2>
+<p>SyncPilot 的关键在于充分利用了 Chrome 的 File System Access API。用户只需要在扩展弹窗里授权一次本地项目文件夹，浏览器就会获得该目录的持久读写权限。之后无论是新建多级目录还是覆盖已有文件，都在浏览器沙箱内完成，无需额外守护进程。</p>
+<p>代码提取环节做了深度净化：content script 会智能监听 Gemini 页面生成的代码块，注入原生风格的“<img src="https://s.w.org/images/core/emoji/17.0.2/72x72/26a1.png" alt="⚡" loading="lazy" referrerpolicy="no-referrer" /> 直传”按钮，同时剥离首行 // filepath: 路由标记和所有注入的 UI 文字，确保写入磁盘的内容与模型实际输出 1:1 一致，绝无语法干扰。</p>
+<p>针对 Chrome 弹窗失焦导致文件选择器中断的经典问题，SyncPilot 采用独立授权标签页设计，彻底规避了这个坑。同步历史也会实时记录最近 30 条落盘记录，方便回溯。</p>
+<h2>从安装到落地的完整使用流程</h2>
+<p>安装非常轻量，全程不需要打包或复杂配置。</p>
+<ol>
+<li>Clone 项目到本地：git clone https://github.com/ai919/SyncPilot.git</li>
+<li>打开 Chrome 扩展管理页 chrome://extensions/，开启“开发者模式”，点击“加载已解压的扩展程序”，选择项目目录</li>
+<li>点击扩展图标，选择并授权本地项目工作区根目录，确认系统权限提示</li>
+<li>在弹窗里点击“<img src="https://s.w.org/images/core/emoji/17.0.2/72x72/1f4cb.png" alt="📋" loading="lazy" referrerpolicy="no-referrer" /> 复制 AI 规范提示词”，粘贴给 Gemini，让模型在每个代码块首行带上 // filepath: 相对路径</li>
+<li>之后只要 Gemini 输出代码，右上角就会出现蓝色“<img src="https://s.w.org/images/core/emoji/17.0.2/72x72/26a1.png" alt="⚡" loading="lazy" referrerpolicy="no-referrer" /> 直传”按钮，点一下文件就已在本地躺好；多文件时直接点右下角胶囊批量写入</li>
+</ol>
+<p>整个过程从授权到第一次落盘通常不到两分钟，后续使用几乎零摩擦。</p>
+<h2>和传统方案对比：为什么 Zero-Daemon 更香</h2>
+<table>
+<thead>
+<tr>
+<th>对比维度</th>
+<th>传统 Node/Python 守护进程方案</th>
+<th>SyncPilot 纯前端方案</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>后台依赖</td>
+<td>需要常驻进程，占内存，易断连</td>
+<td>零后台，浏览器原生 API</td>
+</tr>
+<tr>
+<td>安装复杂度</td>
+<td>需配置环境、启动脚本</td>
+<td>加载解压扩展即可</td>
+</tr>
+<tr>
+<td>代码纯净度</td>
+<td>常残留标记或 UI 文字</td>
+<td>自动深度净化</td>
+</tr>
+<tr>
+<td>批量能力</td>
+<td>依赖额外脚本</td>
+<td>内置本轮检测胶囊一键批量</td>
+</tr>
+<tr>
+<td>隐私与安全</td>
+<td>本地服务可能暴露端口</td>
+<td>仅授权指定目录，无远程通信</td>
+</tr>
+</tbody>
+</table>
+<p>对于只想快速把 Gemini 生成的组件、配置、页面代码落到真实项目里的开发者来说，SyncPilot 把“工具”重新变成了呼吸一样自然的流程，而不是新增一个断点。</p>
+<h2>适合谁用，以及目前的边界</h2>
+<p>目前最适合日常用 Gemini 做前端、全栈、脚本开发，需要频繁落地多文件代码的人。因为完全基于 File System Access API，兼容性最好的是 Chromium 内核浏览器（Chrome、Edge）。项目还很新，欢迎去 GitHub 提 Issue 或贡献。</p>
+<p>工具本该顺应开发者的呼吸。SyncPilot 把复制粘贴这种低价值劳动彻底自动化后，你可以把注意力真正放回代码逻辑和产品本身。开源地址再次提醒：<a href="https://github.com/ai919/SyncPilot" rel="external nofollow noopener noreferrer" target="_blank">https://github.com/ai919/SyncPilot</a>，体验后别忘了点个 Star。</p>
+<p>本文来源：<a href="https://www.moyunews.com/" rel="external nofollow noopener noreferrer" target="_blank">摸鱼杂货店</a>。查看原文：<a href="https://www.moyunews.com/syncpilot-gemini-code-direct-save/" rel="external nofollow noopener noreferrer" target="_blank">SyncPilot 怎么用？Gemini 代码毫秒直写本地硬盘的纯前端扩展</a>。</p></div>
+<p class="back"><a href="/">← 返回最新</a></p>
+</article>
+</main>
+<footer class="site-foot">
+<p>wocao.world — 本站内容全部转载自各订阅源，版权归原作者与原站所有。</p>
+</footer>
+</body>
+</html>
