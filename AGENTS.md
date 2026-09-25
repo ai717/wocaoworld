@@ -86,7 +86,9 @@ config.json + 订阅源 → sync → data/{sources,posts}.json → build → dis
 
 ## 当前状态
 
-- `config.json` 的 `site.url` 是**占位值** `https://ai717.github.io/wocao.world`（从 git `user.name` 推的），待用户确认真实 Pages 地址。
-- `src/fetch-feed.mjs:1` 的 UA 仍硬编码 `wocao.world/0.1 (+https://wocao.world/about/)`，版本号与联系 URL 都过时；让它跟随 config 需要把 config 传进抓取层，尚未做。
-- 4 个源里 3 个是 `full` 模式。发布到公开仓库前需重新评估版权暴露面（详见 README「`mode` 与版权」）。
-- `data/` 与 `dist/` 均 gitignore。`data/` 是可重新抓取的本地缓存，但 feed 只保留最近几十条，删掉会丢历史。
+- 本地 CMS 已可用：`npm run cms` 或双击根目录 `start-local.cmd`；固定端口 `65354`，前台 `/`，CMS `/cms/`。
+- `start-local.cmd` 只启动服务，不构建；会终止占用 `65354` 的旧服务。需要构建请在 CMS 点击“构建站点”或“提交并推送”。
+- GitHub 仓库为 `ai717/wocaoworld`，Pages 从 `gh-pages` 根目录发布，自定义域名为 `wocao.world`；构建会自动写出 `CNAME`。
+- `config.json` 当前站点地址为 `https://wocao.world`；代理可配置 `site.proxy`（如 `http://127.0.0.1:7897`）。
+- 当前订阅源均为 `excerpt`；移除源默认保留历史文章，“移除并删除文章”才会删除源记录与文章。
+- `data/` 与 `dist/` 均 gitignore；本地数据是可重抓缓存，但 Feed 通常不保留完整历史。

@@ -1,5 +1,38 @@
 # PROJECT_LOG
 
+## 2026-09-04 · 本地 CMS、统一服务、发布与自定义域名
+
+### 做了什么
+
+- 新增本地 CMS：站点设置、订阅源增删改、同步、构建、预览、提交并推送。
+- CMS 与前台共用 `127.0.0.1:65354`，根路径为前台，`/cms/` 为管理台；一键脚本会重启旧服务且不自动构建。
+- 前台隐藏订阅源导航；文章列表与详情页按需求简化可见元信息；页脚支持 CMS 自定义。
+- 新增 favicon、Open Graph/Twitter 元数据、`robots.txt`、`sitemap.xml`，构建自动生成自定义域名 `CNAME`。
+- 增加中文编码探测与 GB18030 回退；同步代理支持 `127.0.0.1:7897`。
+- “移除并删除文章”会真正删除源记录及其文章；保留 ID 不复用约束。
+- 创建并推送 GitHub 仓库 `ai717/wocaoworld`，发布 `gh-pages`，恢复 `wocao.world` 自定义域名与 HTTPS。
+
+### 修改文件
+
+`src/cms.mjs`、`src/cli.mjs`、`src/config.mjs`、`src/fetch-feed.mjs`、`src/render.mjs`、`src/store.mjs`、`src/sync.mjs`、`src/build.mjs`、`public/favicon.svg`、`start-local.cmd`、`start-local.ps1`、`config.json`、`package.json`、`README.md`、`AGENTS.md`。
+
+### 关键实现
+
+- CMS 使用本地 HTTP 服务和 JSON API；配置与数据写入沿用原子写入。
+- 发布流程拉取远端现有 `gh-pages` 后覆盖静态产物，避免孤儿分支非快进冲突；构建产物包含 `CNAME`。
+- 统一服务按 `/`、站点静态路径和 `/cms/` 分流，静态资源与 API 分流顺序固定。
+
+### 遇到的问题
+
+- Windows `bash` 实际为 WSL 占位程序，`npm run deploy` 不可靠；CMS 改用 Node 原生 Git 发布。
+- 曾因静态路由拦截 `/api/state` 导致 CMS 列表空白，已修复。
+- 曾因发布覆盖 `CNAME` 导致自定义域名短暂丢失，已改为构建自动生成并恢复 Pages 配置。
+- `www.moyunews.com/feed/` 受 Cloudflare Bot Fight 拦截；代理端口可监听，但 Node 请求仍可能超时，需源站放行或更换 Feed。
+
+### 验证
+
+Node 语法、构建可重复性、CMS/前台/SEO 路由、静态安全探针、中文 GB18030 回退均已本地验证；真实 GitHub Pages CDN 缓存与外部 Feed 可用性仍需线上观察。
+
 开发轮次记录，最新在上。只记**做了什么、为什么这么决定、遗留了什么**——
 规则与不变量见 `AGENTS.md`，使用说明见 `README.md`，此处不重复。
 
