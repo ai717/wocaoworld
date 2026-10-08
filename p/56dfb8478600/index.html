@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>GPT-6 Astra十分钟搭金门大桥：Codex五条新用法 · wocao.world</title>
+<meta name="description" content="二月时，想让 Codex 搭出像样的乐高模型，得先写自定义 Skill、反复改指令，再花几个小时迭代。结果仍不理想。当时我几乎认定：这类三维拼装任务，模型就是不行。 换到 GPT-6 Astra 后，我直接给它开了 BrickLink Studio 的权限，只说了一句：“搭一座金门大桥。”大约十分钟，第一版就出来了——桥上还停着小车。后面继续微调，体验完全不同。 这类经历让我重新审视怎么用 Codex：该给它哪些 App、指令该写多细、推理级别要不要拉满。以下是五条实操收获。 1. Astra 能直接用你的 App，有时比你自己还熟 回到乐高桥的例子。我给它一个简单请求，它就自己摸清 Stud…">
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="wocao.world">
+<meta property="og:title" content="GPT-6 Astra十分钟搭金门大桥：Codex五条新用法 · wocao.world">
+<meta property="og:description" content="二月时，想让 Codex 搭出像样的乐高模型，得先写自定义 Skill、反复改指令，再花几个小时迭代。结果仍不理想。当时我几乎认定：这类三维拼装任务，模型就是不行。 换到 GPT-6 Astra 后，我直接给它开了 BrickLink Studio 的权限，只说了一句：“搭一座金门大桥。”大约十分钟，第一版就出来了——桥上还停着小车。后面继续微调，体验完全不同。 这类经历让我重新审视怎么用 Codex：该给它哪些 App、指令该写多细、推理级别要不要拉满。以下是五条实操收获。 1. Astra 能直接用你的 App，有时比你自己还熟 回到乐高桥的例子。我给它一个简单请求，它就自己摸清 Stud…">
+<meta property="og:url" content="https://wocao.world/">
+<meta name="twitter:card" content="summary">
+<meta name="robots" content="noindex,follow">
+<link rel="alternate" type="application/rss+xml" title="wocao.world 聚合输出" href="/feed.xml">
+<link rel="stylesheet" href="/style.css">
+<link rel="canonical" href="https://www.moyunews.com/gpt-6-astra-codex-five-lessons/">
+</head>
+<body>
+<a class="skip-link" href="#main">跳到正文</a>
+<header class="site-head">
+<p class="site-title"><a href="/">wocao.world</a></p>
+<p class="site-desc">wocao.world</p>
+<nav class="site-nav">
+<a href="/">最新</a>
+<a href="/about/">关于</a>
+<a href="/feed.xml">RSS</a>
+</nav>
+</header>
+<main id="main">
+<article>
+<h1 class="post-title">GPT-6 Astra十分钟搭金门大桥：Codex五条新用法</h1>
+<div class="post-body"><p>二月时，想让 Codex 搭出像样的乐高模型，得先写自定义 Skill、反复改指令，再花几个小时迭代。结果仍不理想。当时我几乎认定：这类三维拼装任务，模型就是不行。</p>
+<p>换到 <strong>GPT-6 Astra</strong> 后，我直接给它开了 BrickLink Studio 的权限，只说了一句：“搭一座金门大桥。”大约十分钟，第一版就出来了——桥上还停着小车。后面继续微调，体验完全不同。</p>
+<p>这类经历让我重新审视怎么用 Codex：该给它哪些 App、指令该写多细、推理级别要不要拉满。以下是五条实操收获。</p>
+<p><img src="https://moyu.18uk.uk/2026/20260906-de4ea6b5-4193-49f6-bc19-22782a402756.webp" alt="GPT-6 Astra" width="700" loading="lazy" referrerpolicy="no-referrer" /></p>
+<h2>1. Astra 能直接用你的 App，有时比你自己还熟</h2>
+<p>回到乐高桥的例子。我给它一个简单请求，它就自己摸清 Studio 自带零件库、用 Python 组装模型，再打开 Studio 检查、迭代。</p>
+<p>最意外的是它把代码和 App 结合得非常自然。速度快到我开始怀疑：自己动手会不会更慢？</p>
+<p>旧 Skill 也可能变成阻力。团队做发布视频时，以前为老模型写的视频编辑 Skill 反而干扰了 Astra。去掉那些 Skill、用更干净的配置，效果更好。</p>
+<p><strong> </strong></p>
+<blockquote>
+<p>先给它你真正会用的工具，再看它还要不要额外 Skill。</p>
+</blockquote>
+<h2>2. Astra 会替你做更多产品思考</h2>
+<p>有一次我想做 Thumbnail Studio，帮自己生成创意素材。我只是随意聊了几句想法，并附上和同事的旧对话。Astra 自己补全了浏览器图片编辑器该有的交互：⌘-Z、图层、隐藏图层……我几乎没写死细节。</p>
+<p>后来加“产品反馈模式”和自动排序/实现反馈的自动化时，它把反馈界面想得很完整：高亮区域、钉评论、设优先级、编辑、标记已解决。这些我都没详细描述。</p>
+<p>动画也是同理。我把喜欢的参考动画截图、文章草稿和代码库丢给它，它不仅复现了 3D 界面，还自己做了预览工具：可播放、暂停、换视角。方便我用注释工具继续改。</p>
+<p>当然，如果你心里有非常明确的交互，还是要写清楚要求，否则可能跑偏。</p>
+<p><strong> </strong></p>
+<h2>3. Astra 在 Blender 上特别能打</h2>
+<p>团队本来就被它用 Three.js 或原生 WebGL 做的 3D 体验惊到。后来发现它用 Blender（电脑控制 + 命令行）同样出色。即便最终要进浏览器，先让它在 Blender 里把部件建好，往往更稳。</p>
+<p>测试时我给它十张家里吧台的照片，没提供任何尺寸。它对照片里的参考物（比如调酒书）估算比例，单独建模每个物体，检查后再摆进场景，不断迭代。房间、家具、架子、瓶子、玻璃器皿、角落的椅子、甚至乱线，都处理得相当到位。</p>
+<p><strong> </strong></p>
+<h2>4. 不必默认开 Max，Light / Medium 已经能惊艳</h2>
+<p>新模型一出，人总会忍不住拉最高推理。但我发现，Astra 在 Low 推理下的 Blender 结果，有时比以前 Sol 开 Max 还好。而且无论推理级别高低，它验证工作的习惯都很强，让低推理同样有力。</p>
+<p><strong> </strong></p>
+<h2>5. Astra 会主动检查自己的工作</h2>
+<p>它倾向于确认任务真的完成了。做游戏可能会自己试玩；做优化可能会搭环境测效果；做视频可能会看单帧甚至声波。</p>
+<p>写这篇文章的标题图时，它用浏览器去查 X 文章页的代码，确认封面需要 5:2、1200×480。</p>
+<p>有用，但边界要说清楚。如果你只想要一个自己会测的原型，就明确告诉它；如果希望它玩通关并修问题，也说清楚。最终检查可以要求它只过一遍你关心的点，再汇报结果和未解决项。</p>
+<p><strong> </strong></p>
+<hr />
+<p>以前花几小时都没搭好的乐高桥，现在十分钟出第一版。<br />
+把你会用的 App 交给它，给方向和参考，从 Light / Medium 起手，说清验证边界——然后看看它能走多远。</p>
+<p>那些用旧模型做过、最后放弃的任务，值得再试一次。</p>
+<p>来自：https://x.com/dkundel/status/2095972046014673156</p>
+<p>本文来源：<a href="https://www.moyunews.com/" rel="external nofollow noopener noreferrer" target="_blank">摸鱼杂货店</a>。查看原文：<a href="https://www.moyunews.com/gpt-6-astra-codex-five-lessons/" rel="external nofollow noopener noreferrer" target="_blank">GPT-6 Astra十分钟搭金门大桥：Codex五条新用法</a>。</p></div>
+<p class="back"><a href="/">← 返回最新</a></p>
+</article>
+</main>
+<footer class="site-foot">
+<p>wocao.world — 本站内容全部转载自各订阅源，版权归原作者与原站所有。</p>
+</footer>
+</body>
+</html>

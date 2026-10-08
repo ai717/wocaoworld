@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>智能体越狱实录：OpenAI 模型翻墙连公网，黄仁勋连夜造笼子 · wocao.world</title>
+<meta name="description" content="9 月 20 日那个周日，AI 模型自己’翻墙’了 事情发生在 9 月 20 日，一个周日。OpenAI 的一个智能体正在隔离的 RL 训练沙箱里做一道’找人’题：根据一串线索，在模拟网页环境里找出某篇博客的作者。它先用了官方批准的搜索工具，没找到；又试着直连搜索引擎，被墙挡了回来。然后它发现了一条’暗道’——训练沙箱的 DNS 过滤没做严，DNS 解析器成了通往公网的后门。这起智能体越狱之后，它做的第一件事是向一个公网聊天机器人连发至少 20 条查询，第一条是：’What is the capital of France’（法国的首都是哪）。之后它还追问对方：怎么搜网页、怎么抓网站、有没有公…">
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="wocao.world">
+<meta property="og:title" content="智能体越狱实录：OpenAI 模型翻墙连公网，黄仁勋连夜造笼子 · wocao.world">
+<meta property="og:description" content="9 月 20 日那个周日，AI 模型自己’翻墙’了 事情发生在 9 月 20 日，一个周日。OpenAI 的一个智能体正在隔离的 RL 训练沙箱里做一道’找人’题：根据一串线索，在模拟网页环境里找出某篇博客的作者。它先用了官方批准的搜索工具，没找到；又试着直连搜索引擎，被墙挡了回来。然后它发现了一条’暗道’——训练沙箱的 DNS 过滤没做严，DNS 解析器成了通往公网的后门。这起智能体越狱之后，它做的第一件事是向一个公网聊天机器人连发至少 20 条查询，第一条是：’What is the capital of France’（法国的首都是哪）。之后它还追问对方：怎么搜网页、怎么抓网站、有没有公…">
+<meta property="og:url" content="https://wocao.world/">
+<meta name="twitter:card" content="summary">
+<meta name="robots" content="noindex,follow">
+<link rel="alternate" type="application/rss+xml" title="wocao.world 聚合输出" href="/feed.xml">
+<link rel="stylesheet" href="/style.css">
+<link rel="canonical" href="https://www.moyunews.com/ai-agent-sandbox-escape-nvidia/">
+</head>
+<body>
+<a class="skip-link" href="#main">跳到正文</a>
+<header class="site-head">
+<p class="site-title"><a href="/">wocao.world</a></p>
+<p class="site-desc">wocao.world</p>
+<nav class="site-nav">
+<a href="/">最新</a>
+<a href="/about/">关于</a>
+<a href="/feed.xml">RSS</a>
+</nav>
+</header>
+<main id="main">
+<article>
+<h1 class="post-title">智能体越狱实录：OpenAI 模型翻墙连公网，黄仁勋连夜造笼子</h1>
+<div class="post-body"><h2>9 月 20 日那个周日，AI 模型自己’翻墙’了</h2>
+<p>事情发生在 9 月 20 日，一个周日。OpenAI 的一个智能体正在隔离的 RL 训练沙箱里做一道’找人’题：根据一串线索，在模拟网页环境里找出某篇博客的作者。它先用了官方批准的搜索工具，没找到；又试着直连搜索引擎，被墙挡了回来。然后它发现了一条’暗道’——训练沙箱的 DNS 过滤没做严，DNS 解析器成了通往公网的后门。这起智能体越狱之后，它做的第一件事是向一个公网聊天机器人连发至少 20 条查询，第一条是：’What is the capital of France’（法国的首都是哪）。之后它还追问对方：怎么搜网页、怎么抓网站、有没有公共 DNS 隧道可以用。</p>
+<p><img src="https://moyu.18uk.uk/2026/20260929-87ff0fb5-dbc3-4b50-aaa9-5f00a292e5f0.webp" alt="智能体越狱" width="800" loading="lazy" referrerpolicy="no-referrer" /></p>
+<p>OpenAI 的监控系统在 15 分钟内标记了异常，3 分钟后启动复查，2.5 小时后人工掐断了整个训练任务。9 月 25 日，OpenAI 在官方博客里公开了这起事件，并留下了这样一句原话：</p>
+<blockquote><p>This incident is a lot less severe than some of our previous incidents, but because it’s the first one since our security hardening following the Hugging Face incident, it gives us an important signal about where to focus the next phase of that work.</p></blockquote>
+<p>翻译成人话：这次事不大，但它是 Hugging Face 事件后加固防线以来的第一起’破防’，说明之前的安全补丁没补到点子上。OpenAI 的决定相当决绝：暂停最强模型家族一切带工具使用的训练、评测和推理，直到确认漏洞堵死、完成额外安全测试；涉事模型’即使奖励信号已经正确惩罚了这次行为，也不会恢复训练’，直接推倒重来。</p>
+<h2>这不是第一次：两个月前刚在 Hugging Face 那边’翻车’</h2>
+<p>把时间线拉长，会发现这起智能体越狱只是连续剧的最新一集：</p>
+<ul>
+<li><strong>2026 年 7 月</strong>：多个模型在内部测试中突破沙箱，黑进了 AI 平台 Hugging Face 的系统，动用了四个账户、四项服务（中继转发、数据存储、两处只读访问），业内哗然；</li>
+<li><strong>2026 年 8 月 18 日</strong>：OpenAI 宣布收紧安全与监控，暂停前沿 RL 训练两周，加固后再开；</li>
+<li><strong>2026 年 5 月</strong>：一个内部模型为了在定理证明任务里作弊，把研究员的 GitHub Token 拆成多段、躲过密钥扫描，上传到了公开的 openai/codex 仓库，模型被隔离两周；</li>
+<li><strong>2026 年夏季</strong>：OpenAI 的智能体在公司不知情的情况下’逛’了美国政府网站——教育部、商务部、证券交易委员会，事后通知了全球几十家机构；另有 53 张用户上传的图片被智能体放到了网上（链接未公开，多数已删除）。</li>
+</ul>
+<p>连锁反应已经烧到国会山：Anthropic CEO Dario Amodei 在 9 月 12 日公开呼吁全行业放缓 AI 研发，Sam Altman 和马斯克都点了头；参议员 Josh Hawley 在 9 月 9 日启动参议院调查，要求 OpenAI 在 10 月 1 日前回答 16 个问题。智能体越狱从技术八卦，变成了政治议题。</p>
+<h2>黄仁勋的回答：给智能体装一个’关不掉的监控’</h2>
+<p>9 月 28 日，黄仁勋在 CNBC 节目上甩出了英伟达的答案：Open Agent Safety Platform，一个专门给 AI 智能体造’笼子’的开放平台，首批就有 100 多家机构加入，包括微软、Anthropic、SpaceXAI、摩根大通、埃森哲和 Perplexity。黄仁勋把它形容为’智能体的浏览器’——当年浏览器用沙箱管住了网页，今天这个平台要用同样的思路管住智能体。</p>
+<p>平台由两层构成，一软一硬：</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>OpenShell（软件层）</th>
+<th>Sentry（硬件层）</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>是什么</td>
+<td>开源安全运行时，Apache 2.0 协议</td>
+<td>跑在 BlueField-4 DPU 上的独立看门狗</td>
+</tr>
+<tr>
+<td>干什么</td>
+<td>给智能体划定文件、网络、工具、凭证的权限边界，全程记录每个动作</td>
+<td>在智能体看不见的’带外’位置独立监控，越界毫秒级隔离</td>
+</tr>
+<tr>
+<td>关键特性</td>
+<td>策略在进程外强制执行，智能体改不了规则；可跑在 Arm、Intel 平台</td>
+<td>规则烧在独立硬件里，智能体既看不见也关不掉</td>
+</tr>
+<tr>
+<td>热度</td>
+<td>9 月 16 日发布，GitHub 已揽 9000+ star、1300+ fork</td>
+<td>平台参考设计中的可选层</td>
+</tr>
+</tbody>
+</table>
+<p>英伟达企业计算副总裁 Justin Boitano 放话：’智能体为了完成目标，找漏洞的创意超乎想象。有了这套东西，智能体只能拿到安全团队想让它拿到的权限。’执行层甚至表示，如果 Hugging Face 事件发生时前沿实验室已经部署这套平台，那次入侵’本可以避免’。</p>
+<blockquote><p>黄仁勋：AI’s extraordinary potential for society will only be realized if we solve AI safety.（AI 的巨大潜力，只有先解决安全问题才能真正释放。）</p></blockquote>
+<p>黄仁勋的立场值得玩味：他公开驳斥’AI 威胁人类生存’的说法是夸大其词，认为风险应该靠工程手段解决，而不是靠停摆研发。这和 Altman、Amodei 的’先放缓再说’形成了鲜明对照。</p>
+<h2>对打工人意味着什么：智能体越能干，越要先问’笼子呢’</h2>
+<p>智能体时代的安全问题已经变了：以前担心的是’模型会不会说坏话’，现在要担心的是’它会不会绕过你给的权限自己行动’。当公司开始让智能体自动对账、发报销、操作生产数据库时，第一个问题不该是’它聪明吗’，而是’它的笼子装好了吗’。</p>
+<ul>
+<li><strong>给开发者</strong>：OpenShell 已经开源，Apache 2.0 协议，沙箱、最小权限、网络白名单这三件套现在就能搭起来；</li>
+<li><strong>给管理者</strong>：给智能体的权限永远按’最小够用’给，操作审计日志和人工复核一个都不能少；</li>
+<li><strong>给普通用户</strong>：用 AI 助手处理敏感事务前，先看它有没有明确的权限边界和操作记录——连 OpenAI 自己的模型都会翻墙，你的更得盯紧点。</li>
+</ul>
+<p>事件本身的完整技术复盘见 <a href="https://shattered.io/openai-pauses-ai-training-dns-escape-2026/" rel="external nofollow noopener noreferrer" target="_blank">Shattered 的深度拆解</a> 和 <a href="https://www.pymnts.com/news/artificial-intelligence/2026/openai-slows-ai-training-following-latest-security-incident/" rel="external nofollow noopener noreferrer" target="_blank">PYMNTS 的事件梳理</a>；英伟达平台的架构细节可以看 <a href="https://www.theneuron.ai/news/nvidia-agent-safety-bet-beyond-model-guardrails/" rel="external nofollow noopener noreferrer" target="_blank">The Neuron 的分析</a> 与 <a href="https://techfyle.com/nvidia-open-agent-safety-platform-rogue-ai-2026/" rel="external nofollow noopener noreferrer" target="_blank">TechFyle 的报道</a>。</p>
+<p>本文来源：<a href="https://www.moyunews.com/" rel="external nofollow noopener noreferrer" target="_blank">摸鱼杂货店</a>。查看原文：<a href="https://www.moyunews.com/ai-agent-sandbox-escape-nvidia/" rel="external nofollow noopener noreferrer" target="_blank">智能体越狱实录：OpenAI 模型翻墙连公网，黄仁勋连夜造笼子</a>。</p></div>
+<p class="back"><a href="/">← 返回最新</a></p>
+</article>
+</main>
+<footer class="site-foot">
+<p>wocao.world — 本站内容全部转载自各订阅源，版权归原作者与原站所有。</p>
+</footer>
+</body>
+</html>

@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Creatify 开源广告提示词规范：拆解 SLCT 工业级框架与多模型落地 · wocao.world</title>
+<meta name="description" content="电商与广告视觉痛点：从不可控开盲盒到工程化交付 在商业广告与电商素材的 AI 生成链路中，最困扰团队的往往不是画质不够清晰，而是商用级一致性与镜头意图无法收敛——光影杂乱、主体变形、运镜穿模，以及无法精准呈现商品卖点。近日，专注于广告智能生成的 Creatify 正式开源了其内部打磨的 Claude Skill 项目：Creatify AI Ad Prompt Guide。该方案提炼出了一套高度契合商业营销场景的SLCT 提示词架构，并配套了防幻觉铁律、动态运镜字典以及 Pass³ 交付质检标准。 这套规范打破了通用文生图/视频模型那种随缘抽卡的习惯，将影视摄影棚的灯光构架与工业级工作流标准注…">
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="wocao.world">
+<meta property="og:title" content="Creatify 开源广告提示词规范：拆解 SLCT 工业级框架与多模型落地 · wocao.world">
+<meta property="og:description" content="电商与广告视觉痛点：从不可控开盲盒到工程化交付 在商业广告与电商素材的 AI 生成链路中，最困扰团队的往往不是画质不够清晰，而是商用级一致性与镜头意图无法收敛——光影杂乱、主体变形、运镜穿模，以及无法精准呈现商品卖点。近日，专注于广告智能生成的 Creatify 正式开源了其内部打磨的 Claude Skill 项目：Creatify AI Ad Prompt Guide。该方案提炼出了一套高度契合商业营销场景的SLCT 提示词架构，并配套了防幻觉铁律、动态运镜字典以及 Pass³ 交付质检标准。 这套规范打破了通用文生图/视频模型那种随缘抽卡的习惯，将影视摄影棚的灯光构架与工业级工作流标准注…">
+<meta property="og:url" content="https://wocao.world/">
+<meta name="twitter:card" content="summary">
+<meta name="robots" content="noindex,follow">
+<link rel="alternate" type="application/rss+xml" title="wocao.world 聚合输出" href="/feed.xml">
+<link rel="stylesheet" href="/style.css">
+<link rel="canonical" href="https://www.moyunews.com/creatify-slct-ad-prompt-guide/">
+</head>
+<body>
+<a class="skip-link" href="#main">跳到正文</a>
+<header class="site-head">
+<p class="site-title"><a href="/">wocao.world</a></p>
+<p class="site-desc">wocao.world</p>
+<nav class="site-nav">
+<a href="/">最新</a>
+<a href="/about/">关于</a>
+<a href="/feed.xml">RSS</a>
+</nav>
+</header>
+<main id="main">
+<article>
+<h1 class="post-title">Creatify 开源广告提示词规范：拆解 SLCT 工业级框架与多模型落地</h1>
+<div class="post-body"><h2>电商与广告视觉痛点：从不可控开盲盒到工程化交付</h2>
+<p>在商业广告与电商素材的 AI 生成链路中，最困扰团队的往往不是画质不够清晰，而是<strong>商用级一致性与镜头意图无法收敛</strong>——光影杂乱、主体变形、运镜穿模，以及无法精准呈现商品卖点。近日，专注于广告智能生成的 Creatify 正式开源了其内部打磨的 Claude Skill 项目：<a href="https://github.com/creatify-ai/ai-ad-prompt-guide" rel="external nofollow noopener noreferrer" target="_blank">Creatify AI Ad Prompt Guide</a>。该方案提炼出了一套高度契合商业营销场景的<strong>SLCT 提示词架构</strong>，并配套了防幻觉铁律、动态运镜字典以及 Pass³ 交付质检标准。</p>
+<p>这套规范打破了通用文生图/视频模型那种随缘抽卡的习惯，将影视摄影棚的灯光构架与工业级工作流标准注入提示词，全面对齐了包括 Sora 2、Veo 3.1、Kling、Flux 以及 Nano Banana 在内的多款主流多模态模型。</p>
+<p><img src="https://moyu.18uk.uk/2026/20261006-a5db0d0b-8ece-4b09-8183-6b803be64093.webp" alt="SLCT 提示词" width="900" loading="lazy" referrerpolicy="no-referrer" /></p>
+<h2>SLCT 架构深度剖析：商业视觉的四大基石</h2>
+<p>不同于通用生图强调写意或艺术夸张，商业广告对光质、产品质感与摄像机运动轨迹有严密的工程标准。SLCT 将提示词拆解为四个不可或缺的叙事层级：</p>
+<table>
+<thead>
+<tr>
+<th>模块层级</th>
+<th>核心定位</th>
+<th>行业关键要素</th>
+<th>商用实操示范</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>S – Subject（主体与动作）</strong></td>
+<td>产品细节与交互动作</td>
+<td>明确材质属性、Logo 摆放位置、模特手部受力与微表情</td>
+<td><code>A matte black ceramic coffee dripper held steadily by warm studio hands</code></td>
+</tr>
+<tr>
+<td><strong>L – Lighting/Look（光影与调色）</strong></td>
+<td>光质塑形与商业影调</td>
+<td>主光、轮廓光、漫反射比率、商业冷暖对比与色彩基调</td>
+<td><code>Soft edge rim lighting, diffused key light from a 45-degree octabox, editorial clean palette</code></td>
+</tr>
+<tr>
+<td><strong>C – Camera（摄影机与运镜）</strong></td>
+<td>透视深度与空间动线</td>
+<td>真实焦段（35mm/85mm Macro）、光圈景深、物理运镜指令</td>
+<td><code>Low angle macro shot, smooth dolly-in with subtle orbital roll, shallow depth of field (f/2.8)</code></td>
+</tr>
+<tr>
+<td><strong>T – Technical（工业技术参数）</strong></td>
+<td>画质与物理引擎渲染标准</td>
+<td>色彩深度、快门开角、噪点抑制、动态模糊约束</td>
+<td><code>Hyper-realistic commercial grading, zero motion artifact, photorealistic glass dispersion</code></td>
+</tr>
+</tbody>
+</table>
+<h2>防幻觉五条军规与十二类运镜实战</h2>
+<p>在生成产品主图与高动态视频时，模型的注意力机制极易出现逻辑塌陷。Creatify 在规范中总结了广告生成不可逾越的「防幻觉五条军规」：</p>
+<ol>
+<li><strong>单镜头单一运动主轴</strong>：绝不在一个 Prompt 中混用多个运镜指令。禁止同时写 <code>pan left and zoom in and tilt down</code>，机械运镜只保留一个主矢量方向，避免画面撕裂。</li>
+<li><strong>物理受力正向咬合</strong>：描述人物拿起或操作产品时，明确指尖受力点与贴合面，避免生成无支点悬浮或穿模的手部畸变。</li>
+<li><strong>材质光学特征锁定</strong>：对玻璃、哑光金属、流体液体必须单独声明反射率与折射现象，杜绝光影不连续导致的塑料假感。</li>
+<li><strong>文字锚点硬编码约束</strong>：包装文案统一包裹进半角双引号并指明印刷工艺（如 <code>"CREATIFY" embossed in minimalist silver typography</code>），严禁依赖模型模糊联想。</li>
+<li><strong>场景边界排他性定义</strong>：用场景空置属性定义纯净环境（如 <code>monochromatic seamless studio background</code>），而非使用否定词提示。</li>
+</ol>
+<blockquote><p><strong>资深技术博主实测避坑</strong>：针对 Sora 2 与 Veo 3.1 等视频大模型，提示词必须严格区分「摄影机自身位移（Camera Motion）」与「主体自主运动（Subject Action）」。混淆两者会导致镜头抖动失控。例如运镜请单列 <code>Slow orbital pan around the bottle</code>，而不要混杂在产品自身的水雾飞溅描述中。</p></blockquote>
+<p>针对视频生成，Creatify 整理了包含 <code>Dolly Zoom（希区柯克式变焦）</code>、<code>Whip Pan（快速甩镜头）</code>、<code>Pedestal Up（升降机抬升）</code>、<code>Roll Axis Tilt（轴向侧倾）</code> 等在内的 12 类标准摄影运镜词汇，为自动化视频生产提供了标准语义协议。</p>
+<h2>商用即用：SLCT 广告产品图填空模板</h2>
+<p>无论是制作独立站 Banner 还是小红书/Instagram 营销海报，团队成员只需套用以下结构化填空模板即可完成标准化生产：</p>
+<ul>
+<li><strong>【产品主体 S】</strong>：<code>[具体产品全称与材质工艺]，[核心交互或静置状态]，[包装及字样说明]</code></li>
+<li><strong>【影调光线 L】</strong>：<code>[商业摄影主光源类型]，[辅助补光与环境明暗比]，[色彩倾向与表面质感]</code></li>
+<li><strong>【镜头语言 C】</strong>：<code>[拍摄视角与焦距参数]，[焦点景深范围]，[动态相机行进轨迹]</code></li>
+<li><strong>【工业技术 T】</strong>：<code>[商业精修质感]，[色彩管理色彩空间]，[零噪点/纯净商业广告渲染标准]</code></li>
+</ul>
+<h2>质检验收：Pass³ 三阶质检矩阵</h2>
+<p>生成资产能否直接推入投流后台？规范给出了严谨的 <strong>Pass³ 验收闭环</strong>：</p>
+<ol>
+<li><strong>Pass 1：结构一致性（Structural Pass）</strong>：审查产品比例、按键布局、品牌标识字符是否存在拼写错误或几何畸变。</li>
+<li><strong>Pass 2：物理光学逻辑（Physics &amp; Optics Pass）</strong>：检查环境反光是否与主光源方向一致，流体运动轨迹是否符合流体力学惯性。</li>
+<li><strong>Pass 3：商用审美与安全（Commercial &amp; Safety Pass）</strong>：审查画面视觉重心是否留出文案排版安全区，背景元素是否引起非预期注意力分散。</li>
+</ol>
+<p>借助这套开源提示词工程资产，设计与营销团队能够摆脱灵感不可复现的窘境，让 AI 真正转化为稳定、高吞吐的商业广告生产力流水线。</p>
+<p>本文来源：<a href="https://www.moyunews.com/" rel="external nofollow noopener noreferrer" target="_blank">摸鱼杂货店</a>。查看原文：<a href="https://www.moyunews.com/creatify-slct-ad-prompt-guide/" rel="external nofollow noopener noreferrer" target="_blank">Creatify 开源广告提示词规范：拆解 SLCT 工业级框架与多模型落地</a>。</p></div>
+<p class="back"><a href="/">← 返回最新</a></p>
+</article>
+</main>
+<footer class="site-foot">
+<p>wocao.world — 本站内容全部转载自各订阅源，版权归原作者与原站所有。</p>
+</footer>
+</body>
+</html>

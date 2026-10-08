@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Reflection 开源大模型 Beam：501B 参数对标 GLM-5.2 · wocao.world</title>
+<meta name="description" content="美国时间 10 月 5 日，成立才两年的创业公司 Reflection AI 甩出了它的第一款开源大模型 Beam。这家公司来头不小：2024 年由两位前谷歌 DeepMind 研究员 Misha Laskin 和 Ioannis Antonoglou 创办，背后站着英伟达，累计融资约 47 亿美元，估值 250 亿美元。路透社和 TechCrunch 同一天跟进报道，直接把 Beam 定位成“美国人正面迎战 DeepSeek、Qwen、Z.ai 国产开源模型”的第一枪。摸鱼这么久，终于等到美国人拿出像样的开源权重了。 Beam 到底是个啥：5010 亿参数，每次只激活 230 亿 先看硬核参…">
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="wocao.world">
+<meta property="og:title" content="Reflection 开源大模型 Beam：501B 参数对标 GLM-5.2 · wocao.world">
+<meta property="og:description" content="美国时间 10 月 5 日，成立才两年的创业公司 Reflection AI 甩出了它的第一款开源大模型 Beam。这家公司来头不小：2024 年由两位前谷歌 DeepMind 研究员 Misha Laskin 和 Ioannis Antonoglou 创办，背后站着英伟达，累计融资约 47 亿美元，估值 250 亿美元。路透社和 TechCrunch 同一天跟进报道，直接把 Beam 定位成“美国人正面迎战 DeepSeek、Qwen、Z.ai 国产开源模型”的第一枪。摸鱼这么久，终于等到美国人拿出像样的开源权重了。 Beam 到底是个啥：5010 亿参数，每次只激活 230 亿 先看硬核参…">
+<meta property="og:url" content="https://wocao.world/">
+<meta name="twitter:card" content="summary">
+<meta name="robots" content="noindex,follow">
+<link rel="alternate" type="application/rss+xml" title="wocao.world 聚合输出" href="/feed.xml">
+<link rel="stylesheet" href="/style.css">
+<link rel="canonical" href="https://www.moyunews.com/reflection-beam-openweight-501b/">
+</head>
+<body>
+<a class="skip-link" href="#main">跳到正文</a>
+<header class="site-head">
+<p class="site-title"><a href="/">wocao.world</a></p>
+<p class="site-desc">wocao.world</p>
+<nav class="site-nav">
+<a href="/">最新</a>
+<a href="/about/">关于</a>
+<a href="/feed.xml">RSS</a>
+</nav>
+</header>
+<main id="main">
+<article>
+<h1 class="post-title">Reflection 开源大模型 Beam：501B 参数对标 GLM-5.2</h1>
+<div class="post-body"><p>美国时间 10 月 5 日，成立才两年的创业公司 Reflection AI 甩出了它的第一款开源大模型 Beam。这家公司来头不小：2024 年由两位前谷歌 DeepMind 研究员 Misha Laskin 和 Ioannis Antonoglou 创办，背后站着英伟达，累计融资约 47 亿美元，估值 250 亿美元。路透社和 TechCrunch 同一天跟进报道，直接把 Beam 定位成“美国人正面迎战 DeepSeek、Qwen、Z.ai 国产开源模型”的第一枪。摸鱼这么久，终于等到美国人拿出像样的开源权重了。</p>
+<p><img src="https://moyu.18uk.uk/2026/20261006-47af3d88-87cb-46b7-9418-13c72ccd2a70.webp" alt="开源大模型 Beam" width="800" loading="lazy" referrerpolicy="no-referrer" /></p>
+<h2>Beam 到底是个啥：5010 亿参数，每次只激活 230 亿</h2>
+<p>先看硬核参数。<strong>Beam 是个 5010 亿总参数的 MoE（混合专家）模型，每次推理只激活 230 亿参数</strong>，预训练用了 23.8 万亿 token，上下文窗口 100 万 token，纯文本路线。官方博客的定位说得很直白：推理、代码、Agent 任务，主打“打工模型”——企业、公共部门和开发者的主力苦力，不是拿来聊天的吉祥物。</p>
+<p>为啥 MoE 这么吃香？5000 亿参数的稠密模型谁也跑不起，但 MoE 每次只调用一部分专家网络，速度更快、成本更低。这就是 Beam 敢和 7440 亿参数的智谱 GLM-5.2（激活 400 亿参数）叫板的底气：体量看着小一截，干活不差，油耗还更低。</p>
+<h2>自报成绩单：追平 GLM-5.2，但 GLM-5.3 和 Kimi K3 还是压它一头</h2>
+<p>丑话说前头：以下跑分全部来自 Reflection 官方自测，<strong>没有任何第三方独立验证</strong>，当营销材料看就行。官方的核心卖点只有一句话：在高阶推理基准上和 Z.ai 的 GLM-5.2 打平，而推理算力只要对手的四分之一到三分之一。</p>
+<table>
+<thead>
+<tr>
+<th>基准测试</th>
+<th>Beam</th>
+<th>GLM-5.2</th>
+<th>GLM-5.3</th>
+<th>Kimi K3</th>
+<th>Inkling</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Terminal Bench v2.1</td>
+<td>80.1</td>
+<td>81.0</td>
+<td>88.2</td>
+<td>88.3</td>
+<td>63.8</td>
+</tr>
+<tr>
+<td>Humanity’s Last Exam（无工具）</td>
+<td>36.2</td>
+<td>40.5</td>
+<td>42.3</td>
+<td>46.9</td>
+<td>29.7</td>
+</tr>
+<tr>
+<td>GPQA Diamond</td>
+<td>90.5</td>
+<td>91.2</td>
+<td>91.7</td>
+<td>93.5</td>
+<td>87.2</td>
+</tr>
+<tr>
+<td>SWE-Bench Pro v1</td>
+<td>65.5</td>
+<td>62.1</td>
+<td>—</td>
+<td>—</td>
+<td>54.3</td>
+</tr>
+</tbody>
+</table>
+<p>有意思的是，Reflection 在自家官宣里也认怂了：<strong>智谱 GLM-5.3、月之暗面 Kimi K3 在大多数项目上依然领先，DeepSeek V4.1 Flash 在部分代码项也压着 Beam</strong>。官方原话是“前沿开源模型如 Kimi K3 在原始能力上仍占优，Beam 的优势是推理时效成本”。能把自己不如人的地方写进官宣，这点倒是比很多 PPT 大模型实在。</p>
+<p>横向对比它的美国同行：Mira Murati 创办的 Thinking Machines Lab 七月发布的 Inkling 是个多模态模型，Beam 在四个代码测试项上都赢了它。不过一个纯文本、一个多模态，赛道不完全一样，这场胜利含金量自己掂量。</p>
+<h2>谁在下注：英伟达的钱、SpaceX 的算力</h2>
+<p>训这种规模的模型要烧多少钱？按外界披露的数据，Beam 在 6144 块英伟达 GB300 NVL72 上训练，预训练不到四周跑完，官方自称 goodput 高达 92.3%；之后的强化学习阶段又跑了超过 1 亿次 rollouts，用了另外 10500 块 GB300。老黄为啥这么挺？英伟达不仅卖卡，还在上一轮融资里直接砸了 8 亿美元——黄仁勋想卖的从来不是卡，是“AI factory”这套故事。</p>
+<p>啥是 AI factory？简单说就是：Reflection 帮企业和主权国家建“属于自己的 AI 工厂”，用它的开源模型加上你自己的数据，训出可本地部署、可审计、可定制的专属智能体系统。目前已经和韩国新世界（Shinsegae）集团在测试主权 AI 工厂合作，据说对冲基金和交易公司也排队等着要。</p>
+<p>算力囤得也很狠：今年夏天 Reflection 和 SpaceX、Nebius 签了总价超 70 亿美元的协议，锁定 GB300 芯片供应到 2029 年，SpaceX 的 Colossus 2 数据中心也给它留了位置。马斯克出电、老黄出卡，这组合你说魔幻不魔幻。</p>
+<blockquote><p>CEO Misha Laskin 在发布当天的播客里放话：“The only way to own intelligence is, by definition, if it’s open.”（要拥有智能的唯一方式就是开放——开放了，你才能跑在自己的机器上，掌控它、定制它。）一年前他还说过更狠的：如果美国再不行动，“全球智能的标准就会由别人来建。”</p></blockquote>
+<p>别忘了它要打的还有自己人：Meta、Mistral、Cohere 这些西方开源玩家，以及 Anthropic、OpenAI 的闭源阵营。Beam 这次是明牌：闭源的 API 卖得再贵，也挡不住开源权重一波流。</p>
+<h2>对摸鱼党有啥用：现在还下载不了，但月底白嫖有望</h2>
+<p>先泼盆冷水：<strong>Beam 的权重现在还下载不了</strong>。模型还在做最后的红队测试，目前只有候选用户能通过 waitlist 尝鲜。官方承诺<strong>本月内按 Apache 2.0 协议发布完整权重、技术报告和模型卡</strong>，分发走超大规模云厂商和新锐云（neoclouds），开源库集成同步上线。</p>
+<p>Apache 2.0 意味着什么？商业随便用，不用交钱，不用看人脸色。对咱们普通用户来说，真正的好消息是这个时间点：国产开源模型卷了两年，第一次有美国公司拿出像样的开源权重正面回应。接下来 Hugging Face 上架、各家云厂商免费额度、本地部署教程，大概率会跟上。</p>
+<ul>
+<li><strong>代码党</strong>：等权重放出后，可以在本地或云上微调自己的代码助手，按官方说法成本只有同级模型的四分之一，家用显卡党可以蹲一波量化版。</li>
+<li><strong>Agent 玩家</strong>：Beam 主打 agentic 任务，配合 vLLM 这类推理框架，私有化部署自己的智能体管家门槛会低很多。</li>
+<li><strong>等等党</strong>：现在先去官网排个 waitlist，本月盯着 Hugging Face 上架动态，别急着给闭源 API 续费。</li>
+</ul>
+<p>一句话：国产开源模型的好日子过了两年，美国人终于坐不住了。Beam 能不能真打，还得等独立评测和权重放出见分晓——但方向是对的：<strong>智能这东西越开放越便宜，最后受益的都是咱们这种想白嫖的。</strong>官方公告见<a href="https://reflection.ai/blog/introducing-beam" rel="external nofollow noopener noreferrer" target="_blank">Reflection 博客</a>，TechCrunch 的详细报道在<a href="https://techcrunch.com/2026/10/05/reflection-debuts-beam-a-open-weight-ai-model-to-rival-chinese-models-at-lower-compute-cost/" rel="external nofollow noopener noreferrer" target="_blank">这里</a>，路透社版本在<a href="https://www.reuters.com/technology/nvidia-backed-reflection-unveils-first-ai-model-take-chinese-open-models-2026-10-05/" rel="external nofollow noopener noreferrer" target="_blank">这里</a>，跑分明细表参考<a href="https://aistockwire.com/blog/reflection-ai-beam-open-weight-model-nvidia-nvda-kimi-glm-benchmarks-october-2026/" rel="external nofollow noopener noreferrer" target="_blank">这份整理</a>。</p>
+<p>本文来源：<a href="https://www.moyunews.com/" rel="external nofollow noopener noreferrer" target="_blank">摸鱼杂货店</a>。查看原文：<a href="https://www.moyunews.com/reflection-beam-openweight-501b/" rel="external nofollow noopener noreferrer" target="_blank">Reflection 开源大模型 Beam：501B 参数对标 GLM-5.2</a>。</p></div>
+<p class="back"><a href="/">← 返回最新</a></p>
+</article>
+</main>
+<footer class="site-foot">
+<p>wocao.world — 本站内容全部转载自各订阅源，版权归原作者与原站所有。</p>
+</footer>
+</body>
+</html>

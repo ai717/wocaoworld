@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Nano Banana 提示词指南：掌握五维公式告别盲目堆砌词汇 · wocao.world</title>
+<meta name="description" content="告别咒语堆砌：Nano Banana 提示词范式重构 在图像生成与多模态模型领域，许多创作者仍习惯于从 Stable Diffusion 或早期的 Midjourney 沿袭下来的「词云堆砌法」——把各种分辨率修饰词、艺术家风格与质量词用逗号生硬拼凑。然而，Google 官方针对 Nano Banana 提示词官方指南 给出了截然不同的标准：模型拥有极强的自然语言语义解析能力，想要获得高可控、高一致性的生成效果，必须全面转向类似电影导演案的叙事化提示词工程。 本文将拆解 Google Cloud 官方总结的 Nano Banana 2 与 Nano Banana Pro 提示词核心逻辑，解析「…">
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="wocao.world">
+<meta property="og:title" content="Nano Banana 提示词指南：掌握五维公式告别盲目堆砌词汇 · wocao.world">
+<meta property="og:description" content="告别咒语堆砌：Nano Banana 提示词范式重构 在图像生成与多模态模型领域，许多创作者仍习惯于从 Stable Diffusion 或早期的 Midjourney 沿袭下来的「词云堆砌法」——把各种分辨率修饰词、艺术家风格与质量词用逗号生硬拼凑。然而，Google 官方针对 Nano Banana 提示词官方指南 给出了截然不同的标准：模型拥有极强的自然语言语义解析能力，想要获得高可控、高一致性的生成效果，必须全面转向类似电影导演案的叙事化提示词工程。 本文将拆解 Google Cloud 官方总结的 Nano Banana 2 与 Nano Banana Pro 提示词核心逻辑，解析「…">
+<meta property="og:url" content="https://wocao.world/">
+<meta name="twitter:card" content="summary">
+<meta name="robots" content="noindex,follow">
+<link rel="alternate" type="application/rss+xml" title="wocao.world 聚合输出" href="/feed.xml">
+<link rel="stylesheet" href="/style.css">
+<link rel="canonical" href="https://www.moyunews.com/nano-banana-prompt-guide/">
+</head>
+<body>
+<a class="skip-link" href="#main">跳到正文</a>
+<header class="site-head">
+<p class="site-title"><a href="/">wocao.world</a></p>
+<p class="site-desc">wocao.world</p>
+<nav class="site-nav">
+<a href="/">最新</a>
+<a href="/about/">关于</a>
+<a href="/feed.xml">RSS</a>
+</nav>
+</header>
+<main id="main">
+<article>
+<h1 class="post-title">Nano Banana 提示词指南：掌握五维公式告别盲目堆砌词汇</h1>
+<div class="post-body"><h2>告别咒语堆砌：Nano Banana 提示词范式重构</h2>
+<p>在图像生成与多模态模型领域，许多创作者仍习惯于从 Stable Diffusion 或早期的 Midjourney 沿袭下来的「词云堆砌法」——把各种分辨率修饰词、艺术家风格与质量词用逗号生硬拼凑。然而，Google 官方针对 <a href="https://cloud.google.com/blog/products/ai-machine-learning/ultimate-prompting-guide-for-nano-banana" rel="external nofollow noopener noreferrer" target="_blank">Nano Banana 提示词官方指南</a> 给出了截然不同的标准：模型拥有极强的自然语言语义解析能力，想要获得高可控、高一致性的生成效果，必须全面转向类似电影导演案的<strong>叙事化提示词工程</strong>。</p>
+<p>本文将拆解 Google Cloud 官方总结的 Nano Banana 2 与 Nano Banana Pro 提示词核心逻辑，解析「五维公式」实操细节，并展示如何通过正向描述、精准镜头词汇以及图文融合逻辑，为后续对接 Veo 视频模型与 Lyria 音频模型打下严谨的关键帧基础。</p>
+<p><img src="https://moyu.18uk.uk/2026/20261006-c4f0ee27-773f-4bd4-9bc8-68a9644db3f8.webp" alt="Nano Banana 提示词" width="850" loading="lazy" referrerpolicy="no-referrer" /></p>
+<h2>核心对比：传统关键词堆砌 vs 导演式叙事公式</h2>
+<p>提示词的本质是与大语言模型后端的视觉编码器进行意图同步。下表直观呈现了两种模式在提示词结构、模型解析负载与输出一致性上的真实差异：</p>
+<table>
+<thead>
+<tr>
+<th>评估维度</th>
+<th>传统关键词堆叠模式（Tag-based）</th>
+<th>Nano Banana 导演式叙事（Director-style）</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>结构逻辑</strong></td>
+<td>碎片化词汇逗号拼接，如 <code>masterpiece, best quality, 1girl, street</code></td>
+<td>完整语义长句，严格遵循「主体+动作+场景+构图+风格」结构</td>
+</tr>
+<tr>
+<td><strong>语义理解</strong></td>
+<td>容易发生实体属性交叉污染（例如把背景颜色误涂到主体衣物上）</td>
+<td>语法主谓宾清晰，明确区分前景主体属性与背景环境边界</td>
+</tr>
+<tr>
+<td><strong>排他描述</strong></td>
+<td>常用否定词 <code>no cars, without trees</code>，往往反向诱发错误元素</td>
+<td>纯粹正向具象化表达，使用 <code>empty street, barren land</code> 明确空置状态</td>
+</tr>
+<tr>
+<td><strong>文字与排版</strong></td>
+<td>画面字母严重变形、乱码，文字与环境光影脱节</td>
+<td>支持双引号包裹渲染字符，并可直接指定排版字体与字号层级</td>
+</tr>
+<tr>
+<td><strong>多模态扩展</strong></td>
+<td>静态帧难以复用，难以形成连续剧本</td>
+<td>可无缝作为关键帧注入 Veo 生成一致性运镜视频</td>
+</tr>
+</tbody>
+</table>
+<h2>文生图黄金法则：五维叙事公式实操拆解</h2>
+<p>纯文本生成单张静帧时，Nano Banana 的官方底层框架可固化为：<strong>Subject（主体）→ Action（动作/状态）→ Context（场景/光影）→ Composition（镜头构图）→ Style（艺术风格与材质）</strong>。每一个要素都应采用自然的句式展开：</p>
+<ol>
+<li><strong>Subject（主体）</strong>：清晰指定主角形象、材质、衣着与特征，避免泛指。例如将「a barista」细化为「a middle-aged female barista wearing a canvas apron with rolled-up sleeves」。</li>
+<li><strong>Action（动作）</strong>：赋予主体动态交互，例如「carefully pouring steamed milk into an artisanal ceramic mug to form a delicate leaf pattern」。</li>
+<li><strong>Context（环境与光影）</strong>：交代空间景深与环境光源，例如「inside a dimly lit Nordic cafe, morning sunlight streaming through condensation on the tall glass window」。</li>
+<li><strong>Composition（镜头构图）</strong>：使用真实电影摄制术语，例如 <code>cinematic wide shot</code>、<code>low angle looking up</code>、<code>shallow depth of field</code>、<code>50mm lens f/1.8</code>，而非生造虚词。</li>
+<li><strong>Style（风格与色彩）</strong>：标明渲染引擎、胶片批次或美学派别，例如「kodachrome color grading, realistic textures, soft film grain, natural shadows」。</li>
+</ol>
+<blockquote><p><strong>资深技术博主实测避坑</strong>：绝对不要在提示词中使用否定句（Negative Prompts）。若你不希望街道上有车，写入 <code>no cars</code> 时，注意力机制依旧会高亮 <code>cars</code> 概念从而大概率凭空画出一辆轿车。正确的写法是描述状态本身——使用 <code>an empty asphalt road</code> 或 <code>a completely deserted suburban street</code>。</p></blockquote>
+<h2>图生图与精准编辑：参考图关系与文字渲染</h2>
+<p>在多模态工作流中，Nano Banana Pro 具备优秀的图生图参考解析与画面文字硬排版能力。针对参考图再生成与画面局部重绘，官方提出了明确的契约约束：</p>
+<ul>
+<li><strong>带参考图生成</strong>：必须遵循「参考图关系说明 + 新场景/新动作」的句式。例如明确标注「保留参考图 1 中角色的面部结构与金色短发，将其置于暴风雨中的霓虹赛博朋克屋顶，摆出戒备姿态」。</li>
+<li><strong>定向编辑逻辑</strong>：编辑时切勿含糊其辞，明确划定「改什么、留什么」。提示词范式为：「保持背景与环境光线不变，仅将模特身上的长袖衬衫修改为深蓝色复古工装夹克」。</li>
+<li><strong>高精度文字渲染</strong>：需要将文字清晰印在招牌、衣物或包装上时，必须将文字用英文半角双引号转义包裹，并追加字体定位描述。例如提示词应写为：<code>the words "BREW &amp; BEAN" cleanly printed in bold sans-serif font across the wooden storefront sign</code>。</li>
+</ul>
+<h2>生态延伸：串联 Veo 与 Lyria 的多模态工作流</h2>
+<p>Nano Banana 并不是一座孤岛。在 Google Cloud Vertex AI 生态中，通过导演式提示词生成的图片具备高度规范的场景构图与光影信息，可以直接作为首尾关键帧输入给 <strong>Veo</strong> 视频生成模型。由于构图字段中预先锁定了 <code>dolly zoom</code>、<code>panning shot</code> 或 <code>FPV drone flight</code>，Veo 在插帧与运镜补全时能够完全继承你的物理空间逻辑。同时，结合 <strong>Lyria</strong> 依据场景情感与节奏生成匹配的自适应配乐，一套从静态叙事卡片到沉浸式视听成片的工业化链路便水到渠成。</p>
+<p>本文来源：<a href="https://www.moyunews.com/" rel="external nofollow noopener noreferrer" target="_blank">摸鱼杂货店</a>。查看原文：<a href="https://www.moyunews.com/nano-banana-prompt-guide/" rel="external nofollow noopener noreferrer" target="_blank">Nano Banana 提示词指南：掌握五维公式告别盲目堆砌词汇</a>。</p></div>
+<p class="back"><a href="/">← 返回最新</a></p>
+</article>
+</main>
+<footer class="site-foot">
+<p>wocao.world — 本站内容全部转载自各订阅源，版权归原作者与原站所有。</p>
+</footer>
+</body>
+</html>

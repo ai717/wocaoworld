@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>免费网关实测：一个网关白嫖150个免费模型全攻略 · wocao.world</title>
+<meta name="description" content="给 Claude Code 续费时手抖的人，都干过同一件事：满世界注册小厂免费 API，攒一堆快过期的额度。免费网关 OmniRoute 终结了这套手工活——本地起一个接口，身后接着 359 家供应商，150 多个免费额度排队等薅。 OmniRoute 是个什么来头 先看硬数据：GitHub 7 万多 star，MIT 协议开源，作者 diegosouzapw，2026 年 2 月建仓，到现在 9300 多次提交、600 多个贡献者，版本号已经干到 v3.8.51。这种更新频率的开源项目，基本等于作者拿它当饭吃，跑路概率极低。 它干的事一句话：在你电脑上起一个 OpenAI 兼容的本地网关，所…">
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="wocao.world">
+<meta property="og:title" content="免费网关实测：一个网关白嫖150个免费模型全攻略 · wocao.world">
+<meta property="og:description" content="给 Claude Code 续费时手抖的人，都干过同一件事：满世界注册小厂免费 API，攒一堆快过期的额度。免费网关 OmniRoute 终结了这套手工活——本地起一个接口，身后接着 359 家供应商，150 多个免费额度排队等薅。 OmniRoute 是个什么来头 先看硬数据：GitHub 7 万多 star，MIT 协议开源，作者 diegosouzapw，2026 年 2 月建仓，到现在 9300 多次提交、600 多个贡献者，版本号已经干到 v3.8.51。这种更新频率的开源项目，基本等于作者拿它当饭吃，跑路概率极低。 它干的事一句话：在你电脑上起一个 OpenAI 兼容的本地网关，所…">
+<meta property="og:url" content="https://wocao.world/">
+<meta name="twitter:card" content="summary">
+<meta name="robots" content="noindex,follow">
+<link rel="alternate" type="application/rss+xml" title="wocao.world 聚合输出" href="/feed.xml">
+<link rel="stylesheet" href="/style.css">
+<link rel="canonical" href="https://www.moyunews.com/free-ai-gateway-omniroute-guide/">
+</head>
+<body>
+<a class="skip-link" href="#main">跳到正文</a>
+<header class="site-head">
+<p class="site-title"><a href="/">wocao.world</a></p>
+<p class="site-desc">wocao.world</p>
+<nav class="site-nav">
+<a href="/">最新</a>
+<a href="/about/">关于</a>
+<a href="/feed.xml">RSS</a>
+</nav>
+</header>
+<main id="main">
+<article>
+<h1 class="post-title">免费网关实测：一个网关白嫖150个免费模型全攻略</h1>
+<div class="post-body"><p>给 Claude Code 续费时手抖的人，都干过同一件事：满世界注册小厂免费 API，攒一堆快过期的额度。免费网关 OmniRoute 终结了这套手工活——本地起一个接口，身后接着 359 家供应商，150 多个免费额度排队等薅。</p>
+<p><img src="https://moyu.18uk.uk/2026/20260927-6af0b360-7352-46d7-adda-b89eab3ce1e0.webp" alt="免费网关" width="750" loading="lazy" referrerpolicy="no-referrer" /></p>
+<h2>OmniRoute 是个什么来头</h2>
+<p>先看硬数据：GitHub 7 万多 star，MIT 协议开源，作者 diegosouzapw，2026 年 2 月建仓，到现在 9300 多次提交、600 多个贡献者，版本号已经干到 v3.8.51。这种更新频率的开源项目，基本等于作者拿它当饭吃，跑路概率极低。</p>
+<p>它干的事一句话：<strong>在你电脑上起一个 OpenAI 兼容的本地网关</strong>，所有 AI 编程工具都指向它，它再把请求分发到真正出模型的地方。Claude Code、Codex CLI、Cursor、Cline、Copilot、OpenCode、Antigravity、Gemini CLI 全都支持，等于给你的整个 AI 工具链套了一个统一的话费套餐。</p>
+<p>最狠的是零配置：装完就有免费模型直接用，不用先去注册十个 Key。后面讲到的 150 多个免费额度，开箱即薅。</p>
+<h2>16 亿免费 Token 到底怎么凑出来的</h2>
+<p>OmniRoute 官方 README 挂着一个数字：每月约 16.2 亿免费 Token，首月算上注册赠金能到 22 亿。这个数字不是拍脑袋的——它统计了 35 个有明确月度预算的免费池、489 个免费档条目，去重之后算出来的，而且<strong>每两周重新审计一次</strong>，供应商下线免费档数字就往下掉，诚实得有点反常。</p>
+<table>
+<thead>
+<tr>
+<th>免费供应商</th>
+<th>能薅到的模型</th>
+<th>额度/限制</th>
+<th>要不要 Key</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Kiro AI</td>
+<td>Claude Sonnet / Haiku</td>
+<td>不限量</td>
+<td>要</td>
+</tr>
+<tr>
+<td>Qoder AI</td>
+<td>Kimi-K2、DeepSeek-R1</td>
+<td>不限量</td>
+<td>要</td>
+</tr>
+<tr>
+<td>Pollinations</td>
+<td>GPT-5、Claude、Llama 4</td>
+<td>无 Key 直接用</td>
+<td>不要</td>
+</tr>
+<tr>
+<td>LongCat AI</td>
+<td>Flash-Lite</td>
+<td>每天 50M Token</td>
+<td>要</td>
+</tr>
+<tr>
+<td>Cloudflare AI</td>
+<td>50+ 模型</td>
+<td>每天 1 万 neurons</td>
+<td>要</td>
+</tr>
+<tr>
+<td>NVIDIA NIM</td>
+<td>Llama、Mistral</td>
+<td>每天 1000 次请求</td>
+<td>要</td>
+</tr>
+<tr>
+<td>Groq</td>
+<td>多款高速模型</td>
+<td>按模型封顶</td>
+<td>要</td>
+</tr>
+</tbody>
+</table>
+<p>看懂这张表的关键：免费分两种，一种是长期不要钱但有量，一种是注册送的一次性额度。OmniRoute 的仪表盘（/dashboard/free-tiers）会实时显示每个池子的剩余额度，薅之前先看一眼，别把主力任务押在一个快见底的池子上。</p>
+<h2>三步把 Claude Code 接到免费模型上</h2>
+<ol>
+<li><strong>安装</strong>：执行 npm install -g omniroute，然后敲 omniroute 启动。用 1Panel 的可以直接在应用商店一键装，面板默认跑在 20128 端口。</li>
+<li><strong>开面板</strong>：浏览器打开 http://localhost:20128，首次登录记得把默认密码 CHANGEME 改掉，这点官方文档里是当红线写的。</li>
+<li><strong>改地址</strong>：把 Claude Code 的 ANTHROPIC_BASE_URL 指向 http://localhost:20128/v1，API Key 填网关里生成的。Cursor、Cline 同理，改个 Base URL 的事，五分钟搞定。</li>
+</ol>
+<blockquote><p>社区里有人拿它跑了一整个月的 side project，账单是 0。原话：之前每个月 20 刀的 API 账单，现在最大的开销是电费。</p></blockquote>
+<p>提醒一句：上面这种属于网友体感，额度政策变得快，动手前以仪表盘实时数据为准，别拿着三个月前的攻略去薅已经下线的池子。</p>
+<h2>烧完自动换下一家：它的省钱原理</h2>
+<p>OmniRoute 的核心卖点不是聚合，而是<strong>配额感知自动降级</strong>。它内置 19 种路由策略（官方叫 Combos），请求进来先走你配好的主力，额度烧光毫秒级切到下一家：订阅、API Key、便宜模型、免费档，四层兜底，写代码写到一半不会断流。</p>
+<p>另一手是压缩。RTK 加 Caveman 两套压缩引擎叠着用，官方称平均省 89% 的输入 Token。原理不玄：git diff、报错堆栈这种高度重复的文本，先压再发，模型照样看得懂。12 个引擎组成的流水线听着唬人，实际效果就是同样 100 万免费额度，别人用三天，你能撑半个月。</p>
+<h2>狂欢之前先看这三个坑</h2>
+<ul>
+<li><strong>免费额度是供应商的，不是 OmniRoute 的。</strong>任何一家都可能半夜下线免费档，README 里 13 家供应商被标了 avoid（条款风险），接入前先翻风险目录。</li>
+<li><strong>本地网关不等于隐私保险箱。</strong>你的 Key 存在本地 SQLite 里，电脑别乱借人；把 20128 端口暴露到公网，等于把钱包挂在门口。</li>
+<li><strong>国内网络环境自己掂量。</strong>部分供应商需要特殊网络才能连通，官方写了三层代理和 TLS 指纹伪装，但稳不稳看你自己的线路，别指望它替你翻山越岭。</li>
+</ul>
+<p>话说回来，一个 7 万星、MIT 开源、文档写到 67 种语言的项目，至少比那些注册即送 100 万 Token、跑路只用一晚上的野鸡站靠谱得多。链接都给你：<a href="https://github.com/diegosouzapw/OmniRoute" rel="external nofollow noopener noreferrer" target="_blank">GitHub 仓库</a>、<a href="https://www.npmjs.com/package/omniroute" rel="external nofollow noopener noreferrer" target="_blank">npm 安装包</a>、<a href="https://omniroute.online/" rel="external nofollow noopener noreferrer" target="_blank">官网</a>、<a href="https://trendshift.io/repositories/23589" rel="external nofollow noopener noreferrer" target="_blank">TrendShift 热度榜</a>。薅羊毛趁早，额度这东西，永远是先到先得。</p>
+<p>本文来源：<a href="https://www.moyunews.com/" rel="external nofollow noopener noreferrer" target="_blank">摸鱼杂货店</a>。查看原文：<a href="https://www.moyunews.com/free-ai-gateway-omniroute-guide/" rel="external nofollow noopener noreferrer" target="_blank">免费网关实测：一个网关白嫖150个免费模型全攻略</a>。</p></div>
+<p class="back"><a href="/">← 返回最新</a></p>
+</article>
+</main>
+<footer class="site-foot">
+<p>wocao.world — 本站内容全部转载自各订阅源，版权归原作者与原站所有。</p>
+</footer>
+</body>
+</html>

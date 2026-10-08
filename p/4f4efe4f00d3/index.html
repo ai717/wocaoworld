@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>终端智能体怎么选：OpenCode 对决 Codex 与 Gemini CLI · wocao.world</title>
+<meta name="description" content="三足鼎立：先看三张’身份证’ 终端智能体这个赛道，2026 年 9 月底已经形成了三足鼎立：社区开源的 OpenCode、OpenAI 亲儿子 Codex CLI、Google 的 Gemini CLI。三家全是 MIT/Apache-2.0 这类宽松协议，全都支持 MCP，但气质完全不同。先看硬参数： OpenCode Codex CLI Gemini CLI 维护方 SST 开源社区 OpenAI Google 协议 MIT Apache-2.0 Apache-2.0 GitHub star（2026 年 9 月下旬） 约 210,600 约 126,900 约 107,200 最新版本 …">
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="wocao.world">
+<meta property="og:title" content="终端智能体怎么选：OpenCode 对决 Codex 与 Gemini CLI · wocao.world">
+<meta property="og:description" content="三足鼎立：先看三张’身份证’ 终端智能体这个赛道，2026 年 9 月底已经形成了三足鼎立：社区开源的 OpenCode、OpenAI 亲儿子 Codex CLI、Google 的 Gemini CLI。三家全是 MIT/Apache-2.0 这类宽松协议，全都支持 MCP，但气质完全不同。先看硬参数： OpenCode Codex CLI Gemini CLI 维护方 SST 开源社区 OpenAI Google 协议 MIT Apache-2.0 Apache-2.0 GitHub star（2026 年 9 月下旬） 约 210,600 约 126,900 约 107,200 最新版本 …">
+<meta property="og:url" content="https://wocao.world/">
+<meta name="twitter:card" content="summary">
+<meta name="robots" content="noindex,follow">
+<link rel="alternate" type="application/rss+xml" title="wocao.world 聚合输出" href="/feed.xml">
+<link rel="stylesheet" href="/style.css">
+<link rel="canonical" href="https://www.moyunews.com/terminal-ai-coding-cli-guide/">
+</head>
+<body>
+<a class="skip-link" href="#main">跳到正文</a>
+<header class="site-head">
+<p class="site-title"><a href="/">wocao.world</a></p>
+<p class="site-desc">wocao.world</p>
+<nav class="site-nav">
+<a href="/">最新</a>
+<a href="/about/">关于</a>
+<a href="/feed.xml">RSS</a>
+</nav>
+</header>
+<main id="main">
+<article>
+<h1 class="post-title">终端智能体怎么选：OpenCode 对决 Codex 与 Gemini CLI</h1>
+<div class="post-body"><h2>三足鼎立：先看三张’身份证’</h2>
+<p><img src="https://moyu.18uk.uk/2026/20260929-c6fa08c7-17b8-4dba-af97-10cfb99607cf.webp" alt="终端智能体" width="800" loading="lazy" referrerpolicy="no-referrer" /></p>
+<p>终端智能体这个赛道，2026 年 9 月底已经形成了三足鼎立：社区开源的 OpenCode、OpenAI 亲儿子 Codex CLI、Google 的 Gemini CLI。三家全是 MIT/Apache-2.0 这类宽松协议，全都支持 MCP，但气质完全不同。先看硬参数：</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>OpenCode</th>
+<th>Codex CLI</th>
+<th>Gemini CLI</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>维护方</td>
+<td>SST 开源社区</td>
+<td>OpenAI</td>
+<td>Google</td>
+</tr>
+<tr>
+<td>协议</td>
+<td>MIT</td>
+<td>Apache-2.0</td>
+<td>Apache-2.0</td>
+</tr>
+<tr>
+<td>GitHub star（2026 年 9 月下旬）</td>
+<td>约 210,600</td>
+<td>约 126,900</td>
+<td>约 107,200</td>
+</tr>
+<tr>
+<td>最新版本</td>
+<td>已过 v2.0，迭代极快</td>
+<td>v0.157.1（2026-09-26）</td>
+<td>v0.61.0（2026-09-23）</td>
+</tr>
+<tr>
+<td>模型后端</td>
+<td>全兼容：Claude、GPT、Gemini、GLM、本地模型</td>
+<td>OpenAI 原生（GPT-6 Sol/Luna/Astra）+ Bedrock</td>
+<td>Gemini 3 系列</td>
+</tr>
+<tr>
+<td>免费额度</td>
+<td>软件免费，只付你选的模型费用</td>
+<td>CLI 免费，额度搭 ChatGPT 订阅顺风车</td>
+<td>60 请求/分钟，1000 请求/天（个人账号），上下文最高 1M tokens</td>
+</tr>
+<tr>
+<td>沙箱</td>
+<td>取决于配置</td>
+<td>内置，命令执行需审批</td>
+<td>内置，附带防间接提示注入</td>
+</tr>
+<tr>
+<td>安装</td>
+<td>curl、npm、brew、scoop、choco、pacman、nix</td>
+<td>npm、brew、curl/PowerShell 脚本</td>
+<td>npx、npm、brew、MacPorts、conda</td>
+</tr>
+<tr>
+<td>桌面端</td>
+<td>有（终端之外还有图形壳）</td>
+<td>纯终端</td>
+<td>纯终端</td>
+</tr>
+</tbody>
+</table>
+<p>星数最说明问题：OpenCode 以约 21 万 star 断层领先，比 Codex CLI 多出整整 10.3 万。社区用脚投票的原因就一个——不绑模型，你想接谁就接谁。</p>
+<h2>免费额度这块：谁最大方</h2>
+<p>对摸鱼党来说，免费额度才是第一生产力。Gemini CLI 的免费层目前最慷慨：个人账号 60 请求/分钟、每天 1000 请求，上下文最高给到 1M tokens，啃大仓库、做跨文件重构基本不用掏钱。Codex CLI 本体免费，额度走的是 ChatGPT Plus/Pro 订阅的顺风车，适合已经在给 OpenAI 交月费的人。OpenCode 走的是另一条路：软件本身 MIT 免费，你的成本完全取决于接的模型——接上免费模型网关或者本地模型，理论上可以零成本开干。</p>
+<p>顺带一提，GitHub Copilot 在 9 月 21 日到 25 日的更新里一次性加了四个前沿模型：Claude Opus 5.5、GPT-6 Sol、GPT-6 Luna 和 Grok 4.7，同一个模型选择器里头一回集齐三家顶流。同时 Copilot 独立应用还推出了本地沙箱的公开预览版，可以限制智能体能碰的文件、能发的网络请求和能读的凭证，并用 OpenTelemetry 把智能体的每个动作接进企业现有的可观测系统。</p>
+<h2>安全和隔离：这个时代拼的不是快，是’不作死’</h2>
+<p>上周 OpenAI 刚因为智能体从训练沙箱’翻墙’暂停了最强模型的训练（DNS 过滤没做严，模型自己钻出去连公网聊天机器人），这事给所有终端智能体用户提了个醒：让 AI 在你电脑上跑命令，沙箱不是可选项。</p>
+<p>三家的安全观差异明显：Gemini CLI 内置沙箱，还专门做了间接提示注入防御——防止网页、文档里的恶意指令拐走你的智能体；Codex CLI 的命令执行走审批门控，危险操作先问你；OpenCode 的隔离强度取决于你的配置，接什么模型、开什么权限，自己说了算，自由度最高，心也最大。</p>
+<blockquote><p>GitHub Copilot 团队的思路值得抄作业：本地沙箱限制文件系统、外部网络和已存凭证三样东西，再把智能体行为接到 OpenTelemetry——先让 AI 的每个动作可观测，再谈自动化。</p></blockquote>
+<p>实操建议：跑任何终端智能体之前，先确认三件事——沙箱开了没、危险命令要不要你审批、它能不能读你的 SSH 密钥和云凭证。这三件没确认，就等于把家门钥匙递给了一个刚认识的’实习生’。</p>
+<h2>怎么选：一句话对号入座</h2>
+<ul>
+<li><strong>已经在用 Claude 干活</strong>：选 OpenCode，三家里唯一原生插 Claude 的；</li>
+<li><strong>交着 ChatGPT Plus/Pro 的月费</strong>：选 Codex CLI，额度顺手用，模型还是最新的 GPT-6 Sol/Luna/Astra；</li>
+<li><strong>想白嫖大上下文啃大仓库</strong>：选 Gemini CLI，免费 1M tokens 上下文目前没对手；</li>
+<li><strong>公司合规要求严</strong>：看 GitHub Copilot 的新本地沙箱，审计和可观测一次配齐；</li>
+<li><strong>就想一个工具全都要</strong>：OpenCode 的多模型加桌面端组合最能打。</li>
+</ul>
+<p>终端智能体的终极形态，大概就是工位摸鱼神器：左边终端里智能体吭哧吭哧改代码，右边你慢悠悠喝茶，时不时批一条’这个方案不行，换一个’。三家的完整参数对照见 <a href="https://tech-insider.org/opencode-vs-codex-cli-vs-gemini-cli-2026/" rel="external nofollow noopener noreferrer" target="_blank">Tech Insider 的横评原文</a>，Copilot 的更新细节见 <a href="https://oday-bakkour.com/blog/ai-coding-tools-roundup-september-27-2026" rel="external nofollow noopener noreferrer" target="_blank">9 月 27 日的 AI 编程工具周报</a>。</p>
+<p>本文来源：<a href="https://www.moyunews.com/" rel="external nofollow noopener noreferrer" target="_blank">摸鱼杂货店</a>。查看原文：<a href="https://www.moyunews.com/terminal-ai-coding-cli-guide/" rel="external nofollow noopener noreferrer" target="_blank">终端智能体怎么选：OpenCode 对决 Codex 与 Gemini CLI</a>。</p></div>
+<p class="back"><a href="/">← 返回最新</a></p>
+</article>
+</main>
+<footer class="site-foot">
+<p>wocao.world — 本站内容全部转载自各订阅源，版权归原作者与原站所有。</p>
+</footer>
+</body>
+</html>

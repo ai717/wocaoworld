@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>MoneyPrinterTurbo怎么跑通：从主题到成片别只抄一键包 · wocao.world</title>
+<meta name="description" content="仓库名像印钞，流水线仍是脚本加素材加API账单 harry0703/MoneyPrinterTurbo 用一句话主题或自定义脚本，串起文案、库存或生成素材、配音、字幕、配乐和剪辑。2026 年 9 月可见版本约 v1.3.7，星标已过十二万。入口有 AI Agent、WebUI、API 和 CLI。本地要 Python 3.11，WebUI 默认 http://127.0.0.1:8501，API 文档在 8080/docs。GPU 不是硬性条件；云端大模型和在线素材为主时，CPU 和内存更关键。 开头那行「面向 macOS 和 Windows 的开源磁盘清理」对不上这个仓库。MangoDis…">
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="wocao.world">
+<meta property="og:title" content="MoneyPrinterTurbo怎么跑通：从主题到成片别只抄一键包 · wocao.world">
+<meta property="og:description" content="仓库名像印钞，流水线仍是脚本加素材加API账单 harry0703/MoneyPrinterTurbo 用一句话主题或自定义脚本，串起文案、库存或生成素材、配音、字幕、配乐和剪辑。2026 年 9 月可见版本约 v1.3.7，星标已过十二万。入口有 AI Agent、WebUI、API 和 CLI。本地要 Python 3.11，WebUI 默认 http://127.0.0.1:8501，API 文档在 8080/docs。GPU 不是硬性条件；云端大模型和在线素材为主时，CPU 和内存更关键。 开头那行「面向 macOS 和 Windows 的开源磁盘清理」对不上这个仓库。MangoDis…">
+<meta property="og:url" content="https://wocao.world/">
+<meta name="twitter:card" content="summary">
+<meta name="robots" content="noindex,follow">
+<link rel="alternate" type="application/rss+xml" title="wocao.world 聚合输出" href="/feed.xml">
+<link rel="stylesheet" href="/style.css">
+<link rel="canonical" href="https://www.moyunews.com/moneyprinterturbo-local-pipeline/">
+</head>
+<body>
+<a class="skip-link" href="#main">跳到正文</a>
+<header class="site-head">
+<p class="site-title"><a href="/">wocao.world</a></p>
+<p class="site-desc">wocao.world</p>
+<nav class="site-nav">
+<a href="/">最新</a>
+<a href="/about/">关于</a>
+<a href="/feed.xml">RSS</a>
+</nav>
+</header>
+<main id="main">
+<article>
+<h1 class="post-title">MoneyPrinterTurbo怎么跑通：从主题到成片别只抄一键包</h1>
+<div class="post-body"><h2>仓库名像印钞，流水线仍是脚本加素材加API账单</h2>
+<p><a href="https://github.com/harry0703/MoneyPrinterTurbo" rel="external nofollow noopener noreferrer" target="_blank">harry0703/MoneyPrinterTurbo</a> 用一句话主题或自定义脚本，串起文案、库存或生成素材、配音、字幕、配乐和剪辑。2026 年 9 月可见版本约 v1.3.7，星标已过十二万。入口有 AI Agent、WebUI、API 和 CLI。本地要 Python 3.11，WebUI 默认 <strong>http://127.0.0.1:8501</strong>，API 文档在 <strong>8080/docs</strong>。GPU 不是硬性条件；云端大模型和在线素材为主时，CPU 和内存更关键。</p>
+<p>开头那行「面向 macOS 和 Windows 的开源磁盘清理」对不上这个仓库。MangoDisk 如果存在，是另一套产品。下面按 MoneyPrinterTurbo 原文功能写，不把短视频工厂写成磁盘清理。</p>
+<blockquote><p>使用这个 Skill：https://raw.githubusercontent.com/harry0703/MoneyPrinterTurbo/main/docs/skill/SKILL.md 帮我生成一个主题为“人工智能如何改变普通人的日常生活”的视频。</p></blockquote>
+<p>Agent 能读 Skill、装环境和出片，缺 Key 才会停下来问。Windows 一键包要在 Releases 的 Assets 里下 <code>.7z</code>，不要下 Source code zip——解压后往往只有 webui.bat，没有 start.bat 和 update.bat。路径不能有中文、空格、特殊字符。建议先 update.bat 再 start.bat，空白页换 Chrome 或 Edge。</p>
+<p><img src="https://moyu.18uk.uk/2026/20260928-356af572-b231-484f-8054-973bebaa0a49.webp" alt="AI短视频工作流" width="750" loading="lazy" referrerpolicy="no-referrer" /></p>
+<h2>模型、网关和素材源堆在同一条配置里</h2>
+<p>脚本侧可接 Kimi / Moonshot、OpenAI、Anthropic Claude、Google Gemini、DeepSeek、通义千问、Azure OpenAI、火山引擎方舟、xAI Grok、MiniMax、小米 MiMo。网关和本地层包括胜算云、APIMart、Cloudflare AI Gateway、ModelScope、AIHubMix、AIML API、EvoLink、OpenRouter、API Route、Fluxion AI、Ollama、Claude Code 订阅、OneAPI、LiteLLM、Groq、Pollinations AI。Key 填在 WebUI 基础设置，也可导入导出恢复。</p>
+<p>画面可走本地上传，或 Pexels、Pixabay、Coverr。生成侧原文列了秘塔 MiniMax H3（768P/2K、4～15 秒，9:16 / 16:9 / 1:1）、胜算云、方舟 Seedance、WaveSpeed、OFox（一个 Key 调 Seedance 与 Wan）、异步 MuAPI（3～12 秒，可配 Endpoint 和轮询），以及 OpenAI 兼容文生图再转动态片段。成片画幅是 1080×1920、1920×1080、1080×1080。跨平台发布可接到 TikTok、Instagram、YouTube Shorts，平台条款和账号风控不因开源而消失。</p>
+<table>
+<thead>
+<tr>
+<th>环节</th>
+<th>原文里的免费或本地选项</th>
+<th>仍要花钱或自备的</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>文案</td>
+<td>自定义脚本、部分本地网关</td>
+<td>云端 LLM Token</td>
+</tr>
+<tr>
+<td>画面</td>
+<td>Pexels / Pixabay / Coverr / 本地文件</td>
+<td>H3、Seedance、胜算云等生成接口</td>
+</tr>
+<tr>
+<td>配音</td>
+<td>Edge TTS（Azure TTS V1），无需 Key</td>
+<td>ElevenLabs、MiniMax、Azure V2 等</td>
+</tr>
+<tr>
+<td>字幕</td>
+<td>edge 时间戳模式，默认可不用 GPU</td>
+<td>faster-whisper large-v3 约 3 GB，turbo 约 1.6 GB</td>
+</tr>
+</tbody>
+</table>
+<h3>配音字幕和那批默认 BGM</h3>
+<p>配音三种：自动、上传、无配音。Provider 还有 SiliconFlow、Gemini、小米 MiMo、Chatterbox、Kokoro、Fish Audio、ModelBest VoxCPM。VoxCPM 要能 speech_synthesis 的模型 ID，SSE 回 WAV 再转 MP3；参考音频最大 20 MiB，转换后单个 WAV 最大 5 MiB，只留在当前会话。v1.3.7 给 Edge TTS 加了 <code>[pause: 2s]</code> / <code>[停顿: 2s]</code>。字幕可改字体、位置、颜色、描边、背景；逐词弹出要在 WebUI 里单独开。BGM 在 <code>resource/songs</code>，说明来自 YouTube，侵权就删。字体在 <code>resource/fonts</code>。</p>
+<h2>Windows 一键包、uv、Docker 和 CLI 各管一种卡法</h2>
+<p>Docker 推荐 <code>docker compose -f docker-compose.release.yml up</code>，镜像 <code>ghcr.io/harry0703/moneyprinterturbo:latest</code>，先把 config.example.toml 复制为 config.toml。局域网访问 WebUI 设 <code>MPT_WEBUI_HOST=0.0.0.0</code>。API 默认同源；跨域才配 <code>CORS_ALLOWED_ORIGINS</code>。纯命令行：<code>uv run python cli.py --video-subject "人工智能如何改变日常生活"</code>。批量 <code>--batch-file</code> 最多 100 条、不超过 1 MiB，失败不阻断后续。上传音频不会写进配置，CLI 必须显式 <code>--custom-audio-file</code>。</p>
+<table>
+<thead>
+<tr>
+<th>项目</th>
+<th>最低</th>
+<th>推荐</th>
+<th>理想</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>CPU</td>
+<td>4 核</td>
+<td>6 到 8 核</td>
+<td>8 核及以上</td>
+</tr>
+<tr>
+<td>RAM</td>
+<td>4 GB</td>
+<td>8 GB</td>
+<td>16 GB 及以上</td>
+</tr>
+<tr>
+<td>GPU</td>
+<td>非必须</td>
+<td>4 GB 显存及以上</td>
+<td>8 GB 显存及以上</td>
+</tr>
+</tbody>
+</table>
+<p>示例成片时长从 14 秒到 59 秒不等，中英都有，不能代表平台能过审。库存重复、口播和画面错位、生成片段只有数秒，都要人看。Key 进配置文件，不要提交到公开仓库。把印钞写进项目名，解决不了素材授权和账号被封；能跑通的是从主题到 MP4 的本地流水线。</p>
+<p>本文来源：<a href="https://www.moyunews.com/" rel="external nofollow noopener noreferrer" target="_blank">摸鱼杂货店</a>。查看原文：<a href="https://www.moyunews.com/moneyprinterturbo-local-pipeline/" rel="external nofollow noopener noreferrer" target="_blank">MoneyPrinterTurbo怎么跑通：从主题到成片别只抄一键包</a>。</p></div>
+<p class="back"><a href="/">← 返回最新</a></p>
+</article>
+</main>
+<footer class="site-foot">
+<p>wocao.world — 本站内容全部转载自各订阅源，版权归原作者与原站所有。</p>
+</footer>
+</body>
+</html>

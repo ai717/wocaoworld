@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Zero Slop 实测：用开源 Agent Skill 改掉 AI 味写作 · wocao.world</title>
+<meta name="description" content="为什么你的技术文一眼就让人闻出 AI 味 只要你在技术社区或 Hacker News 上多泡几天，就一定见过那种通篇充斥着 We’re thrilled to announce、It’s not X. It’s Y. 以及高频滥用 seamless、leverage 的典型公文。这种充满假大空修饰词的文字，不仅读者看着反胃，更会直接毁掉个人博客与开源项目的专业信誉。昨夜登顶 Show HN 的开源项目 Zero Slop，专门为了解决这个问题而来。 不同于那些靠云端 API 暴力改写、经常把专业名词和关键逻辑改丢的商业工具，Zero Slop GitHub 仓库 采用的是一套极度克制的本地化解…">
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="wocao.world">
+<meta property="og:title" content="Zero Slop 实测：用开源 Agent Skill 改掉 AI 味写作 · wocao.world">
+<meta property="og:description" content="为什么你的技术文一眼就让人闻出 AI 味 只要你在技术社区或 Hacker News 上多泡几天，就一定见过那种通篇充斥着 We’re thrilled to announce、It’s not X. It’s Y. 以及高频滥用 seamless、leverage 的典型公文。这种充满假大空修饰词的文字，不仅读者看着反胃，更会直接毁掉个人博客与开源项目的专业信誉。昨夜登顶 Show HN 的开源项目 Zero Slop，专门为了解决这个问题而来。 不同于那些靠云端 API 暴力改写、经常把专业名词和关键逻辑改丢的商业工具，Zero Slop GitHub 仓库 采用的是一套极度克制的本地化解…">
+<meta property="og:url" content="https://wocao.world/">
+<meta name="twitter:card" content="summary">
+<meta name="robots" content="noindex,follow">
+<link rel="alternate" type="application/rss+xml" title="wocao.world 聚合输出" href="/feed.xml">
+<link rel="stylesheet" href="/style.css">
+<link rel="canonical" href="https://www.moyunews.com/zero-slop-ai-writing-skill/">
+</head>
+<body>
+<a class="skip-link" href="#main">跳到正文</a>
+<header class="site-head">
+<p class="site-title"><a href="/">wocao.world</a></p>
+<p class="site-desc">wocao.world</p>
+<nav class="site-nav">
+<a href="/">最新</a>
+<a href="/about/">关于</a>
+<a href="/feed.xml">RSS</a>
+</nav>
+</header>
+<main id="main">
+<article>
+<h1 class="post-title">Zero Slop 实测：用开源 Agent Skill 改掉 AI 味写作</h1>
+<div class="post-body"><p>为什么你的技术文一眼就让人闻出 AI 味<br />
+只要你在技术社区或 Hacker News 上多泡几天，就一定见过那种通篇充斥着 We’re thrilled to announce、It’s not X. It’s Y. 以及高频滥用 seamless、leverage 的典型公文。这种充满假大空修饰词的文字，不仅读者看着反胃，更会直接毁掉个人博客与开源项目的专业信誉。昨夜登顶 Show HN 的开源项目 Zero Slop，专门为了解决这个问题而来。<br />
+不同于那些靠云端 API 暴力改写、经常把专业名词和关键逻辑改丢的商业工具，Zero Slop GitHub 仓库 采用的是一套极度克制的本地化解决方案：通过轻量 Python 脚本在本地为文本进行 AI 套路打分，再配合 Agent Skill 进行针对性引导改写，核心原则是在剔除油腻辞令的同时，百分之百保留技术事实与作者原有的叙事语气。</p>
+<p>https://github.com/manavmishra/ZeroSlop</p>
+<p><img src="https://moyu.18uk.uk/2026/20261006-f381a207-299b-4230-a120-a24a1ebc151e.webp" alt="ZeroSlop实测" width="800" loading="lazy" referrerpolicy="no-referrer" /></p>
+<h2>传统 AI 润色方案与 Zero Slop 机制对照</h2>
+<p>在折腾各种去 AI 味工具时，很多开发者经常陷入「越改越像另一家大模型」的恶性循环。我们把市面上常见的两类处理思路与 Zero Slop 做了横向参数对照：<br />
+评估维度通用提示词暴力洗稿商业去检测在线 SaaSZero Slop 技能框架运行环境与依赖依赖外部云端大模型 API闭源云端 Web 界面服务本地终端 Python 与 CLI 驱动事实保留完整度极易产生事实幻觉或漏掉参数容易篡改专有名词和句意内置严格事实门审计，零篡改高频套路识别机制依赖模型自我审查，经常失灵黑盒置信度打分，无解释显式命中词库与句式规则打分工作流装配成本每次都要手动调优提示词网页手动来回复制粘贴一行 npx 全局挂载为标准指令<br />
+从架构上看，Zero Slop 的优势在于把「打分审计」与「文本润色」拆成了独立的两个阶段。先用确定性的本地规则抓出那些陈词滥调，再由智能体定向手术，彻底告别了整篇盲目重写的粗暴做法。</p>
+<h2>安装部署与双模命令实操</h2>
+<p>Zero Slop 同时支持作为全局 Agent Skill 挂载进终端助手，或者直接作为单机 CLI 工具对本地 Markdown 文档进行跑分评估。根据你的工作流，安装与运行分为以下两种方式：<br />
+全局技能挂载：在终端运行 npx skills add manavmishra/ZeroSlop –global，安装完成后即可在任意支持技能协议的 Agent 对话框中直接输入 /zero-slop 唤起改写流程；单文件独立跑分：如果你只想快速排查某篇草稿中的套路词密度，无需启动完整对话，直接在终端执行 npx zero-slop score draft.md，控制台会立刻打印出扣分明细与风险句段。<br />
+资深技术博主实测避坑：如果你的系统环境中存在多个 Node.js 或 Python 版本管理工具（如 nvm 或 pyenv），首次全局执行 npx skills add 时，务必确认全局 node_modules 目录拥有读写权限；另外本地跑分脚本依赖系统级 Python 环境，若是极简精简版 Linux 镜像，记得补齐基础运行库。</p>
+<h2>拆解八步去油工作流：从扣分到通读</h2>
+<p>Zero Slop 之所以能做到改完不失真，核心在于其内部建立了一套严格递进的八步工作流（Workflow），每一步都只做一件具体的原子任务：<br />
+步骤一：本地规则打分：扫描全篇文本，根据预置词库匹配 seamless、groundbreaking 等空洞高频词，给出基准分；步骤二：报告深度解读：逐条解析扣分项，明确指出哪些句子属于公关废话、哪些从句过于臃肿冗余；步骤三：定向精细改写：把空话直接替换为具体参数，将假大空的排比句切碎为陈述句；步骤四：硬核事实门禁：启动审查机制，核对原文中的技术型号、代码命令、价格与实测数据是否被篡改；步骤五：文案台打磨：微调连接词与语气助词，剔除翻译腔与机器腔，还原真人程序员的交谈口吻；步骤六：朗读韵律审计：通过断句与音步检查，避免单句超过 40 字的长难复合句，提升阅读呼吸感；步骤七：规则二次校验：再次运行打分器，确保所有已知套路词被彻底清零，杜绝二次污染；步骤八：新眼通读定稿：跳出具体字句，站在完全不知情的第三方读者视角，通读整篇语意是否流畅干脆。</p>
+<h2>改前与改后实战效果对照</h2>
+<p>为了直观感受 Zero Slop 的去油功底，我们来看一段典型的技术更新推介文案改写前后对照。你可以清楚看到官僚公关腔是如何被扒掉伪装、还原成极客大白话的：<br />
+原文样段（典型 AI 味套路）Zero Slop 改写后（极客大白话）优化说明与核心动作We’re thrilled to introduce our seamless orchestration engine, leveraging cutting-edge algorithms.我们开源了一套调度引擎，直接把节点通信延迟压低到了 5 毫秒以内。删掉 thrilled 与 seamless 空词，把 leverage 换成具体延迟指标。It’s not just a tool. It’s a complete paradigm shift for your daily developer workflow.它不是什么高大上的平台，就是一个能塞进你本地终端的单文件小脚本。打破 It is not X 句式，剔除 paradigm shift 黑话，指明落地形态。Furthermore, users can effortlessly integrate our robust API to drive maximum business value.执行一条 curl 命令就能调通 API，用标准 JSON 传参，两分钟接进原有系统。剔除 effortlessly 和 robust，用具体 curl 命令与耗时替代商业口号。<br />
+技术写作的核心始终是指名道姓、摆明参数、讲透细节。借助 Zero Slop 这类本地审计技能，不仅能帮你把公关八股连根拔除，更能倒逼自己在动笔时少堆形容词，多交干货数据。如果你也在维护技术博客或开源文档，不妨把它的跑分指令集成到发布前的 Git Hook 检查中，让每一篇输出都保持纯粹利落的工程师质感。</p>
+<p>本文来源：<a href="https://www.moyunews.com/" rel="external nofollow noopener noreferrer" target="_blank">摸鱼杂货店</a>。查看原文：<a href="https://www.moyunews.com/zero-slop-ai-writing-skill/" rel="external nofollow noopener noreferrer" target="_blank">Zero Slop 实测：用开源 Agent Skill 改掉 AI 味写作</a>。</p></div>
+<p class="back"><a href="/">← 返回最新</a></p>
+</article>
+</main>
+<footer class="site-foot">
+<p>wocao.world — 本站内容全部转载自各订阅源，版权归原作者与原站所有。</p>
+</footer>
+</body>
+</html>
