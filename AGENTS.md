@@ -91,4 +91,5 @@ config.json + 订阅源 → sync → data/{sources,posts}.json → build → dis
 - GitHub 仓库为 `ai717/wocaoworld`，Pages 从 `gh-pages` 根目录发布，自定义域名为 `wocao.world`；构建会自动写出 `CNAME`。
 - `config.json` 当前站点地址为 `https://wocao.world`；代理可配置 `site.proxy`（如 `http://127.0.0.1:7897`）。
 - 当前订阅源均为 `excerpt`；移除源默认保留历史文章，“移除并删除文章”才会删除源记录与文章。
-- `data/` 与 `dist/` 均 gitignore；本地数据是可重抓缓存，但 Feed 通常不保留完整历史。
+- `data/` 纳入 Git 版本控制以供 GitHub Actions 增量累积历史文章并在本地间同步；`dist/` 保持 gitignore。
+- 已配置 GitHub Actions 定时抓取与发布工作流（`.github/workflows/sync.yml`），海外 Runner 直连免代理。

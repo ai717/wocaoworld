@@ -1,0 +1,17 @@
+{
+  "nextId": 6,
+  "items": [
+    {
+      "id": 5,
+      "url": "https://www.moyunews.com/feed/",
+      "title": "摸鱼杂货店",
+      "siteUrl": "https://www.moyunews.com/",
+      "mode": "full",
+      "active": true,
+      "etag": "W/\"8e282ade441ff90705cc79c097830399\"",
+      "lastModified": "Fri, 09 Oct 2026 19:13:32 GMT",
+      "lastFetchedAt": 1791776325308,
+      "lastStatus": "ok"
+    }
+  ]
+}

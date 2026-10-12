@@ -1,5 +1,20 @@
 # PROJECT_LOG
 
+## 2026-10-12 · GitHub Actions 云端定时抓取与发布
+
+### 做了什么
+
+- 增加 GitHub Actions 自动化工作流（`.github/workflows/sync.yml`），支持每 4 小时定时与网页端手动触发。
+- 云端海外 Runner 自动运行增量同步 `npm run sync`，彻底规避境内网络对部分源站的 GFW 阻断与 ECONNRESET。
+- 自动化流水线自动将变更后的 `data/*.json` 提交推回 `main` 分支（带 `[skip ci]`），保障历史文章在云端与本地持久化累积。
+- 构建生成的静态产物自动通过 `peaceiris/actions-gh-pages` 部署到 `gh-pages`，保留 `CNAME` 与 `.nojekyll`。
+- `config.mjs` 增加对 `GITHUB_ACTIONS` 环境变量的识别：云端自动直连，避免误连本地 127.0.0.1 代理端口。
+- 本地 CMS 增加网络代理可视化设置与双向同步支持。
+
+### 修改文件
+
+`.github/workflows/sync.yml`、`src/config.mjs`、`src/cms.mjs`、`config.json`、`.gitignore`、`AGENTS.md`、`PROJECT_LOG.md`。
+
 ## 2026-09-04 · 本地 CMS、统一服务、发布与自定义域名
 
 ### 做了什么
