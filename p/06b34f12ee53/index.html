@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>视频提示词反推神器：丢个视频，Veo Sora 可用提示词到手 · wocao.world</title>
+<meta name="description" content="痛点：AI 视频越强，越显得你不会写提示词 Veo 3、Sora 2、Seedance 2.0 越强，越显得你不会写视频提示词。开源项目 Video to Prompt 专治这个：丢进去一段参考视频，它还你一份分镜级的、可直接开工的提示词。 项目地址在 github.com/imooooc/video-to-prompt，MIT 协议，作者 2026 年 5 月创建，Next.js 写的。不想折腾部署的，有现成的在线 demo：v2p-demo.vmoli.com，打开即用。 怎么用：拖视频、贴 Key，三步出活 拖进去一段视频：MP4、MOV、WebM、AVI、WMV、3GP、MKV 都吃，…">
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="wocao.world">
+<meta property="og:title" content="视频提示词反推神器：丢个视频，Veo Sora 可用提示词到手 · wocao.world">
+<meta property="og:description" content="痛点：AI 视频越强，越显得你不会写提示词 Veo 3、Sora 2、Seedance 2.0 越强，越显得你不会写视频提示词。开源项目 Video to Prompt 专治这个：丢进去一段参考视频，它还你一份分镜级的、可直接开工的提示词。 项目地址在 github.com/imooooc/video-to-prompt，MIT 协议，作者 2026 年 5 月创建，Next.js 写的。不想折腾部署的，有现成的在线 demo：v2p-demo.vmoli.com，打开即用。 怎么用：拖视频、贴 Key，三步出活 拖进去一段视频：MP4、MOV、WebM、AVI、WMV、3GP、MKV 都吃，…">
+<meta property="og:url" content="https://wocao.world/">
+<meta name="twitter:card" content="summary">
+<meta name="robots" content="noindex,follow">
+<link rel="alternate" type="application/rss+xml" title="wocao.world 聚合输出" href="/feed.xml">
+<link rel="stylesheet" href="/style.css">
+<link rel="canonical" href="https://www.moyunews.com/video-to-prompt-open-source/">
+</head>
+<body>
+<a class="skip-link" href="#main">跳到正文</a>
+<header class="site-head">
+<p class="site-title"><a href="/">wocao.world</a></p>
+<p class="site-desc">wocao.world</p>
+<nav class="site-nav">
+<a href="/">最新</a>
+<a href="/about/">关于</a>
+<a href="/feed.xml">RSS</a>
+</nav>
+</header>
+<main id="main">
+<article>
+<h1 class="post-title">视频提示词反推神器：丢个视频，Veo Sora 可用提示词到手</h1>
+<div class="post-body"><h2>痛点：AI 视频越强，越显得你不会写提示词</h2>
+<p>Veo 3、Sora 2、Seedance 2.0 越强，越显得你不会写视频提示词。开源项目 Video to Prompt 专治这个：丢进去一段参考视频，它还你一份分镜级的、可直接开工的提示词。</p>
+<p>项目地址在 <a href="https://github.com/imooooc/video-to-prompt" rel="external nofollow noopener noreferrer" target="_blank">github.com/imooooc/video-to-prompt</a>，MIT 协议，作者 2026 年 5 月创建，Next.js 写的。不想折腾部署的，有现成的在线 demo：<a href="https://v2p-demo.vmoli.com/" rel="external nofollow noopener noreferrer" target="_blank">v2p-demo.vmoli.com</a>，打开即用。</p>
+<p><img src="https://my.18uk.uk/file/AgACAgUAAyEGAATpoe1oAAM8ase17H2tjnwPpVECCxZ2hc-9UG0AAjUWaxu_EThWAz-jq_TamLgBAAMCAAN4AAM9BA.webp" alt="视频提示词反推" width="800" height="476" loading="lazy" referrerpolicy="no-referrer" /></p>
+<h2>怎么用：拖视频、贴 Key，三步出活</h2>
+<ol>
+<li><strong>拖进去一段视频</strong>：MP4、MOV、WebM、AVI、WMV、3GP、MKV 都吃，最大 2GB，手机里存的爆款、自己拍的旧素材、电影片段都行。</li>
+<li><strong>贴上 Gemini API Key</strong>：在 <a href="https://aistudio.google.com/apikey" rel="external nofollow noopener noreferrer" target="_blank">Google AI Studio</a> 免费领一个，Key 只存在浏览器 localStorage 里，不注册账号、不经过作者服务器，视频直传 Google。</li>
+<li><strong>拿提示词开工</strong>：输出是带时间码的分镜表（0–3s、3–7s 这种），每段动作、运镜、台词、画面风格拆得明明白白，台词原样保留不改写。模型可在 gemini-2.5-pro（效果最好）和 gemini-2.5-flash（更快）之间切换，还能一键把提示词甩给 <a href="https://seegen.ai/" rel="external nofollow noopener noreferrer" target="_blank">Seegen.ai</a> 直接渲染成片。</li>
+</ol>
+<h2>技术细节：凭什么是它拆得准</h2>
+<p>作者在 README 里把工程取舍写得很实在，抄作业价值拉满：</p>
+<ul>
+<li><strong>2FPS 采样</strong>：Gemini 视频接口默认 1 秒 1 帧，快剪蒙太奇会被悄悄吞掉镜头，作者提到 2FPS，用双倍 token 成本换分镜召回。</li>
+<li><strong>高分辨率采样</strong>：每帧视觉 token 翻倍，区别就是”法庭里有个人”和”戴卷发假发的严厉法官在敲法槌”的区别。</li>
+<li><strong>结构化系统提示词</strong>：强制整数秒时间码、整段视频拆 3–6 个节拍、台词用双引号原样钉在对应节拍里，模板代码直接开源在仓库的 app/lib/prompt-template.ts。</li>
+<li><strong>双上传路径</strong>：18MB 以下 base64 一次发完，大的走 Gemini Files API，轮询到 ACTIVE 状态再引用。</li>
+</ul>
+<h2>本地部署：四行命令整一个自己的</h2>
+<p>项目是纯静态构建，Vercel、Cloudflare Pages、Netlify、GitHub Pages 随便扔。本地跑也很简单：git clone 下仓库，pnpm install 装依赖，pnpm dev 起服务，然后打开 http://localhost:3000，点齿轮图标贴 Key 就能用。作者的 roadmap 里还写了示例画廊、多语言 UI（中日韩）、浏览器插件和可嵌入小组件，issues 区欢迎拿难搞的片子去调模板。</p>
+<ol>
+<li>git clone https://github.com/imooooc/video-to-prompt.git</li>
+<li>cd video-to-prompt</li>
+<li>pnpm install</li>
+<li>pnpm dev，浏览器打开 http://localhost:3000</li>
+</ol>
+<h2>三种”扒提示词”路线对照</h2>
+<table>
+<thead>
+<tr>
+<th>路线</th>
+<th>形态</th>
+<th>上手门槛</th>
+<th>适合谁</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Video to Prompt</td>
+<td>网页应用，开源可部署</td>
+<td>贴个 API Key 就行</td>
+<td>想快速出活的创作者</td>
+</tr>
+<tr>
+<td>video-prompt-reverse（skill 版）</td>
+<td>SKILL.md 技能，跑在 Codex / Cursor 里</td>
+<td>要会配 Agent 环境</td>
+<td>重度玩 Agent 的极客</td>
+</tr>
+<tr>
+<td>手写</td>
+<td>人肉看片写分镜</td>
+<td>费眼睛费时间</td>
+<td>导演本人</td>
+</tr>
+</tbody>
+</table>
+<p>白嫖党注意两点：Gemini API 有免费额度，轻度用基本不花钱，但 Key 别外泄；扒来的提示词记得做二次 remix，直接套用别人的爆款分镜配自己的产品和台词，才是正经玩法。相关 skill 版实现可以看 <a href="https://github.com/luozhilzh/video-prompt-reverse" rel="external nofollow noopener noreferrer" target="_blank">video-prompt-reverse 仓库</a>，纯 Markdown 零代码，粘进 Agent 里就能用。</p>
+<p>本文来源：<a href="https://www.moyunews.com/" rel="external nofollow noopener noreferrer" target="_blank">摸鱼杂货店</a>。查看原文：<a href="https://www.moyunews.com/video-to-prompt-open-source/" rel="external nofollow noopener noreferrer" target="_blank">视频提示词反推神器：丢个视频，Veo Sora 可用提示词到手</a>。</p></div>
+<p class="back"><a href="/">← 返回最新</a></p>
+</article>
+</main>
+<footer class="site-foot">
+<p>wocao.world — 本站内容全部转载自各订阅源，版权归原作者与原站所有。</p>
+</footer>
+</body>
+</html>
