@@ -10,6 +10,7 @@
 - 构建生成的静态产物自动通过 `peaceiris/actions-gh-pages` 部署到 `gh-pages`，保留 `CNAME` 与 `.nojekyll`。
 - `config.mjs` 增加对 `GITHUB_ACTIONS` 环境变量的识别：云端自动直连，避免误连本地 127.0.0.1 代理端口。
 - 本地 CMS 增加网络代理可视化设置与双向同步支持。
+- 本地 CMS 工具栏增加「拉取云端数据」按钮，支持一键执行 git pull 并自动刷新文章列表；优化状态反馈提示。
 
 ### 修改文件
 
