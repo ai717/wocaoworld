@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>SDXL 提示词在 Z-Image 上全废了：蒸馏模型只认句子不认标签 · wocao.world</title>
+<meta name="description" content="为什么你的 SDXL 提示词在 Z-Image 上全废了 Z-Image Turbo 是阿里通义 MAI 的 6B 开源图像模型，走蒸馏路线，推理时不用 classifier-free guidance。这句话翻译成人话：负面提示词直接被无视，你写 blurry, bad quality 它看都不看一眼。社区实测里最扎心的一条结论是：SDXL 时代攒下来的标签堆砌写法，在 Z-Image 的单流架构下全部变成噪音——模型吃的是句子和主体关系，不是关键词仓库。 所以玩 Z-Image 的第一性原理只有一条：做加法，不做减法。想要清晰，就写 sharp focus, 8k resolution, …">
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="wocao.world">
+<meta property="og:title" content="SDXL 提示词在 Z-Image 上全废了：蒸馏模型只认句子不认标签 · wocao.world">
+<meta property="og:description" content="为什么你的 SDXL 提示词在 Z-Image 上全废了 Z-Image Turbo 是阿里通义 MAI 的 6B 开源图像模型，走蒸馏路线，推理时不用 classifier-free guidance。这句话翻译成人话：负面提示词直接被无视，你写 blurry, bad quality 它看都不看一眼。社区实测里最扎心的一条结论是：SDXL 时代攒下来的标签堆砌写法，在 Z-Image 的单流架构下全部变成噪音——模型吃的是句子和主体关系，不是关键词仓库。 所以玩 Z-Image 的第一性原理只有一条：做加法，不做减法。想要清晰，就写 sharp focus, 8k resolution, …">
+<meta property="og:url" content="https://wocao.world/">
+<meta name="twitter:card" content="summary">
+<meta name="robots" content="noindex,follow">
+<link rel="alternate" type="application/rss+xml" title="wocao.world 聚合输出" href="/feed.xml">
+<link rel="stylesheet" href="/style.css">
+<link rel="canonical" href="https://www.moyunews.com/z-image-prompt-migration/">
+</head>
+<body>
+<a class="skip-link" href="#main">跳到正文</a>
+<header class="site-head">
+<p class="site-title"><a href="/">wocao.world</a></p>
+<p class="site-desc">wocao.world</p>
+<nav class="site-nav">
+<a href="/">最新</a>
+<a href="/about/">关于</a>
+<a href="/feed.xml">RSS</a>
+</nav>
+</header>
+<main id="main">
+<article>
+<h1 class="post-title">SDXL 提示词在 Z-Image 上全废了：蒸馏模型只认句子不认标签</h1>
+<div class="post-body"><h2>为什么你的 SDXL 提示词在 Z-Image 上全废了</h2>
+<p>Z-Image Turbo 是阿里通义 MAI 的 6B 开源图像模型，走蒸馏路线，推理时不用 classifier-free guidance。这句话翻译成人话：<strong>负面提示词直接被无视</strong>，你写 <code>blurry, bad quality</code> 它看都不看一眼。社区实测里最扎心的一条结论是：SDXL 时代攒下来的标签堆砌写法，在 Z-Image 的单流架构下全部变成噪音——模型吃的是句子和主体关系，不是关键词仓库。</p>
+<p>所以玩 Z-Image 的第一性原理只有一条：<strong>做加法，不做减法</strong>。想要清晰，就写 <code>sharp focus, 8k resolution, highly detailed</code>；想要干净背景，就写 <code>clean studio background, plain seamless backdrop</code>，而不是 <code>no clutter</code>。所有约束都必须用肯定句说出来。</p>
+<p><img src="https://my.18uk.uk/file/AgACAgUAAyEGAATpoe1oAANAas9BjB2smljSraPE7rvLIZAdzyoAAuARaxt3GXhWxQHd6pfR3BEBAAMCAAN4AAM9BA.webp" alt="Z-Image 提示词" width="540" height="429" loading="lazy" referrerpolicy="no-referrer" /></p>
+<h3>社区验证过的四层写法</h3>
+<p><a href="https://github.com/zfrsgtcu/comfyui-zfrnodes/blob/HEAD/docs/models/z-image/text-to-image/zimage_turbo_t2i_guide.md" rel="external nofollow noopener noreferrer" target="_blank">ComfyUI 社区的这份指南</a>给了一套四层公式：主体与动作 + 图中文字 + 视觉风格与介质 + 光影氛围。举例：<code>An elderly gardener pruning red roses in a Victorian garden</code> 开头点明谁在干什么，第二层精确写出图中要渲染的文字（这是 Z-Image 的招牌强项，20 多种语言包括中文都能稳住），第三层定风格介质比如 <code>shot on Leica M6, Kodak Portra 400</code>，最后收束到光影氛围。参数上记住三个数：步数 8 是甜点（4 求快、12 让文字最锐），LoRA 权重 0.7–0.9 别顶满，图生图 denoise 从 0.4 起步慢慢加。</p>
+<h3>三个反直觉的细节</h3>
+<ul>
+<li><strong>负面逻辑要翻译成正面</strong>：<a href="https://gist.github.com/illuminatianon/c42f8e57f1e3ebf037dd58043da9de32" rel="external nofollow noopener noreferrer" target="_blank">这份 gist</a> 总结得最狠——把「不要性感化、不要水印」翻译成「穿着深色商务正装、背景干净无 logo 无文字」，模型才听得懂。role 加 2~3 个特征的写法，比堆十个形容词管用。</li>
+<li><strong>中英文混排反而是优势</strong>：Z-Image 的文字渲染是它的招牌，中文招牌、海报标题直接写进提示词，<code>Sign with '咖啡店' in elegant gold calligraphy</code> 这种写法实测可用，别再绕路去 PS 后期加字了。</li>
+<li><strong>一次只塞 3~5 个视觉概念</strong>：<a href="https://fliki.ai/blog/z-image-turbo-prompting-guide" rel="external nofollow noopener noreferrer" target="_blank">Fliki 的长篇指南</a>里有个被反复验证的结论——提示词超过 60 个词后模型注意力就开始漂移，堆相机词加胶片词加灯光词加风格词等于互相打架。它推荐的 25 套风格预设玩法更聪明：同一段主体描述，只换前后缀，一次刷出 20 种风格。</li>
+</ul>
+<h2>给 SDXL 老玩家的迁移清单</h2>
+<p>心态上先转过来：别再当关键词仓库管理员，改当导演——机位、灯光、构图用技术词汇说清楚，<code>medium-shot, 50mm lens, shallow depth of field</code> 这种导演语言 Z-Image 吃得最香。ComfyUI 用户可以直接抄<a href="https://github.com/zfrsgtcu/comfyui-zfrnodes/blob/HEAD/docs/models/z-image/image-to-image/zimage_turbo_i2i_guide.md" rel="external nofollow noopener noreferrer" target="_blank">图生图指南</a>的模板，denoise 0.6~0.7 做风格迁移起手。最后提醒一句：这模型快是快（亚秒级出图），但 6B 参数的天花板摆在那，复杂多主体场景翻车率不低，重要出图多跑几个 seed 别偷懒。想系统补课的可以再看 <a href="https://vocal.media/art/your-sdxl-prompts-are-broken-here-is-how-to-fix-them-for-z-image" rel="external nofollow noopener noreferrer" target="_blank">这篇 SDXL 迁移实录</a>。</p>
+<p>本文来源：<a href="https://www.moyunews.com/" rel="external nofollow noopener noreferrer" target="_blank">摸鱼杂货店</a>。查看原文：<a href="https://www.moyunews.com/z-image-prompt-migration/" rel="external nofollow noopener noreferrer" target="_blank">SDXL 提示词在 Z-Image 上全废了：蒸馏模型只认句子不认标签</a>。</p></div>
+<p class="back"><a href="/">← 返回最新</a></p>
+</article>
+</main>
+<footer class="site-foot">
+<p>wocao.world — 本站内容全部转载自各订阅源，版权归原作者与原站所有。</p>
+</footer>
+</body>
+</html>

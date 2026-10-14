@@ -6,7 +6,37 @@
     <description>wocao.world</description>
     <language>zh-CN</language>
     <atom:link href="https://wocao.world/feed.xml" rel="self" type="application/rss+xml"/>
-    <lastBuildDate>Mon, 12 Oct 2026 03:38:37 GMT</lastBuildDate>
+    <lastBuildDate>Wed, 14 Oct 2026 09:04:25 GMT</lastBuildDate>
+    <item>
+      <title>零代码妈妈用 Gemini 建站：2000 流量换回 £529 免费福利</title>
+      <link>https://wocao.world/p/7d4066e27aae/</link>
+      <guid isPermaLink="false">7d4066e27aae</guid>
+      <pubDate>Wed, 14 Oct 2026 08:58:00 GMT</pubDate>
+      <description>一个妈妈、一个沙发、一台没装过代码编辑器的电脑 英国妈妈 Lucy，三个孩子的妈，全职上班，电脑技能仅限于用 Gemini 和 ChatGPT 把剩菜变成晚餐菜谱。某天晚上她刷着 TikTok，看那些「用 AI 副业暴富」的视频看了无数遍，心想反正不花钱，试试能亏啥。几周后，她的网站 KidsFun.London 攒了 2000 多访问量，给她换回了 £529 的免费现金和家庭出游福利——其中 £20 是预订佣金，£500 是薅到的免费福利。 太阳报这篇报道有意思的地方在于，它撕掉了「AI 变现」最唬人的那层皮：Lucy 完全不会代码，预算有限，时间被三个孩子切得稀碎。她赢的不是技术，是选题。…
+
+原文链接: https://www.moyunews.com/ai-website-monetize-kidsfun/
+转载自: 摸鱼杂货店</description>
+    </item>
+    <item>
+      <title>SDXL 提示词在 Z-Image 上全废了：蒸馏模型只认句子不认标签</title>
+      <link>https://wocao.world/p/855686885fb3/</link>
+      <guid isPermaLink="false">855686885fb3</guid>
+      <pubDate>Wed, 14 Oct 2026 08:47:38 GMT</pubDate>
+      <description>为什么你的 SDXL 提示词在 Z-Image 上全废了 Z-Image Turbo 是阿里通义 MAI 的 6B 开源图像模型，走蒸馏路线，推理时不用 classifier-free guidance。这句话翻译成人话：负面提示词直接被无视，你写 blurry, bad quality 它看都不看一眼。社区实测里最扎心的一条结论是：SDXL 时代攒下来的标签堆砌写法，在 Z-Image 的单流架构下全部变成噪音——模型吃的是句子和主体关系，不是关键词仓库。 所以玩 Z-Image 的第一性原理只有一条：做加法，不做减法。想要清晰，就写 sharp focus, 8k resolution, …
+
+原文链接: https://www.moyunews.com/z-image-prompt-migration/
+转载自: 摸鱼杂货店</description>
+    </item>
+    <item>
+      <title>OpenMontage：AI 编程助手当导演的视频工厂</title>
+      <link>https://wocao.world/p/a7b4dbd3df2f/</link>
+      <guid isPermaLink="false">a7b4dbd3df2f</guid>
+      <pubDate>Wed, 14 Oct 2026 06:27:17 GMT</pubDate>
+      <description>四万五千星标不靠炸 GitHub 上躺着个项目 calesthio/OpenMontage，上线首周霸榜 Trending 榜首，累计 4.5 万+ star。乍一看标题——“全球首个开源 agentic 视频生产系统”，容易让人联想到 Sora、Runway 那套“输入提示词、等 5 秒、收片段”的路数。但拉开源码一看，完全不是那回事。 大脑在你手里，不在服务器里 OpenMontage 的核心机制只有一句话：它坐在剪辑生成器之上，充当“生产层”。没有隐藏的中央编排器，真正的大脑就是你手里的 AI 编程助手——Claude Code、Cursor、Copilot、Windsurf、Codex…
+
+原文链接: https://www.moyunews.com/openmontage-ai-video-studio/
+转载自: 摸鱼杂货店</description>
+    </item>
     <item>
       <title>聚合全球社媒与电商数据接口：Monid AI 商业数据抓取架构与实战场景</title>
       <link>https://wocao.world/p/71456cd2dec1/</link>
@@ -275,36 +305,6 @@
       <description>一个人运营 7 个平台的内容矩阵，账号人设记串、热点永远赶不上、写稿剪辑发稿全靠肝——Easel 就是冲着这个痛点来的。它是浙江大学 REAL Lab 开源的 AI 自媒体运营智能体，把发现、策划、创作、发布、归因串成一条流水线。 Easel 是什么：浙大甩出来的自媒体运营全栈智能体 Easel 是浙江大学 REAL Lab 在 GitHub 开源的项目，采用 Apache-2.0 协议，2026-08-28 建仓，截至 2026-09-28 已有约 1800+ stars、182 次提交，内置 113 个 skills。它基于 OpenClaw Agent 构建，简单说就是：你给它一个账号画…
 
 原文链接: https://www.moyunews.com/easel-open-source-social-agent/
-转载自: 摸鱼杂货店</description>
-    </item>
-    <item>
-      <title>AI 模型降价开打了：OpenAI 和 Anthropic 同天互砍，开发者捡漏</title>
-      <link>https://wocao.world/p/4128323fe225/</link>
-      <guid isPermaLink="false">4128323fe225</guid>
-      <pubDate>Tue, 29 Sep 2026 06:19:19 GMT</pubDate>
-      <description>9月22日，Anthropic 和 OpenAI 相隔一小时各自上新，打响今年最狠的一轮模型降价战：Claude Opus 5.5 便宜两成还更快，GPT-6 Sol/Luna 直接腰斩。同样的活花一半的钱，这篇帮你算明白。 三款新模型价格拆解：一张表看懂便宜了多少 Anthropic 先出手。9月22日发布的 Claude Opus 5.5：输入 $4/百万 tokens，输出 $20/百万 tokens，比 Opus 5 便宜 20%，生成速度快 30%。官方口气不小，宣称在所有指标上超越 Fable 5.1，在 agentic coding 和 knowledge work 上几乎全面超…
-
-原文链接: https://www.moyunews.com/ai-model-price-war-sep-2026/
-转载自: 摸鱼杂货店</description>
-    </item>
-    <item>
-      <title>Jellyfish开源短剧工作台：AI短剧从剧本拆解到资产一致性实战</title>
-      <link>https://wocao.world/p/0a02174690a9/</link>
-      <guid isPermaLink="false">0a02174690a9</guid>
-      <pubDate>Mon, 28 Sep 2026 17:45:24 GMT</pubDate>
-      <description>为什么传统视频工具做不好长篇连续短剧 在生成式视频技术爆发的背景下，大部分创作者仍被困在单镜头抽卡与碎片化生成的泥潭中。市面上多数工具仅能解决单次生图或短视频生成，但在面对具备强叙事连贯性的短剧时，角色脸部漂移、服化道前后割裂、镜头提示词难以追溯等痛点极为严重。面向短剧与微短剧制作的开源端到端工作空间 Jellyfish（AI Short Drama Studio）的推出，正是为了将割裂的生成环节整合成工业级流水线，系统化解决AI短剧在剧本结构化拆解、多镜头一致性维系以及批量生成编排中的核心工程难题。 Jellyfish 的定位并非普通的单一多模态生成外挂，而是一个以生产资产为核心的工作台（P…
-
-原文链接: https://www.moyunews.com/jellyfish-ai-short-drama-studio/
-转载自: 摸鱼杂货店</description>
-    </item>
-    <item>
-      <title>MoneyPrinterTurbo怎么跑通：从主题到成片别只抄一键包</title>
-      <link>https://wocao.world/p/2ef91b079886/</link>
-      <guid isPermaLink="false">2ef91b079886</guid>
-      <pubDate>Mon, 28 Sep 2026 17:37:28 GMT</pubDate>
-      <description>仓库名像印钞，流水线仍是脚本加素材加API账单 harry0703/MoneyPrinterTurbo 用一句话主题或自定义脚本，串起文案、库存或生成素材、配音、字幕、配乐和剪辑。2026 年 9 月可见版本约 v1.3.7，星标已过十二万。入口有 AI Agent、WebUI、API 和 CLI。本地要 Python 3.11，WebUI 默认 http://127.0.0.1:8501，API 文档在 8080/docs。GPU 不是硬性条件；云端大模型和在线素材为主时，CPU 和内存更关键。 开头那行「面向 macOS 和 Windows 的开源磁盘清理」对不上这个仓库。MangoDis…
-
-原文链接: https://www.moyunews.com/moneyprinterturbo-local-pipeline/
 转载自: 摸鱼杂货店</description>
     </item>
   </channel>

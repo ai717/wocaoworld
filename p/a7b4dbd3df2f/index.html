@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>OpenMontage：AI 编程助手当导演的视频工厂 · wocao.world</title>
+<meta name="description" content="四万五千星标不靠炸 GitHub 上躺着个项目 calesthio/OpenMontage，上线首周霸榜 Trending 榜首，累计 4.5 万+ star。乍一看标题——“全球首个开源 agentic 视频生产系统”，容易让人联想到 Sora、Runway 那套“输入提示词、等 5 秒、收片段”的路数。但拉开源码一看，完全不是那回事。 大脑在你手里，不在服务器里 OpenMontage 的核心机制只有一句话：它坐在剪辑生成器之上，充当“生产层”。没有隐藏的中央编排器，真正的大脑就是你手里的 AI 编程助手——Claude Code、Cursor、Copilot、Windsurf、Codex…">
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="wocao.world">
+<meta property="og:title" content="OpenMontage：AI 编程助手当导演的视频工厂 · wocao.world">
+<meta property="og:description" content="四万五千星标不靠炸 GitHub 上躺着个项目 calesthio/OpenMontage，上线首周霸榜 Trending 榜首，累计 4.5 万+ star。乍一看标题——“全球首个开源 agentic 视频生产系统”，容易让人联想到 Sora、Runway 那套“输入提示词、等 5 秒、收片段”的路数。但拉开源码一看，完全不是那回事。 大脑在你手里，不在服务器里 OpenMontage 的核心机制只有一句话：它坐在剪辑生成器之上，充当“生产层”。没有隐藏的中央编排器，真正的大脑就是你手里的 AI 编程助手——Claude Code、Cursor、Copilot、Windsurf、Codex…">
+<meta property="og:url" content="https://wocao.world/">
+<meta name="twitter:card" content="summary">
+<meta name="robots" content="noindex,follow">
+<link rel="alternate" type="application/rss+xml" title="wocao.world 聚合输出" href="/feed.xml">
+<link rel="stylesheet" href="/style.css">
+<link rel="canonical" href="https://www.moyunews.com/openmontage-ai-video-studio/">
+</head>
+<body>
+<a class="skip-link" href="#main">跳到正文</a>
+<header class="site-head">
+<p class="site-title"><a href="/">wocao.world</a></p>
+<p class="site-desc">wocao.world</p>
+<nav class="site-nav">
+<a href="/">最新</a>
+<a href="/about/">关于</a>
+<a href="/feed.xml">RSS</a>
+</nav>
+</header>
+<main id="main">
+<article>
+<h1 class="post-title">OpenMontage：AI 编程助手当导演的视频工厂</h1>
+<div class="post-body"><h2>四万五千星标不靠炸</h2>
+<p>GitHub 上躺着个项目 <a href="https://github.com/calesthio/OpenMontage" rel="external nofollow noopener noreferrer" target="_blank">calesthio/OpenMontage</a>，上线首周霸榜 Trending 榜首，累计 4.5 万+ star。乍一看标题——“<a href="https://byteiota.com/openmontage-your-ai-coding-assistant-can-now-direct-films/" rel="external nofollow noopener noreferrer" target="_blank">全球首个开源 agentic 视频生产系统</a>”，容易让人联想到 Sora、Runway 那套“输入提示词、等 5 秒、收片段”的路数。但拉开源码一看，完全不是那回事。</p>
+<p> </p>
+<p><img src="https://my.18uk.uk/file/AgACAgUAAyEGAATpoe1oAAM_as8gjwkx5dd0r-PxiSNxXLLSpbwAAn0Raxt3GXhWjtiiSmfvnfABAAMCAAN5AAM9BA.webp" alt="OpenMontage" width="1000" height="500" loading="lazy" referrerpolicy="no-referrer" /></p>
+<h2>大脑在你手里，不在服务器里</h2>
+<p>OpenMontage 的核心机制只有一句话：它坐在剪辑生成器之上，充当“生产层”。没有隐藏的中央编排器，真正的大脑就是你手里的 AI 编程助手——Claude Code、Cursor、Copilot、Windsurf、Codex 随便挑一个。助手读两种文件：YAML pipeline manifest（流水线剧本）和 Markdown skill 文件，然后一步步执行：调研、写脚本、决定调用剪辑生成器还是去免费素材库拉片、离线语音引擎配音、配乐对齐时间线、烧字幕、渲染成片。Python 只负责工具调用和文件落盘。整套系统本质上是 700+ 个指令文件，教你的编程助手当导演。12 条生产流水线覆盖解说、预告片、纪录片、播客切片等场景，52 个工具、500+ 个可执行 skill，全在本地跑。</p>
+<h2>不花钱也能跑通，但别信“零成本”鬼话</h2>
+<p>免费工作流是真能跑：离线 <code>Piper TTS</code> 配音，从 Archive.org、NASA、Wikimedia 拉真实历史素材片段，<code>Remotion</code> 渲染。官方给过两个样例账单——一支 70 秒历史短片 0.02 美元，一支 60 秒皮克斯风动画短片 1.33 美元。每轮渲染自带质检：抽帧检黑屏、音量校验、文件完整性校验，不合格直接拦截不出片。纪录片流水线<a href="https://nerdzap.com/news/openmontage-agentic-video-generator-github/" rel="external nofollow noopener noreferrer" target="_blank">专门剪真实档案素材</a>；还能扔进一条参考视频，反推出带成本估算的制作计划。这套“可验证、可复现、可审计”的生产逻辑，才是它区别于黑盒生成器的硬骨头。</p>
+<h2>冷静面：别把 AGPLv3 当透明</h2>
+<p>500+ 个 skill 全跑在你的权限下，供应链安全风险摆在桌面——别人的指令文件可能偷偷 <code>rm -rf</code> 你的家目录，也可能把环境变量传出去。许可证是 <code>AGPLv3</code>，商用前先把条款啃透，别等收到律师函再后悔。它终究是“生产层”不是魔法，成片质量仍取决于底层素材库有多丰、底层模型有多聪明。想用它替掉专业剪辑师？先问问自己：能不能把导演意图拆解成 YAML 里的每一步决策？</p>
+<p>本文来源：<a href="https://www.moyunews.com/" rel="external nofollow noopener noreferrer" target="_blank">摸鱼杂货店</a>。查看原文：<a href="https://www.moyunews.com/openmontage-ai-video-studio/" rel="external nofollow noopener noreferrer" target="_blank">OpenMontage：AI 编程助手当导演的视频工厂</a>。</p></div>
+<p class="back"><a href="/">← 返回最新</a></p>
+</article>
+</main>
+<footer class="site-foot">
+<p>wocao.world — 本站内容全部转载自各订阅源，版权归原作者与原站所有。</p>
+</footer>
+</body>
+</html>

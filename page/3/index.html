@@ -31,6 +31,21 @@
 
 
 <article class="post-card">
+<h2 class="post-card-title"><a href="/p/55177108ade1/">比尔·盖茨谈AI时代：岗位保留、机器人税和全球机构</a></h2>
+<p class="meta"><time datetime="2026-08-27T22:36:22.000Z">2026/08/27</time></p>
+<p class="excerpt">一篇六千字长文，把适应期压缩到十年 比尔·盖茨在 Gates Notes 发表长文《动荡的AI时代已经到来。我们现在做的选择至关重要》。他写的是：这可能是人类历史上最剧烈的一段日子，眼下却看不到像样的过渡方案。过去从农田走进办公室，社会有几代人慢慢换岗；AI直接上手认知本身，白领审核贷款、做数据分析、分诊，蓝领产线，都可能在大约十年尺度里被改写。 他判断许多岗位会永久消失，入门级工作最先承压。假视频、网络攻击和生物风险的门槛也会被压低。孩子若过早把百依百顺的聊天对象当成伙伴，现实里的社交和独立判断可能被掏空。这些是他列出的麻烦，不是已经写进法律的结论。 好处也写在同一篇里 偏远诊所读急症片子、…</p>
+</article>
+<article class="post-card">
+<h2 class="post-card-title"><a href="/p/5d60c4c231ab/">Breeze-TTS-2开源了：能克隆、能捏声，权重却不能商用</a></h2>
+<p class="meta"><time datetime="2026-08-27T21:58:06.000Z">2026/08/27</time></p>
+<p class="excerpt">开源的是推理代码和权重，不是一张商用许可证 BreezeBlue 放出 Breeze-TTS-2 的模型权重和 PyTorch 推理代码。公司由前 MiniMax 技术合伙人杨斌创立，做实时语音交互。中英都能读，宣传里把语音克隆、按描述捏声、指挥情绪语速、以及括号里的笑声叹气都写进同一套模型。仓库许可证要先读完：推理代码走 Apache 2.0，权重、衍生模型和自托管输出只允许研究与非商用。 参数大约 3B，官方推理需要一块能跑 CUDA 的英伟达卡。常规路径大约占用 8GB 显存，加速路径更高。托管 API 另算，公开标价大约每百万字符 34 美元。把 GitHub 克隆下来，不等于可以把生…</p>
+</article>
+<article class="post-card">
+<h2 class="post-card-title"><a href="/p/29d1a2d500e3/">Gemini Omni 1.1登上文生视频榜第一？分数要连置信区间一起看</a></h2>
+<p class="meta"><time datetime="2026-08-27T21:47:39.000Z">2026/08/27</time></p>
+<p class="excerpt">刷到的第一名，来自Arena的盲测投票 Arena.ai 宣布 Gemini Omni 1.1 Flash 在文生视频赛道排到第一、图生视频排到第二。这不是实验室自报的内部表，是用户匿名对打投票。原文里那句「比第三名 FLUX 3 Video 高出20分（1495分）」，1495分指的是 FLUX 3 Video，不是 1.1 自己。 LMArena 文生视频榜随后可见的数字大约是：gemini-omni-1.1-flash 约1515分，旧款 Omni Flash 约1512分，FLUX 3 Video 约1495分且仍标着初步结果。1.1 上榜时投票只有一千多张，旧款已经接近两万张，误差条…</p>
+</article>
+<article class="post-card">
 <h2 class="post-card-title"><a href="/p/1f1db899f3e9/">Gemini Omni 1.1 Flash能做什么：续镜、首尾帧、4K和360p打样</a></h2>
 <p class="meta"><time datetime="2026-08-27T21:38:43.000Z">2026/08/27</time></p>
 <p class="excerpt">视频生成和剪辑被收进同一句对话 Google 把 Gemini Omni 1.1 Flash 定位成面向开发者的多模态AI视频生成与剪辑模型。文案里列的能力很整齐：续镜、指定镜头起幅和落幅、加入视频参考、把中意的一条拉到4K、先用360p快速试想法。旋钮不再散落在 Veo 工具条上，而是进了 Gemini API 和 AI Studio 的对话流程。 续镜是这条更新里最能改习惯的一项。模型回头看原片更长的上文，官方把可分析的先前片段拉到约10秒，再按约10秒一段往后续，累计大约到40秒。客厅里刚换的杯子、刚暗一档的灯，才有机会被带进下一截，而不是只咬住最后一帧把道具吃掉。 五件控件，对应五种制…</p>
@@ -164,21 +179,6 @@
 <h2 class="post-card-title"><a href="/p/52822ff65977/">Codex 自定义模型接入指南：官方已支持第三方模型</a></h2>
 <p class="meta"><time datetime="2026-07-07T00:19:39.000Z">2026/07/07</time></p>
 <p class="excerpt">OpenAI 的 Codex 近日被曝出一个隐藏功能——Codex 自定义模型接入已正式支持。这意味着开发者不再受限于默认模型，可以通过配置自定义 Provider 连接第三方模型或任何 OpenAI 兼容接口，例如 OpenRouter、LiteLLM 或自建网关。对于追求灵活性与高性能的 AI 编程场景，这无疑是一个重大利好。 如何配置 Codex 自定义模型 官方在高级配置文档中提供了完整的指引，包括自定义 Provider、Base URL、认证方式等关键参数。开发者只需按照规范定义好模型端点，即可无缝切换至自己信任的模型服务。这一设计彻底打破了默认模型的黑盒，让 Codex 变成一个…</p>
-</article>
-<article class="post-card">
-<h2 class="post-card-title"><a href="/p/cdd05388fc04/">一句Prompt终结修图噩梦：AI自动雕琢影棚级大片</a></h2>
-<p class="meta"><time datetime="2026-07-07T00:17:14.000Z">2026/07/07</time></p>
-<p class="excerpt">还在花几个小时修一张图？其实一句精准的AI修图Prompt，就能让大模型自动完成专业级后期。这套提示词将彻底改变你对美工流程的认知，从繁琐的图层调节中解放双手。 万能AI修图Prompt：从底片到影棚级成片 收到你发送的任何图片后，AI会像经验丰富的修图师一样，依次执行以下操作： 高级色彩校正（白平衡、对比度、饱和度） 降噪、锐化并提升清晰度 清理瑕疵，柔化细节 真实的光线调整（阴影、高光） 专业的构图与裁剪 这个流程覆盖了从原片到交付的核心链路，而且AI会输出一份已应用优化项清单，并生成优化后的版本，让操作全程透明可控。 风格切换与创意编辑，一键套用 除了基础润色，这套Prompt还内置了多…</p>
-</article>
-<article class="post-card">
-<h2 class="post-card-title"><a href="/p/2c0c3accf9d3/">告别AI失忆：Claude Code 必备神器 Trellis 项目大脑</a></h2>
-<p class="meta"><time datetime="2026-07-07T00:14:05.000Z">2026/07/07</time></p>
-<p class="excerpt">如果你还在忍受每次打开 Claude Code 都要重新灌输项目背景的痛苦，那 Trellis 项目大脑 就是你一直缺的那块拼图。AI 编程不稳不是 Claude 本身不行，而是你每次都让它“失忆上岗”——需求、规范、进度全部归零，效率自然崩盘。 痛点：Claude Code 的“金鱼记忆”正在吃掉你的生产力 几乎每个深度使用 Claude Code 的开发者都经历过这个循环：打开终端，先花 15 分钟把项目背景、接口规范、当前进度重新解释一遍，仿佛 AI 是个第一天上班的新人。重复劳动不止消耗耐心，更让复杂项目的逻辑链条频繁断裂，产出质量大起大落。 解决方案：给 Claude Code 装上…</p>
-</article>
-<article class="post-card">
-<h2 class="post-card-title"><a href="/p/56130d5546a2/">智谱GLM-5.2发布：编程能力逼近Claude Opus 4.8，开源即王炸</a></h2>
-<p class="meta"><time datetime="2026-07-07T00:12:13.000Z">2026/07/07</time></p>
-<p class="excerpt">大模型编程赛道再掀巨浪。智谱于6月13日发布新一代模型 GLM-5.2，当天傍晚即面向Coding Plan全量用户开放，覆盖Lite/Pro/Max/团队版。更令人瞩目的是，官方原定下周上线的API与开源计划，在6月16日已提前落地——GLM-5.2 权重正式开源至Hugging Face，约753B参数，MIT协议，vLLM、SGLang、transformers等主流推理框架同步支持，独立API也同步上线并纳入Coding Plan。提速之快，姿态之开放，远超市场预期。 GLM-5.2核心亮点：百万Token上下文与High模式 GLM-5.2 将上下文窗口直接拉升至100万Token，…</p>
 </article>
 <nav class="pagination" aria-label="分页">
 <a href="/page/2/" rel="prev">← 上一页</a>
