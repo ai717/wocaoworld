@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Open Generative AI：一个能装200+模型的开源AI工作室 · wocao.world</title>
+<meta name="description" content="一句话：Flux、Sora、Midjourney，全塞进一个开源桌面应用 玩 AI 绘画视频最烦的不是没模型，是模型散得到处都是：画图的在一个站、生视频的在另一个、口型同步又得另开一个，还都得排队交钱。Open Generative AI 干的事很直接——做一个开源的壳，把 200 多个模型统一装进来，MIT 协议，可自托管，界面长得像个正经工作室。作者还顺手搭了个浏览器免安装版，注册个免费账号就能开玩。 开工前先备好两样东西 安装包：releases 页面有现成的 dmg（分 Apple Silicon 和 Intel）和 Windows exe，一键装，不用折腾 Node 环境； 一个 M…">
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="wocao.world">
+<meta property="og:title" content="Open Generative AI：一个能装200+模型的开源AI工作室 · wocao.world">
+<meta property="og:description" content="一句话：Flux、Sora、Midjourney，全塞进一个开源桌面应用 玩 AI 绘画视频最烦的不是没模型，是模型散得到处都是：画图的在一个站、生视频的在另一个、口型同步又得另开一个，还都得排队交钱。Open Generative AI 干的事很直接——做一个开源的壳，把 200 多个模型统一装进来，MIT 协议，可自托管，界面长得像个正经工作室。作者还顺手搭了个浏览器免安装版，注册个免费账号就能开玩。 开工前先备好两样东西 安装包：releases 页面有现成的 dmg（分 Apple Silicon 和 Intel）和 Windows exe，一键装，不用折腾 Node 环境； 一个 M…">
+<meta property="og:url" content="https://wocao.world/">
+<meta name="twitter:card" content="summary">
+<meta name="robots" content="noindex,follow">
+<link rel="alternate" type="application/rss+xml" title="wocao.world 聚合输出" href="/feed.xml">
+<link rel="stylesheet" href="/style.css">
+<link rel="canonical" href="https://www.moyunews.com/open-generative-ai-studio/">
+</head>
+<body>
+<a class="skip-link" href="#main">跳到正文</a>
+<header class="site-head">
+<p class="site-title"><a href="/">wocao.world</a></p>
+<p class="site-desc">wocao.world</p>
+<nav class="site-nav">
+<a href="/">最新</a>
+<a href="/about/">关于</a>
+<a href="/feed.xml">RSS</a>
+</nav>
+</header>
+<main id="main">
+<article>
+<h1 class="post-title">Open Generative AI：一个能装200+模型的开源AI工作室</h1>
+<div class="post-body"><h2>一句话：Flux、Sora、Midjourney，全塞进一个开源桌面应用</h2>
+<p>玩 AI 绘画视频最烦的不是没模型，是模型散得到处都是：画图的在一个站、生视频的在另一个、口型同步又得另开一个，还都得排队交钱。<a href="https://github.com/Anil-matcha/Open-Generative-AI" rel="external nofollow noopener noreferrer" target="_blank">Open Generative AI</a> 干的事很直接——做一个开源的壳，把 200 多个模型统一装进来，MIT 协议，可自托管，界面长得像个正经工作室。作者还顺手搭了个<a href="https://dev.muapi.ai/open-generative-ai" rel="external nofollow noopener noreferrer" target="_blank">浏览器免安装版</a>，注册个免费账号就能开玩。</p>
+<p><img src="https://my.18uk.uk/file/AgACAgUAAyEGAATpoe1oAANEas9LBi4Oqc8OEmOJWVmhr523v5EAAgUSaxt3GXhWIN7HFG0rNHQBAAMCAAN4AAM9BA.webp" alt="开源AI工作室" width="800" height="480" loading="lazy" referrerpolicy="no-referrer" /></p>
+<h2>开工前先备好两样东西</h2>
+<ul>
+<li><strong>安装包</strong>：<a href="https://github.com/Anil-matcha/Open-Generative-AI/releases" rel="external nofollow noopener noreferrer" target="_blank">releases 页面</a>有现成的 dmg（分 Apple Silicon 和 Intel）和 Windows exe，一键装，不用折腾 Node 环境；</li>
+<li><strong>一个 Muapi 的免费账号</strong>：注意，这个壳本身开源免费，但算力走的是 <a href="https://muapi.ai/" rel="external nofollow noopener noreferrer" target="_blank">Muapi.ai</a> 的 API，key 存在你本地浏览器里，只发给 Muapi，不经过第三方服务器，额度看 Muapi 账号的免费档。</li>
+</ul>
+<h2>十分钟上手：从安装到第一张图</h2>
+<p><strong>先装上</strong>：macOS 下因为没经过苹果公证，第一次打开会被拦，终端跑一行就行：</p>
+<p><code>xattr -cr "/Applications/Open Generative AI.app"</code></p>
+<p>或者右键点「打开」再确认一次，一劳永逸。实在懒得装，直接开浏览器版也一样用。</p>
+<p><strong>填上 key 进工作室</strong>：打开应用或网页版，在设置里粘进 Muapi key，四个工作室就全亮了：</p>
+<ul>
+<li><strong>画图</strong>：50 多个文生图模型加 55 个图生图模型，Nano Banana 2 Edit 一次能塞 14 张参考图；</li>
+<li><strong>生视频</strong>：文生视频 40 多个、图生视频 60 多个，Kling、Sora、Veo、Seedance 2.0 都在；</li>
+<li><strong>口型同步</strong>：9 个专用模型，照片加音频变成说话视频，或者给已有视频对口型；</li>
+<li><strong>电影感</strong>：虚拟机位、镜头、焦段、光圈直接点选，提示词帮你拼好。</li>
+</ul>
+<blockquote><p><strong>三句实在话</strong>：「开源免费」指的是这个壳，算力账单走 Muapi，别当成全免费午餐；它宣传的「无内容审查」是前端不拦你，底层服务商各有各的过滤，真被拒了别怪壳；<a href="https://dev.to/larssaleh/open-generative-ai-github-repo-a-self-hosting-teardown-2026-ajg" rel="external nofollow noopener noreferrer" target="_blank">dev.to 的拆解文</a>提到它攒了近三万 star，热度是真，但更新基本靠作者一个人，生产环境别押宝。</p></blockquote>
+<p>想自己改界面的，源码和桌面端构建脚本都在仓库里，Electron 写的，前端仔可以直接上手魔改。</p>
+<p>本文来源：<a href="https://www.moyunews.com/" rel="external nofollow noopener noreferrer" target="_blank">摸鱼杂货店</a>。查看原文：<a href="https://www.moyunews.com/open-generative-ai-studio/" rel="external nofollow noopener noreferrer" target="_blank">Open Generative AI：一个能装200+模型的开源AI工作室</a>。</p></div>
+<p class="back"><a href="/">← 返回最新</a></p>
+</article>
+</main>
+<footer class="site-foot">
+<p>wocao.world — 本站内容全部转载自各订阅源，版权归原作者与原站所有。</p>
+</footer>
+</body>
+</html>

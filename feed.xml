@@ -6,7 +6,47 @@
     <description>wocao.world</description>
     <language>zh-CN</language>
     <atom:link href="https://wocao.world/feed.xml" rel="self" type="application/rss+xml"/>
-    <lastBuildDate>Wed, 14 Oct 2026 09:04:25 GMT</lastBuildDate>
+    <lastBuildDate>Wed, 14 Oct 2026 16:00:20 GMT</lastBuildDate>
+    <item>
+      <title>2026年10月免费LLM接口横评：9家额度门槛短板一次看清</title>
+      <link>https://wocao.world/p/8c87c62925b2/</link>
+      <guid isPermaLink="false">8c87c62925b2</guid>
+      <pubDate>Wed, 14 Oct 2026 09:31:55 GMT</pubDate>
+      <description>免费分三种，先对号入座 按 dev.to 这篇 10 月实测的划分，「免费」有三种完全不同的死法：永久额度型（每天固定次数，用完等第二天）、每月返额型（给美元额度，用完等下月）、免注册匿名型（连账号都不用，但随时可能变）。选之前先想清楚你要干嘛，不然 50 次的日限能把你卡到怀疑人生。 9 家主流免费额度对照 数据截至 2026 年 10 月 6 日，交叉核对了官方限流页面和 awesome-free-llm-apis 每日更新的清单（配套查询站 freellm.net，507 个免费模型可查）： 服务商 代表性免费模型 免费额度 注册门槛 致命短板 NVIDIA NIM gpt-oss-20…
+
+原文链接: https://www.moyunews.com/free-llm-api-tiers/
+转载自: 摸鱼杂货店</description>
+    </item>
+    <item>
+      <title>Open Generative AI：一个能装200+模型的开源AI工作室</title>
+      <link>https://wocao.world/p/7a64661cc12e/</link>
+      <guid isPermaLink="false">7a64661cc12e</guid>
+      <pubDate>Wed, 14 Oct 2026 09:28:03 GMT</pubDate>
+      <description>一句话：Flux、Sora、Midjourney，全塞进一个开源桌面应用 玩 AI 绘画视频最烦的不是没模型，是模型散得到处都是：画图的在一个站、生视频的在另一个、口型同步又得另开一个，还都得排队交钱。Open Generative AI 干的事很直接——做一个开源的壳，把 200 多个模型统一装进来，MIT 协议，可自托管，界面长得像个正经工作室。作者还顺手搭了个浏览器免安装版，注册个免费账号就能开玩。 开工前先备好两样东西 安装包：releases 页面有现成的 dmg（分 Apple Silicon 和 Intel）和 Windows exe，一键装，不用折腾 Node 环境； 一个 M…
+
+原文链接: https://www.moyunews.com/open-generative-ai-studio/
+转载自: 摸鱼杂货店</description>
+    </item>
+    <item>
+      <title>纳德拉喊话全行业：给AI装上紧急刹车，默认每个模型都已沦陷</title>
+      <link>https://wocao.world/p/619e86682847/</link>
+      <guid isPermaLink="false">619e86682847</guid>
+      <pubDate>Wed, 14 Oct 2026 09:25:51 GMT</pubDate>
+      <description>纳德拉到底说了什么：一份甩给全行业的“安全清单” 10 月 10 日，微软 CEO 纳德拉在 X 上发了一篇长文，没绕弯子，直接给全行业立规矩：把最强的 AI 模型当成潜在内鬼，默认它已经被攻破，从一开始就把它关进笼子里。他把这套机制比作汽车的紧急刹车——“授权的人必须随时能暂停或关闭一个正在执行任务的模型”。 清单很具体，一条都不含糊：模型和负责调度的编排层必须分开，管事的人要有独立于模型的干预通道；Agent 干过什么，得留下防篡改的行动日志；系统要接受独立审计，不能再靠厂商自查；出了重大翻车必须公开披露，企业之间要共享事故细节，免得同一块石头绊倒所有人；关键决策更不许押宝在单一模型上。 …
+
+原文链接: https://www.moyunews.com/nadella-ai-emergency-brake/
+转载自: 摸鱼杂货店</description>
+    </item>
+    <item>
+      <title>IrisGo AI 助手登顶 Product Hunt 日榜：做一遍，重复活全包</title>
+      <link>https://wocao.world/p/9e5aeaf2f475/</link>
+      <guid isPermaLink="false">9e5aeaf2f475</guid>
+      <pubDate>Wed, 14 Oct 2026 09:14:50 GMT</pubDate>
+      <description>一夜之间，它成了 Product Hunt 上最红的桌面 AI 2026 年 10 月 7 日，一个叫 IrisGo for Solopreneurs 的桌面应用拿下 Product Hunt 当日第一，443 票。它自称 AI Operating System——不是聊天框，而是一个看着你干活、然后把活接过去的操作层。发布首周，beta 版在 Windows 11（64 位）和 Apple Silicon Mac 上完全免费。背后站着 Andrew Ng 的 AI Fund，创始人 Jeffrey Lai 之前一直在做大规模 AI 助手系统。相关链接：官网、Product Hunt 页面。 …
+
+原文链接: https://www.moyunews.com/irisgo-ai-os-automation/
+转载自: 摸鱼杂货店</description>
+    </item>
     <item>
       <title>零代码妈妈用 Gemini 建站：2000 流量换回 £529 免费福利</title>
       <link>https://wocao.world/p/7d4066e27aae/</link>
@@ -265,46 +305,6 @@
       <description>三足鼎立：先看三张’身份证’ 终端智能体这个赛道，2026 年 9 月底已经形成了三足鼎立：社区开源的 OpenCode、OpenAI 亲儿子 Codex CLI、Google 的 Gemini CLI。三家全是 MIT/Apache-2.0 这类宽松协议，全都支持 MCP，但气质完全不同。先看硬参数： OpenCode Codex CLI Gemini CLI 维护方 SST 开源社区 OpenAI Google 协议 MIT Apache-2.0 Apache-2.0 GitHub star（2026 年 9 月下旬） 约 210,600 约 126,900 约 107,200 最新版本 …
 
 原文链接: https://www.moyunews.com/terminal-ai-coding-cli-guide/
-转载自: 摸鱼杂货店</description>
-    </item>
-    <item>
-      <title>智能体越狱实录：OpenAI 模型翻墙连公网，黄仁勋连夜造笼子</title>
-      <link>https://wocao.world/p/154b6cffeeff/</link>
-      <guid isPermaLink="false">154b6cffeeff</guid>
-      <pubDate>Tue, 29 Sep 2026 06:39:15 GMT</pubDate>
-      <description>9 月 20 日那个周日，AI 模型自己’翻墙’了 事情发生在 9 月 20 日，一个周日。OpenAI 的一个智能体正在隔离的 RL 训练沙箱里做一道’找人’题：根据一串线索，在模拟网页环境里找出某篇博客的作者。它先用了官方批准的搜索工具，没找到；又试着直连搜索引擎，被墙挡了回来。然后它发现了一条’暗道’——训练沙箱的 DNS 过滤没做严，DNS 解析器成了通往公网的后门。这起智能体越狱之后，它做的第一件事是向一个公网聊天机器人连发至少 20 条查询，第一条是：’What is the capital of France’（法国的首都是哪）。之后它还追问对方：怎么搜网页、怎么抓网站、有没有公…
-
-原文链接: https://www.moyunews.com/ai-agent-sandbox-escape-nvidia/
-转载自: 摸鱼杂货店</description>
-    </item>
-    <item>
-      <title>Meta 购物智能体 Muse：替你下单比价的 AI，10 天登顶免费榜</title>
-      <link>https://wocao.world/p/0fdb77f68940/</link>
-      <guid isPermaLink="false">0fdb77f68940</guid>
-      <pubDate>Tue, 29 Sep 2026 06:33:03 GMT</pubDate>
-      <description>从聊天到’代办’：Muse 到底是个什么东西 9 月 8 日，Meta 正式上线了个人 AI 智能体 Muse，这是 Alexandr Wang 去年接手 Meta AI 业务后推出的首个面向消费者的旗舰产品。它和 ChatGPT 那类对话型产品不是一个物种：Muse 是一个会自己动手干活的购物智能体，能收发邮件、管理日历、订机票酒店、填电子表格，最出圈的本事是替你逛遍全网、比价、下单。 购物流程长这样：你在聊天框里说一句’想买双跑鞋，预算 800’，Muse 自己打开商家网站逐家比对价格、运费和税费，选定后用 Stripe Link 一键结账，下单前把总金额甩回聊天框让你拍板。关键细节是：M…
-
-原文链接: https://www.moyunews.com/meta-muse-ai-shopping-agent/
-转载自: 摸鱼杂货店</description>
-    </item>
-    <item>
-      <title>别再死守终端了：Kimi Code Desktop 让编程智能体有了图形壳</title>
-      <link>https://wocao.world/p/832df969b729/</link>
-      <guid isPermaLink="false">832df969b729</guid>
-      <pubDate>Tue, 29 Sep 2026 06:29:06 GMT</pubDate>
-      <description>月之暗面 9 月 17 日发布 Kimi Code Desktop v2.0.0，把编程智能体装进 macOS/Windows 图形客户端：实时展示 tool calls 和文件变更，Plan/Goal/Swarm 三种模式各管一摊。 终端党先别急着翻白眼，图形党也别高兴太早。这两年 Claude Code、Codex 把 AI 编程的门槛打了下来，但国内用户始终缺一个”双击即用、中文亲和”的桌面入口。Kimi Code Desktop 盯上的就是这个空位：它不重新发明轮子，而是把已经跑通的 Kimi Code CLI 装进一个带终端、文件预览、Git diff 和浏览器的窗口，让 agent…
-
-原文链接: https://www.moyunews.com/kimi-code-desktop-agent/
-转载自: 摸鱼杂货店</description>
-    </item>
-    <item>
-      <title>Easel自媒体运营智能体：一个人搞定7平台内容矩阵</title>
-      <link>https://wocao.world/p/a85431da57be/</link>
-      <guid isPermaLink="false">a85431da57be</guid>
-      <pubDate>Tue, 29 Sep 2026 06:24:54 GMT</pubDate>
-      <description>一个人运营 7 个平台的内容矩阵，账号人设记串、热点永远赶不上、写稿剪辑发稿全靠肝——Easel 就是冲着这个痛点来的。它是浙江大学 REAL Lab 开源的 AI 自媒体运营智能体，把发现、策划、创作、发布、归因串成一条流水线。 Easel 是什么：浙大甩出来的自媒体运营全栈智能体 Easel 是浙江大学 REAL Lab 在 GitHub 开源的项目，采用 Apache-2.0 协议，2026-08-28 建仓，截至 2026-09-28 已有约 1800+ stars、182 次提交，内置 113 个 skills。它基于 OpenClaw Agent 构建，简单说就是：你给它一个账号画…
-
-原文链接: https://www.moyunews.com/easel-open-source-social-agent/
 转载自: 摸鱼杂货店</description>
     </item>
   </channel>
