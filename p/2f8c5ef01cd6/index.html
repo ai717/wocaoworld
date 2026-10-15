@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>PentAGI 爆火拆解：AI渗透测试多智能体怎么分工打红队 · wocao.world</title>
+<meta name="description" content="一个人做渗透测试做到崩溃？这群 AI 智能体自己组队打红队 玩过渗透测试的都懂，一次完整的活儿拆开来是个体力活：先扫端口摸清楚目标暴露了什么，再对着服务版本找漏洞、手动调 exp，最后还要把一坨命令输出整理成客户能看的报告。PentAGI 最近几天在 GitHub Trending 总榜上杀疯了——star 从两万五出头一路冲到 29.8k，仓库 4.5k fork，单日新增一千多，定位就是「全自动 AI 渗透测试系统」。这玩意不是一个模型在那儿硬聊，而是一套 Go 后端加 React 前端的自托管系统，拉起来之后由多个专职智能体分工把活干完。 协议上得留神：仓库挂的是 MIT license…">
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="wocao.world">
+<meta property="og:title" content="PentAGI 爆火拆解：AI渗透测试多智能体怎么分工打红队 · wocao.world">
+<meta property="og:description" content="一个人做渗透测试做到崩溃？这群 AI 智能体自己组队打红队 玩过渗透测试的都懂，一次完整的活儿拆开来是个体力活：先扫端口摸清楚目标暴露了什么，再对着服务版本找漏洞、手动调 exp，最后还要把一坨命令输出整理成客户能看的报告。PentAGI 最近几天在 GitHub Trending 总榜上杀疯了——star 从两万五出头一路冲到 29.8k，仓库 4.5k fork，单日新增一千多，定位就是「全自动 AI 渗透测试系统」。这玩意不是一个模型在那儿硬聊，而是一套 Go 后端加 React 前端的自托管系统，拉起来之后由多个专职智能体分工把活干完。 协议上得留神：仓库挂的是 MIT license…">
+<meta property="og:url" content="https://wocao.world/">
+<meta name="twitter:card" content="summary">
+<meta name="robots" content="noindex,follow">
+<link rel="alternate" type="application/rss+xml" title="wocao.world 聚合输出" href="/feed.xml">
+<link rel="stylesheet" href="/style.css">
+<link rel="canonical" href="https://www.moyunews.com/pentagi-ai-pentest-multi-agent/">
+</head>
+<body>
+<a class="skip-link" href="#main">跳到正文</a>
+<header class="site-head">
+<p class="site-title"><a href="/">wocao.world</a></p>
+<p class="site-desc">wocao.world</p>
+<nav class="site-nav">
+<a href="/">最新</a>
+<a href="/about/">关于</a>
+<a href="/feed.xml">RSS</a>
+</nav>
+</header>
+<main id="main">
+<article>
+<h1 class="post-title">PentAGI 爆火拆解：AI渗透测试多智能体怎么分工打红队</h1>
+<div class="post-body"><h2>一个人做渗透测试做到崩溃？这群 AI 智能体自己组队打红队</h2>
+<p>玩过渗透测试的都懂，一次完整的活儿拆开来是个体力活：先扫端口摸清楚目标暴露了什么，再对着服务版本找漏洞、手动调 exp，最后还要把一坨命令输出整理成客户能看的报告。<a href="https://github.com/vxcontrol/pentagi" rel="external nofollow noopener noreferrer" target="_blank">PentAGI</a> 最近几天在 GitHub Trending 总榜上杀疯了——star 从两万五出头一路冲到 29.8k，仓库 4.5k fork，单日新增一千多，定位就是「全自动 AI 渗透测试系统」。这玩意不是一个模型在那儿硬聊，而是一套 Go 后端加 React 前端的自托管系统，拉起来之后由多个专职智能体分工把活干完。</p>
+<p>协议上得留神：仓库挂的是 <strong>MIT license</strong>，但根目录同时躺着一份 EULA，企业版授权要去 <a href="https://pentagi.com/" rel="external nofollow noopener noreferrer" target="_blank">pentagi.com</a> 控制台注册申请，新用户给一个免费 license。自己内网折腾没问题，拿它做商用交付前先把 EULA 读完。</p>
+<p><img src="https://my.18uk.uk/file/AgACAgUAAyEGAATpoe1oAANHatCcFdWFR9omrDsWkU7pg90J1WIAAqUTaxsEG4hWxu_ozqlNhL8BAAMCAAN5AAM9BA.webp" alt="AI渗透测试" width="916" height="458" loading="lazy" referrerpolicy="no-referrer" /></p>
+<h2>三个角色分工：侦察的、干活的、写报告的</h2>
+<p>PentAGI 的多智能体不是话术噱头，而是真按渗透流程拆角色。系统里智能体分三类：<strong>researcher</strong> 负责情报与侦察，<strong>developer</strong> 负责漏洞利用的开发与验证，<strong>executor</strong> 负责在沙箱里执行具体命令。一个 flow 从接任务开始，由主智能体拆解步骤，三个角色按需被唤起，执行完的结果再汇总成结构化报告。</p>
+<ul>
+<li><strong>侦察阶段</strong>：researcher 调用内置隔离浏览器和搜索 API 收集目标公开信息，配合端口扫描摸清攻击面。</li>
+<li><strong>利用阶段</strong>：developer 和 executor 在隔离的 Kali 容器里跑工具，验证漏洞是否真实存在，而不是停留在报告里的猜测。</li>
+<li><strong>报告阶段</strong>：所有动作和产出自动沉淀，最后由系统生成报告，人只需要过一遍签字。</li>
+</ul>
+<h2>工具箱全进沙箱：20 多个安全工具一条 compose 拉起来</h2>
+<p>它没有自己重造轮子，而是把成熟的安全工具链整个搬了进来：<strong>nmap、metasploit、sqlmap</strong> 等 20 多个专业工具预装在 <code>vxcontrol/kali-linux</code> 镜像里，所有命令都跑在隔离的 Docker 沙箱中，绝不碰宿主机。部署也简单，官方给了跨平台安装器，Linux 党也可以直接两条命令起栈：</p>
+<p><code>curl -O https://raw.githubusercontent.com/vxcontrol/pentagi/master/docker-compose.yml<br />
+docker compose up -d</code></p>
+<p>起来之后访问 <code>https://localhost:8443</code>，默认管理员账号 <code>admin@pentagi.com</code>，登录第一件事先改密码。最新版 v2.2.0（10 月 5 日发布）还顺手修了 CVE-2026-14784 沙箱逃逸漏洞——之前版本默认把宿主机 Docker 套接字挂进沙箱，被提示注入就能接管宿主机，这版直接默认关掉，沙箱容器一律降权运行。</p>
+<h2>长期记忆：pgvector 存发现，Graphiti 画关系</h2>
+<p>打渗透最烦的是每次都从零开始。PentAGI 把发现和成功打法持久化到 <strong>PostgreSQL 加 pgvector</strong> 里，下次接到相似目标，智能体能直接检索历史经验复用。v2.2.0 还把 <strong>Graphiti</strong> 知识图谱接了进来（beta，默认关闭），底层是 Neo4j，自动把工具、目标、漏洞、技术之间的关系画成图，供智能体语义查询。</p>
+<ul>
+<li><strong>观测栈</strong>：集成 Langfuse 做 LLM 调用追踪，Token 花在哪、哪个智能体卡壳，看板上一目了然。</li>
+<li><strong>模型自由</strong>：OpenAI、Anthropic 之外还接了 Gemini、DeepSeek、Qwen、Kimi、GLM、MiniMax、Mistral、xAI 共 13 类 provider，任何 OpenAI 兼容端点都能自定义接入。</li>
+<li><strong>API 可编程</strong>：后端同时暴露 REST 与 GraphQL 接口，带 JWT 鉴权，可以把它编进自己的自动化流水线。</li>
+</ul>
+<h2>老法师冷静账：能白嫖，但别拿它当免劳金牌</h2>
+<p>清醒的账也要算：AI 打渗透目前的上限是把「有人盯着的半自动化」变成「少人盯着的自动化」，报告质量和利用成功率依然取决于喂给它的模型够不够强、目标环境给不给力。官方自己也承认提示注入无法彻底封死，这版修复的思路是把沙箱做小做死，而不是让模型学会拒毒。另外别对未授权目标动手——这是法律红线，工具开源不代表行为免责。想深入研究的，仓库的 <a href="https://github.com/vxcontrol/pentagi/releases" rel="external nofollow noopener noreferrer" target="_blank">release notes</a> 写得相当诚实，连沙箱设计取舍都摊开讲了。</p>
+<p>本文来源：<a href="https://www.moyunews.com/" rel="external nofollow noopener noreferrer" target="_blank">摸鱼杂货店</a>。查看原文：<a href="https://www.moyunews.com/pentagi-ai-pentest-multi-agent/" rel="external nofollow noopener noreferrer" target="_blank">PentAGI 爆火拆解：AI渗透测试多智能体怎么分工打红队</a>。</p></div>
+<p class="back"><a href="/">← 返回最新</a></p>
+</article>
+</main>
+<footer class="site-foot">
+<p>wocao.world — 本站内容全部转载自各订阅源，版权归原作者与原站所有。</p>
+</footer>
+</body>
+</html>

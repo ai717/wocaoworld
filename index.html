@@ -31,6 +31,31 @@
 
 
 <article class="post-card">
+<h2 class="post-card-title"><a href="/p/d6b7b7af2b02/">Ling-3.1-flash 开源：560B 总参 25B 激活，混合推理模型配 1M 上下文</a></h2>
+<p class="meta"><time datetime="2026-10-15T10:27:37.000Z">2026/10/15</time></p>
+<p class="excerpt">560B 的权重直接放了，每个 token 却只叫醒 25B 10 月 15 日，蚂蚁百灵把 Ling-3.1-flash 的权重挂上了 Hugging Face 和 ModelScope，官方模型卡写得很直白：总参数 560B，每 token 激活 25B，上下文窗口上限 1M。560B 这个体量第一眼是云端旗舰级的，但激活量压到 25B，味道就变了——真正吃算力的部分，企业自家机房扛得动。 架构上它延续 Ling-3.0-flash 的混合线性路线：63 层 KDA 配 9 层 Gated MLA，512 个路由专家每次只激活 8 个，外加 1 个共享专家和 4 层 dense。这种大总参…</p>
+</article>
+<article class="post-card">
+<h2 class="post-card-title"><a href="/p/bea3f806b1ea/">ArtCraft 爆火：AI创作IDE 不再是提示词输入框，先搭场景再出图</a></h2>
+<p class="meta"><time datetime="2026-10-15T10:20:36.000Z">2026/10/15</time></p>
+<p class="excerpt">几天 2.8 万 star：这个 AI 图像工具换了个打法 最近刷 GitHub Trending 的人，大概率被 ArtCraft 挡住过——本周总榜前三，单日新增几千 star，截至发稿仓库已经攒到 2.8 万。团队给它的定位是 “intentional crafting engine”，口号就一句话：The IDE for artists。翻译成人话：它不打算再做一个提示词输入框。 玩 AI 出图久了都有体感：提示词写得越长越像许愿。想让人物站在画面左三分位、镜头略低仰拍、前后景怎么分层，全靠在文字里跟模型反复拉锯，抽卡抽到心梗。ArtCraft 把流程整个反过来。 不是 prompt …</p>
+</article>
+<article class="post-card">
+<h2 class="post-card-title"><a href="/p/c0979b8c8d0c/">自托管AI平台 Open WebUI 0.12 发布：实时语音对话上线，还给模型装了张 3D 脸</a></h2>
+<p class="meta"><time datetime="2026-10-15T10:16:21.000Z">2026/10/15</time></p>
+<p class="excerpt">为什么自托管聊天前端还在卷：语音这关终于补上了 把大模型请回自己服务器的人，多半都搭过一套本地对话前端：接上 Ollama 或者任意 OpenAI 兼容端点，网页里打字聊，顶多再挂个断流频发的语音插件。Open WebUI 算是这个圈子里最有名的自托管聊天界面，这次 0.12 版本直接把实时语音通话搬了上来——不是按下说话、松开发送的半残废实现，而是模型真正开口跟你一来一回，你说的话还会转成交互请求抛回给你自己部署的模型处理。 对天天折腾本地模型的工位选手来说，这一步补齐的是整个使用体验里最扎眼的缺口：云端的语音助手随手就能用，本地模型却只能对着键盘敲字。0.12 这版最抢眼的两个点——实时语…</p>
+</article>
+<article class="post-card">
+<h2 class="post-card-title"><a href="/p/2f8c5ef01cd6/">PentAGI 爆火拆解：AI渗透测试多智能体怎么分工打红队</a></h2>
+<p class="meta"><time datetime="2026-10-15T09:25:55.000Z">2026/10/15</time></p>
+<p class="excerpt">一个人做渗透测试做到崩溃？这群 AI 智能体自己组队打红队 玩过渗透测试的都懂，一次完整的活儿拆开来是个体力活：先扫端口摸清楚目标暴露了什么，再对着服务版本找漏洞、手动调 exp，最后还要把一坨命令输出整理成客户能看的报告。PentAGI 最近几天在 GitHub Trending 总榜上杀疯了——star 从两万五出头一路冲到 29.8k，仓库 4.5k fork，单日新增一千多，定位就是「全自动 AI 渗透测试系统」。这玩意不是一个模型在那儿硬聊，而是一套 Go 后端加 React 前端的自托管系统，拉起来之后由多个专职智能体分工把活干完。 协议上得留神：仓库挂的是 MIT license…</p>
+</article>
+<article class="post-card">
+<h2 class="post-card-title"><a href="/p/d823b0b4d877/">AI伴侣应用 Character.AI 破产：迪士尼 2000 万美元接盘部分资产</a></h2>
+<p class="meta"><time datetime="2026-10-15T09:20:48.000Z">2026/10/15</time></p>
+<p class="excerpt">昔日明星独角兽倒下：Character.AI 申请破产，迪士尼兜底接盘 当地时间 10 月 12 日周一，Character.AI 向美国法院申请 Chapter 11 破产保护，路透社 10 月 13 日发出报道，财联社同日跟进。方案很直接：华特迪士尼担任「stalking horse」首轮兜底买家，以 2,000 万美元购入部分 IP 的非独家永久授权，其他买家可以加价竞购。公司预计 11 月底到 12 月初完成全部资产出售，期间平台继续运营，找不到买家就直接关停。 法庭申报文件里，资产与负债都列在 5,000 万到 1 亿美元这个区间。对照它 2023 年 a16z 领投轮约 10 亿美…</p>
+</article>
+<article class="post-card">
 <h2 class="post-card-title"><a href="/p/8c87c62925b2/">2026年10月免费LLM接口横评：9家额度门槛短板一次看清</a></h2>
 <p class="meta"><time datetime="2026-10-14T09:31:55.000Z">2026/10/14</time></p>
 <p class="excerpt">免费分三种，先对号入座 按 dev.to 这篇 10 月实测的划分，「免费」有三种完全不同的死法：永久额度型（每天固定次数，用完等第二天）、每月返额型（给美元额度，用完等下月）、免注册匿名型（连账号都不用，但随时可能变）。选之前先想清楚你要干嘛，不然 50 次的日限能把你卡到怀疑人生。 9 家主流免费额度对照 数据截至 2026 年 10 月 6 日，交叉核对了官方限流页面和 awesome-free-llm-apis 每日更新的清单（配套查询站 freellm.net，507 个免费模型可查）： 服务商 代表性免费模型 免费额度 注册门槛 致命短板 NVIDIA NIM gpt-oss-20…</p>
@@ -155,34 +180,9 @@
 <p class="meta"><time datetime="2026-10-06T08:37:04.000Z">2026/10/06</time></p>
 <p class="excerpt">从独立人设到可组合模块：Gemini Skills 上线带来的范式转移 在当前的 AI 协作流中，谷歌正式在全平台聊天界面上线了全新功能机制，本次迭代的核心动作便是全面推行 Gemini Skills，并启动对早期自定义智能体 Gems 的逐步退役与自动迁移路线。如果你此前在 Gemini 中高频使用过 Gems，会明显感知到过去「一个人设锁死一个独立对话间」的割裂感——若要兼顾特定的品牌语调与不同产品的技术参数，往往只能在一个臃肿的提示词框架里反复拼凑，或是频繁切换不同窗口。 官方在官方博客任务自动化公告中明确阐述了这套新机制的设计初衷：如果说过去的 Gem 是一个固定了身份与场景的「人设房…</p>
 </article>
-<article class="post-card">
-<h2 class="post-card-title"><a href="/p/daf2cbbe6cc3/">Google官方Gemini Skills编写指南：作弊条机制与提示词架构实战</a></h2>
-<p class="meta"><time datetime="2026-10-06T08:18:46.000Z">2026/10/06</time></p>
-<p class="excerpt">打破长提示词迷思：Skills 作为作弊条的分层加载机制 在构建大语言模型工作流时，许多开发者习惯于将全量系统提示词、背景知识库与复杂边界约束一股脑堆叠在主上下文窗口中，导致注意力稀释、首字时延增加以及推理成本陡增。Google 官方在近期发布的权威指引中明确指出，Gemini Skills 的核心定位应当是随时待命的轻量「作弊条」（Cheat Sheet），而非冗长臃肿的静态操作手册。系统在进行工具路由决策时，首先仅会读取技能的名称与简要描述，只有当用户的当前意图与该描述产生高置信度匹配时，才会动态加载并解析技能正文中的全部技术规范与详细步骤。 这种渐进式动态加载机制从架构层面上重塑了 Pr…</p>
-</article>
-<article class="post-card">
-<h2 class="post-card-title"><a href="/p/0c53a95444df/">纯代码生成MG动画全开源：Claude与无头浏览器的15种动态设计实战</a></h2>
-<p class="meta"><time datetime="2026-10-06T05:45:55.000Z">2026/10/06</time></p>
-<p class="excerpt">从扩散模型到代码原生：纯代码生成MG动画的技术范式 在主流 AI 视频生成依然困在文生视频模型（如 Sora、Runway、Kling）的时间连贯性差、文字渲染畸变与难以像素级微调的泥潭中时，开源社区交出了一份完全反直觉的硬核答卷。纯代码生成MG动画正在开辟一条确定性极高的新路线：不依赖任何扩散生图或视频大模型，完全依靠大语言模型 Claude Opus 5.5 编写代码，直接调度 SVG、Canvas、WebGL、Three.js 以及 3D 渲染器 Blender，实时驱动 15 支 10 秒高水准动态设计短片。 这套技术链路的核心优势在于绝对的参数控制权与帧级确定性。传统文生视频模型每次…</p>
-</article>
-<article class="post-card">
-<h2 class="post-card-title"><a href="/p/a58e5ff267b8/">Meta Muse实测避坑清单：权限越界与隐私风险深度反思</a></h2>
-<p class="meta"><time datetime="2026-09-30T03:30:25.000Z">2026/09/30</time></p>
-<p class="excerpt">为什么狂热追捧之后必须正视智能体的失控代价 在 Meta 旗下个人智能体 Meta Muse 登顶应用榜单、闲鱼代激活甚至炒到数十元一单的狂热声浪中，真实一线用户的使用体感却正在迅速分化。从概念演示看，它是一台能够自主订票、核算发票、接管日程的云端全能助理；但在缺乏严格边界管控的实际生产与日常场景下，这款工具暴露出的越权失信、数字幻觉与隐私黑盒问题，正给无数盲目尝鲜者带来巨大的潜在损失。本文系统拆解Meta Muse在近期实测中暴露的核心踩坑点，为冲动上车的玩家敲响安全警钟。任何自动化智能体一旦被授予桌面端深度权限，其造成的破坏力将呈指数级放大。如果用户缺乏防御心智，仅仅因为其免费或新奇就彻底…</p>
-</article>
-<article class="post-card">
-<h2 class="post-card-title"><a href="/p/67eab70e6e1d/">Meta Muse连接器重磅更新：22款主流商业工具自动化全景评测</a></h2>
-<p class="meta"><time datetime="2026-09-30T02:45:58.000Z">2026/09/30</time></p>
-<p class="excerpt">在AI智能体从概念迈向工业落地的进程中，Meta旗下的个人智能体产品 Meta Muse 展现出了极具攻击性的渗透力。从水管维修队、街边杂货店，到家庭农场、社区餐馆和精品买手店，大量小微企业主已经开始尝试让Muse接管订票、填表、回复客户邮件等繁琐业务。而就在今天，官方正式上线了首批专为小微商业场景打造的超级连接器（Connectors）矩阵，首发覆盖 22款行业顶级工具与平台生态，旨在彻底打通智能体与实体商业软件之间割裂的数据孤岛。 以往智能体受限于沙盒环境，跨软件交互往往依赖不稳定的视觉抓屏点击，不仅容易因前端页面改版而崩溃，在面对财务结算、邮件营销与库存流转时更是风险重重。本次生态级连接…</p>
-</article>
-<article class="post-card">
-<h2 class="post-card-title"><a href="/p/4f4efe4f00d3/">终端智能体怎么选：OpenCode 对决 Codex 与 Gemini CLI</a></h2>
-<p class="meta"><time datetime="2026-09-29T06:41:26.000Z">2026/09/29</time></p>
-<p class="excerpt">三足鼎立：先看三张’身份证’ 终端智能体这个赛道，2026 年 9 月底已经形成了三足鼎立：社区开源的 OpenCode、OpenAI 亲儿子 Codex CLI、Google 的 Gemini CLI。三家全是 MIT/Apache-2.0 这类宽松协议，全都支持 MCP，但气质完全不同。先看硬参数： OpenCode Codex CLI Gemini CLI 维护方 SST 开源社区 OpenAI Google 协议 MIT Apache-2.0 Apache-2.0 GitHub star（2026 年 9 月下旬） 约 210,600 约 126,900 约 107,200 最新版本 …</p>
-</article>
 <nav class="pagination" aria-label="分页">
 <span class="disabled">← 上一页</span>
-<span class="page-indicator">第 1 / 5 页</span>
+<span class="page-indicator">第 1 / 6 页</span>
 <a href="/page/2/" rel="next">下一页 →</a>
 </nav>
 </main>

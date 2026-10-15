@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>ArtCraft 爆火：AI创作IDE 不再是提示词输入框，先搭场景再出图 · wocao.world</title>
+<meta name="description" content="几天 2.8 万 star：这个 AI 图像工具换了个打法 最近刷 GitHub Trending 的人，大概率被 ArtCraft 挡住过——本周总榜前三，单日新增几千 star，截至发稿仓库已经攒到 2.8 万。团队给它的定位是 “intentional crafting engine”，口号就一句话：The IDE for artists。翻译成人话：它不打算再做一个提示词输入框。 玩 AI 出图久了都有体感：提示词写得越长越像许愿。想让人物站在画面左三分位、镜头略低仰拍、前后景怎么分层，全靠在文字里跟模型反复拉锯，抽卡抽到心梗。ArtCraft 把流程整个反过来。 不是 prompt …">
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="wocao.world">
+<meta property="og:title" content="ArtCraft 爆火：AI创作IDE 不再是提示词输入框，先搭场景再出图 · wocao.world">
+<meta property="og:description" content="几天 2.8 万 star：这个 AI 图像工具换了个打法 最近刷 GitHub Trending 的人，大概率被 ArtCraft 挡住过——本周总榜前三，单日新增几千 star，截至发稿仓库已经攒到 2.8 万。团队给它的定位是 “intentional crafting engine”，口号就一句话：The IDE for artists。翻译成人话：它不打算再做一个提示词输入框。 玩 AI 出图久了都有体感：提示词写得越长越像许愿。想让人物站在画面左三分位、镜头略低仰拍、前后景怎么分层，全靠在文字里跟模型反复拉锯，抽卡抽到心梗。ArtCraft 把流程整个反过来。 不是 prompt …">
+<meta property="og:url" content="https://wocao.world/">
+<meta name="twitter:card" content="summary">
+<meta name="robots" content="noindex,follow">
+<link rel="alternate" type="application/rss+xml" title="wocao.world 聚合输出" href="/feed.xml">
+<link rel="stylesheet" href="/style.css">
+<link rel="canonical" href="https://www.moyunews.com/artcraft-ai-crafting-ide/">
+</head>
+<body>
+<a class="skip-link" href="#main">跳到正文</a>
+<header class="site-head">
+<p class="site-title"><a href="/">wocao.world</a></p>
+<p class="site-desc">wocao.world</p>
+<nav class="site-nav">
+<a href="/">最新</a>
+<a href="/about/">关于</a>
+<a href="/feed.xml">RSS</a>
+</nav>
+</header>
+<main id="main">
+<article>
+<h1 class="post-title">ArtCraft 爆火：AI创作IDE 不再是提示词输入框，先搭场景再出图</h1>
+<div class="post-body"><h2>几天 2.8 万 star：这个 AI 图像工具换了个打法</h2>
+<p>最近刷 GitHub Trending 的人，大概率被 ArtCraft 挡住过——本周总榜前三，单日新增几千 star，截至发稿仓库已经攒到 2.8 万。团队给它的定位是 “intentional crafting engine”，口号就一句话：The IDE for artists。翻译成人话：它不打算再做一个提示词输入框。</p>
+<p>玩 AI 出图久了都有体感：提示词写得越长越像许愿。想让人物站在画面左三分位、镜头略低仰拍、前后景怎么分层，全靠在文字里跟模型反复拉锯，抽卡抽到心梗。ArtCraft 把流程整个反过来。</p>
+<p><img src="https://my.18uk.uk/file/AgACAgUAAyEGAATpoe1oAANJatCoiu2sLLao7hi18YtR-nZaVnkAArQWaxsEG4hWDCptwmF4YxkBAAMCAAN5AAM9BA.webp" alt="" loading="lazy" referrerpolicy="no-referrer" /></p>
+<h2>不是 prompt 框，是给 AI 生成套一层创作环境</h2>
+<p>它的核心思路是 README 里那句 Build the scene before you generate it——先搭场景，再生成。你在 2D 画布和 3D 视图里把戏排好：图片转成可摆位的 3D mesh，角色摆好姿势，相机架好角度，最后才按下生成。具体能干的事看仓库演示：</p>
+<ul>
+<li><strong>3D 合成：</strong>背景、前景、道具分层摆在三维空间里出深度；Image to Location 能把虚拟演员放进同一个房间，连拍多组分镜。</li>
+<li><strong>角色姿势与身份迁移：</strong>先用一个人偶定死姿势和机位，再把你的角色身份套上去，长相、位置、动作分开控制。</li>
+<li><strong>场景分镜加 kitbashing：</strong>组合现成 3D 资产包调机位、摆物体、控景深，把影视 previs 的流程搬进了出图工具。</li>
+</ul>
+<p>模型层它不锁死自己一家：仓库里挂着一份 62 个模型的目录，图像侧有 Nano Banana Pro、GPT Image、FLUX、Seedream，视频侧覆盖 Seedance、Kling、Veo、Sora，外加 Suno 的音乐和 Hunyuan3D、Tripo 这类网格模型，外部还接了 Midjourney、Grok、World Labs。整个桌面应用用 Rust 写的，Windows 和 macOS 有 stable release，Linux 得自己编译，协议是 MIT 与 Apache-2.0 双协议。仓库在 <a href="https://github.com/storytold/artcraft" rel="external nofollow noopener noreferrer" target="_blank">storytold/artcraft</a>，下载走 <a href="https://getartcraft.com/" rel="external nofollow noopener noreferrer" target="_blank">官网</a>。</p>
+<h2>为什么这事现在值得讲</h2>
+<p>拿节点式 ComfyUI 对照一下就明白它在挤哪块生态位。ComfyUI 自由度拉满，管线想怎么拼怎么拼，代价是折腾：连节点、管采样器、调尺寸链，美术同学进去五分钟就想退出来。ArtCraft 走的是收敛路线——把编排折叠成可视化的 3D 场景工具，用一点自由度换确定性。</p>
+<p>prompting 和 crafting 的差别就在这：前者你对着屏幕许愿，后者你在片场导戏。做影视 previs、广告分镜的人对先摆相机再出图几乎是刚需，插画师最头疼的人物一致性和构图控制，恰恰是提示词永远写不明白的部分。这波 star 暴涨，本质上是社区对提示词彩票终于不耐烦了。</p>
+<h2>冷静评述：热度之外先泼两盆冷水</h2>
+<p>第一盆：开源的是 IDE 外壳和工作流，背后那 62 个模型绝大多数是各家云 API，出图要付调用费，star 高不等于白嫖到底。第二盆：3D 编排有学习曲线，得懂一点场景摆位和相机语言，纯靠提示词吃饭的用户上手有门槛。</p>
+<p>另外项目刚冲榜，README 里好几个预览还标着 coming soon，Linux 只有源码编译路径。建议先下个桌面端摸两天画布，确认它聚合的模型和你手头的订阅对得上，再决定要不要深度投入。</p>
+<p>本文来源：<a href="https://www.moyunews.com/" rel="external nofollow noopener noreferrer" target="_blank">摸鱼杂货店</a>。查看原文：<a href="https://www.moyunews.com/artcraft-ai-crafting-ide/" rel="external nofollow noopener noreferrer" target="_blank">ArtCraft 爆火：AI创作IDE 不再是提示词输入框，先搭场景再出图</a>。</p></div>
+<p class="back"><a href="/">← 返回最新</a></p>
+</article>
+</main>
+<footer class="site-foot">
+<p>wocao.world — 本站内容全部转载自各订阅源，版权归原作者与原站所有。</p>
+</footer>
+</body>
+</html>

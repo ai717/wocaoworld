@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Ling-3.1-flash 开源：560B 总参 25B 激活，混合推理模型配 1M 上下文 · wocao.world</title>
+<meta name="description" content="560B 的权重直接放了，每个 token 却只叫醒 25B 10 月 15 日，蚂蚁百灵把 Ling-3.1-flash 的权重挂上了 Hugging Face 和 ModelScope，官方模型卡写得很直白：总参数 560B，每 token 激活 25B，上下文窗口上限 1M。560B 这个体量第一眼是云端旗舰级的，但激活量压到 25B，味道就变了——真正吃算力的部分，企业自家机房扛得动。 架构上它延续 Ling-3.0-flash 的混合线性路线：63 层 KDA 配 9 层 Gated MLA，512 个路由专家每次只激活 8 个，外加 1 个共享专家和 4 层 dense。这种大总参…">
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="wocao.world">
+<meta property="og:title" content="Ling-3.1-flash 开源：560B 总参 25B 激活，混合推理模型配 1M 上下文 · wocao.world">
+<meta property="og:description" content="560B 的权重直接放了，每个 token 却只叫醒 25B 10 月 15 日，蚂蚁百灵把 Ling-3.1-flash 的权重挂上了 Hugging Face 和 ModelScope，官方模型卡写得很直白：总参数 560B，每 token 激活 25B，上下文窗口上限 1M。560B 这个体量第一眼是云端旗舰级的，但激活量压到 25B，味道就变了——真正吃算力的部分，企业自家机房扛得动。 架构上它延续 Ling-3.0-flash 的混合线性路线：63 层 KDA 配 9 层 Gated MLA，512 个路由专家每次只激活 8 个，外加 1 个共享专家和 4 层 dense。这种大总参…">
+<meta property="og:url" content="https://wocao.world/">
+<meta name="twitter:card" content="summary">
+<meta name="robots" content="noindex,follow">
+<link rel="alternate" type="application/rss+xml" title="wocao.world 聚合输出" href="/feed.xml">
+<link rel="stylesheet" href="/style.css">
+<link rel="canonical" href="https://www.moyunews.com/ling-3-1-flash-open-source/">
+</head>
+<body>
+<a class="skip-link" href="#main">跳到正文</a>
+<header class="site-head">
+<p class="site-title"><a href="/">wocao.world</a></p>
+<p class="site-desc">wocao.world</p>
+<nav class="site-nav">
+<a href="/">最新</a>
+<a href="/about/">关于</a>
+<a href="/feed.xml">RSS</a>
+</nav>
+</header>
+<main id="main">
+<article>
+<h1 class="post-title">Ling-3.1-flash 开源：560B 总参 25B 激活，混合推理模型配 1M 上下文</h1>
+<div class="post-body"><h2>560B 的权重直接放了，每个 token 却只叫醒 25B</h2>
+<p>10 月 15 日，蚂蚁百灵把 Ling-3.1-flash 的权重挂上了 Hugging Face 和 ModelScope，官方模型卡写得很直白：总参数 560B，每 token 激活 25B，上下文窗口上限 1M。560B 这个体量第一眼是云端旗舰级的，但激活量压到 25B，味道就变了——真正吃算力的部分，企业自家机房扛得动。</p>
+<p>架构上它延续 Ling-3.0-flash 的混合线性路线：63 层 KDA 配 9 层 Gated MLA，512 个路由专家每次只激活 8 个，外加 1 个共享专家和 4 层 dense。这种大总参、小激活的配比，本质是拿总参保知识广度，拿激活量压推理账单。</p>
+<p><img src="https://moyu.18uk.uk/2026/20261015-d8c8f025-e6ed-40d3-a1d3-dfd42698fda6.webp" alt="混合推理模型" width="1000" height="540" loading="lazy" referrerpolicy="no-referrer" /></p>
+<h2>为什么重要：就是冲着长流程 Agent 来的</h2>
+<p>官方给它的定位是面向复杂真实任务的原生混合推理模型，主打办公、医疗、软件工程和终端操作。跑分上点名 GDPVal-AA V2.1、HealthBench Professional、FrontierSWE、Terminal-Bench 4.0，覆盖办公、医疗、编码和终端工具调用四个方向，还直接说它能在 Claude Code、Kilo Code、Qwen Code、OpenClaw 这类编码 Agent 框架里当后端。</p>
+<p>对做 Agent 的团队，真正值钱的是 1M 上下文。一个长任务跑几小时、几百轮工具调用，中间还要反复压缩上下文，窗口一短，Agent 干到一半就忘了前面干过什么。1M 上限就是给这种流程留的余量——注意官方 API 当前只开放 256K，想吃满 1M，得自己部署配。</p>
+<h2>开权重对自部署团队意味着什么</h2>
+<p>模型卡协议是 MIT，权重在 HF、ModelScope、OpenRouter 三处同步。开源动机官方说得明白：让团队在自己的环境和算力里部署接入，亲手检验模型能力和推理效率，而不是隔着一层 API 黑盒打分。</p>
+<ul>
+<li><strong>大总参小激活：</strong>560B 的知识容量装得下长任务的领域细节，25B 激活让单次推理成本落在企业可承受区间，不用为全参数推理买单。</li>
+<li><strong>混合线性架构：</strong>KDA 线性层把长序列的算力开销压下来，MLA 层保住注意力精度，百万级上下文比纯 Transformer 友好得多。</li>
+<li><strong>数据不出域：</strong>权重自部署，医疗、金融这类对数据边界敏感的场景才敢把真实任务接进来，而不是拿脱敏玩具数据测个热闹。</li>
+</ul>
+<h2>老法师泼点冷水</h2>
+<p>先把预期摆正：560B 总参的模型就算只有 25B 激活，也绝不是端侧小模型那个物种，笔记本和手机别想跑。想拿 1M 窗口、想自部署，都得先备好够量的推理算力。官方提的那个能跑几小时编码任务的 LingCode harness，目前只说考虑未来开源，现在拿不到。</p>
+<p>上手入口：模型卡在 <a href="https://huggingface.co/inclusionAI/Ling-3.1-flash" rel="external nofollow noopener noreferrer" target="_blank">Hugging Face</a>，国内镜像走 <a href="https://modelscope.cn/organization/inclusionAI" rel="external nofollow noopener noreferrer" target="_blank">ModelScope</a>，接口与上下文配置看<a href="https://developer.ant-ling.com/zh-CN/docs/models/ling/" rel="external nofollow noopener noreferrer" target="_blank">官方模型文档</a>。建议先把它接成 Claude Code 的后端跑一个真实长任务，比翻十篇跑分榜都直观。</p>
+<p>本文来源：<a href="https://www.moyunews.com/" rel="external nofollow noopener noreferrer" target="_blank">摸鱼杂货店</a>。查看原文：<a href="https://www.moyunews.com/ling-3-1-flash-open-source/" rel="external nofollow noopener noreferrer" target="_blank">Ling-3.1-flash 开源：560B 总参 25B 激活，混合推理模型配 1M 上下文</a>。</p></div>
+<p class="back"><a href="/">← 返回最新</a></p>
+</article>
+</main>
+<footer class="site-foot">
+<p>wocao.world — 本站内容全部转载自各订阅源，版权归原作者与原站所有。</p>
+</footer>
+</body>
+</html>

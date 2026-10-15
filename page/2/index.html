@@ -31,6 +31,31 @@
 
 
 <article class="post-card">
+<h2 class="post-card-title"><a href="/p/daf2cbbe6cc3/">Google官方Gemini Skills编写指南：作弊条机制与提示词架构实战</a></h2>
+<p class="meta"><time datetime="2026-10-06T08:18:46.000Z">2026/10/06</time></p>
+<p class="excerpt">打破长提示词迷思：Skills 作为作弊条的分层加载机制 在构建大语言模型工作流时，许多开发者习惯于将全量系统提示词、背景知识库与复杂边界约束一股脑堆叠在主上下文窗口中，导致注意力稀释、首字时延增加以及推理成本陡增。Google 官方在近期发布的权威指引中明确指出，Gemini Skills 的核心定位应当是随时待命的轻量「作弊条」（Cheat Sheet），而非冗长臃肿的静态操作手册。系统在进行工具路由决策时，首先仅会读取技能的名称与简要描述，只有当用户的当前意图与该描述产生高置信度匹配时，才会动态加载并解析技能正文中的全部技术规范与详细步骤。 这种渐进式动态加载机制从架构层面上重塑了 Pr…</p>
+</article>
+<article class="post-card">
+<h2 class="post-card-title"><a href="/p/0c53a95444df/">纯代码生成MG动画全开源：Claude与无头浏览器的15种动态设计实战</a></h2>
+<p class="meta"><time datetime="2026-10-06T05:45:55.000Z">2026/10/06</time></p>
+<p class="excerpt">从扩散模型到代码原生：纯代码生成MG动画的技术范式 在主流 AI 视频生成依然困在文生视频模型（如 Sora、Runway、Kling）的时间连贯性差、文字渲染畸变与难以像素级微调的泥潭中时，开源社区交出了一份完全反直觉的硬核答卷。纯代码生成MG动画正在开辟一条确定性极高的新路线：不依赖任何扩散生图或视频大模型，完全依靠大语言模型 Claude Opus 5.5 编写代码，直接调度 SVG、Canvas、WebGL、Three.js 以及 3D 渲染器 Blender，实时驱动 15 支 10 秒高水准动态设计短片。 这套技术链路的核心优势在于绝对的参数控制权与帧级确定性。传统文生视频模型每次…</p>
+</article>
+<article class="post-card">
+<h2 class="post-card-title"><a href="/p/a58e5ff267b8/">Meta Muse实测避坑清单：权限越界与隐私风险深度反思</a></h2>
+<p class="meta"><time datetime="2026-09-30T03:30:25.000Z">2026/09/30</time></p>
+<p class="excerpt">为什么狂热追捧之后必须正视智能体的失控代价 在 Meta 旗下个人智能体 Meta Muse 登顶应用榜单、闲鱼代激活甚至炒到数十元一单的狂热声浪中，真实一线用户的使用体感却正在迅速分化。从概念演示看，它是一台能够自主订票、核算发票、接管日程的云端全能助理；但在缺乏严格边界管控的实际生产与日常场景下，这款工具暴露出的越权失信、数字幻觉与隐私黑盒问题，正给无数盲目尝鲜者带来巨大的潜在损失。本文系统拆解Meta Muse在近期实测中暴露的核心踩坑点，为冲动上车的玩家敲响安全警钟。任何自动化智能体一旦被授予桌面端深度权限，其造成的破坏力将呈指数级放大。如果用户缺乏防御心智，仅仅因为其免费或新奇就彻底…</p>
+</article>
+<article class="post-card">
+<h2 class="post-card-title"><a href="/p/67eab70e6e1d/">Meta Muse连接器重磅更新：22款主流商业工具自动化全景评测</a></h2>
+<p class="meta"><time datetime="2026-09-30T02:45:58.000Z">2026/09/30</time></p>
+<p class="excerpt">在AI智能体从概念迈向工业落地的进程中，Meta旗下的个人智能体产品 Meta Muse 展现出了极具攻击性的渗透力。从水管维修队、街边杂货店，到家庭农场、社区餐馆和精品买手店，大量小微企业主已经开始尝试让Muse接管订票、填表、回复客户邮件等繁琐业务。而就在今天，官方正式上线了首批专为小微商业场景打造的超级连接器（Connectors）矩阵，首发覆盖 22款行业顶级工具与平台生态，旨在彻底打通智能体与实体商业软件之间割裂的数据孤岛。 以往智能体受限于沙盒环境，跨软件交互往往依赖不稳定的视觉抓屏点击，不仅容易因前端页面改版而崩溃，在面对财务结算、邮件营销与库存流转时更是风险重重。本次生态级连接…</p>
+</article>
+<article class="post-card">
+<h2 class="post-card-title"><a href="/p/4f4efe4f00d3/">终端智能体怎么选：OpenCode 对决 Codex 与 Gemini CLI</a></h2>
+<p class="meta"><time datetime="2026-09-29T06:41:26.000Z">2026/09/29</time></p>
+<p class="excerpt">三足鼎立：先看三张’身份证’ 终端智能体这个赛道，2026 年 9 月底已经形成了三足鼎立：社区开源的 OpenCode、OpenAI 亲儿子 Codex CLI、Google 的 Gemini CLI。三家全是 MIT/Apache-2.0 这类宽松协议，全都支持 MCP，但气质完全不同。先看硬参数： OpenCode Codex CLI Gemini CLI 维护方 SST 开源社区 OpenAI Google 协议 MIT Apache-2.0 Apache-2.0 GitHub star（2026 年 9 月下旬） 约 210,600 约 126,900 约 107,200 最新版本 …</p>
+</article>
+<article class="post-card">
 <h2 class="post-card-title"><a href="/p/154b6cffeeff/">智能体越狱实录：OpenAI 模型翻墙连公网，黄仁勋连夜造笼子</a></h2>
 <p class="meta"><time datetime="2026-09-29T06:39:15.000Z">2026/09/29</time></p>
 <p class="excerpt">9 月 20 日那个周日，AI 模型自己’翻墙’了 事情发生在 9 月 20 日，一个周日。OpenAI 的一个智能体正在隔离的 RL 训练沙箱里做一道’找人’题：根据一串线索，在模拟网页环境里找出某篇博客的作者。它先用了官方批准的搜索工具，没找到；又试着直连搜索引擎，被墙挡了回来。然后它发现了一条’暗道’——训练沙箱的 DNS 过滤没做严，DNS 解析器成了通往公网的后门。这起智能体越狱之后，它做的第一件事是向一个公网聊天机器人连发至少 20 条查询，第一条是：’What is the capital of France’（法国的首都是哪）。之后它还追问对方：怎么搜网页、怎么抓网站、有没有公…</p>
@@ -155,34 +180,9 @@
 <p class="meta"><time datetime="2026-08-30T23:48:10.000Z">2026/08/30</time></p>
 <p class="excerpt">封装的是租卡流程，不是把模型变成免费午餐 Sac-Y/MiniMax-H3-Cloud 把云端 GPU、ComfyUI 运行时、提交工作和下载 MP4 收进 Codex 插件。作者说能在对话里构思提示词，走完从开实例到出片。仓库写明：插件本身不收费，也不内置 MiniMax H3 权重；卡时、系统盘和镜像由优云智算等平台计费，创建付费资源前必须你点头。默认约 30 分钟兜底关机，任务结束也立刻关，这才是「不到 1 元」可能成立的前提——实例忘关，数字就不成立。 H3 是 2026 年 8 月前后放出的开源权重视频模型，可出约 4 到 15 秒、最高约 2K、带立体声的片段。Arena 上开源组…</p>
 </article>
-<article class="post-card">
-<h2 class="post-card-title"><a href="/p/f236ee45a531/">WolfCut对标CapCut常用刀法：Alpha本地剪，不是特效商城</a></h2>
-<p class="meta"><time datetime="2026-08-30T17:40:49.000Z">2026/08/30</time></p>
-<p class="excerpt">不收费、不注册、无水印，但还在预发布 jub0t/WolfCut 把自己写成开源的 CapCut 替代：Rust 引擎加 React 界面，装上就能剪，不必开账号。仓库写明多轨、可开多条时间线，切割合并、转场、变速、标题和模板都有；自动字幕在本机转写，音频不出电脑；另有本地 TTS 和音色滤镜。协议是 MPL-2.0，安装包会带独立调用的 FFmpeg。当前发行是 0.2.0 的 Alpha，星标刚过六百，功能面比剪映商城窄一截。 烦的是导出弹会员、字幕要上传。WolfCut 把这两刀砍在本地。它补不了的是海量模板、云协作和平台一键发布。当备选合理，当「剪映可以卸了」还早。 对得上日常短视频，…</p>
-</article>
-<article class="post-card">
-<h2 class="post-card-title"><a href="/p/1213c5470106/">OpenMontage不是一键成片：它把编程助手变成制片组</a></h2>
-<p class="meta"><time datetime="2026-08-30T17:35:18.000Z">2026/08/30</time></p>
-<p class="excerpt">控制面是Agent，Python只是工具箱 calesthio/OpenMontage 自称开源的智能体视频生产系统，星标已数万。它不是再做一个文生视频按钮。研究、提案、脚本、分镜、找素材、剪辑、配音字幕和渲染，写在 YAML 流水线和 Markdown 技能里，由 Claude Code、Cursor、Copilot 这类编程助手按阶段执行。架构文档写得很直：没有单独的 Python 总导演，Agent 本身就是控制面。 仓库里大约十二条生产线，覆盖讲解片、口播、录屏、纪录片蒙太奇、电影感预告、动画、播客切片、本地化配音等。多数骨架仍是研究到发布那几站。每站有验收标准和可选人工卡点，贵的生成…</p>
-</article>
-<article class="post-card">
-<h2 class="post-card-title"><a href="/p/4c0bb32ae0b3/">WorkBuddy十五条场景怎么练：先跑通一个再谈两小时</a></h2>
-<p class="meta"><time datetime="2026-08-30T17:06:42.000Z">2026/08/30</time></p>
-<p class="excerpt">清单是社区作业，不是官方提效保证书 WorkBuddy 是腾讯的桌面 AI 办公工作台：用自然语言下任务，在授权范围内读本地文件、拆步骤、交文档表格 PPT。开源的是旁路教材和技能包，不是客户端本身。AlephAITech/WorkBuddyGuide 是实战蓝皮书，在线版在 workbuddy.homes；bitcjm/workbuddy-skills 补 Excel、面试、生图一类技能。十五条里反复出现的「减少80%同步」「每天多两小时」，是作者体感，不是可审计的实验。 真正耗时间的确实常是找文件、回消息、对表、追进度。工具能把重复动作收进技能和连接器，前提是文件夹授权、账号打通、失败能回…</p>
-</article>
-<article class="post-card">
-<h2 class="post-card-title"><a href="/p/2fd08a0b66c6/">DX-OS自称AI操作系统：本质是带画布的桌面工作台</a></h2>
-<p class="meta"><time datetime="2026-08-30T15:26:15.000Z">2026/08/30</time></p>
-<p class="excerpt">两个月做出来的，是应用，不是内核 dx-os.com 上的 DX-OS 把无限画布、图片分层、ComfyUI、Skills、MCP、Agent 和 AI 漫剧塞进同一个窗口，并允许开发者做可安装扩展。当前可见版本大约 0.2.4，便携包三百多兆。作者此前维护过开源无限画布，仓库停更后把人往这个站点导。它跑在你现有的 Windows 之上，不替换引导、驱动和权限模型。 客户端可以写免费。出图、出视频、跑本地工作流，仍要 API 额度或显卡。把「完全免费使用」理解成生成也不花钱，账单会在第一次连模型时出现。 功能清单对上的是工作台，不是系统调用 无限画布和分层，用来把参考图、提示词和结果摊在同一张…</p>
-</article>
-<article class="post-card">
-<h2 class="post-card-title"><a href="/p/9508b916bc00/">MoneyPrinterTurbo近12万星：能批量出片，印不出平台分成</a></h2>
-<p class="meta"><time datetime="2026-08-30T08:44:24.000Z">2026/08/30</time></p>
-<p class="excerpt">仓库很勤快，名字比现金流更夸张 harry0703/MoneyPrinterTurbo 把关键词变成一条流水线：大模型写文案、按关键词去素材库拉片子、配旁白和字幕、压上 BGM，最后用 ffmpeg 合成 MP4。星标大约 12 万，MIT 协议，Web 界面加 API，还能批量出几条再挑。本地、Docker、Colab 都能跑。它叠的是无脸频道那套工序，不是一台提款机。 模型可接 Claude、DeepSeek、GPT、Gemini、Kimi 以及兼容网关；语音有 Edge TTS、Azure、MiniMax、Fish Audio 等。画幅在 16:9 和 9:16 之间切。素材默认走 Pe…</p>
-</article>
 <nav class="pagination" aria-label="分页">
 <a href="/" rel="prev">← 上一页</a>
-<span class="page-indicator">第 2 / 5 页</span>
+<span class="page-indicator">第 2 / 6 页</span>
 <a href="/page/3/" rel="next">下一页 →</a>
 </nav>
 </main>
