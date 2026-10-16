@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Meta 开源大模型 Muse Spark Open：816B 参数免费下载 · wocao.world</title>
+<meta name="description" content="美西时间 10 月 15 日，Meta 正式放出 Muse Spark Open 的模型权重，自称「美国迄今最强开源权重模型」（TechCrunch 报道）。它是 Meta AI 背后 Muse Spark 的开源版本，核心规格：816B 总参数的混合专家架构（MoE），每次推理只激活 42B；100 万 token 上下文窗口；原生多模态，文本、图像、视频、音频直接读入、输出文本。官方定位很明确：为编程和智能体任务而生，擅长长周期任务、复杂软件工程和多步推理。 权重免费下载，渠道包括 Hugging Face、Amazon SageMaker AI、Google Cloud Model Ga…">
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="wocao.world">
+<meta property="og:title" content="Meta 开源大模型 Muse Spark Open：816B 参数免费下载 · wocao.world">
+<meta property="og:description" content="美西时间 10 月 15 日，Meta 正式放出 Muse Spark Open 的模型权重，自称「美国迄今最强开源权重模型」（TechCrunch 报道）。它是 Meta AI 背后 Muse Spark 的开源版本，核心规格：816B 总参数的混合专家架构（MoE），每次推理只激活 42B；100 万 token 上下文窗口；原生多模态，文本、图像、视频、音频直接读入、输出文本。官方定位很明确：为编程和智能体任务而生，擅长长周期任务、复杂软件工程和多步推理。 权重免费下载，渠道包括 Hugging Face、Amazon SageMaker AI、Google Cloud Model Ga…">
+<meta property="og:url" content="https://wocao.world/">
+<meta name="twitter:card" content="summary">
+<meta name="robots" content="noindex,follow">
+<link rel="alternate" type="application/rss+xml" title="wocao.world 聚合输出" href="/feed.xml">
+<link rel="stylesheet" href="/style.css">
+<link rel="canonical" href="https://www.moyunews.com/meta-muse-spark-open/">
+</head>
+<body>
+<a class="skip-link" href="#main">跳到正文</a>
+<header class="site-head">
+<p class="site-title"><a href="/">wocao.world</a></p>
+<p class="site-desc">wocao.world</p>
+<nav class="site-nav">
+<a href="/">最新</a>
+<a href="/about/">关于</a>
+<a href="/feed.xml">RSS</a>
+</nav>
+</header>
+<main id="main">
+<article>
+<h1 class="post-title">Meta 开源大模型 Muse Spark Open：816B 参数免费下载</h1>
+<div class="post-body"><p>美西时间 10 月 15 日，Meta 正式放出 Muse Spark Open 的模型权重，自称「美国迄今最强开源权重模型」（<a href="https://techcrunch.com/2026/10/15/meta-launches-an-open-weight-model-that-runs-on-macs/" rel="external nofollow noopener noreferrer" target="_blank">TechCrunch 报道</a>）。它是 Meta AI 背后 Muse Spark 的开源版本，核心规格：816B 总参数的混合专家架构（MoE），每次推理只激活 42B；100 万 token 上下文窗口；原生多模态，文本、图像、视频、音频直接读入、输出文本。官方定位很明确：为编程和智能体任务而生，擅长长周期任务、复杂软件工程和多步推理。</p>
+<p>权重免费下载，渠道包括 Hugging Face、Amazon SageMaker AI、Google Cloud Model Garden 和 Microsoft Foundry Models；想调 API 的话，Together AI、Baseten、Fireworks AI、Groq、Modal、Nebius、OpenRouter 都是首发合作方。注意时间线：这距离 Meta 发布闭源旗舰 Muse Wonder 只隔了 3 天，一前一后，闭源开路、开源跟上。</p>
+<p><img src="https://moyu.18uk.uk/2026/20261016-d1e94688-c597-4307-b06a-5b311022da37.webp" alt="Meta 开源大模型" width="640" height="360" loading="lazy" referrerpolicy="no-referrer" /></p>
+<h2>什么值得关注</h2>
+<p>看点有三。一是姿态反转：今年 4 月 Meta 推出 Muse Spark 时走的是闭源路线，被解读为告别 Llama 时代的开放传统；半年不到就放出 816B 的开源权重，这转向够干脆。二是美国开源阵营的回应：Meta 拿自家跑分对标了国产的 GLM 5.3 和 Kimi K3——有意思的是，按 Meta 自己的数据，Artificial Analysis 智能指数它只拿了 39 分，低于对手的 45 和 44，只在 MCP-Atlas 智能体评测上以 89.2 反超（对手 84.2 和 83.3）。「最强」这个头衔，至少在跑分上打了个折。三是卖点选得刁钻：不卷参数、卷「桌面可用」。Meta 联手老对手苹果，用 MLX 框架把模型塞进 Mac Studio，这是大厂第一次把「本地运行旗舰级开源模型」当发布会级卖点讲。</p>
+<h2>硬核细节</h2>
+<ul>
+<li>本地运行方案：两台 M5 Ultra Mac Studio，每台 512GB 统一内存，用雷电 5 线连起来，Meta 的说法是「两台 Mac Studio 如同一台 1TB 统一内存的超级计算机」。苹果实测 4-bit 版本在双机张量并行下能跑到 24.99 token/s（<a href="https://www.iclarified.com/102861/meta-releases-muse-spark-open-ai-optimized-for-mac-studio" rel="external nofollow noopener noreferrer" target="_blank">iClarified 技术细节</a>）。</li>
+<li>体积：官方 BF16 完整权重约 1.6TB，NVFP4 压缩版约 530GB；社区（AMD、Intel、Unsloth）已经出了更小的量化版本，2-bit 版据称能在 256GB 内存的机器上用 llama.cpp 跑起来。</li>
+<li>实测演示：用 Muse Code 驱动，给开源 Mastodon 客户端 Ice Cubes 修 bug、加功能、完整构建；还操控 DaVinci Resolve 逐帧审片、挑高光时刻裁成竖屏——全程本地离线完成。</li>
+<li>扎克伯格亲自在 X 上宣布，还 @ 了苹果新任 CEO 感谢双方合作（<a href="https://9to5mac.com/2026/10/15/meta-launches-new-muse-spark-open-model-optimized-to-run-on-mac-studio/" rel="external nofollow noopener noreferrer" target="_blank">9to5Mac</a>）。Meta AI 负责人那句「很高兴看到爸爸妈妈又和好了」虽是玩笑，但 Meta 和苹果联手搞本地大模型，确实活久见。</li>
+</ul>
+<p>先说门槛：「两台 Mac Studio 本地跑」听着很美，但 512GB 内存版 Mac Studio 官方还没公布售价，Engadget 估算四台 256GB 的配置约 3.8 万美元——这基本是机构玩家的玩具，个人用户还是老老实实走 API 吧。再说许可：这不是无限制开源，Muse Model License 规定年营收超 2000 万美元的模型即服务商必须单独和 Meta 签协议，用它做的产品还得挂「Built with Muse Spark Open」的标识（<a href="https://ainotis.com/n/meta-releases-muse-spark-open-an-816b-parameter-open-weight-model-with" rel="external nofollow noopener noreferrer" target="_blank">许可细节</a>）。最后说跑分：Meta 自己的数据都承认智能指数落后于 GLM 5.3 和 Kimi K3，「美国最强」这个定语，约等于「美国区冠军、全球区季军」。</p>
+<p>摸鱼视角看，这事最大的意义是：美国大厂终于又开始卷开源了，而且第一次把「桌面超算」当核心卖点。等社区量化再成熟一点，普通人本地跑顶级开源模型这件事，离我们又近了一步。</p>
+<p>本文来源：<a href="https://www.moyunews.com/" rel="external nofollow noopener noreferrer" target="_blank">摸鱼杂货店</a>。查看原文：<a href="https://www.moyunews.com/meta-muse-spark-open/" rel="external nofollow noopener noreferrer" target="_blank">Meta 开源大模型 Muse Spark Open：816B 参数免费下载</a>。</p></div>
+<p class="back"><a href="/">← 返回最新</a></p>
+</article>
+</main>
+<footer class="site-foot">
+<p>wocao.world — 本站内容全部转载自各订阅源，版权归原作者与原站所有。</p>
+</footer>
+</body>
+</html>
