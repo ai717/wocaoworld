@@ -6,7 +6,37 @@
     <description>wocao.world</description>
     <language>zh-CN</language>
     <atom:link href="https://wocao.world/feed.xml" rel="self" type="application/rss+xml"/>
-    <lastBuildDate>Sat, 17 Oct 2026 17:59:14 GMT</lastBuildDate>
+    <lastBuildDate>Sat, 17 Oct 2026 21:47:55 GMT</lastBuildDate>
+    <item>
+      <title>Meta Muse Wonder双模型入局，Muse Agent登顶App Store：大盘正式进入四方混战</title>
+      <link>https://wocao.world/p/a54ba1600588/</link>
+      <guid isPermaLink="false">a54ba1600588</guid>
+      <pubDate>Sat, 17 Oct 2026 18:08:07 GMT</pubDate>
+      <description>闪击消费端与代码场：Muse Wonder 双模型登场 硅谷大模型战局的平衡在 10 月中旬被彻底打破。Meta 毫无预警地抛出全新一代推理基座 Muse Wonder 与专供高阶工程代码的 Muse Wonder Full 双模型组合。与其配套的消费级独立原生载体 Muse Agent 更是凭借 Active Memory 与自主执行能力，上线后以极快速度冲上美区 App Store 免费总榜榜首。在关键评测基准 MemoryBench 上，Wonder 跑出 85.6 的高分，在 14 项专项测试中斩获 6 项第一，直接将压力给到了刚披露真实战绩的 Google 与 Anthropic。 …
+
+原文链接: https://www.moyunews.com/meta-muse-wonder-agent-app-store-four-way-frontier-ai-race/
+转载自: 摸鱼杂货店</description>
+    </item>
+    <item>
+      <title>老版本10月29日停服！Nano Banana 2.1实测：放弃堆砌玄学词，结构化Brief才是正确姿势</title>
+      <link>https://wocao.world/p/3daf79a1bae2/</link>
+      <guid isPermaLink="false">3daf79a1bae2</guid>
+      <pubDate>Sat, 17 Oct 2026 18:05:01 GMT</pubDate>
+      <description>告别“玄学魔法词”：调优版 2.1 的去油质感 Google 内部原本代号为 2.5 的调优版本，最终以 Nano Banana 2.1 的命名正式推向生产环境。相较于过往版本，新模型最大的工程突破在于对构图逻辑与语义遵从度的强力收敛。在横向对比测试中，运行相同的 8 组测试用例，2.1 版本彻底扫除了老模型中频繁出现的“三只手”、“背景多出两个太阳”等生成式顽疾，海报排版中的文字更是做到了像素级逐字对齐。目前该模型已在 Google Flow 平台开放免费调用。 需要重点留意生产环境的迁移窗口：官方确认老版 Nano Banana 2.0 将于 10 月 29 日正式下线停服。凡是将旧模型接…
+
+原文链接: https://www.moyunews.com/nano-banana-2-1-prompt-guide-structured-brief/
+转载自: 摸鱼杂货店</description>
+    </item>
+    <item>
+      <title>从一张2D概念图到完整Blender宝塔群：Gemini 4 Argon跑通自主3D场景构建流水线</title>
+      <link>https://wocao.world/p/7fd00dca2855/</link>
+      <guid isPermaLink="false">7fd00dca2855</guid>
+      <pubDate>Sat, 17 Oct 2026 18:03:00 GMT</pubDate>
+      <description>终结逐条 Prompt 抽卡：多智能体视觉批判闭环 在传统的生成式 3D 工作流中，设计师往往陷入“单点生成-网格拓扑崩溃-手动修复”的繁琐断层，或依靠离散的 Prompt 反复在黑盒中碰撞运气。Google 官方最新公开的技术演示展示了 Gemini 4 Argon 的全新工程范式：在自研的 Antigravity 代理框架下，依托多智能体协同与“视觉批判循环”（Visual Critic Loop），系统能够直接将一张由 Nano Banana 生成的二维平面概念图，端到端反向解构并搭建成具备工业级分层结构的 Blender 3D 场景。 全栈管线协同：Blender MCP 串联空间生产…
+
+原文链接: https://www.moyunews.com/gemini-4-argon-autonomous-3d-world-building-blender-mcp/
+转载自: 摸鱼杂货店</description>
+    </item>
     <item>
       <title>任务成本从3.51刀砍到0.41刀！Roboflow联手Gemini 4 Argon跑通视觉省钱工作流</title>
       <link>https://wocao.world/p/ad41536860d4/</link>
@@ -275,36 +305,6 @@
       <description>2599 美元的 AI 笔记本，微软和英伟达憋了个大招 北京时间 10 月 8 日凌晨传来的消息：微软和英伟达在旧金山同台发布了 Surface Laptop Ultra，2599 美元起，10 月 16 日正式开卖。这是微软史上第一台搭载英伟达 PC 芯片的笔记本，也是英伟达第一次真正把触角伸进个人电脑市场。老黄在台上放话”电脑正在被重新发明”，纳德拉则喊出”混合智能”，两家巨头的联手，直接把 AI 笔记本 的军备竞赛推到了一个新高度。 为什么这次值得单独加更一篇？因为这不只是又一款”AI PC”贴标产品。RTX Spark 这颗芯片，让一台 15 英寸的笔记本在本地就能跑 1200 亿参数…
 
 原文链接: https://www.moyunews.com/surface-laptop-ultra-nvidia-rtx/
-转载自: 摸鱼杂货店</description>
-    </item>
-    <item>
-      <title>xAI 拟统一 Grok 与 X 订阅体系：推出四档阶梯与 100 美元 Ultra 会员</title>
-      <link>https://wocao.world/p/a4b082fa3b94/</link>
-      <guid isPermaLink="false">a4b082fa3b94</guid>
-      <pubDate>Thu, 08 Oct 2026 05:24:30 GMT</pubDate>
-      <description>终结七档混乱定价：xAI 与 X 启动订阅阶梯整合 长期以来，马斯克旗下的社交平台 X 与人工智能公司 xAI 在商业化变现上保持着相对割裂的会员体系。用户不仅需要面对 X 平台的 Basic（3 美元/月）、Premium（8 美元/月）和 Premium+（40 美元/月），还会遇到独立于网页端的 SuperGrok（30 美元/月）、SuperGrok Plus（100 美元/月）甚至 SuperGrok Heavy（300 美元/月）。据彭博社披露及 Android Headlines 等媒体跟踪报道，xAI 正计划彻底重构这套繁琐的计费结构，拟推出覆盖社媒特权与 AI 算力捆绑的四档…
-
-原文链接: https://www.moyunews.com/xai-grok-four-tier-subscription-ultra-plan/
-转载自: 摸鱼杂货店</description>
-    </item>
-    <item>
-      <title>花旗称 Meta Muse 到 2030 年创收超 270 亿美元：AI 助手的互联网新门面</title>
-      <link>https://wocao.world/p/6f057094aad0/</link>
-      <guid isPermaLink="false">6f057094aad0</guid>
-      <pubDate>Wed, 07 Oct 2026 18:38:17 GMT</pubDate>
-      <description>新流量入口崛起：Meta Muse 获花旗 270 亿美元估值背书 在生成式人工智能竞赛进入下半场的关键节点，AI 助手正加速从纯粹的技术对话玩具蜕变为平台级流量分发枢纽。据路透社援引花旗集团（Citigroup）的最新研报，PYMNTS 报道称 Meta 旗下的 AI 助手 Muse 正在迅速演变为用户接入数字世界的“互联网新门面（Front Door to the Internet）”。花旗分析师预测，得益于迅猛的用户增长渗透与商业化变现潜能，Muse 到 2030 年有望发展成为年营收突破 270 亿美元 的庞大业务板块。 这一预测不仅让华尔街重新审视 Meta 长期以来在 Llama …
-
-原文链接: https://www.moyunews.com/meta-muse-27-billion-dollar-business-citi/
-转载自: 摸鱼杂货店</description>
-    </item>
-    <item>
-      <title>11.7万个AI技能装哪个？这份技能目录先帮你过安全评级</title>
-      <link>https://wocao.world/p/84bd99d05971/</link>
-      <guid isPermaLink="false">84bd99d05971</guid>
-      <pubDate>Tue, 06 Oct 2026 17:38:39 GMT</pubDate>
-      <description>Claude Code、Codex、Gemini CLI 用得越久，硬盘里的 skill 文件夹就越像杂物间——下载了一堆，哪个安全、哪个靠谱，全凭运气。Jason Zhu 开源的 AgentSkillsHub 就是来治这个乱的：一个收录 11.7 万开源 AI 技能的技能目录，每 8 小时自动刷新，装技能之前先来这里扫一眼评级再动手。 一个技能目录，11.7万个技能，一次性摊开看 AgentSkillsHub 的思路很简单粗暴：把散落在 GitHub 各处的 agent-skills-hub 开源目录摊平，做成可搜索、可过滤的在线站 agentskillshub.top。免费、无需注册，打开…
-
-原文链接: https://www.moyunews.com/agentskillshub-ai-skills-directory/
 转载自: 摸鱼杂货店</description>
     </item>
   </channel>

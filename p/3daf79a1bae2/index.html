@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>老版本10月29日停服！Nano Banana 2.1实测：放弃堆砌玄学词，结构化Brief才是正确姿势 · wocao.world</title>
+<meta name="description" content="告别“玄学魔法词”：调优版 2.1 的去油质感 Google 内部原本代号为 2.5 的调优版本，最终以 Nano Banana 2.1 的命名正式推向生产环境。相较于过往版本，新模型最大的工程突破在于对构图逻辑与语义遵从度的强力收敛。在横向对比测试中，运行相同的 8 组测试用例，2.1 版本彻底扫除了老模型中频繁出现的“三只手”、“背景多出两个太阳”等生成式顽疾，海报排版中的文字更是做到了像素级逐字对齐。目前该模型已在 Google Flow 平台开放免费调用。 需要重点留意生产环境的迁移窗口：官方确认老版 Nano Banana 2.0 将于 10 月 29 日正式下线停服。凡是将旧模型接…">
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="wocao.world">
+<meta property="og:title" content="老版本10月29日停服！Nano Banana 2.1实测：放弃堆砌玄学词，结构化Brief才是正确姿势 · wocao.world">
+<meta property="og:description" content="告别“玄学魔法词”：调优版 2.1 的去油质感 Google 内部原本代号为 2.5 的调优版本，最终以 Nano Banana 2.1 的命名正式推向生产环境。相较于过往版本，新模型最大的工程突破在于对构图逻辑与语义遵从度的强力收敛。在横向对比测试中，运行相同的 8 组测试用例，2.1 版本彻底扫除了老模型中频繁出现的“三只手”、“背景多出两个太阳”等生成式顽疾，海报排版中的文字更是做到了像素级逐字对齐。目前该模型已在 Google Flow 平台开放免费调用。 需要重点留意生产环境的迁移窗口：官方确认老版 Nano Banana 2.0 将于 10 月 29 日正式下线停服。凡是将旧模型接…">
+<meta property="og:url" content="https://wocao.world/">
+<meta name="twitter:card" content="summary">
+<meta name="robots" content="noindex,follow">
+<link rel="alternate" type="application/rss+xml" title="wocao.world 聚合输出" href="/feed.xml">
+<link rel="stylesheet" href="/style.css">
+<link rel="canonical" href="https://www.moyunews.com/nano-banana-2-1-prompt-guide-structured-brief/">
+</head>
+<body>
+<a class="skip-link" href="#main">跳到正文</a>
+<header class="site-head">
+<p class="site-title"><a href="/">wocao.world</a></p>
+<p class="site-desc">wocao.world</p>
+<nav class="site-nav">
+<a href="/">最新</a>
+<a href="/about/">关于</a>
+<a href="/feed.xml">RSS</a>
+</nav>
+</header>
+<main id="main">
+<article>
+<h1 class="post-title">老版本10月29日停服！Nano Banana 2.1实测：放弃堆砌玄学词，结构化Brief才是正确姿势</h1>
+<div class="post-body"><h2>告别“玄学魔法词”：调优版 2.1 的去油质感</h2>
+<p>Google 内部原本代号为 2.5 的调优版本，最终以 <strong>Nano Banana 2.1</strong> 的命名正式推向生产环境。相较于过往版本，新模型最大的工程突破在于对构图逻辑与语义遵从度的强力收敛。在横向对比测试中，运行相同的 8 组测试用例，2.1 版本彻底扫除了老模型中频繁出现的“三只手”、“背景多出两个太阳”等生成式顽疾，海报排版中的文字更是做到了像素级逐字对齐。目前该模型已在 Google Flow 平台开放免费调用。</p>
+<p>需要重点留意生产环境的迁移窗口：官方确认老版 <strong>Nano Banana 2.0 将于 10 月 29 日正式下线停服</strong>。凡是将旧模型接口接入自动化排版管线、游戏资产生成或社媒出图工作流的团队，必须尽快完成节点指向迁移，避免接口抛出 404 中断业务。</p>
+<p><img src="https://my.18uk.uk/file/BQACAgUAAyEGAATpoe1oAANSatO4twdDgbuJAVUbuon_rIfS59cAAtohAALXlKBWJTTu7KCZAZY9BA.avif" alt="Nano Banana 2.1" width="885" height="1259" loading="lazy" referrerpolicy="no-referrer" /></p>
+<h2>七层 Art-Direction Brief：结构化掌控画面</h2>
+<p>过去依赖 <code>masterpiece, 8k, unreal engine 5 render</code> 等空洞词汇堆砌的“Prompt 炼丹”在 2.1 上彻底失效。针对新模型的注意力机制，更科学的调教方式是采用类似广告公司美术指导（Art-Direction）的<strong>七层结构化 Brief</strong>：</p>
+<ul>
+<li><strong>Deliverable（交付目标）：</strong>明确成品形态（如横版电影海报、电商白底棚拍图或扁平矢量插画）；</li>
+<li><strong>Subject（画面主体）：</strong>精确描述主体特征、姿态及核心材质，拒绝模糊修饰；</li>
+<li><strong>Scene（空间场景）：</strong>构建环境空间深度、前景遮挡物与背景透视层次；</li>
+<li><strong>Composition（机位构图）：</strong>指定镜头焦段、透视角度与画幅比例（如 50mm 黄金分割平视）；</li>
+<li><strong>Lighting（光影气氛）：</strong>交代光源类型、色温与反光细节（如侧逆向漫反射冷光）；</li>
+<li><strong>Text（排版文字）：</strong>凡是画面内需要真实渲染的英文字样，<strong>必须用英文双引号精确包裹原文字符</strong>，并紧跟字体形制修饰（例如 <code>"thin elegant serif capitals"</code>）；</li>
+<li><strong>Output（输出技术参数）：</strong>声明宽高比与色彩色彩空间配置。</li>
+</ul>
+<h2>14 张参考图精准分工：一次只改一个变量</h2>
+<p>针对多图参考（Image-to-Image / ControlNet）场景，Nano Banana 2.1 强化了对多源特征的解耦能力。当在 Flow 中堆叠多达 14 张参考原图时，严禁使用含糊的全局混流，必须在指令中给每张参考图划定绝对职责：</p>
+<ol>
+<li><strong>单图单一职能：</strong>在 Prompt 中明确指派逻辑，例如“图 1 仅参考面部骨骼与五官比例，图 2 仅提取服饰面料织纹，图 3 仅作为冷调侧逆光的布光范本”；</li>
+<li><strong>单次单变量迭代：</strong>执行微调迭代时，每次仅替换一张参考图或微调单一文本层级，严禁多变量同时变动导致注意力权重发散崩坏。</li>
+</ol>
+<p>完整实测样例与参数对比可见 <a href="https://aialleyway.com/nano-banana-2-1/" target="_blank" rel="external nofollow noopener noreferrer">AI Alleyway 深度实测报道</a>。</p>
+<p>本文来源：<a href="https://www.moyunews.com/" rel="external nofollow noopener noreferrer" target="_blank">摸鱼杂货店</a>。查看原文：<a href="https://www.moyunews.com/nano-banana-2-1-prompt-guide-structured-brief/" rel="external nofollow noopener noreferrer" target="_blank">老版本10月29日停服！Nano Banana 2.1实测：放弃堆砌玄学词，结构化Brief才是正确姿势</a>。</p></div>
+<p class="back"><a href="/">← 返回最新</a></p>
+</article>
+</main>
+<footer class="site-foot">
+<p>wocao.world — 本站内容全部转载自各订阅源，版权归原作者与原站所有。</p>
+</footer>
+</body>
+</html>
