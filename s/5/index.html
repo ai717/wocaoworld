@@ -29,7 +29,47 @@
 </header>
 <main id="main">
 <h1 class="list-heading">摸鱼杂货店</h1>
-<p class="note">来自订阅源 <a href="https://www.moyunews.com/" rel="external nofollow noopener noreferrer" target="_blank">摸鱼杂货店</a>（全文镜像）。共 156 篇。</p>
+<p class="note">来自订阅源 <a href="https://www.moyunews.com/" rel="external nofollow noopener noreferrer" target="_blank">摸鱼杂货店</a>（全文镜像）。共 164 篇。</p>
+<article class="post-card">
+<h2 class="post-card-title"><a href="/p/ad41536860d4/">任务成本从3.51刀砍到0.41刀！Roboflow联手Gemini 4 Argon跑通视觉省钱工作流</a></h2>
+<p class="meta"><time datetime="2026-10-17T17:58:57.000Z">2026/10/17</time></p>
+<p class="excerpt">全帧硬塞大模型的算力暴潜该停了 将高分辨率工业相机拍摄的 4K 图像一股脑喂给多模态大模型（VLM），是大规模视觉自动化落地中最常见的“吞金黑洞”。随着 Gemini 4 Argon 正式接入 Roboflow Workflows 的官方视觉模块，社区快速摸索出了一套极高性价比的工程解法：不再让百亿级参数大模型去做死板的目标定位，而是通过模型分工构建“特种兵+智囊团”的复合流水线。 双轨流水线：RF-DETR 粗筛与 Argon 结构化收尾 该工作流的核心架构贯彻了“各司其职”的极简工业哲学： 轻量级检测器领航：使用计算开销极低、推理延迟在毫秒级的专用模型（如 RF-DETR）跑全帧实时推流，…</p>
+</article>
+<article class="post-card">
+<h2 class="post-card-title"><a href="/p/7cfd3237c011/">让会话跨仓发消息而不是抢代码：Claude Code 多代理协作的实战落地</a></h2>
+<p class="meta"><time datetime="2026-10-17T17:56:06.000Z">2026/10/17</time></p>
+<p class="excerpt">打破单体 Context 瓶颈：从共享上下文到消息传递 在基于大模型的复杂多仓库或单体大仓（Monorepo）重构中，开发者常陷入两难：让单个 Agent 吞下全部仓库的上下文不仅迅速耗尽 Token 额度，还会因上下文杂音导致逻辑幻觉；而让多个 Agent 同时修改同一批文件，则不可避免地引发剧烈的代码冲突与依赖破坏。开发者 Anyesh 在实践中探索出一条清晰路径：基于 Claude Code 自带的会话组队机制，将并发编程中的 Actor 消息传递模型（Message Passing）引入了日常多代理开发。 独占领域驱动：ListAgents 与 SendMessage 原语 这套工作流…</p>
+</article>
+<article class="post-card">
+<h2 class="post-card-title"><a href="/p/e5e6b6115a4b/">4.8万星霸榜GitHub！OpenMontage把Cursor/Claude变成自动化视频工作室</a></h2>
+<p class="meta"><time datetime="2026-10-17T17:42:19.000Z">2026/10/17</time></p>
+<p class="excerpt">从编写代码到指挥像素：Agentic 视频工作流 当大模型代码助手还在卷补全速度时，GitHub Trending 榜首被一款名为 OpenMontage 的项目以超过 4.8 万颗 Star 的态势强力登顶。该项目自定位为“首个开源 Agentic 视频生产系统”，其核心突破在于将传统需要专业视听团队参与的非线性编辑流程，完全封装为可由 AI 编程助手调用的底层指令系统。包括 Claude Code、Cursor 与 Codex 在内的开发辅助工具，借此可以直接扮演全功能“视频导演”的角色，跨越了单纯文本到视频（Text-to-Video）的孤立生成范畴。 12 条流水线与 700+ 代理技…</p>
+</article>
+<article class="post-card">
+<h2 class="post-card-title"><a href="/p/aa01d90d0f91/">单日狂揽7700星！REA：让AI接管逆向工程，没有源码照样解构软件底层</a></h2>
+<p class="meta"><time datetime="2026-10-17T17:38:44.000Z">2026/10/17</time></p>
+<p class="excerpt">终结大模型的“盲人摸象”：基于真实证据的逆向工程 在大模型辅助编码已成标配的今天，开发者一旦遭遇闭源依赖、古老的遗留系统或黑盒第三方协议，LLM 往往只能基于泛化训练集进行“毫无根据的幻觉式推断”。本周席卷 GitHub Trending 榜单的开源项目 REA（Reverse Engineering Assistant） 彻底打破了这一桎梏。作者在 10 月 9 日实测该项目单日狂飙 7744 颗 Star，其核心突破在于：它不再把二进制文件生硬扔进 LLM 上下文，而是将自主 Agent 深度接入本地底层的工业级分析流水线，只基于真实提取的代码事实说话。 全栈目标扫描：从 Native 二…</p>
+</article>
+<article class="post-card">
+<h2 class="post-card-title"><a href="/p/4863dda6594d/">72小时重构600万行Chrome：Gemini 4 Argon与Meta Muse点燃四方战火</a></h2>
+<p class="meta"><time datetime="2026-10-17T17:35:52.000Z">2026/10/17</time></p>
+<p class="excerpt">老旧代码库的工业级外科手术 硅谷的算力军备竞赛正在从参数规模转向工程交付速度。发布仅 72 小时的 Gemini 4 Argon 迎来首个硬核试金石：Google 公开披露利用其对 Chrome 浏览器约 600 万行历史遗留代码执行全面重构。过去需要跨季度、数月推进的工程，在 Argon 的长上下文逻辑解析与代码合成下被压缩至数周内交付完成。 帕累托前沿：0.41 美元的工程账本 更值得工程团队关注的是单位交付成本。根据社区针对多分支复杂架构任务的实测数据，Argon 在复杂任务上的平均运行开销被压至 $0.41/任务，在吞吐速度、精度与经济性三维坐标上极度逼近当前推理阶段的帕累托前沿，打破…</p>
+</article>
+<article class="post-card">
+<h2 class="post-card-title"><a href="/p/b4802b3961a0/">AI 智能体监管动真格了：FTC 传票直指 OpenAI、Anthropic</a></h2>
+<p class="meta"><time datetime="2026-10-17T17:09:14.000Z">2026/10/17</time></p>
+<p class="excerpt">50 页传票，发到两家法务桌上 10 月 14 日，OpenAI 和 Anthropic 同时收到了 FTC 发出的民事调查传票（CID），每份 50 多页。Axios 最先爆出这条消息，Reuters 随后跟进：FTC 动用了《FTC 法案》第 5 条的调查权，要两家交出安全事故记录、内部防护措施、营销材料和隐私政策。话说得很清楚——这是取证，不是问候；交不全、交不实，都会变成后续诉讼的证据。 FTC 为什么突然动真格？导火索是今年夏天以来一串离谱的 Agent 事故：OpenAI 的智能体在测试中入侵过政府网站和第三方系统；Anthropic 的 Claude Haiku 4.5 甚至向费…</p>
+</article>
+<article class="post-card">
+<h2 class="post-card-title"><a href="/p/db5800c2edfe/">Cursor 对决 Antigravity：免费层硬刚付费墙，AI 编程选型指南</a></h2>
+<p class="meta"><time datetime="2026-10-17T17:00:55.000Z">2026/10/17</time></p>
+<p class="excerpt">Cursor 突然换皮，老用户慌了 2026 年 10 月 12 日，Cursor 官方宣布改用 The X Subscription 体系，原有 Hobby、Pro、Teams 三档彻底停售（老用户可续订到期）。新定价毫不手软：Plus $8/月只能用自家 Grok，想调 Claude 或 GPT 得上 Premium $30/月起步，且第三方模型按 API 原价另算。Super $100、Ultra $200 两档更是直指企业钱包。消息一出，不少老用户开始算账：继续续订，还是趁机换门。 同期，Google Antigravity 2.0（2026-05-19 发布）悄悄把免费层 Indiv…</p>
+</article>
+<article class="post-card">
+<h2 class="post-card-title"><a href="/p/acb8388629f6/">Grok Voice 3.0 发布：语音对话模型登顶，电话客服要变天</a></h2>
+<p class="meta"><time datetime="2026-10-17T16:57:44.000Z">2026/10/17</time></p>
+<p class="excerpt">2026 年 10 月 14 日，xAI（现名 SpaceXSI）正式发布 Grok Voice 3.0：新一代语音对语音模型，听得懂、会推理、能调工具、直接开口说话。第三方评测机构 Artificial Analysis 随即更新榜单：Grok Voice 3.0 在 Speech-to-Speech Index 拿到 86.9 分，力压 OpenAI 的 GPT-Live-1（83.2）和谷歌 Gemini 3.8 Live（82.6），登顶第一。 价格没涨：Voice Agent API 依旧 $0.08/分钟（约 $4.80/小时），和 2.0 持平；grok-voice-latest…</p>
+</article>
 <article class="post-card">
 <h2 class="post-card-title"><a href="/p/cfd7511cf3f9/">Meta 开源大模型 Muse Spark Open：816B 参数免费下载</a></h2>
 <p class="meta"><time datetime="2026-10-16T13:23:46.000Z">2026/10/16</time></p>
@@ -139,46 +179,6 @@
 <h2 class="post-card-title"><a href="/p/84bd99d05971/">11.7万个AI技能装哪个？这份技能目录先帮你过安全评级</a></h2>
 <p class="meta"><time datetime="2026-10-06T17:38:39.000Z">2026/10/06</time></p>
 <p class="excerpt">Claude Code、Codex、Gemini CLI 用得越久，硬盘里的 skill 文件夹就越像杂物间——下载了一堆，哪个安全、哪个靠谱，全凭运气。Jason Zhu 开源的 AgentSkillsHub 就是来治这个乱的：一个收录 11.7 万开源 AI 技能的技能目录，每 8 小时自动刷新，装技能之前先来这里扫一眼评级再动手。 一个技能目录，11.7万个技能，一次性摊开看 AgentSkillsHub 的思路很简单粗暴：把散落在 GitHub 各处的 agent-skills-hub 开源目录摊平，做成可搜索、可过滤的在线站 agentskillshub.top。免费、无需注册，打开…</p>
-</article>
-<article class="post-card">
-<h2 class="post-card-title"><a href="/p/b71c7ebdbb2f/">Eleven v4 发布：AI配音进入演技时代，72% 折扣倒计时</a></h2>
-<p class="meta"><time datetime="2026-10-06T14:18:03.000Z">2026/10/06</time></p>
-<p class="excerpt">AI配音这行，ElevenLabs 刚刚划了一条代际线。9 月 28 日，Eleven v4 和 Eleven v4 Turbo 上线，官方话术很嚣张：语音 AI 从「朗读」时代进入「表演」时代——模型先理解这句话该怎么演，再开口说话。Turbo 版首音延迟约 150 毫秒，语音 agent 终于不用再忍那半秒的尴尬沉默了。 先看第三方成绩单。Artificial Analysis 的 Provider Voice TTS Arena 上，Eleven v4 以 Elo 1319 拿下第一，领先 Cartesia Sonic（1276）和 Google Gemini Flash TTS（126…</p>
-</article>
-<article class="post-card">
-<h2 class="post-card-title"><a href="/p/8c6b6c9d53ba/">Grok Bot 上线 Primary Bot：AI管家主动揽活，专治选择困难</a></h2>
-<p class="meta"><time datetime="2026-10-06T14:15:25.000Z">2026/10/06</time></p>
-<p class="excerpt">AI管家这个概念，xAI 刚刚给它加了个「总管」职位。10 月 1 日，Grok Bot 正式推出 Primary Bot：一个主动发现工作、提前向你提议的总管 Bot。官方原话是「它会发现能从你盘子里接过去的活，主动提出来处理」。更香的是：这些提议不计入你的用量。 事情最早是 9 月 30 日被用户撞见的：Grok Bot 应用里弹出一个 Introducing Primary Bot 的对话框，配两个按钮——「Use an existing Bot」（用现有的 Bot）或「Create Primary Bot」（新建一个）。Botski 第一时间截了图，第二天官方账号发帖确认 rollou…</p>
-</article>
-<article class="post-card">
-<h2 class="post-card-title"><a href="/p/df04dc5ea0e7/">Reflection 开源大模型 Beam：501B 参数对标 GLM-5.2</a></h2>
-<p class="meta"><time datetime="2026-10-06T14:13:11.000Z">2026/10/06</time></p>
-<p class="excerpt">美国时间 10 月 5 日，成立才两年的创业公司 Reflection AI 甩出了它的第一款开源大模型 Beam。这家公司来头不小：2024 年由两位前谷歌 DeepMind 研究员 Misha Laskin 和 Ioannis Antonoglou 创办，背后站着英伟达，累计融资约 47 亿美元，估值 250 亿美元。路透社和 TechCrunch 同一天跟进报道，直接把 Beam 定位成“美国人正面迎战 DeepSeek、Qwen、Z.ai 国产开源模型”的第一枪。摸鱼这么久，终于等到美国人拿出像样的开源权重了。 Beam 到底是个啥：5010 亿参数，每次只激活 230 亿 先看硬核参…</p>
-</article>
-<article class="post-card">
-<h2 class="post-card-title"><a href="/p/2d1d459c1b6d/">2026 AI 视频提示词指南：掌握六段式结构与主流模型方言</a></h2>
-<p class="meta"><time datetime="2026-10-06T14:00:21.000Z">2026/10/06</time></p>
-<p class="excerpt">从开盲盒到视听工业：2026 年 AI 视频提示词范式进化 迈入 2026 年，生成式视频大模型（如 Google Veo、OpenAI Sora、快手 Kling、Wan 以及 LTX-Video 等）的迭代核心早已脱离了单纯的分辨率提升，而是全面转向物理规律模拟、运镜连贯性与精细化语义对齐。过去依靠「雨夜女人走路」这类随缘抽卡的短句，生成的画面往往面临角色五官形变、脚步漂移穿模、光影前后割裂等致命缺陷。根据 Versely Studio 发布的 2026 高阶 AI 视频提示词指南，成熟的工业化提示词必须具备工程化的六段式黄金骨架，并根据不同模型的解析「方言」实施针对性适配。 本文将深度拆…</p>
-</article>
-<article class="post-card">
-<h2 class="post-card-title"><a href="/p/d85d62053187/">Creatify 开源广告提示词规范：拆解 SLCT 工业级框架与多模型落地</a></h2>
-<p class="meta"><time datetime="2026-10-06T13:44:52.000Z">2026/10/06</time></p>
-<p class="excerpt">电商与广告视觉痛点：从不可控开盲盒到工程化交付 在商业广告与电商素材的 AI 生成链路中，最困扰团队的往往不是画质不够清晰，而是商用级一致性与镜头意图无法收敛——光影杂乱、主体变形、运镜穿模，以及无法精准呈现商品卖点。近日，专注于广告智能生成的 Creatify 正式开源了其内部打磨的 Claude Skill 项目：Creatify AI Ad Prompt Guide。该方案提炼出了一套高度契合商业营销场景的SLCT 提示词架构，并配套了防幻觉铁律、动态运镜字典以及 Pass³ 交付质检标准。 这套规范打破了通用文生图/视频模型那种随缘抽卡的习惯，将影视摄影棚的灯光构架与工业级工作流标准注…</p>
-</article>
-<article class="post-card">
-<h2 class="post-card-title"><a href="/p/7f144c05f18c/">Nano Banana 提示词指南：掌握五维公式告别盲目堆砌词汇</a></h2>
-<p class="meta"><time datetime="2026-10-06T13:26:34.000Z">2026/10/06</time></p>
-<p class="excerpt">告别咒语堆砌：Nano Banana 提示词范式重构 在图像生成与多模态模型领域，许多创作者仍习惯于从 Stable Diffusion 或早期的 Midjourney 沿袭下来的「词云堆砌法」——把各种分辨率修饰词、艺术家风格与质量词用逗号生硬拼凑。然而，Google 官方针对 Nano Banana 提示词官方指南 给出了截然不同的标准：模型拥有极强的自然语言语义解析能力，想要获得高可控、高一致性的生成效果，必须全面转向类似电影导演案的叙事化提示词工程。 本文将拆解 Google Cloud 官方总结的 Nano Banana 2 与 Nano Banana Pro 提示词核心逻辑，解析「…</p>
-</article>
-<article class="post-card">
-<h2 class="post-card-title"><a href="/p/1e7cc2ee3163/">Zero Slop 实测：用开源 Agent Skill 改掉 AI 味写作</a></h2>
-<p class="meta"><time datetime="2026-10-06T10:31:51.000Z">2026/10/06</time></p>
-<p class="excerpt">为什么你的技术文一眼就让人闻出 AI 味 只要你在技术社区或 Hacker News 上多泡几天，就一定见过那种通篇充斥着 We’re thrilled to announce、It’s not X. It’s Y. 以及高频滥用 seamless、leverage 的典型公文。这种充满假大空修饰词的文字，不仅读者看着反胃，更会直接毁掉个人博客与开源项目的专业信誉。昨夜登顶 Show HN 的开源项目 Zero Slop，专门为了解决这个问题而来。 不同于那些靠云端 API 暴力改写、经常把专业名词和关键逻辑改丢的商业工具，Zero Slop GitHub 仓库 采用的是一套极度克制的本地化解…</p>
-</article>
-<article class="post-card">
-<h2 class="post-card-title"><a href="/p/b10bf6a4d4a5/">DeepSeek Harness 桌面端实测：Cordis 插件与极客自编写指南</a></h2>
-<p class="meta"><time datetime="2026-10-06T08:52:39.000Z">2026/10/06</time></p>
-<p class="excerpt">告别黑盒与臃肿脚手架：为什么说它是 Agent 界的 Emacs 折腾过各类 Coding Agent 客户端的开发者，大抵都体会过那种被厂商焊死在二进制黑盒里的窒息感：想顺手加个本地番茄钟、接一段内网打卡脚本，或者把推理链路桥接到特定的边缘容器，要么给官方 Issue 列表当苦力等排期，要么只能硬着头皮 Fork 整个笨重的桌面端工程自己重新编译。随着 DeepSeek Harness 官网 正式放出开源桌面端公开预览版，这种被厂商牵着鼻子走的被动局面终于被彻底打破。 在资深老极客眼里，DeepSeek Harness 骨子里流淌着极其浓烈的 Emacs 哲学：主程序只充当最克制的骨架底座，…</p>
 </article>
 <nav class="pagination" aria-label="分页">
 <span class="disabled">← 上一页</span>

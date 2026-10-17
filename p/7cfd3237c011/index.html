@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>让会话跨仓发消息而不是抢代码：Claude Code 多代理协作的实战落地 · wocao.world</title>
+<meta name="description" content="打破单体 Context 瓶颈：从共享上下文到消息传递 在基于大模型的复杂多仓库或单体大仓（Monorepo）重构中，开发者常陷入两难：让单个 Agent 吞下全部仓库的上下文不仅迅速耗尽 Token 额度，还会因上下文杂音导致逻辑幻觉；而让多个 Agent 同时修改同一批文件，则不可避免地引发剧烈的代码冲突与依赖破坏。开发者 Anyesh 在实践中探索出一条清晰路径：基于 Claude Code 自带的会话组队机制，将并发编程中的 Actor 消息传递模型（Message Passing）引入了日常多代理开发。 独占领域驱动：ListAgents 与 SendMessage 原语 这套工作流…">
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="wocao.world">
+<meta property="og:title" content="让会话跨仓发消息而不是抢代码：Claude Code 多代理协作的实战落地 · wocao.world">
+<meta property="og:description" content="打破单体 Context 瓶颈：从共享上下文到消息传递 在基于大模型的复杂多仓库或单体大仓（Monorepo）重构中，开发者常陷入两难：让单个 Agent 吞下全部仓库的上下文不仅迅速耗尽 Token 额度，还会因上下文杂音导致逻辑幻觉；而让多个 Agent 同时修改同一批文件，则不可避免地引发剧烈的代码冲突与依赖破坏。开发者 Anyesh 在实践中探索出一条清晰路径：基于 Claude Code 自带的会话组队机制，将并发编程中的 Actor 消息传递模型（Message Passing）引入了日常多代理开发。 独占领域驱动：ListAgents 与 SendMessage 原语 这套工作流…">
+<meta property="og:url" content="https://wocao.world/">
+<meta name="twitter:card" content="summary">
+<meta name="robots" content="noindex,follow">
+<link rel="alternate" type="application/rss+xml" title="wocao.world 聚合输出" href="/feed.xml">
+<link rel="stylesheet" href="/style.css">
+<link rel="canonical" href="https://www.moyunews.com/claude-code-multi-session-teamwork-message-passing/">
+</head>
+<body>
+<a class="skip-link" href="#main">跳到正文</a>
+<header class="site-head">
+<p class="site-title"><a href="/">wocao.world</a></p>
+<p class="site-desc">wocao.world</p>
+<nav class="site-nav">
+<a href="/">最新</a>
+<a href="/about/">关于</a>
+<a href="/feed.xml">RSS</a>
+</nav>
+</header>
+<main id="main">
+<article>
+<h1 class="post-title">让会话跨仓发消息而不是抢代码：Claude Code 多代理协作的实战落地</h1>
+<div class="post-body"><h2>打破单体 Context 瓶颈：从共享上下文到消息传递</h2>
+<p>在基于大模型的复杂多仓库或单体大仓（Monorepo）重构中，开发者常陷入两难：让单个 Agent 吞下全部仓库的上下文不仅迅速耗尽 Token 额度，还会因上下文杂音导致逻辑幻觉；而让多个 Agent 同时修改同一批文件，则不可避免地引发剧烈的代码冲突与依赖破坏。开发者 Anyesh 在实践中探索出一条清晰路径：基于 <a href="http://dev.to/anyesh/my-claude-code-sessions-work-as-a-team-and-they-message-each-other-18b8" target="_blank" rel="external nofollow noopener noreferrer">Claude Code 自带的会话组队机制</a>，将并发编程中的 Actor 消息传递模型（Message Passing）引入了日常多代理开发。</p>
+<p><img src="https://my.18uk.uk/file/BQACAgUAAyEGAATpoe1oAANPatO1wnugR8q3YdtSlvbpAs-BIHQAAtchAALXlKBW5lBgUW5JUJo9BA.avif" alt="Claude Code 会话组队" width="852" height="478" loading="lazy" referrerpolicy="no-referrer" /></p>
+<h2>独占领域驱动：ListAgents 与 SendMessage 原语</h2>
+<p>这套工作流的核心哲学是<strong>“各自管好自己的代码领地，跨界调用只走通信接口”</strong>。底层完全依赖 Claude Code 原生暴露的通信原语：</p>
+<ul>
+<li><strong>会话按仓库隔离（One Session per Repo）：</strong>为每一个独立的代码仓库启动一个专属的 Claude Code 进程。该会话长期驻留并只负责理解、维护与变更自身仓库的文件，维护极其纯净、高度局部化的上下文缓存；</li>
+<li><strong>基于 RPC 理念的消息调度：</strong>当 A 仓库（如前端页面）需要 B 仓库（如公共 API 契约或后端微服务）变更接口时，A 并不跨界篡改 B 的源码，而是通过 <code>ListAgents</code> 探测对应仓库的活跃会话，再用 <code>SendMessage</code> 抛出结构化请求；</li>
+<li><strong>在自己的地盘交付验证：</strong>B 会话在完全熟悉自身上下文的前提下完成修改、执行本地测试，并将最终契约或调用样例通过消息原路返回给 A。</li>
+</ul>
+<h2>实测 25 天：81 个会话与 624 条跨仓消息的运行账本</h2>
+<p>作者披露了从 9 月 18 日至 10 月 12 日期间的高强度实战数据：系统累计跑了 <strong>81 个独立会话</strong>，跨越 <strong>13 个工程项目</strong>，会话间自发传递了 <strong>624 条协同消息</strong>。在任务峰值期，单小时内有 9 个 Agent 会话同时在线并发推进。</p>
+<p>为了防止会话在无人监管下失控打架或出现死锁，作者外挂了一套轻量级 Harness 治理脚手架：</p>
+<ol>
+<li><strong>成本与缓存监控：</strong>实时追踪 Prompt 缓存命中率与上下文滑动开销，杜绝重复全量加载；</li>
+<li><strong>移动端审批推送：</strong>当 Agent 触碰破坏性操作或等待高阶人工仲裁时，自动向手机发送即时通知，随时由人类开发者介入；</li>
+<li><strong>动作熔断 Guard 拦截：</strong>记录并过滤非法文件读写尝试，防止 Agent 跨出自己的边界越权修改其他项目。</li>
+</ol>
+<p>这种“小而专注、按职责组队”的去中心化模式，为多模块复杂系统的 AI 自动化维护提供了极具参考价值的工程落地范式。</p>
+<p>本文来源：<a href="https://www.moyunews.com/" rel="external nofollow noopener noreferrer" target="_blank">摸鱼杂货店</a>。查看原文：<a href="https://www.moyunews.com/claude-code-multi-session-teamwork-message-passing/" rel="external nofollow noopener noreferrer" target="_blank">让会话跨仓发消息而不是抢代码：Claude Code 多代理协作的实战落地</a>。</p></div>
+<p class="back"><a href="/">← 返回最新</a></p>
+</article>
+</main>
+<footer class="site-foot">
+<p>wocao.world — 本站内容全部转载自各订阅源，版权归原作者与原站所有。</p>
+</footer>
+</body>
+</html>
