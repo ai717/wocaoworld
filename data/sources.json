@@ -10,8 +10,8 @@
       "active": true,
       "etag": "W/\"e8d5f930d8a6f0fda4e7b283062295bc\"",
       "lastModified": "Sat, 17 Oct 2026 18:08:07 GMT",
-      "lastFetchedAt": 1792347526128,
-      "lastStatus": "失败: 请求失败: The operation was aborted due to timeout"
+      "lastFetchedAt": 1792360629049,
+      "lastStatus": "ok"
     }
   ]
 }
