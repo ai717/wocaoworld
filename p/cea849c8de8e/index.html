@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Harness²：不改权重让 Agent 越用越强 · wocao.world</title>
+<meta name="description" content="Harness² 是什么 Google Research 放出的开源框架 Harness²，全名 Recursive Agent Harnessing for an Open World，协议 Apache 2.0。它想解决的问题很实际：想让一个 AI Agent 变强，通常得回头去动模型本身，重新训练或者微调，门槛和成本都摆在那里。Harness² 的核心思路反过来：不碰模型权重，只改模型外面那层「脚手架」，靠「双层递归」让 Agent 在跑任务的过程中自我进化。默认执行器用 OpenCode，也可接 Codex；能改的组件一共有八类：系统提示词、护栏、记忆、工具指导、子智能体、Skills…">
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="wocao.world">
+<meta property="og:title" content="Harness²：不改权重让 Agent 越用越强 · wocao.world">
+<meta property="og:description" content="Harness² 是什么 Google Research 放出的开源框架 Harness²，全名 Recursive Agent Harnessing for an Open World，协议 Apache 2.0。它想解决的问题很实际：想让一个 AI Agent 变强，通常得回头去动模型本身，重新训练或者微调，门槛和成本都摆在那里。Harness² 的核心思路反过来：不碰模型权重，只改模型外面那层「脚手架」，靠「双层递归」让 Agent 在跑任务的过程中自我进化。默认执行器用 OpenCode，也可接 Codex；能改的组件一共有八类：系统提示词、护栏、记忆、工具指导、子智能体、Skills…">
+<meta property="og:url" content="https://wocao.world/">
+<meta name="twitter:card" content="summary">
+<meta name="robots" content="noindex,follow">
+<link rel="alternate" type="application/rss+xml" title="wocao.world 聚合输出" href="/feed.xml">
+<link rel="stylesheet" href="/style.css">
+<link rel="canonical" href="https://www.moyunews.com/harness2-agent-harness/">
+</head>
+<body>
+<a class="skip-link" href="#main">跳到正文</a>
+<header class="site-head">
+<p class="site-title"><a href="/">wocao.world</a></p>
+<p class="site-desc">wocao.world</p>
+<nav class="site-nav">
+<a href="/">最新</a>
+<a href="/about/">关于</a>
+<a href="/feed.xml">RSS</a>
+</nav>
+</header>
+<main id="main">
+<article>
+<h1 class="post-title">Harness²：不改权重让 Agent 越用越强</h1>
+<div class="post-body"><h2>Harness² 是什么</h2>
+<p>Google Research 放出的开源框架 <a href="https://github.com/google-research/harness2" rel="external nofollow noopener noreferrer" target="_blank">Harness²</a>，全名 Recursive Agent Harnessing for an Open World，协议 Apache 2.0。它想解决的问题很实际：想让一个 AI Agent 变强，通常得回头去动模型本身，重新训练或者微调，门槛和成本都摆在那里。Harness² 的核心思路反过来：不碰模型权重，只改模型外面那层「脚手架」，靠「双层递归」让 Agent 在跑任务的过程中自我进化。默认执行器用 OpenCode，也可接 Codex；能改的组件一共有八类：系统提示词、护栏、记忆、工具指导、子智能体、Skills、脚本、插件。</p>
+<p><img loading="lazy" src="https://moyu.18uk.uk/2026/20261020-b2823b33-94aa-453f-86e4-755faf9a3822.webp" alt="Harness²" width="794" height="397" referrerpolicy="no-referrer" /></p>
+<h2>第一层递归：任务级的 Propose–Probe–Compose</h2>
+<p>先把大任务拆成子问题（Propose），再逐个验证（Probe），最后把结果拼回去（Compose）。好处藏在中间那步：验证是逐个子问题做的，错在哪一环当场就能发现，而不是等整个任务跑完才发现结果不对、再从头返工。整个过程不需要人工提前写死流程，Agent 自己在运行时完成「提案-探测-合成」的循环。说白了，它把「一次交卷」变成了「边做边检查」，任务越复杂、环节越多，这种拆法的优势越明显。</p>
+<h2>第二层递归：经验沉淀成可复用组件</h2>
+<p>如果说第一层递归管的是「这一次任务怎么做」，第二层管的是「下一次任务能不能站在上一次的肩膀上」。跑完一轮后，Harness² 把成功的子流程、工具调用、记忆片段打包成 Skill 或插件存下来，下次遇到同类任务直接调用，不用再从零试错。这正是「越用越强」的来源：变强的不是模型本身，而是它周围越攒越厚的经验库。八大组件里，记忆、Skills、脚本、插件都是为这层沉淀留的口子；系统提示词、护栏、工具指导和子智能体的配置，则决定了它每一轮跑起来的行为方式。</p>
+<h2>实测提升：数字要看清口径</h2>
+<p><a href="https://arxiv.org/abs/2610.14224" rel="external nofollow noopener noreferrer" target="_blank">论文</a> 给的三组数字是：WorkBuddy-Bench 最高 +11.5 分，JobBench 最高 +4.5 分，LAB 部分通过率最高 +11.8 个百分点。注意三组都是「最高」口径，不是平均提升，不同任务上的收益差别不小，JobBench 的 +4.5 就明显比 WorkBuddy-Bench 保守。把它理解成「上限演示」更稳妥：脚手架调对了，收益能摸到两位数；调不对，收益可能就没那么显眼。</p>
+<h2>本地一键体验与冷静提醒</h2>
+<p>想上手很简单：克隆仓库后直接运行 harness2-demo，无需任何模型凭据即可跑通演示，先看它怎么拆任务、怎么沉淀经验，再决定要不要往自己的流程里接。也要提醒一句：demo 免凭据跑通不等于真实任务零成本，真正干活时还得靠 OpenCode 或 Codex 这类执行器来驱动；另外，「不改权重」也意味着模型本身的能力上限还在那儿，脚手架能把现有能力用得更充分，却变不出模型本来没有的本事。</p>
+<p>项目地址：<a href="https://github.com/google-research/harness2" rel="external nofollow noopener noreferrer" target="_blank">GitHub</a> | 论文：<a href="https://arxiv.org/abs/2610.14224" rel="external nofollow noopener noreferrer" target="_blank">arXiv:2610.14224</a> | 资讯：<a href="https://news.marsbit.co/20261019154811188211.html" rel="external nofollow noopener noreferrer" target="_blank">MarsBit 报道</a></p>
+<p>截至发稿约 1.2 万星，感兴趣的自行围观。</p>
+<p>本文来源：<a href="https://www.moyunews.com/" rel="external nofollow noopener noreferrer" target="_blank">摸鱼杂货店</a>。查看原文：<a href="https://www.moyunews.com/harness2-agent-harness/" rel="external nofollow noopener noreferrer" target="_blank">Harness²：不改权重让 Agent 越用越强</a>。</p></div>
+<p class="back"><a href="/">← 返回最新</a></p>
+</article>
+</main>
+<footer class="site-foot">
+<p>wocao.world — 本站内容全部转载自各订阅源，版权归原作者与原站所有。</p>
+</footer>
+</body>
+</html>

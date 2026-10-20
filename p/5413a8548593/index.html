@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Mercury3 1068 token/s 百万上下文首发半价 · wocao.world</title>
+<meta name="description" content="核心参数一览 Inception 刚把 Mercury 3 推到台面，这是它家的新一代扩散大模型（diffusion LLM）。官方新闻稿 2026-10-19 发布，给的硬指标有两个：NVIDIA GPU 上实测 1,068 tokens/秒 的生成速度，上下文窗口 1,000,000 token。上一代 Mercury 2.5 的上下文只有 260,000 token，这一代直接拉高到接近四倍。unite.ai 的报道 也把速度和上下文这两项列为这代的主打卖点。 扩散架构为什么能这么快 市面上大多数大模型是自回归的：一个 token 接一个 token 往外吐，前一个没写完，后一个不能动，…">
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="wocao.world">
+<meta property="og:title" content="Mercury3 1068 token/s 百万上下文首发半价 · wocao.world">
+<meta property="og:description" content="核心参数一览 Inception 刚把 Mercury 3 推到台面，这是它家的新一代扩散大模型（diffusion LLM）。官方新闻稿 2026-10-19 发布，给的硬指标有两个：NVIDIA GPU 上实测 1,068 tokens/秒 的生成速度，上下文窗口 1,000,000 token。上一代 Mercury 2.5 的上下文只有 260,000 token，这一代直接拉高到接近四倍。unite.ai 的报道 也把速度和上下文这两项列为这代的主打卖点。 扩散架构为什么能这么快 市面上大多数大模型是自回归的：一个 token 接一个 token 往外吐，前一个没写完，后一个不能动，…">
+<meta property="og:url" content="https://wocao.world/">
+<meta name="twitter:card" content="summary">
+<meta name="robots" content="noindex,follow">
+<link rel="alternate" type="application/rss+xml" title="wocao.world 聚合输出" href="/feed.xml">
+<link rel="stylesheet" href="/style.css">
+<link rel="canonical" href="https://www.moyunews.com/mercury-3-diffusion-llm/">
+</head>
+<body>
+<a class="skip-link" href="#main">跳到正文</a>
+<header class="site-head">
+<p class="site-title"><a href="/">wocao.world</a></p>
+<p class="site-desc">wocao.world</p>
+<nav class="site-nav">
+<a href="/">最新</a>
+<a href="/about/">关于</a>
+<a href="/feed.xml">RSS</a>
+</nav>
+</header>
+<main id="main">
+<article>
+<h1 class="post-title">Mercury3 1068 token/s 百万上下文首发半价</h1>
+<div class="post-body"><h2>核心参数一览</h2>
+<p>Inception 刚把 <a href="https://www.businesswire.com/news/home/20261019090400/en/Inception-Launches-Mercury-3-Setting-a-New-Pareto-Frontier-in-Speed-and-Intelligence" rel="external nofollow noopener noreferrer" target="_blank">Mercury 3</a> 推到台面，这是它家的新一代扩散大模型（diffusion LLM）。官方新闻稿 2026-10-19 发布，给的硬指标有两个：NVIDIA GPU 上实测 <strong>1,068 tokens/秒</strong> 的生成速度，上下文窗口 <strong>1,000,000 token</strong>。上一代 Mercury 2.5 的上下文只有 260,000 token，这一代直接拉高到接近四倍。<a href="https://www.unite.ai/inception-releases-mercury-3-its-flagship-diffusion-llm/" rel="external nofollow noopener noreferrer" target="_blank">unite.ai 的报道</a> 也把速度和上下文这两项列为这代的主打卖点。</p>
+<p><img src="https://moyu.18uk.uk/2026/20261020-fc762dc0-912a-4980-b499-8ebace48304b.avif" alt="Mercury3" width="962" height="505" loading="lazy" referrerpolicy="no-referrer" /></p>
+<h2>扩散架构为什么能这么快</h2>
+<p>市面上大多数大模型是自回归的：一个 token 接一个 token 往外吐，前一个没写完，后一个不能动，速度天然被串行卡住。扩散模型的路子不一样，更像图像扩散生成图片的过程：先给出一整段粗稿，再并行地多轮修整、逐步定稿。能并行，吞吐就上去了——1,068 tokens/秒意味着上千 token 的回答一秒内就能吐完，这个速度放在实时对话、代码补全这类等不起的场景里，体感差别非常明显。代价是生成方式和传统模型完全不同，写长文本时连贯性到底稳不稳，还得等更多人实测。</p>
+<h2>价格与接入</h2>
+<p>首发五折：输入 <strong>$0.10/百万 token</strong>、输出 <strong>$0.35/百万 token</strong>，缓存输入只要 <strong>$0.01/百万</strong>。注意这是首发价，标准价是输入 $0.20、输出 $0.70、缓存输入 $0.02，恢复原价后整体翻倍。缓存输入便宜，对重复喂同一份长文档的场景特别友好：百万上下文塞进去一次，后面反复提问，命中的部分按 $0.01 算。接入渠道有四个：<a href="https://www.inceptionlabs.ai/" rel="external nofollow noopener noreferrer" target="_blank">Inception API</a>、Baseten、OpenRouter、Vercel，其中 Vercel 走 OpenAI API 兼容，已经在用 OpenAI 格式的项目迁移起来比较省事。</p>
+<h2>行业冲击与突破点</h2>
+<ul>
+<li>同级别模型里首个把百万上下文与千 token 级吞吐同时做到，速度和容量不再二选一</li>
+<li>扩散架构让并行解码成为常态，推理延迟大幅降低，实时交互场景的门槛被拉低</li>
+<li>半价首发直接把同档的 GPT-6 Luna、Claude Haiku 5.5 等参照对象逼入价格战，不过竞品参数官方未给，别轻信网传对比</li>
+</ul>
+<h2>真实局限</h2>
+<p>泼几盆冷水。速度数据来自 NVIDIA GPU 实测，其他硬件表现未公开，而且 1,068 tokens/秒是官方口径的成绩，日常调用能跑到多少，还要看接入渠道和并发情况；扩散模型在长文本连贯性上仍需更多实战验证；首发半价是限时打法，做长期预算时要按标准价算账，成本得翻倍预估。信息源头也说明一下：联合创始人 Stefano Ermon 在 X 上的发布动态，目前仅见 <a href="https://interestingengineering.com/ai-robotics/mercury-3-diffusion-model-8-times-faster" rel="external nofollow noopener noreferrer" target="_blank">Interesting Engineering 报道</a> 转述，未拿到原帖直链，所以本文只采用官方新闻稿与已公开报道里的数据。</p>
+<p>本文来源：<a href="https://www.moyunews.com/" rel="external nofollow noopener noreferrer" target="_blank">摸鱼杂货店</a>。查看原文：<a href="https://www.moyunews.com/mercury-3-diffusion-llm/" rel="external nofollow noopener noreferrer" target="_blank">Mercury3 1068 token/s 百万上下文首发半价</a>。</p></div>
+<p class="back"><a href="/">← 返回最新</a></p>
+</article>
+</main>
+<footer class="site-foot">
+<p>wocao.world — 本站内容全部转载自各订阅源，版权归原作者与原站所有。</p>
+</footer>
+</body>
+</html>

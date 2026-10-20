@@ -31,6 +31,41 @@
 
 
 <article class="post-card">
+<h2 class="post-card-title"><a href="/p/1ade4546c460/">Stripe MCP 接入 Claude Code 一条命令搞定出海收款</a></h2>
+<p class="meta"><time datetime="2026-10-20T10:17:24.000Z">2026/10/20</time></p>
+<p class="excerpt">前置条件 先确认你有一个 Stripe 账号（测试先用 sandbox 模式练手）；本机装好 Node 18+ 和 npm，能正常跑命令；Claude Code 已经装好并能正常对话；准备一台能联网的机器，因为远程 MCP 地址 https://mcp.stripe.com 走 HTTPS，确认防火墙没把出站 443 掐掉。动手前先扫一眼 Stripe MCP 官方文档，心里有数再开干。 一条命令接入 打开终端跑 npm install -g @stripe/cli@latest 装最新版 CLI，再执行 stripe agent setup。这条命令会自动探测你正在用的 Agent，把 MC…</p>
+</article>
+<article class="post-card">
+<h2 class="post-card-title"><a href="/p/d80dfa3c157e/">HelixWorld 开源实测：WASD 走进 24FPS 音画世界</a></h2>
+<p class="meta"><time datetime="2026-10-20T10:16:31.000Z">2026/10/20</time></p>
+<p class="excerpt">别再给我看「先出默片再配音」的伪同步了 这两年「世界模型」概念被炒得挺热，HelixWorld 一出手直接把门槛砸碎了：丢一张图、扔一句自然语言提示词，键盘按下 W/A/S/D 移动、方向键转视角，24 FPS 视频流配 48kHz 立体声空间音频实时同生。不是先生成视频再去套音效，也不是先跑音频再对口型 —— 视觉与听觉在同一个前向传播里「长」出来。在线演示站 点开就能玩，GitHub 仓库 已放出 Preview v1 推理代码与权重，代码 Apache-2.0 开源（权重许可另见 Hugging Face 页面）。技术报告挂在 arXiv:2609.38123，想啃细节的直接去啃。 核心…</p>
+</article>
+<article class="post-card">
+<h2 class="post-card-title"><a href="/p/003d358a4f43/">7个免安装浏览器小工具：投票、座位表、胶片滤镜全搞定</a></h2>
+<p class="meta"><time datetime="2026-10-20T10:13:31.000Z">2026/10/20</time></p>
+<p class="excerpt">打开浏览器就能用：这 7 个小工具先码住 有些工具真没必要装 App——打开网页，干完活就走。这份十月榜单一口气挑了 7 个免费的浏览器小工具：从约会投票、婚礼排座位，到复古胶片滤镜、88 键钢琴，全是「用完即走」的类型。一张表先看明白，再按场景抄作业。 这类网页小工具的共同卖点就四个字：用完即走。不占硬盘、不绑账号、换台电脑打开链接接着用。但丑话说在前面：功能普遍比专业软件浅，适合轻量、临时的活；涉及隐私的材料，先看官方说法再决定传不传；免费也多半是阶段性的，比如 OldRoll 官网就明说网页版是发布期免费，哪天开始收费都不奇怪。真要长期依赖哪一款，先想好替代方案。 榜单来源：Medium…</p>
+</article>
+<article class="post-card">
+<h2 class="post-card-title"><a href="/p/5413a8548593/">Mercury3 1068 token/s 百万上下文首发半价</a></h2>
+<p class="meta"><time datetime="2026-10-20T10:10:08.000Z">2026/10/20</time></p>
+<p class="excerpt">核心参数一览 Inception 刚把 Mercury 3 推到台面，这是它家的新一代扩散大模型（diffusion LLM）。官方新闻稿 2026-10-19 发布，给的硬指标有两个：NVIDIA GPU 上实测 1,068 tokens/秒 的生成速度，上下文窗口 1,000,000 token。上一代 Mercury 2.5 的上下文只有 260,000 token，这一代直接拉高到接近四倍。unite.ai 的报道 也把速度和上下文这两项列为这代的主打卖点。 扩散架构为什么能这么快 市面上大多数大模型是自回归的：一个 token 接一个 token 往外吐，前一个没写完，后一个不能动，…</p>
+</article>
+<article class="post-card">
+<h2 class="post-card-title"><a href="/p/a6cf746c5bfb/">Latch 用 NFC 贴纸把解锁按钮扔到屋外</a></h2>
+<p class="meta"><time datetime="2026-10-20T10:02:54.000Z">2026/10/20</time></p>
+<p class="excerpt">Latch：把解锁按钮贴到钥匙上 大多数防沉迷应用输在哪？锁屏密码在自己手里，想解随时能解，防的全是空气。Latch 的思路完全不同，官网标题就写着 Latch: put the unlock button across the room——把解锁按钮放到房间另一头去。它把解锁动作从手机里搬出来，绑在一张实体 NFC 贴纸（或者一张自己打印的二维码）上：想打开被锁的 App，必须起身走到贴纸跟前，用手机背面扫一下。产品 2026-10-17 登上 Product Hunt，支持 iPhone、iPad 和 Android。 准备工作不复杂：备一张 NTAG213、NTAG215 或 NTAG2…</p>
+</article>
+<article class="post-card">
+<h2 class="post-card-title"><a href="/p/cea849c8de8e/">Harness²：不改权重让 Agent 越用越强</a></h2>
+<p class="meta"><time datetime="2026-10-20T10:01:19.000Z">2026/10/20</time></p>
+<p class="excerpt">Harness² 是什么 Google Research 放出的开源框架 Harness²，全名 Recursive Agent Harnessing for an Open World，协议 Apache 2.0。它想解决的问题很实际：想让一个 AI Agent 变强，通常得回头去动模型本身，重新训练或者微调，门槛和成本都摆在那里。Harness² 的核心思路反过来：不碰模型权重，只改模型外面那层「脚手架」，靠「双层递归」让 Agent 在跑任务的过程中自我进化。默认执行器用 OpenCode，也可接 Codex；能改的组件一共有八类：系统提示词、护栏、记忆、工具指导、子智能体、Skills…</p>
+</article>
+<article class="post-card">
+<h2 class="post-card-title"><a href="/p/6d5d0fa3ae9a/">fal 推出 FLUX 3 Max：10 秒视频 12 秒生成</a></h2>
+<p class="meta"><time datetime="2026-10-20T09:52:46.000Z">2026/10/20</time></p>
+<p class="excerpt">fal 放大招：FLUX 3 Max 10 秒视频 12 秒出片 Black Forest Labs 最新放出的 FLUX 3 Max 在 fal 官方模型页 直接可用，主打图生视频：在 Artificial Analysis 的 image-to-video arena 里拿到 1,139 Elo，和 Seedance 2.5 并列第一梯队。生成 10 秒 720p 视频只需 12.45 秒，而 Seedance 2.5 要 277.80 秒，快了约 22 倍。官方通稿 给的定位也很直白：第一梯队的图生视频画质，加上行业里靠前的生成速度。 速度差 22 倍，改变的不只是等待时间。一条 10 …</p>
+</article>
+<article class="post-card">
 <h2 class="post-card-title"><a href="/p/a54ba1600588/">Meta Muse Wonder双模型入局，Muse Agent登顶App Store：大盘正式进入四方混战</a></h2>
 <p class="meta"><time datetime="2026-10-17T18:08:07.000Z">2026/10/17</time></p>
 <p class="excerpt">闪击消费端与代码场：Muse Wonder 双模型登场 硅谷大模型战局的平衡在 10 月中旬被彻底打破。Meta 毫无预警地抛出全新一代推理基座 Muse Wonder 与专供高阶工程代码的 Muse Wonder Full 双模型组合。与其配套的消费级独立原生载体 Muse Agent 更是凭借 Active Memory 与自主执行能力，上线后以极快速度冲上美区 App Store 免费总榜榜首。在关键评测基准 MemoryBench 上，Wonder 跑出 85.6 的高分，在 14 项专项测试中斩获 6 项第一，直接将压力给到了刚披露真实战绩的 Google 与 Anthropic。 …</p>
@@ -144,41 +179,6 @@
 <h2 class="post-card-title"><a href="/p/855686885fb3/">SDXL 提示词在 Z-Image 上全废了：蒸馏模型只认句子不认标签</a></h2>
 <p class="meta"><time datetime="2026-10-14T08:47:38.000Z">2026/10/14</time></p>
 <p class="excerpt">为什么你的 SDXL 提示词在 Z-Image 上全废了 Z-Image Turbo 是阿里通义 MAI 的 6B 开源图像模型，走蒸馏路线，推理时不用 classifier-free guidance。这句话翻译成人话：负面提示词直接被无视，你写 blurry, bad quality 它看都不看一眼。社区实测里最扎心的一条结论是：SDXL 时代攒下来的标签堆砌写法，在 Z-Image 的单流架构下全部变成噪音——模型吃的是句子和主体关系，不是关键词仓库。 所以玩 Z-Image 的第一性原理只有一条：做加法，不做减法。想要清晰，就写 sharp focus, 8k resolution, …</p>
-</article>
-<article class="post-card">
-<h2 class="post-card-title"><a href="/p/a7b4dbd3df2f/">OpenMontage：AI 编程助手当导演的视频工厂</a></h2>
-<p class="meta"><time datetime="2026-10-14T06:27:17.000Z">2026/10/14</time></p>
-<p class="excerpt">四万五千星标不靠炸 GitHub 上躺着个项目 calesthio/OpenMontage，上线首周霸榜 Trending 榜首，累计 4.5 万+ star。乍一看标题——“全球首个开源 agentic 视频生产系统”，容易让人联想到 Sora、Runway 那套“输入提示词、等 5 秒、收片段”的路数。但拉开源码一看，完全不是那回事。 大脑在你手里，不在服务器里 OpenMontage 的核心机制只有一句话：它坐在剪辑生成器之上，充当“生产层”。没有隐藏的中央编排器，真正的大脑就是你手里的 AI 编程助手——Claude Code、Cursor、Copilot、Windsurf、Codex…</p>
-</article>
-<article class="post-card">
-<h2 class="post-card-title"><a href="/p/71456cd2dec1/">聚合全球社媒与电商数据接口：Monid AI 商业数据抓取架构与实战场景</a></h2>
-<p class="meta"><time datetime="2026-10-09T19:13:32.000Z">2026/10/09</time></p>
-<p class="excerpt">跳出大模型中转站内卷：底层数据基础设施的暴利法则 在当前大模型应用层创业普遍陷入 Token 倒买倒卖和套壳包装的红海竞争时，鲜有人注意到另一个利润率极高且护城河稳固的领域——全球商业与社媒数据接口聚合。单纯兜售静态数据集往往面临更新滞后、清洗成本高和交付沉重的痛点，而将 TikTok、Amazon、YouTube、Reddit、LinkedIn 等主流平台的逆向解析、反爬对抗与标准化提取能力封装为统一 API，直接向上游 AI Agent 和数据分析师提供低延迟接口服务，正成为极具爆发力的商业模式。Monid AI 便是这一技术路径下的典型代表，它将数千个高度分散的数据源聚合成标准统一的输出…</p>
-</article>
-<article class="post-card">
-<h2 class="post-card-title"><a href="/p/6a58650b3875/">一行 SSH 免密直连 Qwen3.8-27B：Hugging Face 极简终端 AI 玩法实测</a></h2>
-<p class="meta"><time datetime="2026-10-09T18:49:03.000Z">2026/10/09</time></p>
-<p class="excerpt">零门槛随身 AI：一条 SSH 指令唤醒开源大模型 在本地部署大模型或配置云端 API 的传统工作流中，开发者往往需要经历繁琐的环境搭建：安装 Python 依赖、配置 CUDA 驱动、注册账号、绑卡充值获取 API Key，抑或是忍受 Web 端拥挤的网络排队。然而，Hugging Face 工程师近期公开的一种极简终端玩法打破了这一固有门槛：只需在任意能够打开终端的机器上执行 ssh chat.hf.co，即可直接进入交互式 TUI 对话界面，即刻调用包括 Qwen3.8-27B 在内的前沿开源权重。这一方案凭借真正免注册、免 API Key、免装环境的特性，被许多极客评价为目前综合门槛最…</p>
-</article>
-<article class="post-card">
-<h2 class="post-card-title"><a href="/p/06b34f12ee53/">视频提示词反推神器：丢个视频，Veo Sora 可用提示词到手</a></h2>
-<p class="meta"><time datetime="2026-10-08T15:26:03.000Z">2026/10/08</time></p>
-<p class="excerpt">痛点：AI 视频越强，越显得你不会写提示词 Veo 3、Sora 2、Seedance 2.0 越强，越显得你不会写视频提示词。开源项目 Video to Prompt 专治这个：丢进去一段参考视频，它还你一份分镜级的、可直接开工的提示词。 项目地址在 github.com/imooooc/video-to-prompt，MIT 协议，作者 2026 年 5 月创建，Next.js 写的。不想折腾部署的，有现成的在线 demo：v2p-demo.vmoli.com，打开即用。 怎么用：拖视频、贴 Key，三步出活 拖进去一段视频：MP4、MOV、WebM、AVI、WMV、3GP、MKV 都吃，…</p>
-</article>
-<article class="post-card">
-<h2 class="post-card-title"><a href="/p/2c666d9d5dc9/">Google Playground 上线：打字就能做游戏，免费畅玩</a></h2>
-<p class="meta"><time datetime="2026-10-08T15:22:59.000Z">2026/10/08</time></p>
-<p class="excerpt">一句话：Google 把做游戏变成了聊天 10 月 7 日，Google Labs 扔出实验性平台 Playground：在聊天框打字描述需求，AI 直接做游戏给你玩，浏览器点开即玩。目前只对美国 18 岁以上用户开放，先围观也来得及。 这事最妙的地方在于”改”也是聊天：物理手感不对、规则想换、角色太丑、场景想重做，直接在对话里说，AI 当场改。不想从零开始的，有官方 starter 模板可以 remix。你甚至能上传自己的图片，AI 会按游戏画风重做成游戏素材。底层是 Gemini 负责生成、Nano Banana 画图、DeepMind 的 Lyria 配乐，再加一套 Google 专门为…</p>
-</article>
-<article class="post-card">
-<h2 class="post-card-title"><a href="/p/e2365b5a2ac8/">GPT-6 进聊天框了：免费档也能用的智能界面长啥样</a></h2>
-<p class="meta"><time datetime="2026-10-08T14:57:31.000Z">2026/10/08</time></p>
-<p class="excerpt">先说结论：聊天框从今天起不只是聊天框 OpenAI 10 月 7 日把 GPT-6 推进 ChatGPT 聊天框，顺带上线智能界面：回答不再是纯文字，而是现场拼出的交互界面——图表、按钮、表单随问而变。付费档先行，免费和 Go 用户 10 月 8 日起跟上。 这事有个前情：GPT-6 家族 9 月 23 日就露过面，当时先放出 GPT-6 Sol 和 GPT-6 Luna，Sol 主攻复杂编码和 Agent 任务，Luna 主打便宜快速，API 价格直接砍半。但那会儿免费用户只能在桌面 App 里摸到 Luna，聊天框还进不去。10 月 7 日这次更新，等于把大门彻底推开：聊天框正式成为 GP…</p>
-</article>
-<article class="post-card">
-<h2 class="post-card-title"><a href="/p/52b45cf6a42a/">AI笔记本新卷王：微软Surface Ultra开卖，2599美元本地跑大模型</a></h2>
-<p class="meta"><time datetime="2026-10-08T14:45:14.000Z">2026/10/08</time></p>
-<p class="excerpt">2599 美元的 AI 笔记本，微软和英伟达憋了个大招 北京时间 10 月 8 日凌晨传来的消息：微软和英伟达在旧金山同台发布了 Surface Laptop Ultra，2599 美元起，10 月 16 日正式开卖。这是微软史上第一台搭载英伟达 PC 芯片的笔记本，也是英伟达第一次真正把触角伸进个人电脑市场。老黄在台上放话”电脑正在被重新发明”，纳德拉则喊出”混合智能”，两家巨头的联手，直接把 AI 笔记本 的军备竞赛推到了一个新高度。 为什么这次值得单独加更一篇？因为这不只是又一款”AI PC”贴标产品。RTX Spark 这颗芯片，让一台 15 英寸的笔记本在本地就能跑 1200 亿参数…</p>
 </article>
 <nav class="pagination" aria-label="分页">
 <span class="disabled">← 上一页</span>
