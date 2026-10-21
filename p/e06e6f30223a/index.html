@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>VoiceStudio：本地免费替代 ElevenLabs 的开源神器 · wocao.world</title>
+<meta name="description" content="云端配音又贵又不自由 做视频、做播客、做多语言教程，最让人头大的是每分钟都在烧钱，还得全程联网排队。ElevenLabs 音质确实好，但它是云端按量/订阅制，音频还得上传到对方服务器，隐私这块只能信人家的承诺。很多创作者只是想克隆几句台词、给视频配个音，结果被迫绑卡订阅、看网络脸色。 VoiceStudio 是什么 VoiceStudio（仓库 debpalash/VoiceStudio）是一个开源免费的本地语音工作站，协议 AGPL-3.0，前身叫 OmniVoice-Studio。它是 Electron 桌面应用，支持 macOS 和 Linux，把语音克隆、声音设计、视频配音、听写、转录…">
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="wocao.world">
+<meta property="og:title" content="VoiceStudio：本地免费替代 ElevenLabs 的开源神器 · wocao.world">
+<meta property="og:description" content="云端配音又贵又不自由 做视频、做播客、做多语言教程，最让人头大的是每分钟都在烧钱，还得全程联网排队。ElevenLabs 音质确实好，但它是云端按量/订阅制，音频还得上传到对方服务器，隐私这块只能信人家的承诺。很多创作者只是想克隆几句台词、给视频配个音，结果被迫绑卡订阅、看网络脸色。 VoiceStudio 是什么 VoiceStudio（仓库 debpalash/VoiceStudio）是一个开源免费的本地语音工作站，协议 AGPL-3.0，前身叫 OmniVoice-Studio。它是 Electron 桌面应用，支持 macOS 和 Linux，把语音克隆、声音设计、视频配音、听写、转录…">
+<meta property="og:url" content="https://wocao.world/">
+<meta name="twitter:card" content="summary">
+<meta name="robots" content="noindex,follow">
+<link rel="alternate" type="application/rss+xml" title="wocao.world 聚合输出" href="/feed.xml">
+<link rel="stylesheet" href="/style.css">
+<link rel="canonical" href="https://www.moyunews.com/voicestudio-open-source-elevenlabs-alternative/">
+</head>
+<body>
+<a class="skip-link" href="#main">跳到正文</a>
+<header class="site-head">
+<p class="site-title"><a href="/">wocao.world</a></p>
+<p class="site-desc">wocao.world</p>
+<nav class="site-nav">
+<a href="/">最新</a>
+<a href="/about/">关于</a>
+<a href="/feed.xml">RSS</a>
+</nav>
+</header>
+<main id="main">
+<article>
+<h1 class="post-title">VoiceStudio：本地免费替代 ElevenLabs 的开源神器</h1>
+<div class="post-body"><h2>云端配音又贵又不自由</h2>
+<p>做视频、做播客、做多语言教程，最让人头大的是每分钟都在烧钱，还得全程联网排队。ElevenLabs 音质确实好，但它是云端按量/订阅制，音频还得上传到对方服务器，隐私这块只能信人家的承诺。很多创作者只是想克隆几句台词、给视频配个音，结果被迫绑卡订阅、看网络脸色。</p>
+<p><img src="https://moyu.18uk.uk/2026/20261021-1c055540-fbd7-494b-a064-83384856687a.webp" alt="VoiceStudio" width="800" loading="lazy" referrerpolicy="no-referrer" /></p>
+<h2>VoiceStudio 是什么</h2>
+<p><a href="https://github.com/debpalash/VoiceStudio" rel="external nofollow noopener noreferrer" target="_blank">VoiceStudio</a>（仓库 <a href="https://github.com/debpalash/VoiceStudio" rel="external nofollow noopener noreferrer" target="_blank">debpalash/VoiceStudio</a>）是一个开源免费的本地语音工作站，协议 <strong>AGPL-3.0</strong>，前身叫 OmniVoice-Studio。它是 Electron 桌面应用，支持 macOS 和 Linux，把语音克隆、声音设计、视频配音、听写、转录、有声书全塞进一台机器。内置 17 个本地 TTS 引擎和 10 种转录选项，默认引擎是 <code>k2-fsa/OmniVoice</code>（模型协议 <strong>CC BY-NC</strong>，非商业用途），可以在模型管理器里切换。从源码装就一条命令：<code>git clone https://github.com/debpalash/VoiceStudio.git &amp;&amp; cd VoiceStudio &amp;&amp; bun install &amp;&amp; bun run setup &amp;&amp; bun run dev</code>。启动后在 <code>localhost:3900</code> 提供本地 OpenAI 兼容 API 和 Web UI，还自带 <strong>MCP server</strong>，Claude Code、Codex、Cursor 这类 agent 能直接调用；装 agent skill 只要 <code>npx skills add debpalash/VoiceStudio</code>。全程无账号、无 API key、无按量计费，数据不出本机。目前 GitHub 约 <strong>78k stars</strong>（近 7 天新增约 17k），热度相当炸裂。两家独立评测（<a href="https://www.techupsider.com/articles/voicestudio-free-elevenlabs-alternative" rel="external nofollow noopener noreferrer" target="_blank">TechUpSider</a>、<a href="https://andrew.ooo/posts/voicestudio-review-local-elevenlabs-alternative/" rel="external nofollow noopener noreferrer" target="_blank">Andrew 的实测</a>）都把它定位成 ElevenLabs 的本地平替。</p>
+<h2>硬核对比：8 个维度一次看清</h2>
+<table>
+<thead>
+<tr>
+<th>维度</th>
+<th>VoiceStudio</th>
+<th>ElevenLabs</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>价格</td>
+<td>开源免费，无账号、无 API key、无按量计费</td>
+<td>云端按量/订阅制</td>
+</tr>
+<tr>
+<td>运行方式</td>
+<td>本地运行，Electron 桌面应用，macOS/Linux</td>
+<td>云端服务，全程联网</td>
+</tr>
+<tr>
+<td>语音克隆</td>
+<td>支持，需被克隆者授权</td>
+<td>云端语音克隆</td>
+</tr>
+<tr>
+<td>视频配音</td>
+<td>内置视频配音能力</td>
+<td>以音频合成为主</td>
+</tr>
+<tr>
+<td>转录</td>
+<td>10 种转录选项，本地离线跑</td>
+<td>云端转录</td>
+</tr>
+<tr>
+<td>MCP/API</td>
+<td>自带 MCP server，localhost:3900 本地 OpenAI 兼容 API</td>
+<td>云端 API，按官方文档接入</td>
+</tr>
+<tr>
+<td>隐私</td>
+<td>数据不出本机，完全可控</td>
+<td>音频需上传至厂商服务器</td>
+</tr>
+<tr>
+<td>协议与状态</td>
+<td>AGPL-3.0，默认引擎 CC BY-NC 非商业；active beta，单人维护，官方 benchmark 页无实测数据</td>
+<td>专有商业条款，成熟商业服务</td>
+</tr>
+</tbody>
+</table>
+<h2>先泼两盆冷水</h2>
+<p>第一，项目自己标注 <strong>active beta</strong>，基本是单人维护（作者 debpalash 占约 82.5% 贡献），还挂着 34 个 open issues，指望企业级售后不现实。第二，官方 benchmark 页面写着「No verified rows yet」——在你自己机器上到底跑多快，官方给不出实测数据，性能全看你的硬件。另外两条底线：默认引擎模型协议是 CC BY-NC，商用前务必先看模型协议；克隆任何声音都必须拿到被克隆者的授权，这是法律红线不是建议。</p>
+<h2>分场景推荐</h2>
+<p><strong>个人创作者 / 数字游民</strong>：带着笔记本就能离线完成多语言配音、字幕转录，省下订阅费，飞机上也能干活。</p>
+<p><strong>隐私敏感团队</strong>：培训视频、产品演示全套跑在内网机器，文案不经过第三方服务器，合规审计好交代。</p>
+<p><strong>开发者玩二次开发</strong>：MCP server 和本地 API 能直接塞进自己的聊天机器人或语音助手，注意遵守 AGPL-3.0 的开源要求。</p>
+<p><strong>要稳定、要省心</strong>：ElevenLabs 这类成熟商业服务依然是更稳妥的选择——开箱即用、有人兜底。VoiceStudio 适合预算敏感、在意隐私、愿意自己折腾硬件的人；追求企业级稳定，就别跟 beta 版较劲。</p>
+<p> </p>
+<p> </p>
+<p>本文来源：<a href="https://www.moyunews.com/" rel="external nofollow noopener noreferrer" target="_blank">摸鱼杂货店</a>。查看原文：<a href="https://www.moyunews.com/voicestudio-open-source-elevenlabs-alternative/" rel="external nofollow noopener noreferrer" target="_blank">VoiceStudio：本地免费替代 ElevenLabs 的开源神器</a>。</p></div>
+<p class="back"><a href="/">← 返回最新</a></p>
+</article>
+</main>
+<footer class="site-foot">
+<p>wocao.world — 本站内容全部转载自各订阅源，版权归原作者与原站所有。</p>
+</footer>
+</body>
+</html>

@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Hermes Agent：自带自我进化的 Agent 操作系统 · wocao.world</title>
+<meta name="description" content="一次性 Agent 的短板 大多数 AI Agent 只能一次性跑完任务，下次还得重新喂提示词、重新配置工具链，根本没有“记得上次怎么干”的能力。这就导致开发者在重复性工作里不断复制粘贴，效率低得像在搬砖。而 NousResearch/hermes-agent 以约 25.5 万 star 的声量告诉我们：把“自我改进”做成内核能力，才是把 Agent 从玩具变成生产力工具的关键。 自我改进循环怎么跑通 README 里的定位原话是 “The self-improving AI agent built by Nous Research”。其核心思路可以拆解为三层：执行、沉淀、复用。Agent …">
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="wocao.world">
+<meta property="og:title" content="Hermes Agent：自带自我进化的 Agent 操作系统 · wocao.world">
+<meta property="og:description" content="一次性 Agent 的短板 大多数 AI Agent 只能一次性跑完任务，下次还得重新喂提示词、重新配置工具链，根本没有“记得上次怎么干”的能力。这就导致开发者在重复性工作里不断复制粘贴，效率低得像在搬砖。而 NousResearch/hermes-agent 以约 25.5 万 star 的声量告诉我们：把“自我改进”做成内核能力，才是把 Agent 从玩具变成生产力工具的关键。 自我改进循环怎么跑通 README 里的定位原话是 “The self-improving AI agent built by Nous Research”。其核心思路可以拆解为三层：执行、沉淀、复用。Agent …">
+<meta property="og:url" content="https://wocao.world/">
+<meta name="twitter:card" content="summary">
+<meta name="robots" content="noindex,follow">
+<link rel="alternate" type="application/rss+xml" title="wocao.world 聚合输出" href="/feed.xml">
+<link rel="stylesheet" href="/style.css">
+<link rel="canonical" href="https://www.moyunews.com/hermes-agent-self-improving/">
+</head>
+<body>
+<a class="skip-link" href="#main">跳到正文</a>
+<header class="site-head">
+<p class="site-title"><a href="/">wocao.world</a></p>
+<p class="site-desc">wocao.world</p>
+<nav class="site-nav">
+<a href="/">最新</a>
+<a href="/about/">关于</a>
+<a href="/feed.xml">RSS</a>
+</nav>
+</header>
+<main id="main">
+<article>
+<h1 class="post-title">Hermes Agent：自带自我进化的 Agent 操作系统</h1>
+<div class="post-body"><h2>一次性 Agent 的短板</h2>
+<p>大多数 AI Agent 只能一次性跑完任务，下次还得重新喂提示词、重新配置工具链，根本没有“记得上次怎么干”的能力。这就导致开发者在重复性工作里不断复制粘贴，效率低得像在搬砖。而 <a href="https://github.com/NousResearch/hermes-agent" rel="external nofollow noopener noreferrer" target="_blank">NousResearch/hermes-agent</a> 以约 25.5 万 star 的声量告诉我们：把“自我改进”做成内核能力，才是把 Agent 从玩具变成生产力工具的关键。</p>
+<p><img src="https://moyu.18uk.uk/2026/20261021-a70d2482-27da-4513-bd60-0e2ce43a795f.webp" alt="Hermes Agent" width="800" loading="lazy" referrerpolicy="no-referrer" /></p>
+<h2>自我改进循环怎么跑通</h2>
+<p>README 里的定位原话是 “The self-improving AI agent built by Nous Research”。其核心思路可以拆解为三层：执行、沉淀、复用。Agent 在一次会话里先在沙箱里跑完任务，把每一步的工具调用、参数、返回值完整记录下来；结束后由内置的反思模块把这些轨迹抽象成可复用的 skill，存入跨会话的长期记忆库；下次遇到相似意图，直接从记忆里调取 skill，省去重新推理的开销。这种“跑完→总结→下次直用”的循环机制，让模型不再只靠提示词撑场面，而是真正积累经验。</p>
+<h3>核心步骤</h3>
+<ul>
+<li>沙箱执行：隔离环境保证工具调用不污染宿主，且可回放完整轨迹</li>
+<li>技能抽象：把高频操作序列压缩成带参数的可调用模块</li>
+<li>长期记忆：基于向量检索把 skill 按语义索引，支持跨会话、跨用户共享</li>
+</ul>
+<h2>插件体系与沙箱的架构思路</h2>
+<p>插件体系并非简单的函数注册表，而是把每个能力封装成独立进程，通过标准化的输入输出契约与主循环通讯。沙箱则在容器级别做资源限制、网络隔离、文件系统快照，保证任意插件跑挂了也不会拖垮整个 Agent。官网 <a href="https://hermes.build/" rel="external nofollow noopener noreferrer" target="_blank">hermes.build</a> 与文档站 <a href="https://hermes-agent.nousresearch.com/docs/" rel="external nofollow noopener noreferrer" target="_blank">文档站</a> 都强调：插件开发者只需实现固定的接口，剩下的调度、重试、版本管理由核心层托底。这种设计让社区能以“技能包”形式快速扩展能力，而不必改动核心代码。</p>
+<p><code>hermes-cli run --task "抓取最新论文并生成摘要" --plugin arxiv,summarizer</code></p>
+<h2>真实上手成本与限制</h2>
+<p>项目采用 MIT 协议，v0.22.0 于 10-13 发布，按文档站的指引装好之后，即可跑通 CLI、TUI、Telegram、Discord、Slack、WhatsApp、Signal 等入口，内置 <code>cron</code> 定时任务，支持多种主流模型 provider。但也要清楚：沙箱启动有冷启动延迟，技能抽象质量依赖反思模型的推理能力，复杂多步任务仍可能出现幻觉导致的错误技能。文档里也提示：生产环境建议配合人工审核流程，不要盲目把自动生成的 skill 直接上线。</p>
+<p> </p>
+<p> </p>
+<p>本文来源：<a href="https://www.moyunews.com/" rel="external nofollow noopener noreferrer" target="_blank">摸鱼杂货店</a>。查看原文：<a href="https://www.moyunews.com/hermes-agent-self-improving/" rel="external nofollow noopener noreferrer" target="_blank">Hermes Agent：自带自我进化的 Agent 操作系统</a>。</p></div>
+<p class="back"><a href="/">← 返回最新</a></p>
+</article>
+</main>
+<footer class="site-foot">
+<p>wocao.world — 本站内容全部转载自各订阅源，版权归原作者与原站所有。</p>
+</footer>
+</body>
+</html>

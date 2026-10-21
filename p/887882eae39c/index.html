@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Claude代码评审正式 GA：Team 与 Enterprise 自动审 PR · wocao.world</title>
+<meta name="description" content="GA 到底改了什么 2026-10-15 Anthropic 在官方公告 Code Review is now generally available 里原话：「Code Review is out of research preview and available to Claude Team and Enterprise organizations」。 适用范围锁定在 Claude Team 与 Enterprise 组织，管理员只需在 Claude Code 设置里打开开关，再安装官方 GitHub App 并勾选仓库，随后每个新建 PR 会自动触发评审，也可在评论区 @claude r…">
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="wocao.world">
+<meta property="og:title" content="Claude代码评审正式 GA：Team 与 Enterprise 自动审 PR · wocao.world">
+<meta property="og:description" content="GA 到底改了什么 2026-10-15 Anthropic 在官方公告 Code Review is now generally available 里原话：「Code Review is out of research preview and available to Claude Team and Enterprise organizations」。 适用范围锁定在 Claude Team 与 Enterprise 组织，管理员只需在 Claude Code 设置里打开开关，再安装官方 GitHub App 并勾选仓库，随后每个新建 PR 会自动触发评审，也可在评论区 @claude r…">
+<meta property="og:url" content="https://wocao.world/">
+<meta name="twitter:card" content="summary">
+<meta name="robots" content="noindex,follow">
+<link rel="alternate" type="application/rss+xml" title="wocao.world 聚合输出" href="/feed.xml">
+<link rel="stylesheet" href="/style.css">
+<link rel="canonical" href="https://www.moyunews.com/claude-code-review-team-enterprise/">
+</head>
+<body>
+<a class="skip-link" href="#main">跳到正文</a>
+<header class="site-head">
+<p class="site-title"><a href="/">wocao.world</a></p>
+<p class="site-desc">wocao.world</p>
+<nav class="site-nav">
+<a href="/">最新</a>
+<a href="/about/">关于</a>
+<a href="/feed.xml">RSS</a>
+</nav>
+</header>
+<main id="main">
+<article>
+<h1 class="post-title">Claude代码评审正式 GA：Team 与 Enterprise 自动审 PR</h1>
+<div class="post-body"><h2>GA 到底改了什么</h2>
+<p>2026-10-15 Anthropic 在官方公告 <a href="https://claude.com/resources/articles/code-review-is-now-generally-available" rel="external nofollow noopener noreferrer" target="_blank">Code Review is now generally available</a> 里原话：「Code Review is out of research preview and available to Claude Team and Enterprise organizations」。</p>
+<p>适用范围锁定在 <strong>Claude Team</strong> 与 <strong>Enterprise</strong> 组织，管理员只需在 Claude Code 设置里打开开关，再安装官方 GitHub App 并勾选仓库，随后每个新建 PR 会自动触发评审，也可在评论区 @claude review 手动唤起。</p>
+<p>服务形态为托管式多智能体 PR 评审：只读权限、不构建、不运行代码、不批准也不拦截合并，结果以内联评论、总结和 check run 三种形式回写到 GitHub。</p>
+<p><img src="https://moyu.18uk.uk/2026/20261021-6c467fbc-6175-4a23-9ae9-cd1755705919.webp" alt="Claude代码评审" width="800" loading="lazy" referrerpolicy="no-referrer" /></p>
+<h2>托管评审与本地 Linter/CI 的本质区别</h2>
+<p>传统 CI 负责跑测试、静态分析、构建产物，属于「跑得通」层面；而 Claude Code Review 直接把大模型的语义理解塞进 PR 对话框，关注的是「写得对、逻辑顺、安全隐患少」。</p>
+<p>因为不接管构建管道，不改变现有 CI/CD 流程，团队可以零侵入式试用，风险极低。对已有完善 CI 的大厂，它更像一个「语义级安全网」；对缺乏专职代码审查员的小团队，它直接补齐了「有人看代码」的短板。</p>
+<h2>突破点清单</h2>
+<ul>
+<li>评审耗时从预览期约 20 分钟降至 6–10 分钟，配合三档深度 Quick / Standard（默认） / Deep，管理员可按仓库粒度切换。</li>
+<li>按 token 计费，不再是「按席位」或「不限量」，真实成本随代码量与深度线性增长，财务可预测。</li>
+<li>只读、不批准、不拦截合并，设计上彻底把决策权留给人，避免「AI 一键合并」的合规隐患。</li>
+<li>符合条件的 Enterprise 组织可在 2027-01-15 前领取至少 $10,000 Code Review credits，领取后 30 天内过期，官方文档见 <a href="https://code.claude.com/" rel="external nofollow noopener noreferrer" target="_blank">code.claude.com</a>。</li>
+</ul>
+<h2>真实局限与冷静评述</h2>
+<p>尽管耗时大幅缩短，6–10 分钟在高频提交的单体仓库里仍可能成为瓶颈，尤其是 Deep 模式下 token 消耗惊人，月账单容易超预期。</p>
+<p>模型只能看到 PR diff 与上下文，缺乏全仓库架构视角，跨文件重构、隐式依赖变更依然容易漏报；且不运行代码，运行时错误、性能退化、环境差异全靠 CI 兜底。</p>
+<p>只读不拦截的设计虽然安全，但也意味着「发现即修复」的自动链路缺失，团队仍需建立「评审 → 讨论 → 改代码 → 再评审」的人工流程，不能指望一键搞定。</p>
+<p>对于独立开发者或只有 Free/Pro 计划的小团队，目前完全无法使用，官方未给出下放时间表，短期内只能继续依赖开源 Linter 或自建模型评审脚本。</p>
+<p>整体来看，Claude Code Review 把「大模型读代码」变成了一个可开箱即用的 SaaS 能力，降低了引入 AI 代码审查的门槛，但真正替代资深 Reviewer 还需时间、更细粒度的上下文注入以及成本曲线的进一步压平。</p>
+<p> </p>
+<p>本文来源：<a href="https://www.moyunews.com/" rel="external nofollow noopener noreferrer" target="_blank">摸鱼杂货店</a>。查看原文：<a href="https://www.moyunews.com/claude-code-review-team-enterprise/" rel="external nofollow noopener noreferrer" target="_blank">Claude代码评审正式 GA：Team 与 Enterprise 自动审 PR</a>。</p></div>
+<p class="back"><a href="/">← 返回最新</a></p>
+</article>
+</main>
+<footer class="site-foot">
+<p>wocao.world — 本站内容全部转载自各订阅源，版权归原作者与原站所有。</p>
+</footer>
+</body>
+</html>

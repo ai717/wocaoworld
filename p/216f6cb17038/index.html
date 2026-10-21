@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>3.7万星Claude代码路由：免费接DeepSeek/Kimi/GLM · wocao.world</title>
+<meta name="description" content="Claude Code 好用但钱包扛不住 用过 Claude Code 的都知道，这玩意儿写代码真香，但 Anthropic 官方 API 按 Token 计费，跑个中型项目几十刀像玩儿。更气人的是被锁死在单一厂商——想换 DeepSeek、想用 Kimi、想试 GLM，全得重写适配层。 Claude Code Router（仓库 musistudio/claude-code-router）直接把这个结解开：3.7 万+ star、3,169 forks、MIT 协议，定位「本地 AI 智能体总控平台」。原理一句话：让 Claude Code、Codex、Grok CLI、Kimi CLI、K…">
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="wocao.world">
+<meta property="og:title" content="3.7万星Claude代码路由：免费接DeepSeek/Kimi/GLM · wocao.world">
+<meta property="og:description" content="Claude Code 好用但钱包扛不住 用过 Claude Code 的都知道，这玩意儿写代码真香，但 Anthropic 官方 API 按 Token 计费，跑个中型项目几十刀像玩儿。更气人的是被锁死在单一厂商——想换 DeepSeek、想用 Kimi、想试 GLM，全得重写适配层。 Claude Code Router（仓库 musistudio/claude-code-router）直接把这个结解开：3.7 万+ star、3,169 forks、MIT 协议，定位「本地 AI 智能体总控平台」。原理一句话：让 Claude Code、Codex、Grok CLI、Kimi CLI、K…">
+<meta property="og:url" content="https://wocao.world/">
+<meta name="twitter:card" content="summary">
+<meta name="robots" content="noindex,follow">
+<link rel="alternate" type="application/rss+xml" title="wocao.world 聚合输出" href="/feed.xml">
+<link rel="stylesheet" href="/style.css">
+<link rel="canonical" href="https://www.moyunews.com/claude-code-router-free-models/">
+</head>
+<body>
+<a class="skip-link" href="#main">跳到正文</a>
+<header class="site-head">
+<p class="site-title"><a href="/">wocao.world</a></p>
+<p class="site-desc">wocao.world</p>
+<nav class="site-nav">
+<a href="/">最新</a>
+<a href="/about/">关于</a>
+<a href="/feed.xml">RSS</a>
+</nav>
+</header>
+<main id="main">
+<article>
+<h1 class="post-title">3.7万星Claude代码路由：免费接DeepSeek/Kimi/GLM</h1>
+<div class="post-body"><h2>Claude Code 好用但钱包扛不住</h2>
+<p>用过 <a href="https://github.com/musistudio/claude-code-router" rel="external nofollow noopener noreferrer" target="_blank">Claude Code</a> 的都知道，这玩意儿写代码真香，但 Anthropic 官方 API 按 Token 计费，跑个中型项目几十刀像玩儿。更气人的是被锁死在单一厂商——想换 DeepSeek、想用 Kimi、想试 GLM，全得重写适配层。</p>
+<p><a href="https://github.com/musistudio/claude-code-router" rel="external nofollow noopener noreferrer" target="_blank">Claude Code Router</a>（仓库 <code>musistudio/claude-code-router</code>）直接把这个结解开：<strong>3.7 万+ star</strong>、<strong>3,169 forks</strong>、<strong>MIT 协议</strong>，定位「本地 AI 智能体总控平台」。原理一句话：让 Claude Code、Codex、Grok CLI、Kimi CLI、Kilo Code、OpenCode、Pi、ZCode、WorkBuddy 等 agent 以为在跟 Anthropic 对话，实则把请求按你的规则路由到 DeepSeek、SiliconFlow、Moonshot、Kimi Code、Mistral、Z.AI（GLM）、Bailian、OpenRouter 等 provider，覆盖 DeepSeek、Kimi、GLM 三条主流免费路线。</p>
+<p>桌面端 / CLI / Docker 三选一，<strong>5 分钟部署</strong>上手，下面按实战顺序走一遍。</p>
+<p><img src="https://moyu.18uk.uk/2026/20261021-a829f9bd-6e16-4b5d-95f6-ce525d415196.webp" alt="Claude代码路由" width="460" height="460" loading="lazy" referrerpolicy="no-referrer" /></p>
+<h2>前置条件</h2>
+<ul>
+<li><strong>Node.js 22+</strong>（走 CLI 路线必须）</li>
+<li>能访问 GitHub 下载桌面包，或能拉取 Docker 镜像</li>
+<li>已在对应 provider 拿到 API Key：DeepSeek、Moonshot（Kimi）、Z.AI（GLM）、SiliconFlow、OpenRouter 等</li>
+<li>本地已装 <a href="https://github.com/musistudio/claude-code-router" rel="external nofollow noopener noreferrer" target="_blank">Claude Code</a> 或其它支持标准 Anthropic 协议的 agent</li>
+</ul>
+<h2>三种部署方式，5 分钟跑通</h2>
+<ul>
+<li><strong>桌面 App 最省事</strong>：去仓库 <a href="https://github.com/musistudio/claude-code-router/releases" rel="external nofollow noopener noreferrer" target="_blank">Releases 页</a>下载对应系统的安装包（macOS / Windows / Linux 都有），装完打开就是管理界面。</li>
+<li><strong>CLI 全键盘流</strong>：终端跑
+<pre><code>npm install -g @musistudio/claude-code-router</code></pre>
+<p>再执行 <code>ccr ui</code>，浏览器自动弹出同一套管理界面。需要 Node.js 22+。</p></li>
+<li><strong>Docker 常驻服务</strong>：按仓库文档的 Docker 部署方式起容器，配置持久化挂载，适合扔在常开的机器或 NAS 上给远程 IDE 用。</li>
+</ul>
+<h2>核心配置：把免费模型挂上去</h2>
+<p>进管理界面添加 provider，把各家的 API Key 填进去。README 明示支持的 provider 里，薅羊毛重点看这几个：</p>
+<ul>
+<li><strong>DeepSeek</strong>：官网申请 Key，推理和代码能力都在线，免费额度有速率限制</li>
+<li><strong>Moonshot（Kimi）</strong>：Kimi 的开放平台，长上下文是强项，免费版有并发上限</li>
+<li><strong>Z.AI（GLM）</strong>：GLM 系列模型的官方通道，免费配额按周期重置</li>
+<li><strong>SiliconFlow / OpenRouter</strong>：聚合型通道，一个 Key 吃多家模型，适合做备用线路</li>
+</ul>
+<p>配好后在管理界面里按 agent 类型做请求分流：Claude Code 的走 DeepSeek，长上下文任务切 Kimi，主线挂了自动落到备用 provider。同一会话里也可以按模型能力自动切换，详细规则看仓库 <a href="https://github.com/musistudio/claude-code-router/blob/main/README_zh.md" rel="external nofollow noopener noreferrer" target="_blank">中文 README</a>。</p>
+<h2>避坑指南</h2>
+<blockquote><p><strong><img src="https://s.w.org/images/core/emoji/17.0.2/72x72/26a0.png" alt="⚠" loading="lazy" referrerpolicy="no-referrer" /> 免费额度随时变</strong><br />
+各家免费配额、速率限制、重置周期都可能随政策调整，别当成永久福利。生产环境务必配<strong>备用 provider 链</strong>，主线挂了自动落回次线。</p>
+<p><strong><img src="https://s.w.org/images/core/emoji/17.0.2/72x72/26a0.png" alt="⚠" loading="lazy" referrerpolicy="no-referrer" /> 上下文窗口别搞混</strong><br />
+三家模型的上下文窗口大小各不相同，Router 不会帮你自动截断，超窗口直接报错。代理端按最小的那个做分片或摘要最稳。</p>
+<p><strong><img src="https://s.w.org/images/core/emoji/17.0.2/72x72/26a0.png" alt="⚠" loading="lazy" referrerpolicy="no-referrer" /> 流式输出兼容性</strong><br />
+部分 provider 的流式格式与 Anthropic 标准有细微差异，Router 内置了适配层但不保证 100% 覆盖。遇到流式卡死，先关掉流式输出再排查。</p>
+<p><strong><img src="https://s.w.org/images/core/emoji/17.0.2/72x72/26a0.png" alt="⚠" loading="lazy" referrerpolicy="no-referrer" /> 本地单点</strong><br />
+Router 跑在本机，电脑睡眠或断网即失效。要 7×24 服务远程 IDE，把 Docker 版部署在常开的云主机或 NAS 上，并配反向代理加 HTTPS。</p></blockquote>
+<h2>省钱账与真实限制</h2>
+<p>把 Claude Code 的流量切到免费 provider，最直接的收益是账单清零：日常写代码、改 Bug、跑测试这类高频低风险任务，完全没必要烧官方 Token。但免费不等于无限——速率限制、并发上限、配额重置都是真实存在的天花板，跑大批量任务前先看各家的配额仪表盘。</p>
+<p>多模型混用还有个隐性成本：Prompt 得按各家模型的脾气微调，同一套提示词在不同模型上表现会有差异。团队有强合规要求、数据不能出内网、或要 SLA 保障的场景，老老实实买企业版或自建私有模型，别拿免费线路赌生产。</p>
+<p> </p>
+<p>本文来源：<a href="https://www.moyunews.com/" rel="external nofollow noopener noreferrer" target="_blank">摸鱼杂货店</a>。查看原文：<a href="https://www.moyunews.com/claude-code-router-free-models/" rel="external nofollow noopener noreferrer" target="_blank">3.7万星Claude代码路由：免费接DeepSeek/Kimi/GLM</a>。</p></div>
+<p class="back"><a href="/">← 返回最新</a></p>
+</article>
+</main>
+<footer class="site-foot">
+<p>wocao.world — 本站内容全部转载自各订阅源，版权归原作者与原站所有。</p>
+</footer>
+</body>
+</html>

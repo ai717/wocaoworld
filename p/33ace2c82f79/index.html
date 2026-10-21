@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>白嫖 Superpowers 插件：强制 AI 规划+测试，写代码像高级工程师 · wocao.world</title>
+<meta name="description" content="AI 写代码像实习生，不盯着就敢糊弄 你要是天天用 Claude Code、Cursor 或者 Gemini CLI 写项目，肯定遭遇过这事：让 AI 写个登录模块，它直接甩给你一堆没有任何测试、硬编码密钥、异常全靠 try-catch 吞掉的『能跑就行』代码。你不盯着改需求、补测试、查安全洞，它绝不主动想。这哪是结对编程，分明是带实习生，还得倒贴 Token 费。 Superpowers 这个插件，GitHub 标星超 30 万，MIT 协议彻底白嫖，直接把『先规划、再写测试、后写代码、最后自检』这套高级工程师的肌肉记忆，硬塞进 AI 的系统提示词里。它不加模型、不微调，纯靠一整套可组合的技…">
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="wocao.world">
+<meta property="og:title" content="白嫖 Superpowers 插件：强制 AI 规划+测试，写代码像高级工程师 · wocao.world">
+<meta property="og:description" content="AI 写代码像实习生，不盯着就敢糊弄 你要是天天用 Claude Code、Cursor 或者 Gemini CLI 写项目，肯定遭遇过这事：让 AI 写个登录模块，它直接甩给你一堆没有任何测试、硬编码密钥、异常全靠 try-catch 吞掉的『能跑就行』代码。你不盯着改需求、补测试、查安全洞，它绝不主动想。这哪是结对编程，分明是带实习生，还得倒贴 Token 费。 Superpowers 这个插件，GitHub 标星超 30 万，MIT 协议彻底白嫖，直接把『先规划、再写测试、后写代码、最后自检』这套高级工程师的肌肉记忆，硬塞进 AI 的系统提示词里。它不加模型、不微调，纯靠一整套可组合的技…">
+<meta property="og:url" content="https://wocao.world/">
+<meta name="twitter:card" content="summary">
+<meta name="robots" content="noindex,follow">
+<link rel="alternate" type="application/rss+xml" title="wocao.world 聚合输出" href="/feed.xml">
+<link rel="stylesheet" href="/style.css">
+<link rel="canonical" href="https://www.moyunews.com/superpowers-claude-code-plugin/">
+</head>
+<body>
+<a class="skip-link" href="#main">跳到正文</a>
+<header class="site-head">
+<p class="site-title"><a href="/">wocao.world</a></p>
+<p class="site-desc">wocao.world</p>
+<nav class="site-nav">
+<a href="/">最新</a>
+<a href="/about/">关于</a>
+<a href="/feed.xml">RSS</a>
+</nav>
+</header>
+<main id="main">
+<article>
+<h1 class="post-title">白嫖 Superpowers 插件：强制 AI 规划+测试，写代码像高级工程师</h1>
+<div class="post-body"><h2>AI 写代码像实习生，不盯着就敢糊弄</h2>
+<p>你要是天天用 <a href="https://code.claude.com/" rel="external nofollow noopener noreferrer" target="_blank">Claude Code</a>、<a href="https://www.cursor.com/" rel="external nofollow noopener noreferrer" target="_blank">Cursor</a> 或者 <a href="https://github.com/google-gemini/gemini-cli" rel="external nofollow noopener noreferrer" target="_blank">Gemini CLI</a> 写项目，肯定遭遇过这事：让 AI 写个登录模块，它直接甩给你一堆没有任何测试、硬编码密钥、异常全靠 try-catch 吞掉的『能跑就行』代码。你不盯着改需求、补测试、查安全洞，它绝不主动想。这哪是结对编程，分明是带实习生，还得倒贴 Token 费。</p>
+<p><a href="https://github.com/obra/superpowers" rel="external nofollow noopener noreferrer" target="_blank">Superpowers</a> 这个插件，GitHub 标星超 30 万，MIT 协议彻底白嫖，直接把『先规划、再写测试、后写代码、最后自检』这套高级工程师的肌肉记忆，硬塞进 AI 的系统提示词里。它不加模型、不微调，纯靠一整套可组合的技能（skills）约束流程，让 AI 在动键盘前先把需求问清楚、拿出一份可确认的实施计划，测试用例先行，写完再走一遍代码评审，目标就是让你少当人肉 Code Review 机器。</p>
+<p><img src="https://moyu.18uk.uk/2026/20261021-789fb2f5-3c03-44f8-a46c-e698e6794983.webp" alt="Superpowers" width="800" loading="lazy" referrerpolicy="no-referrer" /></p>
+<h2>前置条件：只要有终端，就能白嫖</h2>
+<p>别被『插件』俩字唬住，它本质是一套标准化的系统提示词 + 钩子脚本，跑在你本地。支持的平台多得离谱：<a href="https://code.claude.com/" rel="external nofollow noopener noreferrer" target="_blank">Claude Code</a>、<a href="https://openai.com/codex" rel="external nofollow noopener noreferrer" target="_blank">Codex</a>、<a href="https://www.cursor.com/" rel="external nofollow noopener noreferrer" target="_blank">Cursor</a>、<a href="https://github.com/google-gemini/gemini-cli" rel="external nofollow noopener noreferrer" target="_blank">Gemini CLI</a>、<a href="https://opencode.ai/" rel="external nofollow noopener noreferrer" target="_blank">OpenCode</a>、<a href="https://github.com/QwenLM/qwen-code" rel="external nofollow noopener noreferrer" target="_blank">Qwen</a> 等整整 18 个，基本上市面上能叫得上名的 AI 编码终端都覆盖了。只要你机器上装了这些客户端中的任意一个，就能用。没有付费墙，没有注册登录，下载即用，真正的 『免费白嫖 + 效率整活』。</p>
+<h2>核心动作：一条命令搞定安装</h2>
+<p>以 <a href="https://code.claude.com/" rel="external nofollow noopener noreferrer" target="_blank">Claude Code</a> 为例，在 Claude Code 对话里直接输官方市场安装命令：</p>
+<p><code>/plugin install superpowers@claude-plugins-official</code></p>
+<p>装好之后不用逐个点技能：你提一个开发需求，它会按场景自动介入——先走需求访谈，再出实施计划。全程无需改配置文件、无需绑定账号。仓库由作者 Jesse Vincent（obra）维护，2025 年 10 月建仓，至今持续活跃更新，MIT 协议。</p>
+<blockquote><p>避坑：这条命令是输在 Claude Code 对话框里的插件命令，不是系统终端命令，别在 bash 里敲。其他平台（Codex、Cursor、Gemini CLI 等）走各自的插件安装方式，仓库 README 里有对应说明。</p></blockquote>
+<h2>实战验证：让它写个 JWT 登录模块，看看有没有『工程师味儿』</h2>
+<p>安装完别急着夸，找个现成项目或新建个空目录，直接对 Claude Code 说：『用 Express + TypeScript 写个 JWT 登录模块，包含注册、登录、刷新 Token、角色权限中间件，要求 100% 单测覆盖』。</p>
+<p>以前它大概率直接甩完代码溜之大吉。现在装了 Superpowers，你会看到它先在对话框里吐出一份实施计划：模块拆解、接口定义、数据库表结构、测试策略、边界情况全列清单。你确认没毛病回车，它才开始写测试——<code>auth.test.ts</code> 先行，覆盖正常流、过期 Token、错误签名、权限不足四类用例。测试跑红后再写 <code>auth.service.ts</code>、<code>auth.controller.ts</code>、中间件，最后自动跑 <code>npm test</code> 绿灯才算交活。全程你主要干两件事：确认计划、验收评审。这感觉不再是『让 AI 写代码』，而是『派活给高级工程师然后验收』。</p>
+<h2>内置技能都有啥：从访谈到评审一条链</h2>
+<p>它值钱的地方不是某一条提示词，而是仓库自带这套能组合的技能，覆盖开发全程：</p>
+<ul>
+<li><strong>brainstorming</strong>：动手前先做需求访谈，把模糊想法问成明确规格，拒绝上来就瞎写。</li>
+<li><strong>writing-plans / executing-plans</strong>：先写实施计划，再按计划一步步执行，拆解和进度都有据可查。</li>
+<li><strong>TDD 红绿重构</strong>：先写会失败的测试，再写实现让它变绿，最后重构，顺序雷打不动。</li>
+<li><strong>systematic-debugging</strong>：四阶段系统化调试，先定位根因再动手改，拒绝瞎试乱撞。</li>
+<li><strong>requesting-code-review</strong>：完工后主动走代码评审流程，按清单自查再交付。</li>
+<li><strong>using-git-worktrees</strong>：用 Git 工作树隔离并行任务，多个活儿同时推进互不污染。</li>
+</ul>
+<p>这些技能装上核心包就全有，不用再东拼西凑找别的插件。</p>
+<h2>真实限制：别指望它帮你架构系统，它只是个『强制纪律』的监工</h2>
+<p>必须泼盆冷水：Superpowers 解决的是『执行纪律』问题，不是『架构能力』问题。你让它设计微服务拆分、选型数据库、定接口契约，它依然会按公式套模板糊弄，甚至因为强制写测试导致 Token 消耗翻倍、响应变慢。复杂重构任务下，它生成的实施计划往往流于表面，还得人工介入拆任务、定接口。另外，TDD 流程对测试基建没建好的老项目不太友好，接入初期大概率要先花时间补测试。所以定位要准：它是把『会写代码但偷懒』的 AI 管成『按规矩写代码』的工程师，不是把『不会架构』的 AI 变成架构师。</p>
+<p>想白嫖把 AI 代码质量拉上一台阶的，<a href="https://github.com/obra/superpowers" rel="external nofollow noopener noreferrer" target="_blank">直接装</a> 别犹豫。想了解更多实战细节和进阶配置，<a href="https://www.developersdigest.tech/blog/claude-code-superpowers-plugin-guide" rel="external nofollow noopener noreferrer" target="_blank">这篇深度评测</a> 也能当参考。装完记得回来评论区吐槽它逼你补测试有多疼——疼才说明有效。</p>
+<p> </p>
+<p>本文来源：<a href="https://www.moyunews.com/" rel="external nofollow noopener noreferrer" target="_blank">摸鱼杂货店</a>。查看原文：<a href="https://www.moyunews.com/superpowers-claude-code-plugin/" rel="external nofollow noopener noreferrer" target="_blank">白嫖 Superpowers 插件：强制 AI 规划+测试，写代码像高级工程师</a>。</p></div>
+<p class="back"><a href="/">← 返回最新</a></p>
+</article>
+</main>
+<footer class="site-foot">
+<p>wocao.world — 本站内容全部转载自各订阅源，版权归原作者与原站所有。</p>
+</footer>
+</body>
+</html>

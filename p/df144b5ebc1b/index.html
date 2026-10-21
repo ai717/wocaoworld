@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Sphinx 考题钩子：让 AI 写的代码先考考你再 push · wocao.world</title>
+<meta name="description" content="AI 写的代码，推上去之前你真敢签字吗 上周刷 Show HN 2026-10-18 看到个狠活：Sphinx，一个 Git pre-push 钩子，专门治一种病——AI 哗哗生成代码，你看都不看就 git push，出了 bug 两眼一抹黑。这个帖子热度从 225→252 points，评论区吵得热火朝天。 它的逻辑特别简单粗暴：往受保护分支 push 时，它先拦下来，考你几道题——这次变更到底干了什么。答对放行，答错先给你讲解，再换个场景重问。相当于把代码审查的前置环节，变成了你跟自己的一场开卷考试。 前置条件：动手前先确认三件事 先核一下环境：Node 版本要 22.19+，系统用 ma…">
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="wocao.world">
+<meta property="og:title" content="Sphinx 考题钩子：让 AI 写的代码先考考你再 push · wocao.world">
+<meta property="og:description" content="AI 写的代码，推上去之前你真敢签字吗 上周刷 Show HN 2026-10-18 看到个狠活：Sphinx，一个 Git pre-push 钩子，专门治一种病——AI 哗哗生成代码，你看都不看就 git push，出了 bug 两眼一抹黑。这个帖子热度从 225→252 points，评论区吵得热火朝天。 它的逻辑特别简单粗暴：往受保护分支 push 时，它先拦下来，考你几道题——这次变更到底干了什么。答对放行，答错先给你讲解，再换个场景重问。相当于把代码审查的前置环节，变成了你跟自己的一场开卷考试。 前置条件：动手前先确认三件事 先核一下环境：Node 版本要 22.19+，系统用 ma…">
+<meta property="og:url" content="https://wocao.world/">
+<meta name="twitter:card" content="summary">
+<meta name="robots" content="noindex,follow">
+<link rel="alternate" type="application/rss+xml" title="wocao.world 聚合输出" href="/feed.xml">
+<link rel="stylesheet" href="/style.css">
+<link rel="canonical" href="https://www.moyunews.com/sphinx-git-hook-quiz/">
+</head>
+<body>
+<a class="skip-link" href="#main">跳到正文</a>
+<header class="site-head">
+<p class="site-title"><a href="/">wocao.world</a></p>
+<p class="site-desc">wocao.world</p>
+<nav class="site-nav">
+<a href="/">最新</a>
+<a href="/about/">关于</a>
+<a href="/feed.xml">RSS</a>
+</nav>
+</header>
+<main id="main">
+<article>
+<h1 class="post-title">Sphinx 考题钩子：让 AI 写的代码先考考你再 push</h1>
+<div class="post-body"><h2>AI 写的代码，推上去之前你真敢签字吗</h2>
+<p>上周刷 <a href="https://news.ycombinator.com/item?id=50138503" rel="external nofollow noopener noreferrer" target="_blank">Show HN 2026-10-18</a> 看到个狠活：<a href="https://github.com/parthh01/sphinx" rel="external nofollow noopener noreferrer" target="_blank">Sphinx</a>，一个 Git pre-push 钩子，专门治一种病——AI 哗哗生成代码，你看都不看就 git push，出了 bug 两眼一抹黑。这个帖子热度从 225→252 points，评论区吵得热火朝天。</p>
+<p>它的逻辑特别简单粗暴：往受保护分支 push 时，它先拦下来，考你几道题——这次变更到底干了什么。答对放行，答错先给你讲解，再换个场景重问。相当于把代码审查的前置环节，变成了你跟自己的一场开卷考试。</p>
+<p><img src="https://moyu.18uk.uk/2026/20261021-de1fd47a-e867-47b4-bd6a-fbf027a86779.webp" alt="Sphinx 考题钩子" width="800" loading="lazy" referrerpolicy="no-referrer" /></p>
+<h2>前置条件：动手前先确认三件事</h2>
+<p>先核一下环境：Node 版本要 22.19+，系统用 macOS、Linux 或 WSL，原生 Windows 暂不支持。项目 MIT 协议开源，<a href="https://sphinx-six-theta.vercel.app/" rel="external nofollow noopener noreferrer" target="_blank">官网</a>和 <a href="https://github.com/parthh01/sphinx" rel="external nofollow noopener noreferrer" target="_blank">GitHub 仓库</a>都免费可拿，目前仓库约 257 stars。</p>
+<p>再看你手里有没有 coding agent：Codex、Claude Code、Cursor、OpenCode、Pi，装一个就行，Sphinx 走的是你自己的 agent 额度，或者配一个 OpenRouter key 也能跑。</p>
+<p>最后掂量一下成本：单次检查约 5~8 次模型调用，push 最多等 25 分钟，通过有效期 24 小时——频繁 push 的人要有心理准备。</p>
+<h2>第一步：两条命令装好并接入全局钩子</h2>
+<p>全局安装，装到哪台机器都行：<code>npm install -g sphinx-understand</code></p>
+<p>跑安装向导，把它挂进 Git 的全局钩子路径：<code>sphinx install</code>。这一步会设置全局 core.hooksPath，并让你选一个 reviewer 模型，比如 Haiku、GPT-6 Luna，或者走 OpenRouter。</p>
+<p>装完先自检，别等 push 时才发现配错了：<code>sphinx check</code> 查配置，<code>sphinx doctor</code> 诊断环境，两个都绿了再往下走。</p>
+<h2>第二步：按仓库配规则，生成三件套</h2>
+<p>进到你的项目目录初始化：<code>sphinx init</code>。它会让你配受保护分支和考题深度，然后生成三个文件：.sphinxconfig 存规则，.sphinxcontext.md 给 reviewer 补项目背景，.sphinxignore 排除敏感路径。</p>
+<p>隐私这块要认真看：考题是 reviewer 模型出的，你的变更代码会发给 reviewer 的服务商。.env 和密钥默认就被排除，但公司内部的敏感目录，建议手动加进 .sphinxignore。</p>
+<h2>第三步：推一次，体验被拷问的感觉</h2>
+<p>往受保护分支 <code>git push</code>，Sphinx 直接暂停推送，按变更大小出 1~3 道题。题目只围绕这次 diff 本身，不考八股文。</p>
+<p>答对了，钩子放行，push 继续；答错了，它先给你讲明白这段代码的逻辑，再换个场景重新出题，直到你真正搞懂为止。</p>
+<p>赶时间真想跳过也有后门：<code>sphinx yolo</code>。但每次跳过都会被记下来，<code>sphinx status</code> 一查一个准——摸鱼有代价，自己掂量。</p>
+<p>嫌模型烧钱太猛，可以给它设个上限：<code>sphinx config --max-model-calls 30</code>，超过就停手。</p>
+<h2>避坑</h2>
+<blockquote><p>它只是练习，不是安全门。所有本地 hook 都能被绕过，真指望它防内鬼就想多了。</p>
+<p>出题的是 LLM，它也会出错——题目离谱或者判错答案都可能遇到，心态放平。</p>
+<p>HN 评论区的争议如实转述：有人用了一阵子嫌烦弃用了；有人建议把这道门前移，别等到 push 才考人；重度 AI 用户觉得这纯属摩擦，拖慢节奏。<a href="https://trendintech.com/sphinx-git-hook-ai-code-quiz-2026/" rel="external nofollow noopener noreferrer" target="_blank">媒体报道</a>也提到，这类工具的价值更多在培养习惯。</p>
+<p>但它的核心设计值得一个好评：出题的 reviewer 模型只能看到 Git diff，看不到你和 coding agent 的聊天记录；你的答案也不会回流给 coding agent，答题过程不污染你的 AI 助手。</p></blockquote>
+<p> </p>
+<p> </p>
+<p>本文来源：<a href="https://www.moyunews.com/" rel="external nofollow noopener noreferrer" target="_blank">摸鱼杂货店</a>。查看原文：<a href="https://www.moyunews.com/sphinx-git-hook-quiz/" rel="external nofollow noopener noreferrer" target="_blank">Sphinx 考题钩子：让 AI 写的代码先考考你再 push</a>。</p></div>
+<p class="back"><a href="/">← 返回最新</a></p>
+</article>
+</main>
+<footer class="site-foot">
+<p>wocao.world — 本站内容全部转载自各订阅源，版权归原作者与原站所有。</p>
+</footer>
+</body>
+</html>

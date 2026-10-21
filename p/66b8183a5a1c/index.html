@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>rea逆向工程实战：本地把二进制拆到字节级 · wocao.world</title>
+<meta name="description" content="痛点直击：AI 只会写代码，不会读二进制 手里攥着个没源码的 .exe、.apk 或签名掉了的 Electron 包，想让 Claude Code 帮你把业务逻辑还原成伪代码？别做梦了——大模型上下文塞不进 IDA Pro 的数据库，也跑不通 Ghidra 的分析流程。morluto/rea 这项目，GitHub 狂揽 超 34 万 star、fork 8.6 万，MIT 协议彻底开源，给的答案是：别让大模型去猜汇编，把现成的逆向工具包成 MCP 服务器 扔给 Agent 直接调。 前置条件：别上来就 npx 先确认三样东西在机器上： Node.js 环境（跑 npx rea-agents s…">
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="wocao.world">
+<meta property="og:title" content="rea逆向工程实战：本地把二进制拆到字节级 · wocao.world">
+<meta property="og:description" content="痛点直击：AI 只会写代码，不会读二进制 手里攥着个没源码的 .exe、.apk 或签名掉了的 Electron 包，想让 Claude Code 帮你把业务逻辑还原成伪代码？别做梦了——大模型上下文塞不进 IDA Pro 的数据库，也跑不通 Ghidra 的分析流程。morluto/rea 这项目，GitHub 狂揽 超 34 万 star、fork 8.6 万，MIT 协议彻底开源，给的答案是：别让大模型去猜汇编，把现成的逆向工具包成 MCP 服务器 扔给 Agent 直接调。 前置条件：别上来就 npx 先确认三样东西在机器上： Node.js 环境（跑 npx rea-agents s…">
+<meta property="og:url" content="https://wocao.world/">
+<meta name="twitter:card" content="summary">
+<meta name="robots" content="noindex,follow">
+<link rel="alternate" type="application/rss+xml" title="wocao.world 聚合输出" href="/feed.xml">
+<link rel="stylesheet" href="/style.css">
+<link rel="canonical" href="https://www.moyunews.com/rea-local-reverse-engineering/">
+</head>
+<body>
+<a class="skip-link" href="#main">跳到正文</a>
+<header class="site-head">
+<p class="site-title"><a href="/">wocao.world</a></p>
+<p class="site-desc">wocao.world</p>
+<nav class="site-nav">
+<a href="/">最新</a>
+<a href="/about/">关于</a>
+<a href="/feed.xml">RSS</a>
+</nav>
+</header>
+<main id="main">
+<article>
+<h1 class="post-title">rea逆向工程实战：本地把二进制拆到字节级</h1>
+<div class="post-body"><h2>痛点直击：AI 只会写代码，不会读二进制</h2>
+<p>手里攥着个没源码的 <code>.exe</code>、<code>.apk</code> 或签名掉了的 Electron 包，想让 Claude Code 帮你把业务逻辑还原成伪代码？别做梦了——大模型上下文塞不进 IDA Pro 的数据库，也跑不通 Ghidra 的分析流程。<a href="https://github.com/morluto/rea" rel="external nofollow noopener noreferrer" target="_blank">morluto/rea</a> 这项目，GitHub 狂揽 <strong>超 34 万 star</strong>、fork 8.6 万，MIT 协议彻底开源，给的答案是：别让大模型去猜汇编，把现成的逆向工具包成 <a href="https://rea.tools/" rel="external nofollow noopener noreferrer" target="_blank">MCP 服务器</a> 扔给 Agent 直接调。</p>
+<p><img src="https://moyu.18uk.uk/2026/20261021-4f67543c-88ca-49b2-b369-1bde4976f0d5.webp" alt="rea逆向工程" width="800" loading="lazy" referrerpolicy="no-referrer" /></p>
+<h2>前置条件：别上来就 npx</h2>
+<p>先确认三样东西在机器上：</p>
+<ul>
+<li><strong>Node.js 环境</strong>（跑 <code>npx rea-agents setup</code> 用）</li>
+<li><strong>至少一个反编译器</strong>：<a href="https://ghidra-sre.org/" rel="external nofollow noopener noreferrer" target="_blank">Ghidra</a> 免费开箱即用；<a href="https://hex-rays.com/ida-pro/" rel="external nofollow noopener noreferrer" target="_blank">IDA Pro</a> / <a href="https://www.hopperapp.com/" rel="external nofollow noopener noreferrer" target="_blank">Hopper</a> 属商业软件，<strong>必须自行合法获取授权</strong></li>
+<li>目标二进制文件：原生 ELF/PE/Mach-O、Electron/JS 打包应用、.NET 程序集、Android APK，甚至网站</li>
+</ul>
+<p>npm 包叫 <code>rea-agents</code>（当前稳定版 6.7.0），README 还列了官网 <a href="https://rea.tools/" rel="external nofollow noopener noreferrer" target="_blank">rea.tools</a>——三个渠道对上号再动手，市面上有同名仿冒仓库。</p>
+<h2>三步把 Agent 接进反编译器</h2>
+<ul>
+<li><strong>跑初始化命令</strong>：
+<pre><code>npx rea-agents setup</code></pre>
+<p>按交互提示选你的 Agent（Claude Code / Codex / Cursor / Gemini CLI / Grok Build）和后端分析工具（Ghidra / IDA Pro / Hopper），配置会自动写入 Agent 的 MCP 设置。</p></li>
+<li><strong>直接提自然语言需求</strong>：比如「把这个 APK 里的登录校验逻辑还原成伪代码，重点看加密部分」。Agent 通过 MCP 调用你本机的反编译器，自动走完反汇编、函数识别、交叉引用整套流程。</li>
+<li><strong>拿结果继续干活</strong>：伪代码、字符串表、函数调用链直接塞回对话上下文，接着让 Agent 写 PoC 或补测试，中间不用你手动开 GUI 点半天。</li>
+</ul>
+<p>原理不神秘：rea 是 TypeScript 写的 MCP 服务器 + CLI，它不自己反编译，而是把 Ghidra / IDA Pro / Hopper 这些老牌工具的能力封装成 Agent 能调用的接口。详细参数去 <a href="https://github.com/morluto/rea" rel="external nofollow noopener noreferrer" target="_blank">仓库 README</a> 对着看，别信二手转述。</p>
+<h2>README 里那三个官方 showcase</h2>
+<p>以下三个案例出自官方 README 展示区，是真实挂出来的，不是社区段子：</p>
+<ul>
+<li><strong>DX-Ball 声场重建</strong>：老 DOS 游戏的音频调用链被 Agent 扒出来，还原成可跑的复刻逻辑。</li>
+<li><strong>Notion Electron 剪贴板桥</strong>：对着 Notion 的 Electron 包做分析，定位剪贴板相关逻辑，做桥接改造。</li>
+<li><strong>TH04 DOS 弹幕计算</strong>：东方系列老游戏的弹幕定点数运算，被还原成可读的数学公式。</li>
+</ul>
+<p>注意：邮件里流传的「空调遥控器做成 Mac 菜单栏」「Linux 跑 AirDrop」等案例，在 README 展示区里<strong>没找到</strong>，别当官方背书到处转。</p>
+<h2>避坑指南：别让授权和仿冒毁了周末</h2>
+<blockquote><p><strong><img src="https://s.w.org/images/core/emoji/17.0.2/72x72/26a0.png" alt="⚠" loading="lazy" referrerpolicy="no-referrer" /> 商业反编译器不是送的</strong><br />
+Ghidra 免费，但 IDA Pro 和 Hopper 是商业软件，授权自己搞定。rea 只是把它们的现有能力封成 MCP 接口，不附带任何授权。</p>
+<p><strong><img src="https://s.w.org/images/core/emoji/17.0.2/72x72/26a0.png" alt="⚠" loading="lazy" referrerpolicy="no-referrer" /> 认准三个官方渠道</strong><br />
+GitHub 只认 <a href="https://github.com/morluto/rea" rel="external nofollow noopener noreferrer" target="_blank">morluto/rea</a>、官网只认 <a href="https://rea.tools/" rel="external nofollow noopener noreferrer" target="_blank">rea.tools</a>、npm 只认 <code>rea-agents</code>。同名仓库、同名 npm 包一律是蹭热度的仿冒。</p>
+<p><strong><img src="https://s.w.org/images/core/emoji/17.0.2/72x72/26a0.png" alt="⚠" loading="lazy" referrerpolicy="no-referrer" /> 大二进制别硬塞</strong><br />
+上百 MB 的文件先确认后端分析工具的内存和超时配置，MCP 调用超时了先调大后端限制，别反复重试把进程卡死。</p></blockquote>
+<h2>别再手动点 IDA 了，把逆向变成 Agent 的一条工具调用</h2>
+<p>以前逆向是「打开 IDA → 等自动分析 → F5 看伪代码 → 手抄关键函数 → 回编辑器写 PoC」，现在是「<code>npx rea-agents setup</code> → 扔句自然语言 → 拿回可读的还原结果」。<strong>工具本质没变，但把「点鼠标、记偏移、查交叉引用」全交给 MCP 服务器自动化了</strong>。下次遇到没源码的遗留系统、要绕过的校验逻辑，直接把二进制丢给接好 rea 的 Agent。MIT 协议、本地跑、数据不出门，这才是给程序员用的逆向基建。</p>
+<p>————社媒版本 使用后删除————</p>
+<p> </p>
+<p>本文来源：<a href="https://www.moyunews.com/" rel="external nofollow noopener noreferrer" target="_blank">摸鱼杂货店</a>。查看原文：<a href="https://www.moyunews.com/rea-local-reverse-engineering/" rel="external nofollow noopener noreferrer" target="_blank">rea逆向工程实战：本地把二进制拆到字节级</a>。</p></div>
+<p class="back"><a href="/">← 返回最新</a></p>
+</article>
+</main>
+<footer class="site-foot">
+<p>wocao.world — 本站内容全部转载自各订阅源，版权归原作者与原站所有。</p>
+</footer>
+</body>
+</html>

@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Context Mode 插件：315KB 压到 5.4KB，上下文不再爆炸 · wocao.world</title>
+<meta name="description" content="Context Mode 怎么把 315KB 上下文压到 5.4KB 官方 README 里写着：工具把所有输出先在沙箱里跑完，只把最终结果塞回对话上下文。按 README 的说法，原本 315KB 的工具输出，处理完只剩 5.4KB，降幅 98%。数字是官方 README 给的，不是哪个博主瞎编的。 核心机制：沙箱执行 + 结果回填 它的干法和普通截断完全不同：工具调用先在隔离沙箱里执行完，原始输出不进上下文，只把执行结果塞回去，这就是 README 里那句『315 KB becomes 5.4 KB』的由来。同时，你的每一次编辑、git 操作、任务进度、报错和关键决策，都会被记进本地 SQ…">
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="wocao.world">
+<meta property="og:title" content="Context Mode 插件：315KB 压到 5.4KB，上下文不再爆炸 · wocao.world">
+<meta property="og:description" content="Context Mode 怎么把 315KB 上下文压到 5.4KB 官方 README 里写着：工具把所有输出先在沙箱里跑完，只把最终结果塞回对话上下文。按 README 的说法，原本 315KB 的工具输出，处理完只剩 5.4KB，降幅 98%。数字是官方 README 给的，不是哪个博主瞎编的。 核心机制：沙箱执行 + 结果回填 它的干法和普通截断完全不同：工具调用先在隔离沙箱里执行完，原始输出不进上下文，只把执行结果塞回去，这就是 README 里那句『315 KB becomes 5.4 KB』的由来。同时，你的每一次编辑、git 操作、任务进度、报错和关键决策，都会被记进本地 SQ…">
+<meta property="og:url" content="https://wocao.world/">
+<meta name="twitter:card" content="summary">
+<meta name="robots" content="noindex,follow">
+<link rel="alternate" type="application/rss+xml" title="wocao.world 聚合输出" href="/feed.xml">
+<link rel="stylesheet" href="/style.css">
+<link rel="canonical" href="https://www.moyunews.com/context-mode-claude-code/">
+</head>
+<body>
+<a class="skip-link" href="#main">跳到正文</a>
+<header class="site-head">
+<p class="site-title"><a href="/">wocao.world</a></p>
+<p class="site-desc">wocao.world</p>
+<nav class="site-nav">
+<a href="/">最新</a>
+<a href="/about/">关于</a>
+<a href="/feed.xml">RSS</a>
+</nav>
+</header>
+<main id="main">
+<article>
+<h1 class="post-title">Context Mode 插件：315KB 压到 5.4KB，上下文不再爆炸</h1>
+<div class="post-body"><h2><a href="https://github.com/mksglu/context-mode" rel="external nofollow noopener noreferrer" target="_blank">Context Mode</a> 怎么把 315KB 上下文压到 5.4KB</h2>
+<p>官方 README 里写着：工具把所有输出先在沙箱里跑完，只把最终结果塞回对话上下文。按 README 的说法，原本 315KB 的工具输出，处理完只剩 5.4KB，降幅 98%。数字是官方 README 给的，不是哪个博主瞎编的。</p>
+<h2><img src="https://moyu.18uk.uk/2026/20261021-766ce2cb-5258-404a-a6c5-9f3a49a86b3e.webp" alt="Context Mode" width="500" loading="lazy" referrerpolicy="no-referrer" /></h2>
+<h2>核心机制：沙箱执行 + 结果回填</h2>
+<p>它的干法和普通截断完全不同：工具调用先在隔离沙箱里执行完，原始输出不进上下文，只把执行结果塞回去，这就是 README 里那句『315 KB becomes 5.4 KB』的由来。同时，你的每一次编辑、git 操作、任务进度、报错和关键决策，都会被记进本地 <a href="https://www.sqlite.org/" rel="external nofollow noopener noreferrer" target="_blank">SQLite</a> 数据库，配上 FTS5 全文索引和 BM25 排序；等会话被压缩（compaction）之后，新会话不用重放全部历史，按关键词只取回相关的片段接着干。它还强制一种『Think in Code』范式：让智能体写代码去做分析，只把日志结果留在上下文里，别把原始数据一股脑读进来。</p>
+<h3>数据流向一览</h3>
+<ul>
+<li>用户发起工具调用 → 插件把命令丢进沙箱</li>
+<li>沙箱返回完整输出 → 只有结果回填进上下文，原始日志不进 token 窗口</li>
+<li>编辑、git 操作、任务与决策同步记入本地 SQLite（FTS5 全文索引）</li>
+<li>会话压缩后按 BM25 检索只取回相关片段，不重放全部历史</li>
+</ul>
+<h2>安装：三条路任选，命令别记错</h2>
+<p>官方给了三套安装方式，任选其一：</p>
+<ul>
+<li><code>/plugin marketplace add mksglu/context-mode</code> 然后 <code>/plugin install context-mode@context-mode</code></li>
+<li>或者直接 <code>npm install -g context-mode</code></li>
+<li>也可以当 MCP 服务器挂上：<code>claude mcp add context-mode -- npx -y context-mode</code></li>
+</ul>
+<p>三条路本质一样，挑顺手的就行。装好后能在 <a href="https://github.com/mksglu/context-mode" rel="external nofollow noopener noreferrer" target="_blank">GitHub 仓库</a> 里列出的 17 个平台，包括 <a href="https://code.claude.com/" rel="external nofollow noopener noreferrer" target="_blank">Claude Code</a>、<a href="https://openai.com/codex" rel="external nofollow noopener noreferrer" target="_blank">Codex</a>、<a href="https://www.cursor.com/" rel="external nofollow noopener noreferrer" target="_blank">Cursor</a>、<a href="https://github.com/google-gemini/gemini-cli" rel="external nofollow noopener noreferrer" target="_blank">Gemini CLI</a> 等，不用再手动配适配层。</p>
+<h2>真实成本与限制</h2>
+<p>免费白嫖是真，但有几点得清楚：</p>
+<ul>
+<li>许可证是 <strong>ELv2</strong>，不是 MIT，商用二次分发要看条款</li>
+<li>所有编辑、任务、决策都存在本地 SQLite，迁移机器得把数据库文件带走</li>
+<li>仓库 2026 年 2 月才建，但已经攒了 2000 多个 commit、195 个 release，更新非常勤，接口和行为变动会比较快</li>
+<li>压缩后取回的是按相关性筛过的片段，不是无损全文，关键决策仍建议同步落到项目文档里</li>
+</ul>
+<blockquote><p>避坑提示：会话记忆全在本地 SQLite 里，换机器干活记得把数据库文件一起带走，不然新机器上它对你的项目一无所知。</p></blockquote>
+<h2>为什么它能压这么狠：和截断流的区别</h2>
+<p>市面上同类插件大多把工具输出原样塞进上下文，或者只做简单截断。Context Mode 的差异点在于：</p>
+<ul>
+<li>执行环节瘦身：输出在沙箱里跑完再回填，原始日志根本不进上下文</li>
+<li>会话连续性：压缩后按相关性取回片段，不怕聊到一半失忆</li>
+<li>本地 SQLite 持久化：编辑、任务、决策全留痕，换会话接着干</li>
+</ul>
+<p>多数上下文工具走的是截断或摘要路线：输出太长就砍尾巴，或者让模型再总结一遍，关键报错容易在半路丢掉。Context Mode 从执行环节下手，把 315KB 压到 5.4KB，属于「把垃圾全扔了，只留干货」的激进派。</p>
+<h2>适用场景与上手建议</h2>
+<p>适合：</p>
+<ul>
+<li>天天在终端里跑长脚本、跑测试、跑 CI 的开发者</li>
+<li>想把 token 省下来给更长的推理上下文</li>
+<li>不想折腾 Docker、K8s 又想要隔离环境的轻量玩家</li>
+</ul>
+<p>不适合：</p>
+<ul>
+<li>需要把完整原始日志留档审计的合规场景</li>
+<li>完全离线、无法运行沙箱进程的受限环境</li>
+</ul>
+<p>一句话总结：<strong>Context Mode</strong> 用沙箱 + 本地 SQLite 把工具输出「先跑后压」，一条命令装好、3.1 万 star 背书，免费白嫖还能省 token，想把上下文塞得更满、跑得更快的直接冲。</p>
+<p> </p>
+<p> </p>
+<p>本文来源：<a href="https://www.moyunews.com/" rel="external nofollow noopener noreferrer" target="_blank">摸鱼杂货店</a>。查看原文：<a href="https://www.moyunews.com/context-mode-claude-code/" rel="external nofollow noopener noreferrer" target="_blank">Context Mode 插件：315KB 压到 5.4KB，上下文不再爆炸</a>。</p></div>
+<p class="back"><a href="/">← 返回最新</a></p>
+</article>
+</main>
+<footer class="site-foot">
+<p>wocao.world — 本站内容全部转载自各订阅源，版权归原作者与原站所有。</p>
+</footer>
+</body>
+</html>

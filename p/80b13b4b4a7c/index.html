@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Sakana AI 推出 QD-Rec 用质量多样性进化搜索做开放式推荐 · wocao.world</title>
+<meta name="description" content="为什么推荐系统还在靠静态打分？ 大多数推荐框架把候选项塞进固定的向量空间，再用同一套打分函数排序。这种做法在候选池不断扩张、偏好不断漂移时，往往只能靠重训练来缓解，成本高、反应慢。 QD-Rec 的核心循环：bandit → LLM 变异 → niche 竞争 项目把推荐单位拆成 候选（公司、顾客、论文）与 假设（书面理由），然后跑三步循环： bandit 选候选 用多臂老虎机策略在现有档案里挑出最值得探索的候选，避免盲目遍历。 LLM 变异与交叉 把选中的候选喂给 proposer（默认 openai/gpt-6-luna），让模型写出新的推荐理由，或把两条理由杂交出第三条。 niche 竞…">
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="wocao.world">
+<meta property="og:title" content="Sakana AI 推出 QD-Rec 用质量多样性进化搜索做开放式推荐 · wocao.world">
+<meta property="og:description" content="为什么推荐系统还在靠静态打分？ 大多数推荐框架把候选项塞进固定的向量空间，再用同一套打分函数排序。这种做法在候选池不断扩张、偏好不断漂移时，往往只能靠重训练来缓解，成本高、反应慢。 QD-Rec 的核心循环：bandit → LLM 变异 → niche 竞争 项目把推荐单位拆成 候选（公司、顾客、论文）与 假设（书面理由），然后跑三步循环： bandit 选候选 用多臂老虎机策略在现有档案里挑出最值得探索的候选，避免盲目遍历。 LLM 变异与交叉 把选中的候选喂给 proposer（默认 openai/gpt-6-luna），让模型写出新的推荐理由，或把两条理由杂交出第三条。 niche 竞…">
+<meta property="og:url" content="https://wocao.world/">
+<meta name="twitter:card" content="summary">
+<meta name="robots" content="noindex,follow">
+<link rel="alternate" type="application/rss+xml" title="wocao.world 聚合输出" href="/feed.xml">
+<link rel="stylesheet" href="/style.css">
+<link rel="canonical" href="https://www.moyunews.com/sakana-ai-qd-rec/">
+</head>
+<body>
+<a class="skip-link" href="#main">跳到正文</a>
+<header class="site-head">
+<p class="site-title"><a href="/">wocao.world</a></p>
+<p class="site-desc">wocao.world</p>
+<nav class="site-nav">
+<a href="/">最新</a>
+<a href="/about/">关于</a>
+<a href="/feed.xml">RSS</a>
+</nav>
+</header>
+<main id="main">
+<article>
+<h1 class="post-title">Sakana AI 推出 QD-Rec 用质量多样性进化搜索做开放式推荐</h1>
+<div class="post-body"><h2>为什么推荐系统还在靠静态打分？</h2>
+<p>大多数推荐框架把候选项塞进固定的向量空间，再用同一套打分函数排序。这种做法在候选池不断扩张、偏好不断漂移时，往往只能靠重训练来缓解，成本高、反应慢。</p>
+<p><img src="https://moyu.18uk.uk/2026/20261021-f3cc3f39-b7f9-43c2-b874-370adc407253.webp" alt="QD-Rec" width="800" loading="lazy" referrerpolicy="no-referrer" /></p>
+<h2>QD-Rec 的核心循环：bandit → LLM 变异 → niche 竞争</h2>
+<p>项目把推荐单位拆成 <code>候选</code>（公司、顾客、论文）与 <code>假设</code>（书面理由），然后跑三步循环：</p>
+<h3>bandit 选候选</h3>
+<p>用多臂老虎机策略在现有档案里挑出最值得探索的候选，避免盲目遍历。</p>
+<h3>LLM 变异与交叉</h3>
+<p>把选中的候选喂给 <code>proposer</code>（默认 <a href="https://openrouter.ai/" rel="external nofollow noopener noreferrer" target="_blank">openai/gpt-6-luna</a>），让模型写出新的推荐理由，或把两条理由杂交出第三条。</p>
+<h3>niche 竞争与收录</h3>
+<p>生成的假设形成新的 <code>niche</code>，若档案里没有相似 niche 就直接入库；否则与最相似的旧 niche 进行一次 <code>grader</code>（默认同模型）打分的 1v1，赢者留档。</p>
+<h2>三大实验域的设计逻辑</h2>
+<p>论文在三个完全不同的场景各跑 1,000 轮生成-评估：</p>
+<ul>
+<li>并购（M&amp;A）：用 2024‑08 LSEG 数据，约 6,300 家美国公司，测试能否挖掘潜在收购对象；</li>
+<li>客户定位：1 万份虚构加州客户画像，考察对长尾偏好的覆盖；</li>
+<li>论文推荐：ICLR 2026、ICML 2026、NeurIPS 2025 共约 17,500 篇，验证学术检索的多样性。</li>
+</ul>
+<p>实验配置里 <code>proposer=claude-sonnet-5</code>、<code>grader=gpt-5.6-terra</code>，开源仓库默认走 <a href="https://openrouter.ai/" rel="external nofollow noopener noreferrer" target="_blank">OpenRouter</a>（proposer/judge = openai/gpt-6-luna，embedding = text-embedding-3-small）。结论只写“多数设置下 QD-Rec 平均分更高、archive 更大”，不再给百分比头条。</p>
+<h2>跑起来要准备什么</h2>
+<p>环境要求 <code>Python 3.10+</code>、<code>uv</code> 包管理器，以及一个 <code>OPENROUTER_API_KEY</code>。M&amp;A 真实数据需要付费 LSEG 订阅，其余实验配置与数据说明见论文与仓库 README。</p>
+<h2>不适合的场景</h2>
+<p>如果你只需要固定候选池的一次性排序、且没有持续探索新假设的预算，直接用传统向量检索更省事。QD-Rec 的优势在于“开放式、持续进化”，不在静态榜单上争毫秒。</p>
+<h2>获取与引用</h2>
+<p>官方公告：<a href="https://sakana.ai/qd-rec/" rel="external nofollow noopener noreferrer" target="_blank">sakana.ai/qd-rec/</a>；GitHub：<a href="https://github.com/SakanaAI/QD-Rec" rel="external nofollow noopener noreferrer" target="_blank">SakanaAI/QD-Rec</a>（Apache‑2.0）；论文：<a href="https://arxiv.org/abs/2610.23470" rel="external nofollow noopener noreferrer" target="_blank">arXiv:2610.23470</a>。技术细节另见 <a href="https://pub.sakana.ai/qd-rec/" rel="external nofollow noopener noreferrer" target="_blank">技术文章</a>。</p>
+<p>实测预算提醒：论文里 proposer 用的是 claude-sonnet-5、grader 是 gpt-5.6-terra，开源仓库（Apache-2.0 协议）默认走 OpenRouter 上的 openai/gpt-6-luna，每一轮都要调模型生成与打分，一千轮跑下来 token 开销不小，动手前先给 OpenRouter 账户备足额度。</p>
+<p> </p>
+<p>本文来源：<a href="https://www.moyunews.com/" rel="external nofollow noopener noreferrer" target="_blank">摸鱼杂货店</a>。查看原文：<a href="https://www.moyunews.com/sakana-ai-qd-rec/" rel="external nofollow noopener noreferrer" target="_blank">Sakana AI 推出 QD-Rec 用质量多样性进化搜索做开放式推荐</a>。</p></div>
+<p class="back"><a href="/">← 返回最新</a></p>
+</article>
+</main>
+<footer class="site-foot">
+<p>wocao.world — 本站内容全部转载自各订阅源，版权归原作者与原站所有。</p>
+</footer>
+</body>
+</html>

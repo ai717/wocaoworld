@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>DeepInfer 开源了：DeepSeek 自家生产推理引擎大曝光 · wocao.world</title>
+<meta name="description" content="事实梳理：DeepInfer 到底是什么 2025 年 4 月，DeepSeek 曾公开声明：自家推理引擎跟内部集群工具深度耦合，2025 年 4 月曾声明不开源。一年半之后，这句话被反转了——2026-10-20 发布，DeepSeek 在 GitHub 上把自家生产级推理框架 DeepInfer 以 Apache 2.0 协议开源，官方 X 账号 @deepseek_ai 同日官宣。这套框架的定位很直白：支撑 DeepSeek 大规模生产服务的推理框架，就是公司自己每天在线上跑流量的那一套。 首版能跑的模型只有一个：DeepSeek-V4.1-Flash。芯片支持两条线：NVIDIA SM…">
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="wocao.world">
+<meta property="og:title" content="DeepInfer 开源了：DeepSeek 自家生产推理引擎大曝光 · wocao.world">
+<meta property="og:description" content="事实梳理：DeepInfer 到底是什么 2025 年 4 月，DeepSeek 曾公开声明：自家推理引擎跟内部集群工具深度耦合，2025 年 4 月曾声明不开源。一年半之后，这句话被反转了——2026-10-20 发布，DeepSeek 在 GitHub 上把自家生产级推理框架 DeepInfer 以 Apache 2.0 协议开源，官方 X 账号 @deepseek_ai 同日官宣。这套框架的定位很直白：支撑 DeepSeek 大规模生产服务的推理框架，就是公司自己每天在线上跑流量的那一套。 首版能跑的模型只有一个：DeepSeek-V4.1-Flash。芯片支持两条线：NVIDIA SM…">
+<meta property="og:url" content="https://wocao.world/">
+<meta name="twitter:card" content="summary">
+<meta name="robots" content="noindex,follow">
+<link rel="alternate" type="application/rss+xml" title="wocao.world 聚合输出" href="/feed.xml">
+<link rel="stylesheet" href="/style.css">
+<link rel="canonical" href="https://www.moyunews.com/deepseek-deepinfer-inference-engine/">
+</head>
+<body>
+<a class="skip-link" href="#main">跳到正文</a>
+<header class="site-head">
+<p class="site-title"><a href="/">wocao.world</a></p>
+<p class="site-desc">wocao.world</p>
+<nav class="site-nav">
+<a href="/">最新</a>
+<a href="/about/">关于</a>
+<a href="/feed.xml">RSS</a>
+</nav>
+</header>
+<main id="main">
+<article>
+<h1 class="post-title">DeepInfer 开源了：DeepSeek 自家生产推理引擎大曝光</h1>
+<div class="post-body"><h2>事实梳理：DeepInfer 到底是什么</h2>
+<p>2025 年 4 月，DeepSeek 曾公开声明：自家推理引擎跟内部集群工具深度耦合，<strong>2025 年 4 月曾声明不开源</strong>。一年半之后，这句话被反转了——<strong>2026-10-20 发布</strong>，DeepSeek 在 <a href="https://github.com/deepseek-ai/DeepInfer" rel="external nofollow noopener noreferrer" target="_blank">GitHub</a> 上把自家生产级推理框架 <strong>DeepInfer</strong> 以 <strong>Apache 2.0</strong> 协议开源，官方 X 账号 @deepseek_ai 同日官宣。这套框架的定位很直白：支撑 <strong>DeepSeek</strong> 大规模生产服务的推理框架，就是公司自己每天在线上跑流量的那一套。</p>
+<p>首版能跑的模型只有一个：<strong>DeepSeek-V4.1-Flash</strong>。芯片支持两条线：<strong>NVIDIA SM100</strong>（配 CUDA 13）和 <strong>Huawei Ascend 950</strong>（配 CANN 9.2）。从仓库结构看，DeepInfer 是基于 vLLM 深度定制的，同时借鉴了 SGLang 与 TensorRT-LLM 的思路，算力核心是一套自研内核：FlashMLA、DeepGEMM、DeepEP、DeepSelect、TileKernels。</p>
+<p>官方自报了一组生产数据，注意：以下数字全部出自 DeepSeek 官方披露，暂无第三方独立验证——单个集群每天 <strong>155 万亿 tokens/天/集群</strong>，<strong>96% 输入缓存命中率</strong>，<strong>约 400ms 首 token</strong>，稳态 <strong>230 tok/s</strong>，代码场景最高到 300 tok/s。配套还发布了 <strong>deepseek-recipe</strong>，做 token 编解码并与官方 API 对齐。</p>
+<p>几个实打实的特性：DSpark 置信调度做的 speculative decoding；batch-invariant 推理，也就是同输入同参数跑出的结果确定一致，对评测和复现是刚需；结构化输出支持 regex、JSON schema、EBNF 三种约束。没包含的东西同样写得很诚实：KV cache 系统、prefill/decode 分离、副本间负载均衡这三块这次都没有，官方说后续其他模型的推理代码会持续加入同一个仓库。发布热度也不低：仓库首日约 5.5k stars、415 forks，HN 帖子拿到 237 points、79 条评论。</p>
+<h2>为什么这次开源值得在意</h2>
+<p>大模型真正的成本黑洞不在训练，而在推理。公开价格再低，也不等于你自己跑起来便宜。DeepSeek 把自家集群同款推理栈以 Apache 2.0 放出来，等于把「大规模、低成本跑推理」的方法论从闭源保险箱搬到了桌面上，任何团队都可以自建、可商用、可魔改。外媒报道 <a href="https://aiweekly.co/alerts/deepseek-open-sources-deepinfer-its-v41-flash-serving-stack" rel="external nofollow noopener noreferrer" target="_blank">AI Weekly</a> 与 <a href="https://shattered.io/deepseek-deepinfer-open-source-inference-pressure-2026/" rel="external nofollow noopener noreferrer" target="_blank">Shattered.io</a> 都把焦点放在这一点上：纯靠「托管推理」收溢价的服务商，定价压力会越来越大。</p>
+<p>对国内生态最直接的影响是芯片端：<strong>Huawei Ascend 950</strong> 直接拿到了官方维护的高性能后端，昇腾生态多了一个拿得出手的推理引擎参考实现，大模型在国产 NPU 上的落地节奏有望加快。对云厂商而言，自建替代托管的路被铺平了一块；对普通开发者，这次至少能看清 DeepSeek 官方的吞吐曲线到底是怎么调出来的。</p>
+<p><img src="https://moyu.18uk.uk/2026/20261021-86bc64b8-a3de-460e-9752-afc0515cbfff.webp" alt="DeepInfer" width="800" loading="lazy" referrerpolicy="no-referrer" /></p>
+<h2>突破点清单</h2>
+<ul>
+<li>真正的生产线代码，不是教学 demo：跑的正是支撑自家线上流量的同一套框架；</li>
+<li>商业友好的 <strong>Apache 2.0</strong>：可商用、可自建、可改，嵌入自家产品不用二次谈许可；</li>
+<li>单仓双芯片：<strong>NVIDIA SM100</strong> 与 <strong>Huawei Ascend 950</strong> 同一仓库支持，不用为两套硬件各维护一份代码；</li>
+<li>一套自研内核族：FlashMLA、DeepGEMM、DeepEP、DeepSelect、TileKernels，把热点算子攥在自己手里；</li>
+<li>生产刚需凑齐：DSpark 置信调度 speculative decoding、batch-invariant 确定性推理、regex/JSON schema/EBNF 结构化输出；</li>
+<li>配套 <strong>deepseek-recipe</strong>：token 编解码与官方 API 对齐，迁移成本更低。</li>
+</ul>
+<h2>真实局限与冷静评述</h2>
+<p>指标再漂亮，也有几盆冷水要先泼。第一，首版只跑 <strong>DeepSeek-V4.1-Flash</strong> 这一个模型，其他模型想跑，得等官方把推理代码陆续加进仓库，今天还跑不了。第二，这次没包含的三块——KV cache 系统、prefill/decode 分离、副本间负载均衡——恰恰是超大规模部署里最头疼的部分，等于把最难啃的骨头留给了后面。第三，硬件门槛真实存在：<strong>NVIDIA SM100</strong> 与 <strong>Huawei Ascend 950</strong> 都是新一代芯片，普通团队手里大概率凑不齐。</p>
+<p>第四，所有漂亮数字都是官方自报，没有第三方复现，<strong>155 万亿 tokens/天/集群</strong> 这类数字看看就好，别当成自己小集群也能复刻的承诺。最后看时间点：这次发布恰在美国联邦机构被要求移除 DeepSeek 模型之后一天。从 2025 年 4 月的「不开源」声明到今天的反转，开源的姿态本身也是一种表态——技术透明换信任，代码之外的算盘同样值得留意。</p>
+<p> </p>
+<p> </p>
+<p>本文来源：<a href="https://www.moyunews.com/" rel="external nofollow noopener noreferrer" target="_blank">摸鱼杂货店</a>。查看原文：<a href="https://www.moyunews.com/deepseek-deepinfer-inference-engine/" rel="external nofollow noopener noreferrer" target="_blank">DeepInfer 开源了：DeepSeek 自家生产推理引擎大曝光</a>。</p></div>
+<p class="back"><a href="/">← 返回最新</a></p>
+</article>
+</main>
+<footer class="site-foot">
+<p>wocao.world — 本站内容全部转载自各订阅源，版权归原作者与原站所有。</p>
+</footer>
+</body>
+</html>

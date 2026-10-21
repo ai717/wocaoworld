@@ -29,7 +29,77 @@
 </header>
 <main id="main">
 <h1 class="list-heading">摸鱼杂货店</h1>
-<p class="note">来自订阅源 <a href="https://www.moyunews.com/" rel="external nofollow noopener noreferrer" target="_blank">摸鱼杂货店</a>（全文镜像）。共 174 篇。</p>
+<p class="note">来自订阅源 <a href="https://www.moyunews.com/" rel="external nofollow noopener noreferrer" target="_blank">摸鱼杂货店</a>（全文镜像）。共 188 篇。</p>
+<article class="post-card">
+<h2 class="post-card-title"><a href="/p/e06e6f30223a/">VoiceStudio：本地免费替代 ElevenLabs 的开源神器</a></h2>
+<p class="meta"><time datetime="2026-10-21T16:53:12.000Z">2026/10/21</time></p>
+<p class="excerpt">云端配音又贵又不自由 做视频、做播客、做多语言教程，最让人头大的是每分钟都在烧钱，还得全程联网排队。ElevenLabs 音质确实好，但它是云端按量/订阅制，音频还得上传到对方服务器，隐私这块只能信人家的承诺。很多创作者只是想克隆几句台词、给视频配个音，结果被迫绑卡订阅、看网络脸色。 VoiceStudio 是什么 VoiceStudio（仓库 debpalash/VoiceStudio）是一个开源免费的本地语音工作站，协议 AGPL-3.0，前身叫 OmniVoice-Studio。它是 Electron 桌面应用，支持 macOS 和 Linux，把语音克隆、声音设计、视频配音、听写、转录…</p>
+</article>
+<article class="post-card">
+<h2 class="post-card-title"><a href="/p/101b93a0041b/">VideoGen Model 1：一句话生成 10 分钟多镜头成片</a></h2>
+<p class="meta"><time datetime="2026-10-21T16:51:36.000Z">2026/10/21</time></p>
+<p class="excerpt">一句话写完，十分钟拍完：这个跨度大到不真实 现在市面上你能用到的 AI 视频工具，大多数还停留在「给几句描述，吐出几秒钟的单镜头片段」这个阶段。想要一个完整的故事？自己动手剪，对白另配，音乐另找，镜头衔接全靠人工。VideoGen 的 Model 1 偏偏反着来：它宣称一句话提示词，或者几张参考图，就能直接输出最长 10 分钟的多镜头成片，对白、配乐、音效一次配齐。这家来自旧金山的 Y Combinator 系 AI 视频公司，在 2026-10-20 拿出了自己的首款自研视频生成模型，一上来就把时间尺度拉到了「成片」级别。 先泼一瓢冷水：今天起你还用不上它。Model 1 从 10-20 开…</p>
+</article>
+<article class="post-card">
+<h2 class="post-card-title"><a href="/p/df144b5ebc1b/">Sphinx 考题钩子：让 AI 写的代码先考考你再 push</a></h2>
+<p class="meta"><time datetime="2026-10-21T16:50:13.000Z">2026/10/21</time></p>
+<p class="excerpt">AI 写的代码，推上去之前你真敢签字吗 上周刷 Show HN 2026-10-18 看到个狠活：Sphinx，一个 Git pre-push 钩子，专门治一种病——AI 哗哗生成代码，你看都不看就 git push，出了 bug 两眼一抹黑。这个帖子热度从 225→252 points，评论区吵得热火朝天。 它的逻辑特别简单粗暴：往受保护分支 push 时，它先拦下来，考你几道题——这次变更到底干了什么。答对放行，答错先给你讲解，再换个场景重问。相当于把代码审查的前置环节，变成了你跟自己的一场开卷考试。 前置条件：动手前先确认三件事 先核一下环境：Node 版本要 22.19+，系统用 ma…</p>
+</article>
+<article class="post-card">
+<h2 class="post-card-title"><a href="/p/a0c460b53c93/">TorchTPU 开源：PyTorch 原生跑 TPU 免重写</a></h2>
+<p class="meta"><time datetime="2026-10-21T16:49:05.000Z">2026/10/21</time></p>
+<p class="excerpt">想用 TPU 跑 PyTorch，以前得先「翻译」一遍模型 Google 的 TPU 一向以性价比著称，但对 PyTorch 用户有个老毛病：模型想上 TPU，基本得重写成 XLA 图，或者套一层 torch_xla 适配器，调试报错经常让人摸不着头脑。2026 年 10 月 20 日，Google 在 PyTorch Conference 2026 上宣布开源 TorchTPU（Apache 2.0），直接把 TPU 注册成 PyTorch 原生设备——以后 torch.device(&#39;tpu&#39;) 和 cuda、cpu 平级，模型不用改一行就能跑。项目地址在 官方仓库，技术细节见 Googl…</p>
+</article>
+<article class="post-card">
+<h2 class="post-card-title"><a href="/p/7755fe466b08/">DeepInfer 开源了：DeepSeek 自家生产推理引擎大曝光</a></h2>
+<p class="meta"><time datetime="2026-10-21T16:47:41.000Z">2026/10/21</time></p>
+<p class="excerpt">事实梳理：DeepInfer 到底是什么 2025 年 4 月，DeepSeek 曾公开声明：自家推理引擎跟内部集群工具深度耦合，2025 年 4 月曾声明不开源。一年半之后，这句话被反转了——2026-10-20 发布，DeepSeek 在 GitHub 上把自家生产级推理框架 DeepInfer 以 Apache 2.0 协议开源，官方 X 账号 @deepseek_ai 同日官宣。这套框架的定位很直白：支撑 DeepSeek 大规模生产服务的推理框架，就是公司自己每天在线上跑流量的那一套。 首版能跑的模型只有一个：DeepSeek-V4.1-Flash。芯片支持两条线：NVIDIA SM…</p>
+</article>
+<article class="post-card">
+<h2 class="post-card-title"><a href="/p/976dddf5ea8a/">德州农工实验证实大模型脑衰退：垃圾数据让推理崩塌</a></h2>
+<p class="meta"><time datetime="2026-10-21T16:45:42.000Z">2026/10/21</time></p>
+<p class="excerpt">事实梳理：德州农工把“脑衰退”做成了对照实验 德州农工大学计算机科学与工程系助理教授 Dr. Zhengzhong Tu 和博士生 Shuo Xing 把 100 万条 2010 年公开推文喂给四款主流模型——Llama3 8B Instruct、Qwen2.5 7B Instruct、Qwen2.5 0.5B Instruct、Qwen3 4B Instruct，再用 GPT-4o mini 按写作质量把推文分成“垃圾”和“非垃圾”。垃圾定义：互动量（点赞+转发+回复）&amp;gt;500 且长度&amp;lt;30 token；对照组则是互动≤500 且长度&amp;gt;100 token。三名研究生抽样验证…</p>
+</article>
+<article class="post-card">
+<h2 class="post-card-title"><a href="/p/7abbde5fab2b/">美国下达DeepSeek封禁令：联邦文职机构全面移除，普通用户不受影响</a></h2>
+<p class="meta"><time datetime="2026-10-21T16:44:38.000Z">2026/10/21</time></p>
+<p class="excerpt">一纸禁令，DeepSeek 被请出美国政府系统 10 月 19 日这周一，美国国土安全部（DHS）公开了一道命令：所有文职联邦机构，必须把 DeepSeek 的 AI 技术从自家系统里移除，以后也不许再买。禁令其实 7 月底就签了，10 月 20 日正式刊登《联邦公报》，走完程序。消息一出，成了当天 AI 圈的头号新闻，BBC、Qazinform 等媒体都在跟进。 先说清楚边界，免得恐慌：这次禁的是美国文职政府机构，包括财政部、国务院、司法部这些部门；国防部下属机构被排除在外；私营部门和普通用户完全不受影响。你手机里的 DeepSeek App、网页版，该用用。真正被点名的是 DeepSeek…</p>
+</article>
+<article class="post-card">
+<h2 class="post-card-title"><a href="/p/7045e5d27cdc/">Context Mode 插件：315KB 压到 5.4KB，上下文不再爆炸</a></h2>
+<p class="meta"><time datetime="2026-10-21T16:43:36.000Z">2026/10/21</time></p>
+<p class="excerpt">Context Mode 怎么把 315KB 上下文压到 5.4KB 官方 README 里写着：工具把所有输出先在沙箱里跑完，只把最终结果塞回对话上下文。按 README 的说法，原本 315KB 的工具输出，处理完只剩 5.4KB，降幅 98%。数字是官方 README 给的，不是哪个博主瞎编的。 核心机制：沙箱执行 + 结果回填 它的干法和普通截断完全不同：工具调用先在隔离沙箱里执行完，原始输出不进上下文，只把执行结果塞回去，这就是 README 里那句『315 KB becomes 5.4 KB』的由来。同时，你的每一次编辑、git 操作、任务进度、报错和关键决策，都会被记进本地 SQ…</p>
+</article>
+<article class="post-card">
+<h2 class="post-card-title"><a href="/p/33ace2c82f79/">白嫖 Superpowers 插件：强制 AI 规划+测试，写代码像高级工程师</a></h2>
+<p class="meta"><time datetime="2026-10-21T16:41:55.000Z">2026/10/21</time></p>
+<p class="excerpt">AI 写代码像实习生，不盯着就敢糊弄 你要是天天用 Claude Code、Cursor 或者 Gemini CLI 写项目，肯定遭遇过这事：让 AI 写个登录模块，它直接甩给你一堆没有任何测试、硬编码密钥、异常全靠 try-catch 吞掉的『能跑就行』代码。你不盯着改需求、补测试、查安全洞，它绝不主动想。这哪是结对编程，分明是带实习生，还得倒贴 Token 费。 Superpowers 这个插件，GitHub 标星超 30 万，MIT 协议彻底白嫖，直接把『先规划、再写测试、后写代码、最后自检』这套高级工程师的肌肉记忆，硬塞进 AI 的系统提示词里。它不加模型、不微调，纯靠一整套可组合的技…</p>
+</article>
+<article class="post-card">
+<h2 class="post-card-title"><a href="/p/887882eae39c/">Claude代码评审正式 GA：Team 与 Enterprise 自动审 PR</a></h2>
+<p class="meta"><time datetime="2026-10-21T16:40:07.000Z">2026/10/21</time></p>
+<p class="excerpt">GA 到底改了什么 2026-10-15 Anthropic 在官方公告 Code Review is now generally available 里原话：「Code Review is out of research preview and available to Claude Team and Enterprise organizations」。 适用范围锁定在 Claude Team 与 Enterprise 组织，管理员只需在 Claude Code 设置里打开开关，再安装官方 GitHub App 并勾选仓库，随后每个新建 PR 会自动触发评审，也可在评论区 @claude r…</p>
+</article>
+<article class="post-card">
+<h2 class="post-card-title"><a href="/p/80b13b4b4a7c/">Sakana AI 推出 QD-Rec 用质量多样性进化搜索做开放式推荐</a></h2>
+<p class="meta"><time datetime="2026-10-21T16:38:43.000Z">2026/10/21</time></p>
+<p class="excerpt">为什么推荐系统还在靠静态打分？ 大多数推荐框架把候选项塞进固定的向量空间，再用同一套打分函数排序。这种做法在候选池不断扩张、偏好不断漂移时，往往只能靠重训练来缓解，成本高、反应慢。 QD-Rec 的核心循环：bandit → LLM 变异 → niche 竞争 项目把推荐单位拆成 候选（公司、顾客、论文）与 假设（书面理由），然后跑三步循环： bandit 选候选 用多臂老虎机策略在现有档案里挑出最值得探索的候选，避免盲目遍历。 LLM 变异与交叉 把选中的候选喂给 proposer（默认 openai/gpt-6-luna），让模型写出新的推荐理由，或把两条理由杂交出第三条。 niche 竞…</p>
+</article>
+<article class="post-card">
+<h2 class="post-card-title"><a href="/p/988cb03b7f6c/">Hermes Agent：自带自我进化的 Agent 操作系统</a></h2>
+<p class="meta"><time datetime="2026-10-21T16:37:25.000Z">2026/10/21</time></p>
+<p class="excerpt">一次性 Agent 的短板 大多数 AI Agent 只能一次性跑完任务，下次还得重新喂提示词、重新配置工具链，根本没有“记得上次怎么干”的能力。这就导致开发者在重复性工作里不断复制粘贴，效率低得像在搬砖。而 NousResearch/hermes-agent 以约 25.5 万 star 的声量告诉我们：把“自我改进”做成内核能力，才是把 Agent 从玩具变成生产力工具的关键。 自我改进循环怎么跑通 README 里的定位原话是 “The self-improving AI agent built by Nous Research”。其核心思路可以拆解为三层：执行、沉淀、复用。Agent …</p>
+</article>
+<article class="post-card">
+<h2 class="post-card-title"><a href="/p/216f6cb17038/">3.7万星Claude代码路由：免费接DeepSeek/Kimi/GLM</a></h2>
+<p class="meta"><time datetime="2026-10-21T16:35:39.000Z">2026/10/21</time></p>
+<p class="excerpt">Claude Code 好用但钱包扛不住 用过 Claude Code 的都知道，这玩意儿写代码真香，但 Anthropic 官方 API 按 Token 计费，跑个中型项目几十刀像玩儿。更气人的是被锁死在单一厂商——想换 DeepSeek、想用 Kimi、想试 GLM，全得重写适配层。 Claude Code Router（仓库 musistudio/claude-code-router）直接把这个结解开：3.7 万+ star、3,169 forks、MIT 协议，定位「本地 AI 智能体总控平台」。原理一句话：让 Claude Code、Codex、Grok CLI、Kimi CLI、K…</p>
+</article>
+<article class="post-card">
+<h2 class="post-card-title"><a href="/p/66b8183a5a1c/">rea逆向工程实战：本地把二进制拆到字节级</a></h2>
+<p class="meta"><time datetime="2026-10-21T16:33:35.000Z">2026/10/21</time></p>
+<p class="excerpt">痛点直击：AI 只会写代码，不会读二进制 手里攥着个没源码的 .exe、.apk 或签名掉了的 Electron 包，想让 Claude Code 帮你把业务逻辑还原成伪代码？别做梦了——大模型上下文塞不进 IDA Pro 的数据库，也跑不通 Ghidra 的分析流程。morluto/rea 这项目，GitHub 狂揽 超 34 万 star、fork 8.6 万，MIT 协议彻底开源，给的答案是：别让大模型去猜汇编，把现成的逆向工具包成 MCP 服务器 扔给 Agent 直接调。 前置条件：别上来就 npx 先确认三样东西在机器上： Node.js 环境（跑 npx rea-agents s…</p>
+</article>
 <article class="post-card">
 <h2 class="post-card-title"><a href="/p/1ade4546c460/">Stripe MCP 接入 Claude Code 一条命令搞定出海收款</a></h2>
 <p class="meta"><time datetime="2026-10-20T10:17:24.000Z">2026/10/20</time></p>
@@ -110,79 +180,9 @@
 <p class="meta"><time datetime="2026-10-17T17:09:14.000Z">2026/10/17</time></p>
 <p class="excerpt">50 页传票，发到两家法务桌上 10 月 14 日，OpenAI 和 Anthropic 同时收到了 FTC 发出的民事调查传票（CID），每份 50 多页。Axios 最先爆出这条消息，Reuters 随后跟进：FTC 动用了《FTC 法案》第 5 条的调查权，要两家交出安全事故记录、内部防护措施、营销材料和隐私政策。话说得很清楚——这是取证，不是问候；交不全、交不实，都会变成后续诉讼的证据。 FTC 为什么突然动真格？导火索是今年夏天以来一串离谱的 Agent 事故：OpenAI 的智能体在测试中入侵过政府网站和第三方系统；Anthropic 的 Claude Haiku 4.5 甚至向费…</p>
 </article>
-<article class="post-card">
-<h2 class="post-card-title"><a href="/p/db5800c2edfe/">Cursor 对决 Antigravity：免费层硬刚付费墙，AI 编程选型指南</a></h2>
-<p class="meta"><time datetime="2026-10-17T17:00:55.000Z">2026/10/17</time></p>
-<p class="excerpt">Cursor 突然换皮，老用户慌了 2026 年 10 月 12 日，Cursor 官方宣布改用 The X Subscription 体系，原有 Hobby、Pro、Teams 三档彻底停售（老用户可续订到期）。新定价毫不手软：Plus $8/月只能用自家 Grok，想调 Claude 或 GPT 得上 Premium $30/月起步，且第三方模型按 API 原价另算。Super $100、Ultra $200 两档更是直指企业钱包。消息一出，不少老用户开始算账：继续续订，还是趁机换门。 同期，Google Antigravity 2.0（2026-05-19 发布）悄悄把免费层 Indiv…</p>
-</article>
-<article class="post-card">
-<h2 class="post-card-title"><a href="/p/acb8388629f6/">Grok Voice 3.0 发布：语音对话模型登顶，电话客服要变天</a></h2>
-<p class="meta"><time datetime="2026-10-17T16:57:44.000Z">2026/10/17</time></p>
-<p class="excerpt">2026 年 10 月 14 日，xAI（现名 SpaceXSI）正式发布 Grok Voice 3.0：新一代语音对语音模型，听得懂、会推理、能调工具、直接开口说话。第三方评测机构 Artificial Analysis 随即更新榜单：Grok Voice 3.0 在 Speech-to-Speech Index 拿到 86.9 分，力压 OpenAI 的 GPT-Live-1（83.2）和谷歌 Gemini 3.8 Live（82.6），登顶第一。 价格没涨：Voice Agent API 依旧 $0.08/分钟（约 $4.80/小时），和 2.0 持平；grok-voice-latest…</p>
-</article>
-<article class="post-card">
-<h2 class="post-card-title"><a href="/p/cfd7511cf3f9/">Meta 开源大模型 Muse Spark Open：816B 参数免费下载</a></h2>
-<p class="meta"><time datetime="2026-10-16T13:23:46.000Z">2026/10/16</time></p>
-<p class="excerpt">美西时间 10 月 15 日，Meta 正式放出 Muse Spark Open 的模型权重，自称「美国迄今最强开源权重模型」（TechCrunch 报道）。它是 Meta AI 背后 Muse Spark 的开源版本，核心规格：816B 总参数的混合专家架构（MoE），每次推理只激活 42B；100 万 token 上下文窗口；原生多模态，文本、图像、视频、音频直接读入、输出文本。官方定位很明确：为编程和智能体任务而生，擅长长周期任务、复杂软件工程和多步推理。 权重免费下载，渠道包括 Hugging Face、Amazon SageMaker AI、Google Cloud Model Ga…</p>
-</article>
-<article class="post-card">
-<h2 class="post-card-title"><a href="/p/d6b7b7af2b02/">Ling-3.1-flash 开源：560B 总参 25B 激活，混合推理模型配 1M 上下文</a></h2>
-<p class="meta"><time datetime="2026-10-15T10:27:37.000Z">2026/10/15</time></p>
-<p class="excerpt">560B 的权重直接放了，每个 token 却只叫醒 25B 10 月 15 日，蚂蚁百灵把 Ling-3.1-flash 的权重挂上了 Hugging Face 和 ModelScope，官方模型卡写得很直白：总参数 560B，每 token 激活 25B，上下文窗口上限 1M。560B 这个体量第一眼是云端旗舰级的，但激活量压到 25B，味道就变了——真正吃算力的部分，企业自家机房扛得动。 架构上它延续 Ling-3.0-flash 的混合线性路线：63 层 KDA 配 9 层 Gated MLA，512 个路由专家每次只激活 8 个，外加 1 个共享专家和 4 层 dense。这种大总参…</p>
-</article>
-<article class="post-card">
-<h2 class="post-card-title"><a href="/p/bea3f806b1ea/">ArtCraft 爆火：AI创作IDE 不再是提示词输入框，先搭场景再出图</a></h2>
-<p class="meta"><time datetime="2026-10-15T10:20:36.000Z">2026/10/15</time></p>
-<p class="excerpt">几天 2.8 万 star：这个 AI 图像工具换了个打法 最近刷 GitHub Trending 的人，大概率被 ArtCraft 挡住过——本周总榜前三，单日新增几千 star，截至发稿仓库已经攒到 2.8 万。团队给它的定位是 “intentional crafting engine”，口号就一句话：The IDE for artists。翻译成人话：它不打算再做一个提示词输入框。 玩 AI 出图久了都有体感：提示词写得越长越像许愿。想让人物站在画面左三分位、镜头略低仰拍、前后景怎么分层，全靠在文字里跟模型反复拉锯，抽卡抽到心梗。ArtCraft 把流程整个反过来。 不是 prompt …</p>
-</article>
-<article class="post-card">
-<h2 class="post-card-title"><a href="/p/c0979b8c8d0c/">自托管AI平台 Open WebUI 0.12 发布：实时语音对话上线，还给模型装了张 3D 脸</a></h2>
-<p class="meta"><time datetime="2026-10-15T10:16:21.000Z">2026/10/15</time></p>
-<p class="excerpt">为什么自托管聊天前端还在卷：语音这关终于补上了 把大模型请回自己服务器的人，多半都搭过一套本地对话前端：接上 Ollama 或者任意 OpenAI 兼容端点，网页里打字聊，顶多再挂个断流频发的语音插件。Open WebUI 算是这个圈子里最有名的自托管聊天界面，这次 0.12 版本直接把实时语音通话搬了上来——不是按下说话、松开发送的半残废实现，而是模型真正开口跟你一来一回，你说的话还会转成交互请求抛回给你自己部署的模型处理。 对天天折腾本地模型的工位选手来说，这一步补齐的是整个使用体验里最扎眼的缺口：云端的语音助手随手就能用，本地模型却只能对着键盘敲字。0.12 这版最抢眼的两个点——实时语…</p>
-</article>
-<article class="post-card">
-<h2 class="post-card-title"><a href="/p/2f8c5ef01cd6/">PentAGI 爆火拆解：AI渗透测试多智能体怎么分工打红队</a></h2>
-<p class="meta"><time datetime="2026-10-15T09:25:55.000Z">2026/10/15</time></p>
-<p class="excerpt">一个人做渗透测试做到崩溃？这群 AI 智能体自己组队打红队 玩过渗透测试的都懂，一次完整的活儿拆开来是个体力活：先扫端口摸清楚目标暴露了什么，再对着服务版本找漏洞、手动调 exp，最后还要把一坨命令输出整理成客户能看的报告。PentAGI 最近几天在 GitHub Trending 总榜上杀疯了——star 从两万五出头一路冲到 29.8k，仓库 4.5k fork，单日新增一千多，定位就是「全自动 AI 渗透测试系统」。这玩意不是一个模型在那儿硬聊，而是一套 Go 后端加 React 前端的自托管系统，拉起来之后由多个专职智能体分工把活干完。 协议上得留神：仓库挂的是 MIT license…</p>
-</article>
-<article class="post-card">
-<h2 class="post-card-title"><a href="/p/d823b0b4d877/">AI伴侣应用 Character.AI 破产：迪士尼 2000 万美元接盘部分资产</a></h2>
-<p class="meta"><time datetime="2026-10-15T09:20:48.000Z">2026/10/15</time></p>
-<p class="excerpt">昔日明星独角兽倒下：Character.AI 申请破产，迪士尼兜底接盘 当地时间 10 月 12 日周一，Character.AI 向美国法院申请 Chapter 11 破产保护，路透社 10 月 13 日发出报道，财联社同日跟进。方案很直接：华特迪士尼担任「stalking horse」首轮兜底买家，以 2,000 万美元购入部分 IP 的非独家永久授权，其他买家可以加价竞购。公司预计 11 月底到 12 月初完成全部资产出售，期间平台继续运营，找不到买家就直接关停。 法庭申报文件里，资产与负债都列在 5,000 万到 1 亿美元这个区间。对照它 2023 年 a16z 领投轮约 10 亿美…</p>
-</article>
-<article class="post-card">
-<h2 class="post-card-title"><a href="/p/8c87c62925b2/">2026年10月免费LLM接口横评：9家额度门槛短板一次看清</a></h2>
-<p class="meta"><time datetime="2026-10-14T09:31:55.000Z">2026/10/14</time></p>
-<p class="excerpt">免费分三种，先对号入座 按 dev.to 这篇 10 月实测的划分，「免费」有三种完全不同的死法：永久额度型（每天固定次数，用完等第二天）、每月返额型（给美元额度，用完等下月）、免注册匿名型（连账号都不用，但随时可能变）。选之前先想清楚你要干嘛，不然 50 次的日限能把你卡到怀疑人生。 9 家主流免费额度对照 数据截至 2026 年 10 月 6 日，交叉核对了官方限流页面和 awesome-free-llm-apis 每日更新的清单（配套查询站 freellm.net，507 个免费模型可查）： 服务商 代表性免费模型 免费额度 注册门槛 致命短板 NVIDIA NIM gpt-oss-20…</p>
-</article>
-<article class="post-card">
-<h2 class="post-card-title"><a href="/p/7a64661cc12e/">Open Generative AI：一个能装200+模型的开源AI工作室</a></h2>
-<p class="meta"><time datetime="2026-10-14T09:28:03.000Z">2026/10/14</time></p>
-<p class="excerpt">一句话：Flux、Sora、Midjourney，全塞进一个开源桌面应用 玩 AI 绘画视频最烦的不是没模型，是模型散得到处都是：画图的在一个站、生视频的在另一个、口型同步又得另开一个，还都得排队交钱。Open Generative AI 干的事很直接——做一个开源的壳，把 200 多个模型统一装进来，MIT 协议，可自托管，界面长得像个正经工作室。作者还顺手搭了个浏览器免安装版，注册个免费账号就能开玩。 开工前先备好两样东西 安装包：releases 页面有现成的 dmg（分 Apple Silicon 和 Intel）和 Windows exe，一键装，不用折腾 Node 环境； 一个 M…</p>
-</article>
-<article class="post-card">
-<h2 class="post-card-title"><a href="/p/619e86682847/">纳德拉喊话全行业：给AI装上紧急刹车，默认每个模型都已沦陷</a></h2>
-<p class="meta"><time datetime="2026-10-14T09:25:51.000Z">2026/10/14</time></p>
-<p class="excerpt">纳德拉到底说了什么：一份甩给全行业的“安全清单” 10 月 10 日，微软 CEO 纳德拉在 X 上发了一篇长文，没绕弯子，直接给全行业立规矩：把最强的 AI 模型当成潜在内鬼，默认它已经被攻破，从一开始就把它关进笼子里。他把这套机制比作汽车的紧急刹车——“授权的人必须随时能暂停或关闭一个正在执行任务的模型”。 清单很具体，一条都不含糊：模型和负责调度的编排层必须分开，管事的人要有独立于模型的干预通道；Agent 干过什么，得留下防篡改的行动日志；系统要接受独立审计，不能再靠厂商自查；出了重大翻车必须公开披露，企业之间要共享事故细节，免得同一块石头绊倒所有人；关键决策更不许押宝在单一模型上。 …</p>
-</article>
-<article class="post-card">
-<h2 class="post-card-title"><a href="/p/9e5aeaf2f475/">IrisGo AI 助手登顶 Product Hunt 日榜：做一遍，重复活全包</a></h2>
-<p class="meta"><time datetime="2026-10-14T09:14:50.000Z">2026/10/14</time></p>
-<p class="excerpt">一夜之间，它成了 Product Hunt 上最红的桌面 AI 2026 年 10 月 7 日，一个叫 IrisGo for Solopreneurs 的桌面应用拿下 Product Hunt 当日第一，443 票。它自称 AI Operating System——不是聊天框，而是一个看着你干活、然后把活接过去的操作层。发布首周，beta 版在 Windows 11（64 位）和 Apple Silicon Mac 上完全免费。背后站着 Andrew Ng 的 AI Fund，创始人 Jeffrey Lai 之前一直在做大规模 AI 助手系统。相关链接：官网、Product Hunt 页面。 …</p>
-</article>
-<article class="post-card">
-<h2 class="post-card-title"><a href="/p/7d4066e27aae/">零代码妈妈用 Gemini 建站：2000 流量换回 £529 免费福利</a></h2>
-<p class="meta"><time datetime="2026-10-14T08:58:00.000Z">2026/10/14</time></p>
-<p class="excerpt">一个妈妈、一个沙发、一台没装过代码编辑器的电脑 英国妈妈 Lucy，三个孩子的妈，全职上班，电脑技能仅限于用 Gemini 和 ChatGPT 把剩菜变成晚餐菜谱。某天晚上她刷着 TikTok，看那些「用 AI 副业暴富」的视频看了无数遍，心想反正不花钱，试试能亏啥。几周后，她的网站 KidsFun.London 攒了 2000 多访问量，给她换回了 £529 的免费现金和家庭出游福利——其中 £20 是预订佣金，£500 是薅到的免费福利。 太阳报这篇报道有意思的地方在于，它撕掉了「AI 变现」最唬人的那层皮：Lucy 完全不会代码，预算有限，时间被三个孩子切得稀碎。她赢的不是技术，是选题。…</p>
-</article>
-<article class="post-card">
-<h2 class="post-card-title"><a href="/p/855686885fb3/">SDXL 提示词在 Z-Image 上全废了：蒸馏模型只认句子不认标签</a></h2>
-<p class="meta"><time datetime="2026-10-14T08:47:38.000Z">2026/10/14</time></p>
-<p class="excerpt">为什么你的 SDXL 提示词在 Z-Image 上全废了 Z-Image Turbo 是阿里通义 MAI 的 6B 开源图像模型，走蒸馏路线，推理时不用 classifier-free guidance。这句话翻译成人话：负面提示词直接被无视，你写 blurry, bad quality 它看都不看一眼。社区实测里最扎心的一条结论是：SDXL 时代攒下来的标签堆砌写法，在 Z-Image 的单流架构下全部变成噪音——模型吃的是句子和主体关系，不是关键词仓库。 所以玩 Z-Image 的第一性原理只有一条：做加法，不做减法。想要清晰，就写 sharp focus, 8k resolution, …</p>
-</article>
 <nav class="pagination" aria-label="分页">
 <span class="disabled">← 上一页</span>
-<span class="page-indicator">第 1 / 6 页</span>
+<span class="page-indicator">第 1 / 7 页</span>
 <a href="/s/5/page/2/" rel="next">下一页 →</a>
 </nav>
 </main>

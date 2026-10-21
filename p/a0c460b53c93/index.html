@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>TorchTPU 开源：PyTorch 原生跑 TPU 免重写 · wocao.world</title>
+<meta name="description" content="想用 TPU 跑 PyTorch，以前得先「翻译」一遍模型 Google 的 TPU 一向以性价比著称，但对 PyTorch 用户有个老毛病：模型想上 TPU，基本得重写成 XLA 图，或者套一层 torch_xla 适配器，调试报错经常让人摸不着头脑。2026 年 10 月 20 日，Google 在 PyTorch Conference 2026 上宣布开源 TorchTPU（Apache 2.0），直接把 TPU 注册成 PyTorch 原生设备——以后 torch.device(&#39;tpu&#39;) 和 cuda、cpu 平级，模型不用改一行就能跑。项目地址在 官方仓库，技术细节见 Googl…">
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="wocao.world">
+<meta property="og:title" content="TorchTPU 开源：PyTorch 原生跑 TPU 免重写 · wocao.world">
+<meta property="og:description" content="想用 TPU 跑 PyTorch，以前得先「翻译」一遍模型 Google 的 TPU 一向以性价比著称，但对 PyTorch 用户有个老毛病：模型想上 TPU，基本得重写成 XLA 图，或者套一层 torch_xla 适配器，调试报错经常让人摸不着头脑。2026 年 10 月 20 日，Google 在 PyTorch Conference 2026 上宣布开源 TorchTPU（Apache 2.0），直接把 TPU 注册成 PyTorch 原生设备——以后 torch.device(&#39;tpu&#39;) 和 cuda、cpu 平级，模型不用改一行就能跑。项目地址在 官方仓库，技术细节见 Googl…">
+<meta property="og:url" content="https://wocao.world/">
+<meta name="twitter:card" content="summary">
+<meta name="robots" content="noindex,follow">
+<link rel="alternate" type="application/rss+xml" title="wocao.world 聚合输出" href="/feed.xml">
+<link rel="stylesheet" href="/style.css">
+<link rel="canonical" href="https://www.moyunews.com/google-torchtpu-native-pytorch-tpu/">
+</head>
+<body>
+<a class="skip-link" href="#main">跳到正文</a>
+<header class="site-head">
+<p class="site-title"><a href="/">wocao.world</a></p>
+<p class="site-desc">wocao.world</p>
+<nav class="site-nav">
+<a href="/">最新</a>
+<a href="/about/">关于</a>
+<a href="/feed.xml">RSS</a>
+</nav>
+</header>
+<main id="main">
+<article>
+<h1 class="post-title">TorchTPU 开源：PyTorch 原生跑 TPU 免重写</h1>
+<div class="post-body"><h2>想用 TPU 跑 PyTorch，以前得先「翻译」一遍模型</h2>
+<p>Google 的 TPU 一向以性价比著称，但对 PyTorch 用户有个老毛病：模型想上 TPU，基本得重写成 XLA 图，或者套一层 <code>torch_xla</code> 适配器，调试报错经常让人摸不着头脑。2026 年 10 月 20 日，Google 在 <strong>PyTorch Conference 2026</strong> 上宣布开源 <strong>TorchTPU</strong>（<strong>Apache 2.0</strong>），直接把 TPU 注册成 PyTorch 原生设备——以后 <code>torch.device('tpu')</code> 和 <code>cuda</code>、<code>cpu</code> 平级，模型不用改一行就能跑。项目地址在 <a href="https://github.com/google-pytorch/torch_tpu" rel="external nofollow noopener noreferrer" target="_blank">官方仓库</a>，技术细节见 <a href="https://cloud.google.com/blog/topics/ai-infrastructure/torchtpu-is-now-open-source-run-native-pytorch-on-tpus" rel="external nofollow noopener noreferrer" target="_blank">Google 官方博客</a>。</p>
+<p><img src="https://moyu.18uk.uk/2026/20261021-9b00ef7f-8669-4fa2-911b-0f5cd752c46e.webp" alt="TorchTPU" width="800" loading="lazy" referrerpolicy="no-referrer" /></p>
+<h2>核心机制：eager 调试，compile 上生产</h2>
+<p>TorchTPU 是 <strong>Google</strong> 与 <strong>Meta PyTorch 团队</strong>共建的 PyTorch 原生 TPU 栈。它的设计思路很直白：开发阶段你用 eager 模式照常写代码、照常打断点；要上生产时，一行 <code>torch.compile(backend='tpu')</code> 把模型交给编译器，剩下的事框架全包。</p>
+<h3>编译链路拆开看</h3>
+<ul>
+<li><code>model.to('tpu')</code>：把 TPU 当普通设备用，算子调度走 PyTorch 原生路径</li>
+<li><code>torch.compile(backend='tpu')</code>：经 <strong>TorchDynamo</strong> 捕获计算图，转 <strong>StableHLO</strong>，再由 <strong>OpenXLA</strong> 编译下发</li>
+<li><strong>Pallas 内核</strong>：热点算子用 Pallas 手写内核，榨干 TPU 的矩阵乘单元</li>
+<li>安装只有一条命令：<code>pip install torch_tpu==0.2.0 --extra-index-url https://download.pytorch.org/whl/cpu</code>，要求 <strong>Python 3.11+</strong></li>
+</ul>
+<p>这套链路的意义在于：XLA 那套东西还在，只是被藏进了 <code>backend='tpu'</code> 后面。你不再需要学 XLA 的编程模型，PyTorch 怎么写，TPU 就怎么跑。</p>
+<h2>推理生态：主流引擎发布即适配</h2>
+<p>开源同一时间，推理侧的几个主流项目已经把 TorchTPU 接了进去：</p>
+<h3>推理侧三家</h3>
+<ul>
+<li><strong>vLLM + Inferact</strong>：两家共建 TPU 后端，Pallas 内核打底，continuous batching、量化、多芯片并行一起上</li>
+<li><strong>SGLang + RadixArk</strong>：共建版本用 RadixAttention 做 KV 缓存复用；值得一提的是，SGLang-TorchTPU 已经在 Meta 的生产环境里跑着了</li>
+<li><strong>llm-d 1.0（CNCF Sandbox）</strong>：由 Red Hat、IBM 牵头，500 多位贡献者、25 个组织参与的分布式推理项目，把 TorchTPU 纳入了 TPU 支持路线</li>
+</ul>
+<p>还有个彩蛋：vLLM 同步推出了一个免费 TPU 算力池，专门给同时为 vLLM 和 TPU 生态做贡献的开发者用——想白嫖 TPU 跑实验的可以留意。</p>
+<h2>训练与周边：从大模型训练到端侧部署</h2>
+<h3>一条线全覆盖</h3>
+<ul>
+<li><strong>TorchTitan</strong>：在 Qwen 3 8B 上跑出 <strong>52% MFU</strong>（谷歌自报），验证规模是 8000 张 Ironwood TPU，大规模训练已经能用</li>
+<li><strong>VeRL</strong>：RL/GRPO 这类强化学习训练流程直接支持</li>
+<li><strong>Ray</strong>：分布式调度照常用</li>
+<li><strong>Hugging Face</strong>：<strong>Transformers v5</strong> 里传 <code>device_map='tpu'</code> 就能用，官方每晚都在 TPU 上跑完整测试套件</li>
+<li><strong>LiteRT</strong>：<code>litert-torch.convert()</code> 一键把模型转到端侧</li>
+<li><strong>TPU agent suite</strong>（预览版）：帮你做迁移和调优的智能体工具包</li>
+</ul>
+<p>这一套下来，从训练、微调、强化学习到推理服务、端侧部署，TPU 第一次有了和 CUDA 差不多的全家桶体验。</p>
+<h2>性能数字怎么看：全部来自谷歌自家披露</h2>
+<p>官方博客给了一组很漂亮的数字，先说清楚：以下全部是谷歌自家披露，第三方还没复核，看看就好，别当采购依据：</p>
+<ul>
+<li>Qwen 3.5 跑在 Ironwood（TPU 第七代）上，推理成本 <strong>2.01 美分/百万 tokens</strong>（SemiAnalysis InferenceX 基准，谷歌自报）</li>
+<li>2.8T 参数的 Kimi K3，用 Pallas megakernel 做单用户推理，<strong>700+ tok/s</strong>（谷歌自报）</li>
+<li>Zenteiq 用 GKE Inference Gateway，每 1000 张 TPU v6e 每天生成的 tokens 从 14.7 亿涨到 59.7 亿，吞吐提升 <strong>4 倍</strong>（谷歌自报）</li>
+</ul>
+<p>数字漂亮归漂亮，真实业务里还受批大小、网络、模型结构影响。TPU 的价格优势一直存在，TorchTPU 解决的是「用起来麻烦」的问题，而不是「算力更便宜」的问题——这两件事别搞混。</p>
+<h2>同一周，亚马逊也出手了</h2>
+<p>有意思的时间线：10 月 19 日，也就是 TorchTPU 开源前一天，亚马逊发布了 <strong>TorchNeuron</strong>——Trainium 芯片的 PyTorch 原生支持。两家在同一周动手，目标很一致：打破英伟达 CUDA 的生态绑定，把自家芯片变成 PyTorch 的「一等公民」。</p>
+<p>对用户的实际意义很直接：已经在 Google Cloud 上用 TPU 的团队，TorchTPU 几乎是零迁移成本；在 AWS 上跑 Trainium 的，可以去评估 TorchNeuron。两家芯片的 PyTorch 体验，2026 年底算是同时补上了最关键的一块拼图。</p>
+<p> </p>
+<p> </p>
+<p>本文来源：<a href="https://www.moyunews.com/" rel="external nofollow noopener noreferrer" target="_blank">摸鱼杂货店</a>。查看原文：<a href="https://www.moyunews.com/google-torchtpu-native-pytorch-tpu/" rel="external nofollow noopener noreferrer" target="_blank">TorchTPU 开源：PyTorch 原生跑 TPU 免重写</a>。</p></div>
+<p class="back"><a href="/">← 返回最新</a></p>
+</article>
+</main>
+<footer class="site-foot">
+<p>wocao.world — 本站内容全部转载自各订阅源，版权归原作者与原站所有。</p>
+</footer>
+</body>
+</html>
