@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Co-op Anything：AI 单机改联机，6 天 789 Star · wocao.world</title>
+<meta name="description" content="前置条件 想用 Co-op Anything 把手里的单机大作变成联机局，先得备齐三样东西：一台能跑 Python 3.10+ 的 Windows/Linux 机器、每个参与联机的玩家各自拥有正版游戏（Steam 版最省事）、以及一个可用的 Steam 账号用于走中继网络。不需要公网 IP、不需要端口映射，全程走 Steam 的免费 Spacewar 测试应用建立 NAT 穿透。 一键启动：把单机变联机 克隆仓库、安装依赖、跑一条提示词，剩下的交给 AI 智能体自动完成逆向、生成 Playbook、打包一键安装包。实测从下载到能和基友进同一局《Deus Ex》只花了十分钟左右。 git clo…">
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="wocao.world">
+<meta property="og:title" content="Co-op Anything：AI 单机改联机，6 天 789 Star · wocao.world">
+<meta property="og:description" content="前置条件 想用 Co-op Anything 把手里的单机大作变成联机局，先得备齐三样东西：一台能跑 Python 3.10+ 的 Windows/Linux 机器、每个参与联机的玩家各自拥有正版游戏（Steam 版最省事）、以及一个可用的 Steam 账号用于走中继网络。不需要公网 IP、不需要端口映射，全程走 Steam 的免费 Spacewar 测试应用建立 NAT 穿透。 一键启动：把单机变联机 克隆仓库、安装依赖、跑一条提示词，剩下的交给 AI 智能体自动完成逆向、生成 Playbook、打包一键安装包。实测从下载到能和基友进同一局《Deus Ex》只花了十分钟左右。 git clo…">
+<meta property="og:url" content="https://wocao.world/">
+<meta name="twitter:card" content="summary">
+<meta name="robots" content="noindex,follow">
+<link rel="alternate" type="application/rss+xml" title="wocao.world 聚合输出" href="/feed.xml">
+<link rel="stylesheet" href="/style.css">
+<link rel="canonical" href="https://www.moyunews.com/coop-anything-singleplayer-multiplayer/">
+</head>
+<body>
+<a class="skip-link" href="#main">跳到正文</a>
+<header class="site-head">
+<p class="site-title"><a href="/">wocao.world</a></p>
+<p class="site-desc">wocao.world</p>
+<nav class="site-nav">
+<a href="/">最新</a>
+<a href="/about/">关于</a>
+<a href="/feed.xml">RSS</a>
+</nav>
+</header>
+<main id="main">
+<article>
+<h1 class="post-title">Co-op Anything：AI 单机改联机，6 天 789 Star</h1>
+<div class="post-body"><h2>前置条件</h2>
+<p>想用 <a href="https://github.com/cranebeaker/coop-anything" rel="external nofollow noopener noreferrer" target="_blank">Co-op Anything</a> 把手里的单机大作变成联机局，先得备齐三样东西：一台能跑 Python 3.10+ 的 Windows/Linux 机器、每个参与联机的玩家各自拥有正版游戏（Steam 版最省事）、以及一个可用的 Steam 账号用于走中继网络。不需要公网 IP、不需要端口映射，全程走 Steam 的免费 Spacewar 测试应用建立 NAT 穿透。</p>
+<p><img src="https://moyu.18uk.uk/2026/20261022-79da41d0-bcd9-4b69-b1e8-ca58b394c7f2.webp" alt="单机改联机" width="800" loading="lazy" referrerpolicy="no-referrer" /></p>
+<h2>一键启动：把单机变联机</h2>
+<p>克隆仓库、安装依赖、跑一条提示词，剩下的交给 AI 智能体自动完成逆向、生成 Playbook、打包一键安装包。实测从下载到能和基友进同一局《Deus Ex》只花了十分钟左右。</p>
+<p><code>git clone https://github.com/cranebeaker/coop-anything &amp;&amp; cd coop-anything &amp;&amp; pip install -r requirements.txt &amp;&amp; python -m coop_anything --game "Deus Ex"</code></p>
+<p>上面那条命令会自动拉取 MCP Server、下载对应游戏的 Playbook、调用 REA 与 Ghidra 做静态分析，再用游戏内机器人跑自动化回归测试，最后在 <code>dist/</code> 目录吐出一个 <code>CoopAnything_DeusEx_Installer.exe</code>，双击即可完成全员部署。</p>
+<h2>核心流程：两条逆向路线</h2>
+<p>项目把「复活已有联机 Mod」和「从零逆向」并行。前者直接复用社区已发布的 230+ 个联机 Mod 目录，只需把原 Mod 的网络层替换成 Steam 中继；后者则让 AI 智能体读取二进制、定位同步点、生成同步协议。两条路线共享同一套 <code>AGENTS.md</code> 指令集，开发者只需在提示词里把 替换成目标游戏名。</p>
+<p>已发布的《Deus Ex》联机版走的是「复活」路线；《塞尔达传说 时之笛》（基于 Ship of Harkinian PC 移植版）与《辐射：新维加斯》（剧情同步、共享任务/对话/声望，开发者预览版）正在走「从零逆向」路线。社区还贡献了《洛克人 X / X4》《Pilotwings 64 分屏》《蟹蟹冠军》《Stacklands》等实验性成果，仓库里的 Mod 目录已超过 230 条。</p>
+<h2>实测避坑</h2>
+<blockquote><p>1️⃣ 每个玩家必须各自拥有正版游戏，共享账号会被 Steam 中继判定为同一设备导致掉线。<br />
+2️⃣ 首次运行前务必关闭杀毒软件的「实时防护」，否则 Ghidra 的 JNI 调用会被拦截导致逆向失败。<br />
+3️⃣ 生成的安装包默认只支持 Steam 版，Epic/GOG 版需手动把 <code>steam_appid.txt</code> 替换为对应平台的 AppID。<br />
+4️⃣ 不同游戏工作量差异极大，《Deus Ex》只需几小时，《塞尔达 时之笛》全同步预计还要数周，别指望一条命令搞定所有 3A 大作。</p></blockquote>
+<h2>社区已有成果与后续计划</h2>
+<p>作者 <a href="https://github.com/cranebeaker/coop-anything" rel="external nofollow noopener noreferrer" target="_blank">cranebeaker</a> 在 2026-10-16 创建仓库，MIT 许可证，6 天内拿下约 789 Stars / 100 Forks。VG Times 也做了专题报道，详见 <a href="https://vgtimes.com/gaming-news/171492-co-op-anything-lets-ai-agents-add-co-op-to-single-player-pc-games.html" rel="external nofollow noopener noreferrer" target="_blank">VG Times 报道</a>。接下来的里程碑包括：把《Dungeon Keeper》《S.T.A.L.K.E.R. 切尔诺贝利的阴影》纳入自动化测试矩阵、完善一键安装包的跨平台签名、以及推出 Web 版 Playground 让不想折腾命令行的玩家也能「点一下就联机」。想自己上手的朋友，直接把下面这段提示词扔给任意支持工具调用的编程智能体即可：</p>
+<p><code>Read https://github.com/cranebeaker/coop-anything and follow AGENTS.md. I want to play  in co-op with my friends.</code></p>
+<p> </p>
+<p> </p>
+<p>本文来源：<a href="https://www.moyunews.com/" rel="external nofollow noopener noreferrer" target="_blank">摸鱼杂货店</a>。查看原文：<a href="https://www.moyunews.com/coop-anything-singleplayer-multiplayer/" rel="external nofollow noopener noreferrer" target="_blank">Co-op Anything：AI 单机改联机，6 天 789 Star</a>。</p></div>
+<p class="back"><a href="/">← 返回最新</a></p>
+</article>
+</main>
+<footer class="site-foot">
+<p>wocao.world — 本站内容全部转载自各订阅源，版权归原作者与原站所有。</p>
+</footer>
+</body>
+</html>

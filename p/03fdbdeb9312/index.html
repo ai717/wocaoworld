@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>OptScale Kompressor 词元压缩把 AI 编程账单砍 22.7% · wocao.world</title>
+<meta name="description" content="为什么账单会飙升？ 写过 Codex CLI 或 GPT-5.5 的同学都知道，编程智能体把构建日志、编译器报错、测试堆栈一次性塞进上下文，动辄几十万词元。官方 报道 里提到，Terminal‑Bench 2.1 跑出来的数据显示，超 200000 词元的请求占比从 1.9% 降到 0.13% 才勉强能吃下折扣。没压缩前，账单按 token 计费，动不动就几百刀。 Kompressor 怎么把词元“压”下去 OptScale Kompressor 是 Hystax 放出的单 Rust 二进制，体积只有几 MB，零外部网络调用，1 KB 输出约 0.2 ms。它不改智能体任何一行代码，只在请求进…">
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="wocao.world">
+<meta property="og:title" content="OptScale Kompressor 词元压缩把 AI 编程账单砍 22.7% · wocao.world">
+<meta property="og:description" content="为什么账单会飙升？ 写过 Codex CLI 或 GPT-5.5 的同学都知道，编程智能体把构建日志、编译器报错、测试堆栈一次性塞进上下文，动辄几十万词元。官方 报道 里提到，Terminal‑Bench 2.1 跑出来的数据显示，超 200000 词元的请求占比从 1.9% 降到 0.13% 才勉强能吃下折扣。没压缩前，账单按 token 计费，动不动就几百刀。 Kompressor 怎么把词元“压”下去 OptScale Kompressor 是 Hystax 放出的单 Rust 二进制，体积只有几 MB，零外部网络调用，1 KB 输出约 0.2 ms。它不改智能体任何一行代码，只在请求进…">
+<meta property="og:url" content="https://wocao.world/">
+<meta name="twitter:card" content="summary">
+<meta name="robots" content="noindex,follow">
+<link rel="alternate" type="application/rss+xml" title="wocao.world 聚合输出" href="/feed.xml">
+<link rel="stylesheet" href="/style.css">
+<link rel="canonical" href="https://www.moyunews.com/kompressor-cuts-ai-coding-costs/">
+</head>
+<body>
+<a class="skip-link" href="#main">跳到正文</a>
+<header class="site-head">
+<p class="site-title"><a href="/">wocao.world</a></p>
+<p class="site-desc">wocao.world</p>
+<nav class="site-nav">
+<a href="/">最新</a>
+<a href="/about/">关于</a>
+<a href="/feed.xml">RSS</a>
+</nav>
+</header>
+<main id="main">
+<article>
+<h1 class="post-title">OptScale Kompressor 词元压缩把 AI 编程账单砍 22.7%</h1>
+<div class="post-body"><h2>为什么账单会飙升？</h2>
+<p>写过 <code>Codex CLI</code> 或 <code>GPT-5.5</code> 的同学都知道，编程智能体把构建日志、编译器报错、测试堆栈一次性塞进上下文，动辄几十万词元。官方 <a href="https://www.prweb.com/releases/hystax-releases-open-source-token-compressor-that-cuts-ai-coding-agent-costs-by-22-7-without-changing-the-agent-302912355.html" rel="external nofollow noopener noreferrer" target="_blank">报道</a> 里提到，<a href="https://www.prweb.com/releases/hystax-releases-open-source-token-compressor-that-cuts-ai-coding-agent-costs-by-22-7-without-changing-the-agent-302912355.html" rel="external nofollow noopener noreferrer" target="_blank">Terminal‑Bench 2.1</a> 跑出来的数据显示，超 200000 词元的请求占比从 1.9% 降到 0.13% 才勉强能吃下折扣。没压缩前，账单按 token 计费，动不动就几百刀。</p>
+<p><img src="https://moyu.18uk.uk/2026/20261022-be604ced-c291-4ec9-bdc4-20ad2f7c32a7.webp" alt="词元压缩" width="600" loading="lazy" referrerpolicy="no-referrer" /></p>
+<h2>Kompressor 怎么把词元“压”下去</h2>
+<p><a href="https://github.com/hystax/optscale-kompressor" rel="external nofollow noopener noreferrer" target="_blank">OptScale Kompressor</a> 是 <a href="https://github.com/hystax/optscale-kompressor" rel="external nofollow noopener noreferrer" target="_blank">Hystax</a> 放出的单 <code>Rust</code> 二进制，体积只有几 MB，零外部网络调用，1 KB 输出约 0.2 ms。它不改智能体任何一行代码，只在请求进模型前把上下文做一次确定性压缩，再把压缩后的标记喂给模型。压缩逻辑分四步：</p>
+<ul>
+<li>按 <code>format‑aware</code> 识别代码块、日志行、堆栈帧等结构</li>
+<li>把重复度高的机器输出（构建日志、编译报错）替换成带标签的占位符，保留 <code>recoverable</code> 标记以便后续还原</li>
+<li>对剩余文本做逐字节的 <code>deterministic</code> 编码，保证同一输入每轮输出完全一致，满足 <code>prompt caching</code> 的逐轮一致性要求</li>
+<li>若压缩后仍超限，触发 <code>fail‑safe</code> 直接截断最不重要的尾部，防止请求报错</li>
+</ul>
+<h2>四大原则让压缩不翻车</h2>
+<p>官方把这四条写成设计原则：</p>
+<ul>
+<li><strong>确定性</strong>：同一上下文、同一版本 Kompressor，输出逐字节一致，缓存命中率直接上去</li>
+<li><strong>可恢复</strong>：删除的段落换成 <code>&lt;kompressor‑tag&gt;</code>，后端随时能把原文拼回来，调试、审计零损失</li>
+<li><strong>格式感知</strong>：对 Markdown、JSON、堆栈帧分别走不同切分策略，不把代码缩进当垃圾删了</li>
+<li><strong>故障安全</strong>：极端情况下自动降级为硬截断，绝不抛异常让智能体挂掉</li>
+</ul>
+<h2>实测数字：账单砍 22.7% 的细节</h2>
+<p>在 <a href="https://www.prweb.com/releases/hystax-releases-open-source-token-compressor-that-cuts-ai-coding-agent-costs-by-22-7-without-changing-the-agent-302912355.html" rel="external nofollow noopener noreferrer" target="_blank">Terminal-Bench 2.1</a> 上，以 <a href="https://www.prweb.com/releases/hystax-releases-open-source-token-compressor-that-cuts-ai-coding-agent-costs-by-22-7-without-changing-the-agent-302912355.html" rel="external nofollow noopener noreferrer" target="_blank">Headroom</a> 默认 8.2% 压缩率为基准（激进档 11.6%），Kompressor 再省 15.8%，综合下来输入词元减少 25%，模型账单下降 22.7%。任务成功率从 82.2% 微降到 81.1%，基本在噪音范围。把 <a href="https://www.prweb.com/releases/hystax-releases-open-source-token-compressor-that-cuts-ai-coding-agent-costs-by-22-7-without-changing-the-agent-302912355.html" rel="external nofollow noopener noreferrer" target="_blank">ML 训练评测</a> 任务单独跑，省 26%；从源码构建场景省 28%。这些数字都是 <a href="https://www.prweb.com/releases/hystax-releases-open-source-token-compressor-that-cuts-ai-coding-agent-costs-by-22-7-without-changing-the-agent-302912355.html" rel="external nofollow noopener noreferrer" target="_blank">PR</a> 里 CEO Nick Smirnov 亲自披露的，没做任何美化。</p>
+<h2>能不能直接上手？</h2>
+<p>克隆 <a href="https://github.com/hystax/optscale-kompressor" rel="external nofollow noopener noreferrer" target="_blank">GitHub 仓库</a>，<code>cargo build --release</code> 拿到单二进制，丢进 <code>PATH</code> 里，给智能体加个前置 hook 就完事。MIT 许可证随便商用、改代码、打包进 Docker，完全没门槛。想白嫖更多额度的，直接把 Kompressor 接进现有 <code>prompt caching</code> 流水线，缓存命中率蹭蹭涨，账单再砍一刀。</p>
+<p> </p>
+<p>本文来源：<a href="https://www.moyunews.com/" rel="external nofollow noopener noreferrer" target="_blank">摸鱼杂货店</a>。查看原文：<a href="https://www.moyunews.com/kompressor-cuts-ai-coding-costs/" rel="external nofollow noopener noreferrer" target="_blank">OptScale Kompressor 词元压缩把 AI 编程账单砍 22.7%</a>。</p></div>
+<p class="back"><a href="/">← 返回最新</a></p>
+</article>
+</main>
+<footer class="site-foot">
+<p>wocao.world — 本站内容全部转载自各订阅源，版权归原作者与原站所有。</p>
+</footer>
+</body>
+</html>

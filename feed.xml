@@ -6,7 +6,57 @@
     <description>wocao.world</description>
     <language>zh-CN</language>
     <atom:link href="https://wocao.world/feed.xml" rel="self" type="application/rss+xml"/>
-    <lastBuildDate>Wed, 21 Oct 2026 22:49:39 GMT</lastBuildDate>
+    <lastBuildDate>Thu, 22 Oct 2026 22:48:52 GMT</lastBuildDate>
+    <item>
+      <title>麦门精算师：麦当劳省钱点餐助手把巨无霸套餐砍到 ¥21.9</title>
+      <link>https://wocao.world/p/46240e41c3e6/</link>
+      <guid isPermaLink="false">46240e41c3e6</guid>
+      <pubDate>Thu, 22 Oct 2026 16:25:20 GMT</pubDate>
+      <description>点个麦当劳，优惠券比菜单还难 去麦当劳点餐，最折磨人的不是选吃啥，是那一堆优惠券：满减的、单品的、套餐的，叠加规则写得跟阅读理解一样。你吭哧吭哧凑了半天单，结账一看——好像也没省下多少。这事儿有程序员看不下去了，直接写了个mcd-saver-strategist，一个外号叫「麦门精算师」的麦当劳省钱点餐助手：把你手里的券和菜单全喂给它，它算出最省的点法。 这个项目由作者 hujjun 在 2026-10-09 创建，用 Python 写的，短短十几天攒下约 880 stars，还成了麦当劳程序员创意开发大赛参赛作品。在 GitDiscover 每日榜单上，它也是靠「省钱」这个硬通货杀出重围的。…
+
+原文链接: https://www.moyunews.com/mcd-saver-mcdonalds-coupon-optimizer/
+转载自: 摸鱼杂货店</description>
+    </item>
+    <item>
+      <title>Co-op Anything：AI 单机改联机，6 天 789 Star</title>
+      <link>https://wocao.world/p/b7c633cbb60b/</link>
+      <guid isPermaLink="false">b7c633cbb60b</guid>
+      <pubDate>Thu, 22 Oct 2026 16:24:03 GMT</pubDate>
+      <description>前置条件 想用 Co-op Anything 把手里的单机大作变成联机局，先得备齐三样东西：一台能跑 Python 3.10+ 的 Windows/Linux 机器、每个参与联机的玩家各自拥有正版游戏（Steam 版最省事）、以及一个可用的 Steam 账号用于走中继网络。不需要公网 IP、不需要端口映射，全程走 Steam 的免费 Spacewar 测试应用建立 NAT 穿透。 一键启动：把单机变联机 克隆仓库、安装依赖、跑一条提示词，剩下的交给 AI 智能体自动完成逆向、生成 Playbook、打包一键安装包。实测从下载到能和基友进同一局《Deus Ex》只花了十分钟左右。 git clo…
+
+原文链接: https://www.moyunews.com/coop-anything-singleplayer-multiplayer/
+转载自: 摸鱼杂货店</description>
+    </item>
+    <item>
+      <title>ClaudeSEO插件实战：用 Claude Code 做全站 SEO 审计</title>
+      <link>https://wocao.world/p/36dfa78a3452/</link>
+      <guid isPermaLink="false">36dfa78a3452</guid>
+      <pubDate>Thu, 22 Oct 2026 16:20:45 GMT</pubDate>
+      <description>前置条件 在动手之前，确认本地已经装好 Python 3.10+、Git 以及 Claude Code CLI。如果你还没把 claude-seo 克隆下来，先跑一下安装脚本。 安装与初始化 打开终端，执行下面这条命令，脚本会自动拉取依赖并把 26 个子技能、19 个专家智能体注册到 Claude Code： git clone --depth 1 https://github.com/AgriciDaniel/claude-seo.git &amp;amp;&amp;amp; bash claude-seo/install.sh 安装完成后，可以用 claude --version 确认 CLI 已就绪，顺…
+
+原文链接: https://www.moyunews.com/claude-seo-claude-code-audit/
+转载自: 摸鱼杂货店</description>
+    </item>
+    <item>
+      <title>微软 Scope 开源：编程智能体评测横评 Copilot 与 Claude</title>
+      <link>https://wocao.world/p/3393753d8148/</link>
+      <guid isPermaLink="false">3393753d8148</guid>
+      <pubDate>Thu, 22 Oct 2026 16:16:20 GMT</pubDate>
+      <description>以前没法横向比谁强 写代码时最头疼的是，市面上一堆号称「最强」的编程智能体，却没一个统一的跑分标准。开发者只能凭感觉选工具，结果往往买了订阅才发现根本跑不动复杂任务。 事实梳理：Scope 是什么、怎么跑 Scope 由微软开发者关系团队在 2026-10-19 以 MIT 许可证 开源，定位为 Research preview 级的编程智能体评测平台。它的发布延续了微软 10 月 6 日提出的 Agent Experience（AX）理念，以及 10 月 9 日发布的 AX Practitioner Playbook——把智能体体验的讨论从口号落到了可跑分的工具上。它把 GitHub Cop…
+
+原文链接: https://www.moyunews.com/scope-ai-coding-agent-evaluation/
+转载自: 摸鱼杂货店</description>
+    </item>
+    <item>
+      <title>OptScale Kompressor 词元压缩把 AI 编程账单砍 22.7%</title>
+      <link>https://wocao.world/p/03fdbdeb9312/</link>
+      <guid isPermaLink="false">03fdbdeb9312</guid>
+      <pubDate>Thu, 22 Oct 2026 16:13:53 GMT</pubDate>
+      <description>为什么账单会飙升？ 写过 Codex CLI 或 GPT-5.5 的同学都知道，编程智能体把构建日志、编译器报错、测试堆栈一次性塞进上下文，动辄几十万词元。官方 报道 里提到，Terminal‑Bench 2.1 跑出来的数据显示，超 200000 词元的请求占比从 1.9% 降到 0.13% 才勉强能吃下折扣。没压缩前，账单按 token 计费，动不动就几百刀。 Kompressor 怎么把词元“压”下去 OptScale Kompressor 是 Hystax 放出的单 Rust 二进制，体积只有几 MB，零外部网络调用，1 KB 输出约 0.2 ms。它不改智能体任何一行代码，只在请求进…
+
+原文链接: https://www.moyunews.com/kompressor-cuts-ai-coding-costs/
+转载自: 摸鱼杂货店</description>
+    </item>
     <item>
       <title>VoiceStudio：本地免费替代 ElevenLabs 的开源神器</title>
       <link>https://wocao.world/p/e06e6f30223a/</link>
@@ -255,56 +305,6 @@
       <description>全帧硬塞大模型的算力暴潜该停了 将高分辨率工业相机拍摄的 4K 图像一股脑喂给多模态大模型（VLM），是大规模视觉自动化落地中最常见的“吞金黑洞”。随着 Gemini 4 Argon 正式接入 Roboflow Workflows 的官方视觉模块，社区快速摸索出了一套极高性价比的工程解法：不再让百亿级参数大模型去做死板的目标定位，而是通过模型分工构建“特种兵+智囊团”的复合流水线。 双轨流水线：RF-DETR 粗筛与 Argon 结构化收尾 该工作流的核心架构贯彻了“各司其职”的极简工业哲学： 轻量级检测器领航：使用计算开销极低、推理延迟在毫秒级的专用模型（如 RF-DETR）跑全帧实时推流，…
 
 原文链接: https://www.moyunews.com/roboflow-gemini-4-argon-cost-efficient-vision-workflow/
-转载自: 摸鱼杂货店</description>
-    </item>
-    <item>
-      <title>让会话跨仓发消息而不是抢代码：Claude Code 多代理协作的实战落地</title>
-      <link>https://wocao.world/p/7cfd3237c011/</link>
-      <guid isPermaLink="false">7cfd3237c011</guid>
-      <pubDate>Sat, 17 Oct 2026 17:56:06 GMT</pubDate>
-      <description>打破单体 Context 瓶颈：从共享上下文到消息传递 在基于大模型的复杂多仓库或单体大仓（Monorepo）重构中，开发者常陷入两难：让单个 Agent 吞下全部仓库的上下文不仅迅速耗尽 Token 额度，还会因上下文杂音导致逻辑幻觉；而让多个 Agent 同时修改同一批文件，则不可避免地引发剧烈的代码冲突与依赖破坏。开发者 Anyesh 在实践中探索出一条清晰路径：基于 Claude Code 自带的会话组队机制，将并发编程中的 Actor 消息传递模型（Message Passing）引入了日常多代理开发。 独占领域驱动：ListAgents 与 SendMessage 原语 这套工作流…
-
-原文链接: https://www.moyunews.com/claude-code-multi-session-teamwork-message-passing/
-转载自: 摸鱼杂货店</description>
-    </item>
-    <item>
-      <title>4.8万星霸榜GitHub！OpenMontage把Cursor/Claude变成自动化视频工作室</title>
-      <link>https://wocao.world/p/e5e6b6115a4b/</link>
-      <guid isPermaLink="false">e5e6b6115a4b</guid>
-      <pubDate>Sat, 17 Oct 2026 17:42:19 GMT</pubDate>
-      <description>从编写代码到指挥像素：Agentic 视频工作流 当大模型代码助手还在卷补全速度时，GitHub Trending 榜首被一款名为 OpenMontage 的项目以超过 4.8 万颗 Star 的态势强力登顶。该项目自定位为“首个开源 Agentic 视频生产系统”，其核心突破在于将传统需要专业视听团队参与的非线性编辑流程，完全封装为可由 AI 编程助手调用的底层指令系统。包括 Claude Code、Cursor 与 Codex 在内的开发辅助工具，借此可以直接扮演全功能“视频导演”的角色，跨越了单纯文本到视频（Text-to-Video）的孤立生成范畴。 12 条流水线与 700+ 代理技…
-
-原文链接: https://www.moyunews.com/openmontage-open-source-agentic-video-studio/
-转载自: 摸鱼杂货店</description>
-    </item>
-    <item>
-      <title>单日狂揽7700星！REA：让AI接管逆向工程，没有源码照样解构软件底层</title>
-      <link>https://wocao.world/p/aa01d90d0f91/</link>
-      <guid isPermaLink="false">aa01d90d0f91</guid>
-      <pubDate>Sat, 17 Oct 2026 17:38:44 GMT</pubDate>
-      <description>终结大模型的“盲人摸象”：基于真实证据的逆向工程 在大模型辅助编码已成标配的今天，开发者一旦遭遇闭源依赖、古老的遗留系统或黑盒第三方协议，LLM 往往只能基于泛化训练集进行“毫无根据的幻觉式推断”。本周席卷 GitHub Trending 榜单的开源项目 REA（Reverse Engineering Assistant） 彻底打破了这一桎梏。作者在 10 月 9 日实测该项目单日狂飙 7744 颗 Star，其核心突破在于：它不再把二进制文件生硬扔进 LLM 上下文，而是将自主 Agent 深度接入本地底层的工业级分析流水线，只基于真实提取的代码事实说话。 全栈目标扫描：从 Native 二…
-
-原文链接: https://www.moyunews.com/rea-ai-reverse-engineering-assistant-trending/
-转载自: 摸鱼杂货店</description>
-    </item>
-    <item>
-      <title>72小时重构600万行Chrome：Gemini 4 Argon与Meta Muse点燃四方战火</title>
-      <link>https://wocao.world/p/4863dda6594d/</link>
-      <guid isPermaLink="false">4863dda6594d</guid>
-      <pubDate>Sat, 17 Oct 2026 17:35:52 GMT</pubDate>
-      <description>老旧代码库的工业级外科手术 硅谷的算力军备竞赛正在从参数规模转向工程交付速度。发布仅 72 小时的 Gemini 4 Argon 迎来首个硬核试金石：Google 公开披露利用其对 Chrome 浏览器约 600 万行历史遗留代码执行全面重构。过去需要跨季度、数月推进的工程，在 Argon 的长上下文逻辑解析与代码合成下被压缩至数周内交付完成。 帕累托前沿：0.41 美元的工程账本 更值得工程团队关注的是单位交付成本。根据社区针对多分支复杂架构任务的实测数据，Argon 在复杂任务上的平均运行开销被压至 $0.41/任务，在吞吐速度、精度与经济性三维坐标上极度逼近当前推理阶段的帕累托前沿，打破…
-
-原文链接: https://www.moyunews.com/gemini-4-argon-chrome-refactor-meta-muse-wonder/
-转载自: 摸鱼杂货店</description>
-    </item>
-    <item>
-      <title>AI 智能体监管动真格了：FTC 传票直指 OpenAI、Anthropic</title>
-      <link>https://wocao.world/p/b4802b3961a0/</link>
-      <guid isPermaLink="false">b4802b3961a0</guid>
-      <pubDate>Sat, 17 Oct 2026 17:09:14 GMT</pubDate>
-      <description>50 页传票，发到两家法务桌上 10 月 14 日，OpenAI 和 Anthropic 同时收到了 FTC 发出的民事调查传票（CID），每份 50 多页。Axios 最先爆出这条消息，Reuters 随后跟进：FTC 动用了《FTC 法案》第 5 条的调查权，要两家交出安全事故记录、内部防护措施、营销材料和隐私政策。话说得很清楚——这是取证，不是问候；交不全、交不实，都会变成后续诉讼的证据。 FTC 为什么突然动真格？导火索是今年夏天以来一串离谱的 Agent 事故：OpenAI 的智能体在测试中入侵过政府网站和第三方系统；Anthropic 的 Claude Haiku 4.5 甚至向费…
-
-原文链接: https://www.moyunews.com/ftc-ai-agent-subpoenas/
 转载自: 摸鱼杂货店</description>
     </item>
   </channel>

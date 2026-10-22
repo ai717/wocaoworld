@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>ClaudeSEO插件实战：用 Claude Code 做全站 SEO 审计 · wocao.world</title>
+<meta name="description" content="前置条件 在动手之前，确认本地已经装好 Python 3.10+、Git 以及 Claude Code CLI。如果你还没把 claude-seo 克隆下来，先跑一下安装脚本。 安装与初始化 打开终端，执行下面这条命令，脚本会自动拉取依赖并把 26 个子技能、19 个专家智能体注册到 Claude Code： git clone --depth 1 https://github.com/AgriciDaniel/claude-seo.git &amp;amp;&amp;amp; bash claude-seo/install.sh 安装完成后，可以用 claude --version 确认 CLI 已就绪，顺…">
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="wocao.world">
+<meta property="og:title" content="ClaudeSEO插件实战：用 Claude Code 做全站 SEO 审计 · wocao.world">
+<meta property="og:description" content="前置条件 在动手之前，确认本地已经装好 Python 3.10+、Git 以及 Claude Code CLI。如果你还没把 claude-seo 克隆下来，先跑一下安装脚本。 安装与初始化 打开终端，执行下面这条命令，脚本会自动拉取依赖并把 26 个子技能、19 个专家智能体注册到 Claude Code： git clone --depth 1 https://github.com/AgriciDaniel/claude-seo.git &amp;amp;&amp;amp; bash claude-seo/install.sh 安装完成后，可以用 claude --version 确认 CLI 已就绪，顺…">
+<meta property="og:url" content="https://wocao.world/">
+<meta name="twitter:card" content="summary">
+<meta name="robots" content="noindex,follow">
+<link rel="alternate" type="application/rss+xml" title="wocao.world 聚合输出" href="/feed.xml">
+<link rel="stylesheet" href="/style.css">
+<link rel="canonical" href="https://www.moyunews.com/claude-seo-claude-code-audit/">
+</head>
+<body>
+<a class="skip-link" href="#main">跳到正文</a>
+<header class="site-head">
+<p class="site-title"><a href="/">wocao.world</a></p>
+<p class="site-desc">wocao.world</p>
+<nav class="site-nav">
+<a href="/">最新</a>
+<a href="/about/">关于</a>
+<a href="/feed.xml">RSS</a>
+</nav>
+</header>
+<main id="main">
+<article>
+<h1 class="post-title">ClaudeSEO插件实战：用 Claude Code 做全站 SEO 审计</h1>
+<div class="post-body"><h2>前置条件</h2>
+<p>在动手之前，确认本地已经装好 <code>Python 3.10+</code>、<code>Git</code> 以及 <code>Claude Code CLI</code>。如果你还没把 <a href="https://github.com/AgriciDaniel/claude-seo" rel="external nofollow noopener noreferrer" target="_blank">claude-seo</a> 克隆下来，先跑一下安装脚本。</p>
+<p><img src="https://moyu.18uk.uk/2026/20261022-722c40d9-baa5-46bf-b107-ac0a078eccf9.webp" alt="ClaudeSEO插件" width="849" height="368" loading="lazy" referrerpolicy="no-referrer" /></p>
+<h2>安装与初始化</h2>
+<p>打开终端，执行下面这条命令，脚本会自动拉取依赖并把 26 个子技能、19 个专家智能体注册到 Claude Code：</p>
+<p><code>git clone --depth 1 https://github.com/AgriciDaniel/claude-seo.git &amp;&amp; bash claude-seo/install.sh</code></p>
+<p>安装完成后，可以用 <code>claude --version</code> 确认 CLI 已就绪，顺便看一眼 <a href="https://skillsllm.com/skill/claude-seo" rel="external nofollow noopener noreferrer" target="_blank">SkillsLLM 安全扫描介绍</a> 确认版本无异常。</p>
+<h2>页面级审计（先跑 /seo page）</h2>
+<p>单页测试比全站便宜，token 消耗少，适合先验证配置。对着目标页面运行：</p>
+<p><code>/seo page https://your-site.com/your-page</code></p>
+<p>返回的报告会逐条列出技术 SEO、内容质量（E‑E‑A‑T）、Schema.org、AI 搜索优化（GEO）等 6 大维度的问题，并且每条建议后面都附带“怎么知道它错了”的可证伪检查步骤。</p>
+<h2>全站审计（启动最多 17 个专家智能体并行）</h2>
+<p>确认页面级没大问题后，再跑全站：</p>
+<p><code>/seo technical https://your-site.com</code></p>
+<p>这次会一次性启动最多 17 个专家智能体，覆盖本地 SEO、电商 SEO、国际 SEO 等 9 个可选扩展（Ahrefs、DataForSEO、Search Console 等实时数据源可在配置里开关）。全站跑完通常需要几百万 token，建议在预算充足时再执行。</p>
+<h2>避坑指南</h2>
+<blockquote><p>1️⃣ 不要一次性对超大站点跑全站审计，子智能体并行会把 token 烧光，导致后续命令排队失败。<br />
+2️⃣ 如果你只想看技术层面，关掉内容质量与 GEO 扩展能省下约 30% token。<br />
+3️⃣ 安装脚本若报 “permission denied”，先给 install.sh 加执行权限：<code>chmod +x claude-seo/install.sh</code>。<br />
+4️⃣ 所有建议都附带可证伪检查，拿到报告后务必人工复核一遍，别盲目全信。<br />
+5️⃣ 遇到网络抖动导致 Ahrefs 或 DataForSEO 请求超时，建议在配置里把对应扩展暂时关闭，等网络稳定再开启。</p></blockquote>
+<h2>进阶：把审计结果接入 CI/CD</h2>
+<p>把 <code>/seo technical</code> 的输出重定向到 JSON，配合 GitHub Actions 在每次合并前自动跑一次轻量级页面审计，随时守住 SEO 底线。更多自动化玩法可参考 <a href="https://www.ayautomate.com/blog/best-claude-code-github-repos" rel="external nofollow noopener noreferrer" target="_blank">Claude Code 仓库推荐榜单</a> 里的实战案例。</p>
+<p> </p>
+<p> </p>
+<p>本文来源：<a href="https://www.moyunews.com/" rel="external nofollow noopener noreferrer" target="_blank">摸鱼杂货店</a>。查看原文：<a href="https://www.moyunews.com/claude-seo-claude-code-audit/" rel="external nofollow noopener noreferrer" target="_blank">ClaudeSEO插件实战：用 Claude Code 做全站 SEO 审计</a>。</p></div>
+<p class="back"><a href="/">← 返回最新</a></p>
+</article>
+</main>
+<footer class="site-foot">
+<p>wocao.world — 本站内容全部转载自各订阅源，版权归原作者与原站所有。</p>
+</footer>
+</body>
+</html>

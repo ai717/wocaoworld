@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>微软 Scope 开源：编程智能体评测横评 Copilot 与 Claude · wocao.world</title>
+<meta name="description" content="以前没法横向比谁强 写代码时最头疼的是，市面上一堆号称「最强」的编程智能体，却没一个统一的跑分标准。开发者只能凭感觉选工具，结果往往买了订阅才发现根本跑不动复杂任务。 事实梳理：Scope 是什么、怎么跑 Scope 由微软开发者关系团队在 2026-10-19 以 MIT 许可证 开源，定位为 Research preview 级的编程智能体评测平台。它的发布延续了微软 10 月 6 日提出的 Agent Experience（AX）理念，以及 10 月 9 日发布的 AX Practitioner Playbook——把智能体体验的讨论从口号落到了可跑分的工具上。它把 GitHub Cop…">
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="wocao.world">
+<meta property="og:title" content="微软 Scope 开源：编程智能体评测横评 Copilot 与 Claude · wocao.world">
+<meta property="og:description" content="以前没法横向比谁强 写代码时最头疼的是，市面上一堆号称「最强」的编程智能体，却没一个统一的跑分标准。开发者只能凭感觉选工具，结果往往买了订阅才发现根本跑不动复杂任务。 事实梳理：Scope 是什么、怎么跑 Scope 由微软开发者关系团队在 2026-10-19 以 MIT 许可证 开源，定位为 Research preview 级的编程智能体评测平台。它的发布延续了微软 10 月 6 日提出的 Agent Experience（AX）理念，以及 10 月 9 日发布的 AX Practitioner Playbook——把智能体体验的讨论从口号落到了可跑分的工具上。它把 GitHub Cop…">
+<meta property="og:url" content="https://wocao.world/">
+<meta name="twitter:card" content="summary">
+<meta name="robots" content="noindex,follow">
+<link rel="alternate" type="application/rss+xml" title="wocao.world 聚合输出" href="/feed.xml">
+<link rel="stylesheet" href="/style.css">
+<link rel="canonical" href="https://www.moyunews.com/scope-ai-coding-agent-evaluation/">
+</head>
+<body>
+<a class="skip-link" href="#main">跳到正文</a>
+<header class="site-head">
+<p class="site-title"><a href="/">wocao.world</a></p>
+<p class="site-desc">wocao.world</p>
+<nav class="site-nav">
+<a href="/">最新</a>
+<a href="/about/">关于</a>
+<a href="/feed.xml">RSS</a>
+</nav>
+</header>
+<main id="main">
+<article>
+<h1 class="post-title">微软 Scope 开源：编程智能体评测横评 Copilot 与 Claude</h1>
+<div class="post-body"><h2>以前没法横向比谁强</h2>
+<p>写代码时最头疼的是，市面上一堆号称「最强」的编程智能体，却没一个统一的跑分标准。开发者只能凭感觉选工具，结果往往买了订阅才发现根本跑不动复杂任务。</p>
+<p><img src="https://moyu.18uk.uk/2026/20261022-d21af02c-235d-4954-a100-0a82ebecac2e.webp" alt="编程智能体评测" width="800" loading="lazy" referrerpolicy="no-referrer" /></p>
+<h2>事实梳理：Scope 是什么、怎么跑</h2>
+<p><a href="https://trendintech.com/microsoft-scope-open-source-ai-coding-agent-testing-2026/" rel="external nofollow noopener noreferrer" target="_blank">Scope</a> 由微软开发者关系团队在 2026-10-19 以 <a href="https://trendintech.com/microsoft-scope-open-source-ai-coding-agent-testing-2026/" rel="external nofollow noopener noreferrer" target="_blank">MIT 许可证</a> 开源，定位为 Research preview 级的编程智能体评测平台。它的发布延续了微软 10 月 6 日提出的 Agent Experience（AX）理念，以及 10 月 9 日发布的 AX Practitioner Playbook——把智能体体验的讨论从口号落到了可跑分的工具上。它把 <a href="https://pandromeda.com/ai/cursor-vs-github-copilot-vs-claude-code-vs-codex-prices-compared/" rel="external nofollow noopener noreferrer" target="_blank">GitHub Copilot</a>、<a href="https://pandromeda.com/ai/cursor-vs-github-copilot-vs-claude-code-vs-codex-prices-compared/" rel="external nofollow noopener noreferrer" target="_blank">Claude Code</a>、VS Code + Copilot 三个可驱动对象放进同一套任务，依靠依赖图评测标准和内置 LLM Judge 服务自动打分。微软自己也坦言：裁判模型也会判错，必须人工复核。本地部署需要 Docker Compose v2、Node 22、pnpm、mkcert 和 GitHub CLI，默认 worker 还得绑定 <a href="https://pandromeda.com/ai/cursor-vs-github-copilot-vs-claude-code-vs-codex-prices-compared/" rel="external nofollow noopener noreferrer" target="_blank">GitHub Copilot</a> 订阅；生产端则靠 KEDA 队列伸缩配合 Flux GitOps 实现自动扩缩容。托管演示页面只放了预写的示例结果，并非真实跑分。</p>
+<h2>行业影响：为啥这事儿不只是个玩具</h2>
+<p>同周 <a href="https://pandromeda.com/ai/cursor-vs-github-copilot-vs-claude-code-vs-codex-prices-compared/" rel="external nofollow noopener noreferrer" target="_blank">GitHub Copilot</a> 一口气下架 6 个模型（Gemini 3.7 Flash、GPT-5.5、GPT-5.4、GPT-5.4 mini、GPT-5 mini、Grok 4.5），紧接着 Gemini 4 Argon 在 10 月 13 日 GA，Claude Haiku 5.5 于 10 月 7 日 GA，GPT-6.1 Sol 早于 9 月 29 日发布，11 月 16 日还将再砍掉 Claude Opus 4.8、Claude Opus 5、GPT-5.6 Terra。Stack Overflow 2025 调查显示 31% 受访者已经在用 AI agent，但 METR 研究却发现部分任务引入 agent 反而更慢。Scope 的出现，正是为了在模型频繁更迭、订阅门槛不断变动的混乱期，给团队一个可复现的横向对比基准。</p>
+<h2>突破点清单</h2>
+<ul>
+<li>首个 MIT 协议的编程智能体评测平台，代码完全可审计</li>
+<li>统一依赖图标准，把不同 Agent 的上下文构建过程拉到同一坐标系</li>
+<li>内置 LLM Judge 但显式标注需人工复核，避免「自动给分」虚高</li>
+<li>支持三大主流驱动对象直连，免去二次封装成本</li>
+<li>生产级部署方案：KEDA + Flux GitOps，开箱即用可弹性伸缩</li>
+</ul>
+<h2>真实局限与冷静评述</h2>
+<p>Scope 目前仍处于 Research preview，文档只覆盖核心流程，边缘场景（如多仓库联动、私有模型接入）基本靠自己摸索。LLM Judge 的误判率在复杂重构任务上依然明显，微软建议配合人工抽检，这在 CI/CD 全自动流水线里会成为瓶颈。本地跑通一套完整评测，硬件门槛不低：至少 16 GB 内存、GPU 显存 8 GB 以上，否则 Docker Compose 起不来。而且默认 worker 强制绑定 <a href="https://pandromeda.com/ai/cursor-vs-github-copilot-vs-claude-code-vs-codex-prices-compared/" rel="external nofollow noopener noreferrer" target="_blank">GitHub Copilot</a> 订阅，想白嫖的团队得自己改代码把 worker 改成调用本地模型。托管演示的预写结果更是「只看不跑」，真实分数还得自己跑一遍才知道。总的来说，Scope 适合有运维能力、想建立内部基准的中大型团队；对个人开发者或只想快速试水的场景，性价比仍显不足。</p>
+<p> </p>
+<p> </p>
+<p>本文来源：<a href="https://www.moyunews.com/" rel="external nofollow noopener noreferrer" target="_blank">摸鱼杂货店</a>。查看原文：<a href="https://www.moyunews.com/scope-ai-coding-agent-evaluation/" rel="external nofollow noopener noreferrer" target="_blank">微软 Scope 开源：编程智能体评测横评 Copilot 与 Claude</a>。</p></div>
+<p class="back"><a href="/">← 返回最新</a></p>
+</article>
+</main>
+<footer class="site-foot">
+<p>wocao.world — 本站内容全部转载自各订阅源，版权归原作者与原站所有。</p>
+</footer>
+</body>
+</html>
