@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>MOSS-Image 开源 5B 文生图模型：文字渲染 96.3% 领跑开源 · wocao.world</title>
+<meta name="description" content="生成图里的文字总是靠不住 做过海报、幻灯片、甚至漫画分镜的同学都知道：主流文生图模型一生成中文长句，要么漏字、要么乱码、要么字形崩坏，最后还得进 PS 一个个改，费时又费力。 市面上号称「支持中文」的开源模型，跑起来往往只能应付短词，稍微加长 prompt 就崩。想要一次性把几百字的说明文、带标点、带换行的排版直接生成在图里，几乎是个伪命题。 冻结大语言模型 + JSON 布局 MOSS-Image 的做法很硬核：直接把 Qwen3.5-9B 的文本编码器冻结，不做任何微调，保留它对中英文长文本的深度理解；再引入结构化 JSON 布局输入，每个文本块带上 bounding boxes，告诉模型…">
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="wocao.world">
+<meta property="og:title" content="MOSS-Image 开源 5B 文生图模型：文字渲染 96.3% 领跑开源 · wocao.world">
+<meta property="og:description" content="生成图里的文字总是靠不住 做过海报、幻灯片、甚至漫画分镜的同学都知道：主流文生图模型一生成中文长句，要么漏字、要么乱码、要么字形崩坏，最后还得进 PS 一个个改，费时又费力。 市面上号称「支持中文」的开源模型，跑起来往往只能应付短词，稍微加长 prompt 就崩。想要一次性把几百字的说明文、带标点、带换行的排版直接生成在图里，几乎是个伪命题。 冻结大语言模型 + JSON 布局 MOSS-Image 的做法很硬核：直接把 Qwen3.5-9B 的文本编码器冻结，不做任何微调，保留它对中英文长文本的深度理解；再引入结构化 JSON 布局输入，每个文本块带上 bounding boxes，告诉模型…">
+<meta property="og:url" content="https://wocao.world/">
+<meta name="twitter:card" content="summary">
+<meta name="robots" content="noindex,follow">
+<link rel="alternate" type="application/rss+xml" title="wocao.world 聚合输出" href="/feed.xml">
+<link rel="stylesheet" href="/style.css">
+<link rel="canonical" href="https://www.moyunews.com/moss-image-open-text-rendering/">
+</head>
+<body>
+<a class="skip-link" href="#main">跳到正文</a>
+<header class="site-head">
+<p class="site-title"><a href="/">wocao.world</a></p>
+<p class="site-desc">wocao.world</p>
+<nav class="site-nav">
+<a href="/">最新</a>
+<a href="/about/">关于</a>
+<a href="/feed.xml">RSS</a>
+</nav>
+</header>
+<main id="main">
+<article>
+<h1 class="post-title">MOSS-Image 开源 5B 文生图模型：文字渲染 96.3% 领跑开源</h1>
+<div class="post-body"><h2>生成图里的文字总是靠不住</h2>
+<p>做过海报、幻灯片、甚至漫画分镜的同学都知道：主流文生图模型一生成中文长句，要么漏字、要么乱码、要么字形崩坏，最后还得进 PS 一个个改，费时又费力。</p>
+<p>市面上号称「支持中文」的开源模型，跑起来往往只能应付短词，稍微加长 prompt 就崩。想要一次性把几百字的说明文、带标点、带换行的排版直接生成在图里，几乎是个伪命题。</p>
+<p><img src="https://moyu.18uk.uk/2026/20261025-4ff9c78e-e01e-40a2-9b66-21c60b52e2a7.webp" alt="MOSS-Image" width="800" loading="lazy" referrerpolicy="no-referrer" /></p>
+<h2>冻结大语言模型 + JSON 布局</h2>
+<p>MOSS-Image 的做法很硬核：直接把 <a href="https://github.com/OpenMOSS/MOSS-Image" rel="external nofollow noopener noreferrer" target="_blank">Qwen3.5-9B</a> 的文本编码器冻结，不做任何微调，保留它对中英文长文本的深度理解；再引入结构化 <code>JSON</code> 布局输入，每个文本块带上 <code>bounding boxes</code>，告诉模型「这段字放在这里、宽高多少、字号多大」。</p>
+<p>架构上是一个 5B 参数的 single‑stream diffusion transformer（DiT），只在扩散层做训练，文本侧零成本复用大模型语义能力。推理时最长支持 4096 tokens 的 prompt，配合 JSON 布局就能把复杂排版一次性编码进潜空间，不再靠「碰运气」生成文字。</p>
+<h3>关键代码片段</h3>
+<p>官方给出的最小调用示例：</p>
+<p><code>DiffusionPipeline.from_pretrained('OpenMOSS-Team/MOSS-Image-Base', custom_pipeline='pipeline_moss_image', trust_remote_code=True)</code></p>
+<p>默认 50 步、CFG 3 即可跑通，无需额外微调。</p>
+<h2>LongLongTextBench 96.3% 覆盖率、RealLayoutArena Elo 1698</h2>
+<p>在 <a href="https://openmoss.ai/MOSS-Image/paper/MOSS_Image_Technical_Report.pdf" rel="external nofollow noopener noreferrer" target="_blank">技术报告</a> 公布的 LongLongTextBench（LLTB）基准上，MOSS-Image 达到平均文本覆盖率 96.3%，在所有开源模型里排第一；RealLayoutArena（RLA）盲测 Elo 1698.70，端到端得分仅次于闭源的 GPT Image 2，超越了同量级的 Stable Diffusion 3.5、Flux 等主流开源权重。</p>
+<p>实际体感：把一段 300 字的中文产品介绍配上 JSON 布局扔进去，生成图里的每个汉字、标点、换行都在预设框内完美落笔，连生僻字都没跑偏。英文长文本同理，连代码片段、公式符号都能原样渲染。</p>
+<h2>ComfyUI 原生、蒸馏版、GGUF/INT8/MLX 一键跑</h2>
+<p>生态侧动作也很快：<a href="https://github.com/OpenMOSS/MOSS-Image" rel="external nofollow noopener noreferrer" target="_blank">GitHub 仓库</a> Apache‑2.0 协议，权重无门槛下载；<a href="https://huggingface.co/spaces/OpenMOSS-Team/MOSS-Image" rel="external nofollow noopener noreferrer" target="_blank">Hugging Face 在线 Demo</a> 无需显卡即可体验；ComfyUI 0.42.0 起原生集成，工作流里拖个节点就能用；8 步蒸馏版在 Hugging Face 已拿 7.5 万下载；GGUF、INT8、MLX 量化包齐全，Mac M 系列、Linux CPU、甚至树莓派都能跑通。</p>
+<p>根据 <a href="https://siliconnoon.com/open-source-radar-october-23-moss-image-minimax-weights/" rel="external nofollow noopener noreferrer" target="_blank">SiliconNoon 雷达</a> 统计，首 4 天镜像下载破 130 万，站内文生图 Trending 榜首，说明开发者对「把文字一次生成对」的需求有多旺盛。</p>
+<p>出品方由 MOSI Intelligence、SII、复旦、上海交大联合攻关，技术报告、代码、权重全公开，真正做到「白嫖即用、改造随心」。</p>
+<p> </p>
+<p> </p>
+<p>本文来源：<a href="https://www.moyunews.com/" rel="external nofollow noopener noreferrer" target="_blank">摸鱼杂货店</a>。查看原文：<a href="https://www.moyunews.com/moss-image-open-text-rendering/" rel="external nofollow noopener noreferrer" target="_blank">MOSS-Image 开源 5B 文生图模型：文字渲染 96.3% 领跑开源</a>。</p></div>
+<p class="back"><a href="/">← 返回最新</a></p>
+</article>
+</main>
+<footer class="site-foot">
+<p>wocao.world — 本站内容全部转载自各订阅源，版权归原作者与原站所有。</p>
+</footer>
+</body>
+</html>

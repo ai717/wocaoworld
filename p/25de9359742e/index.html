@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>SuperCMO Skills：一条命令把 Claude 变成 AI 营销总监 · wocao.world</title>
+<meta name="description" content="请不起 CMO，用 AI 营销工具又被割 小团队做营销的经典困境：请个营销总监太贵，用 AI 营销工具又总觉得被割。就拿 Higgsfield 来说，订阅要在模型原价基础上加价约 50%，买的 credits 还按月过期——钱花了，额度没用完就作废，这种设计怎么看怎么像针对你的钱包。10 月 22 日开源的 SuperCMO Skills，就是冲着这个痛点来的：Apache-2.0 开源，按模型原价付费，没有中间商赚差价。 前置条件：三样东西备好 动手之前先备齐三样：第一，装好 uv（Python 包管理工具，装 skills 要用它）；第二，Claude Code、Cursor、Codex …">
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="wocao.world">
+<meta property="og:title" content="SuperCMO Skills：一条命令把 Claude 变成 AI 营销总监 · wocao.world">
+<meta property="og:description" content="请不起 CMO，用 AI 营销工具又被割 小团队做营销的经典困境：请个营销总监太贵，用 AI 营销工具又总觉得被割。就拿 Higgsfield 来说，订阅要在模型原价基础上加价约 50%，买的 credits 还按月过期——钱花了，额度没用完就作废，这种设计怎么看怎么像针对你的钱包。10 月 22 日开源的 SuperCMO Skills，就是冲着这个痛点来的：Apache-2.0 开源，按模型原价付费，没有中间商赚差价。 前置条件：三样东西备好 动手之前先备齐三样：第一，装好 uv（Python 包管理工具，装 skills 要用它）；第二，Claude Code、Cursor、Codex …">
+<meta property="og:url" content="https://wocao.world/">
+<meta name="twitter:card" content="summary">
+<meta name="robots" content="noindex,follow">
+<link rel="alternate" type="application/rss+xml" title="wocao.world 聚合输出" href="/feed.xml">
+<link rel="stylesheet" href="/style.css">
+<link rel="canonical" href="https://www.moyunews.com/supercmo-skills-ai-cmo/">
+</head>
+<body>
+<a class="skip-link" href="#main">跳到正文</a>
+<header class="site-head">
+<p class="site-title"><a href="/">wocao.world</a></p>
+<p class="site-desc">wocao.world</p>
+<nav class="site-nav">
+<a href="/">最新</a>
+<a href="/about/">关于</a>
+<a href="/feed.xml">RSS</a>
+</nav>
+</header>
+<main id="main">
+<article>
+<h1 class="post-title">SuperCMO Skills：一条命令把 Claude 变成 AI 营销总监</h1>
+<div class="post-body"><h2>请不起 CMO，用 AI 营销工具又被割</h2>
+<p>小团队做营销的经典困境：请个营销总监太贵，用 AI 营销工具又总觉得被割。就拿 <a href="https://emergent.sh/news/open-source-claude-skills-replace-higgsfield" rel="external nofollow noopener noreferrer" target="_blank">Higgsfield</a> 来说，订阅要在模型原价基础上加价约 50%，买的 credits 还按月过期——钱花了，额度没用完就作废，这种设计怎么看怎么像针对你的钱包。10 月 22 日开源的 SuperCMO Skills，就是冲着这个痛点来的：<a href="https://github.com/SupercmoHQ/superCMO-skills" rel="external nofollow noopener noreferrer" target="_blank">Apache-2.0 开源</a>，按模型原价付费，没有中间商赚差价。</p>
+<p><img src="https://moyu.18uk.uk/2026/20261025-d3b026e6-ac9e-4bc7-9939-0e8dc48fb657.webp" alt="AI 营销总监" width="800" loading="lazy" referrerpolicy="no-referrer" /></p>
+<h2>前置条件：三样东西备好</h2>
+<p>动手之前先备齐三样：第一，装好 uv（Python 包管理工具，装 skills 要用它）；第二，Claude Code、Cursor、Codex 三者装一个就行，SuperCMO Skills 都支持；第三，自备模型 API key——注意，它走的是按模型原价付费，不是全免费，只不过省掉了 Higgsfield 那 50% 的加价和过期 credits 的坑。key 去哪搞？各家模型厂商官网都能申请，不少还有免费额度。刚起步的话，先用便宜模型跑通流程，对文案质量要求高的环节再切好模型——反正按量付费，切换成本几乎为零。这三样齐了，就可以开工。</p>
+<h2>一条命令装上：npx 拉取全套 skills</h2>
+<p>安装就一行命令：<code>npx --yes github:SupercmoHQ/superCMO-skills --all</code>。跑完之后，在你的 Agent 里跟它说一句「set me up」，它就会引导你完成初始化。接下来给它你的官网地址，它会自己去学你的品牌调性、产品卖点、目标人群——相当于入职第一天先让它把公司手册读完（<a href="http://dev.to/sayoni_duttaroy_cf8f10f9/open-source-skills-that-turns-claude-into-an-ai-cmo-53db" rel="external nofollow noopener noreferrer" target="_blank">安装与工作流详解</a>）。</p>
+<p>这套 skills 在 <a href="https://www.producthunt.com/products/supercmo-ai" rel="external nofollow noopener noreferrer" target="_blank">Product Hunt 本周榜</a>上也能找到，10 月 22 日刚发布，热度正在爬升。开源地址在 GitHub，Apache-2.0 协议，商用也没问题。</p>
+<h2>让它干活：从竞品研究到 UGC 视频一条龙</h2>
+<p>装好之后，它能干的活是一整条营销流水线。先让它研究竞品广告：丢几个竞品链接，它能拆解对方的文案套路、投放角度和视觉风格；然后让它写各平台文案：同一卖点，微博、小红书、X 各来一版，语气自动适配；最后直接生成 UGC 视频和产品图——从脚本到成片，中间你只需要在关键节点点头。</p>
+<p>这套流程最值钱的地方在于「按模型原价付费」。以前用 Higgsfield 这类订阅制工具，你是在为「营销功能」这个包装付溢价；现在 skills 开源了，你付的只是模型本身的 token 钱，功能层一分钱不加。对营销需求不稳定、时多时少的小团队来说，这种按量付费反而更划算：忙的时候多跑，不忙的时候一分钱不花。</p>
+<p>举个具体场景：你要在小红书铺 10 条种草文案，传统做法是找代写，一条几十块；用 SuperCMO Skills，模型成本可能就几毛钱，时间从几天压缩到一顿饭的工夫。省下来的不只是钱，还有反复沟通的精力。当然，前提是你得会「验收」——AI 写的东西，第一版永远只能当草稿，这是所有 AI 营销工具的通病，不是它一家的毛病。</p>
+<h2>避坑：开源不等于零成本</h2>
+<blockquote><p>三条避坑指南：第一，按模型原价付费依然要花钱，生成视频类任务 token 消耗不小，先小批量试再铺量；第二，AI 生成的 UGC 视频和产品图，发布前务必人工过一遍，品牌调性翻车比省钱更贵；第三，skills 给的是「能力」，不是「策略」——目标人群、预算分配这些决策，还得你自己拍板，别指望它替你当老板。</p></blockquote>
+<p>说到底，SuperCMO Skills 的价值不是「替代营销总监」，而是把原来要外包、要订阅的那部分执行工作，变成你自己一句话就能调度的能力。对独立开发者和小团队来说，这可能是今年最实在的一次「AI 营销平替」。</p>
+<p>最后提醒一句时效性：项目 10 月 22 日刚发布，还在快速迭代，skills 的能力边界每天都可能变。建议先 star 仓库、跑通最小流程，觉得好用再往深了玩。开源项目的早期红利，属于动手早的人。</p>
+<p> </p>
+<p> </p>
+<p>本文来源：<a href="https://www.moyunews.com/" rel="external nofollow noopener noreferrer" target="_blank">摸鱼杂货店</a>。查看原文：<a href="https://www.moyunews.com/supercmo-skills-ai-cmo/" rel="external nofollow noopener noreferrer" target="_blank">SuperCMO Skills：一条命令把 Claude 变成 AI 营销总监</a>。</p></div>
+<p class="back"><a href="/">← 返回最新</a></p>
+</article>
+</main>
+<footer class="site-foot">
+<p>wocao.world — 本站内容全部转载自各订阅源，版权归原作者与原站所有。</p>
+</footer>
+</body>
+</html>

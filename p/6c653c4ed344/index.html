@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Claude Code 用量护栏对决：guard vs Peras · wocao.world</title>
+<meta name="description" content="十分钟烧光五小时额度 最近在折腾 agent-usage-guard 和 Peras 两款护栏，都是为了解决同一个惨案：一个 research prompt 直接催生 394 个 subagent、341 并发、十分钟跑掉 84M context tokens，五小时窗口瞬间锁死。 agent-usage-guard：开源 MIT，规则全自定义 作者在 Show HN 拿到 26 points，安装只需三条命令：/plugin marketplace add rbartoli/agent-usage-guard 然后 /plugin install agent-usage-guard@agen…">
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="wocao.world">
+<meta property="og:title" content="Claude Code 用量护栏对决：guard vs Peras · wocao.world">
+<meta property="og:description" content="十分钟烧光五小时额度 最近在折腾 agent-usage-guard 和 Peras 两款护栏，都是为了解决同一个惨案：一个 research prompt 直接催生 394 个 subagent、341 并发、十分钟跑掉 84M context tokens，五小时窗口瞬间锁死。 agent-usage-guard：开源 MIT，规则全自定义 作者在 Show HN 拿到 26 points，安装只需三条命令：/plugin marketplace add rbartoli/agent-usage-guard 然后 /plugin install agent-usage-guard@agen…">
+<meta property="og:url" content="https://wocao.world/">
+<meta name="twitter:card" content="summary">
+<meta name="robots" content="noindex,follow">
+<link rel="alternate" type="application/rss+xml" title="wocao.world 聚合输出" href="/feed.xml">
+<link rel="stylesheet" href="/style.css">
+<link rel="canonical" href="https://www.moyunews.com/claude-code-usage-guard-duel/">
+</head>
+<body>
+<a class="skip-link" href="#main">跳到正文</a>
+<header class="site-head">
+<p class="site-title"><a href="/">wocao.world</a></p>
+<p class="site-desc">wocao.world</p>
+<nav class="site-nav">
+<a href="/">最新</a>
+<a href="/about/">关于</a>
+<a href="/feed.xml">RSS</a>
+</nav>
+</header>
+<main id="main">
+<article>
+<h1 class="post-title">Claude Code 用量护栏对决：guard vs Peras</h1>
+<div class="post-body"><h2>十分钟烧光五小时额度</h2>
+<p>最近在折腾 <a href="https://github.com/rbartoli/agent-usage-guard" rel="external nofollow noopener noreferrer" target="_blank">agent-usage-guard</a> 和 <a href="https://www.producthunt.com/products/peras" rel="external nofollow noopener noreferrer" target="_blank">Peras</a> 两款护栏，都是为了解决同一个惨案：一个 research prompt 直接催生 394 个 subagent、341 并发、十分钟跑掉 84M context tokens，五小时窗口瞬间锁死。</p>
+<p><img src="https://moyu.18uk.uk/2026/20261025-58a46210-89f4-4b31-a41a-80b70a71823e.webp" alt="Claude Code 用量" width="800" loading="lazy" referrerpolicy="no-referrer" /></p>
+<h2>agent-usage-guard：开源 MIT，规则全自定义</h2>
+<p>作者在 <a href="https://news.ycombinator.com/show" rel="external nofollow noopener noreferrer" target="_blank">Show HN</a> 拿到 26 points，安装只需三条命令：<code>/plugin marketplace add rbartoli/agent-usage-guard</code> 然后 <code>/plugin install agent-usage-guard@agent-usage-guard</code> 最后 <code>/reload-plugins</code>。核心思路是把「用量」当成预算，提供一套可写的规则表：</p>
+<ul>
+<li>窗口用到 80% 时新 agent 需审批，95% 直接拒绝</li>
+<li>全机并发 agent 上限 4，每 10 分钟新建或恢复上限 12</li>
+<li>subagent 每 10 分钟 token 上限 10M</li>
+<li>context 达 300k 加注提醒，500k 询问是否 compact、继续或取消</li>
+<li>同一工具连续失败 3 次拒绝重试</li>
+<li>本地运行、不联网、不存 prompt 文本，hook 失败则放行（fail-open）</li>
+</ul>
+<p>所有规则都在本地 JSON 里改，想卡多严随手改，完全白嫖。</p>
+<h2>Peras：Product Hunt 新品，只卡支出不猜循环</h2>
+<p>发布页 <a href="https://www.producthunt.com/products/peras" rel="external nofollow noopener noreferrer" target="_blank">Peras</a> 把 Slogan 写成 『Pause Claude Code and Codex before they burn your week』。安装后跑两条命令即可：<code>peras set weekly 85 pause</code>、<code>peras set prompt 3 pause</code>。默认 90% 周额度自动暂停，机制是读取 Claude Code 与 Codex 自带的 usage 百分比（五小时窗口 + 周），每次 tool call 前经 hook 检查，超线直接拒绝并结束 turn。作者明确说「不猜 loop，只卡支出」，隐私上只看使用速度，不读 prompt 也不存命令。CLI 与 hook 免费 MIT，Mac 菜单栏原生应用一次性 €4.99。</p>
+<h2>核心维度对比</h2>
+<table>
+<tbody>
+<tr>
+<th>维度</th>
+<th>agent-usage-guard</th>
+<th>Peras</th>
+</tr>
+<tr>
+<td>安装方式</td>
+<td>Claude Code 插件三条命令</td>
+<td>CLI 两条命令，支持 Claude Code 与 Codex</td>
+</tr>
+<tr>
+<td>限制粒度</td>
+<td>并发、token、context、失败重试全可配</td>
+<td>仅按周/窗口百分比自动暂停</td>
+</tr>
+<tr>
+<td>价格与隐私</td>
+<td>完全免费 MIT，本地不联网</td>
+<td>CLI 免费 MIT，Mac 端 €4.99，仅读取使用速度</td>
+</tr>
+<tr>
+<td>适用场景</td>
+<td>需要精细控制并发、token 的重度开发</td>
+<td>想要一键防炸、跨工具统一预算的轻量用户</td>
+</tr>
+</tbody>
+</table>
+<h2>按场景选哪个？</h2>
+<ul>
+<li>你在自建服务器跑大规模 research，需要把并发、token、context 全部锁死 → 选 <a href="https://github.com/rbartoli/agent-usage-guard" rel="external nofollow noopener noreferrer" target="_blank">agent-usage-guard</a></li>
+<li>你在 Mac 上同时用 Claude Code 和 Codex，只想要一个「到线就停」的开关，不想改配置 → 选 <a href="https://www.producthunt.com/products/peras" rel="external nofollow noopener noreferrer" target="_blank">Peras</a></li>
+<li>团队要统一预算、且不想折腾插件安装 → Peras CLI 免费、零配置上手最快</li>
+<li>极客喜欢把规则写成代码、随时调整阈值 → agent-usage-guard 的 JSON 规则表最爽</li>
+</ul>
+<p>底线：两款都能在十分钟内把五小时窗口守住，区别在「想不想自己写规则」和「愿不愿为菜单栏付费」。按自己痛点挑一个，别让预算在不知不觉里蒸发。</p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p>本文来源：<a href="https://www.moyunews.com/" rel="external nofollow noopener noreferrer" target="_blank">摸鱼杂货店</a>。查看原文：<a href="https://www.moyunews.com/claude-code-usage-guard-duel/" rel="external nofollow noopener noreferrer" target="_blank">Claude Code 用量护栏对决：guard vs Peras</a>。</p></div>
+<p class="back"><a href="/">← 返回最新</a></p>
+</article>
+</main>
+<footer class="site-foot">
+<p>wocao.world — 本站内容全部转载自各订阅源，版权归原作者与原站所有。</p>
+</footer>
+</body>
+</html>

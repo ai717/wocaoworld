@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>MotionSites提示词库实测：5个决定让AI不再长一个样 · wocao.world</title>
+<meta name="description" content="AI 做出来的落地页全是紫色渐变加三个圆角卡片，连动效都像复制粘贴 前两天我在 MotionSites 逛了一圈，发现它根本不是什么建站器，而是一个把「怎么写 Prompt」做成商品的库。挑一个 3D 风格的 hero section，复制旁边的 Prompt，扔进 Lovable、Bolt、Cursor 或者 Claude，几秒钟就能跑出带 Framer Motion 和 GSAP ScrollTrigger 的 React 代码。创始人在 dev.to 里直说：好 Prompt 不是越长越强，而是帮模型把五件事决定死透。 为什么 AI 生成的站点都长一个样 市面上大多数「AI 建站」演示都…">
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="wocao.world">
+<meta property="og:title" content="MotionSites提示词库实测：5个决定让AI不再长一个样 · wocao.world">
+<meta property="og:description" content="AI 做出来的落地页全是紫色渐变加三个圆角卡片，连动效都像复制粘贴 前两天我在 MotionSites 逛了一圈，发现它根本不是什么建站器，而是一个把「怎么写 Prompt」做成商品的库。挑一个 3D 风格的 hero section，复制旁边的 Prompt，扔进 Lovable、Bolt、Cursor 或者 Claude，几秒钟就能跑出带 Framer Motion 和 GSAP ScrollTrigger 的 React 代码。创始人在 dev.to 里直说：好 Prompt 不是越长越强，而是帮模型把五件事决定死透。 为什么 AI 生成的站点都长一个样 市面上大多数「AI 建站」演示都…">
+<meta property="og:url" content="https://wocao.world/">
+<meta name="twitter:card" content="summary">
+<meta name="robots" content="noindex,follow">
+<link rel="alternate" type="application/rss+xml" title="wocao.world 聚合输出" href="/feed.xml">
+<link rel="stylesheet" href="/style.css">
+<link rel="canonical" href="https://www.moyunews.com/motionsites-ai-website-prompts/">
+</head>
+<body>
+<a class="skip-link" href="#main">跳到正文</a>
+<header class="site-head">
+<p class="site-title"><a href="/">wocao.world</a></p>
+<p class="site-desc">wocao.world</p>
+<nav class="site-nav">
+<a href="/">最新</a>
+<a href="/about/">关于</a>
+<a href="/feed.xml">RSS</a>
+</nav>
+</header>
+<main id="main">
+<article>
+<h1 class="post-title">MotionSites提示词库实测：5个决定让AI不再长一个样</h1>
+<div class="post-body"><h2>AI 做出来的落地页全是紫色渐变加三个圆角卡片，连动效都像复制粘贴</h2>
+<p>前两天我在 <a href="https://motionsites.ai/" rel="external nofollow noopener noreferrer" target="_blank">MotionSites</a> 逛了一圈，发现它根本不是什么建站器，而是一个把「怎么写 Prompt」做成商品的库。挑一个 3D 风格的 hero section，复制旁边的 Prompt，扔进 <a href="https://lovable.dev/" rel="external nofollow noopener noreferrer" target="_blank">Lovable</a>、<a href="https://bolt.new/" rel="external nofollow noopener noreferrer" target="_blank">Bolt</a>、<a href="https://cursor.sh/" rel="external nofollow noopener noreferrer" target="_blank">Cursor</a> 或者 <a href="https://claude.ai/" rel="external nofollow noopener noreferrer" target="_blank">Claude</a>，几秒钟就能跑出带 <code>Framer Motion</code> 和 <code>GSAP ScrollTrigger</code> 的 React 代码。创始人在 <a href="http://dev.to/motionsites/ai-website-prompts-that-dont-look-ai-generated-the-5-decisions-that-matter-3d41" rel="external nofollow noopener noreferrer" target="_blank">dev.to</a> 里直说：好 Prompt 不是越长越强，而是帮模型把五件事决定死透。</p>
+<p><img src="https://moyu.18uk.uk/2026/20261025-ca56bad5-c077-4629-8afd-fc18c08050c2.webp" alt="MotionSites提示词" width="800" loading="lazy" referrerpolicy="no-referrer" /></p>
+<h2>为什么 AI 生成的站点都长一个样</h2>
+<p>市面上大多数「AI 建站」演示都逃不开三板斧：紫色渐变背景、三个一模一样的特性卡片、<code>fade-up</code> 入场动画。这套组合在模型训练数据里出现得太多，导致生成时直接走「概率最高」的路径，出来的页面连配色、字体、间距都像一个模子刻出来的。换句话说，模型没被强制去做「字体系统、配色规则、网格布局、单一动效、真实素材」这五件事，所以只能靠统计规律凑合。</p>
+<h2>MotionSites 的 Prompt 到底在机制上解决了什么</h2>
+<p>MotionSites 把这五件事封装成一套可复用的模板，字段分别叫 <code>TYPE</code>、<code>COLOR</code>、<code>LAYOUT</code>、<code>MOTION</code>、<code>ASSETS</code>、<code>DO NOT</code>。把模板塞进 <code>Lovable Knowledge</code>、<code>CLAUDE.md</code> 或 <code>Cursor rules</code>，模型每次生成就必须遵守：</p>
+<ul>
+<li><code>TYPE</code>：把字体当系统写死，例 <code>headlines in Fraunces, weight 600, line-height 1.2</code></li>
+<li><code>COLOR</code>：给 4~5 个命名色 + 强调色只用在主按钮和一个高亮词</li>
+<li><code>LAYOUT</code>：用 12 栏网格 + 1200px 容器描述结构，明确 <code>DO NOT</code> 里列出 hero 居中、三个同款卡片、emoji 当图标、装饰色块</li>
+<li><code>MOTION</code>：只保留一个动效瞬间，写清时长与缓动曲线，例 <code>900ms, cubic-bezier(0.16, 1, 0.3, 1)</code>，并尊重 <code>prefers-reduced-motion</code></li>
+<li><code>ASSETS</code>：用真实产品截图替代占位图</li>
+</ul>
+<p>这套模板把「模糊的审美偏好」变成「可执行的约束」，模型不再靠猜，直接按规则写代码，生成的页面自然不再千篇一律。</p>
+<h2>创始人公开的 5 决定模板，直接抄走</h2>
+<p>dev.to 帖子里把完整模板贴了出来，复制进你的 AI 编程工具就能立刻生效。核心片段如下：</p>
+<pre><code>TYPE: headlines in Fraunces, weight 600, line-height 1.2
+COLOR: primary #0A1F44, accent #FF6F00, surface #FFFFFF, text #1A1A1A, muted #6B7280
+LAYOUT: 12-column grid, 1200px max-width, DO NOT: hero centered, three identical feature cards, emoji icons, decorative color blocks
+MOTION: single reveal, 900ms, cubic-bezier(0.16, 1, 0.3, 1), respects prefers-reduced-motion
+ASSETS: real product screenshots only
+</code></pre>
+<p>把这段塞进 <code>Lovable Knowledge</code> 或 <code>CLAUDE.md</code>，下一次让模型「帮我做一个 SaaS landing page」时，它就会自动套用这套规则。</p>
+<h2>不想花钱也能抄作业：免费替代库</h2>
+<p>第三方实测整理了四个开源/免费库，覆盖动画组件、Prompt 复制流程，完全够日常折腾：</p>
+<ul>
+<li><a href="https://magicui.design/" rel="external nofollow noopener noreferrer" target="_blank">Magic UI</a> —— 150+ 开箱即用的动画组件，MIT 协议</li>
+<li><a href="https://reactbits.dev/" rel="external nofollow noopener noreferrer" target="_blank">React Bits</a> —— 专注微交互的 React 片段，免费</li>
+<li><a href="https://21st.dev/" rel="external nofollow noopener noreferrer" target="_blank">21st.dev</a> —— 同款「复制 Prompt → 粘贴 AI」流程，每天免费复制 2 次</li>
+<li><a href="https://aceternity.com/" rel="external nofollow noopener noreferrer" target="_blank">Aceternity UI</a> —— 基于 <code>Tailwind CSS</code> + <code>Framer Motion</code> 的组件库，免费商用</li>
+</ul>
+<p>唯一缺口是成体系的循环视频背景库，MotionSites 里的 <code>animated backgrounds</code>（Neon Pulse、Crystal Wave、Cosmic Ripple 等）目前还没有干净的免费替代。</p>
+<h2>定价提醒与避坑</h2>
+<p>第三方博客在 2026 年 7 月实测官网定价页：<code>Go Unlimited</code> 年费 $149 或一次性 $239（仅网站 Prompt），<code>Power</code> 档年费 $239 或一次性 $349（含动效背景与页面区块）。创始期曾推 $29 终身早鸟（2026 年 3 月）。价格随时可能变动，下单前请以 <a href="https://motionsites.ai/" rel="external nofollow noopener noreferrer" target="_blank">motionsites.ai</a> 官网最新定价为准，别拿旧价做决策。</p>
+<p>MotionSites 把「怎么写好 Prompt」产品化，帮你把五大决定提前锁死，配合主流 AI 编程工具几分钟出成品。如果你只想偶尔试手、不想订阅，直接把创始人公开的 5 决定模板贴进 <code>Lovable</code> / <code>Bolt</code> / <code>Cursor</code> / <code>Claude</code>，再配合上述四个免费库，完全能跑出不像 AI 生成的动画落地页。想省事、想要现成的循环视频背景，再考虑买 MotionSites 的 Power 档；想彻底白嫖，把模板和免费库组合起来就够用了。</p>
+<p> </p>
+<p> </p>
+<p>本文来源：<a href="https://www.moyunews.com/" rel="external nofollow noopener noreferrer" target="_blank">摸鱼杂货店</a>。查看原文：<a href="https://www.moyunews.com/motionsites-ai-website-prompts/" rel="external nofollow noopener noreferrer" target="_blank">MotionSites提示词库实测：5个决定让AI不再长一个样</a>。</p></div>
+<p class="back"><a href="/">← 返回最新</a></p>
+</article>
+</main>
+<footer class="site-foot">
+<p>wocao.world — 本站内容全部转载自各订阅源，版权归原作者与原站所有。</p>
+</footer>
+</body>
+</html>

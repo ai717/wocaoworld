@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>HatchZip 原地解压：只需输出空间的黑科技 · wocao.world</title>
+<meta name="description" content="解压大包还要双倍空间 下载一个 180 GB 的游戏安装包，解压后变成 200 GB，传统工具却要你预留 380 GB 磁盘——WinRAR、7‑Zip 或 unzip 都得把压缩包和解压结果同时放在盘里。这在只有 256 GB SSD 的笔记本上简直是噩梦。 传统工具的硬伤 常见解压器都是「先读整个压缩包，再写出所有文件」，磁盘占用 = 原包大小 + 解压后大小。README 里直白写着：「A 180 GB game download that unpacks to 200 GB needs 380 GB of disk with WinRAR, 7-Zip or `unzip`」。 反直觉…">
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="wocao.world">
+<meta property="og:title" content="HatchZip 原地解压：只需输出空间的黑科技 · wocao.world">
+<meta property="og:description" content="解压大包还要双倍空间 下载一个 180 GB 的游戏安装包，解压后变成 200 GB，传统工具却要你预留 380 GB 磁盘——WinRAR、7‑Zip 或 unzip 都得把压缩包和解压结果同时放在盘里。这在只有 256 GB SSD 的笔记本上简直是噩梦。 传统工具的硬伤 常见解压器都是「先读整个压缩包，再写出所有文件」，磁盘占用 = 原包大小 + 解压后大小。README 里直白写着：「A 180 GB game download that unpacks to 200 GB needs 380 GB of disk with WinRAR, 7-Zip or `unzip`」。 反直觉…">
+<meta property="og:url" content="https://wocao.world/">
+<meta name="twitter:card" content="summary">
+<meta name="robots" content="noindex,follow">
+<link rel="alternate" type="application/rss+xml" title="wocao.world 聚合输出" href="/feed.xml">
+<link rel="stylesheet" href="/style.css">
+<link rel="canonical" href="https://www.moyunews.com/hatchzip-extract-in-place/">
+</head>
+<body>
+<a class="skip-link" href="#main">跳到正文</a>
+<header class="site-head">
+<p class="site-title"><a href="/">wocao.world</a></p>
+<p class="site-desc">wocao.world</p>
+<nav class="site-nav">
+<a href="/">最新</a>
+<a href="/about/">关于</a>
+<a href="/feed.xml">RSS</a>
+</nav>
+</header>
+<main id="main">
+<article>
+<h1 class="post-title">HatchZip 原地解压：只需输出空间的黑科技</h1>
+<div class="post-body"><h2> 解压大包还要双倍空间</h2>
+<p>下载一个 180 GB 的游戏安装包，解压后变成 200 GB，传统工具却要你预留 380 GB 磁盘——WinRAR、7‑Zip 或 <code>unzip</code> 都得把压缩包和解压结果同时放在盘里。这在只有 256 GB SSD 的笔记本上简直是噩梦。</p>
+<p><img src="https://moyu.18uk.uk/2026/20261025-5e202512-10e0-4bef-ad7d-579990eaec02.webp" alt="HatchZip" width="800" loading="lazy" referrerpolicy="no-referrer" /></p>
+<h3>传统工具的硬伤</h3>
+<p>常见解压器都是「先读整个压缩包，再写出所有文件」，磁盘占用 = 原包大小 + 解压后大小。README 里直白写着：「A 180 GB game download that unpacks to 200 GB needs 380 GB of disk with WinRAR, 7-Zip or `unzip`」。</p>
+<h2>反直觉思路：从尾部倒着解、边解边截</h2>
+<p><a href="https://github.com/xevrion/hatchzip" rel="external nofollow noopener noreferrer" target="_blank">HatchZip</a> 另辟蹊径：从压缩包尾部倒着解压，每解出一个文件就把已解部分从原文件里截掉。于是压缩包在解压过程中不断「瘦身」，磁盘只需容纳最终的输出体积。作者在 README 里强调：「Extract huge archives in place. The archive shrinks as your files hatch, so you only need free space for the output, not for the output *and* the archive.」</p>
+<p>为什么选「截断」而不是「打洞」？作者在 10‑23 的技术帖里解释：FAT/exFAT 根本不支持打洞，只有截断在所有文件系统上都通用。流程如下：</p>
+<ul>
+<li>读取中央目录定位最后一个文件入口</li>
+<li>倒序解压该文件，写入目标路径</li>
+<li>对解出数据做 CRC‑32 校验，校验通过后再 <code>truncate</code> 压缩包文件</li>
+<li>在日志里记录已完成偏移，下次启动直接续传</li>
+</ul>
+<p>这种「解一个、截一个」的设计，让磁盘峰值占用永远等于已解出文件的总大小，理论上只比最终体积略大。</p>
+<h3> CRC 校验与断点续传</h3>
+<p>每个文件解压完成都要通过 CRC 校验才会触发截断，避免写坏数据导致包损坏。日志文件记录已处理的字节偏移，断电或杀进程后再跑 <code>hatchzip extract game.zip</code> 会自动从上次位置继续，不必重头开始。</p>
+<h2> 比 unzip 快约 5 倍，格式支持一览</h2>
+<p>官方声称支持「ZIP, 7z, tar, `.tar.gz` and split archives」。实测对比显示：<code>hatchzip</code> 解压同一 180 GB 包仅需 <strong>0.25‑0.35 s</strong>，而 <code>unzip</code> 6.00 要 <strong>1.48‑1.50 s</strong>，快约 5 倍。速度优势来自避免了全量读写和额外的临时文件创建。</p>
+<ul>
+<li>ZIP / split ZIP：完美支持</li>
+<li>tar / .tar.gz：流式解压，同样边解边截</li>
+<li>7z（非 solid）：可用，但见下文限制</li>
+</ul>
+<h2> solid 7z 会被直接拒绝</h2>
+<p>作者明确标注：「7z from 7-Zip with default settings (1 solid block)」会被「Refused before touching anything」。因为 solid 压缩把所有文件合成单一数据块，无法从尾部单独提取单个文件，HatchZip 直接拒绝处理，避免产生损坏输出。</p>
+<h3>上手命令速查</h3>
+<ul>
+<li><code>hatchzip check game.zip</code> —— 仅校验完整性，不写磁盘</li>
+<li><code>hatchzip extract game.zip</code> —— 原地解压，边解边截</li>
+<li><code>hatchzip restore game.zip</code> —— 从日志恢复被截断的原包（实验性）</li>
+<li><code>hatchzip test game.7z</code> —— 测试 7z 非 solid 包能否处理</li>
+</ul>
+<h3>作者自述与专利背景</h3>
+<p>仓库创建于 2026‑10‑21，采用 Apache‑2.0 许可，Rust 编写。作者在 <a href="https://vibingtalk.com/index.php?threads/hatchzip-extracting-archives-in-place-by-truncating-them-from-the-end.1897048/" rel="external nofollow noopener noreferrer" target="_blank">技术讨论帖</a> 里坦言：「IBM has a patent (US 8275750)」 —— 思路并非首创，但开源落地且兼容主流文件系统，才是实用价值所在。本周在 <a href="https://offhype.dev/" rel="external nofollow noopener noreferrer" target="_blank">OffHype 非 AI 榜</a> 上也能看到它的热度上升。</p>
+<p> </p>
+<p> </p>
+<p>本文来源：<a href="https://www.moyunews.com/" rel="external nofollow noopener noreferrer" target="_blank">摸鱼杂货店</a>。查看原文：<a href="https://www.moyunews.com/hatchzip-extract-in-place/" rel="external nofollow noopener noreferrer" target="_blank">HatchZip 原地解压：只需输出空间的黑科技</a>。</p></div>
+<p class="back"><a href="/">← 返回最新</a></p>
+</article>
+</main>
+<footer class="site-foot">
+<p>wocao.world — 本站内容全部转载自各订阅源，版权归原作者与原站所有。</p>
+</footer>
+</body>
+</html>

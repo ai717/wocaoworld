@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>用 dumbtv 一键瘦身 Fire TV，彻底告别广告与追踪 · wocao.world</title>
+<meta name="description" content="得有 ADB 和一台 Fire TV 想把 Fire TV 变成「纯净版」其实不复杂，核心只需两样东西：一台已开启「开发者选项 → ADB 调试」的 Fire TV，以及一台能跑 adb 的电脑（Win/Mac/Linux 均可）。如果你还没把电视的 IP 记下来，先在设置里查一下，后面 adb connect 要用。 克隆仓库并连上设备 打开终端，跑官方给的一键克隆命令： git clone https://github.com/humblemuzzu/dumbtv &amp;amp;&amp;amp; cd dumbtv 接着把电视接入局域网，执行： adb connect :5555 看到 connec…">
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="wocao.world">
+<meta property="og:title" content="用 dumbtv 一键瘦身 Fire TV，彻底告别广告与追踪 · wocao.world">
+<meta property="og:description" content="得有 ADB 和一台 Fire TV 想把 Fire TV 变成「纯净版」其实不复杂，核心只需两样东西：一台已开启「开发者选项 → ADB 调试」的 Fire TV，以及一台能跑 adb 的电脑（Win/Mac/Linux 均可）。如果你还没把电视的 IP 记下来，先在设置里查一下，后面 adb connect 要用。 克隆仓库并连上设备 打开终端，跑官方给的一键克隆命令： git clone https://github.com/humblemuzzu/dumbtv &amp;amp;&amp;amp; cd dumbtv 接着把电视接入局域网，执行： adb connect :5555 看到 connec…">
+<meta property="og:url" content="https://wocao.world/">
+<meta name="twitter:card" content="summary">
+<meta name="robots" content="noindex,follow">
+<link rel="alternate" type="application/rss+xml" title="wocao.world 聚合输出" href="/feed.xml">
+<link rel="stylesheet" href="/style.css">
+<link rel="canonical" href="https://www.moyunews.com/dumbtv-fire-tv-debloat/">
+</head>
+<body>
+<a class="skip-link" href="#main">跳到正文</a>
+<header class="site-head">
+<p class="site-title"><a href="/">wocao.world</a></p>
+<p class="site-desc">wocao.world</p>
+<nav class="site-nav">
+<a href="/">最新</a>
+<a href="/about/">关于</a>
+<a href="/feed.xml">RSS</a>
+</nav>
+</header>
+<main id="main">
+<article>
+<h1 class="post-title">用 dumbtv 一键瘦身 Fire TV，彻底告别广告与追踪</h1>
+<div class="post-body"><h2> 得有 ADB 和一台 Fire TV</h2>
+<p>想把 Fire TV 变成「纯净版」其实不复杂，核心只需两样东西：一台已开启「开发者选项 → ADB 调试」的 Fire TV，以及一台能跑 <code>adb</code> 的电脑（Win/Mac/Linux 均可）。如果你还没把电视的 IP 记下来，先在设置里查一下，后面 <code>adb connect</code> 要用。</p>
+<p><img src="https://moyu.18uk.uk/2026/20261025-95488044-f4ad-4873-aa58-1c867b2c6990.webp" alt="dumbtv" width="800" loading="lazy" referrerpolicy="no-referrer" /></p>
+<h2>克隆仓库并连上设备</h2>
+<p>打开终端，跑官方给的一键克隆命令：</p>
+<p><code>git clone https://github.com/humblemuzzu/dumbtv &amp;&amp; cd dumbtv</code></p>
+<p>接着把电视接入局域网，执行：</p>
+<p><code>adb connect :5555</code></p>
+<p>看到 <code>connected to :5555</code> 就算成功。这一步要确保电脑和电视在同一网段，且防火墙没拦 5555 端口。</p>
+<h2>四个脚本的分工</h2>
+<p>仓库里准备了四个按顺序跑的脚本，每个只做一件事，方便出问题时定位：</p>
+<ul>
+<li><code>./scripts/preflight.sh</code>：环境自检，确认 ADB 连通、设备型号在支持列表里，顺便把当前已安装包列表备份一份。</li>
+<li><code>./scripts/configure.sh</code>：把约 50 个 Amazon 广告、赞助行、ACR 指纹、遥测、实验性包一次性 <strong>禁用</strong>（并不删除），README 原文写的是「Disables Amazon’s sponsored rows, ad services, screen fingerprinting (ACR), telemetry and experiments」，也强调「Disabled, never deleted.」。</li>
+<li><code>./scripts/all.sh</code>：把前两步串起来，再把自带的极简启动器推送进去。启动器只有 54 KB，开源、无联网权限、零权限，README 原文：「54 KB, open source, no internet access, no permissions」。</li>
+<li><code>./scripts/verify.sh</code>：跑完后自动查一下已禁用包数量、启动器是否生效、DNS 过滤规则是否生效。脚本会逐项核对已禁用包、启动器状态与 DNS 规则，确保没有漏网之鱼。</li>
+</ul>
+<h2>跑完验证与还原</h2>
+<p>如果一切顺利，电视重启后直接进干净桌面，不再弹「赞助内容」行。万一哪步出岔子，或者想恢复原厂体验，只要跑：</p>
+<p><code>./scripts/restore.sh</code></p>
+<p>脚本会把备份的包列表逐个 <code>pm enable</code>，把启动器卸载，把 DNS 规则清掉，设备瞬间回到出厂状态。</p>
+<h2>DNS 屏蔽原理与媒体口径差异</h2>
+<p>除了包级禁用，dumbtv 还在设备端植入一份 hosts 规则，官方描述：「blocks about 400 Amazon telemetry, ad and update hosts」。这能拦住系统级的上报请求，但 <a href="https://itsfoss.com/news/debloat-smart-tv/" rel="external nofollow noopener noreferrer" target="_blank">It’s FOSS</a> 实测提到：YouTube 广告走的是 Google 域名，hosts 挡不住，得靠路由器或 DNS 服务再加一层。另外，部分媒体（<a href="https://techcrunch.com/2026/10/19/people-are-using-ai-to-make-their-smart-tvs-dumb-again/" rel="external nofollow noopener noreferrer" target="_blank">TechCrunch</a>、It’s FOSS）称禁用包约 65 个、启动器 41 KB，与仓库 README（约 50 个、54 KB）有出入，撰写时以 README 为准并已在文中注明。</p>
+<h2></h2>
+<blockquote><p><strong>风险提示（来自 It’s FOSS）</strong>：① YouTube 广告无法靠 DNS 屏蔽；② 手滑误删系统关键包可能导致变砖，脚本只禁用不删除就是为了降低这风险；③ 折腾完记得在开发者选项里关掉 ADB 调试，防止局域网内被随意连接；④ 仓库创建于 2026‑10‑18，MIT 协议，代码完全公开，放心审计。</p></blockquote>
+<p>官方落地页见 <a href="https://dumbtv.org/" rel="external nofollow noopener noreferrer" target="_blank">dumbtv.org</a>，想深究代码直接看 <a href="https://github.com/humblemuzzu/dumbtv" rel="external nofollow noopener noreferrer" target="_blank">GitHub 仓库</a>。只要按步骤走，十分钟左右就能把一台「广告机」变成「纯播放器」，省下的不仅是眼球，更是后台偷跑的流量和电量。</p>
+<p> </p>
+<p> </p>
+<p>本文来源：<a href="https://www.moyunews.com/" rel="external nofollow noopener noreferrer" target="_blank">摸鱼杂货店</a>。查看原文：<a href="https://www.moyunews.com/dumbtv-fire-tv-debloat/" rel="external nofollow noopener noreferrer" target="_blank">用 dumbtv 一键瘦身 Fire TV，彻底告别广告与追踪</a>。</p></div>
+<p class="back"><a href="/">← 返回最新</a></p>
+</article>
+</main>
+<footer class="site-foot">
+<p>wocao.world — 本站内容全部转载自各订阅源，版权归原作者与原站所有。</p>
+</footer>
+</body>
+</html>

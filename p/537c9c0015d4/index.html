@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>用 REA 逆向工具 10 步 9 分钟复刻 Apple 官网风格 · wocao.world</title>
+<meta name="description" content="前置条件：把 REA 装好 下面这套流程来自 X 上开发者 charliejhills 的分享帖：9 分钟把 Apple.com 转成 style file，再用 Claude Code 10 步复刻出 Apple 风格网站，帖子附了全部 prompt。我顺着帖子把每一步拆开讲清楚，方便你直接抄作业。 想把 Apple.com 的设计语言直接拿来用？先在本地跑通 REA，它是个 MIT 协议的 MCP 服务器 + CLI，npm 包叫 rea-agents，GitHub 已经斩获 超 34 万 star。只要一条命令 npx rea-agents setup 就能把它接入 Claude Cod…">
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="wocao.world">
+<meta property="og:title" content="用 REA 逆向工具 10 步 9 分钟复刻 Apple 官网风格 · wocao.world">
+<meta property="og:description" content="前置条件：把 REA 装好 下面这套流程来自 X 上开发者 charliejhills 的分享帖：9 分钟把 Apple.com 转成 style file，再用 Claude Code 10 步复刻出 Apple 风格网站，帖子附了全部 prompt。我顺着帖子把每一步拆开讲清楚，方便你直接抄作业。 想把 Apple.com 的设计语言直接拿来用？先在本地跑通 REA，它是个 MIT 协议的 MCP 服务器 + CLI，npm 包叫 rea-agents，GitHub 已经斩获 超 34 万 star。只要一条命令 npx rea-agents setup 就能把它接入 Claude Cod…">
+<meta property="og:url" content="https://wocao.world/">
+<meta name="twitter:card" content="summary">
+<meta name="robots" content="noindex,follow">
+<link rel="alternate" type="application/rss+xml" title="wocao.world 聚合输出" href="/feed.xml">
+<link rel="stylesheet" href="/style.css">
+<link rel="canonical" href="https://www.moyunews.com/rea-apple-style-website/">
+</head>
+<body>
+<a class="skip-link" href="#main">跳到正文</a>
+<header class="site-head">
+<p class="site-title"><a href="/">wocao.world</a></p>
+<p class="site-desc">wocao.world</p>
+<nav class="site-nav">
+<a href="/">最新</a>
+<a href="/about/">关于</a>
+<a href="/feed.xml">RSS</a>
+</nav>
+</header>
+<main id="main">
+<article>
+<h1 class="post-title">用 REA 逆向工具 10 步 9 分钟复刻 Apple 官网风格</h1>
+<div class="post-body"><h2>前置条件：把 REA 装好</h2>
+<p>下面这套流程来自 X 上开发者 charliejhills 的分享帖：9 分钟把 <a href="https://apple.com/" rel="external nofollow noopener noreferrer" target="_blank">Apple.com</a> 转成 style file，再用 Claude Code 10 步复刻出 Apple 风格网站，帖子附了全部 prompt。我顺着帖子把每一步拆开讲清楚，方便你直接抄作业。</p>
+<p>想把 <a href="https://apple.com/" rel="external nofollow noopener noreferrer" target="_blank">Apple.com</a> 的设计语言直接拿来用？先在本地跑通 <a href="https://github.com/morluto/rea" rel="external nofollow noopener noreferrer" target="_blank">REA</a>，它是个 MIT 协议的 MCP 服务器 + CLI，npm 包叫 <code>rea-agents</code>，GitHub 已经斩获 超 34 万 star。只要一条命令 <code>npx rea-agents setup</code> 就能把它接入 Claude Code、Codex、Cursor、Gemini CLI 或 Grok Build，选好分析后端。注意：分析网站风格主要用 REA 的 Web 解析能力，Ghidra / IDA Pro / Hopper 是二进制逆向后端；商业反编译器记得自行合法取得授权。</p>
+<p><img src="https://moyu.18uk.uk/2026/20261025-743af2e6-9e6c-4f91-a224-ad27b96f51fc.webp" alt="REA 逆向工具" width="800" loading="lazy" referrerpolicy="no-referrer" /></p>
+<h2>步骤 1：初始化 REA 并选后端</h2>
+<p>打开终端，执行 <code>npx rea-agents setup</code>，交互式提示里依次选择 Agent 为 Claude Code，后端选 IDA Pro（或你手头有的任意一个），完成后 REA 就会在本地启动一个 MCP 服务，随时等着被 Agent 调用。</p>
+<h2>步骤 2：让 Agent 把 Apple.com 扒成 Style File</h2>
+<p>在 Claude Code 里发一条类似这样的 Prompt（帖子附了作者实测的完整 prompt，这是同思路写法）：「请用 REA 分析 <a href="https://apple.com/" rel="external nofollow noopener noreferrer" target="_blank">Apple.com</a> 的公开页面，提取字体、色板、间距、动效、组件规范，输出一份 Style File」。REA 会把 HTML、CSS、JS 全部解析，生成一份结构化的设计语言文档，里面只有风格规范，没有任何文案、图片或 Logo。</p>
+<h2>步骤 3：把 Style File 喂给 Claude Code 生成站点</h2>
+<p>把刚生成的 Style File 复制进对话，再下一条 Prompt：「基于这份 Style File，帮我用 React + Tailwind 搭一个全新主题的落地页，保持苹果风格的留白、圆角、过渡动画」。Claude Code 会在几十秒内吐出完整的项目骨架，包含组件、页面、样式、甚至 <code>next.config.js</code>。</p>
+<h2>步骤 4：内容替换、SEO、Lighthouse、Vercel 部署</h2>
+<ul>
+<li>把所有占位文案、图片替换成自己的素材，切记别把苹果的品牌资产直接上线。</li>
+<li>跑一遍 <code>npm run build</code>，再用 <a href="https://web.dev/lighthouse/" rel="external nofollow noopener noreferrer" target="_blank">Lighthouse</a> 跑分，针对 Performance、Accessibility、Best Practices、SEO 四项逐项优化。</li>
+<li>把项目推到 GitHub，连上 <a href="https://vercel.com/" rel="external nofollow noopener noreferrer" target="_blank">Vercel</a> 一键部署，域名绑定、HTTPS 全自动搞定。</li>
+</ul>
+<blockquote><p>避坑提示：① REA 只能分析公开前端代码，涉及后端接口、私有 API 一概拿不到；② 商业反编译器（IDA Pro、Hopper）必须自行购买正版授权，用破解版既违法也容易踩坑；③ 生成的 Style File 仅含设计语言，文案、图片、Logo 全部要自己造，否则上线即侵权；④ Vercel 一键部署很省事，大流量项目记得留意用量额度。</p></blockquote>
+<p> </p>
+<p> </p>
+<p>本文来源：<a href="https://www.moyunews.com/" rel="external nofollow noopener noreferrer" target="_blank">摸鱼杂货店</a>。查看原文：<a href="https://www.moyunews.com/rea-apple-style-website/" rel="external nofollow noopener noreferrer" target="_blank">用 REA 逆向工具 10 步 9 分钟复刻 Apple 官网风格</a>。</p></div>
+<p class="back"><a href="/">← 返回最新</a></p>
+</article>
+</main>
+<footer class="site-foot">
+<p>wocao.world — 本站内容全部转载自各订阅源，版权归原作者与原站所有。</p>
+</footer>
+</body>
+</html>

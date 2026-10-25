@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>ai-job-search 实战：用 Claude Code 全自动找工作 · wocao.world</title>
+<meta name="description" content="找工作，居然被做成了 Agent 工作流 投简历这事，可能是当代打工人最痛的重复劳动：海投石沉大海，改简历改到半夜，面试准备全靠临场发挥。本周 GitHub 涨星最猛的项目 ai-job-search，干了一件很野的事——把整套求职流程做成了一个跑在 Claude Code 上的 AI 工作流，一周涨了 1.28 万星（whatstrending.ai 本周加速榜）。更野的是，作者本人就是靠这套流程找到工作的：地球物理学家出身，2025 年底被裁，69 份定制申请、20 个一面，最终 2026 年 6 月入职 AI 工程师。这不是 demo，是真刀真枪跑出来的 offer。顺带说一句，项目 s…">
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="wocao.world">
+<meta property="og:title" content="ai-job-search 实战：用 Claude Code 全自动找工作 · wocao.world">
+<meta property="og:description" content="找工作，居然被做成了 Agent 工作流 投简历这事，可能是当代打工人最痛的重复劳动：海投石沉大海，改简历改到半夜，面试准备全靠临场发挥。本周 GitHub 涨星最猛的项目 ai-job-search，干了一件很野的事——把整套求职流程做成了一个跑在 Claude Code 上的 AI 工作流，一周涨了 1.28 万星（whatstrending.ai 本周加速榜）。更野的是，作者本人就是靠这套流程找到工作的：地球物理学家出身，2025 年底被裁，69 份定制申请、20 个一面，最终 2026 年 6 月入职 AI 工程师。这不是 demo，是真刀真枪跑出来的 offer。顺带说一句，项目 s…">
+<meta property="og:url" content="https://wocao.world/">
+<meta name="twitter:card" content="summary">
+<meta name="robots" content="noindex,follow">
+<link rel="alternate" type="application/rss+xml" title="wocao.world 聚合输出" href="/feed.xml">
+<link rel="stylesheet" href="/style.css">
+<link rel="canonical" href="https://www.moyunews.com/ai-job-search-claude-code/">
+</head>
+<body>
+<a class="skip-link" href="#main">跳到正文</a>
+<header class="site-head">
+<p class="site-title"><a href="/">wocao.world</a></p>
+<p class="site-desc">wocao.world</p>
+<nav class="site-nav">
+<a href="/">最新</a>
+<a href="/about/">关于</a>
+<a href="/feed.xml">RSS</a>
+</nav>
+</header>
+<main id="main">
+<article>
+<h1 class="post-title">ai-job-search 实战：用 Claude Code 全自动找工作</h1>
+<div class="post-body"><h2>找工作，居然被做成了 Agent 工作流</h2>
+<p>投简历这事，可能是当代打工人最痛的重复劳动：海投石沉大海，改简历改到半夜，面试准备全靠临场发挥。本周 GitHub 涨星最猛的项目 <a href="https://github.com/MadsLorentzen/ai-job-search" rel="external nofollow noopener noreferrer" target="_blank">ai-job-search</a>，干了一件很野的事——把整套求职流程做成了一个跑在 Claude Code 上的 AI 工作流，一周涨了 1.28 万星（<a href="https://whatstrending.ai/repos/weekly" rel="external nofollow noopener noreferrer" target="_blank">whatstrending.ai 本周加速榜</a>）。更野的是，作者本人就是靠这套流程找到工作的：地球物理学家出身，2025 年底被裁，69 份定制申请、20 个一面，最终 2026 年 6 月入职 AI 工程师。这不是 demo，是真刀真枪跑出来的 offer。顺带说一句，项目 star 涨得这么快，说明「用 AI 搞定重复劳动」这个需求是真实存在的，不是极客自嗨。</p>
+<p> </p>
+<h2>前置条件：先看好账单</h2>
+<p>动手前先说清楚成本，免得你装到一半骂人。第一，Claude Code（CLI 版）——注意它没有免费 tier，需要 Pro/Max/Team 订阅或者 Anthropic API credits（按量付费，偶尔用反而更便宜）。第二，Python 3.10+ 和 Bun（跑职位搜索 CLI 工具用）。第三，LaTeX 发行版（简历用 lualatex 编译，求职信用 xelatex）。这套配置对程序员友好，对纯小白有门槛，量力而行。</p>
+<h2>四步跑起来：从 fork 到面试</h2>
+<p>第一步，fork 仓库：<code>gh repo fork MadsLorentzen/ai-job-search --clone</code>。注意，GitHub 的 fork 永远是公开的，而后面 <code>/setup</code> 会把你的姓名、联系方式、工作经历、薪资期望写进仓库文件——公开 fork 等于公开简历，这一点后面避坑细说。</p>
+<p>第二步，填档案：跑 <code>/setup</code>，按引导把你的个人 profile 填好，这是后面所有定制化的地基。第三步，搜职位：跑 <code>/scrape</code>，Agent 会按你的条件去招聘网站扫职位，逐个打分并给出匹配度推荐。默认的职位搜索技能是按丹麦市场做的（Jobindex、Jobnet 这些），国内用的话需要换成本地招聘站，模式是设计成可替换的。</p>
+<p>第四步，申请：看中某个职位，跑 <code>/apply &lt;url&gt;</code>，Claude 会评估匹配度、打分，然后起草定制简历和求职信——还有个 reviewer agent 负责挑刺，改完再出终版。最后 <code>/interview</code> 帮你准备面试。整套流程下来，你干的活从「写简历」变成了「做选择题」。</p>
+<h2> 这四条不看会吃亏</h2>
+<blockquote><p>第一，隐私红线：公开 fork 会泄露简历！/setup 写入的个人信息都在版本控制里，千万别直接用公开 fork 推简历，要么用私有拷贝，要么脱敏。第二，Claude Code 没有免费版，API 按量付费通常比订阅便宜，适合偶尔求职的人。第三，默认职位源是丹麦的，国内用户要自己换招聘网站技能。第四，摆正预期：作者投了 69 份定制申请才换来 1 个 offer，量大管饱是常态，工具提效不包分配。</p></blockquote>
+<p>另外提醒一句：项目 README 里专门声明，没有任何官方代币或付费赞助计划，打着项目名义卖币的都是骗子，支持作者只认 Ko-fi 捐赠和 GitHub 贡献。</p>
+<h2> 工具不替你面试</h2>
+<p>说句大实话：ai-job-search 再强，也替你去不了面试现场。它真正解决的是求职里最磨人的部分——搜职位、读 JD、改简历、写求职信、跟进进度，这些重复劳动被 Agent 接管后，你省下来的精力可以全部砸在面试准备和真实沟通上。工具把「体力活」自动化了，「脑力活」还得你自己来。</p>
+<p>还有一个隐藏价值：这套工作流的核心流程（自我画像、匹配度评估、起草-评审）是语言和国家无关的，只有职位搜索技能需要本地化。社区已经有人在给 Codex、Gemini CLI 做适配 fork，不用 Claude Code 也能蹭上这套方法论。方法论是通用的，工具只是载体。</p>
+<p>本周 <a href="https://www.youtube.com/watch?v=S2eESu4hSKk" rel="external nofollow noopener noreferrer" target="_blank">5 大爆款仓库盘点视频</a>里也提到了它和求职隐私提醒。如果你正在找工作，或者单纯想看看 Agent 是怎么被用到生活里的，这 1.28 万星的项目值得花一个周末折腾一下——毕竟作者已经用它证明了一件事：这套流程，真的能换来 offer。</p>
+<p><img src="https://moyu.18uk.uk/2026/20261025-db1d29a7-25d7-4caf-bdf3-460df1db3c83.webp" alt="ai-job-search" width="800" loading="lazy" referrerpolicy="no-referrer" /></p>
+<p> </p>
+<p>本文来源：<a href="https://www.moyunews.com/" rel="external nofollow noopener noreferrer" target="_blank">摸鱼杂货店</a>。查看原文：<a href="https://www.moyunews.com/ai-job-search-claude-code/" rel="external nofollow noopener noreferrer" target="_blank">ai-job-search 实战：用 Claude Code 全自动找工作</a>。</p></div>
+<p class="back"><a href="/">← 返回最新</a></p>
+</article>
+</main>
+<footer class="site-foot">
+<p>wocao.world — 本站内容全部转载自各订阅源，版权归原作者与原站所有。</p>
+</footer>
+</body>
+</html>

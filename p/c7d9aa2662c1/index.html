@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Omnara 开源自托管 Agent 平台官宣，免费跑、送 $1000 额度 · wocao.world</title>
+<meta name="description" content="官宣核心事实 10 月 21 日，Omnara 在 emergent.sh 正式官宣，GitHub 仓库 omnara-ai/omnara 已拿到 3207 颗星、629 次提交、109 个发布，Show HN 上也收获 111 点赞。YC 官方页面 YC 页面 直白写着：“we’re giving $1,000 in credits to the first 50 teams building on Omnara. Email us at contact@omnara.com”，并强调“Because you can bring your own machine and models, yo…">
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="wocao.world">
+<meta property="og:title" content="Omnara 开源自托管 Agent 平台官宣，免费跑、送 $1000 额度 · wocao.world">
+<meta property="og:description" content="官宣核心事实 10 月 21 日，Omnara 在 emergent.sh 正式官宣，GitHub 仓库 omnara-ai/omnara 已拿到 3207 颗星、629 次提交、109 个发布，Show HN 上也收获 111 点赞。YC 官方页面 YC 页面 直白写着：“we’re giving $1,000 in credits to the first 50 teams building on Omnara. Email us at contact@omnara.com”，并强调“Because you can bring your own machine and models, yo…">
+<meta property="og:url" content="https://wocao.world/">
+<meta name="twitter:card" content="summary">
+<meta name="robots" content="noindex,follow">
+<link rel="alternate" type="application/rss+xml" title="wocao.world 聚合输出" href="/feed.xml">
+<link rel="stylesheet" href="/style.css">
+<link rel="canonical" href="https://www.moyunews.com/omnara-open-source-agent-platform/">
+</head>
+<body>
+<a class="skip-link" href="#main">跳到正文</a>
+<header class="site-head">
+<p class="site-title"><a href="/">wocao.world</a></p>
+<p class="site-desc">wocao.world</p>
+<nav class="site-nav">
+<a href="/">最新</a>
+<a href="/about/">关于</a>
+<a href="/feed.xml">RSS</a>
+</nav>
+</header>
+<main id="main">
+<article>
+<h1 class="post-title">Omnara 开源自托管 Agent 平台官宣，免费跑、送 $1000 额度</h1>
+<div class="post-body"><h2>官宣核心事实</h2>
+<p>10 月 21 日，Omnara 在 <a href="https://emergent.sh/news/omnara-launches-open-source-alternative" rel="external nofollow noopener noreferrer" target="_blank">emergent.sh</a> 正式官宣，GitHub 仓库 <a href="https://github.com/omnara-ai/omnara" rel="external nofollow noopener noreferrer" target="_blank">omnara-ai/omnara</a> 已拿到 3207 颗星、629 次提交、109 个发布，Show HN 上也收获 111 点赞。YC 官方页面 <a href="https://www.ycombinator.com/companies/omnara" rel="external nofollow noopener noreferrer" target="_blank">YC 页面</a> 直白写着：“we’re giving $1,000 in credits to the first 50 teams building on Omnara. Email us at contact@omnara.com”，并强调“Because you can bring your own machine and models, you can use Omnara for completely free!”</p>
+<p>核心机制是把每个 Agent 的每一步状态都存在 Postgres 里，Idle 时零成本，崩溃或重启后能从断点续跑。支持的模型涵盖 OpenAI、Anthropic、OpenRouter、Amazon Bedrock、LiteLLM、Ollama 以及自托管模型，沙箱供应商更是多达 11 家：Arker、Blaxel、boxd、CreateOS、Daytona、E2B、Freestyle、Modal、Superserve、Tenki、Unikraft。自托管只需两条命令：<code>git clone https://github.com/omnara-ai/omnara.git</code> 然后 <code>docker compose -f compose.yaml --profile app up -d</code> 即可跑起来。</p>
+<p><img src="https://moyu.18uk.uk/2026/20261025-c4500be3-41d4-4ace-8d5b-01a1acc2b943.webp" alt="Omnara" width="800" loading="lazy" referrerpolicy="no-referrer" /></p>
+<h2>行业冲击与定位</h2>
+<p>这不仅是对标 Claude Managed Agents 与 OpenAI Agents API 的开源替代，更把“自带机器、自带模型”变成了零门槛的免费方案。对于数字游民和追求效率整活的开发者，意味着可以在自己的 VPS 或本地服务器上跑持久化 Agent，无需为托管服务付费，前 50 支队伍还能直接领 $1000 hosted credits，降低了尝试成本到几乎为零。</p>
+<h2>核心突破点清单</h2>
+<ul>
+<li>Postgres 持久化每一步状态，Idle 零成本</li>
+<li>崩溃/重启自动断点续跑，无需手动恢复</li>
+<li>模型接入全开放：OpenAI、Anthropic、OpenRouter、Bedrock、LiteLLM、Ollama、自托管</li>
+<li>11 家沙箱供应商可插拔，覆盖主流云原生运行环境</li>
+<li>Apache‑2.0 协议，商业使用无顾虑</li>
+<li>前 50 团队送 $1000 hosted credits，联系 contact@omnara.com</li>
+</ul>
+<h2></h2>
+<p>虽然听起来很美，但自托管意味着你得自己搞定 Postgres、Docker、网络和监控，运维门槛对非运维同学并不低。沙箱供应商虽多，但不同供应商的冷启动速度、计费模型差异大，生产环境还得做压测。YC 给的 $1000 额度仅限前 50 团队，后续是否持续补贴还是未知。另外，社区目前只有 3207 颗星，文档与生态距离成熟商业平台还有距离，想直接上线核心业务还需谨慎评估。</p>
+<p> </p>
+<p> </p>
+<p>本文来源：<a href="https://www.moyunews.com/" rel="external nofollow noopener noreferrer" target="_blank">摸鱼杂货店</a>。查看原文：<a href="https://www.moyunews.com/omnara-open-source-agent-platform/" rel="external nofollow noopener noreferrer" target="_blank">Omnara 开源自托管 Agent 平台官宣，免费跑、送 $1000 额度</a>。</p></div>
+<p class="back"><a href="/">← 返回最新</a></p>
+</article>
+</main>
+<footer class="site-foot">
+<p>wocao.world — 本站内容全部转载自各订阅源，版权归原作者与原站所有。</p>
+</footer>
+</body>
+</html>

@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>MiniMax M3.1 Flash开源：4280亿参数API仅$0.15 · wocao.world</title>
+<meta name="description" content="先看价格：$0.15/百万 token 是什么概念 跑 Agent 的人都懂一个痛：token 烧起来比打车还快，输入 token 的价格直接决定你敢不敢让 Agent 多跑几轮、多试几种方案。MiniMax 这次把价格打到了 $0.15/百万输入 token、$0.60/百万输出 token，比上一代直接便宜 70%。API 在 10 月 19 日先行上线，结果 72 小时内真实用户处理量就超过了 1 万亿 token——别看什么发布会通稿，这个数字才是大家拿脚投票的真实结果。 更狠的是，今天（10 月 23 日）权重直接开源了。API 便宜是让你先用着爽，开源是让你彻底放心：数据不出内网、…">
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="wocao.world">
+<meta property="og:title" content="MiniMax M3.1 Flash开源：4280亿参数API仅$0.15 · wocao.world">
+<meta property="og:description" content="先看价格：$0.15/百万 token 是什么概念 跑 Agent 的人都懂一个痛：token 烧起来比打车还快，输入 token 的价格直接决定你敢不敢让 Agent 多跑几轮、多试几种方案。MiniMax 这次把价格打到了 $0.15/百万输入 token、$0.60/百万输出 token，比上一代直接便宜 70%。API 在 10 月 19 日先行上线，结果 72 小时内真实用户处理量就超过了 1 万亿 token——别看什么发布会通稿，这个数字才是大家拿脚投票的真实结果。 更狠的是，今天（10 月 23 日）权重直接开源了。API 便宜是让你先用着爽，开源是让你彻底放心：数据不出内网、…">
+<meta property="og:url" content="https://wocao.world/">
+<meta name="twitter:card" content="summary">
+<meta name="robots" content="noindex,follow">
+<link rel="alternate" type="application/rss+xml" title="wocao.world 聚合输出" href="/feed.xml">
+<link rel="stylesheet" href="/style.css">
+<link rel="canonical" href="https://www.moyunews.com/minimax-m31-flash-open-weights/">
+</head>
+<body>
+<a class="skip-link" href="#main">跳到正文</a>
+<header class="site-head">
+<p class="site-title"><a href="/">wocao.world</a></p>
+<p class="site-desc">wocao.world</p>
+<nav class="site-nav">
+<a href="/">最新</a>
+<a href="/about/">关于</a>
+<a href="/feed.xml">RSS</a>
+</nav>
+</header>
+<main id="main">
+<article>
+<h1 class="post-title">MiniMax M3.1 Flash开源：4280亿参数API仅$0.15</h1>
+<div class="post-body"><h2>先看价格：$0.15/百万 token 是什么概念</h2>
+<p>跑 Agent 的人都懂一个痛：token 烧起来比打车还快，输入 token 的价格直接决定你敢不敢让 Agent 多跑几轮、多试几种方案。<a href="https://www.minimax.io/" rel="external nofollow noopener noreferrer" target="_blank">MiniMax</a> 这次把价格打到了 $0.15/百万输入 token、$0.60/百万输出 token，比上一代直接便宜 70%。API 在 10 月 19 日先行上线，结果 72 小时内真实用户处理量就超过了 1 万亿 token——别看什么发布会通稿，这个数字才是大家拿脚投票的真实结果。</p>
+<p>更狠的是，今天（10 月 23 日）权重直接开源了。API 便宜是让你先用着爽，开源是让你彻底放心：数据不出内网、私有化部署、想怎么魔改怎么魔改，一套组合拳下来，闭源竞品的压力给到了。</p>
+<p><img src="https://moyu.18uk.uk/2026/20261025-37b2198f-3d3a-4a83-bcbb-535d55c7ecfd.webp" alt="Flash开源" width="450" loading="lazy" referrerpolicy="no-referrer" /></p>
+<h2>这次开源了个什么：4280 亿参数的 MoE</h2>
+<p>这次 <a href="https://www.chaincatcher.com/en/article/2298361" rel="external nofollow noopener noreferrer" target="_blank">Flash开源</a> 的主角是 MiniMax M3.1 Flash：4280 亿总参数、230 亿激活参数的 MoE（混合专家）模型。翻译成人话：模型总共 4280 亿参数看着吓人，但每次推理实际只激活 230 亿——这就是它又快又便宜的根本原因，MoE 架构天生就是为「花小钱办大事」设计的。</p>
+<p>配置单也相当能打：原生 100 万 token 上下文，整本书、整个代码库一把塞进去；还给了可调思考深度开关，简单问题浅想省钱，复杂问题深想保质量，这个设计对 Agent 场景特别友好——不用为每个任务单独选模型了。开源首日，<a href="https://github.com/vllm-project/vllm" rel="external nofollow noopener noreferrer" target="_blank">vLLM</a>、<a href="https://github.com/sgl-project/sglang" rel="external nofollow noopener noreferrer" target="_blank">SGLang</a>、<a href="https://huggingface.co/" rel="external nofollow noopener noreferrer" target="_blank">Hugging Face</a> 同步跟进支持，生态适配速度说明一件事：大家是真想用它干活，不是凑热闹。</p>
+<h2>Space Bunny：开奖前的匿名实测</h2>
+<p>有个好玩的细节：M3.1 Flash 在正式亮相前，曾以「Space Bunny」的匿名身份在社区里实测，累计跑了 200 万亿 token（<a href="https://shattered.io/minimax-m3-1-flash-space-bunny-reveal-2026/" rel="external nofollow noopener noreferrer" target="_blank">匿名实测的来龙去脉</a>）。这种「先匿名跑分、再揭面」的玩法，等于把公开实测当成了发布会预热——分数是真实用户跑出来的，不是实验室里挑出来的好看数字。</p>
+<p>200 万亿 token 的匿名实测还有一层含义：模型在正式发布前就已经经历了大规模真实流量的毒打，API 上线 72 小时能扛住 1 万亿 token 不是偶然，底子是提前练出来的。</p>
+<h2>突破点清单</h2>
+<ul>
+<li>价格屠夫：$0.15/百万输入 token，比上代便宜 70%，Agent 重度用户的账单直接砍半不止。</li>
+<li>权重开源：4280 亿参数 MoE 权重放出，支持私有化部署，数据敏感场景也能用。</li>
+<li>首日生态拉满：vLLM、SGLang、Hugging Face 同步适配，开源当天就能跑起来，不用等。</li>
+<li>100 万上下文 + 可调思考深度：长文档、代码库一把梭，思考深度按需调节，省钱又省心。</li>
+<li>实测底子硬：Space Bunny 匿名跑 200 万亿 token，<a href="https://www.eesel.ai/blog/minimax-m3-1-flash-review/" rel="external nofollow noopener noreferrer" target="_blank">与 DeepSeek V4.1 Flash 的 6 项基准对照</a>可供参考，定位是「速度型旗舰」。</li>
+</ul>
+<h2>冷静一下：4280 亿参数不是给你家用机准备的</h2>
+<p>泼两盆冷水。第一，4280 亿参数的全量权重，本地部署需要相当可观的硬件，家用机想都别想，个人玩家大概率还是走 API 或者等社区的量化版本，别被「开源」两个字忽悠得以为不要钱。第二，它的定位是速度型模型——快和便宜是标签，但在极限推理深度上，它对标的不是最顶尖的推理模型，选型时别拿它去硬刚不适合的场景。</p>
+<p>第三句大实话：开源权重不等于零成本。权重的下载是免费的，但推理的显卡和电费才是大头。对个人开发者来说，最实在的路径依然是先用 $0.15 的 API 把业务跑通，量上来了再考虑私有化部署。先算账，再折腾。</p>
+<p>最后说说格局：M3.1 Flash 开源加上 $0.15 的定价，等于把「旗舰速度模型」的门票价格打到了地板。结合 <a href="https://www.eesel.ai/blog/minimax-m3-1-flash-review/" rel="external nofollow noopener noreferrer" target="_blank">eesel.ai 放出的 6 项基准对照</a>，它和 DeepSeek V4.1 Flash 这类同级速度型模型的正面竞争已经摆上台面。对用户来说这是好事：模型厂商卷价格、卷开源，最终省下来的是我们自己的 token 账单。选模型时别只看跑分，把「每百万 token 多少钱、上下文够不够装下你的任务、可不可以私有化」三件事一起算，才是成年人该做的选择题。</p>
+<p> </p>
+<p> </p>
+<p>本文来源：<a href="https://www.moyunews.com/" rel="external nofollow noopener noreferrer" target="_blank">摸鱼杂货店</a>。查看原文：<a href="https://www.moyunews.com/minimax-m31-flash-open-weights/" rel="external nofollow noopener noreferrer" target="_blank">MiniMax M3.1 Flash开源：4280亿参数API仅$0.15</a>。</p></div>
+<p class="back"><a href="/">← 返回最新</a></p>
+</article>
+</main>
+<footer class="site-foot">
+<p>wocao.world — 本站内容全部转载自各订阅源，版权归原作者与原站所有。</p>
+</footer>
+</body>
+</html>

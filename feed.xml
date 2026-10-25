@@ -6,7 +6,157 @@
     <description>wocao.world</description>
     <language>zh-CN</language>
     <atom:link href="https://wocao.world/feed.xml" rel="self" type="application/rss+xml"/>
-    <lastBuildDate>Thu, 22 Oct 2026 22:48:52 GMT</lastBuildDate>
+    <lastBuildDate>Sun, 25 Oct 2026 18:34:47 GMT</lastBuildDate>
+    <item>
+      <title>Google Data Agent Kit 已 GA：直连 BigQuery</title>
+      <link>https://wocao.world/p/51d9be958fa8/</link>
+      <guid isPermaLink="false">51d9be958fa8</guid>
+      <pubDate>Sun, 25 Oct 2026 18:13:26 GMT</pubDate>
+      <description>Google 在 2026 年 9 月 30 日正式把 Data Agent Kit 推向 GA，插件仓库版本分别为 1.0.0（9 月 29 日）与 1.1.0（10 月 13 日）。此次 GA 新增 BigQuery Graph、Bigtable、Managed Service for Apache Spark，合计可连接 15 个以上 Google Data Cloud 服务。同时官方宣布兼容 Antigravity、Claude Code、Codex 以及 Cursor、VS Code 等编辑器扩展，Cloud Shell 与 Cloud Workstations 已预装。 这意味着开…
+
+原文链接: https://www.moyunews.com/google-data-agent-kit-ga/
+转载自: 摸鱼杂货店</description>
+    </item>
+    <item>
+      <title>Qoder Efficient免费档 0.0x 倍率不扣 Credits</title>
+      <link>https://wocao.world/p/e6cdd411c25a/</link>
+      <guid isPermaLink="false">e6cdd411c25a</guid>
+      <pubDate>Sun, 25 Oct 2026 18:10:36 GMT</pubDate>
+      <description>根据 官方活动页 与 社区深度解读，Qoder 在 2026 年 9 月 3 日 14:00 SGT 启动「Efficient 免费档」优惠，结束日期暂未公布，官方承诺提前通知并保留随时终止或调整的权利。优惠覆盖个人订阅的 Lite、Pro、Pro+、Ultra 以及 Teams、Enterprise 席位；免费用户仅在 Pro 试用期且账户仍有 Credits 时才能享受。所有客户端 —— 包括 Qoder、Qoder IDE、JetBrains 插件、Qoder CLI、QoderWake 以及移动与 Web App（需更新到最新版） —— 在模型选择器里均会显示 0.0x 倍率，无需兑换…
+
+原文链接: https://www.moyunews.com/qoder-efficient-tier-free/
+转载自: 摸鱼杂货店</description>
+    </item>
+    <item>
+      <title>HatchZip 原地解压：只需输出空间的黑科技</title>
+      <link>https://wocao.world/p/23821ea1aa7b/</link>
+      <guid isPermaLink="false">23821ea1aa7b</guid>
+      <pubDate>Sun, 25 Oct 2026 18:09:02 GMT</pubDate>
+      <description>解压大包还要双倍空间 下载一个 180 GB 的游戏安装包，解压后变成 200 GB，传统工具却要你预留 380 GB 磁盘——WinRAR、7‑Zip 或 unzip 都得把压缩包和解压结果同时放在盘里。这在只有 256 GB SSD 的笔记本上简直是噩梦。 传统工具的硬伤 常见解压器都是「先读整个压缩包，再写出所有文件」，磁盘占用 = 原包大小 + 解压后大小。README 里直白写着：「A 180 GB game download that unpacks to 200 GB needs 380 GB of disk with WinRAR, 7-Zip or `unzip`」。 反直觉…
+
+原文链接: https://www.moyunews.com/hatchzip-extract-in-place/
+转载自: 摸鱼杂货店</description>
+    </item>
+    <item>
+      <title>用 dumbtv 一键瘦身 Fire TV，彻底告别广告与追踪</title>
+      <link>https://wocao.world/p/fe28d105fc46/</link>
+      <guid isPermaLink="false">fe28d105fc46</guid>
+      <pubDate>Sun, 25 Oct 2026 18:06:44 GMT</pubDate>
+      <description>得有 ADB 和一台 Fire TV 想把 Fire TV 变成「纯净版」其实不复杂，核心只需两样东西：一台已开启「开发者选项 → ADB 调试」的 Fire TV，以及一台能跑 adb 的电脑（Win/Mac/Linux 均可）。如果你还没把电视的 IP 记下来，先在设置里查一下，后面 adb connect 要用。 克隆仓库并连上设备 打开终端，跑官方给的一键克隆命令： git clone https://github.com/humblemuzzu/dumbtv &amp;amp;&amp;amp; cd dumbtv 接着把电视接入局域网，执行： adb connect :5555 看到 connec…
+
+原文链接: https://www.moyunews.com/dumbtv-fire-tv-debloat/
+转载自: 摸鱼杂货店</description>
+    </item>
+    <item>
+      <title>MOSS-Image 开源 5B 文生图模型：文字渲染 96.3% 领跑开源</title>
+      <link>https://wocao.world/p/4a1b5482129e/</link>
+      <guid isPermaLink="false">4a1b5482129e</guid>
+      <pubDate>Sun, 25 Oct 2026 18:01:48 GMT</pubDate>
+      <description>生成图里的文字总是靠不住 做过海报、幻灯片、甚至漫画分镜的同学都知道：主流文生图模型一生成中文长句，要么漏字、要么乱码、要么字形崩坏，最后还得进 PS 一个个改，费时又费力。 市面上号称「支持中文」的开源模型，跑起来往往只能应付短词，稍微加长 prompt 就崩。想要一次性把几百字的说明文、带标点、带换行的排版直接生成在图里，几乎是个伪命题。 冻结大语言模型 + JSON 布局 MOSS-Image 的做法很硬核：直接把 Qwen3.5-9B 的文本编码器冻结，不做任何微调，保留它对中英文长文本的深度理解；再引入结构化 JSON 布局输入，每个文本块带上 bounding boxes，告诉模型…
+
+原文链接: https://www.moyunews.com/moss-image-open-text-rendering/
+转载自: 摸鱼杂货店</description>
+    </item>
+    <item>
+      <title>Claude Code 用量护栏对决：guard vs Peras</title>
+      <link>https://wocao.world/p/6c653c4ed344/</link>
+      <guid isPermaLink="false">6c653c4ed344</guid>
+      <pubDate>Sun, 25 Oct 2026 17:58:48 GMT</pubDate>
+      <description>十分钟烧光五小时额度 最近在折腾 agent-usage-guard 和 Peras 两款护栏，都是为了解决同一个惨案：一个 research prompt 直接催生 394 个 subagent、341 并发、十分钟跑掉 84M context tokens，五小时窗口瞬间锁死。 agent-usage-guard：开源 MIT，规则全自定义 作者在 Show HN 拿到 26 points，安装只需三条命令：/plugin marketplace add rbartoli/agent-usage-guard 然后 /plugin install agent-usage-guard@agen…
+
+原文链接: https://www.moyunews.com/claude-code-usage-guard-duel/
+转载自: 摸鱼杂货店</description>
+    </item>
+    <item>
+      <title>Omnara 开源自托管 Agent 平台官宣，免费跑、送 $1000 额度</title>
+      <link>https://wocao.world/p/c7d9aa2662c1/</link>
+      <guid isPermaLink="false">c7d9aa2662c1</guid>
+      <pubDate>Sun, 25 Oct 2026 17:53:41 GMT</pubDate>
+      <description>官宣核心事实 10 月 21 日，Omnara 在 emergent.sh 正式官宣，GitHub 仓库 omnara-ai/omnara 已拿到 3207 颗星、629 次提交、109 个发布，Show HN 上也收获 111 点赞。YC 官方页面 YC 页面 直白写着：“we’re giving $1,000 in credits to the first 50 teams building on Omnara. Email us at contact@omnara.com”，并强调“Because you can bring your own machine and models, yo…
+
+原文链接: https://www.moyunews.com/omnara-open-source-agent-platform/
+转载自: 摸鱼杂货店</description>
+    </item>
+    <item>
+      <title>xerj本地搜索：Rust 单二进制搞定代码全文检索</title>
+      <link>https://wocao.world/p/56e179b7b66c/</link>
+      <guid isPermaLink="false">56e179b7b66c</guid>
+      <pubDate>Sun, 25 Oct 2026 17:50:52 GMT</pubDate>
+      <description>Agent 的通病：失忆 用 Agent 写代码的人都遇到过这个场面：上周让它修的 bug，这周换个会话它全忘了；项目里的文档、日志、踩坑记录明明都在本地，它却只会一问三不知。想给它补记忆，传统方案是搭一套向量数据库做 RAG——重得让人想放弃；实在没办法用 grep，又只能精确匹配，换个说法就搜不到。GitHub Trending 上单日涨了约 2700 星的 xerj（gitdiscover 10 月 22 日榜单数据），就是来治这个毛病的：一个 Rust 写的单二进制本地搜索引擎，还自带给 Agent 用的 MCP server。 xerj本地搜索是个什么：本地优先的搜索引擎 官方一句话…
+
+原文链接: https://www.moyunews.com/xerj-local-search-mcp-server/
+转载自: 摸鱼杂货店</description>
+    </item>
+    <item>
+      <title>ai-job-search 实战：用 Claude Code 全自动找工作</title>
+      <link>https://wocao.world/p/e5b49d0f1759/</link>
+      <guid isPermaLink="false">e5b49d0f1759</guid>
+      <pubDate>Sun, 25 Oct 2026 17:49:09 GMT</pubDate>
+      <description>找工作，居然被做成了 Agent 工作流 投简历这事，可能是当代打工人最痛的重复劳动：海投石沉大海，改简历改到半夜，面试准备全靠临场发挥。本周 GitHub 涨星最猛的项目 ai-job-search，干了一件很野的事——把整套求职流程做成了一个跑在 Claude Code 上的 AI 工作流，一周涨了 1.28 万星（whatstrending.ai 本周加速榜）。更野的是，作者本人就是靠这套流程找到工作的：地球物理学家出身，2025 年底被裁，69 份定制申请、20 个一面，最终 2026 年 6 月入职 AI 工程师。这不是 demo，是真刀真枪跑出来的 offer。顺带说一句，项目 s…
+
+原文链接: https://www.moyunews.com/ai-job-search-claude-code/
+转载自: 摸鱼杂货店</description>
+    </item>
+    <item>
+      <title>SuperCMO Skills：一条命令把 Claude 变成 AI 营销总监</title>
+      <link>https://wocao.world/p/25de9359742e/</link>
+      <guid isPermaLink="false">25de9359742e</guid>
+      <pubDate>Sun, 25 Oct 2026 17:46:14 GMT</pubDate>
+      <description>请不起 CMO，用 AI 营销工具又被割 小团队做营销的经典困境：请个营销总监太贵，用 AI 营销工具又总觉得被割。就拿 Higgsfield 来说，订阅要在模型原价基础上加价约 50%，买的 credits 还按月过期——钱花了，额度没用完就作废，这种设计怎么看怎么像针对你的钱包。10 月 22 日开源的 SuperCMO Skills，就是冲着这个痛点来的：Apache-2.0 开源，按模型原价付费，没有中间商赚差价。 前置条件：三样东西备好 动手之前先备齐三样：第一，装好 uv（Python 包管理工具，装 skills 要用它）；第二，Claude Code、Cursor、Codex …
+
+原文链接: https://www.moyunews.com/supercmo-skills-ai-cmo/
+转载自: 摸鱼杂货店</description>
+    </item>
+    <item>
+      <title>Agentic AI 基金会纳四项目：Agent 标准中立化加速</title>
+      <link>https://wocao.world/p/ff393a0e6819/</link>
+      <guid isPermaLink="false">ff393a0e6819</guid>
+      <pubDate>Sun, 25 Oct 2026 17:42:37 GMT</pubDate>
+      <description>魔幻开场：四家死对头同一天捐项目 Anthropic、OpenAI、Hugging Face、阿里——这四家平时在模型和 Agent 领域打得不可开交。结果 10 月 22 日，他们在同一场大会上干了同一件事：把自家压箱底的 Agent 相关项目，捐给了同一个中立基金会。这种「打归打，标准一起建」的场面，在 AI 圈可不多见。 事实梳理：AAIF 一口气收编四个项目 事情发生在 AGNTCon + MCPCon North America 大会（2026 年 10 月 22~23 日，加州圣何塞）上。Agentic AI Foundation（AAIF）宣布新增四个托管项目：Agent Ski…
+
+原文链接: https://www.moyunews.com/agentic-ai-foundation-new-projects/
+转载自: 摸鱼杂货店</description>
+    </item>
+    <item>
+      <title>MiniMax M3.1 Flash开源：4280亿参数API仅$0.15</title>
+      <link>https://wocao.world/p/eceea1431966/</link>
+      <guid isPermaLink="false">eceea1431966</guid>
+      <pubDate>Sun, 25 Oct 2026 17:40:13 GMT</pubDate>
+      <description>先看价格：$0.15/百万 token 是什么概念 跑 Agent 的人都懂一个痛：token 烧起来比打车还快，输入 token 的价格直接决定你敢不敢让 Agent 多跑几轮、多试几种方案。MiniMax 这次把价格打到了 $0.15/百万输入 token、$0.60/百万输出 token，比上一代直接便宜 70%。API 在 10 月 19 日先行上线，结果 72 小时内真实用户处理量就超过了 1 万亿 token——别看什么发布会通稿，这个数字才是大家拿脚投票的真实结果。 更狠的是，今天（10 月 23 日）权重直接开源了。API 便宜是让你先用着爽，开源是让你彻底放心：数据不出内网、…
+
+原文链接: https://www.moyunews.com/minimax-m31-flash-open-weights/
+转载自: 摸鱼杂货店</description>
+    </item>
+    <item>
+      <title>DeepSeek Harness 做幼儿园视频 Agent，家长投资人找上门</title>
+      <link>https://wocao.world/p/9dfe5cf00843/</link>
+      <guid isPermaLink="false">9dfe5cf00843</guid>
+      <pubDate>Sun, 25 Oct 2026 17:38:52 GMT</pubDate>
+      <description>DeepSeek Harness 是什么 2026 年 8 月 13 日，DeepSeek 正式把自家的 Agent 运行时 DeepSeek Harness（CLI 名 dsh，仓库 deepseek-ai/deepseek-harness）以 MIT 协议、v0.1 developer preview 的身份开源。发布三天 GitHub star 就冲破 11.7 万，DataCamp 也在第一时间做了拆解。核心口号是 “everything is a plugin”：模型适配器、工具、会话、沙箱、甚至 Agent loop 本身全是可替换插件，由 Cordis 插件内核统一调度。模型不再…
+
+原文链接: https://www.moyunews.com/deepseek-harness-kindergarten-agent/
+转载自: 摸鱼杂货店</description>
+    </item>
+    <item>
+      <title>MotionSites提示词库实测：5个决定让AI不再长一个样</title>
+      <link>https://wocao.world/p/cf747fd6b380/</link>
+      <guid isPermaLink="false">cf747fd6b380</guid>
+      <pubDate>Sun, 25 Oct 2026 17:35:38 GMT</pubDate>
+      <description>AI 做出来的落地页全是紫色渐变加三个圆角卡片，连动效都像复制粘贴 前两天我在 MotionSites 逛了一圈，发现它根本不是什么建站器，而是一个把「怎么写 Prompt」做成商品的库。挑一个 3D 风格的 hero section，复制旁边的 Prompt，扔进 Lovable、Bolt、Cursor 或者 Claude，几秒钟就能跑出带 Framer Motion 和 GSAP ScrollTrigger 的 React 代码。创始人在 dev.to 里直说：好 Prompt 不是越长越强，而是帮模型把五件事决定死透。 为什么 AI 生成的站点都长一个样 市面上大多数「AI 建站」演示都…
+
+原文链接: https://www.moyunews.com/motionsites-ai-website-prompts/
+转载自: 摸鱼杂货店</description>
+    </item>
+    <item>
+      <title>用 REA 逆向工具 10 步 9 分钟复刻 Apple 官网风格</title>
+      <link>https://wocao.world/p/537c9c0015d4/</link>
+      <guid isPermaLink="false">537c9c0015d4</guid>
+      <pubDate>Sun, 25 Oct 2026 17:33:09 GMT</pubDate>
+      <description>前置条件：把 REA 装好 下面这套流程来自 X 上开发者 charliejhills 的分享帖：9 分钟把 Apple.com 转成 style file，再用 Claude Code 10 步复刻出 Apple 风格网站，帖子附了全部 prompt。我顺着帖子把每一步拆开讲清楚，方便你直接抄作业。 想把 Apple.com 的设计语言直接拿来用？先在本地跑通 REA，它是个 MIT 协议的 MCP 服务器 + CLI，npm 包叫 rea-agents，GitHub 已经斩获 超 34 万 star。只要一条命令 npx rea-agents setup 就能把它接入 Claude Cod…
+
+原文链接: https://www.moyunews.com/rea-apple-style-website/
+转载自: 摸鱼杂货店</description>
+    </item>
     <item>
       <title>麦门精算师：麦当劳省钱点餐助手把巨无霸套餐砍到 ¥21.9</title>
       <link>https://wocao.world/p/46240e41c3e6/</link>
@@ -155,156 +305,6 @@
       <description>GA 到底改了什么 2026-10-15 Anthropic 在官方公告 Code Review is now generally available 里原话：「Code Review is out of research preview and available to Claude Team and Enterprise organizations」。 适用范围锁定在 Claude Team 与 Enterprise 组织，管理员只需在 Claude Code 设置里打开开关，再安装官方 GitHub App 并勾选仓库，随后每个新建 PR 会自动触发评审，也可在评论区 @claude r…
 
 原文链接: https://www.moyunews.com/claude-code-review-team-enterprise/
-转载自: 摸鱼杂货店</description>
-    </item>
-    <item>
-      <title>Sakana AI 推出 QD-Rec 用质量多样性进化搜索做开放式推荐</title>
-      <link>https://wocao.world/p/80b13b4b4a7c/</link>
-      <guid isPermaLink="false">80b13b4b4a7c</guid>
-      <pubDate>Wed, 21 Oct 2026 16:38:43 GMT</pubDate>
-      <description>为什么推荐系统还在靠静态打分？ 大多数推荐框架把候选项塞进固定的向量空间，再用同一套打分函数排序。这种做法在候选池不断扩张、偏好不断漂移时，往往只能靠重训练来缓解，成本高、反应慢。 QD-Rec 的核心循环：bandit → LLM 变异 → niche 竞争 项目把推荐单位拆成 候选（公司、顾客、论文）与 假设（书面理由），然后跑三步循环： bandit 选候选 用多臂老虎机策略在现有档案里挑出最值得探索的候选，避免盲目遍历。 LLM 变异与交叉 把选中的候选喂给 proposer（默认 openai/gpt-6-luna），让模型写出新的推荐理由，或把两条理由杂交出第三条。 niche 竞…
-
-原文链接: https://www.moyunews.com/sakana-ai-qd-rec/
-转载自: 摸鱼杂货店</description>
-    </item>
-    <item>
-      <title>Hermes Agent：自带自我进化的 Agent 操作系统</title>
-      <link>https://wocao.world/p/988cb03b7f6c/</link>
-      <guid isPermaLink="false">988cb03b7f6c</guid>
-      <pubDate>Wed, 21 Oct 2026 16:37:25 GMT</pubDate>
-      <description>一次性 Agent 的短板 大多数 AI Agent 只能一次性跑完任务，下次还得重新喂提示词、重新配置工具链，根本没有“记得上次怎么干”的能力。这就导致开发者在重复性工作里不断复制粘贴，效率低得像在搬砖。而 NousResearch/hermes-agent 以约 25.5 万 star 的声量告诉我们：把“自我改进”做成内核能力，才是把 Agent 从玩具变成生产力工具的关键。 自我改进循环怎么跑通 README 里的定位原话是 “The self-improving AI agent built by Nous Research”。其核心思路可以拆解为三层：执行、沉淀、复用。Agent …
-
-原文链接: https://www.moyunews.com/hermes-agent-self-improving/
-转载自: 摸鱼杂货店</description>
-    </item>
-    <item>
-      <title>3.7万星Claude代码路由：免费接DeepSeek/Kimi/GLM</title>
-      <link>https://wocao.world/p/216f6cb17038/</link>
-      <guid isPermaLink="false">216f6cb17038</guid>
-      <pubDate>Wed, 21 Oct 2026 16:35:39 GMT</pubDate>
-      <description>Claude Code 好用但钱包扛不住 用过 Claude Code 的都知道，这玩意儿写代码真香，但 Anthropic 官方 API 按 Token 计费，跑个中型项目几十刀像玩儿。更气人的是被锁死在单一厂商——想换 DeepSeek、想用 Kimi、想试 GLM，全得重写适配层。 Claude Code Router（仓库 musistudio/claude-code-router）直接把这个结解开：3.7 万+ star、3,169 forks、MIT 协议，定位「本地 AI 智能体总控平台」。原理一句话：让 Claude Code、Codex、Grok CLI、Kimi CLI、K…
-
-原文链接: https://www.moyunews.com/claude-code-router-free-models/
-转载自: 摸鱼杂货店</description>
-    </item>
-    <item>
-      <title>rea逆向工程实战：本地把二进制拆到字节级</title>
-      <link>https://wocao.world/p/66b8183a5a1c/</link>
-      <guid isPermaLink="false">66b8183a5a1c</guid>
-      <pubDate>Wed, 21 Oct 2026 16:33:35 GMT</pubDate>
-      <description>痛点直击：AI 只会写代码，不会读二进制 手里攥着个没源码的 .exe、.apk 或签名掉了的 Electron 包，想让 Claude Code 帮你把业务逻辑还原成伪代码？别做梦了——大模型上下文塞不进 IDA Pro 的数据库，也跑不通 Ghidra 的分析流程。morluto/rea 这项目，GitHub 狂揽 超 34 万 star、fork 8.6 万，MIT 协议彻底开源，给的答案是：别让大模型去猜汇编，把现成的逆向工具包成 MCP 服务器 扔给 Agent 直接调。 前置条件：别上来就 npx 先确认三样东西在机器上： Node.js 环境（跑 npx rea-agents s…
-
-原文链接: https://www.moyunews.com/rea-local-reverse-engineering/
-转载自: 摸鱼杂货店</description>
-    </item>
-    <item>
-      <title>Stripe MCP 接入 Claude Code 一条命令搞定出海收款</title>
-      <link>https://wocao.world/p/1ade4546c460/</link>
-      <guid isPermaLink="false">1ade4546c460</guid>
-      <pubDate>Tue, 20 Oct 2026 10:17:24 GMT</pubDate>
-      <description>前置条件 先确认你有一个 Stripe 账号（测试先用 sandbox 模式练手）；本机装好 Node 18+ 和 npm，能正常跑命令；Claude Code 已经装好并能正常对话；准备一台能联网的机器，因为远程 MCP 地址 https://mcp.stripe.com 走 HTTPS，确认防火墙没把出站 443 掐掉。动手前先扫一眼 Stripe MCP 官方文档，心里有数再开干。 一条命令接入 打开终端跑 npm install -g @stripe/cli@latest 装最新版 CLI，再执行 stripe agent setup。这条命令会自动探测你正在用的 Agent，把 MC…
-
-原文链接: https://www.moyunews.com/stripe-mcp-claude-code-setup/
-转载自: 摸鱼杂货店</description>
-    </item>
-    <item>
-      <title>HelixWorld 开源实测：WASD 走进 24FPS 音画世界</title>
-      <link>https://wocao.world/p/d80dfa3c157e/</link>
-      <guid isPermaLink="false">d80dfa3c157e</guid>
-      <pubDate>Tue, 20 Oct 2026 10:16:31 GMT</pubDate>
-      <description>别再给我看「先出默片再配音」的伪同步了 这两年「世界模型」概念被炒得挺热，HelixWorld 一出手直接把门槛砸碎了：丢一张图、扔一句自然语言提示词，键盘按下 W/A/S/D 移动、方向键转视角，24 FPS 视频流配 48kHz 立体声空间音频实时同生。不是先生成视频再去套音效，也不是先跑音频再对口型 —— 视觉与听觉在同一个前向传播里「长」出来。在线演示站 点开就能玩，GitHub 仓库 已放出 Preview v1 推理代码与权重，代码 Apache-2.0 开源（权重许可另见 Hugging Face 页面）。技术报告挂在 arXiv:2609.38123，想啃细节的直接去啃。 核心…
-
-原文链接: https://www.moyunews.com/helixworld-audio-visual-world-model/
-转载自: 摸鱼杂货店</description>
-    </item>
-    <item>
-      <title>7个免安装浏览器小工具：投票、座位表、胶片滤镜全搞定</title>
-      <link>https://wocao.world/p/003d358a4f43/</link>
-      <guid isPermaLink="false">003d358a4f43</guid>
-      <pubDate>Tue, 20 Oct 2026 10:13:31 GMT</pubDate>
-      <description>打开浏览器就能用：这 7 个小工具先码住 有些工具真没必要装 App——打开网页，干完活就走。这份十月榜单一口气挑了 7 个免费的浏览器小工具：从约会投票、婚礼排座位，到复古胶片滤镜、88 键钢琴，全是「用完即走」的类型。一张表先看明白，再按场景抄作业。 这类网页小工具的共同卖点就四个字：用完即走。不占硬盘、不绑账号、换台电脑打开链接接着用。但丑话说在前面：功能普遍比专业软件浅，适合轻量、临时的活；涉及隐私的材料，先看官方说法再决定传不传；免费也多半是阶段性的，比如 OldRoll 官网就明说网页版是发布期免费，哪天开始收费都不奇怪。真要长期依赖哪一款，先想好替代方案。 榜单来源：Medium…
-
-原文链接: https://www.moyunews.com/seven-free-browser-tools/
-转载自: 摸鱼杂货店</description>
-    </item>
-    <item>
-      <title>Mercury3 1068 token/s 百万上下文首发半价</title>
-      <link>https://wocao.world/p/5413a8548593/</link>
-      <guid isPermaLink="false">5413a8548593</guid>
-      <pubDate>Tue, 20 Oct 2026 10:10:08 GMT</pubDate>
-      <description>核心参数一览 Inception 刚把 Mercury 3 推到台面，这是它家的新一代扩散大模型（diffusion LLM）。官方新闻稿 2026-10-19 发布，给的硬指标有两个：NVIDIA GPU 上实测 1,068 tokens/秒 的生成速度，上下文窗口 1,000,000 token。上一代 Mercury 2.5 的上下文只有 260,000 token，这一代直接拉高到接近四倍。unite.ai 的报道 也把速度和上下文这两项列为这代的主打卖点。 扩散架构为什么能这么快 市面上大多数大模型是自回归的：一个 token 接一个 token 往外吐，前一个没写完，后一个不能动，…
-
-原文链接: https://www.moyunews.com/mercury-3-diffusion-llm/
-转载自: 摸鱼杂货店</description>
-    </item>
-    <item>
-      <title>Latch 用 NFC 贴纸把解锁按钮扔到屋外</title>
-      <link>https://wocao.world/p/a6cf746c5bfb/</link>
-      <guid isPermaLink="false">a6cf746c5bfb</guid>
-      <pubDate>Tue, 20 Oct 2026 10:02:54 GMT</pubDate>
-      <description>Latch：把解锁按钮贴到钥匙上 大多数防沉迷应用输在哪？锁屏密码在自己手里，想解随时能解，防的全是空气。Latch 的思路完全不同，官网标题就写着 Latch: put the unlock button across the room——把解锁按钮放到房间另一头去。它把解锁动作从手机里搬出来，绑在一张实体 NFC 贴纸（或者一张自己打印的二维码）上：想打开被锁的 App，必须起身走到贴纸跟前，用手机背面扫一下。产品 2026-10-17 登上 Product Hunt，支持 iPhone、iPad 和 Android。 准备工作不复杂：备一张 NTAG213、NTAG215 或 NTAG2…
-
-原文链接: https://www.moyunews.com/latch-scan-to-unlock/
-转载自: 摸鱼杂货店</description>
-    </item>
-    <item>
-      <title>Harness²：不改权重让 Agent 越用越强</title>
-      <link>https://wocao.world/p/cea849c8de8e/</link>
-      <guid isPermaLink="false">cea849c8de8e</guid>
-      <pubDate>Tue, 20 Oct 2026 10:01:19 GMT</pubDate>
-      <description>Harness² 是什么 Google Research 放出的开源框架 Harness²，全名 Recursive Agent Harnessing for an Open World，协议 Apache 2.0。它想解决的问题很实际：想让一个 AI Agent 变强，通常得回头去动模型本身，重新训练或者微调，门槛和成本都摆在那里。Harness² 的核心思路反过来：不碰模型权重，只改模型外面那层「脚手架」，靠「双层递归」让 Agent 在跑任务的过程中自我进化。默认执行器用 OpenCode，也可接 Codex；能改的组件一共有八类：系统提示词、护栏、记忆、工具指导、子智能体、Skills…
-
-原文链接: https://www.moyunews.com/harness2-agent-harness/
-转载自: 摸鱼杂货店</description>
-    </item>
-    <item>
-      <title>fal 推出 FLUX 3 Max：10 秒视频 12 秒生成</title>
-      <link>https://wocao.world/p/6d5d0fa3ae9a/</link>
-      <guid isPermaLink="false">6d5d0fa3ae9a</guid>
-      <pubDate>Tue, 20 Oct 2026 09:52:46 GMT</pubDate>
-      <description>fal 放大招：FLUX 3 Max 10 秒视频 12 秒出片 Black Forest Labs 最新放出的 FLUX 3 Max 在 fal 官方模型页 直接可用，主打图生视频：在 Artificial Analysis 的 image-to-video arena 里拿到 1,139 Elo，和 Seedance 2.5 并列第一梯队。生成 10 秒 720p 视频只需 12.45 秒，而 Seedance 2.5 要 277.80 秒，快了约 22 倍。官方通稿 给的定位也很直白：第一梯队的图生视频画质，加上行业里靠前的生成速度。 速度差 22 倍，改变的不只是等待时间。一条 10 …
-
-原文链接: https://www.moyunews.com/flux-3-max-video/
-转载自: 摸鱼杂货店</description>
-    </item>
-    <item>
-      <title>Meta Muse Wonder双模型入局，Muse Agent登顶App Store：大盘正式进入四方混战</title>
-      <link>https://wocao.world/p/a54ba1600588/</link>
-      <guid isPermaLink="false">a54ba1600588</guid>
-      <pubDate>Sat, 17 Oct 2026 18:08:07 GMT</pubDate>
-      <description>闪击消费端与代码场：Muse Wonder 双模型登场 硅谷大模型战局的平衡在 10 月中旬被彻底打破。Meta 毫无预警地抛出全新一代推理基座 Muse Wonder 与专供高阶工程代码的 Muse Wonder Full 双模型组合。与其配套的消费级独立原生载体 Muse Agent 更是凭借 Active Memory 与自主执行能力，上线后以极快速度冲上美区 App Store 免费总榜榜首。在关键评测基准 MemoryBench 上，Wonder 跑出 85.6 的高分，在 14 项专项测试中斩获 6 项第一，直接将压力给到了刚披露真实战绩的 Google 与 Anthropic。 …
-
-原文链接: https://www.moyunews.com/meta-muse-wonder-agent-app-store-four-way-frontier-ai-race/
-转载自: 摸鱼杂货店</description>
-    </item>
-    <item>
-      <title>老版本10月29日停服！Nano Banana 2.1实测：放弃堆砌玄学词，结构化Brief才是正确姿势</title>
-      <link>https://wocao.world/p/3daf79a1bae2/</link>
-      <guid isPermaLink="false">3daf79a1bae2</guid>
-      <pubDate>Sat, 17 Oct 2026 18:05:01 GMT</pubDate>
-      <description>告别“玄学魔法词”：调优版 2.1 的去油质感 Google 内部原本代号为 2.5 的调优版本，最终以 Nano Banana 2.1 的命名正式推向生产环境。相较于过往版本，新模型最大的工程突破在于对构图逻辑与语义遵从度的强力收敛。在横向对比测试中，运行相同的 8 组测试用例，2.1 版本彻底扫除了老模型中频繁出现的“三只手”、“背景多出两个太阳”等生成式顽疾，海报排版中的文字更是做到了像素级逐字对齐。目前该模型已在 Google Flow 平台开放免费调用。 需要重点留意生产环境的迁移窗口：官方确认老版 Nano Banana 2.0 将于 10 月 29 日正式下线停服。凡是将旧模型接…
-
-原文链接: https://www.moyunews.com/nano-banana-2-1-prompt-guide-structured-brief/
-转载自: 摸鱼杂货店</description>
-    </item>
-    <item>
-      <title>从一张2D概念图到完整Blender宝塔群：Gemini 4 Argon跑通自主3D场景构建流水线</title>
-      <link>https://wocao.world/p/7fd00dca2855/</link>
-      <guid isPermaLink="false">7fd00dca2855</guid>
-      <pubDate>Sat, 17 Oct 2026 18:03:00 GMT</pubDate>
-      <description>终结逐条 Prompt 抽卡：多智能体视觉批判闭环 在传统的生成式 3D 工作流中，设计师往往陷入“单点生成-网格拓扑崩溃-手动修复”的繁琐断层，或依靠离散的 Prompt 反复在黑盒中碰撞运气。Google 官方最新公开的技术演示展示了 Gemini 4 Argon 的全新工程范式：在自研的 Antigravity 代理框架下，依托多智能体协同与“视觉批判循环”（Visual Critic Loop），系统能够直接将一张由 Nano Banana 生成的二维平面概念图，端到端反向解构并搭建成具备工业级分层结构的 Blender 3D 场景。 全栈管线协同：Blender MCP 串联空间生产…
-
-原文链接: https://www.moyunews.com/gemini-4-argon-autonomous-3d-world-building-blender-mcp/
-转载自: 摸鱼杂货店</description>
-    </item>
-    <item>
-      <title>任务成本从3.51刀砍到0.41刀！Roboflow联手Gemini 4 Argon跑通视觉省钱工作流</title>
-      <link>https://wocao.world/p/ad41536860d4/</link>
-      <guid isPermaLink="false">ad41536860d4</guid>
-      <pubDate>Sat, 17 Oct 2026 17:58:57 GMT</pubDate>
-      <description>全帧硬塞大模型的算力暴潜该停了 将高分辨率工业相机拍摄的 4K 图像一股脑喂给多模态大模型（VLM），是大规模视觉自动化落地中最常见的“吞金黑洞”。随着 Gemini 4 Argon 正式接入 Roboflow Workflows 的官方视觉模块，社区快速摸索出了一套极高性价比的工程解法：不再让百亿级参数大模型去做死板的目标定位，而是通过模型分工构建“特种兵+智囊团”的复合流水线。 双轨流水线：RF-DETR 粗筛与 Argon 结构化收尾 该工作流的核心架构贯彻了“各司其职”的极简工业哲学： 轻量级检测器领航：使用计算开销极低、推理延迟在毫秒级的专用模型（如 RF-DETR）跑全帧实时推流，…
-
-原文链接: https://www.moyunews.com/roboflow-gemini-4-argon-cost-efficient-vision-workflow/
 转载自: 摸鱼杂货店</description>
     </item>
   </channel>

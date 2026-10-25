@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>DeepSeek Harness 做幼儿园视频 Agent，家长投资人找上门 · wocao.world</title>
+<meta name="description" content="DeepSeek Harness 是什么 2026 年 8 月 13 日，DeepSeek 正式把自家的 Agent 运行时 DeepSeek Harness（CLI 名 dsh，仓库 deepseek-ai/deepseek-harness）以 MIT 协议、v0.1 developer preview 的身份开源。发布三天 GitHub star 就冲破 11.7 万，DataCamp 也在第一时间做了拆解。核心口号是 “everything is a plugin”：模型适配器、工具、会话、沙箱、甚至 Agent loop 本身全是可替换插件，由 Cordis 插件内核统一调度。模型不再…">
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="wocao.world">
+<meta property="og:title" content="DeepSeek Harness 做幼儿园视频 Agent，家长投资人找上门 · wocao.world">
+<meta property="og:description" content="DeepSeek Harness 是什么 2026 年 8 月 13 日，DeepSeek 正式把自家的 Agent 运行时 DeepSeek Harness（CLI 名 dsh，仓库 deepseek-ai/deepseek-harness）以 MIT 协议、v0.1 developer preview 的身份开源。发布三天 GitHub star 就冲破 11.7 万，DataCamp 也在第一时间做了拆解。核心口号是 “everything is a plugin”：模型适配器、工具、会话、沙箱、甚至 Agent loop 本身全是可替换插件，由 Cordis 插件内核统一调度。模型不再…">
+<meta property="og:url" content="https://wocao.world/">
+<meta name="twitter:card" content="summary">
+<meta name="robots" content="noindex,follow">
+<link rel="alternate" type="application/rss+xml" title="wocao.world 聚合输出" href="/feed.xml">
+<link rel="stylesheet" href="/style.css">
+<link rel="canonical" href="https://www.moyunews.com/deepseek-harness-kindergarten-agent/">
+</head>
+<body>
+<a class="skip-link" href="#main">跳到正文</a>
+<header class="site-head">
+<p class="site-title"><a href="/">wocao.world</a></p>
+<p class="site-desc">wocao.world</p>
+<nav class="site-nav">
+<a href="/">最新</a>
+<a href="/about/">关于</a>
+<a href="/feed.xml">RSS</a>
+</nav>
+</header>
+<main id="main">
+<article>
+<h1 class="post-title">DeepSeek Harness 做幼儿园视频 Agent，家长投资人找上门</h1>
+<div class="post-body"><h2>DeepSeek Harness 是什么</h2>
+<p>2026 年 8 月 13 日，DeepSeek 正式把自家的 Agent 运行时 <a href="https://earlyterms.com/term/deepseek-harness" rel="external nofollow noopener noreferrer" target="_blank">DeepSeek Harness</a>（CLI 名 dsh，仓库 <code>deepseek-ai/deepseek-harness</code>）以 MIT 协议、v0.1 developer preview 的身份开源。发布三天 GitHub star 就冲破 11.7 万，<a href="https://www.datacamp.com/blog/what-is-deepseek-harness" rel="external nofollow noopener noreferrer" target="_blank">DataCamp</a> 也在第一时间做了拆解。核心口号是 “everything is a plugin”：模型适配器、工具、会话、沙箱、甚至 Agent loop 本身全是可替换插件，由 Cordis 插件内核统一调度。模型不再是固定中心，而是众多插件里的一个普通部件。</p>
+<p>三条上手路径：<code>npx @deepseek-ai/dsh web</code> 直接拉起 Web UI，Settings → Models 粘 API key 即可免重启；Python SDK 大约 15 行就能跑出同等能力；还有面向 <a href="https://aistify.com/deepseek-harness-desktop-ai-agent-claude-code/" rel="external nofollow noopener noreferrer" target="_blank">Apple Silicon Mac 与 64 位 Windows 的桌面版公开预览</a>。会话采用 append‑only 事件日志，支持恢复、分叉、搜索、回放；运行模式分 Standard / PTC / Minimal / Creator，Creator 模式还允许 Agent 在对话里直接写新插件。</p>
+<p><img src="https://moyu.18uk.uk/2026/20261025-1cb580b0-c9b1-4561-a43f-de8cbda3a192.webp" alt="DeepSeek Harness" width="800" loading="lazy" referrerpolicy="no-referrer" /></p>
+<h2>行业影响：可替换运行时 vs 锁死运行时</h2>
+<p>Claude Code、Codex 这类产品把底层运行时锁死，开发者只能在上层写提示词或工具。Harness 把运行时的每一层都剥离成插件，开发者能替换模型适配器、沙箱、甚至循环调度器。代价是官方自己承认：没做安全审计、API 会在版本间 breaking、沙箱在不同平台表现不一，明确不建议拿去生产环境。这也是为什么它目前更像一个 “折腾验证想法” 的沙盒，而不是现成的交付级框架。</p>
+<h2>突破点清单</h2>
+<ul>
+<li>everything is a plugin：模型、工具、会话、沙箱、循环全可热插拔</li>
+<li>会话即事件日志：可恢复、分叉、搜索、回放，天然支持实验追踪</li>
+<li>四种入口覆盖全场景：CLI、Web UI、Python SDK、桌面预览</li>
+<li>Creator 模式让 Agent 能在聊天里自己动手写新插件，越用越顺手</li>
+<li>第三方估算成本：V4‑Flash 单任务约 $0.045~$0.09，远低于 Claude Code + Opus 的 $0.195~$0.65</li>
+</ul>
+<h2>真实局限与冷静评述</h2>
+<p>幼儿园案例来自 X 上开发者 <a href="https://x.com/ai_xiaomu/status/2112802314121884050" rel="external nofollow noopener noreferrer" target="_blank">ai_xiaomu</a> 的 build‑in‑public 分享：用 Harness 把孩子在园日常视频自动剪成周集锦，再生成蒙氏成长报告。发帖后家长与投资人主动找上门，付费意向属当事人自述，并非官方融资新闻。这个故事恰恰证明了：个人开发者只要想法清晰，Harness 能在几小时内把原型跑通、拿给别人看。但别被星标数冲昏头——没有安全审计、API 随时会 break、沙箱跨平台不稳定，官方自己都说别上生产。所以把它当作 “快速验证、拿来演示、再决定重写” 的利器，才是靠谱玩法。</p>
+<p> </p>
+<p> </p>
+<p>本文来源：<a href="https://www.moyunews.com/" rel="external nofollow noopener noreferrer" target="_blank">摸鱼杂货店</a>。查看原文：<a href="https://www.moyunews.com/deepseek-harness-kindergarten-agent/" rel="external nofollow noopener noreferrer" target="_blank">DeepSeek Harness 做幼儿园视频 Agent，家长投资人找上门</a>。</p></div>
+<p class="back"><a href="/">← 返回最新</a></p>
+</article>
+</main>
+<footer class="site-foot">
+<p>wocao.world — 本站内容全部转载自各订阅源，版权归原作者与原站所有。</p>
+</footer>
+</body>
+</html>

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>xerj本地搜索：Rust 单二进制搞定代码全文检索 · wocao.world</title>
+<meta name="description" content="Agent 的通病：失忆 用 Agent 写代码的人都遇到过这个场面：上周让它修的 bug，这周换个会话它全忘了；项目里的文档、日志、踩坑记录明明都在本地，它却只会一问三不知。想给它补记忆，传统方案是搭一套向量数据库做 RAG——重得让人想放弃；实在没办法用 grep，又只能精确匹配，换个说法就搜不到。GitHub Trending 上单日涨了约 2700 星的 xerj（gitdiscover 10 月 22 日榜单数据），就是来治这个毛病的：一个 Rust 写的单二进制本地搜索引擎，还自带给 Agent 用的 MCP server。 xerj本地搜索是个什么：本地优先的搜索引擎 官方一句话…">
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="wocao.world">
+<meta property="og:title" content="xerj本地搜索：Rust 单二进制搞定代码全文检索 · wocao.world">
+<meta property="og:description" content="Agent 的通病：失忆 用 Agent 写代码的人都遇到过这个场面：上周让它修的 bug，这周换个会话它全忘了；项目里的文档、日志、踩坑记录明明都在本地，它却只会一问三不知。想给它补记忆，传统方案是搭一套向量数据库做 RAG——重得让人想放弃；实在没办法用 grep，又只能精确匹配，换个说法就搜不到。GitHub Trending 上单日涨了约 2700 星的 xerj（gitdiscover 10 月 22 日榜单数据），就是来治这个毛病的：一个 Rust 写的单二进制本地搜索引擎，还自带给 Agent 用的 MCP server。 xerj本地搜索是个什么：本地优先的搜索引擎 官方一句话…">
+<meta property="og:url" content="https://wocao.world/">
+<meta name="twitter:card" content="summary">
+<meta name="robots" content="noindex,follow">
+<link rel="alternate" type="application/rss+xml" title="wocao.world 聚合输出" href="/feed.xml">
+<link rel="stylesheet" href="/style.css">
+<link rel="canonical" href="https://www.moyunews.com/xerj-local-search-mcp-server/">
+</head>
+<body>
+<a class="skip-link" href="#main">跳到正文</a>
+<header class="site-head">
+<p class="site-title"><a href="/">wocao.world</a></p>
+<p class="site-desc">wocao.world</p>
+<nav class="site-nav">
+<a href="/">最新</a>
+<a href="/about/">关于</a>
+<a href="/feed.xml">RSS</a>
+</nav>
+</header>
+<main id="main">
+<article>
+<h1 class="post-title">xerj本地搜索：Rust 单二进制搞定代码全文检索</h1>
+<div class="post-body"><h2>Agent 的通病：失忆</h2>
+<p>用 Agent 写代码的人都遇到过这个场面：上周让它修的 bug，这周换个会话它全忘了；项目里的文档、日志、踩坑记录明明都在本地，它却只会一问三不知。想给它补记忆，传统方案是搭一套向量数据库做 RAG——重得让人想放弃；实在没办法用 grep，又只能精确匹配，换个说法就搜不到。GitHub Trending 上单日涨了约 2700 星的 <a href="https://github.com/xerj-org/xerj" rel="external nofollow noopener noreferrer" target="_blank">xerj</a>（<a href="https://gitdiscover.org/" rel="external nofollow noopener noreferrer" target="_blank">gitdiscover 10 月 22 日榜单数据</a>），就是来治这个毛病的：一个 Rust 写的单二进制本地搜索引擎，还自带给 Agent 用的 MCP server。</p>
+<p><img src="https://moyu.18uk.uk/2026/20261025-60c9ea15-98a6-47c4-b4cf-bd99a175e217.webp" alt="xerj本地搜索" width="750" loading="lazy" referrerpolicy="no-referrer" /></p>
+<h2>xerj本地搜索是个什么：本地优先的搜索引擎</h2>
+<p>官方一句话介绍：Local-first search engine and MCP server for AI agents。一个 Rust 二进制文件，能索引代码、文档、日志、JSONL/CSV 和 PDF，做 BM25 全文检索、向量检索和混合检索，还管代码检索和 agent memory，对外提供 Elasticsearch 兼容 API。Apache-2.0 开源，支持 Claude Code、Cursor 和任意 MCP 客户端。翻译成人话：下载一个文件，跑起来，你本地的所有资料就都有了个「会理解语义的搜索引擎」，Agent 还能直接连上来用。</p>
+<h3>三路召回是怎么分工的</h3>
+<p>搜索这件事，xerj 走了三路召回。BM25 全文检索管「精确」：你记得某个函数名、某句报错原文，它能精准捞出来，这是 grep 的升级版。向量检索（kNN）管「模糊」：你只记得大概意思、说不出关键词，它靠语义相似度找回来，这是纯关键词方案做不到的。混合检索把两路结果融合，取长补短。递进关系很清楚：从「找得到」到「找得准」，再到「找得全」。官方还提了个 reference coding 场景：让 Agent 引用代码而不是复制粘贴，能省 2.7 倍 token——检索准了，上下文自然就省了。对普通用户来说，记住这个分工就行：记得原文用 BM25，只记得意思用向量，拿不准就用混合——三个入口，一个解决。</p>
+<h3> 为什么是单二进制</h3>
+<p>xerj 的架构选择很有味道：单静态二进制、无 JVM、autoindex 零配置。对比下 Elasticsearch 那套：要装 Java、要配集群、要调分片，本地跑个搜索比业务本身还重。xerj 反其道而行之，一个文件搞定，下载即用。这背后是 Rust 的功劳：编译成原生二进制，启动快、内存省，没有运行时依赖。</p>
+<p>更妙的是 Elasticsearch 兼容 API：ES-YAML 一致性测试 1366/1369 通过。这意味着你现有的 ES 工具链、查询语句，几乎不用改就能迁移过来——降低了试错成本，也方便团队渐进式替换。而 MCP 原生支持，则是给 Agent 时代准备的：Agent 通过 MCP 协议直接调用搜索能力，再配合 <code>/__memory</code> 这样的 agent memory 机制，相当于给 Agent 配了个长期记忆库，开新会话也不失忆。</p>
+<h2> 先别急着全量索引</h2>
+<p>泼三盆冷水。第一，索引构建有成本：大仓库首次索引要花时间和磁盘，别在生产目录上直接开干，先拿小项目试。第二，本地和云端向量库是取舍关系：本地胜在隐私和零运维，云端胜在规模和托管，各取所需，别神话任何一边。第三，单日 2700 星是热度，不是质量保证书——star 只能证明大家感兴趣，证明不了它适合你的场景。</p>
+<p>但话说回来，xerj 戳中的痛点是真实的：Agent 想要真正好用，本地资料的语义检索是绕不过去的一环。与其每次开新会话都从头「喂」上下文，不如花一个下午搭个本地搜索，让 Agent 自己学会翻旧账。这 2700 星，投的是「Agent 本地记忆」这个方向，而不只是一个 Rust 二进制文件。</p>
+<p>另外提一句官方的 Corpus Hub 参考语料库：预置的参考语料，适合刚上手时拿来练手，先熟悉检索效果再去索引自己的大仓库，免得一上来就踩索引构建的坑。小步快跑，是玩这类工具最稳的姿势。</p>
+<p>————社媒版本 使用后删除————</p>
+<p> </p>
+<p>本文来源：<a href="https://www.moyunews.com/" rel="external nofollow noopener noreferrer" target="_blank">摸鱼杂货店</a>。查看原文：<a href="https://www.moyunews.com/xerj-local-search-mcp-server/" rel="external nofollow noopener noreferrer" target="_blank">xerj本地搜索：Rust 单二进制搞定代码全文检索</a>。</p></div>
+<p class="back"><a href="/">← 返回最新</a></p>
+</article>
+</main>
+<footer class="site-foot">
+<p>wocao.world — 本站内容全部转载自各订阅源，版权归原作者与原站所有。</p>
+</footer>
+</body>
+</html>
