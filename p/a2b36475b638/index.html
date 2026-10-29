@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Strata 0.2.5 把 125B Qwen 塞进本地大模型引擎 · wocao.world</title>
+<meta name="description" content="一条安装包，几分钟跑起 125B 专家混合模型 以前想在自家游戏本上跑百亿级 MoE，得先折腾 Docker、再手动下载权重、还要调显存分层。现在 Strata 0.2.5 直接给每个系统打包一个安装程序，首次启动自动拉取对应推理引擎，点一下就能把 Qwen 团队发布的 Qwen3.8‑Flash‑Next（总参数 125B、单 token 激活约 6B、24 576 个专家、每词约 10 个工作专家）塞进 12 GB 显存里跑起来。 专家缓存进显存、全量专家住内存、CPU 补位、SSD 做 n‑gram 查表 核心思路不是传统的层卸载，而是把热门专家常驻显存、把全部 24 576 个专家放进…">
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="wocao.world">
+<meta property="og:title" content="Strata 0.2.5 把 125B Qwen 塞进本地大模型引擎 · wocao.world">
+<meta property="og:description" content="一条安装包，几分钟跑起 125B 专家混合模型 以前想在自家游戏本上跑百亿级 MoE，得先折腾 Docker、再手动下载权重、还要调显存分层。现在 Strata 0.2.5 直接给每个系统打包一个安装程序，首次启动自动拉取对应推理引擎，点一下就能把 Qwen 团队发布的 Qwen3.8‑Flash‑Next（总参数 125B、单 token 激活约 6B、24 576 个专家、每词约 10 个工作专家）塞进 12 GB 显存里跑起来。 专家缓存进显存、全量专家住内存、CPU 补位、SSD 做 n‑gram 查表 核心思路不是传统的层卸载，而是把热门专家常驻显存、把全部 24 576 个专家放进…">
+<meta property="og:url" content="https://wocao.world/">
+<meta name="twitter:card" content="summary">
+<meta name="robots" content="noindex,follow">
+<link rel="alternate" type="application/rss+xml" title="wocao.world 聚合输出" href="/feed.xml">
+<link rel="stylesheet" href="/style.css">
+<link rel="canonical" href="https://www.moyunews.com/strata-025-local-125b-model/">
+</head>
+<body>
+<a class="skip-link" href="#main">跳到正文</a>
+<header class="site-head">
+<p class="site-title"><a href="/">wocao.world</a></p>
+<p class="site-desc">wocao.world</p>
+<nav class="site-nav">
+<a href="/">最新</a>
+<a href="/about/">关于</a>
+<a href="/feed.xml">RSS</a>
+</nav>
+</header>
+<main id="main">
+<article>
+<h1 class="post-title">Strata 0.2.5 把 125B Qwen 塞进本地大模型引擎</h1>
+<div class="post-body"><h2>一条安装包，几分钟跑起 125B 专家混合模型</h2>
+<p>以前想在自家游戏本上跑百亿级 MoE，得先折腾 Docker、再手动下载权重、还要调显存分层。现在 <a href="https://github.com/Niko1221/Strata" rel="external nofollow noopener noreferrer" target="_blank">Strata</a> 0.2.5 直接给每个系统打包一个安装程序，首次启动自动拉取对应推理引擎，点一下就能把 Qwen 团队发布的 <a href="https://github.com/Niko1221/Strata" rel="external nofollow noopener noreferrer" target="_blank">Qwen3.8‑Flash‑Next</a>（总参数 125B、单 token 激活约 6B、24 576 个专家、每词约 10 个工作专家）塞进 12 GB 显存里跑起来。</p>
+<p><img src="https://moyu.18uk.uk/2026/20261029-d2a9ca79-85cf-44ba-8b12-29ec2c51ca79.webp" alt="本地大模型引擎" width="800" loading="lazy" referrerpolicy="no-referrer" /></p>
+<h2>专家缓存进显存、全量专家住内存、CPU 补位、SSD 做 n‑gram 查表</h2>
+<p>核心思路不是传统的层卸载，而是把热门专家常驻显存、把全部 24 576 个专家放进系统内存、CPU 负责冷门专家的计算补位、SSD 存一张 n‑gram 查表用于快速命中。这样的分层让单张 12 GB 显存也能承载 125B 模型，内存门槛 32 GB、磁盘约 80 GB。</p>
+<ul>
+<li>显存：≥12 GB</li>
+<li>内存：≥32 GB</li>
+<li>磁盘：≈80 GB</li>
+</ul>
+<h2>0.2.5 新增 DeepSeek V4.1‑Flash 与 Speed 模式</h2>
+<p>更新日志里第一次把 DeepSeek V4.1‑Flash 接入桌面端，配合新增的 Speed 模式，用户可以用小幅画质损失换取 1.3‑1.5 倍的推理速度。<a href="https://www.warp2search.net/story/strata-025-adds-deepseek-v41flash-and-a-cleaner-installer-to-local-ai-engine/" rel="external nofollow noopener noreferrer" target="_blank">Warp2Search 报道</a> 指出这一改动让普通开发者也能在本地跑起商业级 Flash 模型，而不必依赖云端 API。</p>
+<h2>门槛与接口：12GB 显存、32GB 内存、OpenAI/Anthropic 兼容</h2>
+<p>官方给出的最低配就是 12 GB 显存 + 32 GB 内存 + 80 GB 磁盘，实际体感上 16 GB 显存会更从容。引擎对外暴露 OpenAI 兼容与 Anthropic 兼容两套 REST 接口，直接能在 Cursor、Claude Code 里把本地模型当成远程大模型调用，省去了搭建中转层的麻烦。<a href="https://www.linuxcompatible.org/story/strata-021-released-vision-benchmarks-fixes-and-docker-images/" rel="external nofollow noopener noreferrer" target="_blank">LinuxCompatible 报道</a> 也确认了 Docker 镜像与基准测试的可用性。</p>
+<p>Speed 模式的取舍也值得单独说一句：小幅画质换速度，听起来像游戏里的性能档位，实际上是在提醒你本地跑大模型永远是在做交易——显存、内存、磁盘三样东西没有一样是白给的。OpenAI 与 Anthropic 兼容接口的意义也在这里：接上 Cursor 或 Claude Code 之后，这台本地引擎才能真正进到日常工作流里，而不是只在跑分截图里好看。</p>
+<h2>社区质疑：营销打法与最低配实测缺失</h2>
+<p>虽然 GitHub 标星已突破 3.2 万，但社区里不少声音（报道与社区质疑）认为项目营销味过重、缺乏真实最低配置的实测视频、且 Speed 模式的画质折损没有量化指标。想上手的同学建议先在次旗舰显卡上跑一次基准，再决定是否把主力机迁移过来。</p>
+<p> </p>
+<p> </p>
+<p>本文来源：<a href="https://www.moyunews.com/" rel="external nofollow noopener noreferrer" target="_blank">摸鱼杂货店</a>。查看原文：<a href="https://www.moyunews.com/strata-025-local-125b-model/" rel="external nofollow noopener noreferrer" target="_blank">Strata 0.2.5 把 125B Qwen 塞进本地大模型引擎</a>。</p></div>
+<p class="back"><a href="/">← 返回最新</a></p>
+</article>
+</main>
+<footer class="site-foot">
+<p>wocao.world — 本站内容全部转载自各订阅源，版权归原作者与原站所有。</p>
+</footer>
+</body>
+</html>

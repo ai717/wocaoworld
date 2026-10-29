@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Opera One 上线浏览器本地AI，Gemma 与 Apple 模型本地跑 · wocao.world</title>
+<meta name="description" content="Opera One 把模型塞进浏览器内核 10 月 27 日 Opera One 官方宣布在稳定版里直接内置本地 AI，用户只需在设置里手动开启早期预览，模型才会下载到硬盘，不开就不占带宽也不占存储。首批可用的权重包括 Gemma 以及 Mac 上的 Apple 端上基础模型，仅限 64 位 Windows（Intel/AMD）与 Apple Silicon Mac。这意味着生成文本、内容分类、理解信息关联这些能力全在本机跑完，数据不出户，隐私焦虑直接清零。 为什么这事儿对你我有用 以前想在浏览器里玩大模型，要么装扩展调云端 API，要么自己搭服务器，门槛高还怕泄密。现在 Opera One …">
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="wocao.world">
+<meta property="og:title" content="Opera One 上线浏览器本地AI，Gemma 与 Apple 模型本地跑 · wocao.world">
+<meta property="og:description" content="Opera One 把模型塞进浏览器内核 10 月 27 日 Opera One 官方宣布在稳定版里直接内置本地 AI，用户只需在设置里手动开启早期预览，模型才会下载到硬盘，不开就不占带宽也不占存储。首批可用的权重包括 Gemma 以及 Mac 上的 Apple 端上基础模型，仅限 64 位 Windows（Intel/AMD）与 Apple Silicon Mac。这意味着生成文本、内容分类、理解信息关联这些能力全在本机跑完，数据不出户，隐私焦虑直接清零。 为什么这事儿对你我有用 以前想在浏览器里玩大模型，要么装扩展调云端 API，要么自己搭服务器，门槛高还怕泄密。现在 Opera One …">
+<meta property="og:url" content="https://wocao.world/">
+<meta name="twitter:card" content="summary">
+<meta name="robots" content="noindex,follow">
+<link rel="alternate" type="application/rss+xml" title="wocao.world 聚合输出" href="/feed.xml">
+<link rel="stylesheet" href="/style.css">
+<link rel="canonical" href="https://www.moyunews.com/opera-webai-local-ai-browser/">
+</head>
+<body>
+<a class="skip-link" href="#main">跳到正文</a>
+<header class="site-head">
+<p class="site-title"><a href="/">wocao.world</a></p>
+<p class="site-desc">wocao.world</p>
+<nav class="site-nav">
+<a href="/">最新</a>
+<a href="/about/">关于</a>
+<a href="/feed.xml">RSS</a>
+</nav>
+</header>
+<main id="main">
+<article>
+<h1 class="post-title">Opera One 上线浏览器本地AI，Gemma 与 Apple 模型本地跑</h1>
+<div class="post-body"><h2>Opera One 把模型塞进浏览器内核</h2>
+<p>10 月 27 日 <a href="https://press.opera.com/2026/10/27/opera-doubles-down-on-local-ai-shipping-models-directly-in-its-browsers/" rel="external nofollow noopener noreferrer" target="_blank">Opera One</a> 官方宣布在稳定版里直接内置本地 AI，用户只需在设置里手动开启早期预览，模型才会下载到硬盘，不开就不占带宽也不占存储。首批可用的权重包括 <a href="https://press.opera.com/2026/10/27/opera-doubles-down-on-local-ai-shipping-models-directly-in-its-browsers/" rel="external nofollow noopener noreferrer" target="_blank">Gemma</a> 以及 Mac 上的 <a href="https://press.opera.com/2026/10/27/opera-doubles-down-on-local-ai-shipping-models-directly-in-its-browsers/" rel="external nofollow noopener noreferrer" target="_blank">Apple 端上基础模型</a>，仅限 64 位 Windows（Intel/AMD）与 Apple Silicon Mac。这意味着生成文本、内容分类、理解信息关联这些能力全在本机跑完，数据不出户，隐私焦虑直接清零。</p>
+<p><img src="https://moyu.18uk.uk/2026/20261029-c1e0c130-bab0-43d0-90e6-2e8694c2f712.webp" alt="浏览器本地AI" width="800" loading="lazy" referrerpolicy="no-referrer" /></p>
+<h2>为什么这事儿对你我有用</h2>
+<p>以前想在浏览器里玩大模型，要么装扩展调云端 API，要么自己搭服务器，门槛高还怕泄密。现在 <a href="https://press.opera.com/2026/10/27/opera-doubles-down-on-local-ai-shipping-models-directly-in-its-browsers/" rel="external nofollow noopener noreferrer" target="_blank">Opera One</a> 把推理引擎塞进内核，配合 <a href="https://next.opera.com/blog/web-ai-local-ai/" rel="external nofollow noopener noreferrer" target="_blank">WebAI</a> 这项由 Google、微软等大厂推动的 Web 标准，网页或扩展只要调用浏览器暴露的接口就能直接用本地模型，完全不需要外网请求。对数字游民、隐私党、离线办公党来说，这是一次真正的“白嫖”大模型体验。</p>
+<h2>WebAI 让扩展直接调用本地模型</h2>
+<p>官方同步放出了示例扩展，把一篇长文变成会动的艺术画，相似句子在视觉上自动成邻居，展示了 <a href="https://next.opera.com/blog/web-ai-local-ai/" rel="external nofollow noopener noreferrer" target="_blank">WebAI</a> 如何把模型能力封装成普通 JS 接口。开发者只需在 manifest 里声明需要 AI 权限，浏览器就会在后台加载已下载的权重，推理延迟完全取决于你的 CPU/GPU，不再受网络抖动影响。同理，<a href="https://press.opera.com/2026/10/27/opera-doubles-down-on-local-ai-shipping-models-directly-in-its-browsers/" rel="external nofollow noopener noreferrer" target="_blank">Opera GX</a> 与 <a href="https://press.opera.com/2026/10/27/opera-doubles-down-on-local-ai-shipping-models-directly-in-its-browsers/" rel="external nofollow noopener noreferrer" target="_blank">Opera Neon</a> 后续也会跟进，届时游戏玩家和实验性 UI 爱好者都能在各自场景里享受本地推理。</p>
+<h2>HTML-in-Canvas 与其他新玩具</h2>
+<p>本次更新还同步上线 <a href="https://press.opera.com/2026/10/27/opera-doubles-down-on-local-ai-shipping-models-directly-in-its-browsers/" rel="external nofollow noopener noreferrer" target="_blank">HTML-in-Canvas</a>，把真网页完整塞进 2D/3D 场景，按钮、菜单、表单依然可点可填，配合 <a href="https://press.opera.com/2026/10/27/opera-doubles-down-on-local-ai-shipping-models-directly-in-its-browsers/" rel="external nofollow noopener noreferrer" target="_blank">Webpage Bulldozer</a> 与 <a href="https://press.opera.com/2026/10/27/opera-doubles-down-on-local-ai-shipping-models-directly-in-its-browsers/" rel="external nofollow noopener noreferrer" target="_blank">Gamer Room</a> 两个实验功能，开发者能把网页当素材随意拼贴、变形、甚至在游戏大厅里直接打开电商页下单。这些能力都不依赖云端，全靠本地渲染管线跑完，性能上限完全由你的显卡决定。</p>
+<h2>短板在哪，别盲目跟风</h2>
+<p>虽然听起来很美，但现实是：只有 64 位 Windows 与 Apple Silicon Mac 能跑，ARM 版 Windows、Linux、Chrome OS 暂时无缘；模型体积虽未公开参数量，但 Gemma 这种级别的权重起步也要几百 MB，下载后还得常驻内存，老款轻薄本可能会卡成 PPT；<a href="https://next.opera.com/blog/web-ai-local-ai/" rel="external nofollow noopener noreferrer" target="_blank">WebAI</a> 仍处于提议标准阶段，规范随时可能变，扩展生态要真正普及还得等各大浏览器厂商跟进。所以把它当“随时可用的离线大模型”还嫌早，先当玩具折腾折腾，等生态成熟再考虑上生产线。</p>
+<p> </p>
+<p> </p>
+<p>本文来源：<a href="https://www.moyunews.com/" rel="external nofollow noopener noreferrer" target="_blank">摸鱼杂货店</a>。查看原文：<a href="https://www.moyunews.com/opera-webai-local-ai-browser/" rel="external nofollow noopener noreferrer" target="_blank">Opera One 上线浏览器本地AI，Gemma 与 Apple 模型本地跑</a>。</p></div>
+<p class="back"><a href="/">← 返回最新</a></p>
+</article>
+</main>
+<footer class="site-foot">
+<p>wocao.world — 本站内容全部转载自各订阅源，版权归原作者与原站所有。</p>
+</footer>
+</body>
+</html>

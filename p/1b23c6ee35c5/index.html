@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Claude 直连 Obsidian第二大脑，3 步打通 · wocao.world</title>
+<meta name="description" content="条件 先把 Obsidian 装好，再在插件市场搜 Local REST API 插件（作者 Adam Coddington）并启用，默认端口 27123。生成一个长度 ≥32 位的 OBSIDIAN_API_KEY，记下来别丢。接着去 Claude Desktop 下载对应系统的安装包并完成安装。 三步走通 1⃣ 拉取 mcp-obsidian DXT 包：根据架构下载 Accion Labs 发行版 提供的 obsidian-darwin-arm64.dxt、obsidian-darwin-x86_64.dxt 或 obsidian-win32-x86_64.dxt，双击安装即可把 MCP…">
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="wocao.world">
+<meta property="og:title" content="Claude 直连 Obsidian第二大脑，3 步打通 · wocao.world">
+<meta property="og:description" content="条件 先把 Obsidian 装好，再在插件市场搜 Local REST API 插件（作者 Adam Coddington）并启用，默认端口 27123。生成一个长度 ≥32 位的 OBSIDIAN_API_KEY，记下来别丢。接着去 Claude Desktop 下载对应系统的安装包并完成安装。 三步走通 1⃣ 拉取 mcp-obsidian DXT 包：根据架构下载 Accion Labs 发行版 提供的 obsidian-darwin-arm64.dxt、obsidian-darwin-x86_64.dxt 或 obsidian-win32-x86_64.dxt，双击安装即可把 MCP…">
+<meta property="og:url" content="https://wocao.world/">
+<meta name="twitter:card" content="summary">
+<meta name="robots" content="noindex,follow">
+<link rel="alternate" type="application/rss+xml" title="wocao.world 聚合输出" href="/feed.xml">
+<link rel="stylesheet" href="/style.css">
+<link rel="canonical" href="https://www.moyunews.com/obsidian-mcp-second-brain/">
+</head>
+<body>
+<a class="skip-link" href="#main">跳到正文</a>
+<header class="site-head">
+<p class="site-title"><a href="/">wocao.world</a></p>
+<p class="site-desc">wocao.world</p>
+<nav class="site-nav">
+<a href="/">最新</a>
+<a href="/about/">关于</a>
+<a href="/feed.xml">RSS</a>
+</nav>
+</header>
+<main id="main">
+<article>
+<h1 class="post-title">Claude 直连 Obsidian第二大脑，3 步打通</h1>
+<div class="post-body"><h2>条件</h2>
+<p>先把 <a href="https://obsidian.md/" rel="external nofollow noopener noreferrer" target="_blank">Obsidian</a> 装好，再在插件市场搜 <a href="https://github.com/coddingtonbear/obsidian-local-rest-api" rel="external nofollow noopener noreferrer" target="_blank">Local REST API 插件</a>（作者 Adam Coddington）并启用，默认端口 <code>27123</code>。生成一个长度 ≥32 位的 <code>OBSIDIAN_API_KEY</code>，记下来别丢。接着去 <a href="https://claude.ai/download" rel="external nofollow noopener noreferrer" target="_blank">Claude Desktop</a> 下载对应系统的安装包并完成安装。</p>
+<p><img src="https://moyu.18uk.uk/2026/20261029-eec61634-1198-4193-9f63-e3c6b3e9af7c.webp" alt="Obsidian第二大脑" width="600" loading="lazy" referrerpolicy="no-referrer" /></p>
+<h2>三步走通</h2>
+<p><strong>1⃣ 拉取 mcp-obsidian DXT 包</strong>：根据架构下载 <a href="https://github.com/accionlabs/mcp-obsidian" rel="external nofollow noopener noreferrer" target="_blank">Accion Labs 发行版</a> 提供的 <code>obsidian-darwin-arm64.dxt</code>、<code>obsidian-darwin-x86_64.dxt</code> 或 <code>obsidian-win32-x86_64.dxt</code>，双击安装即可把 MCP 服务器注册到 Claude Desktop。</p>
+<p><strong>2⃣ 写入 claude_desktop_config.json</strong>：打开配置文件（macOS 路径 <code>~/Library/Application Support/Claude/claude_desktop_config.json</code>，Windows 路径 <code>%APPDATA%/Claude/claude_desktop_config.json</code>），在 <code>mcpServers</code> 下追加如下片段：</p>
+<pre><code>{ "mcpServers": { "obsidian": { "command": "mcp-obsidian", "env": { "OBSIDIAN_API_KEY": "你的Key", "OBSIDIAN_PROTOCOL": "http", "OBSIDIAN_HOST": "127.0.0.1", "OBSIDIAN_PORT": "27123" } } } }</code></pre>
+<p><strong>3⃣ 重启 Claude Desktop</strong>：彻底关闭进程再打开，配置才生效。之后在对话里直接说“帮我把标题为『项目清单』的笔记全文读出来”或“新建一篇标题『会议纪要』的笔记”，Claude 就会通过 <a href="https://github.com/accionlabs/mcp-obsidian" rel="external nofollow noopener noreferrer" target="_blank">mcp-obsidian</a> 调用 <a href="https://github.com/coddingtonbear/obsidian-local-rest-api" rel="external nofollow noopener noreferrer" target="_blank">Local REST API</a> 完成读写与全文检索。</p>
+<h2>效果</h2>
+<p>实测在 2000+ 条笔记的库里，全文检索延迟约 1.2 秒，按标题精准写入零报错。配合 <a href="https://mcpservers.org/servers/fazer-ai/mcp-obsidian" rel="external nofollow noopener noreferrer" target="_blank">mcpservers.org 页面</a> 可以快速确认服务是否在线。体感上比手动打开 Obsidian 再复制粘贴快至少 5 倍，适合把碎片化想法直接沉淀进 <a href="https://obsidian.md/" rel="external nofollow noopener noreferrer" target="_blank">Obsidian</a> 做第二大脑。</p>
+<h2>避坑</h2>
+<blockquote><p><img src="https://s.w.org/images/core/emoji/17.0.2/72x72/26a0.png" alt="⚠" loading="lazy" referrerpolicy="no-referrer" /> API Key 只放本地配置，别把 27123 端口映射到公网，否则任何人都能读改你的笔记库。Claude 能读就能改，删改类操作先在小库试水。改完配置必须重启 Claude Desktop 才生效，别只刷新页面。mcp-obsidian 不是 Obsidian 官方也不是 Anthropic 官方产品，功能以已核实的读写、检索、按标题写入为准，别听传闻说它能自动生成图谱。</p></blockquote>
+<p> </p>
+<p> </p>
+<p> </p>
+<p>本文来源：<a href="https://www.moyunews.com/" rel="external nofollow noopener noreferrer" target="_blank">摸鱼杂货店</a>。查看原文：<a href="https://www.moyunews.com/obsidian-mcp-second-brain/" rel="external nofollow noopener noreferrer" target="_blank">Claude 直连 Obsidian第二大脑，3 步打通</a>。</p></div>
+<p class="back"><a href="/">← 返回最新</a></p>
+</article>
+</main>
+<footer class="site-foot">
+<p>wocao.world — 本站内容全部转载自各订阅源，版权归原作者与原站所有。</p>
+</footer>
+</body>
+</html>

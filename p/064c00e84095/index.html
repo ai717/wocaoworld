@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Anatomy等距图解：用 Claude Code 一句话生成可拖动机器 SVG · wocao.world</title>
+<meta name="description" content="想画机器原理却不想手写 SVG 以前要把齿轮、摆轮、发条的运动关系画成等距示意图，得么么在 Illustrator 里手搓路径，或者写一堆 svg 标签，改一次参数就得重画一遍。最近在 GitHub 发现了 Anatomy，一个 MIT 协议、完全免费的 Claude Code 技能，安装后只要在聊天框扔一句自然语言，几分钟到几小时就能吐出可拖动、可缩放的等距 SVG 机器，数字还是实时模拟跑出来的，不是图像模型生成的死图片。 条件 Node.js 20.10 或更高版本 已安装 Claude Code（也兼容 OpenCode、Codex，基于开放 Agent Skills 格式） 步骤 打…">
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="wocao.world">
+<meta property="og:title" content="Anatomy等距图解：用 Claude Code 一句话生成可拖动机器 SVG · wocao.world">
+<meta property="og:description" content="想画机器原理却不想手写 SVG 以前要把齿轮、摆轮、发条的运动关系画成等距示意图，得么么在 Illustrator 里手搓路径，或者写一堆 svg 标签，改一次参数就得重画一遍。最近在 GitHub 发现了 Anatomy，一个 MIT 协议、完全免费的 Claude Code 技能，安装后只要在聊天框扔一句自然语言，几分钟到几小时就能吐出可拖动、可缩放的等距 SVG 机器，数字还是实时模拟跑出来的，不是图像模型生成的死图片。 条件 Node.js 20.10 或更高版本 已安装 Claude Code（也兼容 OpenCode、Codex，基于开放 Agent Skills 格式） 步骤 打…">
+<meta property="og:url" content="https://wocao.world/">
+<meta name="twitter:card" content="summary">
+<meta name="robots" content="noindex,follow">
+<link rel="alternate" type="application/rss+xml" title="wocao.world 聚合输出" href="/feed.xml">
+<link rel="stylesheet" href="/style.css">
+<link rel="canonical" href="https://www.moyunews.com/anatomy-interactive-svg-skill/">
+</head>
+<body>
+<a class="skip-link" href="#main">跳到正文</a>
+<header class="site-head">
+<p class="site-title"><a href="/">wocao.world</a></p>
+<p class="site-desc">wocao.world</p>
+<nav class="site-nav">
+<a href="/">最新</a>
+<a href="/about/">关于</a>
+<a href="/feed.xml">RSS</a>
+</nav>
+</header>
+<main id="main">
+<article>
+<h1 class="post-title">Anatomy等距图解：用 Claude Code 一句话生成可拖动机器 SVG</h1>
+<div class="post-body"><h2>想画机器原理却不想手写 SVG</h2>
+<p>以前要把齿轮、摆轮、发条的运动关系画成等距示意图，得么么在 Illustrator 里手搓路径，或者写一堆 <code>svg</code> 标签，改一次参数就得重画一遍。最近在 <a href="https://github.com/wheresryan22/anatomy" rel="external nofollow noopener noreferrer" target="_blank">GitHub</a> 发现了 <strong>Anatomy</strong>，一个 MIT 协议、完全免费的 <strong>Claude Code</strong> 技能，安装后只要在聊天框扔一句自然语言，几分钟到几小时就能吐出可拖动、可缩放的等距 SVG 机器，数字还是实时模拟跑出来的，不是图像模型生成的死图片。</p>
+<p><img src="https://moyu.18uk.uk/2026/20261029-c5abe3e1-8508-4491-951f-2c01503c4127.webp" alt="Anatomy等距图解" width="600" loading="lazy" referrerpolicy="no-referrer" /></p>
+<h2>条件</h2>
+<ul>
+<li>Node.js 20.10 或更高版本</li>
+<li>已安装 <strong>Claude Code</strong>（也兼容 <strong>OpenCode</strong>、<strong>Codex</strong>，基于开放 Agent Skills 格式）</li>
+</ul>
+<h2>步骤</h2>
+<ol>
+<li>打开终端，跑安装命令：<code>npx skills add wheresryan22/anatomy -g -a claude-code</code></li>
+<li>重启或刷新 Claude Code，技能列表会出现 <code>anatomy</code></li>
+<li>在对话框输入示例提示：<code>/anatomy explain how a mechanical watch keeps time, interactive</code></li>
+<li>等待渲染完成，得到一个可拖动、可缩放的等距 SVG，鼠标悬停齿轮还能看到实时转速数值</li>
+</ol>
+<h2>成本与限制</h2>
+<p>作者自己测过，简单的手表机芯约 1 小时 54 分，复杂的发动机模型甚至跑了 14 小时。官方 README 也直说“约 2 小时左右、不是秒出图”。原理是 Claude 现场写 JavaScript 代码生成 SVG（可选 WebGL 层、3D 还在 beta），图里的数字由实时物理模拟驱动，不是一次性出图的图像模型。所以别把它当聊天玩具，它是批量渲染工具，适合做教学演示、技术文档插图、快速原型验证。</p>
+<h2>星标数据的多源口径</h2>
+<p>根据 <a href="https://www.kunalganglani.com/blog/anatomy-claude-code-skill" rel="external nofollow noopener noreferrer" target="_blank">Kunal 报道</a>，10 月 12 日仓库已超 6507 star、464 fork；同一天另一口径显示 4103 star、323 fork；到 10 月 19 日左右 <a href="https://devsly.io/best-skills/wheresryan22/anatomy" rel="external nofollow noopener noreferrer" target="_blank">DevSly</a> 快照约 19.7k star、1.5k fork。成文时以这三个来源为准，不做实时精确数字。</p>
+<h2>避坑指南</h2>
+<blockquote><p>这不是聊天玩具，是批量渲染工具；先拿小概念试一张，别一上来就丢复杂系统；出图慢是正常的，不要以为卡住了。</p></blockquote>
+<h2>适用场景</h2>
+<p>把原理图嵌进 Notion、Obsidian、技术博客，或是给新人做入职培训时的可交互图解，省去手绘和反复修图的麻烦。配合 <strong>Claude Code</strong> 的上下文记忆，还能连续追问“把发条扭矩改成 0.8 Nm 再渲染一次”，几分钟就能看到新版本。</p>
+<p>耗时这件事值得单独说一句：作者自己的图从 1 小时 54 分到 14 小时不等，社区画廊的作品从 14 分钟到约 3 小时都有。也就是说，出图时间波动很大，取决于概念的复杂程度和 agent 当天的状态。把它当成批量渲染工具来排时间，别当成聊天窗口里的秒出玩具，心态对了才不会觉得它“卡住了”。</p>
+<p> </p>
+<p> </p>
+<p>本文来源：<a href="https://www.moyunews.com/" rel="external nofollow noopener noreferrer" target="_blank">摸鱼杂货店</a>。查看原文：<a href="https://www.moyunews.com/anatomy-interactive-svg-skill/" rel="external nofollow noopener noreferrer" target="_blank">Anatomy等距图解：用 Claude Code 一句话生成可拖动机器 SVG</a>。</p></div>
+<p class="back"><a href="/">← 返回最新</a></p>
+</article>
+</main>
+<footer class="site-foot">
+<p>wocao.world — 本站内容全部转载自各订阅源，版权归原作者与原站所有。</p>
+</footer>
+</body>
+</html>

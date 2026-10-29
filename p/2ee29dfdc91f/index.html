@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>OmniRoute网关本地部署：一条命令接入358家模型商 · wocao.world</title>
+<meta name="description" content="你需要准备什么 开始之前，确认机器上已经装好 Node.js 18+ 版本，这是跑 OmniRoute 的硬性基座。如果你习惯用容器，也得提前拉好 diegosouzapw/omniroute 镜像。手头最好留几个主流大模型厂商的 API Key —— 虽然网关自带 OpenCode Free 等开箱即用的免费通道，但自带 Key 能解锁更高配额、更稳定的并发。终端得能联网，毕竟首次启动要从注册表拉取约 358 家提供商的元数据（官方文档站当前口径，随版本变动），离线环境得靠预置配置绕过。 动手安装 打开终端，直接扔进去： npm install -g omniroute 等个几十秒，全局二进…">
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="wocao.world">
+<meta property="og:title" content="OmniRoute网关本地部署：一条命令接入358家模型商 · wocao.world">
+<meta property="og:description" content="你需要准备什么 开始之前，确认机器上已经装好 Node.js 18+ 版本，这是跑 OmniRoute 的硬性基座。如果你习惯用容器，也得提前拉好 diegosouzapw/omniroute 镜像。手头最好留几个主流大模型厂商的 API Key —— 虽然网关自带 OpenCode Free 等开箱即用的免费通道，但自带 Key 能解锁更高配额、更稳定的并发。终端得能联网，毕竟首次启动要从注册表拉取约 358 家提供商的元数据（官方文档站当前口径，随版本变动），离线环境得靠预置配置绕过。 动手安装 打开终端，直接扔进去： npm install -g omniroute 等个几十秒，全局二进…">
+<meta property="og:url" content="https://wocao.world/">
+<meta name="twitter:card" content="summary">
+<meta name="robots" content="noindex,follow">
+<link rel="alternate" type="application/rss+xml" title="wocao.world 聚合输出" href="/feed.xml">
+<link rel="stylesheet" href="/style.css">
+<link rel="canonical" href="https://www.moyunews.com/omniroute-free-ai-gateway/">
+</head>
+<body>
+<a class="skip-link" href="#main">跳到正文</a>
+<header class="site-head">
+<p class="site-title"><a href="/">wocao.world</a></p>
+<p class="site-desc">wocao.world</p>
+<nav class="site-nav">
+<a href="/">最新</a>
+<a href="/about/">关于</a>
+<a href="/feed.xml">RSS</a>
+</nav>
+</header>
+<main id="main">
+<article>
+<h1 class="post-title">OmniRoute网关本地部署：一条命令接入358家模型商</h1>
+<div class="post-body"><h2>你需要准备什么</h2>
+<p>开始之前，确认机器上已经装好 <a href="https://nodejs.org/" rel="external nofollow noopener noreferrer" target="_blank">Node.js</a> 18+ 版本，这是跑 <a href="https://github.com/diegosouzapw/OmniRoute" rel="external nofollow noopener noreferrer" target="_blank">OmniRoute</a> 的硬性基座。如果你习惯用容器，也得提前拉好 <a href="https://hub.docker.com/r/diegosouzapw/omniroute" rel="external nofollow noopener noreferrer" target="_blank">diegosouzapw/omniroute</a> 镜像。手头最好留几个主流大模型厂商的 API Key —— 虽然网关自带 <a href="https://omniroute.hagicode.com/en-US/" rel="external nofollow noopener noreferrer" target="_blank">OpenCode Free</a> 等开箱即用的免费通道，但自带 Key 能解锁更高配额、更稳定的并发。终端得能联网，毕竟首次启动要从注册表拉取约 358 家提供商的元数据（官方文档站当前口径，随版本变动），离线环境得靠预置配置绕过。</p>
+<p><img src="https://moyu.18uk.uk/2026/20261029-d4228469-485b-4ee5-a33f-7755082187bd.webp" alt="OmniRoute网关" width="600" loading="lazy" referrerpolicy="no-referrer" /></p>
+<h2>动手安装</h2>
+<p>打开终端，直接扔进去：</p>
+<p><code>npm install -g omniroute</code></p>
+<p>等个几十秒，全局二进制 <code>omniroute</code> 就落地了。不想污染全局？改用 <code>npx omniroute</code> 临时跑也行。Docker 派直接：</p>
+<p><code>docker run -d -p 20128:20128 diegosouzapw/omniroute</code></p>
+<p>跑起来后，浏览器打开 <a href="http://localhost:20128/v1" rel="external nofollow noopener noreferrer" target="_blank">http://localhost:20128/v1</a> 能看到标准 OpenAI 兼容的 <code>/models</code> 列表，说明网关已就绪。顺手访问 <a href="http://localhost:20128/dashboard/free-tiers" rel="external nofollow noopener noreferrer" target="_blank">/dashboard/free-tiers</a>，仪表盘会实时展示各家免费层的剩余额度、限速阈值、区域鉴权限制 —— 这些数据直接决定了后续 fallback 的优先级。</p>
+<h2>配置接入</h2>
+<p>以 <a href="https://cursor.sh/" rel="external nofollow noopener noreferrer" target="_blank">Cursor</a> 为例，进 Settings → Models → Add Model，Base URL 填 <code>http://localhost:20128/v1</code>，API Key 随便填个 <code>sk-local</code> 占位（网关不校验这层），Model 下拉会自动刷出 <code>auto</code> 这个零配置魔法模型。<code>auto</code> 背后对接的是预置的 <a href="https://omniroute.hagicode.com/en-US/" rel="external nofollow noopener noreferrer" target="_blank">OpenCode Free</a> 通道，开箱即用、零 Key 启动。同理，<a href="https://claude.ai/code" rel="external nofollow noopener noreferrer" target="_blank">Claude Code</a>、<a href="https://codex.example.com/" rel="external nofollow noopener noreferrer" target="_blank">Codex</a>、<a href="https://opencode.dev/" rel="external nofollow noopener noreferrer" target="_blank">OpenCode</a>、<a href="https://github.com/cline/cline" rel="external nofollow noopener noreferrer" target="_blank">Cline</a>、<a href="https://github.com/github-copilot" rel="external nofollow noopener noreferrer" target="_blank">Copilot</a> 只要支持自定义 OpenAI 兼容端点，全能按这套口径接入。想指定模型？把 Model 换成 <code>anthropic/claude-3.5-sonnet</code> 这种 <code>provider/model</code> 格式，网关会按 19 种路由策略里的 <code>cheapest</code> 或 <code>fastest</code> 自动挑最优通道。</p>
+<h2>怎么帮你省钱的</h2>
+<p><a href="https://github.com/diegosouzapw/OmniRoute" rel="external nofollow noopener noreferrer" target="_blank">OmniRoute</a> 不只是个转发层，它在请求入站后做了三件事：</p>
+<p>第一，<strong>四层自动 fallback</strong>：Subscription（订阅制额度）→ API Key（自带 Key）→ Cheap（最低单价）→ Free（免费层）。免费额度耗尽、触发限速、区域鉴权失败、返回 429/403，统统自动降级下一层，用户层零感知。注意：各家免费额度绝非无限量，有的日限 50 万 Token，有的强制美区 IP，有的并发仅 1 路 —— 这些限制全在仪表盘里如实暴露，网关不造假、不兜底。</p>
+<p>第二，<strong>RTK + Caveman 双引擎压缩</strong>：把上下文里的重复模板、冗长系统提示词、历史对话摘要化，实测能在不损任务质量前提下压缩 15%-95% Token。长上下文任务（如整仓库重构、长文档问答）收益最大，短对话收益边际递减。</p>
+<p>第三，<strong>19 种路由策略组合拳</strong>：<code>round-robin</code> 负载均衡、<code>priority</code> 按优先级、<code>latency</code> 选最快、<code>cheapest</code> 选最便宜、<code>fallback-only</code> 纯兜底……配合提供商约 358 家的实时价格表（从官方定价页同步，延迟分钟级），网关能在毫秒级完成「选模型→选通道→压Prompt→发请求→解流式响应」全链路。网关本身 <strong>MIT 开源、0 元起步、不收任何中介费</strong>，钱全付给上游厂商，<a href="https://github.com/diegosouzapw/OmniRoute" rel="external nofollow noopener noreferrer" target="_blank">GitHub 仓库</a> 随时可审计。</p>
+<h2>别在这几个地方翻车</h2>
+<blockquote><p><strong>免费层≠无限量</strong>：仪表盘里标着「Free」的通道，大多有日配额、并发限制、区域锁。别指望白嫖跑生产级高并发，自备 Key 才是正道。</p>
+<p><strong>压缩有副作用</strong>：RTK/Caveman 对代码生成、结构化输出类任务偶尔会丢关键注释或破坏 JSON 格式。关键任务建议在请求头加 <code>x-omniroute-compress: false</code> 关掉压缩，或改用 <code>provider/model</code> 显式指定不走压缩通道。</p>
+<p><strong>流式响应偶发截断</strong>：部分上游厂商的 SSE 分块边界与网关解析器对不齐，表现为最后一段内容丢失。临时绕法：在客户端把 <code>stream: false</code> 强制走非流式，或者换家稳定的上游。</p>
+<p><strong>Docker 端口映射别写反</strong>：宿主机 <code>-p 20128:20128</code> 左边是宿主端口，右边是容器内固定 20128。改宿主端口随意，容器内端口动不得，不然健康检查挂了、仪表盘进不去。</p>
+<p><strong>约 358 家提供商是动态口径</strong>：官方文档站写「约 358 家」，旧帖常挂「375 家」 —— 别信旧数字。注册表随版本增减，新增厂商得等网关自动拉取或重启刷新。</p></blockquote>
+<p> </p>
+<p> </p>
+<p>本文来源：<a href="https://www.moyunews.com/" rel="external nofollow noopener noreferrer" target="_blank">摸鱼杂货店</a>。查看原文：<a href="https://www.moyunews.com/omniroute-free-ai-gateway/" rel="external nofollow noopener noreferrer" target="_blank">OmniRoute网关本地部署：一条命令接入358家模型商</a>。</p></div>
+<p class="back"><a href="/">← 返回最新</a></p>
+</article>
+</main>
+<footer class="site-foot">
+<p>wocao.world — 本站内容全部转载自各订阅源，版权归原作者与原站所有。</p>
+</footer>
+</body>
+</html>

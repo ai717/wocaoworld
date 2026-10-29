@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>多智能体并行跑任务：Orca 让 30 多个 agent 各干各的只留最优解 · wocao.world</title>
+<meta name="description" content="别让几个 agent 在同一个目录里打架 同时派几个 coding agent 改同一份代码，最常见的下场就是互相覆盖、冲突满屏。而且它们读的是同一份上下文，犯错还容易撞车，所谓集思广益最后变成集体翻车。Orca 换了个思路：不拼谁的模型更强，而是给每个 agent 一个独立的 git worktree，各自在完整检出里干活，最后把结果并排摆出来，只合并最优解，其余丢弃。 一个任务派出去，Orca 在后台干了什么 桌面端新建任务、写清需求、勾选要上场的 agent：内置 30+ CLI agent 预设，覆盖 Claude Code、Codex、Grok、Cursor、GitHub Copil…">
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="wocao.world">
+<meta property="og:title" content="多智能体并行跑任务：Orca 让 30 多个 agent 各干各的只留最优解 · wocao.world">
+<meta property="og:description" content="别让几个 agent 在同一个目录里打架 同时派几个 coding agent 改同一份代码，最常见的下场就是互相覆盖、冲突满屏。而且它们读的是同一份上下文，犯错还容易撞车，所谓集思广益最后变成集体翻车。Orca 换了个思路：不拼谁的模型更强，而是给每个 agent 一个独立的 git worktree，各自在完整检出里干活，最后把结果并排摆出来，只合并最优解，其余丢弃。 一个任务派出去，Orca 在后台干了什么 桌面端新建任务、写清需求、勾选要上场的 agent：内置 30+ CLI agent 预设，覆盖 Claude Code、Codex、Grok、Cursor、GitHub Copil…">
+<meta property="og:url" content="https://wocao.world/">
+<meta name="twitter:card" content="summary">
+<meta name="robots" content="noindex,follow">
+<link rel="alternate" type="application/rss+xml" title="wocao.world 聚合输出" href="/feed.xml">
+<link rel="stylesheet" href="/style.css">
+<link rel="canonical" href="https://www.moyunews.com/orca-parallel-coding-agents/">
+</head>
+<body>
+<a class="skip-link" href="#main">跳到正文</a>
+<header class="site-head">
+<p class="site-title"><a href="/">wocao.world</a></p>
+<p class="site-desc">wocao.world</p>
+<nav class="site-nav">
+<a href="/">最新</a>
+<a href="/about/">关于</a>
+<a href="/feed.xml">RSS</a>
+</nav>
+</header>
+<main id="main">
+<article>
+<h1 class="post-title">多智能体并行跑任务：Orca 让 30 多个 agent 各干各的只留最优解</h1>
+<div class="post-body"><h2>别让几个 agent 在同一个目录里打架</h2>
+<p>同时派几个 coding agent 改同一份代码，最常见的下场就是互相覆盖、冲突满屏。而且它们读的是同一份上下文，犯错还容易撞车，所谓集思广益最后变成集体翻车。<a href="https://github.com/stablyai/orca" rel="external nofollow noopener noreferrer" target="_blank">Orca</a> 换了个思路：不拼谁的模型更强，而是给每个 agent 一个独立的 git worktree，各自在完整检出里干活，最后把结果并排摆出来，只合并最优解，其余丢弃。</p>
+<p><img src="https://moyu.18uk.uk/2026/20261029-874aa9c8-9ce6-4860-b775-1e5154e6cdeb.webp" alt="多智能体并行" width="800" loading="lazy" referrerpolicy="no-referrer" /></p>
+<h2>一个任务派出去，Orca 在后台干了什么</h2>
+<p>桌面端新建任务、写清需求、勾选要上场的 agent：内置 30+ CLI agent 预设，覆盖 <a href="https://dev.to/itxtayab/orca-run-a-fleet-of-ai-coding-agents-in-parallel-and-keep-the-best-result-99k-stars-5dkb" rel="external nofollow noopener noreferrer" target="_blank">Claude Code、Codex、Grok、Cursor、GitHub Copilot、OpenCode、Qwen Code</a> 等，还有“任何 CLI agent”兜底。Orca 为每个 agent 建独立 worktree、注入任务上下文、启动 agent 进程，自带终端、文件编辑、diff 查看、内置浏览器都在一个窗口里。跑完后并排比对 diff，点合并胜者，还能直接创建 GitHub PR 或关联 Linear 工单。命令行也有 <code>orca worktree</code>、<code>orca terminal</code> 两个入口。</p>
+<p>先说清一点：Orca 自己没有自带模型，它编排的是你已有的订阅。作者是 Stably AI（YC 支持），MIT 协议开源，桌面版覆盖 macOS、Windows、Linux，另有 iOS 与 Android 手机伴侣 App。</p>
+<h2>并行一时爽，账单与审核都要乘以 N</h2>
+<p>Orca 本身不收钱，但并行等于多倍 token 与多倍待审 diff：每个 worktree 都是完整检出，磁盘与依赖也会跟着翻倍。几份 diff 并排摆着，逐行挑采纳还是丢弃，本身就是一份工作量，预算敏感的项目得先算好这笔账。迭代速度也值得注意：有报道称 10 月 12 日以来合并 1400+ PR，版本走得很快。</p>
+<blockquote><p>匿名用量数据收集可在隐私文档指引下关闭，介意数据上报的人装好之后先去隐私设置里确认一遍。</p></blockquote>
+<h2>macOS 一行命令装好，手机端接着看结果</h2>
+<p>macOS 用 <code>brew install --cask stablyai/orca/orca</code> 就能装好。手机伴侣 App 能推送任务完成通知、在路上划 diff、点合并胜者，桌面端则可以看 Claude 与 Codex 的用量、热切换账号。<a href="https://dev.to/devrchancay/orca-the-ade-for-orchestrating-a-fleet-of-coding-agents-in-parallel-2jhe" rel="external nofollow noopener noreferrer" target="_blank">另一篇介绍</a>也提到这套编排的定位：把并行变成可控选项，想并行就并行，想省钱就单跑。</p>
+<p>10 月下旬多家报道口径在 9.8 万星上下，说明这类需求真实存在。但星数不等于生产可用，适合探索性重构、想同时看几家思路的场景；确定性强的小改动、预算敏感的项目，单跑更划算，先拿小任务试一把再决定。</p>
+<p> </p>
+<p> </p>
+<p>本文来源：<a href="https://www.moyunews.com/" rel="external nofollow noopener noreferrer" target="_blank">摸鱼杂货店</a>。查看原文：<a href="https://www.moyunews.com/orca-parallel-coding-agents/" rel="external nofollow noopener noreferrer" target="_blank">多智能体并行跑任务：Orca 让 30 多个 agent 各干各的只留最优解</a>。</p></div>
+<p class="back"><a href="/">← 返回最新</a></p>
+</article>
+</main>
+<footer class="site-foot">
+<p>wocao.world — 本站内容全部转载自各订阅源，版权归原作者与原站所有。</p>
+</footer>
+</body>
+</html>

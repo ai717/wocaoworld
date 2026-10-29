@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>34 家免费额度拼成本地 OpenAI 兼容接口：免费模型路由实测 · wocao.world</title>
+<meta name="description" content="一条命令，34 家免费额度到手 手里攥着一堆免费 key，却每次都要手动换接口、改配置，免费额度用起来比花钱还累。FreeLLMAPI 的解法很直接：一条命令 curl -fsSL https://freellmapi.co/install.sh | bash，脚本拉取 Docker 镜像、在 3001 端口把服务跑起来，http://localhost:3001/v1 就成了一个标准的 OpenAI 兼容端点。一个统一 key，就能调用官方口径里 34 家供应商的 635 个免费端点，不用再给每个供应商各写一套配置。 这个项目定位是个人实验用途，MIT 协议开源。免费这件事它玩的是聚合：单家…">
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="wocao.world">
+<meta property="og:title" content="34 家免费额度拼成本地 OpenAI 兼容接口：免费模型路由实测 · wocao.world">
+<meta property="og:description" content="一条命令，34 家免费额度到手 手里攥着一堆免费 key，却每次都要手动换接口、改配置，免费额度用起来比花钱还累。FreeLLMAPI 的解法很直接：一条命令 curl -fsSL https://freellmapi.co/install.sh | bash，脚本拉取 Docker 镜像、在 3001 端口把服务跑起来，http://localhost:3001/v1 就成了一个标准的 OpenAI 兼容端点。一个统一 key，就能调用官方口径里 34 家供应商的 635 个免费端点，不用再给每个供应商各写一套配置。 这个项目定位是个人实验用途，MIT 协议开源。免费这件事它玩的是聚合：单家…">
+<meta property="og:url" content="https://wocao.world/">
+<meta name="twitter:card" content="summary">
+<meta name="robots" content="noindex,follow">
+<link rel="alternate" type="application/rss+xml" title="wocao.world 聚合输出" href="/feed.xml">
+<link rel="stylesheet" href="/style.css">
+<link rel="canonical" href="https://www.moyunews.com/freellmapi-free-model-router/">
+</head>
+<body>
+<a class="skip-link" href="#main">跳到正文</a>
+<header class="site-head">
+<p class="site-title"><a href="/">wocao.world</a></p>
+<p class="site-desc">wocao.world</p>
+<nav class="site-nav">
+<a href="/">最新</a>
+<a href="/about/">关于</a>
+<a href="/feed.xml">RSS</a>
+</nav>
+</header>
+<main id="main">
+<article>
+<h1 class="post-title">34 家免费额度拼成本地 OpenAI 兼容接口：免费模型路由实测</h1>
+<div class="post-body"><h2>一条命令，34 家免费额度到手</h2>
+<p>手里攥着一堆免费 key，却每次都要手动换接口、改配置，免费额度用起来比花钱还累。<a href="https://freellmapi.co/" rel="external nofollow noopener noreferrer" target="_blank">FreeLLMAPI</a> 的解法很直接：一条命令 <code>curl -fsSL https://freellmapi.co/install.sh | bash</code>，脚本拉取 Docker 镜像、在 3001 端口把服务跑起来，<code>http://localhost:3001/v1</code> 就成了一个标准的 OpenAI 兼容端点。一个统一 key，就能调用官方口径里 34 家供应商的 635 个免费端点，不用再给每个供应商各写一套配置。</p>
+<p>这个项目定位是个人实验用途，MIT 协议开源。免费这件事它玩的是聚合：单家免费额度各有各的限流和过期规则，拼在一起之后，某个模型额度用完，路由器可以立刻换下一个顶上。对只是想跑通原型、写点小脚本的人来说，这比到处注册账号省事得多。</p>
+<p><img src="https://moyu.18uk.uk/2026/20261029-cb63fc2b-d1e0-4c18-afe7-b1b358a77b91.avif" alt="免费模型路由" width="800" loading="lazy" referrerpolicy="no-referrer" /></p>
+<h2>16 个 agent 共用一个 key，怎么接</h2>
+<p>装好服务只是第一步，真正省时间的是配置生成器。跑 <code>npx freellmapi setup-claude</code> 或者 <code>npx freellmapi setup-codex</code>，就能把 Claude Code、Codex CLI、Cline、Aider 等 16 个 agent 一次性接进同一个 key。改配置之前先备份，这是官方反复提醒的一句：路由表改乱了，恢复起来比重新装还麻烦。</p>
+<p>这套接法的好处在于切换成本低：同一个任务，今天用 Claude Code 跑，明天换 Codex CLI 试，不用重新折腾鉴权。各个 agent 看到的都是本地那个统一端点，背后到底走了哪家供应商，由路由器说了算。</p>
+<h2>6 种路由策略加 Fusion 裁判</h2>
+<p>路由器内置 6 种路由策略，请求失败会自动换下一个可用模型接着跑，不会因为某一家挂了就整个任务卡住。密钥用 AES-256-GCM 加密，存在本地 SQLite 里，不经过第三方服务器，这一点对把 key 交给它的人很重要：免费额度再香，key 泄露的代价也付不起。</p>
+<p>还有个叫 Fusion 的功能，思路更激进：同一个问题并行发给多个免费模型，再由一台裁判模型把多路回答合成一条最终输出。单模型回答容易翻车的时候，多路互相印证确实能抬高下限，代价是 token 花得多、返回也慢一拍，适合对准确度要求高、不赶时间的场景。</p>
+<h2>要 Opus 却拿到 Flash，这不是 bug</h2>
+<blockquote><p>这篇最出圈的实测来自 <a href="https://pub.towardsai.net/i-asked-a-41-000-star-free-ai-repo-for-claude-opus-it-gave-me-gemini-flash-bf72360c8e20?gi=689a460e15fc" rel="external nofollow noopener noreferrer" target="_blank">Towards AI</a>：作者只拿了 3 个免费 key、接上 OpenCode，请求 <code>claude-opus-4-5</code>，5 秒就返回了结果，但响应头里写着 <code>X-Routed-Via: google/gemini-3-flash-preview</code>。要的是 Opus，干活的却是 Gemini Flash。</p></blockquote>
+<p>这不是 bug，而是路由器按当前可用性做的选择：Opus 的免费额度当时不可用，它就按策略换了一条能跑通的路。教训很实在：用这类路由器，别只看自己请求的模型名，一定要看响应头或者实际路由结果，否则你以为在测 Opus，实际测的是 Flash，结论全错位。<a href="https://www.opensourcealternatives.to/item/freellmapi" rel="external nofollow noopener noreferrer" target="_blank">开源替代站上的介绍</a>也印证了这套产品的定位：聚合免费额度、本地跑、统一接口。</p>
+<h2>免费版每月快照，付费版当天同步</h2>
+<p>免费版和付费版的差距主要在模型目录的新鲜度：免费版每月快照一次，新模型上线或者额度规则变了，大概要 30 天才同步进来；付费版 $19/年或者 $49 买断，可以当天同步。对追新模型的人来说，这个延迟值不值 19 美元，得看自己换模型的频率。</p>
+<p>作者官方说法称，聚合后每月约有 74 亿 token 的免费额度。这个数字是官方说法，各家供应商的限流随时会变，跑满不跑满另说。把它当成个人实验工具很合适，当成生产依赖之前，先想清楚免费额度断供那天，你的任务有没有退路。</p>
+<p> </p>
+<p> </p>
+<p>本文来源：<a href="https://www.moyunews.com/" rel="external nofollow noopener noreferrer" target="_blank">摸鱼杂货店</a>。查看原文：<a href="https://www.moyunews.com/freellmapi-free-model-router/" rel="external nofollow noopener noreferrer" target="_blank">34 家免费额度拼成本地 OpenAI 兼容接口：免费模型路由实测</a>。</p></div>
+<p class="back"><a href="/">← 返回最新</a></p>
+</article>
+</main>
+<footer class="site-foot">
+<p>wocao.world — 本站内容全部转载自各订阅源，版权归原作者与原站所有。</p>
+</footer>
+</body>
+</html>

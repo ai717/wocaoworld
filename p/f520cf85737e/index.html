@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Cindy智能体：同一任务中途切换 Claude 与 Codex 引擎 · wocao.world</title>
+<meta name="description" content="一天内冲上 Trending 的背后 10 月 28 日，Cindy 以单日约 1465 星冲上 GitHub Trending 日榜，总星数已逼近 7300。这并非单纯的营销声量，而是开发者对「同一任务中途换引擎」这一刚需的真实投票。 项目口号 “Consider it done.” 直指痛点：写代码时想用 Claude Code 做架构，转手又想让 Codex 补全细节，却不想重新搭建上下文。Cindy 把工作区、记忆、技能、工具全程保持连续，做到了真正的「不断线」。 同一任务换引擎的实际体验 实测中，打开桌面端（Electron）或移动端（Expo/React Native），新建任务后…">
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="wocao.world">
+<meta property="og:title" content="Cindy智能体：同一任务中途切换 Claude 与 Codex 引擎 · wocao.world">
+<meta property="og:description" content="一天内冲上 Trending 的背后 10 月 28 日，Cindy 以单日约 1465 星冲上 GitHub Trending 日榜，总星数已逼近 7300。这并非单纯的营销声量，而是开发者对「同一任务中途换引擎」这一刚需的真实投票。 项目口号 “Consider it done.” 直指痛点：写代码时想用 Claude Code 做架构，转手又想让 Codex 补全细节，却不想重新搭建上下文。Cindy 把工作区、记忆、技能、工具全程保持连续，做到了真正的「不断线」。 同一任务换引擎的实际体验 实测中，打开桌面端（Electron）或移动端（Expo/React Native），新建任务后…">
+<meta property="og:url" content="https://wocao.world/">
+<meta name="twitter:card" content="summary">
+<meta name="robots" content="noindex,follow">
+<link rel="alternate" type="application/rss+xml" title="wocao.world 聚合输出" href="/feed.xml">
+<link rel="stylesheet" href="/style.css">
+<link rel="canonical" href="https://www.moyunews.com/cindy-open-agent-harness-switch/">
+</head>
+<body>
+<a class="skip-link" href="#main">跳到正文</a>
+<header class="site-head">
+<p class="site-title"><a href="/">wocao.world</a></p>
+<p class="site-desc">wocao.world</p>
+<nav class="site-nav">
+<a href="/">最新</a>
+<a href="/about/">关于</a>
+<a href="/feed.xml">RSS</a>
+</nav>
+</header>
+<main id="main">
+<article>
+<h1 class="post-title">Cindy智能体：同一任务中途切换 Claude 与 Codex 引擎</h1>
+<div class="post-body"><h2>一天内冲上 Trending 的背后</h2>
+<p>10 月 28 日，<a href="https://github.com/makecindy/cindy" rel="external nofollow noopener noreferrer" target="_blank">Cindy</a> 以单日约 1465 星冲上 GitHub Trending 日榜，总星数已逼近 7300。这并非单纯的营销声量，而是开发者对「同一任务中途换引擎」这一刚需的真实投票。</p>
+<p>项目口号 “Consider it done.” 直指痛点：写代码时想用 Claude Code 做架构，转手又想让 Codex 补全细节，却不想重新搭建上下文。Cindy 把工作区、记忆、技能、工具全程保持连续，做到了真正的「不断线」。</p>
+<p><img src="https://moyu.18uk.uk/2026/20261029-3eab41b0-2e2f-4803-97fb-d0bfb875b072.webp" alt="Cindy智能体" width="800" loading="lazy" referrerpolicy="no-referrer" /></p>
+<h2>同一任务换引擎的实际体验</h2>
+<p>实测中，打开桌面端（Electron）或移动端（Expo/React Native），新建任务后点击右上角 Harness 选择器，即可在 <code>Claude Code</code> 与 <code>Codex</code> 之间秒级切换。上下文、已生成的文件、甚至正在运行的终端会话全部保留，无需重新 <code>git clone</code> 或重启进程。</p>
+<ul>
+<li>Harness 列表包含官方内置的 Claude Code 与 Codex，官网另列 <code>Pi</code>，原生 Harness 仍在开发中</li>
+<li>切换时模型参数、温度、系统提示词均可单独配置，互不干扰</li>
+</ul>
+<p>配合 Orca 多智能体编排，还能让多个 Agent 并行处理同一仓库的不同模块，最后再汇总到同一工作区。</p>
+<h2>开源客户端与托管后端的边界</h2>
+<p>源码采用 pnpm monorepo，要求 Node.js 22.x、pnpm 10.x（暂不支持 v11）、Git LFS，构建命令仅需 <code>git clone</code> 后 <code>pnpm install</code>。但必须明确：客户端完全开源（Apache‑2.0），后端服务在另一个不公开仓库，默认连官方云，属于「开源客户端＋托管后端」模式，而非全栈自托管。</p>
+<p>因此「开箱即用」仅指客户端与默认配置，不代表模型免费。若已购买 Claude Code 或 Codex 订阅，Cindy 会直接复用，不再二次计费；也可填入自有 API Key、接入本地模型或官方托管计量服务。</p>
+<h2>本地无账号跑 Agent 的落地细节</h2>
+<p>提供 Skip Sign‑In 模式，下载页 <a href="https://cindy.app/download" rel="external nofollow noopener noreferrer" target="_blank">cindy.app/download</a> 即可拿到安装包，无需注册即可在本地跑通完整 Agent 流程。适合离线调试、隐私敏感项目或单纯想「白嫖」已付费额度的场景。</p>
+<p>移动端同样是 Expo/React Native 客户端，与桌面端共用同一套 pnpm monorepo 源码。</p>
+<p>这次冲榜也被多家独立盘点记录：<a href="https://blog.aivaded.com/blog/oss-makecindy-cindy/" rel="external nofollow noopener noreferrer" target="_blank">Aivaded 的开源项目解析</a>讲清了客户端与后端的分工，<a href="https://dev.to/its_mike_alex/is-github-trending-just-ai-agents-now-2i8a" rel="external nofollow noopener noreferrer" target="_blank">DEV 的当日榜单盘点</a>则给出了单日涨约 1465 星的数字。</p>
+<h2>后端不公开这件事，先摆在台面上</h2>
+<ul>
+<li>后端不开源，数据隐私完全依赖官方隐私政策</li>
+<li>原生 Harness 仍在开发，第三方模型接入需自行适配</li>
+<li>pnpm 11 尚不兼容，升级前请锁定 10.x</li>
+<li>原生 Harness 还在开发中，想换别的引擎要等后续支持</li>
+</ul>
+<p>综合来看，Cindy 把「同一任务、多引擎、零切换成本」落地得最彻底，适合在 Claude 与 Codex 之间频繁横跳的重度开发者，但想完全自托管的团队还需等待后端开源或自建同步层。</p>
+<p> </p>
+<p> </p>
+<p>本文来源：<a href="https://www.moyunews.com/" rel="external nofollow noopener noreferrer" target="_blank">摸鱼杂货店</a>。查看原文：<a href="https://www.moyunews.com/cindy-open-agent-harness-switch/" rel="external nofollow noopener noreferrer" target="_blank">Cindy智能体：同一任务中途切换 Claude 与 Codex 引擎</a>。</p></div>
+<p class="back"><a href="/">← 返回最新</a></p>
+</article>
+</main>
+<footer class="site-foot">
+<p>wocao.world — 本站内容全部转载自各订阅源，版权归原作者与原站所有。</p>
+</footer>
+</body>
+</html>

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>给 Claude Code 装 Hallmark设计，一键去 AI 味 · wocao.world</title>
+<meta name="description" content="你的页面为什么一眼就是 AI 味 让 agent 随便写个落地页，十有八九是这个配方：标题上面顶一个小 eyebrow、标签全大写还带字母间距、标题里非要把一个词标成彩色、hero 区域撑不满一屏、页脚必有一个邮箱订阅框，点提交只会回一句谢谢，什么都没发出去。单个看都不致命，凑在一起就一股浓浓的机味。更麻烦的是换个提示词重写一遍，骨架还是同一套，只是换了配色和圆角——这就是 Hallmark 要治的病：它不教你写更 clever 的提示词，而是直接立规矩，把模型拉回默认套路的路堵死。 Hallmark 是 nutlope 做的开源设计 skill，由 Together AI 团队维护，MIT …">
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="wocao.world">
+<meta property="og:title" content="给 Claude Code 装 Hallmark设计，一键去 AI 味 · wocao.world">
+<meta property="og:description" content="你的页面为什么一眼就是 AI 味 让 agent 随便写个落地页，十有八九是这个配方：标题上面顶一个小 eyebrow、标签全大写还带字母间距、标题里非要把一个词标成彩色、hero 区域撑不满一屏、页脚必有一个邮箱订阅框，点提交只会回一句谢谢，什么都没发出去。单个看都不致命，凑在一起就一股浓浓的机味。更麻烦的是换个提示词重写一遍，骨架还是同一套，只是换了配色和圆角——这就是 Hallmark 要治的病：它不教你写更 clever 的提示词，而是直接立规矩，把模型拉回默认套路的路堵死。 Hallmark 是 nutlope 做的开源设计 skill，由 Together AI 团队维护，MIT …">
+<meta property="og:url" content="https://wocao.world/">
+<meta name="twitter:card" content="summary">
+<meta name="robots" content="noindex,follow">
+<link rel="alternate" type="application/rss+xml" title="wocao.world 聚合输出" href="/feed.xml">
+<link rel="stylesheet" href="/style.css">
+<link rel="canonical" href="https://www.moyunews.com/hallmark-v2-design-skill/">
+</head>
+<body>
+<a class="skip-link" href="#main">跳到正文</a>
+<header class="site-head">
+<p class="site-title"><a href="/">wocao.world</a></p>
+<p class="site-desc">wocao.world</p>
+<nav class="site-nav">
+<a href="/">最新</a>
+<a href="/about/">关于</a>
+<a href="/feed.xml">RSS</a>
+</nav>
+</header>
+<main id="main">
+<article>
+<h1 class="post-title">给 Claude Code 装 Hallmark设计，一键去 AI 味</h1>
+<div class="post-body"><h2>你的页面为什么一眼就是 AI 味</h2>
+<p>让 agent 随便写个落地页，十有八九是这个配方：标题上面顶一个小 eyebrow、标签全大写还带字母间距、标题里非要把一个词标成彩色、hero 区域撑不满一屏、页脚必有一个邮箱订阅框，点提交只会回一句谢谢，什么都没发出去。单个看都不致命，凑在一起就一股浓浓的机味。更麻烦的是换个提示词重写一遍，骨架还是同一套，只是换了配色和圆角——这就是 <a href="https://github.com/Nutlope/hallmark" rel="external nofollow noopener noreferrer" target="_blank">Hallmark</a> 要治的病：它不教你写更 clever 的提示词，而是直接立规矩，把模型拉回默认套路的路堵死。</p>
+<p>Hallmark 是 nutlope 做的开源设计 skill，由 Together AI 团队维护，MIT 协议，免费安装使用。它不生成组件库，也不替你画图，而是把一套设计纪律塞进你已经在用的 coding agent 里：先定页面骨架和主题，再跑一遍真浏览器 lint，最后由一个全新上下文的评审员拍板能不能交货。v2 是重写版，主题给到 48 套，够你一个项目换一个脸。</p>
+<p><img src="https://moyu.18uk.uk/2026/20261029-e95b99bd-4a70-4174-a602-0d1180ed5f08.webp" alt="Hallmark设计" width="600" loading="lazy" referrerpolicy="no-referrer" /></p>
+<h2>装之前先备好这两样</h2>
+<p>机器上要有 Node 18 或更高版本，终端能直接跑 npx；再有一个支持 agent skill 的客户端，Claude Code、Codex、Cursor、OpenCode 都在 <a href="https://explainx.ai/skills/Nutlope/hallmark/hallmark" rel="external nofollow noopener noreferrer" target="_blank">ExplainX 技能页</a> 列出的支持名单里。不用先学设计理论，skill 本身就是规则书，装完直接使唤就行。旧项目也能接，不用推倒重来。</p>
+<h2>一条命令，全局还是单项目随你</h2>
+<p>在终端执行 <code>npx skills add nutlope/hallmark</code>，想让所有项目都能用就追加 <code>-g</code> 参数，只给当前项目用就别加。装完先别急着写页面，用 <code>/hallmark audit</code> 跑一下手头最旧的一个页面，看看它能揪出多少毛病——这一步最能建立信任，因为它只出报告不改代码，错了你也不亏。</p>
+<h2>实战</h2>
+<p>新建页面直接说 <code>/hallmark 帮我做一个咖啡馆的预约落地页</code>，Hallmark 会先挑宏观结构和主题，而不是上来就堆 hero 加三张卡片。写完先过三档检查再交货：Floor 档管底线，对比度、焦点样式、减动效、编造事实、手机端错乱有一项不过就绝不放行；Reflex 档管模型最爱犯的默认套路，发现了可以附理由推翻；Finish 档只管打磨细节，不拦截发布。Codex 用户注意，命令前缀是 <code>$hallmark</code>，不是斜杠。</p>
+<p>已有页面不满意，别删了重写。用 <code>/hallmark redesign pages/landing.tsx</code> 保留原文案和信息架构，只换结构和视觉指纹；如果只想知道问题清单，<code>/hallmark audit pages/landing.tsx</code> 就够了。实测体感上，同一份文案跑两遍 redesign，出的是两个不同结构的页面，而不是同一套模板换两种配色，这正是 v2 强调的结构多样性。</p>
+<h2></h2>
+<blockquote><p>别把 Hallmark 当成 Anthropic 官方插件，它是 nutlope 与 Together AI 维护的社区开源 skill，出了问题去仓库提 issue，别去找官方客服。主题数认准 v2 的 48 套，旧版 22 套的文章别再抄。star 数引用第三方报道口径时要注明快照日期，别写成实时精确数。还有，Floor 档拦下来的问题别硬绕过去，那是底线不是建议。</p></blockquote>
+<p>一句话总结：Hallmark 不负责替你想创意，它负责在你想偷懒用默认模板时拦住你。页面撞脸不是因为模型没审美，是因为没人给它立规矩——现在规矩来了，还免费。据 <a href="https://digisoulhub.com/blog/hallmark-anti-slop-design/" rel="external nofollow noopener noreferrer" target="_blank">第三方报道</a>，Hallmark 在 2026-10-25 的快照 star 约 32,133，感兴趣可以直接去仓库翻规则原文。</p>
+<p> </p>
+<p> </p>
+<p>本文来源：<a href="https://www.moyunews.com/" rel="external nofollow noopener noreferrer" target="_blank">摸鱼杂货店</a>。查看原文：<a href="https://www.moyunews.com/hallmark-v2-design-skill/" rel="external nofollow noopener noreferrer" target="_blank">给 Claude Code 装 Hallmark设计，一键去 AI 味</a>。</p></div>
+<p class="back"><a href="/">← 返回最新</a></p>
+</article>
+</main>
+<footer class="site-foot">
+<p>wocao.world — 本站内容全部转载自各订阅源，版权归原作者与原站所有。</p>
+</footer>
+</body>
+</html>

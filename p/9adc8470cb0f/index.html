@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Qwen Code 开源终端 Agent 实战：免费登录已死，手把手教你跑通 · wocao.world</title>
+<meta name="description" content="条件 电脑已安装 Node.js 22 及以上版本，且能访问公网 npm 源。若使用 macOS 可直接用 Homebrew，Linux 用户可参考 Arch Linux 包 安装。确保终端支持 ANSI 颜色，方便查看 Agent 输出。 安装与启动 推荐用全局 npm 安装最新稳定版：npm install -g @qwen-code/qwen-code@latest。也可执行 brew install qwen-code 或下载官方提供的独立安装脚本。安装完成后在终端输入 qwen 即可进入交互界面，版本号会显示为 v0.22.0（2026-08-22），README 实时 star 约…">
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="wocao.world">
+<meta property="og:title" content="Qwen Code 开源终端 Agent 实战：免费登录已死，手把手教你跑通 · wocao.world">
+<meta property="og:description" content="条件 电脑已安装 Node.js 22 及以上版本，且能访问公网 npm 源。若使用 macOS 可直接用 Homebrew，Linux 用户可参考 Arch Linux 包 安装。确保终端支持 ANSI 颜色，方便查看 Agent 输出。 安装与启动 推荐用全局 npm 安装最新稳定版：npm install -g @qwen-code/qwen-code@latest。也可执行 brew install qwen-code 或下载官方提供的独立安装脚本。安装完成后在终端输入 qwen 即可进入交互界面，版本号会显示为 v0.22.0（2026-08-22），README 实时 star 约…">
+<meta property="og:url" content="https://wocao.world/">
+<meta name="twitter:card" content="summary">
+<meta name="robots" content="noindex,follow">
+<link rel="alternate" type="application/rss+xml" title="wocao.world 聚合输出" href="/feed.xml">
+<link rel="stylesheet" href="/style.css">
+<link rel="canonical" href="https://www.moyunews.com/qwen-code-open-source-agent/">
+</head>
+<body>
+<a class="skip-link" href="#main">跳到正文</a>
+<header class="site-head">
+<p class="site-title"><a href="/">wocao.world</a></p>
+<p class="site-desc">wocao.world</p>
+<nav class="site-nav">
+<a href="/">最新</a>
+<a href="/about/">关于</a>
+<a href="/feed.xml">RSS</a>
+</nav>
+</header>
+<main id="main">
+<article>
+<h1 class="post-title">Qwen Code 开源终端 Agent 实战：免费登录已死，手把手教你跑通</h1>
+<div class="post-body"><h2>条件</h2>
+<p>电脑已安装 Node.js 22 及以上版本，且能访问公网 npm 源。若使用 macOS 可直接用 Homebrew，Linux 用户可参考 <a href="https://archlinux.org/packages/extra/x86_64/qwen-code/" rel="external nofollow noopener noreferrer" target="_blank">Arch Linux 包</a> 安装。确保终端支持 ANSI 颜色，方便查看 Agent 输出。</p>
+<p><img src="https://moyu.18uk.uk/2026/20261029-6fbd6262-5921-43ad-9050-54b7cb21b1a3.webp" alt="Qwen Code" width="800" loading="lazy" referrerpolicy="no-referrer" /></p>
+<h2>安装与启动</h2>
+<p>推荐用全局 npm 安装最新稳定版：<code>npm install -g @qwen-code/qwen-code@latest</code>。也可执行 <code>brew install qwen-code</code> 或下载官方提供的独立安装脚本。安装完成后在终端输入 <code>qwen</code> 即可进入交互界面，版本号会显示为 v0.22.0（2026-08-22），README 实时 star 约 28,708（仓库页快照）。</p>
+<h2>配置认证与模型切换</h2>
+<p>首次运行会弹出 <code>/auth</code> 对话框，选择提供方。当前支持 OpenAI、Anthropic、Gemini、Qwen 等多协议，也可接入第三方提供方或本地 Ollama / vLLM。注意：原 Qwen OAuth 免费层（曾 2000→1000→100 请求/日）已于 2026-04-15 停用，/auth 不再提供该选项，必须使用 Coding Plan 订阅或自备 API Key。很多旧教程仍写 1000 请求/日免费，切勿照抄。</p>
+<h2>常用运行模式</h2>
+<p>交互模式直接输入指令让 Agent 写代码、重构、跑测试。无头模式用 <code>qwen -p "你的提示词"</code> 适合 CI/CD 集成。实验性 Web UI 通过 <code>qwen serve --open</code> 启动，桌面应用、VS Code / Zed / JetBrains 插件、Telegram / DingTalk / 微信 / 飞书聊天接入均已内置，方便在不同场景下调用同一后端。</p>
+<p>除了写代码，Qwen Code 还有几手 README 里写明的硬活：SubAgents 与 Agent Teams 可以并行分工，Auto-Memory 与 Auto-Skills 让它越用越顺手，Plan Mode 先出方案再动手，沙箱、Git Worktrees、Hooks、MCP 一应俱全；想脱离终端也行，桌面应用、Web UI（<code>qwen serve --open</code>，实验性）、VS Code、Zed、JetBrains 插件都有，连 Telegram、DingTalk、微信、飞书都能接进来当聊天入口。无头模式 <code>qwen -p</code> 适合塞进脚本和 CI，TypeScript、Python、Java 三种 SDK 则留给要二次开发的人。功能多不等于全都要开，先把交互模式和 /auth 跑顺，再按需加料。</p>
+<h2>避坑</h2>
+<blockquote><p>1️⃣ 免费 OAuth 额度已下线，旧教程仍宣称每日 1000 次免费，实测会报错 <code>quota exhausted</code>，请改用自备 Key 或订阅 Coding Plan。<br />
+2️⃣ 仓库基于 Google Gemini CLI v0.8.2 fork，自 v0.1 起不再同步上游，独立演进，切勿按 Gemini CLI 旧文档配置。<br />
+3️⃣ SWE‑bench Verified 成绩为项目方自测口径：七个版本用同一 Qwen 3.7 Max 模型平均 76.40%–77.80%（500 题、每版 3 次试验），非官方基准，仅供参考。<br />
+4️⃣ 若在 Arch Linux 上通过包管理器安装，版本可能滞后，建议优先用 npm 或官方脚本获取最新 v0.22.0。</p></blockquote>
+<p>更多技术细节可参考 <a href="https://github.com/QwenLM/qwen-code" rel="external nofollow noopener noreferrer" target="_blank">GitHub 仓库</a> 与 <a href="https://ai.dosa.dev/blog/open-source-coding-agents-chinese-ai-labs" rel="external nofollow noopener noreferrer" target="_blank">相关评测</a>，两者均为 Apache-2.0 开源协议发布。</p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p>本文来源：<a href="https://www.moyunews.com/" rel="external nofollow noopener noreferrer" target="_blank">摸鱼杂货店</a>。查看原文：<a href="https://www.moyunews.com/qwen-code-open-source-agent/" rel="external nofollow noopener noreferrer" target="_blank">Qwen Code 开源终端 Agent 实战：免费登录已死，手把手教你跑通</a>。</p></div>
+<p class="back"><a href="/">← 返回最新</a></p>
+</article>
+</main>
+<footer class="site-foot">
+<p>wocao.world — 本站内容全部转载自各订阅源，版权归原作者与原站所有。</p>
+</footer>
+</body>
+</html>

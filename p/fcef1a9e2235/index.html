@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Claude Code 远程给电视去广告：禁 25 个小米包换苹果风主屏 · wocao.world</title>
+<meta name="description" content="开机先看赞助广告？这回连包名都不用你背 父母屋里的小米电视，开机先看赞助广告，桌面上还堆着推荐行。2017 年 Vizio 就因未经同意追踪 1100 万台电视观看行为赔了 220 万美元。Gathin T. 受不了这套，直接把 Claude Code 扔进同一 Wi-Fi，丢个电视型号和 IP，让 AI 自己顺着 ADB 把 25 个小米包 pm disable-user 了，再装一个 Apple TV 风格启动器 当默认主屏。提示词整理成 cleanyourtv 开源，两天几千人照着跑通。 先把电视调成「可被 AI 摆布」的状态 动手前只需三样东西：同一 Wi-Fi 下的电脑、电视型号、电…">
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="wocao.world">
+<meta property="og:title" content="Claude Code 远程给电视去广告：禁 25 个小米包换苹果风主屏 · wocao.world">
+<meta property="og:description" content="开机先看赞助广告？这回连包名都不用你背 父母屋里的小米电视，开机先看赞助广告，桌面上还堆着推荐行。2017 年 Vizio 就因未经同意追踪 1100 万台电视观看行为赔了 220 万美元。Gathin T. 受不了这套，直接把 Claude Code 扔进同一 Wi-Fi，丢个电视型号和 IP，让 AI 自己顺着 ADB 把 25 个小米包 pm disable-user 了，再装一个 Apple TV 风格启动器 当默认主屏。提示词整理成 cleanyourtv 开源，两天几千人照着跑通。 先把电视调成「可被 AI 摆布」的状态 动手前只需三样东西：同一 Wi-Fi 下的电脑、电视型号、电…">
+<meta property="og:url" content="https://wocao.world/">
+<meta name="twitter:card" content="summary">
+<meta name="robots" content="noindex,follow">
+<link rel="alternate" type="application/rss+xml" title="wocao.world 聚合输出" href="/feed.xml">
+<link rel="stylesheet" href="/style.css">
+<link rel="canonical" href="https://www.moyunews.com/cleanyourtv-claude-code-tv-debloat/">
+</head>
+<body>
+<a class="skip-link" href="#main">跳到正文</a>
+<header class="site-head">
+<p class="site-title"><a href="/">wocao.world</a></p>
+<p class="site-desc">wocao.world</p>
+<nav class="site-nav">
+<a href="/">最新</a>
+<a href="/about/">关于</a>
+<a href="/feed.xml">RSS</a>
+</nav>
+</header>
+<main id="main">
+<article>
+<h1 class="post-title">Claude Code 远程给电视去广告：禁 25 个小米包换苹果风主屏</h1>
+<div class="post-body"><h2>开机先看赞助广告？这回连包名都不用你背</h2>
+<p>父母屋里的小米电视，开机先看赞助广告，桌面上还堆着推荐行。2017 年 Vizio 就因未经同意追踪 1100 万台电视观看行为赔了 220 万美元。Gathin T. 受不了这套，直接把 <a href="https://x.com/vibelancer/status/2114325324141834338" rel="external nofollow noopener noreferrer" target="_blank">Claude Code</a> 扔进同一 Wi-Fi，丢个电视型号和 IP，让 AI 自己顺着 ADB 把 25 个小米包 <code>pm disable-user</code> 了，再装一个 <a href="https://github.com/Gathin23/cleanyourtv" rel="external nofollow noopener noreferrer" target="_blank">Apple TV 风格启动器</a> 当默认主屏。提示词整理成 <a href="https://github.com/Gathin23/cleanyourtv" rel="external nofollow noopener noreferrer" target="_blank">cleanyourtv</a> 开源，两天几千人照着跑通。</p>
+<p><img src="https://moyu.18uk.uk/2026/20261029-e553ab6d-b58a-45bc-ac5d-59dac6198c36.webp" alt="电视去广告" width="800" loading="lazy" referrerpolicy="no-referrer" /></p>
+<h2>先把电视调成「可被 AI 摆布」的状态</h2>
+<p>动手前只需三样东西：同一 Wi-Fi 下的电脑、电视型号、电视局域网 IP。电视端进「设置 → 关于 → 版本号」连按 7 下开开发者选项，再进「设备偏好设置 → 开发者选项」把 <strong>USB 调试</strong> 和 <strong>网络调试</strong> 全打开，记下屏幕上显示的 IP 地址。电脑端装好 <code>adb</code> 与 Claude Code，把仓库里的 <code>PROMPT.md</code> 里的电视型号和电视 IP 填上，剩下的交给助手。</p>
+<p>注意：<strong>仅限 Android TV / Google TV</strong>（小米、TCL、索尼、海信等）；三星 Tizen、LG webOS 这类非安卓系统根本跑不起来。</p>
+<h2>一条提示词跑完「备份 → 禁包 → 换主屏 → 写还原」</h2>
+<p>把填好型号和 IP 的 <code>PROMPT.md</code> 发给 Claude Code，它会先连上电视、把当前包列表备份到电脑，并生成一键还原脚本。接着按 <a href="https://cleanyour.tv/" rel="external nofollow noopener noreferrer" target="_blank">项目清单</a> 逐条 <code>pm disable-user --user 0 包名</code>，只禁用不卸载，保留数据也保留回退路。禁用的是厂商遥测、广告服务与推荐行一类包，<strong>逐项确认自己在用的应用、投屏、语音遥控、系统更新是否保留</strong>，别把自家常用的功能一起禁了。最后把自制启动器装好并设为默认主屏。电视弹出「允许 USB 调试？」点确认，全程不用拔线、不用 root、不用刷机包。</p>
+<blockquote><p><strong>翻车现场：</strong>已有网友把安卓电视搞成变砖——要么禁掉了关键系统服务导致启动循环，要么主屏没设好回不了桌面。动手前<strong>务必把备份的包列表和一键还原脚本拉到电脑留存</strong>，搞砸了只能恢复出厂设置，数据全无。把「系统更新」「投屏接收」「常用视频应用」对应的包名从禁用清单里划掉，哪怕多留几个广告包也比变砖强。</p></blockquote>
+<h2>为什么不直接 root 或刷第三方固件？</h2>
+<p><code>pm disable-user</code> 只是把包停用、进程冻结，不动系统分区，重启也不会自动恢复禁用状态。Root 要解锁、刷机，适配机型少、折腾成本高得多。cleanyourtv 的路子是「最小侵入、可逆、免 root」，代价是厂商下次 OTA 可能把禁用包再启用，但你手里有一键还原脚本对应的反向操作，再跑一次又干净了。同周网友 Mihir Gupta 实测把 192MB 原厂启动器换成 83MB 自制版。</p>
+<h2>ACR 追踪到底偷走了什么？</h2>
+<p>智能电视的 ACR（自动内容识别）会采样画面/音频指纹，上传到厂商或第三方数据库比对，生成「你在看什么、几点看、看多久」的画像，再卖给广告主定向投放。Vizio 2017 年被查出未经同意收集 1100 万台设备数据，最终赔 220 万美元和解。cleanyourtv 把 ACR 相关包、广告服务、推荐服务禁掉之后，电视就只剩下你自己选的应用和输入源。</p>
+<h2>还原脚本另存一份，下次 OTA 后再跑一次</h2>
+<p>全流程跑完，回到桌面见到干净的苹果风主屏、无开机广告、无推荐行。把电脑上的一键还原脚本另存一份，万一厂商 OTA 把包再启用，再跑一次提示词就能恢复干净。别指望一劳永逸，厂商会在系统更新里塞回遥测代码，但你手里握着「一键清场」的剧本。</p>
+<p> </p>
+<p> </p>
+<p>本文来源：<a href="https://www.moyunews.com/" rel="external nofollow noopener noreferrer" target="_blank">摸鱼杂货店</a>。查看原文：<a href="https://www.moyunews.com/cleanyourtv-claude-code-tv-debloat/" rel="external nofollow noopener noreferrer" target="_blank">Claude Code 远程给电视去广告：禁 25 个小米包换苹果风主屏</a>。</p></div>
+<p class="back"><a href="/">← 返回最新</a></p>
+</article>
+</main>
+<footer class="site-foot">
+<p>wocao.world — 本站内容全部转载自各订阅源，版权归原作者与原站所有。</p>
+</footer>
+</body>
+</html>

@@ -6,7 +6,197 @@
     <description>wocao.world</description>
     <language>zh-CN</language>
     <atom:link href="https://wocao.world/feed.xml" rel="self" type="application/rss+xml"/>
-    <lastBuildDate>Sun, 25 Oct 2026 18:34:47 GMT</lastBuildDate>
+    <lastBuildDate>Thu, 29 Oct 2026 17:38:29 GMT</lastBuildDate>
+    <item>
+      <title>Minty登上Android：AI购物返现自动贴券新人送10美元</title>
+      <link>https://wocao.world/p/9199676b35aa/</link>
+      <guid isPermaLink="false">9199676b35aa</guid>
+      <pubDate>Thu, 29 Oct 2026 14:25:58 GMT</pubDate>
+      <description>假日季前夜，Android 版赶到了 10 月 28 日，Minty 在 GlobeNewswire 上宣布 Android 版上线，此前它已经有了 iOS 版。这次的时间点挑得很直白：假日购物季就在眼前，购物清单越长，越需要一个不用自己到处翻优惠券的东西。Minty 给自己的定位叫 Proactive Commerce，也就是主动式购物省钱：不是等你想起来去搜券，而是你在支持的商店购物时，它主动把返现和优惠券推到你面前。 它的创始人兼 CEO Jon West 在官宣里把话说得很朴素，大意是购物者不该在购物旺季还到处找优惠。这句话听起来像口号，但对应的是一个真实场景：大促期间优惠信息散落在各…
+
+原文链接: https://www.moyunews.com/minty-android-cashback-ai/
+转载自: 摸鱼杂货店</description>
+    </item>
+    <item>
+      <title>断网也能聊：离线本地AI把模型装进口袋里</title>
+      <link>https://wocao.world/p/34370c308a9c/</link>
+      <guid isPermaLink="false">34370c308a9c</guid>
+      <pubDate>Thu, 29 Oct 2026 14:24:29 GMT</pubDate>
+      <description>手机端五种核心能力 安装 Off Grid AI 后，手机即可在完全断网的环境下完成聊天、读取文档、浏览照片、语音输入以及本地生成图片五大任务。所有模型文件都存放在设备存储里，启动时直接加载，不需要任何账号登录，也不会把对话内容上传到云端。实际体验中，哪怕把 Wi‑Fi 关掉、拔掉 SIM 卡，依然能流畅回复日常问答，生成的图片也在秒级完成，完全感受不到网络缺失。 聊天：基于本地 LLM 实时对话，无延迟上传 读文档：PDF、Markdown、Word 全格式解析，摘要即时生成 看照片：图像理解模型在手机端跑完推理，标签与描述秒出 语音：语音转文字完全离线，支持中英混读 作图：Stable D…
+
+原文链接: https://www.moyunews.com/off-grid-ai-local-phone/
+转载自: 摸鱼杂货店</description>
+    </item>
+    <item>
+      <title>10月28日Trending日榜单日涨1598星AI私人导师DeepTutor</title>
+      <link>https://wocao.world/p/f45f36c7ba68/</link>
+      <guid isPermaLink="false">f45f36c7ba68</guid>
+      <pubDate>Thu, 29 Oct 2026 14:22:31 GMT</pubDate>
+      <description>为何要把导师塞进知识图谱 10 月 28 日 DeepTutor 在 GitHub Trending 日榜单日涨约 1598 星，连 ScriptByAI 也把它列为“能记住你哪里不会”的 Agent‑Native 学习助手。普通聊天框只会把历史记录堆叠，真正有用的记忆是结构化的学员画像与知识图谱，才能在下一次对话里精准定位弱项并自动出题。 先把环境搭起来 跑通全套需要 Python 3.11–3.14 以及 Node.js 20+，建议先在终端跑 python -V 和 node -v 确认版本。若缺失请用 pyenv 或 nvm 补齐，别等报错再折腾。 两条路线任选一条 PyPI 路线：p…
+
+原文链接: https://www.moyunews.com/deeptutor-ai-tutor-memory/
+转载自: 摸鱼杂货店</description>
+    </item>
+    <item>
+      <title>Cindy智能体：同一任务中途切换 Claude 与 Codex 引擎</title>
+      <link>https://wocao.world/p/f520cf85737e/</link>
+      <guid isPermaLink="false">f520cf85737e</guid>
+      <pubDate>Thu, 29 Oct 2026 14:20:57 GMT</pubDate>
+      <description>一天内冲上 Trending 的背后 10 月 28 日，Cindy 以单日约 1465 星冲上 GitHub Trending 日榜，总星数已逼近 7300。这并非单纯的营销声量，而是开发者对「同一任务中途换引擎」这一刚需的真实投票。 项目口号 “Consider it done.” 直指痛点：写代码时想用 Claude Code 做架构，转手又想让 Codex 补全细节，却不想重新搭建上下文。Cindy 把工作区、记忆、技能、工具全程保持连续，做到了真正的「不断线」。 同一任务换引擎的实际体验 实测中，打开桌面端（Electron）或移动端（Expo/React Native），新建任务后…
+
+原文链接: https://www.moyunews.com/cindy-open-agent-harness-switch/
+转载自: 摸鱼杂货店</description>
+    </item>
+    <item>
+      <title>Opera One 上线浏览器本地AI，Gemma 与 Apple 模型本地跑</title>
+      <link>https://wocao.world/p/b2cb80b8a5b8/</link>
+      <guid isPermaLink="false">b2cb80b8a5b8</guid>
+      <pubDate>Thu, 29 Oct 2026 14:17:51 GMT</pubDate>
+      <description>Opera One 把模型塞进浏览器内核 10 月 27 日 Opera One 官方宣布在稳定版里直接内置本地 AI，用户只需在设置里手动开启早期预览，模型才会下载到硬盘，不开就不占带宽也不占存储。首批可用的权重包括 Gemma 以及 Mac 上的 Apple 端上基础模型，仅限 64 位 Windows（Intel/AMD）与 Apple Silicon Mac。这意味着生成文本、内容分类、理解信息关联这些能力全在本机跑完，数据不出户，隐私焦虑直接清零。 为什么这事儿对你我有用 以前想在浏览器里玩大模型，要么装扩展调云端 API，要么自己搭服务器，门槛高还怕泄密。现在 Opera One …
+
+原文链接: https://www.moyunews.com/opera-webai-local-ai-browser/
+转载自: 摸鱼杂货店</description>
+    </item>
+    <item>
+      <title>GPT-6.1 Terra 价格腰斩 性能逼近旗舰</title>
+      <link>https://wocao.world/p/07d8b301e624/</link>
+      <guid isPermaLink="false">07d8b301e624</guid>
+      <pubDate>Thu, 29 Oct 2026 14:16:09 GMT</pubDate>
+      <description>价格腰斩、性能却不缩水 OpenAI 在 10 月 26 日推出的 GPT-6.1 Terra 直接把 API 标准价砍到 输入 1 美元/百万 token、缓存输入 0.05 美元/百万、输出 5 美元/百万，且 Batch 与 Flex 模式再减半，官方称这是 GPT-5.6 Terra 与 GPT-6.1 Sol 价格的 一半（厂商说法/未独立验证）。上下文窗口达到 105 万 token，知识截止 2026‑06‑01，API 标识为 gpt-6.1-terra。ChatGPT Work 与 Codex 已向 Plus、Pro、Business、Enterprise、Edu 用户开放，…
+
+原文链接: https://www.moyunews.com/gpt-61-terra-half-price/
+转载自: 摸鱼杂货店</description>
+    </item>
+    <item>
+      <title>多智能体并行跑任务：Orca 让 30 多个 agent 各干各的只留最优解</title>
+      <link>https://wocao.world/p/30d1a9f6ec77/</link>
+      <guid isPermaLink="false">30d1a9f6ec77</guid>
+      <pubDate>Thu, 29 Oct 2026 14:14:29 GMT</pubDate>
+      <description>别让几个 agent 在同一个目录里打架 同时派几个 coding agent 改同一份代码，最常见的下场就是互相覆盖、冲突满屏。而且它们读的是同一份上下文，犯错还容易撞车，所谓集思广益最后变成集体翻车。Orca 换了个思路：不拼谁的模型更强，而是给每个 agent 一个独立的 git worktree，各自在完整检出里干活，最后把结果并排摆出来，只合并最优解，其余丢弃。 一个任务派出去，Orca 在后台干了什么 桌面端新建任务、写清需求、勾选要上场的 agent：内置 30+ CLI agent 预设，覆盖 Claude Code、Codex、Grok、Cursor、GitHub Copil…
+
+原文链接: https://www.moyunews.com/orca-parallel-coding-agents/
+转载自: 摸鱼杂货店</description>
+    </item>
+    <item>
+      <title>34 家免费额度拼成本地 OpenAI 兼容接口：免费模型路由实测</title>
+      <link>https://wocao.world/p/adc99f20bc7b/</link>
+      <guid isPermaLink="false">adc99f20bc7b</guid>
+      <pubDate>Thu, 29 Oct 2026 14:12:25 GMT</pubDate>
+      <description>一条命令，34 家免费额度到手 手里攥着一堆免费 key，却每次都要手动换接口、改配置，免费额度用起来比花钱还累。FreeLLMAPI 的解法很直接：一条命令 curl -fsSL https://freellmapi.co/install.sh | bash，脚本拉取 Docker 镜像、在 3001 端口把服务跑起来，http://localhost:3001/v1 就成了一个标准的 OpenAI 兼容端点。一个统一 key，就能调用官方口径里 34 家供应商的 635 个免费端点，不用再给每个供应商各写一套配置。 这个项目定位是个人实验用途，MIT 协议开源。免费这件事它玩的是聚合：单家…
+
+原文链接: https://www.moyunews.com/freellmapi-free-model-router/
+转载自: 摸鱼杂货店</description>
+    </item>
+    <item>
+      <title>界面技能包治 Agent 的 UI 糙病：8,530 星开源评审</title>
+      <link>https://wocao.world/p/aaac4b88c6ec/</link>
+      <guid isPermaLink="false">aaac4b88c6ec</guid>
+      <pubDate>Thu, 29 Oct 2026 14:09:56 GMT</pubDate>
+      <description>Agent 写界面像盲人摸象，逻辑通了样子难看 让 Cursor 或 Claude Code 写个后台管理页，接口调通、状态机跑顺全靠提示词堆，一到『对齐』、『对比度过 WCAG 2.2』、『文案别用『点击这里』这种废话』，模型要么装瞎要么胡编。GitHub 上 jakubkrehel/skills 仓库 8,530 星、MIT 协议，直戳这个痛点：把排版、颜色、无障碍、布局、文案、UI 六大领域收成一套可安装的 Agent 技能，专治 coding agent『逻辑顺、界面能用就行』的毛病。 动手前：编辑器就位，评审范围先划清 别急着敲命令。先确认两件事：你要用的编辑器或 Agent 能装技…
+
+原文链接: https://www.moyunews.com/interface-skills-claude-code-cursor/
+转载自: 摸鱼杂货店</description>
+    </item>
+    <item>
+      <title>Claude Code 远程给电视去广告：禁 25 个小米包换苹果风主屏</title>
+      <link>https://wocao.world/p/fcef1a9e2235/</link>
+      <guid isPermaLink="false">fcef1a9e2235</guid>
+      <pubDate>Thu, 29 Oct 2026 14:07:56 GMT</pubDate>
+      <description>开机先看赞助广告？这回连包名都不用你背 父母屋里的小米电视，开机先看赞助广告，桌面上还堆着推荐行。2017 年 Vizio 就因未经同意追踪 1100 万台电视观看行为赔了 220 万美元。Gathin T. 受不了这套，直接把 Claude Code 扔进同一 Wi-Fi，丢个电视型号和 IP，让 AI 自己顺着 ADB 把 25 个小米包 pm disable-user 了，再装一个 Apple TV 风格启动器 当默认主屏。提示词整理成 cleanyourtv 开源，两天几千人照着跑通。 先把电视调成「可被 AI 摆布」的状态 动手前只需三样东西：同一 Wi-Fi 下的电脑、电视型号、电…
+
+原文链接: https://www.moyunews.com/cleanyourtv-claude-code-tv-debloat/
+转载自: 摸鱼杂货店</description>
+    </item>
+    <item>
+      <title>Godot助手接入：把Claude塞进编辑器只需63MB</title>
+      <link>https://wocao.world/p/8f16df228c96/</link>
+      <guid isPermaLink="false">8f16df228c96</guid>
+      <pubDate>Thu, 29 Oct 2026 14:06:16 GMT</pubDate>
+      <description>别再手动复制粘贴代码了，AI该直接进编辑器改场景树 写Godot游戏时最烦什么？不是逻辑难，是改个节点属性、重构个脚本、排查个报错，全得在编辑器和聊天窗口来回横跳。Godot-MCP Community Edition 10月25号刚发社区版 1.0.0，作者 Unsigned Exe Studios 走 MIT 协议，Windows 版压缩包才 63MB，.NET 8 自包含二进制，解压双击就能跑，连 Python 运行时都省了。核心思路很简单：在编辑器里跑个 WebSocket 服务（ws://127.0.0.1:6505），桌面端做个 Hub，把 Claude Desktop、LM St…
+
+原文链接: https://www.moyunews.com/godot-mcp-community-edition/
+转载自: 摸鱼杂货店</description>
+    </item>
+    <item>
+      <title>Strata 0.2.5 把 125B Qwen 塞进本地大模型引擎</title>
+      <link>https://wocao.world/p/a2b36475b638/</link>
+      <guid isPermaLink="false">a2b36475b638</guid>
+      <pubDate>Thu, 29 Oct 2026 14:04:49 GMT</pubDate>
+      <description>一条安装包，几分钟跑起 125B 专家混合模型 以前想在自家游戏本上跑百亿级 MoE，得先折腾 Docker、再手动下载权重、还要调显存分层。现在 Strata 0.2.5 直接给每个系统打包一个安装程序，首次启动自动拉取对应推理引擎，点一下就能把 Qwen 团队发布的 Qwen3.8‑Flash‑Next（总参数 125B、单 token 激活约 6B、24 576 个专家、每词约 10 个工作专家）塞进 12 GB 显存里跑起来。 专家缓存进显存、全量专家住内存、CPU 补位、SSD 做 n‑gram 查表 核心思路不是传统的层卸载，而是把热门专家常驻显存、把全部 24 576 个专家放进…
+
+原文链接: https://www.moyunews.com/strata-025-local-125b-model/
+转载自: 摸鱼杂货店</description>
+    </item>
+    <item>
+      <title>Qwen Code 开源终端 Agent 实战：免费登录已死，手把手教你跑通</title>
+      <link>https://wocao.world/p/9adc8470cb0f/</link>
+      <guid isPermaLink="false">9adc8470cb0f</guid>
+      <pubDate>Thu, 29 Oct 2026 14:01:40 GMT</pubDate>
+      <description>条件 电脑已安装 Node.js 22 及以上版本，且能访问公网 npm 源。若使用 macOS 可直接用 Homebrew，Linux 用户可参考 Arch Linux 包 安装。确保终端支持 ANSI 颜色，方便查看 Agent 输出。 安装与启动 推荐用全局 npm 安装最新稳定版：npm install -g @qwen-code/qwen-code@latest。也可执行 brew install qwen-code 或下载官方提供的独立安装脚本。安装完成后在终端输入 qwen 即可进入交互界面，版本号会显示为 v0.22.0（2026-08-22），README 实时 star 约…
+
+原文链接: https://www.moyunews.com/qwen-code-open-source-agent/
+转载自: 摸鱼杂货店</description>
+    </item>
+    <item>
+      <title>给 Claude Code 装 Hallmark设计，一键去 AI 味</title>
+      <link>https://wocao.world/p/d13be8b5f362/</link>
+      <guid isPermaLink="false">d13be8b5f362</guid>
+      <pubDate>Thu, 29 Oct 2026 13:59:51 GMT</pubDate>
+      <description>你的页面为什么一眼就是 AI 味 让 agent 随便写个落地页，十有八九是这个配方：标题上面顶一个小 eyebrow、标签全大写还带字母间距、标题里非要把一个词标成彩色、hero 区域撑不满一屏、页脚必有一个邮箱订阅框，点提交只会回一句谢谢，什么都没发出去。单个看都不致命，凑在一起就一股浓浓的机味。更麻烦的是换个提示词重写一遍，骨架还是同一套，只是换了配色和圆角——这就是 Hallmark 要治的病：它不教你写更 clever 的提示词，而是直接立规矩，把模型拉回默认套路的路堵死。 Hallmark 是 nutlope 做的开源设计 skill，由 Together AI 团队维护，MIT …
+
+原文链接: https://www.moyunews.com/hallmark-v2-design-skill/
+转载自: 摸鱼杂货店</description>
+    </item>
+    <item>
+      <title>OmniRoute网关本地部署：一条命令接入358家模型商</title>
+      <link>https://wocao.world/p/2ee29dfdc91f/</link>
+      <guid isPermaLink="false">2ee29dfdc91f</guid>
+      <pubDate>Thu, 29 Oct 2026 13:57:55 GMT</pubDate>
+      <description>你需要准备什么 开始之前，确认机器上已经装好 Node.js 18+ 版本，这是跑 OmniRoute 的硬性基座。如果你习惯用容器，也得提前拉好 diegosouzapw/omniroute 镜像。手头最好留几个主流大模型厂商的 API Key —— 虽然网关自带 OpenCode Free 等开箱即用的免费通道，但自带 Key 能解锁更高配额、更稳定的并发。终端得能联网，毕竟首次启动要从注册表拉取约 358 家提供商的元数据（官方文档站当前口径，随版本变动），离线环境得靠预置配置绕过。 动手安装 打开终端，直接扔进去： npm install -g omniroute 等个几十秒，全局二进…
+
+原文链接: https://www.moyunews.com/omniroute-free-ai-gateway/
+转载自: 摸鱼杂货店</description>
+    </item>
+    <item>
+      <title>Claude 直连 Obsidian第二大脑，3 步打通</title>
+      <link>https://wocao.world/p/1b23c6ee35c5/</link>
+      <guid isPermaLink="false">1b23c6ee35c5</guid>
+      <pubDate>Thu, 29 Oct 2026 13:55:10 GMT</pubDate>
+      <description>条件 先把 Obsidian 装好，再在插件市场搜 Local REST API 插件（作者 Adam Coddington）并启用，默认端口 27123。生成一个长度 ≥32 位的 OBSIDIAN_API_KEY，记下来别丢。接着去 Claude Desktop 下载对应系统的安装包并完成安装。 三步走通 1⃣ 拉取 mcp-obsidian DXT 包：根据架构下载 Accion Labs 发行版 提供的 obsidian-darwin-arm64.dxt、obsidian-darwin-x86_64.dxt 或 obsidian-win32-x86_64.dxt，双击安装即可把 MCP…
+
+原文链接: https://www.moyunews.com/obsidian-mcp-second-brain/
+转载自: 摸鱼杂货店</description>
+    </item>
+    <item>
+      <title>ZenMux免费模型实测：四款零成本大模型横评</title>
+      <link>https://wocao.world/p/c823e5b77f40/</link>
+      <guid isPermaLink="false">c823e5b77f40</guid>
+      <pubDate>Thu, 29 Oct 2026 13:52:42 GMT</pubDate>
+      <description>免费不等于无限量 ZenMux 模型页在 2026 年 10 月 23 日快照里挂出 Free 标签的只有四款：Atria Dawn、Dots3‑Note Preview、GLM 4.7 Flash 与 GLM 4.6V Flash。四款在 ZenMux 上输入输出价格均为 $0，但页面并未给出限速、配额或 Free 有效期，阵容还会无通知变动，Atria Dawn Preview 被替换就是活例证。免费不等于无限量，别把零价格当成无门槛。 四款硬核对比 下面把 ZenMux 页面上带 Free 标签的四款模型关键指标拉成一张表，方便横向扫一眼。 模型 厂商 类型 上下文 免费口径 适合场景 …
+
+原文链接: https://www.moyunews.com/zenmux-four-free-models/
+转载自: 摸鱼杂货店</description>
+    </item>
+    <item>
+      <title>Anatomy等距图解：用 Claude Code 一句话生成可拖动机器 SVG</title>
+      <link>https://wocao.world/p/064c00e84095/</link>
+      <guid isPermaLink="false">064c00e84095</guid>
+      <pubDate>Thu, 29 Oct 2026 13:48:15 GMT</pubDate>
+      <description>想画机器原理却不想手写 SVG 以前要把齿轮、摆轮、发条的运动关系画成等距示意图，得么么在 Illustrator 里手搓路径，或者写一堆 svg 标签，改一次参数就得重画一遍。最近在 GitHub 发现了 Anatomy，一个 MIT 协议、完全免费的 Claude Code 技能，安装后只要在聊天框扔一句自然语言，几分钟到几小时就能吐出可拖动、可缩放的等距 SVG 机器，数字还是实时模拟跑出来的，不是图像模型生成的死图片。 条件 Node.js 20.10 或更高版本 已安装 Claude Code（也兼容 OpenCode、Codex，基于开放 Agent Skills 格式） 步骤 打…
+
+原文链接: https://www.moyunews.com/anatomy-interactive-svg-skill/
+转载自: 摸鱼杂货店</description>
+    </item>
+    <item>
+      <title>Kimi旗舰模型登陆 Vercel：1M 上下文图像输入</title>
+      <link>https://wocao.world/p/b3bbc624c777/</link>
+      <guid isPermaLink="false">b3bbc624c777</guid>
+      <pubDate>Thu, 29 Oct 2026 13:46:15 GMT</pubDate>
+      <description>2026 年 10 月 23 日，Vercel Changelog 宣布 Kimi K3.1 Pro 与 Kimi K3.1 Pro Highspeed 正式上架 Vercel AI Gateway。模型基于 K3 做 post‑training，参数 2.8T 总量、104B 激活，支持 1M 上下文与图像输入。Pro 版定价输入 $2/M、输出 $10/M；Highspeed 版输入 $4/M、输出 $20/M，缓存命中 $0.20/M，较上一代 K3（$3/$15）大幅降价。 同步上架意味着开发者可直接在 AI SDK、Chat Completions、Responses、Anthrop…
+
+原文链接: https://www.moyunews.com/kimi-k3-1-pro/
+转载自: 摸鱼杂货店</description>
+    </item>
     <item>
       <title>Google Data Agent Kit 已 GA：直连 BigQuery</title>
       <link>https://wocao.world/p/51d9be958fa8/</link>
@@ -115,196 +305,6 @@
       <description>魔幻开场：四家死对头同一天捐项目 Anthropic、OpenAI、Hugging Face、阿里——这四家平时在模型和 Agent 领域打得不可开交。结果 10 月 22 日，他们在同一场大会上干了同一件事：把自家压箱底的 Agent 相关项目，捐给了同一个中立基金会。这种「打归打，标准一起建」的场面，在 AI 圈可不多见。 事实梳理：AAIF 一口气收编四个项目 事情发生在 AGNTCon + MCPCon North America 大会（2026 年 10 月 22~23 日，加州圣何塞）上。Agentic AI Foundation（AAIF）宣布新增四个托管项目：Agent Ski…
 
 原文链接: https://www.moyunews.com/agentic-ai-foundation-new-projects/
-转载自: 摸鱼杂货店</description>
-    </item>
-    <item>
-      <title>MiniMax M3.1 Flash开源：4280亿参数API仅$0.15</title>
-      <link>https://wocao.world/p/eceea1431966/</link>
-      <guid isPermaLink="false">eceea1431966</guid>
-      <pubDate>Sun, 25 Oct 2026 17:40:13 GMT</pubDate>
-      <description>先看价格：$0.15/百万 token 是什么概念 跑 Agent 的人都懂一个痛：token 烧起来比打车还快，输入 token 的价格直接决定你敢不敢让 Agent 多跑几轮、多试几种方案。MiniMax 这次把价格打到了 $0.15/百万输入 token、$0.60/百万输出 token，比上一代直接便宜 70%。API 在 10 月 19 日先行上线，结果 72 小时内真实用户处理量就超过了 1 万亿 token——别看什么发布会通稿，这个数字才是大家拿脚投票的真实结果。 更狠的是，今天（10 月 23 日）权重直接开源了。API 便宜是让你先用着爽，开源是让你彻底放心：数据不出内网、…
-
-原文链接: https://www.moyunews.com/minimax-m31-flash-open-weights/
-转载自: 摸鱼杂货店</description>
-    </item>
-    <item>
-      <title>DeepSeek Harness 做幼儿园视频 Agent，家长投资人找上门</title>
-      <link>https://wocao.world/p/9dfe5cf00843/</link>
-      <guid isPermaLink="false">9dfe5cf00843</guid>
-      <pubDate>Sun, 25 Oct 2026 17:38:52 GMT</pubDate>
-      <description>DeepSeek Harness 是什么 2026 年 8 月 13 日，DeepSeek 正式把自家的 Agent 运行时 DeepSeek Harness（CLI 名 dsh，仓库 deepseek-ai/deepseek-harness）以 MIT 协议、v0.1 developer preview 的身份开源。发布三天 GitHub star 就冲破 11.7 万，DataCamp 也在第一时间做了拆解。核心口号是 “everything is a plugin”：模型适配器、工具、会话、沙箱、甚至 Agent loop 本身全是可替换插件，由 Cordis 插件内核统一调度。模型不再…
-
-原文链接: https://www.moyunews.com/deepseek-harness-kindergarten-agent/
-转载自: 摸鱼杂货店</description>
-    </item>
-    <item>
-      <title>MotionSites提示词库实测：5个决定让AI不再长一个样</title>
-      <link>https://wocao.world/p/cf747fd6b380/</link>
-      <guid isPermaLink="false">cf747fd6b380</guid>
-      <pubDate>Sun, 25 Oct 2026 17:35:38 GMT</pubDate>
-      <description>AI 做出来的落地页全是紫色渐变加三个圆角卡片，连动效都像复制粘贴 前两天我在 MotionSites 逛了一圈，发现它根本不是什么建站器，而是一个把「怎么写 Prompt」做成商品的库。挑一个 3D 风格的 hero section，复制旁边的 Prompt，扔进 Lovable、Bolt、Cursor 或者 Claude，几秒钟就能跑出带 Framer Motion 和 GSAP ScrollTrigger 的 React 代码。创始人在 dev.to 里直说：好 Prompt 不是越长越强，而是帮模型把五件事决定死透。 为什么 AI 生成的站点都长一个样 市面上大多数「AI 建站」演示都…
-
-原文链接: https://www.moyunews.com/motionsites-ai-website-prompts/
-转载自: 摸鱼杂货店</description>
-    </item>
-    <item>
-      <title>用 REA 逆向工具 10 步 9 分钟复刻 Apple 官网风格</title>
-      <link>https://wocao.world/p/537c9c0015d4/</link>
-      <guid isPermaLink="false">537c9c0015d4</guid>
-      <pubDate>Sun, 25 Oct 2026 17:33:09 GMT</pubDate>
-      <description>前置条件：把 REA 装好 下面这套流程来自 X 上开发者 charliejhills 的分享帖：9 分钟把 Apple.com 转成 style file，再用 Claude Code 10 步复刻出 Apple 风格网站，帖子附了全部 prompt。我顺着帖子把每一步拆开讲清楚，方便你直接抄作业。 想把 Apple.com 的设计语言直接拿来用？先在本地跑通 REA，它是个 MIT 协议的 MCP 服务器 + CLI，npm 包叫 rea-agents，GitHub 已经斩获 超 34 万 star。只要一条命令 npx rea-agents setup 就能把它接入 Claude Cod…
-
-原文链接: https://www.moyunews.com/rea-apple-style-website/
-转载自: 摸鱼杂货店</description>
-    </item>
-    <item>
-      <title>麦门精算师：麦当劳省钱点餐助手把巨无霸套餐砍到 ¥21.9</title>
-      <link>https://wocao.world/p/46240e41c3e6/</link>
-      <guid isPermaLink="false">46240e41c3e6</guid>
-      <pubDate>Thu, 22 Oct 2026 16:25:20 GMT</pubDate>
-      <description>点个麦当劳，优惠券比菜单还难 去麦当劳点餐，最折磨人的不是选吃啥，是那一堆优惠券：满减的、单品的、套餐的，叠加规则写得跟阅读理解一样。你吭哧吭哧凑了半天单，结账一看——好像也没省下多少。这事儿有程序员看不下去了，直接写了个mcd-saver-strategist，一个外号叫「麦门精算师」的麦当劳省钱点餐助手：把你手里的券和菜单全喂给它，它算出最省的点法。 这个项目由作者 hujjun 在 2026-10-09 创建，用 Python 写的，短短十几天攒下约 880 stars，还成了麦当劳程序员创意开发大赛参赛作品。在 GitDiscover 每日榜单上，它也是靠「省钱」这个硬通货杀出重围的。…
-
-原文链接: https://www.moyunews.com/mcd-saver-mcdonalds-coupon-optimizer/
-转载自: 摸鱼杂货店</description>
-    </item>
-    <item>
-      <title>Co-op Anything：AI 单机改联机，6 天 789 Star</title>
-      <link>https://wocao.world/p/b7c633cbb60b/</link>
-      <guid isPermaLink="false">b7c633cbb60b</guid>
-      <pubDate>Thu, 22 Oct 2026 16:24:03 GMT</pubDate>
-      <description>前置条件 想用 Co-op Anything 把手里的单机大作变成联机局，先得备齐三样东西：一台能跑 Python 3.10+ 的 Windows/Linux 机器、每个参与联机的玩家各自拥有正版游戏（Steam 版最省事）、以及一个可用的 Steam 账号用于走中继网络。不需要公网 IP、不需要端口映射，全程走 Steam 的免费 Spacewar 测试应用建立 NAT 穿透。 一键启动：把单机变联机 克隆仓库、安装依赖、跑一条提示词，剩下的交给 AI 智能体自动完成逆向、生成 Playbook、打包一键安装包。实测从下载到能和基友进同一局《Deus Ex》只花了十分钟左右。 git clo…
-
-原文链接: https://www.moyunews.com/coop-anything-singleplayer-multiplayer/
-转载自: 摸鱼杂货店</description>
-    </item>
-    <item>
-      <title>ClaudeSEO插件实战：用 Claude Code 做全站 SEO 审计</title>
-      <link>https://wocao.world/p/36dfa78a3452/</link>
-      <guid isPermaLink="false">36dfa78a3452</guid>
-      <pubDate>Thu, 22 Oct 2026 16:20:45 GMT</pubDate>
-      <description>前置条件 在动手之前，确认本地已经装好 Python 3.10+、Git 以及 Claude Code CLI。如果你还没把 claude-seo 克隆下来，先跑一下安装脚本。 安装与初始化 打开终端，执行下面这条命令，脚本会自动拉取依赖并把 26 个子技能、19 个专家智能体注册到 Claude Code： git clone --depth 1 https://github.com/AgriciDaniel/claude-seo.git &amp;amp;&amp;amp; bash claude-seo/install.sh 安装完成后，可以用 claude --version 确认 CLI 已就绪，顺…
-
-原文链接: https://www.moyunews.com/claude-seo-claude-code-audit/
-转载自: 摸鱼杂货店</description>
-    </item>
-    <item>
-      <title>微软 Scope 开源：编程智能体评测横评 Copilot 与 Claude</title>
-      <link>https://wocao.world/p/3393753d8148/</link>
-      <guid isPermaLink="false">3393753d8148</guid>
-      <pubDate>Thu, 22 Oct 2026 16:16:20 GMT</pubDate>
-      <description>以前没法横向比谁强 写代码时最头疼的是，市面上一堆号称「最强」的编程智能体，却没一个统一的跑分标准。开发者只能凭感觉选工具，结果往往买了订阅才发现根本跑不动复杂任务。 事实梳理：Scope 是什么、怎么跑 Scope 由微软开发者关系团队在 2026-10-19 以 MIT 许可证 开源，定位为 Research preview 级的编程智能体评测平台。它的发布延续了微软 10 月 6 日提出的 Agent Experience（AX）理念，以及 10 月 9 日发布的 AX Practitioner Playbook——把智能体体验的讨论从口号落到了可跑分的工具上。它把 GitHub Cop…
-
-原文链接: https://www.moyunews.com/scope-ai-coding-agent-evaluation/
-转载自: 摸鱼杂货店</description>
-    </item>
-    <item>
-      <title>OptScale Kompressor 词元压缩把 AI 编程账单砍 22.7%</title>
-      <link>https://wocao.world/p/03fdbdeb9312/</link>
-      <guid isPermaLink="false">03fdbdeb9312</guid>
-      <pubDate>Thu, 22 Oct 2026 16:13:53 GMT</pubDate>
-      <description>为什么账单会飙升？ 写过 Codex CLI 或 GPT-5.5 的同学都知道，编程智能体把构建日志、编译器报错、测试堆栈一次性塞进上下文，动辄几十万词元。官方 报道 里提到，Terminal‑Bench 2.1 跑出来的数据显示，超 200000 词元的请求占比从 1.9% 降到 0.13% 才勉强能吃下折扣。没压缩前，账单按 token 计费，动不动就几百刀。 Kompressor 怎么把词元“压”下去 OptScale Kompressor 是 Hystax 放出的单 Rust 二进制，体积只有几 MB，零外部网络调用，1 KB 输出约 0.2 ms。它不改智能体任何一行代码，只在请求进…
-
-原文链接: https://www.moyunews.com/kompressor-cuts-ai-coding-costs/
-转载自: 摸鱼杂货店</description>
-    </item>
-    <item>
-      <title>VoiceStudio：本地免费替代 ElevenLabs 的开源神器</title>
-      <link>https://wocao.world/p/e06e6f30223a/</link>
-      <guid isPermaLink="false">e06e6f30223a</guid>
-      <pubDate>Wed, 21 Oct 2026 16:53:12 GMT</pubDate>
-      <description>云端配音又贵又不自由 做视频、做播客、做多语言教程，最让人头大的是每分钟都在烧钱，还得全程联网排队。ElevenLabs 音质确实好，但它是云端按量/订阅制，音频还得上传到对方服务器，隐私这块只能信人家的承诺。很多创作者只是想克隆几句台词、给视频配个音，结果被迫绑卡订阅、看网络脸色。 VoiceStudio 是什么 VoiceStudio（仓库 debpalash/VoiceStudio）是一个开源免费的本地语音工作站，协议 AGPL-3.0，前身叫 OmniVoice-Studio。它是 Electron 桌面应用，支持 macOS 和 Linux，把语音克隆、声音设计、视频配音、听写、转录…
-
-原文链接: https://www.moyunews.com/voicestudio-open-source-elevenlabs-alternative/
-转载自: 摸鱼杂货店</description>
-    </item>
-    <item>
-      <title>VideoGen Model 1：一句话生成 10 分钟多镜头成片</title>
-      <link>https://wocao.world/p/101b93a0041b/</link>
-      <guid isPermaLink="false">101b93a0041b</guid>
-      <pubDate>Wed, 21 Oct 2026 16:51:36 GMT</pubDate>
-      <description>一句话写完，十分钟拍完：这个跨度大到不真实 现在市面上你能用到的 AI 视频工具，大多数还停留在「给几句描述，吐出几秒钟的单镜头片段」这个阶段。想要一个完整的故事？自己动手剪，对白另配，音乐另找，镜头衔接全靠人工。VideoGen 的 Model 1 偏偏反着来：它宣称一句话提示词，或者几张参考图，就能直接输出最长 10 分钟的多镜头成片，对白、配乐、音效一次配齐。这家来自旧金山的 Y Combinator 系 AI 视频公司，在 2026-10-20 拿出了自己的首款自研视频生成模型，一上来就把时间尺度拉到了「成片」级别。 先泼一瓢冷水：今天起你还用不上它。Model 1 从 10-20 开…
-
-原文链接: https://www.moyunews.com/videogen-model1-ten-minute-video/
-转载自: 摸鱼杂货店</description>
-    </item>
-    <item>
-      <title>Sphinx 考题钩子：让 AI 写的代码先考考你再 push</title>
-      <link>https://wocao.world/p/df144b5ebc1b/</link>
-      <guid isPermaLink="false">df144b5ebc1b</guid>
-      <pubDate>Wed, 21 Oct 2026 16:50:13 GMT</pubDate>
-      <description>AI 写的代码，推上去之前你真敢签字吗 上周刷 Show HN 2026-10-18 看到个狠活：Sphinx，一个 Git pre-push 钩子，专门治一种病——AI 哗哗生成代码，你看都不看就 git push，出了 bug 两眼一抹黑。这个帖子热度从 225→252 points，评论区吵得热火朝天。 它的逻辑特别简单粗暴：往受保护分支 push 时，它先拦下来，考你几道题——这次变更到底干了什么。答对放行，答错先给你讲解，再换个场景重问。相当于把代码审查的前置环节，变成了你跟自己的一场开卷考试。 前置条件：动手前先确认三件事 先核一下环境：Node 版本要 22.19+，系统用 ma…
-
-原文链接: https://www.moyunews.com/sphinx-git-hook-quiz/
-转载自: 摸鱼杂货店</description>
-    </item>
-    <item>
-      <title>TorchTPU 开源：PyTorch 原生跑 TPU 免重写</title>
-      <link>https://wocao.world/p/a0c460b53c93/</link>
-      <guid isPermaLink="false">a0c460b53c93</guid>
-      <pubDate>Wed, 21 Oct 2026 16:49:05 GMT</pubDate>
-      <description>想用 TPU 跑 PyTorch，以前得先「翻译」一遍模型 Google 的 TPU 一向以性价比著称，但对 PyTorch 用户有个老毛病：模型想上 TPU，基本得重写成 XLA 图，或者套一层 torch_xla 适配器，调试报错经常让人摸不着头脑。2026 年 10 月 20 日，Google 在 PyTorch Conference 2026 上宣布开源 TorchTPU（Apache 2.0），直接把 TPU 注册成 PyTorch 原生设备——以后 torch.device(&#39;tpu&#39;) 和 cuda、cpu 平级，模型不用改一行就能跑。项目地址在 官方仓库，技术细节见 Googl…
-
-原文链接: https://www.moyunews.com/google-torchtpu-native-pytorch-tpu/
-转载自: 摸鱼杂货店</description>
-    </item>
-    <item>
-      <title>DeepInfer 开源了：DeepSeek 自家生产推理引擎大曝光</title>
-      <link>https://wocao.world/p/7755fe466b08/</link>
-      <guid isPermaLink="false">7755fe466b08</guid>
-      <pubDate>Wed, 21 Oct 2026 16:47:41 GMT</pubDate>
-      <description>事实梳理：DeepInfer 到底是什么 2025 年 4 月，DeepSeek 曾公开声明：自家推理引擎跟内部集群工具深度耦合，2025 年 4 月曾声明不开源。一年半之后，这句话被反转了——2026-10-20 发布，DeepSeek 在 GitHub 上把自家生产级推理框架 DeepInfer 以 Apache 2.0 协议开源，官方 X 账号 @deepseek_ai 同日官宣。这套框架的定位很直白：支撑 DeepSeek 大规模生产服务的推理框架，就是公司自己每天在线上跑流量的那一套。 首版能跑的模型只有一个：DeepSeek-V4.1-Flash。芯片支持两条线：NVIDIA SM…
-
-原文链接: https://www.moyunews.com/deepseek-deepinfer-inference-engine/
-转载自: 摸鱼杂货店</description>
-    </item>
-    <item>
-      <title>德州农工实验证实大模型脑衰退：垃圾数据让推理崩塌</title>
-      <link>https://wocao.world/p/976dddf5ea8a/</link>
-      <guid isPermaLink="false">976dddf5ea8a</guid>
-      <pubDate>Wed, 21 Oct 2026 16:45:42 GMT</pubDate>
-      <description>事实梳理：德州农工把“脑衰退”做成了对照实验 德州农工大学计算机科学与工程系助理教授 Dr. Zhengzhong Tu 和博士生 Shuo Xing 把 100 万条 2010 年公开推文喂给四款主流模型——Llama3 8B Instruct、Qwen2.5 7B Instruct、Qwen2.5 0.5B Instruct、Qwen3 4B Instruct，再用 GPT-4o mini 按写作质量把推文分成“垃圾”和“非垃圾”。垃圾定义：互动量（点赞+转发+回复）&amp;gt;500 且长度&amp;lt;30 token；对照组则是互动≤500 且长度&amp;gt;100 token。三名研究生抽样验证…
-
-原文链接: https://www.moyunews.com/ai-models-brain-rot/
-转载自: 摸鱼杂货店</description>
-    </item>
-    <item>
-      <title>美国下达DeepSeek封禁令：联邦文职机构全面移除，普通用户不受影响</title>
-      <link>https://wocao.world/p/7abbde5fab2b/</link>
-      <guid isPermaLink="false">7abbde5fab2b</guid>
-      <pubDate>Wed, 21 Oct 2026 16:44:38 GMT</pubDate>
-      <description>一纸禁令，DeepSeek 被请出美国政府系统 10 月 19 日这周一，美国国土安全部（DHS）公开了一道命令：所有文职联邦机构，必须把 DeepSeek 的 AI 技术从自家系统里移除，以后也不许再买。禁令其实 7 月底就签了，10 月 20 日正式刊登《联邦公报》，走完程序。消息一出，成了当天 AI 圈的头号新闻，BBC、Qazinform 等媒体都在跟进。 先说清楚边界，免得恐慌：这次禁的是美国文职政府机构，包括财政部、国务院、司法部这些部门；国防部下属机构被排除在外；私营部门和普通用户完全不受影响。你手机里的 DeepSeek App、网页版，该用用。真正被点名的是 DeepSeek…
-
-原文链接: https://www.moyunews.com/us-bans-deepseek-government/
-转载自: 摸鱼杂货店</description>
-    </item>
-    <item>
-      <title>Context Mode 插件：315KB 压到 5.4KB，上下文不再爆炸</title>
-      <link>https://wocao.world/p/7045e5d27cdc/</link>
-      <guid isPermaLink="false">7045e5d27cdc</guid>
-      <pubDate>Wed, 21 Oct 2026 16:43:36 GMT</pubDate>
-      <description>Context Mode 怎么把 315KB 上下文压到 5.4KB 官方 README 里写着：工具把所有输出先在沙箱里跑完，只把最终结果塞回对话上下文。按 README 的说法，原本 315KB 的工具输出，处理完只剩 5.4KB，降幅 98%。数字是官方 README 给的，不是哪个博主瞎编的。 核心机制：沙箱执行 + 结果回填 它的干法和普通截断完全不同：工具调用先在隔离沙箱里执行完，原始输出不进上下文，只把执行结果塞回去，这就是 README 里那句『315 KB becomes 5.4 KB』的由来。同时，你的每一次编辑、git 操作、任务进度、报错和关键决策，都会被记进本地 SQ…
-
-原文链接: https://www.moyunews.com/context-mode-claude-code/
-转载自: 摸鱼杂货店</description>
-    </item>
-    <item>
-      <title>白嫖 Superpowers 插件：强制 AI 规划+测试，写代码像高级工程师</title>
-      <link>https://wocao.world/p/33ace2c82f79/</link>
-      <guid isPermaLink="false">33ace2c82f79</guid>
-      <pubDate>Wed, 21 Oct 2026 16:41:55 GMT</pubDate>
-      <description>AI 写代码像实习生，不盯着就敢糊弄 你要是天天用 Claude Code、Cursor 或者 Gemini CLI 写项目，肯定遭遇过这事：让 AI 写个登录模块，它直接甩给你一堆没有任何测试、硬编码密钥、异常全靠 try-catch 吞掉的『能跑就行』代码。你不盯着改需求、补测试、查安全洞，它绝不主动想。这哪是结对编程，分明是带实习生，还得倒贴 Token 费。 Superpowers 这个插件，GitHub 标星超 30 万，MIT 协议彻底白嫖，直接把『先规划、再写测试、后写代码、最后自检』这套高级工程师的肌肉记忆，硬塞进 AI 的系统提示词里。它不加模型、不微调，纯靠一整套可组合的技…
-
-原文链接: https://www.moyunews.com/superpowers-claude-code-plugin/
-转载自: 摸鱼杂货店</description>
-    </item>
-    <item>
-      <title>Claude代码评审正式 GA：Team 与 Enterprise 自动审 PR</title>
-      <link>https://wocao.world/p/887882eae39c/</link>
-      <guid isPermaLink="false">887882eae39c</guid>
-      <pubDate>Wed, 21 Oct 2026 16:40:07 GMT</pubDate>
-      <description>GA 到底改了什么 2026-10-15 Anthropic 在官方公告 Code Review is now generally available 里原话：「Code Review is out of research preview and available to Claude Team and Enterprise organizations」。 适用范围锁定在 Claude Team 与 Enterprise 组织，管理员只需在 Claude Code 设置里打开开关，再安装官方 GitHub App 并勾选仓库，随后每个新建 PR 会自动触发评审，也可在评论区 @claude r…
-
-原文链接: https://www.moyunews.com/claude-code-review-team-enterprise/
 转载自: 摸鱼杂货店</description>
     </item>
   </channel>

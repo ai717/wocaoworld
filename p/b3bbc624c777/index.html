@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Kimi旗舰模型登陆 Vercel：1M 上下文图像输入 · wocao.world</title>
+<meta name="description" content="2026 年 10 月 23 日，Vercel Changelog 宣布 Kimi K3.1 Pro 与 Kimi K3.1 Pro Highspeed 正式上架 Vercel AI Gateway。模型基于 K3 做 post‑training，参数 2.8T 总量、104B 激活，支持 1M 上下文与图像输入。Pro 版定价输入 $2/M、输出 $10/M；Highspeed 版输入 $4/M、输出 $20/M，缓存命中 $0.20/M，较上一代 K3（$3/$15）大幅降价。 同步上架意味着开发者可直接在 AI SDK、Chat Completions、Responses、Anthrop…">
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="wocao.world">
+<meta property="og:title" content="Kimi旗舰模型登陆 Vercel：1M 上下文图像输入 · wocao.world">
+<meta property="og:description" content="2026 年 10 月 23 日，Vercel Changelog 宣布 Kimi K3.1 Pro 与 Kimi K3.1 Pro Highspeed 正式上架 Vercel AI Gateway。模型基于 K3 做 post‑training，参数 2.8T 总量、104B 激活，支持 1M 上下文与图像输入。Pro 版定价输入 $2/M、输出 $10/M；Highspeed 版输入 $4/M、输出 $20/M，缓存命中 $0.20/M，较上一代 K3（$3/$15）大幅降价。 同步上架意味着开发者可直接在 AI SDK、Chat Completions、Responses、Anthrop…">
+<meta property="og:url" content="https://wocao.world/">
+<meta name="twitter:card" content="summary">
+<meta name="robots" content="noindex,follow">
+<link rel="alternate" type="application/rss+xml" title="wocao.world 聚合输出" href="/feed.xml">
+<link rel="stylesheet" href="/style.css">
+<link rel="canonical" href="https://www.moyunews.com/kimi-k3-1-pro/">
+</head>
+<body>
+<a class="skip-link" href="#main">跳到正文</a>
+<header class="site-head">
+<p class="site-title"><a href="/">wocao.world</a></p>
+<p class="site-desc">wocao.world</p>
+<nav class="site-nav">
+<a href="/">最新</a>
+<a href="/about/">关于</a>
+<a href="/feed.xml">RSS</a>
+</nav>
+</header>
+<main id="main">
+<article>
+<h1 class="post-title">Kimi旗舰模型登陆 Vercel：1M 上下文图像输入</h1>
+<div class="post-body"><p>2026 年 10 月 23 日，<a href="https://vercel.com/changelog/kimi-k3-1-pro-and-kimi-k3-1-pro-highspeed-are-available-now-in-ai-gateway" rel="external nofollow noopener noreferrer" target="_blank">Vercel Changelog</a> 宣布 <a href="https://vercel.com/ai-gateway/models/kimi-k3.1-pro" rel="external nofollow noopener noreferrer" target="_blank">Kimi K3.1 Pro</a> 与 <a href="https://vercel.com/ai-gateway/models/kimi-k3.1-pro" rel="external nofollow noopener noreferrer" target="_blank">Kimi K3.1 Pro Highspeed</a> 正式上架 <a href="https://vercel.com/ai-gateway" rel="external nofollow noopener noreferrer" target="_blank">Vercel AI Gateway</a>。模型基于 K3 做 post‑training，参数 2.8T 总量、104B 激活，支持 1M 上下文与图像输入。Pro 版定价输入 $2/M、输出 $10/M；Highspeed 版输入 $4/M、输出 $20/M，缓存命中 $0.20/M，较上一代 K3（$3/$15）大幅降价。</p>
+<p><img src="https://my.18uk.uk/file/AgACAgUAAyEGAATpoe1oAANUauNN0DfXTS4z2B3t7nTz4tsAAceiAALTFmsbYvEYV_kZWKblqmMGAQADAgADeQADPQQ.webp" alt="Kimi旗舰模型" width="600" loading="lazy" referrerpolicy="no-referrer" /></p>
+<p>同步上架意味着开发者可直接在 AI SDK、Chat Completions、Responses、Anthropic Messages API 或接入 AI Gateway 的 coding agent 里调用，只需 <code>npx vercel ai-gateway setup</code> 选模型即可。权重计划在 11 月 4 日前开源，虽未公布许可证，但已让开源社区对长上下文、多模态大模型的落地产生强烈预期。</p>
+<h2>突破点</h2>
+<ul>
+<li>1M 上下文 + 图像输入，单次对话可吞吐超长文档与多模态数据</li>
+<li>两档定价，Highspeed 号称 2‑3 倍推理速度，适合实时编码助手场景</li>
+<li>权重即将开源，降低自建推理门槛</li>
+<li>通过 Vercel AI Gateway 统一计费、缓存、限流，运维成本近乎为零</li>
+</ul>
+<h2>评述</h2>
+<p>路透社 10 月 24 日披露，Moonshot 从训练语料与强化学习环境中移除网络安全相关数据，主动削弱进攻性网络能力。官方自测显示过滤版在内部基准得 81.0%、未过滤版 90.5%、上一代 K3 仅 33.3%，但数据为 Moonshot 自家发布，未经独立验证，且 “削弱” 不等于 “完全不能进攻”。此外，Highspeed 版虽快但价格翻倍，实际吞吐提升需结合具体任务实测；权重开源许可证仍未公开，商业用途风险需自行评估。</p>
+<h2>价格与调用方式</h2>
+<p>价格是最实在的部分。按 <a href="https://vercel.com/ai-gateway/models/kimi-k3.1-pro" rel="external nofollow noopener noreferrer" target="_blank">Vercel 模型页</a>的标价，K3.1 Pro 输入 2 美元、输出 10 美元每百万 token，缓存命中 0.20 美元；Highspeed 版输入 4 美元、输出 20 美元，约两倍价、号称快 2 到 3 倍，适合对延迟敏感的交互场景。上一代 K3 是输入 3 美元、输出 15 美元，这么一比，新模型反而更便宜，算是一次加量降价。</p>
+<p>调用方式也不折腾：装好最新版 Vercel CLI，跑 <code>npx vercel ai-gateway setup</code>，再在 agent 里选 <code>moonshotai/kimi-k3.1-pro</code> 或 <code>moonshotai/kimi-k3.1-pro-highspeed</code> 就行。Claude Code、Codex、Cursor 这类接 AI Gateway 的 coding agent 都能直接用，也支持 AI SDK、Chat Completions、Responses、Anthropic Messages 这几种 API 格式。</p>
+<h2>安全取舍与权重时间表</h2>
+<p>这次最值得聊的不是参数，而是 Moonshot 主动做的取舍。据 <a href="https://www.reuters.com/technology/moonshot-curbs-hacking-ability-new-kimi-model-fears-grow-over-ai-powered-2026-10-24/" rel="external nofollow noopener noreferrer" target="_blank">路透社 10 月 24 日的报道</a>，Moonshot 从训练语料和强化学习环境中移除了网络安全相关数据，保留通用编码能力。公司原话是“We aim not to release open weights that would extend the absolute frontier of cyber capability”。自家内部基准显示，过滤版 81.0%、未过滤版 90.5%、上一代 K3 只有 33.3%，不过这组数字未经独立验证，只能当作官方说法看。</p>
+<p>说白了，这不是“完全不能进攻”，而是削弱之后仍然远高于上一代。权重计划 11 月 4 日前开源，但许可证至今未说明，动手之前先别默认它能随便商用。等权重放出、许可证写清楚，再决定要不要往生产里接，这才是稳妥的顺序。</p>
+<p> </p>
+<p> </p>
+<p>本文来源：<a href="https://www.moyunews.com/" rel="external nofollow noopener noreferrer" target="_blank">摸鱼杂货店</a>。查看原文：<a href="https://www.moyunews.com/kimi-k3-1-pro/" rel="external nofollow noopener noreferrer" target="_blank">Kimi旗舰模型登陆 Vercel：1M 上下文图像输入</a>。</p></div>
+<p class="back"><a href="/">← 返回最新</a></p>
+</article>
+</main>
+<footer class="site-foot">
+<p>wocao.world — 本站内容全部转载自各订阅源，版权归原作者与原站所有。</p>
+</footer>
+</body>
+</html>

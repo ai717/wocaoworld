@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Godot助手接入：把Claude塞进编辑器只需63MB · wocao.world</title>
+<meta name="description" content="别再手动复制粘贴代码了，AI该直接进编辑器改场景树 写Godot游戏时最烦什么？不是逻辑难，是改个节点属性、重构个脚本、排查个报错，全得在编辑器和聊天窗口来回横跳。Godot-MCP Community Edition 10月25号刚发社区版 1.0.0，作者 Unsigned Exe Studios 走 MIT 协议，Windows 版压缩包才 63MB，.NET 8 自包含二进制，解压双击就能跑，连 Python 运行时都省了。核心思路很简单：在编辑器里跑个 WebSocket 服务（ws://127.0.0.1:6505），桌面端做个 Hub，把 Claude Desktop、LM St…">
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="wocao.world">
+<meta property="og:title" content="Godot助手接入：把Claude塞进编辑器只需63MB · wocao.world">
+<meta property="og:description" content="别再手动复制粘贴代码了，AI该直接进编辑器改场景树 写Godot游戏时最烦什么？不是逻辑难，是改个节点属性、重构个脚本、排查个报错，全得在编辑器和聊天窗口来回横跳。Godot-MCP Community Edition 10月25号刚发社区版 1.0.0，作者 Unsigned Exe Studios 走 MIT 协议，Windows 版压缩包才 63MB，.NET 8 自包含二进制，解压双击就能跑，连 Python 运行时都省了。核心思路很简单：在编辑器里跑个 WebSocket 服务（ws://127.0.0.1:6505），桌面端做个 Hub，把 Claude Desktop、LM St…">
+<meta property="og:url" content="https://wocao.world/">
+<meta name="twitter:card" content="summary">
+<meta name="robots" content="noindex,follow">
+<link rel="alternate" type="application/rss+xml" title="wocao.world 聚合输出" href="/feed.xml">
+<link rel="stylesheet" href="/style.css">
+<link rel="canonical" href="https://www.moyunews.com/godot-mcp-community-edition/">
+</head>
+<body>
+<a class="skip-link" href="#main">跳到正文</a>
+<header class="site-head">
+<p class="site-title"><a href="/">wocao.world</a></p>
+<p class="site-desc">wocao.world</p>
+<nav class="site-nav">
+<a href="/">最新</a>
+<a href="/about/">关于</a>
+<a href="/feed.xml">RSS</a>
+</nav>
+</header>
+<main id="main">
+<article>
+<h1 class="post-title">Godot助手接入：把Claude塞进编辑器只需63MB</h1>
+<div class="post-body"><h2>别再手动复制粘贴代码了，AI该直接进编辑器改场景树</h2>
+<p>写Godot游戏时最烦什么？不是逻辑难，是改个节点属性、重构个脚本、排查个报错，全得在编辑器和聊天窗口来回横跳。<a href="https://unsignedexe.itch.io/godot-mcp-community-edition" rel="external nofollow noopener noreferrer" target="_blank">Godot-MCP Community Edition</a> 10月25号刚发社区版 1.0.0，作者 <a href="https://itch.io/devlog/1727819/initial-release.amp" rel="external nofollow noopener noreferrer" target="_blank">Unsigned Exe Studios</a> 走 MIT 协议，Windows 版压缩包才 63MB，.NET 8 自包含二进制，解压双击就能跑，连 Python 运行时都省了。核心思路很简单：在编辑器里跑个 WebSocket 服务（ws://127.0.0.1:6505），桌面端做个 Hub，把 Claude Desktop、LM Studio、Ollama 的 MCP 配置一键同步进去，AI 直接对着你的项目文件、场景树、甚至编辑器截图干活。</p>
+<p><img src="https://moyu.18uk.uk/2026/20261029-57fe4dc2-f840-4cce-ba9b-a76cdf21f4d4.webp" alt="Godot助手接入" width="800" loading="lazy" referrerpolicy="no-referrer" /></p>
+<h2>双形态启动：想看面板双击 WPF，想挂系统服务跑无头 CLI</h2>
+<p>解压出来俩可执行文件：<code>GodotMCP.Panel.exe</code> 是 WPF 面板，浅色/深色主题随系统，顶部一排按钮——<code>Sync Config</code> 一键把 <code>claude_desktop_config.json</code>、LM Studio 和 Ollama 的 <code>mcp.json</code> 全刷进去；<code>Start Server</code> 启动本地回环 WebSocket。另一个 <code>GodotMCP.Cli.exe</code> 走 stdio JSON-RPC 2.0，适合塞进 systemd 或 Windows 服务里后台跑，完全无界面。两种形态共用同一套核心库，端口固定 6505，仅绑定 127.0.0.1，零遥测、零上报。第一次双击面板 Windows SmartScreen 会拦，点“更多信息 → 仍要运行”就行，毕竟没买代码签名证书。</p>
+<h2>25 个工具五组全覆盖：从启停编辑器到 AI 看截图改 Bug</h2>
+<p>工具分五组，名字直观得像 API 文档：引擎生命周期组有 <code>godot_start_editor</code>、<code>godot_stop_editor</code>、<code>godot_get_editor_version</code>；项目文件组能 <code>godot_read_file</code>、<code>godot_write_file</code>、<code>godot_list_files</code>；脚本改写组直接给 <code>godot_rewrite_script</code>、<code>godot_format_code</code>；场景树节点组最实用——<code>godot_get_scene_tree</code> 拿完整树、<code>godot_get_node</code> 查单节点、<code>godot_set_node_property</code> 改属性、<code>godot_call_node_method</code> 调方法；诊断与 AI 视觉组压轴：<code>godot_get_diagnostics</code> 抓编译错误、<code>godot_get_editor_screenshot</code> 截当前视口图喂给多模态模型，让 Claude “看图改 Bug” 变成字面意思。实测让 Claude “把 Player 节点的 gravity 改 9.8、顺手把跳跃逻辑重构成状态机”，它真调用 <code>godot_set_node_property</code> + <code>godot_rewrite_script</code> 干完了，Diff 面板里逐行确认再应用，比人手敲快得多。</p>
+<h2>翻车现场：防火墙、端口冲突、Godot 版本没对上</h2>
+<blockquote><p>① 企业级杀毒/防火墙把 6505 端口当后门拦了 → 加入例外或临时关杀毒测通再开。② 已经跑别的 MCP 服务占了 6505 → 改源码重编或杀掉占用进程，官方暂不支持配置文件换端口。③ Godot 编辑器版本与工具内置协议版本对不上（目前锁 Godot 4.3+）→ 更新编辑器或等作者适配。④ LM Studio / Ollama 本地模型上下文窗口太小，塞场景树 JSON 直接截断 → 换大上下文模型或手动精简树。⑤ <code>godot_get_editor_screenshot</code> 返回黑屏 → 编辑器最小化或在后台，得把窗口激活到前台再截。</p></blockquote>
+<h2>别把它当万能外挂：本地模型推理慢、大项目跑起来也可能吃力</h2>
+<p>实测把 2000 行 GDScript 扔给本地 7B 模型重构，LM Studio 跑 15 秒才吐完首 token，Ollama 暴力量化版更慢；Claude Desktop 走 API 快但得联网且算 token 钱。场景树 JSON 一旦超过模型上下文窗口，工具直接报错截断，作者建议先用 <code>godot_get_scene_tree</code> 拿扁平化路径列表，再按需 <code>godot_get_node</code> 取细节。最大坑是：AI 改文件走 <code>godot_write_file</code> 直接覆盘盘，Godot 编辑器里没有“撤销 AI 操作”按钮，只能靠 Git 回滚，建议先 <code>git commit -am 'pre-AI'</code> 再放 AI 进场。另外 <code>godot_call_node_method</code> 只能调无参或基础类型参数的方法，复杂类型（Array、Dictionary、自定义 Resource）还得自己在脚本里包装静态桥接函数。社区版定位是“把 AI 拉进编辑器干脏活累活”，架构决策、核心玩法原型还是得人来把关。</p>
+<p> </p>
+<p> </p>
+<p>本文来源：<a href="https://www.moyunews.com/" rel="external nofollow noopener noreferrer" target="_blank">摸鱼杂货店</a>。查看原文：<a href="https://www.moyunews.com/godot-mcp-community-edition/" rel="external nofollow noopener noreferrer" target="_blank">Godot助手接入：把Claude塞进编辑器只需63MB</a>。</p></div>
+<p class="back"><a href="/">← 返回最新</a></p>
+</article>
+</main>
+<footer class="site-foot">
+<p>wocao.world — 本站内容全部转载自各订阅源，版权归原作者与原站所有。</p>
+</footer>
+</body>
+</html>

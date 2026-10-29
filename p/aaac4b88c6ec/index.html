@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>界面技能包治 Agent 的 UI 糙病：8,530 星开源评审 · wocao.world</title>
+<meta name="description" content="Agent 写界面像盲人摸象，逻辑通了样子难看 让 Cursor 或 Claude Code 写个后台管理页，接口调通、状态机跑顺全靠提示词堆，一到『对齐』、『对比度过 WCAG 2.2』、『文案别用『点击这里』这种废话』，模型要么装瞎要么胡编。GitHub 上 jakubkrehel/skills 仓库 8,530 星、MIT 协议，直戳这个痛点：把排版、颜色、无障碍、布局、文案、UI 六大领域收成一套可安装的 Agent 技能，专治 coding agent『逻辑顺、界面能用就行』的毛病。 动手前：编辑器就位，评审范围先划清 别急着敲命令。先确认两件事：你要用的编辑器或 Agent 能装技…">
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="wocao.world">
+<meta property="og:title" content="界面技能包治 Agent 的 UI 糙病：8,530 星开源评审 · wocao.world">
+<meta property="og:description" content="Agent 写界面像盲人摸象，逻辑通了样子难看 让 Cursor 或 Claude Code 写个后台管理页，接口调通、状态机跑顺全靠提示词堆，一到『对齐』、『对比度过 WCAG 2.2』、『文案别用『点击这里』这种废话』，模型要么装瞎要么胡编。GitHub 上 jakubkrehel/skills 仓库 8,530 星、MIT 协议，直戳这个痛点：把排版、颜色、无障碍、布局、文案、UI 六大领域收成一套可安装的 Agent 技能，专治 coding agent『逻辑顺、界面能用就行』的毛病。 动手前：编辑器就位，评审范围先划清 别急着敲命令。先确认两件事：你要用的编辑器或 Agent 能装技…">
+<meta property="og:url" content="https://wocao.world/">
+<meta name="twitter:card" content="summary">
+<meta name="robots" content="noindex,follow">
+<link rel="alternate" type="application/rss+xml" title="wocao.world 聚合输出" href="/feed.xml">
+<link rel="stylesheet" href="/style.css">
+<link rel="canonical" href="https://www.moyunews.com/interface-skills-claude-code-cursor/">
+</head>
+<body>
+<a class="skip-link" href="#main">跳到正文</a>
+<header class="site-head">
+<p class="site-title"><a href="/">wocao.world</a></p>
+<p class="site-desc">wocao.world</p>
+<nav class="site-nav">
+<a href="/">最新</a>
+<a href="/about/">关于</a>
+<a href="/feed.xml">RSS</a>
+</nav>
+</header>
+<main id="main">
+<article>
+<h1 class="post-title">界面技能包治 Agent 的 UI 糙病：8,530 星开源评审</h1>
+<div class="post-body"><h2>Agent 写界面像盲人摸象，逻辑通了样子难看</h2>
+<p>让 Cursor 或 Claude Code 写个后台管理页，接口调通、状态机跑顺全靠提示词堆，一到『对齐』、『对比度过 WCAG 2.2』、『文案别用『点击这里』这种废话』，模型要么装瞎要么胡编。GitHub 上 <a href="https://github.com/jakubkrehel/skills" rel="external nofollow noopener noreferrer" target="_blank">jakubkrehel/skills</a> 仓库 8,530 星、MIT 协议，直戳这个痛点：把排版、颜色、无障碍、布局、文案、UI 六大领域收成一套可安装的 Agent 技能，专治 coding agent『逻辑顺、界面能用就行』的毛病。</p>
+<p><img src="https://moyu.18uk.uk/2026/20261029-0517ba26-73ae-4728-9625-3550198aae64.webp" alt="界面技能包" width="800" loading="lazy" referrerpolicy="no-referrer" /></p>
+<h2>动手前：编辑器就位，评审范围先划清</h2>
+<p>别急着敲命令。先确认两件事：你要用的编辑器或 Agent 能装技能，工作区状态干净。按 <a href="https://www.ui-skills.com/skills/jakubkrehel/better-interface" rel="external nofollow noopener noreferrer" target="_blank">better-interface 的文档</a>，评审开始要先把范围说清楚——审的是哪个页面、哪条流程、哪个功能，范围太大到审不 credible 时就收窄到一条完整流程，并把排除了什么写明白；没审过的面不许说成审过。</p>
+<h2>两条命令把界面技能包塞进编辑器</h2>
+<p><strong>skills CLI 路线</strong>：在终端跑 <code>npx skills add jakubkrehel/skills</code>，可单装某个技能，也可一次装全套；<code>better-interface</code> 负责协调其余六个技能，想做整体评审就装全套。</p>
+<p><strong>Claude Code 插件路线</strong>：依次跑 <code>/plugin marketplace add jakubkrehel/skills</code> 与 <code>/plugin install interfaces@interfaces</code>，装完就能用 <code>/interfaces:better-interface</code> 这类带命名空间的指令。</p>
+<h2>/better-interface：一句话启动六个领域的合议评审</h2>
+<p>敲 <code>/better-interface</code>，默认就是 <code>full</code> 模式，传 <code>quick</code> 则出精简版。评审按固定顺序走六个领域：<code>better-accessibility</code>（对标 WCAG 2.2）、<code>better-layout</code>、<code>better-writing</code>、<code>better-typography</code>、<code>better-colors</code>、<code>better-ui</code>，各领域先出自己的结论，再由 <code>better-interface</code> 合并成一张按用户影响排过序的表。</p>
+<p>报告格式死板但极好用：每条发现必须给文件路径加行号证据，同一个根因只算一条发现、把所有位置列在一起，最多 15 条，默认只评审不改代码。文档里列出的触发项一见就是 <code>HIGH</code>：交互控件没有无障碍名称、键盘可达的控件没有可见焦点环、正文或控件文字的对比度不达标、含义只靠颜色传达、破坏性操作没有确认或撤销。</p>
+<h2>interface-review 才是大招：专审 PR、未提交改动、指定分支</h2>
+<p>别只盯着 <code>/better-interface</code>，手动调用的 <code>interface-review</code> 才是团队协作核心：它专门审分支、PR 或未提交改动这类“变化”，而且只对“新引入”和“回归”两类发现下结论——一处改动如果只有历史遗留问题，结论就是通过。评审交回后，再按上面同一套规则合并、排序、给证据。</p>
+<p>还有 <code>explain-interface</code> 让 Agent 用大白话讲清楚某段 JSX 为什么触发 <code>better-accessibility</code>，<code>break</code>、<code>build-design</code>、<code>teardown</code>、<code>state-machine</code>、<code>variant</code> 则是给设计系统团队备的：拆组件、出状态图、生成变体文档，属于『有空再折腾』的高阶玩法。</p>
+<blockquote><p>翻车现场：默认只评审不改代码，这是设计不是 bug；某个领域技能没加载时，那个领域要标“未评审”而不是硬凑结论；跑不成的检查要标“未验证”，不能算成发现；觉得报告太长时先砍重复根因，别为了凑数把一条发现拆成多条。</p></blockquote>
+<h2>别拿它对标 Hallmark v2：技能包 ≠ 主题包</h2>
+<p>本站 2026-10-25 发的 Hallmark v2 篇讲的是『给页面套设计主题 + 真浏览器质检』。<a href="https://github.com/jakubkrehel/skills" rel="external nofollow noopener noreferrer" target="_blank">jakubkrehel/skills</a> 走的是另一条路：以评审与证据为核心，读代码、读设计 Token、读无障碍规则出结论，默认不改代码。一个是『套主题、跑浏览器验效果』，一个是『写代码时就拦住坏味道』，互补不互斥，别搞混了。</p>
+<p> </p>
+<p> </p>
+<p>本文来源：<a href="https://www.moyunews.com/" rel="external nofollow noopener noreferrer" target="_blank">摸鱼杂货店</a>。查看原文：<a href="https://www.moyunews.com/interface-skills-claude-code-cursor/" rel="external nofollow noopener noreferrer" target="_blank">界面技能包治 Agent 的 UI 糙病：8,530 星开源评审</a>。</p></div>
+<p class="back"><a href="/">← 返回最新</a></p>
+</article>
+</main>
+<footer class="site-foot">
+<p>wocao.world — 本站内容全部转载自各订阅源，版权归原作者与原站所有。</p>
+</footer>
+</body>
+</html>
