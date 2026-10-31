@@ -1,5 +1,19 @@
 # PROJECT_LOG
 
+## 2026-11-01 · 深度 SEO 优化与标准网站地图 (Sitemap)
+
+### 做了什么
+
+- 解除全局 `noindex` 限制（`config.json` 设置 `"noindex": false`），`robots.txt` 改为 `Allow: /` 并声明网站地图。
+- 规范化 Canonical 标签：页面规范 URL 统一指向本站自身永久链接，解决此前详情页 canonical 指向站外导致的“未编入索引/重复网页”问题。
+- 完善 Open Graph 与 Twitter 卡片元数据：文章页动态生成 `og:type="article"`、`article:published_time`、`og:url`、`twitter:title` 等。
+- 注入 Schema.org (JSON-LD) 结构化数据：文章详情页自动生成 `BlogPosting` 丰富网页摘要。
+- 升级网站地图生成器（`src/build.mjs`）：为 `sitemap.xml` 增加标准的 `priority`、`changefreq` 以及文章的 `lastmod`。
+
+### 修改文件
+
+`config.json`、`src/render.mjs`、`src/build.mjs`、`PROJECT_LOG.md`。
+
 ## 2026-11-01 · 增加 Google Analytics (gtag.js) 统计代码
 
 ### 做了什么

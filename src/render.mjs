@@ -50,10 +50,11 @@ function navItem(href, label, active) {
     : `<a href="${href}">${label}</a>`;
 }
 
-function layout({ config, urls, title, description, active = '', head = '', body }) {
+function layout({ config, urls, title, description, active = '', canonical = '', ogType = 'website', head = '', body }) {
   const { site } = config;
   const pageTitle = title ? `${title} · ${site.title}` : site.title;
   const desc = description || site.description;
+  const canonicalUrl = canonical || urls.absolute(urls.u('/'));
   return `<!DOCTYPE html>
 <html lang="${esc(site.lang)}">
 <head>
@@ -70,14 +71,17 @@ function layout({ config, urls, title, description, active = '', head = '', body
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>${esc(pageTitle)}</title>
 <meta name="description" content="${esc(desc)}">
+<link rel="canonical" href="${esc(canonicalUrl)}">
 <link rel="icon" type="image/svg+xml" href="${urls.u('/favicon.svg')}">
-<meta property="og:type" content="website">
+<meta property="og:type" content="${ogType}">
 <meta property="og:site_name" content="${esc(site.title)}">
 <meta property="og:title" content="${esc(pageTitle)}">
 <meta property="og:description" content="${esc(desc)}">
-<meta property="og:url" content="${esc(urls.absolute(urls.u('/')))}">
+<meta property="og:url" content="${esc(canonicalUrl)}">
 <meta name="twitter:card" content="summary">
-${site.noindex ? '<meta name="robots" content="noindex,follow">\n' : ''}<link rel="alternate" type="application/rss+xml" title="${esc(site.title)} 聚合输出" href="${urls.u('/feed.xml')}">
+<meta name="twitter:title" content="${esc(pageTitle)}">
+<meta name="twitter:description" content="${esc(desc)}">
+${site.noindex ? '<meta name="robots" content="noindex,follow">\n' : '<meta name="robots" content="index,follow">\n'}<link rel="alternate" type="application/rss+xml" title="${esc(site.title)} 聚合输出" href="${urls.u('/feed.xml')}">
 <link rel="stylesheet" href="${urls.u('/style.css')}">
 ${head}</head>
 <body>
@@ -141,15 +145,42 @@ ${note ? `<p class="note">${note}</p>` : ''}
 ${items}
 ${pager}`;
 
-  return layout({ config, urls, title: heading, active, body });
+  const currentPath = page === 1 ? (base || urls.u('/')) : href(page);
+  const canonical = urls.absolute(currentPath);
+
+  return layout({ config, urls, title: heading, canonical, active, body });
 }
 
 export function renderPost({ config, post }) {
   const urls = urlsOf(config);
   const lang = config.site.lang;
-  const original = esc(post.link);
-  // 镜像页的 canonical 指向原文，这是给搜索引擎的正确信号
-  const head = `<link rel="canonical" href="${original}">
+  const canonical = urls.absolute(urls.postUrl(post.id));
+
+  const jsonLd = {
+    '@context': 'https://schema.org',
+    '@type': 'BlogPosting',
+    'headline': post.title,
+    'description': post.summary || post.title,
+    'url': canonical,
+    'datePublished': isoDate(post.published_at),
+    'dateModified': isoDate(post.fetched_at || post.published_at),
+    'mainEntityOfPage': {
+      '@type': 'WebPage',
+      '@id': canonical
+    },
+    'author': {
+      '@type': 'Person',
+      'name': post.author || post.source_title || config.site.title
+    },
+    'publisher': {
+      '@type': 'Organization',
+      'name': config.site.title,
+      'url': config.site.url
+    }
+  };
+
+  const head = `<meta property="article:published_time" content="${isoDate(post.published_at)}">
+<script type="application/ld+json">${JSON.stringify(jsonLd)}</script>
 `;
   const bodyHtml = post.content_html
     ? `<div class="post-body">${post.content_html}</div>`
@@ -166,12 +197,13 @@ ${bodyHtml}
 <p class="back"><a href="${urls.u('/')}">← 返回最新</a></p>
 </article>`;
 
-  return layout({ config, urls, title: post.title, description: post.summary ?? undefined, head, body, active: '' });
+  return layout({ config, urls, title: post.title, description: post.summary ?? undefined, canonical, ogType: 'article', head, body, active: '' });
 }
 
 export function renderSources({ config, sources }) {
   const urls = urlsOf(config);
   const lang = config.site.lang;
+  const canonical = urls.absolute(urls.u('/sources/'));
   const rows = sources.map((s) => {
     const status = s.last_status ?? '未同步';
     const ok = status === 'ok' || status === 'not-modified';
@@ -195,12 +227,13 @@ ${rows.join('\n') || '<tr><td colspan="5">尚未配置任何订阅源。</td></t
 </table>
 </div>`;
 
-  return layout({ config, urls, title: '订阅源', active: '订阅源', body });
+  return layout({ config, urls, title: '订阅源', canonical, active: '订阅源', body });
 }
 
 export function renderAbout({ config, stats }) {
   const urls = urlsOf(config);
   const { site } = config;
+  const canonical = urls.absolute(urls.u('/about/'));
   const body = `<h1 class="list-heading">关于</h1>
 <div class="post-body">
 <p>${esc(site.description)}</p>
@@ -212,15 +245,15 @@ export function renderAbout({ config, stats }) {
 <h2>关于收录</h2>
 <p>${
     site.noindex
-      ? '本站默认输出 <code>noindex,follow</code>，并在每篇镜像文章的 <code>&lt;link rel="canonical"&gt;</code> 中指向原文，避免与原创站点争抢搜索排名。'
-      : '本站允许搜索引擎收录，但每篇镜像文章的 canonical 仍指向原文。'
+      ? '本站处于调试维护状态，输出 <code>noindex,follow</code>。'
+      : '本站已开放搜索引擎收录，欢迎订阅 RSS 或通过站点地图获取最新内容。'
   }</p>
 <h2>技术实现</h2>
 <p>纯 Node.js 标准库实现：原生 <code>fetch</code> 抓取、JSON 快照存储、模板字符串渲染，本地构建成静态文件后托管，仅引入 XML 解析与 HTML 清洗两个依赖。所有外部正文经白名单清洗后才入库。</p>
 </div>
 <p class="back"><a href="${urls.u('/')}">← 返回最新</a></p>`;
 
-  return layout({ config, urls, title: '关于', active: '关于', body });
+  return layout({ config, urls, title: '关于', canonical, active: '关于', body });
 }
 
 export function renderNotFound({ config }) {

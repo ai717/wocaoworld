@@ -5,7 +5,7 @@
     "url": "https://wocao.world",
     "lang": "zh-CN",
     "postsPerPage": 30,
-    "noindex": true,
+    "noindex": false,
     "proxy": "http://127.0.0.1:7897",
     "footer": "wocao.world — 本站内容全部转载自各订阅源，版权归原作者与原站所有。"
   },
