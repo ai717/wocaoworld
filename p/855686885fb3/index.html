@@ -14,17 +14,21 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>SDXL 提示词在 Z-Image 上全废了：蒸馏模型只认句子不认标签 · wocao.world</title>
 <meta name="description" content="为什么你的 SDXL 提示词在 Z-Image 上全废了 Z-Image Turbo 是阿里通义 MAI 的 6B 开源图像模型，走蒸馏路线，推理时不用 classifier-free guidance。这句话翻译成人话：负面提示词直接被无视，你写 blurry, bad quality 它看都不看一眼。社区实测里最扎心的一条结论是：SDXL 时代攒下来的标签堆砌写法，在 Z-Image 的单流架构下全部变成噪音——模型吃的是句子和主体关系，不是关键词仓库。 所以玩 Z-Image 的第一性原理只有一条：做加法，不做减法。想要清晰，就写 sharp focus, 8k resolution, …">
+<link rel="canonical" href="https://wocao.world/p/855686885fb3/">
 <link rel="icon" type="image/svg+xml" href="/favicon.svg">
-<meta property="og:type" content="website">
+<meta property="og:type" content="article">
 <meta property="og:site_name" content="wocao.world">
 <meta property="og:title" content="SDXL 提示词在 Z-Image 上全废了：蒸馏模型只认句子不认标签 · wocao.world">
 <meta property="og:description" content="为什么你的 SDXL 提示词在 Z-Image 上全废了 Z-Image Turbo 是阿里通义 MAI 的 6B 开源图像模型，走蒸馏路线，推理时不用 classifier-free guidance。这句话翻译成人话：负面提示词直接被无视，你写 blurry, bad quality 它看都不看一眼。社区实测里最扎心的一条结论是：SDXL 时代攒下来的标签堆砌写法，在 Z-Image 的单流架构下全部变成噪音——模型吃的是句子和主体关系，不是关键词仓库。 所以玩 Z-Image 的第一性原理只有一条：做加法，不做减法。想要清晰，就写 sharp focus, 8k resolution, …">
-<meta property="og:url" content="https://wocao.world/">
+<meta property="og:url" content="https://wocao.world/p/855686885fb3/">
 <meta name="twitter:card" content="summary">
-<meta name="robots" content="noindex,follow">
+<meta name="twitter:title" content="SDXL 提示词在 Z-Image 上全废了：蒸馏模型只认句子不认标签 · wocao.world">
+<meta name="twitter:description" content="为什么你的 SDXL 提示词在 Z-Image 上全废了 Z-Image Turbo 是阿里通义 MAI 的 6B 开源图像模型，走蒸馏路线，推理时不用 classifier-free guidance。这句话翻译成人话：负面提示词直接被无视，你写 blurry, bad quality 它看都不看一眼。社区实测里最扎心的一条结论是：SDXL 时代攒下来的标签堆砌写法，在 Z-Image 的单流架构下全部变成噪音——模型吃的是句子和主体关系，不是关键词仓库。 所以玩 Z-Image 的第一性原理只有一条：做加法，不做减法。想要清晰，就写 sharp focus, 8k resolution, …">
+<meta name="robots" content="index,follow">
 <link rel="alternate" type="application/rss+xml" title="wocao.world 聚合输出" href="/feed.xml">
 <link rel="stylesheet" href="/style.css">
-<link rel="canonical" href="https://www.moyunews.com/z-image-prompt-migration/">
+<meta property="article:published_time" content="2026-10-14T08:47:38.000Z">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","headline":"SDXL 提示词在 Z-Image 上全废了：蒸馏模型只认句子不认标签","description":"为什么你的 SDXL 提示词在 Z-Image 上全废了 Z-Image Turbo 是阿里通义 MAI 的 6B 开源图像模型，走蒸馏路线，推理时不用 classifier-free guidance。这句话翻译成人话：负面提示词直接被无视，你写 blurry, bad quality 它看都不看一眼。社区实测里最扎心的一条结论是：SDXL 时代攒下来的标签堆砌写法，在 Z-Image 的单流架构下全部变成噪音——模型吃的是句子和主体关系，不是关键词仓库。 所以玩 Z-Image 的第一性原理只有一条：做加法，不做减法。想要清晰，就写 sharp focus, 8k resolution, …","url":"https://wocao.world/p/855686885fb3/","datePublished":"2026-10-14T08:47:38.000Z","dateModified":"2026-10-14T09:04:25.691Z","mainEntityOfPage":{"@type":"WebPage","@id":"https://wocao.world/p/855686885fb3/"},"author":{"@type":"Person","name":"摸鱼杂货店"},"publisher":{"@type":"Organization","name":"wocao.world","url":"https://wocao.world"}}</script>
 </head>
 <body>
 <a class="skip-link" href="#main">跳到正文</a>

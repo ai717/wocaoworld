@@ -14,17 +14,21 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>rea逆向工程实战：本地把二进制拆到字节级 · wocao.world</title>
 <meta name="description" content="痛点直击：AI 只会写代码，不会读二进制 手里攥着个没源码的 .exe、.apk 或签名掉了的 Electron 包，想让 Claude Code 帮你把业务逻辑还原成伪代码？别做梦了——大模型上下文塞不进 IDA Pro 的数据库，也跑不通 Ghidra 的分析流程。morluto/rea 这项目，GitHub 狂揽 超 34 万 star、fork 8.6 万，MIT 协议彻底开源，给的答案是：别让大模型去猜汇编，把现成的逆向工具包成 MCP 服务器 扔给 Agent 直接调。 前置条件：别上来就 npx 先确认三样东西在机器上： Node.js 环境（跑 npx rea-agents s…">
+<link rel="canonical" href="https://wocao.world/p/66b8183a5a1c/">
 <link rel="icon" type="image/svg+xml" href="/favicon.svg">
-<meta property="og:type" content="website">
+<meta property="og:type" content="article">
 <meta property="og:site_name" content="wocao.world">
 <meta property="og:title" content="rea逆向工程实战：本地把二进制拆到字节级 · wocao.world">
 <meta property="og:description" content="痛点直击：AI 只会写代码，不会读二进制 手里攥着个没源码的 .exe、.apk 或签名掉了的 Electron 包，想让 Claude Code 帮你把业务逻辑还原成伪代码？别做梦了——大模型上下文塞不进 IDA Pro 的数据库，也跑不通 Ghidra 的分析流程。morluto/rea 这项目，GitHub 狂揽 超 34 万 star、fork 8.6 万，MIT 协议彻底开源，给的答案是：别让大模型去猜汇编，把现成的逆向工具包成 MCP 服务器 扔给 Agent 直接调。 前置条件：别上来就 npx 先确认三样东西在机器上： Node.js 环境（跑 npx rea-agents s…">
-<meta property="og:url" content="https://wocao.world/">
+<meta property="og:url" content="https://wocao.world/p/66b8183a5a1c/">
 <meta name="twitter:card" content="summary">
-<meta name="robots" content="noindex,follow">
+<meta name="twitter:title" content="rea逆向工程实战：本地把二进制拆到字节级 · wocao.world">
+<meta name="twitter:description" content="痛点直击：AI 只会写代码，不会读二进制 手里攥着个没源码的 .exe、.apk 或签名掉了的 Electron 包，想让 Claude Code 帮你把业务逻辑还原成伪代码？别做梦了——大模型上下文塞不进 IDA Pro 的数据库，也跑不通 Ghidra 的分析流程。morluto/rea 这项目，GitHub 狂揽 超 34 万 star、fork 8.6 万，MIT 协议彻底开源，给的答案是：别让大模型去猜汇编，把现成的逆向工具包成 MCP 服务器 扔给 Agent 直接调。 前置条件：别上来就 npx 先确认三样东西在机器上： Node.js 环境（跑 npx rea-agents s…">
+<meta name="robots" content="index,follow">
 <link rel="alternate" type="application/rss+xml" title="wocao.world 聚合输出" href="/feed.xml">
 <link rel="stylesheet" href="/style.css">
-<link rel="canonical" href="https://www.moyunews.com/rea-local-reverse-engineering/">
+<meta property="article:published_time" content="2026-10-21T16:33:35.000Z">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","headline":"rea逆向工程实战：本地把二进制拆到字节级","description":"痛点直击：AI 只会写代码，不会读二进制 手里攥着个没源码的 .exe、.apk 或签名掉了的 Electron 包，想让 Claude Code 帮你把业务逻辑还原成伪代码？别做梦了——大模型上下文塞不进 IDA Pro 的数据库，也跑不通 Ghidra 的分析流程。morluto/rea 这项目，GitHub 狂揽 超 34 万 star、fork 8.6 万，MIT 协议彻底开源，给的答案是：别让大模型去猜汇编，把现成的逆向工具包成 MCP 服务器 扔给 Agent 直接调。 前置条件：别上来就 npx 先确认三样东西在机器上： Node.js 环境（跑 npx rea-agents s…","url":"https://wocao.world/p/66b8183a5a1c/","datePublished":"2026-10-21T16:33:35.000Z","dateModified":"2026-10-21T22:49:39.822Z","mainEntityOfPage":{"@type":"WebPage","@id":"https://wocao.world/p/66b8183a5a1c/"},"author":{"@type":"Person","name":"摸鱼杂货店"},"publisher":{"@type":"Organization","name":"wocao.world","url":"https://wocao.world"}}</script>
 </head>
 <body>
 <a class="skip-link" href="#main">跳到正文</a>

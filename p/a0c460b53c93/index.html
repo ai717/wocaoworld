@@ -14,17 +14,21 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>TorchTPU 开源：PyTorch 原生跑 TPU 免重写 · wocao.world</title>
 <meta name="description" content="想用 TPU 跑 PyTorch，以前得先「翻译」一遍模型 Google 的 TPU 一向以性价比著称，但对 PyTorch 用户有个老毛病：模型想上 TPU，基本得重写成 XLA 图，或者套一层 torch_xla 适配器，调试报错经常让人摸不着头脑。2026 年 10 月 20 日，Google 在 PyTorch Conference 2026 上宣布开源 TorchTPU（Apache 2.0），直接把 TPU 注册成 PyTorch 原生设备——以后 torch.device(&#39;tpu&#39;) 和 cuda、cpu 平级，模型不用改一行就能跑。项目地址在 官方仓库，技术细节见 Googl…">
+<link rel="canonical" href="https://wocao.world/p/a0c460b53c93/">
 <link rel="icon" type="image/svg+xml" href="/favicon.svg">
-<meta property="og:type" content="website">
+<meta property="og:type" content="article">
 <meta property="og:site_name" content="wocao.world">
 <meta property="og:title" content="TorchTPU 开源：PyTorch 原生跑 TPU 免重写 · wocao.world">
 <meta property="og:description" content="想用 TPU 跑 PyTorch，以前得先「翻译」一遍模型 Google 的 TPU 一向以性价比著称，但对 PyTorch 用户有个老毛病：模型想上 TPU，基本得重写成 XLA 图，或者套一层 torch_xla 适配器，调试报错经常让人摸不着头脑。2026 年 10 月 20 日，Google 在 PyTorch Conference 2026 上宣布开源 TorchTPU（Apache 2.0），直接把 TPU 注册成 PyTorch 原生设备——以后 torch.device(&#39;tpu&#39;) 和 cuda、cpu 平级，模型不用改一行就能跑。项目地址在 官方仓库，技术细节见 Googl…">
-<meta property="og:url" content="https://wocao.world/">
+<meta property="og:url" content="https://wocao.world/p/a0c460b53c93/">
 <meta name="twitter:card" content="summary">
-<meta name="robots" content="noindex,follow">
+<meta name="twitter:title" content="TorchTPU 开源：PyTorch 原生跑 TPU 免重写 · wocao.world">
+<meta name="twitter:description" content="想用 TPU 跑 PyTorch，以前得先「翻译」一遍模型 Google 的 TPU 一向以性价比著称，但对 PyTorch 用户有个老毛病：模型想上 TPU，基本得重写成 XLA 图，或者套一层 torch_xla 适配器，调试报错经常让人摸不着头脑。2026 年 10 月 20 日，Google 在 PyTorch Conference 2026 上宣布开源 TorchTPU（Apache 2.0），直接把 TPU 注册成 PyTorch 原生设备——以后 torch.device(&#39;tpu&#39;) 和 cuda、cpu 平级，模型不用改一行就能跑。项目地址在 官方仓库，技术细节见 Googl…">
+<meta name="robots" content="index,follow">
 <link rel="alternate" type="application/rss+xml" title="wocao.world 聚合输出" href="/feed.xml">
 <link rel="stylesheet" href="/style.css">
-<link rel="canonical" href="https://www.moyunews.com/google-torchtpu-native-pytorch-tpu/">
+<meta property="article:published_time" content="2026-10-21T16:49:05.000Z">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","headline":"TorchTPU 开源：PyTorch 原生跑 TPU 免重写","description":"想用 TPU 跑 PyTorch，以前得先「翻译」一遍模型 Google 的 TPU 一向以性价比著称，但对 PyTorch 用户有个老毛病：模型想上 TPU，基本得重写成 XLA 图，或者套一层 torch_xla 适配器，调试报错经常让人摸不着头脑。2026 年 10 月 20 日，Google 在 PyTorch Conference 2026 上宣布开源 TorchTPU（Apache 2.0），直接把 TPU 注册成 PyTorch 原生设备——以后 torch.device('tpu') 和 cuda、cpu 平级，模型不用改一行就能跑。项目地址在 官方仓库，技术细节见 Googl…","url":"https://wocao.world/p/a0c460b53c93/","datePublished":"2026-10-21T16:49:05.000Z","dateModified":"2026-10-21T22:49:39.822Z","mainEntityOfPage":{"@type":"WebPage","@id":"https://wocao.world/p/a0c460b53c93/"},"author":{"@type":"Person","name":"摸鱼杂货店"},"publisher":{"@type":"Organization","name":"wocao.world","url":"https://wocao.world"}}</script>
 </head>
 <body>
 <a class="skip-link" href="#main">跳到正文</a>

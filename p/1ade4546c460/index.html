@@ -14,17 +14,21 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Stripe MCP 接入 Claude Code 一条命令搞定出海收款 · wocao.world</title>
 <meta name="description" content="前置条件 先确认你有一个 Stripe 账号（测试先用 sandbox 模式练手）；本机装好 Node 18+ 和 npm，能正常跑命令；Claude Code 已经装好并能正常对话；准备一台能联网的机器，因为远程 MCP 地址 https://mcp.stripe.com 走 HTTPS，确认防火墙没把出站 443 掐掉。动手前先扫一眼 Stripe MCP 官方文档，心里有数再开干。 一条命令接入 打开终端跑 npm install -g @stripe/cli@latest 装最新版 CLI，再执行 stripe agent setup。这条命令会自动探测你正在用的 Agent，把 MC…">
+<link rel="canonical" href="https://wocao.world/p/1ade4546c460/">
 <link rel="icon" type="image/svg+xml" href="/favicon.svg">
-<meta property="og:type" content="website">
+<meta property="og:type" content="article">
 <meta property="og:site_name" content="wocao.world">
 <meta property="og:title" content="Stripe MCP 接入 Claude Code 一条命令搞定出海收款 · wocao.world">
 <meta property="og:description" content="前置条件 先确认你有一个 Stripe 账号（测试先用 sandbox 模式练手）；本机装好 Node 18+ 和 npm，能正常跑命令；Claude Code 已经装好并能正常对话；准备一台能联网的机器，因为远程 MCP 地址 https://mcp.stripe.com 走 HTTPS，确认防火墙没把出站 443 掐掉。动手前先扫一眼 Stripe MCP 官方文档，心里有数再开干。 一条命令接入 打开终端跑 npm install -g @stripe/cli@latest 装最新版 CLI，再执行 stripe agent setup。这条命令会自动探测你正在用的 Agent，把 MC…">
-<meta property="og:url" content="https://wocao.world/">
+<meta property="og:url" content="https://wocao.world/p/1ade4546c460/">
 <meta name="twitter:card" content="summary">
-<meta name="robots" content="noindex,follow">
+<meta name="twitter:title" content="Stripe MCP 接入 Claude Code 一条命令搞定出海收款 · wocao.world">
+<meta name="twitter:description" content="前置条件 先确认你有一个 Stripe 账号（测试先用 sandbox 模式练手）；本机装好 Node 18+ 和 npm，能正常跑命令；Claude Code 已经装好并能正常对话；准备一台能联网的机器，因为远程 MCP 地址 https://mcp.stripe.com 走 HTTPS，确认防火墙没把出站 443 掐掉。动手前先扫一眼 Stripe MCP 官方文档，心里有数再开干。 一条命令接入 打开终端跑 npm install -g @stripe/cli@latest 装最新版 CLI，再执行 stripe agent setup。这条命令会自动探测你正在用的 Agent，把 MC…">
+<meta name="robots" content="index,follow">
 <link rel="alternate" type="application/rss+xml" title="wocao.world 聚合输出" href="/feed.xml">
 <link rel="stylesheet" href="/style.css">
-<link rel="canonical" href="https://www.moyunews.com/stripe-mcp-claude-code-setup/">
+<meta property="article:published_time" content="2026-10-20T10:17:24.000Z">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","headline":"Stripe MCP 接入 Claude Code 一条命令搞定出海收款","description":"前置条件 先确认你有一个 Stripe 账号（测试先用 sandbox 模式练手）；本机装好 Node 18+ 和 npm，能正常跑命令；Claude Code 已经装好并能正常对话；准备一台能联网的机器，因为远程 MCP 地址 https://mcp.stripe.com 走 HTTPS，确认防火墙没把出站 443 掐掉。动手前先扫一眼 Stripe MCP 官方文档，心里有数再开干。 一条命令接入 打开终端跑 npm install -g @stripe/cli@latest 装最新版 CLI，再执行 stripe agent setup。这条命令会自动探测你正在用的 Agent，把 MC…","url":"https://wocao.world/p/1ade4546c460/","datePublished":"2026-10-20T10:17:24.000Z","dateModified":"2026-10-20T15:52:16.070Z","mainEntityOfPage":{"@type":"WebPage","@id":"https://wocao.world/p/1ade4546c460/"},"author":{"@type":"Person","name":"摸鱼杂货店"},"publisher":{"@type":"Organization","name":"wocao.world","url":"https://wocao.world"}}</script>
 </head>
 <body>
 <a class="skip-link" href="#main">跳到正文</a>

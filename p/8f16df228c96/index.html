@@ -14,17 +14,21 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Godot助手接入：把Claude塞进编辑器只需63MB · wocao.world</title>
 <meta name="description" content="别再手动复制粘贴代码了，AI该直接进编辑器改场景树 写Godot游戏时最烦什么？不是逻辑难，是改个节点属性、重构个脚本、排查个报错，全得在编辑器和聊天窗口来回横跳。Godot-MCP Community Edition 10月25号刚发社区版 1.0.0，作者 Unsigned Exe Studios 走 MIT 协议，Windows 版压缩包才 63MB，.NET 8 自包含二进制，解压双击就能跑，连 Python 运行时都省了。核心思路很简单：在编辑器里跑个 WebSocket 服务（ws://127.0.0.1:6505），桌面端做个 Hub，把 Claude Desktop、LM St…">
+<link rel="canonical" href="https://wocao.world/p/8f16df228c96/">
 <link rel="icon" type="image/svg+xml" href="/favicon.svg">
-<meta property="og:type" content="website">
+<meta property="og:type" content="article">
 <meta property="og:site_name" content="wocao.world">
 <meta property="og:title" content="Godot助手接入：把Claude塞进编辑器只需63MB · wocao.world">
 <meta property="og:description" content="别再手动复制粘贴代码了，AI该直接进编辑器改场景树 写Godot游戏时最烦什么？不是逻辑难，是改个节点属性、重构个脚本、排查个报错，全得在编辑器和聊天窗口来回横跳。Godot-MCP Community Edition 10月25号刚发社区版 1.0.0，作者 Unsigned Exe Studios 走 MIT 协议，Windows 版压缩包才 63MB，.NET 8 自包含二进制，解压双击就能跑，连 Python 运行时都省了。核心思路很简单：在编辑器里跑个 WebSocket 服务（ws://127.0.0.1:6505），桌面端做个 Hub，把 Claude Desktop、LM St…">
-<meta property="og:url" content="https://wocao.world/">
+<meta property="og:url" content="https://wocao.world/p/8f16df228c96/">
 <meta name="twitter:card" content="summary">
-<meta name="robots" content="noindex,follow">
+<meta name="twitter:title" content="Godot助手接入：把Claude塞进编辑器只需63MB · wocao.world">
+<meta name="twitter:description" content="别再手动复制粘贴代码了，AI该直接进编辑器改场景树 写Godot游戏时最烦什么？不是逻辑难，是改个节点属性、重构个脚本、排查个报错，全得在编辑器和聊天窗口来回横跳。Godot-MCP Community Edition 10月25号刚发社区版 1.0.0，作者 Unsigned Exe Studios 走 MIT 协议，Windows 版压缩包才 63MB，.NET 8 自包含二进制，解压双击就能跑，连 Python 运行时都省了。核心思路很简单：在编辑器里跑个 WebSocket 服务（ws://127.0.0.1:6505），桌面端做个 Hub，把 Claude Desktop、LM St…">
+<meta name="robots" content="index,follow">
 <link rel="alternate" type="application/rss+xml" title="wocao.world 聚合输出" href="/feed.xml">
 <link rel="stylesheet" href="/style.css">
-<link rel="canonical" href="https://www.moyunews.com/godot-mcp-community-edition/">
+<meta property="article:published_time" content="2026-10-29T14:06:16.000Z">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","headline":"Godot助手接入：把Claude塞进编辑器只需63MB","description":"别再手动复制粘贴代码了，AI该直接进编辑器改场景树 写Godot游戏时最烦什么？不是逻辑难，是改个节点属性、重构个脚本、排查个报错，全得在编辑器和聊天窗口来回横跳。Godot-MCP Community Edition 10月25号刚发社区版 1.0.0，作者 Unsigned Exe Studios 走 MIT 协议，Windows 版压缩包才 63MB，.NET 8 自包含二进制，解压双击就能跑，连 Python 运行时都省了。核心思路很简单：在编辑器里跑个 WebSocket 服务（ws://127.0.0.1:6505），桌面端做个 Hub，把 Claude Desktop、LM St…","url":"https://wocao.world/p/8f16df228c96/","datePublished":"2026-10-29T14:06:16.000Z","dateModified":"2026-10-29T17:38:29.357Z","mainEntityOfPage":{"@type":"WebPage","@id":"https://wocao.world/p/8f16df228c96/"},"author":{"@type":"Person","name":"摸鱼杂货店"},"publisher":{"@type":"Organization","name":"wocao.world","url":"https://wocao.world"}}</script>
 </head>
 <body>
 <a class="skip-link" href="#main">跳到正文</a>

@@ -14,17 +14,21 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>阿里开源代码审查工具 Open-Code-Rev：AI 混合架构直击硬伤 · wocao.world</title>
 <meta name="description" content="在代码审查（Code Review）这件事上，人工审核效率低、漏报多，纯 AI 方案又常因幻觉飘忽不定。阿里刚开源的 代码审查工具 Open-Code-Review 给出了一个务实解法：“确定性规则 + AI Agent”混合架构。规则引擎守住绝对不能错的硬约束，大模型则负责动态决策的软能力，实测已在阿里巴巴规模场景下大规模验证。 混合架构：确定性规则管“绝对不能错”，AI Agent 管“动态决策” Open-Code-Review 的底层逻辑并不复杂，但极其精准。它内置一组经过微调的确定性规则集，覆盖 NPE（空指针异常）、线程安全、XSS（跨站脚本攻击）、SQL 注入等高危缺陷。这些规则…">
+<link rel="canonical" href="https://wocao.world/p/b63ff6c2439e/">
 <link rel="icon" type="image/svg+xml" href="/favicon.svg">
-<meta property="og:type" content="website">
+<meta property="og:type" content="article">
 <meta property="og:site_name" content="wocao.world">
 <meta property="og:title" content="阿里开源代码审查工具 Open-Code-Rev：AI 混合架构直击硬伤 · wocao.world">
 <meta property="og:description" content="在代码审查（Code Review）这件事上，人工审核效率低、漏报多，纯 AI 方案又常因幻觉飘忽不定。阿里刚开源的 代码审查工具 Open-Code-Review 给出了一个务实解法：“确定性规则 + AI Agent”混合架构。规则引擎守住绝对不能错的硬约束，大模型则负责动态决策的软能力，实测已在阿里巴巴规模场景下大规模验证。 混合架构：确定性规则管“绝对不能错”，AI Agent 管“动态决策” Open-Code-Review 的底层逻辑并不复杂，但极其精准。它内置一组经过微调的确定性规则集，覆盖 NPE（空指针异常）、线程安全、XSS（跨站脚本攻击）、SQL 注入等高危缺陷。这些规则…">
-<meta property="og:url" content="https://wocao.world/">
+<meta property="og:url" content="https://wocao.world/p/b63ff6c2439e/">
 <meta name="twitter:card" content="summary">
-<meta name="robots" content="noindex,follow">
+<meta name="twitter:title" content="阿里开源代码审查工具 Open-Code-Rev：AI 混合架构直击硬伤 · wocao.world">
+<meta name="twitter:description" content="在代码审查（Code Review）这件事上，人工审核效率低、漏报多，纯 AI 方案又常因幻觉飘忽不定。阿里刚开源的 代码审查工具 Open-Code-Review 给出了一个务实解法：“确定性规则 + AI Agent”混合架构。规则引擎守住绝对不能错的硬约束，大模型则负责动态决策的软能力，实测已在阿里巴巴规模场景下大规模验证。 混合架构：确定性规则管“绝对不能错”，AI Agent 管“动态决策” Open-Code-Review 的底层逻辑并不复杂，但极其精准。它内置一组经过微调的确定性规则集，覆盖 NPE（空指针异常）、线程安全、XSS（跨站脚本攻击）、SQL 注入等高危缺陷。这些规则…">
+<meta name="robots" content="index,follow">
 <link rel="alternate" type="application/rss+xml" title="wocao.world 聚合输出" href="/feed.xml">
 <link rel="stylesheet" href="/style.css">
-<link rel="canonical" href="https://www.moyunews.com/alibaba-open-code-review-ai-hybrid/">
+<meta property="article:published_time" content="2026-07-07T00:08:29.000Z">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","headline":"阿里开源代码审查工具 Open-Code-Rev：AI 混合架构直击硬伤","description":"在代码审查（Code Review）这件事上，人工审核效率低、漏报多，纯 AI 方案又常因幻觉飘忽不定。阿里刚开源的 代码审查工具 Open-Code-Review 给出了一个务实解法：“确定性规则 + AI Agent”混合架构。规则引擎守住绝对不能错的硬约束，大模型则负责动态决策的软能力，实测已在阿里巴巴规模场景下大规模验证。 混合架构：确定性规则管“绝对不能错”，AI Agent 管“动态决策” Open-Code-Review 的底层逻辑并不复杂，但极其精准。它内置一组经过微调的确定性规则集，覆盖 NPE（空指针异常）、线程安全、XSS（跨站脚本攻击）、SQL 注入等高危缺陷。这些规则…","url":"https://wocao.world/p/b63ff6c2439e/","datePublished":"2026-07-07T00:08:29.000Z","dateModified":"2026-09-04T09:49:02.984Z","mainEntityOfPage":{"@type":"WebPage","@id":"https://wocao.world/p/b63ff6c2439e/"},"author":{"@type":"Person","name":"摸鱼杂货店"},"publisher":{"@type":"Organization","name":"wocao.world","url":"https://wocao.world"}}</script>
 </head>
 <body>
 <a class="skip-link" href="#main">跳到正文</a>

@@ -14,17 +14,21 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>72小时重构600万行Chrome：Gemini 4 Argon与Meta Muse点燃四方战火 · wocao.world</title>
 <meta name="description" content="老旧代码库的工业级外科手术 硅谷的算力军备竞赛正在从参数规模转向工程交付速度。发布仅 72 小时的 Gemini 4 Argon 迎来首个硬核试金石：Google 公开披露利用其对 Chrome 浏览器约 600 万行历史遗留代码执行全面重构。过去需要跨季度、数月推进的工程，在 Argon 的长上下文逻辑解析与代码合成下被压缩至数周内交付完成。 帕累托前沿：0.41 美元的工程账本 更值得工程团队关注的是单位交付成本。根据社区针对多分支复杂架构任务的实测数据，Argon 在复杂任务上的平均运行开销被压至 $0.41/任务，在吞吐速度、精度与经济性三维坐标上极度逼近当前推理阶段的帕累托前沿，打破…">
+<link rel="canonical" href="https://wocao.world/p/4863dda6594d/">
 <link rel="icon" type="image/svg+xml" href="/favicon.svg">
-<meta property="og:type" content="website">
+<meta property="og:type" content="article">
 <meta property="og:site_name" content="wocao.world">
 <meta property="og:title" content="72小时重构600万行Chrome：Gemini 4 Argon与Meta Muse点燃四方战火 · wocao.world">
 <meta property="og:description" content="老旧代码库的工业级外科手术 硅谷的算力军备竞赛正在从参数规模转向工程交付速度。发布仅 72 小时的 Gemini 4 Argon 迎来首个硬核试金石：Google 公开披露利用其对 Chrome 浏览器约 600 万行历史遗留代码执行全面重构。过去需要跨季度、数月推进的工程，在 Argon 的长上下文逻辑解析与代码合成下被压缩至数周内交付完成。 帕累托前沿：0.41 美元的工程账本 更值得工程团队关注的是单位交付成本。根据社区针对多分支复杂架构任务的实测数据，Argon 在复杂任务上的平均运行开销被压至 $0.41/任务，在吞吐速度、精度与经济性三维坐标上极度逼近当前推理阶段的帕累托前沿，打破…">
-<meta property="og:url" content="https://wocao.world/">
+<meta property="og:url" content="https://wocao.world/p/4863dda6594d/">
 <meta name="twitter:card" content="summary">
-<meta name="robots" content="noindex,follow">
+<meta name="twitter:title" content="72小时重构600万行Chrome：Gemini 4 Argon与Meta Muse点燃四方战火 · wocao.world">
+<meta name="twitter:description" content="老旧代码库的工业级外科手术 硅谷的算力军备竞赛正在从参数规模转向工程交付速度。发布仅 72 小时的 Gemini 4 Argon 迎来首个硬核试金石：Google 公开披露利用其对 Chrome 浏览器约 600 万行历史遗留代码执行全面重构。过去需要跨季度、数月推进的工程，在 Argon 的长上下文逻辑解析与代码合成下被压缩至数周内交付完成。 帕累托前沿：0.41 美元的工程账本 更值得工程团队关注的是单位交付成本。根据社区针对多分支复杂架构任务的实测数据，Argon 在复杂任务上的平均运行开销被压至 $0.41/任务，在吞吐速度、精度与经济性三维坐标上极度逼近当前推理阶段的帕累托前沿，打破…">
+<meta name="robots" content="index,follow">
 <link rel="alternate" type="application/rss+xml" title="wocao.world 聚合输出" href="/feed.xml">
 <link rel="stylesheet" href="/style.css">
-<link rel="canonical" href="https://www.moyunews.com/gemini-4-argon-chrome-refactor-meta-muse-wonder/">
+<meta property="article:published_time" content="2026-10-17T17:35:52.000Z">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","headline":"72小时重构600万行Chrome：Gemini 4 Argon与Meta Muse点燃四方战火","description":"老旧代码库的工业级外科手术 硅谷的算力军备竞赛正在从参数规模转向工程交付速度。发布仅 72 小时的 Gemini 4 Argon 迎来首个硬核试金石：Google 公开披露利用其对 Chrome 浏览器约 600 万行历史遗留代码执行全面重构。过去需要跨季度、数月推进的工程，在 Argon 的长上下文逻辑解析与代码合成下被压缩至数周内交付完成。 帕累托前沿：0.41 美元的工程账本 更值得工程团队关注的是单位交付成本。根据社区针对多分支复杂架构任务的实测数据，Argon 在复杂任务上的平均运行开销被压至 $0.41/任务，在吞吐速度、精度与经济性三维坐标上极度逼近当前推理阶段的帕累托前沿，打破…","url":"https://wocao.world/p/4863dda6594d/","datePublished":"2026-10-17T17:35:52.000Z","dateModified":"2026-10-17T17:59:14.383Z","mainEntityOfPage":{"@type":"WebPage","@id":"https://wocao.world/p/4863dda6594d/"},"author":{"@type":"Person","name":"摸鱼杂货店"},"publisher":{"@type":"Organization","name":"wocao.world","url":"https://wocao.world"}}</script>
 </head>
 <body>
 <a class="skip-link" href="#main">跳到正文</a>

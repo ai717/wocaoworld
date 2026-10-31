@@ -14,17 +14,21 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>WinPodX让Windows窗口钉上Linux任务栏：不是Wine，也不是轻虚拟机 · wocao.world</title>
 <meta name="description" content="双击能开，底下仍是一套完整的Windows kernalix7/winpodx 把 Word、微信、行业软件收成 Linux 桌面上的独立窗口：图标真、能钉任务栏、Alt+Tab 能切。剪贴板、声音可双向走，USB 能透传，家目录默认可被客户机看见。它不是把 API 翻译成 Linux 的 Wine，也不是你每天开机先点进一块完整桌面的重虚拟机。 背后是 rootless Podman 拉起 dockur/windows，再用 FreeRDP 的 RemoteApp 把每个程序画成单独窗口。首次要跑无人值守的 Windows 安装和 RemoteApp 代理，官方写大约五到十分钟，实际取决于镜…">
+<link rel="canonical" href="https://wocao.world/p/ecc38bc9eab9/">
 <link rel="icon" type="image/svg+xml" href="/favicon.svg">
-<meta property="og:type" content="website">
+<meta property="og:type" content="article">
 <meta property="og:site_name" content="wocao.world">
 <meta property="og:title" content="WinPodX让Windows窗口钉上Linux任务栏：不是Wine，也不是轻虚拟机 · wocao.world">
 <meta property="og:description" content="双击能开，底下仍是一套完整的Windows kernalix7/winpodx 把 Word、微信、行业软件收成 Linux 桌面上的独立窗口：图标真、能钉任务栏、Alt+Tab 能切。剪贴板、声音可双向走，USB 能透传，家目录默认可被客户机看见。它不是把 API 翻译成 Linux 的 Wine，也不是你每天开机先点进一块完整桌面的重虚拟机。 背后是 rootless Podman 拉起 dockur/windows，再用 FreeRDP 的 RemoteApp 把每个程序画成单独窗口。首次要跑无人值守的 Windows 安装和 RemoteApp 代理，官方写大约五到十分钟，实际取决于镜…">
-<meta property="og:url" content="https://wocao.world/">
+<meta property="og:url" content="https://wocao.world/p/ecc38bc9eab9/">
 <meta name="twitter:card" content="summary">
-<meta name="robots" content="noindex,follow">
+<meta name="twitter:title" content="WinPodX让Windows窗口钉上Linux任务栏：不是Wine，也不是轻虚拟机 · wocao.world">
+<meta name="twitter:description" content="双击能开，底下仍是一套完整的Windows kernalix7/winpodx 把 Word、微信、行业软件收成 Linux 桌面上的独立窗口：图标真、能钉任务栏、Alt+Tab 能切。剪贴板、声音可双向走，USB 能透传，家目录默认可被客户机看见。它不是把 API 翻译成 Linux 的 Wine，也不是你每天开机先点进一块完整桌面的重虚拟机。 背后是 rootless Podman 拉起 dockur/windows，再用 FreeRDP 的 RemoteApp 把每个程序画成单独窗口。首次要跑无人值守的 Windows 安装和 RemoteApp 代理，官方写大约五到十分钟，实际取决于镜…">
+<meta name="robots" content="index,follow">
 <link rel="alternate" type="application/rss+xml" title="wocao.world 聚合输出" href="/feed.xml">
 <link rel="stylesheet" href="/style.css">
-<link rel="canonical" href="https://www.moyunews.com/winpodx-windows-apps-on-linux/">
+<meta property="article:published_time" content="2026-08-28T17:33:51.000Z">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","headline":"WinPodX让Windows窗口钉上Linux任务栏：不是Wine，也不是轻虚拟机","description":"双击能开，底下仍是一套完整的Windows kernalix7/winpodx 把 Word、微信、行业软件收成 Linux 桌面上的独立窗口：图标真、能钉任务栏、Alt+Tab 能切。剪贴板、声音可双向走，USB 能透传，家目录默认可被客户机看见。它不是把 API 翻译成 Linux 的 Wine，也不是你每天开机先点进一块完整桌面的重虚拟机。 背后是 rootless Podman 拉起 dockur/windows，再用 FreeRDP 的 RemoteApp 把每个程序画成单独窗口。首次要跑无人值守的 Windows 安装和 RemoteApp 代理，官方写大约五到十分钟，实际取决于镜…","url":"https://wocao.world/p/ecc38bc9eab9/","datePublished":"2026-08-28T17:33:51.000Z","dateModified":"2026-09-04T09:49:02.984Z","mainEntityOfPage":{"@type":"WebPage","@id":"https://wocao.world/p/ecc38bc9eab9/"},"author":{"@type":"Person","name":"摸鱼杂货店"},"publisher":{"@type":"Organization","name":"wocao.world","url":"https://wocao.world"}}</script>
 </head>
 <body>
 <a class="skip-link" href="#main">跳到正文</a>
