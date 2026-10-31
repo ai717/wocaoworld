@@ -86,10 +86,8 @@ config.json + 订阅源 → sync → data/{sources,posts}.json → build → dis
 
 ## 当前状态
 
-- 本地 CMS 已可用：`npm run cms` 或双击根目录 `start-local.cmd`；固定端口 `65354`，前台 `/`，CMS `/cms/`。
-- `start-local.cmd` 只启动服务，不构建；会终止占用 `65354` 的旧服务。需要构建请在 CMS 点击“构建站点”或“提交并推送”。
-- GitHub 仓库为 `ai717/wocaoworld`，Pages 从 `gh-pages` 根目录发布，自定义域名为 `wocao.world`；构建会自动写出 `CNAME`。
-- `config.json` 当前站点地址为 `https://wocao.world`；代理可配置 `site.proxy`（如 `http://127.0.0.1:7897`）。
-- 当前订阅源均为 `excerpt`；移除源默认保留历史文章，“移除并删除文章”才会删除源记录与文章。
-- `data/` 纳入 Git 版本控制以供 GitHub Actions 增量累积历史文章并在本地间同步；`dist/` 保持 gitignore。
-- 已配置 GitHub Actions 定时抓取与发布工作流（`.github/workflows/sync.yml`），海外 Runner 直连免代理。
+- **站点与发布**：GitHub 仓库 `ai717/wocaoworld`，自定义域名 `wocao.world`。Pages 从 `gh-pages` 分支根目录发布，构建自动写出 `CNAME` 与 `.nojekyll`。
+- **云端自动化（海外 Runner）**：GitHub Actions（`.github/workflows/sync.yml`）每 4 小时定时抓取，推到 `main` 也自动部署；海外节点直连免代理，自动将更新后的 `data/` 持久化推回 `main` 分支。
+- **本地开发与 CMS**：`npm run cms` 或双击 `start-local.cmd` 启动（固定端口 `65354`，前台 `/`，CMS `/cms/`）。支持可视化代理配置及「拉取云端数据」按钮。
+- **SEO 与数据追踪**：已接入 Google Search Console 验证文件（`google866db18e376db9e8.html`）与 Google Analytics (gtag.js: `G-8TX501TYGH`)；全站已开放收录（`noindex: false`），规范化 Canonical 指向本站，输出标准 `sitemap.xml`（带 priority/changefreq/lastmod）与 Schema.org (JSON-LD) 结构化数据。
+- **订阅与存储**：订阅源均为 `excerpt`；`data/` 纳入 Git 版本控制实现本地与云端双向累积；`dist/` 保持 gitignore。

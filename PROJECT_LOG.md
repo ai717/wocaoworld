@@ -1,188 +1,63 @@
 # PROJECT_LOG
 
-## 2026-11-01 · 深度 SEO 优化与标准网站地图 (Sitemap)
+## 2026-11-01 · Google 验证、Google Analytics 接入与深度 SEO 优化
 
 ### 做了什么
 
-- 解除全局 `noindex` 限制（`config.json` 设置 `"noindex": false`），`robots.txt` 改为 `Allow: /` 并声明网站地图。
-- 规范化 Canonical 标签：页面规范 URL 统一指向本站自身永久链接，解决此前详情页 canonical 指向站外导致的“未编入索引/重复网页”问题。
-- 完善 Open Graph 与 Twitter 卡片元数据：文章页动态生成 `og:type="article"`、`article:published_time`、`og:url`、`twitter:title` 等。
-- 注入 Schema.org (JSON-LD) 结构化数据：文章详情页自动生成 `BlogPosting` 丰富网页摘要。
-- 升级网站地图生成器（`src/build.mjs`）：为 `sitemap.xml` 增加标准的 `priority`、`changefreq` 以及文章的 `lastmod`。
+1. **Google Search Console 网站所有权验证**：
+   - 将验证文件 `google866db18e376db9e8.html` 放入 `public/` 目录，构建时自动打包到 `dist/` 根目录。
+   - 探测线上 `https://wocao.world/google866db18e376db9e8.html` 返回 200 OK，验证已生效。
+2. **Google Analytics (GA4) 接入**：
+   - 在 `src/render.mjs` 的通用 `layout` 模板 `<head>` 中嵌入 Google Analytics (gtag.js: `G-8TX501TYGH`) 统计代码，覆盖首页、分页、文章详情、关于、归档等全站页面。
+3. **深度 SEO 优化**：
+   - **解除全站索引封锁**：修改 `config.json` 将 `"noindex": false`，`robots.txt` 输出 `Allow: /` 并自动引用 Sitemap，页面 meta 输出 `index,follow`。
+   - **规范化 Canonical 标签**：将文章详情页 canonical 从原来的“指向外部源站链接”改为指向“本站自身永久链接”（`https://wocao.world/p/<id>/`），解决此前 Google 判定为重复内容而不予收录的问题；保留正文底部的原作者出处与版权引用。
+   - **注入 Schema.org (JSON-LD) 结构化数据**：文章页自动生成 `BlogPosting` 富媒体卡片摘要（包含标题、发布/更新时间、作者、发布机构、URL）。
+   - **完善社交分享元数据**：文章页动态输出 `og:type="article"`、`article:published_time`、`og:url`、`twitter:title`、`twitter:description` 等。
+   - **标准网站地图 (Sitemap)**：升级 `src/build.mjs`，为 `sitemap.xml` 生成标准 `changefreq`、`priority` 与文章 `lastmod`。
+4. **CI/CD 自动化完善**：
+   - 在 `.github/workflows/sync.yml` 中添加 `push: branches: [main]` 触发，本地向 `main` 分支推送后自动构建并发布到 `gh-pages`。
 
 ### 修改文件
 
-`config.json`、`src/render.mjs`、`src/build.mjs`、`PROJECT_LOG.md`。
+`config.json`、`src/render.mjs`、`src/build.mjs`、`public/google866db18e376db9e8.html`、`google866db18e376db9e8.html`、`.github/workflows/sync.yml`、`PROJECT_LOG.md`。
 
-## 2026-11-01 · 增加 Google Analytics (gtag.js) 统计代码
+### 关键实现与遇到的问题
 
-### 做了什么
+- **远端并发推送冲突**：云端 GitHub Actions 定时抓取后会自动将最新数据（`data/*.json`）推回 `main` 分支。本地推送时若落后，使用 `git pull --rebase origin main` 平滑合并后推送，未产生冲突。
+- **旧站 521 与 GSC 报错排查**：诊断了用户原域名 `wocao.club` 的 GSC 5xx 报警，实测为 Cloudflare 回源失败（HTTP 521），明确了 301 重定向到 `wocao.world` 的迁移方案。
 
-- 在 `src/render.mjs` 的通用 `layout` 模板 `<head>` 中嵌入 Google Analytics (gtag.js: `G-8TX501TYGH`) 统计代码，覆盖全站页面。
-
-### 修改文件
-
-`src/render.mjs`、`PROJECT_LOG.md`。
-
-## 2026-11-01 · 增加 Google 搜索控制台验证文件与推送触发
-
-### 做了什么
-
-- 将 Google 验证文件 `google866db18e376db9e8.html` 加入 `public/` 目录，构建时自动打包到 `dist/` 根路径。
-- 在 `.github/workflows/sync.yml` 中添加 `push` 触发，向 `main` 分支推送后自动构建并发布到 `gh-pages`。
-
-### 修改文件
-
-`public/google866db18e376db9e8.html`、`google866db18e376db9e8.html`、`.github/workflows/sync.yml`、`PROJECT_LOG.md`。
+---
 
 ## 2026-10-12 · GitHub Actions 云端定时抓取与发布
 
 ### 做了什么
 
-- 增加 GitHub Actions 自动化工作流（`.github/workflows/sync.yml`），支持每 4 小时定时与网页端手动触发。
-- 云端海外 Runner 自动运行增量同步 `npm run sync`，彻底规避境内网络对部分源站的 GFW 阻断与 ECONNRESET。
+- 增加 GitHub Actions 工作流（`.github/workflows/sync.yml`），每 4 小时在海外 Runner 定时同步 Feed，彻底规避境内网络对部分源站的 GFW 阻断与 ECONNRESET。
 - 自动化流水线自动将变更后的 `data/*.json` 提交推回 `main` 分支（带 `[skip ci]`），保障历史文章在云端与本地持久化累积。
-- 构建生成的静态产物自动通过 `peaceiris/actions-gh-pages` 部署到 `gh-pages`，保留 `CNAME` 与 `.nojekyll`。
-- `config.mjs` 增加对 `GITHUB_ACTIONS` 环境变量的识别：云端自动直连，避免误连本地 127.0.0.1 代理端口。
-- 本地 CMS 增加网络代理可视化设置与双向同步支持。
-- 本地 CMS 工具栏增加「拉取云端数据」按钮，支持一键执行 git pull 并自动刷新文章列表；优化状态反馈提示。
+- 构建静态产物自动通过 `peaceiris/actions-gh-pages` 部署到 `gh-pages`，保留 `CNAME` 与 `.nojekyll`。
+- `config.mjs` 增加对 `GITHUB_ACTIONS` 环境变量的识别：云端直连免代理，本地支持代理配置。
+- 本地 CMS 增加网络代理可视化设置与「拉取云端数据」按钮。
 
 ### 修改文件
 
 `.github/workflows/sync.yml`、`src/config.mjs`、`src/cms.mjs`、`config.json`、`.gitignore`、`AGENTS.md`、`PROJECT_LOG.md`。
 
-## 2026-09-04 · 本地 CMS、统一服务、发布与自定义域名
+---
+
+## 2026-09-04 · 本地 CMS、统一服务与自定义域名
 
 ### 做了什么
 
-- 新增本地 CMS：站点设置、订阅源增删改、同步、构建、预览、提交并推送。
-- CMS 与前台共用 `127.0.0.1:65354`，根路径为前台，`/cms/` 为管理台；一键脚本会重启旧服务且不自动构建。
-- 前台隐藏订阅源导航；文章列表与详情页按需求简化可见元信息；页脚支持 CMS 自定义。
-- 新增 favicon、Open Graph/Twitter 元数据、`robots.txt`、`sitemap.xml`，构建自动生成自定义域名 `CNAME`。
-- 增加中文编码探测与 GB18030 回退；同步代理支持 `127.0.0.1:7897`。
-- “移除并删除文章”会真正删除源记录及其文章；保留 ID 不复用约束。
-- 创建并推送 GitHub 仓库 `ai717/wocaoworld`，发布 `gh-pages`，恢复 `wocao.world` 自定义域名与 HTTPS。
-
-### 修改文件
-
-`src/cms.mjs`、`src/cli.mjs`、`src/config.mjs`、`src/fetch-feed.mjs`、`src/render.mjs`、`src/store.mjs`、`src/sync.mjs`、`src/build.mjs`、`public/favicon.svg`、`start-local.cmd`、`start-local.ps1`、`config.json`、`package.json`、`README.md`、`AGENTS.md`。
-
-### 关键实现
-
-- CMS 使用本地 HTTP 服务和 JSON API；配置与数据写入沿用原子写入。
-- 发布流程拉取远端现有 `gh-pages` 后覆盖静态产物，避免孤儿分支非快进冲突；构建产物包含 `CNAME`。
-- 统一服务按 `/`、站点静态路径和 `/cms/` 分流，静态资源与 API 分流顺序固定。
-
-### 遇到的问题
-
-- Windows `bash` 实际为 WSL 占位程序，`npm run deploy` 不可靠；CMS 改用 Node 原生 Git 发布。
-- 曾因静态路由拦截 `/api/state` 导致 CMS 列表空白，已修复。
-- 曾因发布覆盖 `CNAME` 导致自定义域名短暂丢失，已改为构建自动生成并恢复 Pages 配置。
-- `www.moyunews.com/feed/` 受 Cloudflare Bot Fight 拦截；代理端口可监听，但 Node 请求仍可能超时，需源站放行或更换 Feed。
-
-### 验证
-
-Node 语法、构建可重复性、CMS/前台/SEO 路由、静态安全探针、中文 GB18030 回退均已本地验证；真实 GitHub Pages CDN 缓存与外部 Feed 可用性仍需线上观察。
-
-开发轮次记录，最新在上。只记**做了什么、为什么这么决定、遗留了什么**——
-规则与不变量见 `AGENTS.md`，使用说明见 `README.md`，此处不重复。
+- 新增本地 CMS（`127.0.0.1:65354/cms/`）：支持站点设置、源管理、同步、构建、预览与发布。
+- 完善 SEO 元数据、favicon、`robots.txt`、`sitemap.xml`，构建自动写出自定义域名 `CNAME`。
+- 增加中文编码探测与 GB18030 回退，优化抓取健壮性。
 
 ---
 
-## 2026-09-03 · 订阅源降级为 excerpt：改 mode 不回溯，连带清理已入库正文
+## 2026-09-03 · 架构改造（静态站点 + GitHub Pages）
 
-### 决策
+### 决策与改造
 
-用户确认 GitHub 用户名 `ai717`，`config.json` 的 `site.url` 恰好已是 `https://ai717.github.io/wocao.world`，**无需修改**。免费账户的 Pages 要求仓库 public，产物可被任意 clone，因此把仍是 `full` 的 3 个源（Simon Willison、Daring Fireball、Julia Evans）全部降级为 `excerpt`。Cloudflare Blog 本来就已是 excerpt。
-
-### 做了什么
-
-1. 改 `config.json`：3 个源 `full` → `excerpt`。
-2. **发现并填了一个坑**：`sync.mjs:46` 的 `storeFullText = source.mode === 'full'` 只在**新条目入库那一刻**决定是否存正文，没有任何清理逻辑。已入库的 99 篇正文（源 1/2/3 各 30/49/20 篇）改了 config 也照旧渲染进 `dist/`——光改 config 达不到降级目的。
-3. 临时脚本把 `excerpt` 源的 `contentHtml` 置 null（走 `store.mjs` 的原子写），保留 `summary`。清理前把 `data/` 完整备份到 `G:/tmp/wocao-data-backup-20260903-144903`（项目外，不污染仓库）。
-4. 同步更新 README 两处：mode 表格后补「改 mode 不回溯」的警告；原「3 个是 full，请自行重新评估」的提示改为当前事实。
-
-### 验证结果（全部实测）
-
-- 清理输出 99 篇 / 475 KB，与清理前逐源统计（30+49+20）完全吻合，剩余带正文 0 篇
-- 重建后 119 篇文章页**全部**含「本站未保存这篇的正文」与「该订阅源配置为仅摘要模式」；`post-body` 纯文本长度 min 197 / 中位 333 / max 357（摘要量级，非正文）
-- **正文探针反查**：从备份取 70 篇正文的第 500–560 字片段（避开会被留作摘要的开头），在 `dist/` 全文里 0 命中。扫描器先对备份自身正文自检，70/70 全部命中，确认探针有效
-- 连续两次构建逐字节一致（可重现性未破坏）
-- `stats` 显示 4 个源全部 `[excerpt]`，文章数不变（119 篇）；`dist/` 138 个文件 546 KB
-
-### 遗留
-
-- 临时脚本 `_downgrade-fulltext.mjs`、`_verify-excerpt.mjs` 已删除，未进仓库。日后回归需重写，断言口径已记在本节。
-- 备份 `G:/tmp/wocao-data-backup-20260903-144903` 含全部 99 篇正文，**想长期保留请自行移到安全位置**（`/tmp` 会被清理）。正文一旦想恢复只能从这个备份回灌，feed 抓不回历史。
-- 仓库尚未创建，`git remote -v` 仍为空。本机 gh 登录了 `ai919`（active）与 `ai717`（非 active）两个账号，**建仓前必须先确认 active 账号**，否则仓库会建到 `ai919` 名下。用户选择推送时由 GCM 弹窗手选 `ai717`，不改任何全局配置。
-
----
-
-## 2026-09-03 · 改造为本地构建的静态站点，发布到 GitHub Pages
-
-提交 `1435d3d`（基线 `b93c77a`）。25 个文件，+908/−1193。
-
-### 做了什么
-
-放弃「VPS 上跑两个 Node 进程 + SQLite 按需渲染」，改为本地 `sync → build → deploy` 三段手动流水线，线上只剩 GitHub Pages 静态托管。
-
-四项已确认的方向选择及其后果：
-
-| 维度 | 选择 | 关键后果 |
-|---|---|---|
-| 发布目标 | 只发 GitHub Pages | 必须支持 basePath 子路径前缀；无服务端 301；VPS 物料全部作废 |
-| 内容库 | JSON 快照，弃 SQLite | Node 门槛从 ≥22.5 降到 ≥20.11；原子写/去重索引/自增 id 都要自己实现 |
-| 运行时服务 | 删掉，改构建 + 极简预览 | URL 只剩一套真值，不再维护「路由表 vs 产物表」 |
-| 发布方式 | 本地构建 + 推送脚本 | 不引入 CI；内容更新不再自动 |
-
-**一个有利的意外**：选 JSON 快照时预估的代价是「CI 每次都得全量重抓」，但发布方式定的是本地构建，`data/` 照样能持久保存 ETag 与已见链接集合，增量同步能力完全保留，那个代价不成立。
-
-### 修改文件
-
-- **新增** `src/store.mjs`、`src/urls.mjs`、`src/build.mjs`、`src/preview.mjs`、`deploy/publish-github.sh`
-- **修改** `src/config.mjs`、`src/render.mjs`、`src/sync.mjs`、`src/cli.mjs`、`package.json`、`package-lock.json`、`.gitignore`、`.gitattributes`、`config.json`、`README.md`
-- **删除** `src/db.mjs`、`src/routes.mjs`、`src/server.mjs`、`src/index.mjs`、`deploy/{setup.sh, update.sh, Caddyfile, wocao-web.service, wocao-sync.service, wocao-sync.timer}`
-
-### 关键实现方式
-
-- **`store.mjs` 刻意沿用 `db.mjs` 的函数名与签名**，让 `sync.mjs`/`cli.mjs` 的改动退化成机械替换。磁盘上存 camelCase、对外返回 snake_case 行，`render.mjs` 的调用点一行没动。
-- **118 篇文章从 SQLite 一次性迁移到 JSON**（临时脚本，未进仓库），迁移后逐字段比对两个后端的全部 API 输出，再写盘重开比一次。这样能拿真实内容验证新管线，也省去对 4 个公开源的一次全量重抓。`data/blog.sqlite` 已删除。
-- **黄金样本回归**：趁 `server.mjs`/`routes.mjs` 还在，先用旧的按需渲染抓下 134 个页面，重构完再逐文件 diff。这是证明「15 处硬编码收口 + 尾斜杠」没有改变输出的唯一硬证据。
-- **`urls.mjs` 的 `absolute()` 闭包收的是 `origin` 而不是 `site.url`**，见下「问题 2」。
-- **preview 按 basePath 前缀挂载 `dist/`**，让本地 URL 与线上完全一致，链接写错在本地就暴露。
-
-### 遇到的问题
-
-1. **`config.mjs` 把 `site.url` 规范化成了 `origin`，会吞掉路径部分。** 站长写 `https://user.github.io/wocao.world/` 加载后只剩 `https://user.github.io`，feed 的 self/permalink/channel link 全错。这是 GitHub Pages 项目站点的直接阻塞点，改为单独派生 basePath。
-2. **批准方案里的 `absoluteUrl(site.url, postUrl(id))` 会拼出双重前缀。** `site.url` 本身已含 basePath，`postUrl` 返回的又带 basePath，结果是 `…/wocao.world/wocao.world/p/id/`。实施时改成 `makeUrls(basePath, origin)` + 单参数 `absolute(p)`，并**故意从 `absoluteUrl` 改名为 `absolute`**，让漏改的两参数调用点直接报错而不是静默拼错。
-3. **方案给的 `site.url` 占位值 `https://<你的用户名>.github.io/…` 会让程序崩。** `<`/`>` 是非法 host 码点，过不了 `assertHttpUrl`。改填语法合法的 `https://ai717.github.io/wocao.world`（从 git `user.name` 推的）。
-4. **链接扫描器把镜像正文里的示例代码误报成相对链接。** `<pre><code>` 与行内 `<code>` 里装着转义后的 `&lt;img src="whatever.jpg"&gt;`，那是文本不是属性。修法是先整块剔除代码块再扫，同时**断言代码块内不含任何活标签**——有就说明清洗漏了，仍然要报。第一版只剔 `<pre>` 剩 4 处误报，扩到 `<code>` 才归零。
-5. **`set -o pipefail` 下 `find dist/p | wc -l` 会中断发布脚本。** `find` 对不存在的目录返回非零。改用 `shopt -s nullglob` + glob 数组计数。
-6. **第一版黄金样本 diff 产出 141 个差异桶，全是噪声。** 按「差异形状」聚合时被作者名变化淹没。重写成只归一化「刻意添加的尾斜杠」这一种预期差异、其余原样打印，才看清真实结果。
-7. **旧 README 关于「移除源后列表页不再显示」的说法是错的。** 查了基线里的 `db.mjs`：`listPosts` 与 `listSourcesWithCounts` 都没有 `WHERE active = 1`。`active` 只决定抓不抓，不决定显不显示。新 README 已改成实际行为。
-8. **`package-lock.json` 的 version 没跟着 `package.json` 升到 0.2.0。** `npm install --package-lock-only --offline` 修掉，只有 3 行版本号变化，无依赖漂移。
-
-### 验证结果（本机 Windows / Node v24，全部实测）
-
-迁移保真（4 源 118 篇逐字段一致）· JSON 往返一致 · 条件请求存活（迁移后首轮即有 2 源 304，第二轮 4 源全部未变更）· 黄金样本 134 页中 133 页只差刻意加的尾斜杠、`/about/` 只差 2 行刻意改的说明文字 · basePath 两种取值下各 3073 个链接全部合规、0 个漏前缀的根绝对路径 · 产物 138 个文件与独立推导的期望集合完全吻合 · 连续两次构建逐字节相同 · 删一篇文章后对应 `dist/p/<id>/` 消失、恢复后重现 · XSS 复扫 136 文件 968KB 0 命中（扫描器先对恶意样本自检 17/17 规则会响）· feed 回灌 30 条全部字段齐全且链接指向真实存在的页面 · preview 11 种路由 + 6 组分页目标 + 4 组 301 + 4 组 404 + 11 种目录穿越写法 + HEAD/405 全绿 · 发布脚本 `bash -n` 通过、LF 行尾、可执行位已设。
-
-**未验证**（本机做不到，不假装通过）：`gh-pages` 实际推送与 GitHub Pages 构建（**发布脚本本身也从未执行过**，它会向远端推送）、无尾斜杠路径的真实跳转行为、`.nojekyll` 在真实 Jekyll 管线下的效果、`404.html` 是否被采用、CDN 缓存表现。
-
-### 遗留
-
-- `config.json` 的 `site.url` 是占位值，待用户确认真实 Pages 地址。
-- `src/fetch-feed.mjs:1` 的 UA 硬编码 `wocao.world/0.1 (+https://wocao.world/about/)`，版本号与联系 URL 都过时。让它跟随 config 需要把 config 传进抓取层，属于计划外改动，未做。
-- 4 个源里 3 个是 `full` 模式，发布到公开仓库前需重新评估版权暴露面。README 已写明，未擅自改用户的 config。
-- 临时验证脚本（黄金样本 diff、XSS 扫描、feed 回灌、preview 路由、dist 校验）按计划**用完即删，未进仓库**。日后要做回归验证需重写；关键断言口径已记录在本节「验证结果」里。
-
----
-
-## 2026-09-03 · 改造前基线（VPS 常驻服务 + SQLite 按需渲染）
-
-提交 `b93c77a`。
-
-这套在上一轮已完整实现并端到端验证通过：4 源 118 篇、18 条路由形态、XSS 扫描 0 命中、WAL 并发无冲突、`VACUUM INTO` 在线备份可用。架构是 `wocao-web.service`（常驻，只监听 127.0.0.1:3000）+ `wocao-sync.service`（systemd timer 每 30 分钟触发）共用一个 SQLite 库，Caddy 作唯一对外入口。
-
-之所以先提交这一份：改造要删掉 `db/routes/server/index` 四个模块与全部 VPS 部署物料，而**这个目录当时还不是 git 仓库，删除不可回滚**。
-
-上述文件在下一轮全部删除，但仍可从 `b93c77a` 取回。旧 README 的 VPS/systemd/Caddy/宝塔 章节亦已随 `1435d3d` 移除，需要时查该提交。
+- 放弃原 VPS 常驻 Node + SQLite 方案，重构为纯前端静态生成器：`sync`（抓取并写入 JSON）→ `build`（静态化 HTML 到 `dist/`）→ `deploy`（推送 `gh-pages` 分支）。
+- 建立不可破坏的不变量：站内路径全部走 `urls.mjs` helper、构建前清空 `dist/`、生成 `.nojekyll`、保持文章 ID sha256 算法稳定。
