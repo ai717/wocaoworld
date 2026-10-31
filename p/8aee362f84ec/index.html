@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-8TX501TYGH"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-8TX501TYGH');
+</script>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>不逐字生成、一次吐 32 个词块：35B 扩散模型 Clover 开源 · wocao.world</title>
+<meta name="description" content="为什么不再逐字吐？扩散式生成的基本逻辑 传统自回归模型像打字员，一个字一个字往外挤，延迟随长度线性增长。DiffuSpace 发布的 Clover-35B-A3B-Preview 把这套逻辑彻底翻了：把生成看作去噪，先把整块 block_size=32 全部 mask，再一次性预测所有位置，按置信度保留高分 token，低分位置留到下一轮再修。这种 block diffusion 思路让并行度直接拉满，不再受单步序列依赖拖累。 Block Diffusion 怎么并行跑完 32 个词块 模型先对 32 个位置做全并行前向，得到每个位置的分布。接着引入 threshold=0.95 的 LowC…">
+<link rel="canonical" href="https://wocao.world/p/8aee362f84ec/">
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="wocao.world">
+<meta property="og:title" content="不逐字生成、一次吐 32 个词块：35B 扩散模型 Clover 开源 · wocao.world">
+<meta property="og:description" content="为什么不再逐字吐？扩散式生成的基本逻辑 传统自回归模型像打字员，一个字一个字往外挤，延迟随长度线性增长。DiffuSpace 发布的 Clover-35B-A3B-Preview 把这套逻辑彻底翻了：把生成看作去噪，先把整块 block_size=32 全部 mask，再一次性预测所有位置，按置信度保留高分 token，低分位置留到下一轮再修。这种 block diffusion 思路让并行度直接拉满，不再受单步序列依赖拖累。 Block Diffusion 怎么并行跑完 32 个词块 模型先对 32 个位置做全并行前向，得到每个位置的分布。接着引入 threshold=0.95 的 LowC…">
+<meta property="og:url" content="https://wocao.world/p/8aee362f84ec/">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="不逐字生成、一次吐 32 个词块：35B 扩散模型 Clover 开源 · wocao.world">
+<meta name="twitter:description" content="为什么不再逐字吐？扩散式生成的基本逻辑 传统自回归模型像打字员，一个字一个字往外挤，延迟随长度线性增长。DiffuSpace 发布的 Clover-35B-A3B-Preview 把这套逻辑彻底翻了：把生成看作去噪，先把整块 block_size=32 全部 mask，再一次性预测所有位置，按置信度保留高分 token，低分位置留到下一轮再修。这种 block diffusion 思路让并行度直接拉满，不再受单步序列依赖拖累。 Block Diffusion 怎么并行跑完 32 个词块 模型先对 32 个位置做全并行前向，得到每个位置的分布。接着引入 threshold=0.95 的 LowC…">
+<meta name="robots" content="index,follow">
+<link rel="alternate" type="application/rss+xml" title="wocao.world 聚合输出" href="/feed.xml">
+<link rel="stylesheet" href="/style.css">
+<meta property="article:published_time" content="2026-10-31T18:19:29.000Z">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","headline":"不逐字生成、一次吐 32 个词块：35B 扩散模型 Clover 开源","description":"为什么不再逐字吐？扩散式生成的基本逻辑 传统自回归模型像打字员，一个字一个字往外挤，延迟随长度线性增长。DiffuSpace 发布的 Clover-35B-A3B-Preview 把这套逻辑彻底翻了：把生成看作去噪，先把整块 block_size=32 全部 mask，再一次性预测所有位置，按置信度保留高分 token，低分位置留到下一轮再修。这种 block diffusion 思路让并行度直接拉满，不再受单步序列依赖拖累。 Block Diffusion 怎么并行跑完 32 个词块 模型先对 32 个位置做全并行前向，得到每个位置的分布。接着引入 threshold=0.95 的 LowC…","url":"https://wocao.world/p/8aee362f84ec/","datePublished":"2026-10-31T18:19:29.000Z","dateModified":"2026-10-31T22:52:44.651Z","mainEntityOfPage":{"@type":"WebPage","@id":"https://wocao.world/p/8aee362f84ec/"},"author":{"@type":"Person","name":"摸鱼杂货店"},"publisher":{"@type":"Organization","name":"wocao.world","url":"https://wocao.world"}}</script>
+</head>
+<body>
+<a class="skip-link" href="#main">跳到正文</a>
+<header class="site-head">
+<p class="site-title"><a href="/">wocao.world</a></p>
+<p class="site-desc">wocao.world</p>
+<nav class="site-nav">
+<a href="/">最新</a>
+<a href="/about/">关于</a>
+<a href="/feed.xml">RSS</a>
+</nav>
+</header>
+<main id="main">
+<article>
+<h1 class="post-title">不逐字生成、一次吐 32 个词块：35B 扩散模型 Clover 开源</h1>
+<div class="post-body"><h2>为什么不再逐字吐？扩散式生成的基本逻辑</h2>
+<p>传统自回归模型像打字员，一个字一个字往外挤，延迟随长度线性增长。<a href="https://diffuspace.ai/" rel="external nofollow noopener noreferrer" target="_blank">DiffuSpace</a> 发布的 <a href="https://huggingface.co/Diffuspace/Clover-35B-A3B-Preview" rel="external nofollow noopener noreferrer" target="_blank">Clover-35B-A3B-Preview</a> 把这套逻辑彻底翻了：把生成看作去噪，先把整块 <code>block_size=32</code> 全部 mask，再一次性预测所有位置，按置信度保留高分 token，低分位置留到下一轮再修。这种 <code>block diffusion</code> 思路让并行度直接拉满，不再受单步序列依赖拖累。</p>
+<p><img src="https://moyu.18uk.uk/2026/20261031-2b378dc3-faca-44c7-ab85-2cd1cd4598e9.webp" alt="Clover" width="900" loading="lazy" referrerpolicy="no-referrer" /></p>
+<h2>Block Diffusion 怎么并行跑完 32 个词块</h2>
+<p>模型先对 32 个位置做全并行前向，得到每个位置的分布。接着引入 <code>threshold=0.95</code> 的 LowConfidence 解码：概率低于阈值的位置标为低置信，只把高置信 token 写入序列，剩下位置保持 mask 进入下一轮。每轮只修一小部分，整体轮数远少于逐字步数，推理吞吐直接起飞。</p>
+<h3>LowConfidence 解码的阈值 0.95</h3>
+<ul>
+<li>阈值越高，单轮保留的 token 越少，轮数越多，但生成质量更稳；</li>
+<li>阈值越低，单轮产出多，但容易引入错误，需要更多轮修正；</li>
+<li>官方在预览版里默认 0.95，算是速度和可读性的折中。</li>
+</ul>
+<h2>代价在哪里：显存、重复与纯文本限制</h2>
+<p>权重是 BF16，完整加载约 <code>69GB</code>，单张 48GB 显存跑不下，必须切分或做 CPU offload。模型是纯文本，没有视觉或音频头，长文本生成时容易出现重复片段，官方也在模型卡里提示了这点。Apache-2.0 许可允许商用，但部署门槛实实在在摆在那儿。</p>
+<h2>基座 Qwen3.6-35B-A3B 与 MoE 架构的配合</h2>
+<p>底座是 <code>Qwen3.6-35B-A3B</code>，混合 Gated DeltaNet 与全注意力的 MoE，共 40 层，每层只有约 3B 参数被激活。MoE 的稀疏激活意味着单次推理只加载少量专家权重，显存占用比同规模稠密模型友好得多，配合 block diffusion 的并行前向，能在有限显存里跑起 128K 上下文（131,072 tokens）。</p>
+<h2>怎么在自己的机器上跑起来</h2>
+<p>官方推荐用 <code>SGLang</code> 做推理服务，支持张量并行与专家并行，能把 69GB 权重切到多张 GPU 上。想折腾的同学可以直接去<a href="https://huggingface.co/Diffuspace/Clover-35B-A3B-Preview" rel="external nofollow noopener noreferrer" target="_blank">模型页</a>下载权重，<a href="https://diffuspace.ai/" rel="external nofollow noopener noreferrer" target="_blank">DiffuSpace</a> 官方博客里有更详细的评测与部署说明。注意这是 Preview 版，生产环境先小规模验证再上。</p>
+<p>官方明确建议部署和评测用自家的 SGLang 实现，而不是 Hugging Face 的独立 PyTorch 推理路径——两套实现在数值细节上有差异，同样解码设置可能吐出不一样的文本。另外注意这是 Preview 版，DiffuSpace 说这是他们的第一个模型，后续迭代可能调整解码策略，尝鲜可以，生产环境先小规模验证。</p>
+<p> </p>
+<p> </p>
+<p>本文来源：<a href="https://www.moyunews.com/" rel="external nofollow noopener noreferrer" target="_blank">摸鱼杂货店</a>。查看原文：<a href="https://www.moyunews.com/clover-35b-diffusion-llm/" rel="external nofollow noopener noreferrer" target="_blank">不逐字生成、一次吐 32 个词块：35B 扩散模型 Clover 开源</a>。</p></div>
+<p class="back"><a href="/">← 返回最新</a></p>
+</article>
+</main>
+<footer class="site-foot">
+<p>wocao.world — 本站内容全部转载自各订阅源，版权归原作者与原站所有。</p>
+</footer>
+</body>
+</html>

@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-8TX501TYGH"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-8TX501TYGH');
+</script>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Copilot Fusion GA：单任务成本减半却只差 Opus 5.5 两分 · wocao.world</title>
+<meta name="description" content="单任务成本高、模型切换累人，Copilot Fusion GA 给出新答案 以前要在 GPT‑6、Claude Opus 5.5、Sonnet 5.5 之间手动切模型，既费时又容易选错，全用 Opus 5.5 跑单次任务均价 $11.42 也不便宜。GitHub 10 月 28 日在 官方 Changelog 宣布 “GitHub Copilot Fusion is generally available.”，并把自动路由编排做进了产品里。 自动编排到底怎么跑 Fusion 的思路是把任务自动拆成子步骤，按难度把子任务分给不同的模型：官方确认的调度池里有 Claude Opus 5.5、Cla…">
+<link rel="canonical" href="https://wocao.world/p/e8fa3115d88c/">
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="wocao.world">
+<meta property="og:title" content="Copilot Fusion GA：单任务成本减半却只差 Opus 5.5 两分 · wocao.world">
+<meta property="og:description" content="单任务成本高、模型切换累人，Copilot Fusion GA 给出新答案 以前要在 GPT‑6、Claude Opus 5.5、Sonnet 5.5 之间手动切模型，既费时又容易选错，全用 Opus 5.5 跑单次任务均价 $11.42 也不便宜。GitHub 10 月 28 日在 官方 Changelog 宣布 “GitHub Copilot Fusion is generally available.”，并把自动路由编排做进了产品里。 自动编排到底怎么跑 Fusion 的思路是把任务自动拆成子步骤，按难度把子任务分给不同的模型：官方确认的调度池里有 Claude Opus 5.5、Cla…">
+<meta property="og:url" content="https://wocao.world/p/e8fa3115d88c/">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Copilot Fusion GA：单任务成本减半却只差 Opus 5.5 两分 · wocao.world">
+<meta name="twitter:description" content="单任务成本高、模型切换累人，Copilot Fusion GA 给出新答案 以前要在 GPT‑6、Claude Opus 5.5、Sonnet 5.5 之间手动切模型，既费时又容易选错，全用 Opus 5.5 跑单次任务均价 $11.42 也不便宜。GitHub 10 月 28 日在 官方 Changelog 宣布 “GitHub Copilot Fusion is generally available.”，并把自动路由编排做进了产品里。 自动编排到底怎么跑 Fusion 的思路是把任务自动拆成子步骤，按难度把子任务分给不同的模型：官方确认的调度池里有 Claude Opus 5.5、Cla…">
+<meta name="robots" content="index,follow">
+<link rel="alternate" type="application/rss+xml" title="wocao.world 聚合输出" href="/feed.xml">
+<link rel="stylesheet" href="/style.css">
+<meta property="article:published_time" content="2026-10-31T17:42:13.000Z">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","headline":"Copilot Fusion GA：单任务成本减半却只差 Opus 5.5 两分","description":"单任务成本高、模型切换累人，Copilot Fusion GA 给出新答案 以前要在 GPT‑6、Claude Opus 5.5、Sonnet 5.5 之间手动切模型，既费时又容易选错，全用 Opus 5.5 跑单次任务均价 $11.42 也不便宜。GitHub 10 月 28 日在 官方 Changelog 宣布 “GitHub Copilot Fusion is generally available.”，并把自动路由编排做进了产品里。 自动编排到底怎么跑 Fusion 的思路是把任务自动拆成子步骤，按难度把子任务分给不同的模型：官方确认的调度池里有 Claude Opus 5.5、Cla…","url":"https://wocao.world/p/e8fa3115d88c/","datePublished":"2026-10-31T17:42:13.000Z","dateModified":"2026-10-31T22:52:44.651Z","mainEntityOfPage":{"@type":"WebPage","@id":"https://wocao.world/p/e8fa3115d88c/"},"author":{"@type":"Person","name":"摸鱼杂货店"},"publisher":{"@type":"Organization","name":"wocao.world","url":"https://wocao.world"}}</script>
+</head>
+<body>
+<a class="skip-link" href="#main">跳到正文</a>
+<header class="site-head">
+<p class="site-title"><a href="/">wocao.world</a></p>
+<p class="site-desc">wocao.world</p>
+<nav class="site-nav">
+<a href="/">最新</a>
+<a href="/about/">关于</a>
+<a href="/feed.xml">RSS</a>
+</nav>
+</header>
+<main id="main">
+<article>
+<h1 class="post-title">Copilot Fusion GA：单任务成本减半却只差 Opus 5.5 两分</h1>
+<div class="post-body"><h2>单任务成本高、模型切换累人，Copilot Fusion GA 给出新答案</h2>
+<p>以前要在 GPT‑6、Claude Opus 5.5、Sonnet 5.5 之间手动切模型，既费时又容易选错，全用 Opus 5.5 跑单次任务均价 $11.42 也不便宜。GitHub 10 月 28 日在 <a href="https://github.blog/changelog/2026-10-28-route-and-orchestrate-models-with-github-copilot-fusion/" rel="external nofollow noopener noreferrer" target="_blank">官方 Changelog</a> 宣布 “GitHub Copilot Fusion is generally available.”，并把自动路由编排做进了产品里。</p>
+<p><img src="https://moyu.18uk.uk/2026/20261031-cea4c548-fff1-453f-a4dc-a61c04801fb0.avif" alt="Copilot Fusion" width="900" loading="lazy" referrerpolicy="no-referrer" /></p>
+<h2>自动编排到底怎么跑</h2>
+<p>Fusion 的思路是把任务自动拆成子步骤，按难度把子任务分给不同的模型：官方确认的调度池里有 Claude Opus 5.5、Claude Sonnet 5.5、GPT-6 Astra 和 GPT-6 Sol。三档 Fusion Standard / High / Max 对应不同的编排深度，具体每档的模型组合以 GitHub 官方文档为准。</p>
+<h2>独立评测给出的硬数字</h2>
+<p>Artificial Analysis 在 Coding Agent Index 里写明：“Copilot Fusion Max scored 60, within two points of Claude Code with Opus 5.5 Max. It delivered that result at about half the average API cost per task, using about half as many tokens and taking about 40% less time per task.” <a href="https://venturebeat.com/orchestration/github-copilot-fusion-mixes-models-to-achieve-near-opus-5-5-coding-performance-at-half-the-per-task-cost" rel="external nofollow noopener noreferrer" target="_blank">VentureBeat 转引</a>同一来源，把单任务均价算成 <strong>$5.59</strong> 对 <strong>$11.42</strong>，编程得分 <strong>60 vs 62</strong>，Token 用量减半、耗时降四成。</p>
+<h2>核心指标并排看</h2>
+<table>
+<thead>
+<tr>
+<th>维度</th>
+<th>Fusion Max</th>
+<th>Claude Code + Opus 5.5 Max</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>编程得分</td>
+<td>60</td>
+<td>62</td>
+</tr>
+<tr>
+<td>单任务均价</td>
+<td>$5.59</td>
+<td>$11.42</td>
+</tr>
+<tr>
+<td>Token 用量</td>
+<td>约 50%</td>
+<td>基准 100%</td>
+</tr>
+<tr>
+<td>任务耗时</td>
+<td>‑40%</td>
+<td>基准</td>
+</tr>
+</tbody>
+</table>
+<p> </p>
+<h2>隐形成本与限制</h2>
+<p>虽然 Fusion Max 单任务均价诱人，但它跑在 GitHub Copilot 的订阅体系里——已有 Copilot 订阅的人是顺手升级，没有订阅的人要先算一笔订阅账。若你只需要偶尔跑一次 Opus 5.5，直接走 Anthropic API 按量付费可能更灵活。另外自动路由是概率游戏，极端难题被分错模型时难免多一次重试，对延迟敏感的场景要留余量。</p>
+<h2>什么场景选哪套</h2>
+<p>• 日常高频编码、重构、测试生成，预算敏感、团队已在用 Copilot → 直接上 Fusion Max。<br />
+• 需要极致推理、大模型上下文窗口、或离线部署 → 单独接 Claude Code + Opus 5.5 Max。<br />
+• 混合工作流：把核心算法交给 Opus，其余交给 Fusion，配合 CI/CD 自动切分，性价比最高。</p>
+<p> </p>
+<p> </p>
+<p>本文来源：<a href="https://www.moyunews.com/" rel="external nofollow noopener noreferrer" target="_blank">摸鱼杂货店</a>。查看原文：<a href="https://www.moyunews.com/github-copilot-fusion-half-cost/" rel="external nofollow noopener noreferrer" target="_blank">Copilot Fusion GA：单任务成本减半却只差 Opus 5.5 两分</a>。</p></div>
+<p class="back"><a href="/">← 返回最新</a></p>
+</article>
+</main>
+<footer class="site-foot">
+<p>wocao.world — 本站内容全部转载自各订阅源，版权归原作者与原站所有。</p>
+</footer>
+</body>
+</html>

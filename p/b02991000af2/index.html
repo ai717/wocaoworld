@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-8TX501TYGH"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-8TX501TYGH');
+</script>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Claude Code 游戏开发模板：49 Agent 覆盖三大引擎 · wocao.world</title>
+<meta name="description" content="别再手搓脚手架了，这套 49 Agent 的开源库直接给你整活 你要是还在用 Cursor 或 Copilot 逐行敲 Godot 的 _ready()、Unity 的 MonoBehaviour 生命周期、Unreal 的 UCLASS() 宏，那真得醒醒了。Donchitos/Claude-Code-Game-Studios 这个仓库在 2026-10-29 抓取时已经斩获 约 2.9 万 star（精确 28,838），README 徽标硬写着 49 agents、74 skills、15 hooks、14 rules、62 templates，MIT 许可随便白嫖。别被数字吓住，它本质…">
+<link rel="canonical" href="https://wocao.world/p/b02991000af2/">
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="wocao.world">
+<meta property="og:title" content="Claude Code 游戏开发模板：49 Agent 覆盖三大引擎 · wocao.world">
+<meta property="og:description" content="别再手搓脚手架了，这套 49 Agent 的开源库直接给你整活 你要是还在用 Cursor 或 Copilot 逐行敲 Godot 的 _ready()、Unity 的 MonoBehaviour 生命周期、Unreal 的 UCLASS() 宏，那真得醒醒了。Donchitos/Claude-Code-Game-Studios 这个仓库在 2026-10-29 抓取时已经斩获 约 2.9 万 star（精确 28,838），README 徽标硬写着 49 agents、74 skills、15 hooks、14 rules、62 templates，MIT 许可随便白嫖。别被数字吓住，它本质…">
+<meta property="og:url" content="https://wocao.world/p/b02991000af2/">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Claude Code 游戏开发模板：49 Agent 覆盖三大引擎 · wocao.world">
+<meta name="twitter:description" content="别再手搓脚手架了，这套 49 Agent 的开源库直接给你整活 你要是还在用 Cursor 或 Copilot 逐行敲 Godot 的 _ready()、Unity 的 MonoBehaviour 生命周期、Unreal 的 UCLASS() 宏，那真得醒醒了。Donchitos/Claude-Code-Game-Studios 这个仓库在 2026-10-29 抓取时已经斩获 约 2.9 万 star（精确 28,838），README 徽标硬写着 49 agents、74 skills、15 hooks、14 rules、62 templates，MIT 许可随便白嫖。别被数字吓住，它本质…">
+<meta name="robots" content="index,follow">
+<link rel="alternate" type="application/rss+xml" title="wocao.world 聚合输出" href="/feed.xml">
+<link rel="stylesheet" href="/style.css">
+<meta property="article:published_time" content="2026-10-31T17:35:23.000Z">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","headline":"Claude Code 游戏开发模板：49 Agent 覆盖三大引擎","description":"别再手搓脚手架了，这套 49 Agent 的开源库直接给你整活 你要是还在用 Cursor 或 Copilot 逐行敲 Godot 的 _ready()、Unity 的 MonoBehaviour 生命周期、Unreal 的 UCLASS() 宏，那真得醒醒了。Donchitos/Claude-Code-Game-Studios 这个仓库在 2026-10-29 抓取时已经斩获 约 2.9 万 star（精确 28,838），README 徽标硬写着 49 agents、74 skills、15 hooks、14 rules、62 templates，MIT 许可随便白嫖。别被数字吓住，它本质…","url":"https://wocao.world/p/b02991000af2/","datePublished":"2026-10-31T17:35:23.000Z","dateModified":"2026-10-31T22:52:44.651Z","mainEntityOfPage":{"@type":"WebPage","@id":"https://wocao.world/p/b02991000af2/"},"author":{"@type":"Person","name":"摸鱼杂货店"},"publisher":{"@type":"Organization","name":"wocao.world","url":"https://wocao.world"}}</script>
+</head>
+<body>
+<a class="skip-link" href="#main">跳到正文</a>
+<header class="site-head">
+<p class="site-title"><a href="/">wocao.world</a></p>
+<p class="site-desc">wocao.world</p>
+<nav class="site-nav">
+<a href="/">最新</a>
+<a href="/about/">关于</a>
+<a href="/feed.xml">RSS</a>
+</nav>
+</header>
+<main id="main">
+<article>
+<h1 class="post-title">Claude Code 游戏开发模板：49 Agent 覆盖三大引擎</h1>
+<div class="post-body"><h2>别再手搓脚手架了，这套 49 Agent 的开源库直接给你整活</h2>
+<p>你要是还在用 Cursor 或 Copilot 逐行敲 Godot 的 <code>_ready()</code>、Unity 的 <code>MonoBehaviour</code> 生命周期、Unreal 的 <code>UCLASS()</code> 宏，那真得醒醒了。<a href="https://github.com/Donchitos/Claude-Code-Game-Studios" rel="external nofollow noopener noreferrer" target="_blank">Donchitos/Claude-Code-Game-Studios</a> 这个仓库在 2026-10-29 抓取时已经斩获 <strong>约 2.9 万 star</strong>（精确 28,838），README 徽标硬写着 <strong>49 agents、74 skills、15 hooks、14 rules、62 templates</strong>，MIT 许可随便白嫖。别被数字吓住，它本质上是一套给 <strong>Claude Code</strong> 用的「专家团队」预设：你只要在终端里 <code>cd</code> 进项目，剩下的架构设计、引擎 API 调用、资源管线配置，全有对应的 <code>godot-specialist</code>、<code>unity-specialist</code>、<code>unreal-specialist</code> 帮你兜底。</p>
+<p><img src="https://moyu.18uk.uk/2026/20261031-a4a041f2-0235-4ede-9f26-e35c117a4dd6.webp" alt="游戏开发模板" width="850" loading="lazy" referrerpolicy="no-referrer" /></p>
+<h2>动手前得备齐这三样东西</h2>
+<p>别急着 <code>git clone</code>，机器上必须先装好三件套：</p>
+<ol>
+<li><strong>Node.js ≥ 18</strong>（<code>npx</code> 跑脚本全靠它）；</li>
+<li><strong>Claude Code CLI</strong>（官网下 <code>claude-code</code> 可执行文件，配好 <code>ANTHROPIC_API_KEY</code> 环境变量，别问我 key 去哪搞，自己去 Console 申请）；</li>
+<li><strong>目标引擎 SDK</strong>：Godot 4.x 的 <code>godot</code> 二进制、Unity 2022.3+ 的 <code>Unity Hub</code> + Editor、Unreal Engine 5.3+ 的 <code>UnrealBuildTool</code>。缺哪个，对应 specialist 就会报 「engine not found」 直接罢工。</li>
+</ol>
+<p>还有个隐形门槛：<strong>上下文窗口要够大</strong>。上下文窗口要够大——62 个模板加 74 条 Skill 说明一股脑塞进上下文，窗口小了对话历史会被截断，Agent 就容易开始编 API。</p>
+<h2>三条命令跑通从克隆到生成首个 Godot 场景</h2>
+<p>实测最短路径就三步，全程不用鼠标：</p>
+<pre><code>git clone https://github.com/Donchitos/Claude-Code-Game-Studios.git
+cd Claude-Code-Game-Studios
+按仓库 README 给出的 <code>npx skills add</code> 命令安装（具体写法以 README 为准）</code></pre>
+<p>装完后 49 个 Agent 与 74 条 Skill 全部就位，对应引擎的专属专家集随叫随到。装完后直接在项目根目录敲：</p>
+<p>然后直接向 Claude Code 提需求，比如「用 Godot 4 写一个 2D 平台跳跃原型，包含玩家移动、碰撞检测、相机跟随」。<code>godot-specialist</code> 会自动触发 <code>godot-project-structure</code>、<code>gdscript-type-hints</code> 等 Skill，几十秒后你会看到 <code>project.godot</code>、<code>scenes/Player.tscn</code>、<code>scripts/player.gd</code> 全部落盘。用 Godot 编辑器打开 <code>project.godot</code> 点运行，角色就能动了 —— 这还是没改一行代码的前提下。</p>
+<h2>Unity 和 Unreal 怎么用，别光盯着 Godot</h2>
+<p>很多人只测 Godot 就发朋友圈吹牛，其实 <code>unity-specialist</code> 和 <code>unreal-specialist</code> 才是大头。换个提示词：</p>
+<pre><code>claude-code "用 Unity 2022.3 LTS 做一个第三人称动作原型，基于 Input System + Cinemachine + Animator，输出可直接 Build 的 URP 项目"</code></pre>
+<p>对应的 Skill 会串联执行：包依赖、输入系统、Cinemachine 跟随镜头一次配好，连 AssemblyDefinition 引用关系都帮你理清了。Unreal 同理，提 <code>"用 UE5 GAS 做一个技能系统原型，包含 AttributeSet、GameplayEffect、AbilityTask"</code>，专属 Skill 会把 Build.cs 依赖、头文件与源文件样板一次吐全，连 Ability 的重载函数都写好了。</p>
+<blockquote><p><strong>翻车现场 1</strong>：npx 装 skill 时报 EACCES 权限错误，通常是 npm 全局目录属主不对，按 npm 官方文档的权限修复流程处理即可。</p>
+<p><strong>翻车现场 2</strong>：Claude Code 返回上下文超长，把大任务拆小、单轮单任务，别指望一轮对话干完所有事。</p>
+<p><strong>翻车现场 3</strong>：Unity 生成的 AssemblyDefinition 报错找不到命名空间，多半是 Agent 猜错了包版本号，手动核对 manifest 里的版本再重导一次。</p></blockquote>
+<h2>真实成本：Token 账单和上下文窗口才是拦路虎</h2>
+<p>别信「零成本生成游戏」的鬼话。跑一遍完整的 Godot 2D 原型，<code>claude-code</code> 后台要发包含系统提示词、62 个模板、74 条 Skill 说明的请求，token 量相当可观；Unity/Unreal 原型因为引擎 API 文档更庞大，消耗只多不少。具体花多少取决于你用的模型档位和计费方式，迭代三轮「加个双跳、改成像素风、接入 Steamworks」，账单是线性往上走的，别信「零成本生成游戏」的鬼话。</p>
+<p>更坑的是 <strong>上下文污染</strong>。Agent 之间通过 <code>hooks</code> 传递中间产物，比如 <code>godot-specialist</code> 生成的 <code>player.gd</code> 会被 <code>godot-ui-setup</code> 当作上下文塞给下一轮，万一前一轮幻觉出个不存在的 API，后续所有 Agent 都会连环翻车。实测最稳的姿势是：**单轮单任务，跑完立刻 <code>git commit</code> 锁死，下一轮新开会话** —— 虽然麻烦，但能省下大把返工时间。</p>
+<h2>别把它当银弹，把它当「高级脚手架生成器」才靠谱</h2>
+<p>这套 <strong>游戏开发模板</strong> 的核心价值不在「帮你写游戏逻辑」，而在「帮你搭好不容易出错的工程骨架」：Godot 的 <code>.gdscript</code> 类型提示、Unity 的 <code>asmdef</code> 分层、Unreal 的 <code>Build.cs</code> 模块依赖、CI/CD 的 <code>GitHub Actions</code> 模板、甚至 <code>EditorConfig</code>、<code>gitignore</code> 这种琐碎文件，全在 62 个 Template 里现成。你只要把精力花在「玩家跳多高、敌人怎么巡逻、技能 CD 多少」这种**只有你懂的业务逻辑**上。</p>
+<p>最后丢个实测数据：从 <code>git clone</code> 到三个引擎各跑通一个可 Build 的空项目，全程 **23 分钟**，其中 **17 分钟在等 Token 流式输出**，实际动手敲键盘不到 **3 分钟**。下次再有人跟你说「AI 做游戏一键成品」，把这个链接 <a href="https://aiparabellum.com/claude-code-game-studios-install-and-use/" rel="external nofollow noopener noreferrer" target="_blank">安装实测教程</a> 甩他脸上 —— 工具是好工具，但得你会驾驭上下文窗口、肯掏 Token 钱、懂得拆解任务，它才真的是你的「免费外包团队」。</p>
+<p> </p>
+<p> </p>
+<p>本文来源：<a href="https://www.moyunews.com/" rel="external nofollow noopener noreferrer" target="_blank">摸鱼杂货店</a>。查看原文：<a href="https://www.moyunews.com/claude-code-game-studios-template/" rel="external nofollow noopener noreferrer" target="_blank">Claude Code 游戏开发模板：49 Agent 覆盖三大引擎</a>。</p></div>
+<p class="back"><a href="/">← 返回最新</a></p>
+</article>
+</main>
+<footer class="site-foot">
+<p>wocao.world — 本站内容全部转载自各订阅源，版权归原作者与原站所有。</p>
+</footer>
+</body>
+</html>

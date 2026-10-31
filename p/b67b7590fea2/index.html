@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-8TX501TYGH"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-8TX501TYGH');
+</script>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Unsloth Desktop v0.1.912 让本地模型浏览器自主下棋绘画 · wocao.world</title>
+<meta name="description" content="本地大模型现在能开浏览器了 先说发生了什么。unsloth.ai 官方文档页直接挂出了一行新条目：『Browser Use — Local LLMs can now control your browser!』同一天，Unsloth 官方 X 账号 @UnslothAI 发帖宣布（原文为第三方转引）：『Your local LLM can now take control of a browser and complete tasks autonomously via Unsloth!』紧接着的第二条更具体：『Qwen3.8-27B successfully controlled the br…">
+<link rel="canonical" href="https://wocao.world/p/b67b7590fea2/">
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="wocao.world">
+<meta property="og:title" content="Unsloth Desktop v0.1.912 让本地模型浏览器自主下棋绘画 · wocao.world">
+<meta property="og:description" content="本地大模型现在能开浏览器了 先说发生了什么。unsloth.ai 官方文档页直接挂出了一行新条目：『Browser Use — Local LLMs can now control your browser!』同一天，Unsloth 官方 X 账号 @UnslothAI 发帖宣布（原文为第三方转引）：『Your local LLM can now take control of a browser and complete tasks autonomously via Unsloth!』紧接着的第二条更具体：『Qwen3.8-27B successfully controlled the br…">
+<meta property="og:url" content="https://wocao.world/p/b67b7590fea2/">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Unsloth Desktop v0.1.912 让本地模型浏览器自主下棋绘画 · wocao.world">
+<meta name="twitter:description" content="本地大模型现在能开浏览器了 先说发生了什么。unsloth.ai 官方文档页直接挂出了一行新条目：『Browser Use — Local LLMs can now control your browser!』同一天，Unsloth 官方 X 账号 @UnslothAI 发帖宣布（原文为第三方转引）：『Your local LLM can now take control of a browser and complete tasks autonomously via Unsloth!』紧接着的第二条更具体：『Qwen3.8-27B successfully controlled the br…">
+<meta name="robots" content="index,follow">
+<link rel="alternate" type="application/rss+xml" title="wocao.world 聚合输出" href="/feed.xml">
+<link rel="stylesheet" href="/style.css">
+<meta property="article:published_time" content="2026-10-31T17:39:47.000Z">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","headline":"Unsloth Desktop v0.1.912 让本地模型浏览器自主下棋绘画","description":"本地大模型现在能开浏览器了 先说发生了什么。unsloth.ai 官方文档页直接挂出了一行新条目：『Browser Use — Local LLMs can now control your browser!』同一天，Unsloth 官方 X 账号 @UnslothAI 发帖宣布（原文为第三方转引）：『Your local LLM can now take control of a browser and complete tasks autonomously via Unsloth!』紧接着的第二条更具体：『Qwen3.8-27B successfully controlled the br…","url":"https://wocao.world/p/b67b7590fea2/","datePublished":"2026-10-31T17:39:47.000Z","dateModified":"2026-10-31T22:52:44.651Z","mainEntityOfPage":{"@type":"WebPage","@id":"https://wocao.world/p/b67b7590fea2/"},"author":{"@type":"Person","name":"摸鱼杂货店"},"publisher":{"@type":"Organization","name":"wocao.world","url":"https://wocao.world"}}</script>
+</head>
+<body>
+<a class="skip-link" href="#main">跳到正文</a>
+<header class="site-head">
+<p class="site-title"><a href="/">wocao.world</a></p>
+<p class="site-desc">wocao.world</p>
+<nav class="site-nav">
+<a href="/">最新</a>
+<a href="/about/">关于</a>
+<a href="/feed.xml">RSS</a>
+</nav>
+</header>
+<main id="main">
+<article>
+<h1 class="post-title">Unsloth Desktop v0.1.912 让本地模型浏览器自主下棋绘画</h1>
+<div class="post-body"><h2>本地大模型现在能开浏览器了</h2>
+<p>先说发生了什么。<a href="https://unsloth.ai/docs" rel="external nofollow noopener noreferrer" target="_blank">unsloth.ai 官方文档页</a>直接挂出了一行新条目：『Browser Use — Local LLMs can now control your browser!』同一天，Unsloth 官方 X 账号 @UnslothAI 发帖宣布（原文为第三方转引）：『Your local LLM can now take control of a browser and complete tasks autonomously via Unsloth!』紧接着的第二条更具体：『Qwen3.8-27B successfully controlled the browser to complete tasks like chess, painting, with no human intervention.』翻译成人话：跑在你自己机器上的开源大模型，现在能自己打开浏览器、自己点、自己看，全程不用你插手。</p>
+<p>这件事为什么值得单独拎出来说？因为此前的浏览器 Agent 基本都绑在云端大模型上——你要么把浏览记录喂给远端 API，要么忍受按 token 计费的账单。Unsloth 这次把整条链路搬到了本地：模型在你机器上跑，浏览器也在你机器上开，隐私和成本两个痛点一次解决。<a href="https://pasqualepillitteri.it/en/news/27948/unsloth-browser-use-qwen3-8-27b-local-browser" rel="external nofollow noopener noreferrer" target="_blank">独立媒体的转引报道</a>也逐字确认了官方帖文内容。</p>
+<p><img src="https://moyu.18uk.uk/2026/20261031-d8e5eeff-7462-4663-b1cb-c4f984e50d20.webp" alt="本地模型浏览器" width="900" loading="lazy" referrerpolicy="no-referrer" /></p>
+<h2>4-bit 的 27B 模型要吃 16–19 GB</h2>
+<p>准备清单其实就一条：内存够不够。官方文档给出的实测口径是 4-bit 量化的 Qwen3.8-27B 跑 Browser Use，大约需要 16–19 GB 内存。达不到这个数，模型加载都成问题，更别说一边推理一边驱动浏览器了。</p>
+<p>顺带说一句，Qwen3.8-27B 这个名字听着陌生也正常——它是 Unsloth 官方拿来做演示的实测模型，重点不在模型本身多强，而在证明『本地小模型 + 浏览器控制』这条路走得通。你手里如果有其他 Unsloth 支持的本地模型，理论上也能走同一套流程，具体支持列表以官方文档为准。</p>
+<h2>Unsloth Desktop v0.1.912：开关藏在新版本里</h2>
+<p>想上手的话，入口是 Unsloth Desktop v0.1.912——这个版本新增了 Browser use 开关。操作路径按官方文档走：把 Desktop 升级到 v0.1.912，找到 Browser use 开关打开，剩下的组件拉取和浏览器实例启动都由 Desktop 自己处理。具体界面入口以 <a href="https://unsloth.ai/docs" rel="external nofollow noopener noreferrer" target="_blank">unsloth.ai/docs</a> 的最新说明为准，版本号迭代快，别按过期教程找菜单。</p>
+<p>多说一句：这类本地工具的版本变化通常很快，今天 v0.1.912 的开关位置，下个版本可能就挪地方了。动手前先扫一眼官方文档的更新日期，省得对着旧截图找半天。</p>
+<h2>从认棋盘到落子</h2>
+<p>按官方演示，Qwen3.8-27B 完成的任务包括下棋和绘画。拆开看就是一条动作链：模型读取浏览器当前画面的状态，理解『现在轮到我走棋』『画布上还缺一只猫的耳朵』，然后输出鼠标点击、键盘输入这类浏览器操作，循环往复直到任务完成。『with no human intervention』是官方原话——中途不需要人点『继续』。</p>
+<p>这套机制的意义在于，它把『操作电脑』从云端大模型的专属能力，变成了本地模型也能干的活。对摸鱼党来说，想象空间在于那些重复性网页操作：批量查价格、定时填表、跨页面搬运信息。注意这只是方向上的想象，官方目前只演示了下棋和绘画两类任务，别脑补成万能 RPA。</p>
+<h2>三个现实限制</h2>
+<blockquote><p>第一，算力门槛是硬性的：16–19 GB 内存只是起步，浏览器本身也要吃内存，边推理边开几十个标签页会很吃力。第二，复杂网页是照妖镜：官方演示的是棋盘和画板这类结构简单的页面，遇到动态加载、反爬、登录墙，本地小模型的成功率大概率打折。第三，网络与延迟：模型每一步操作都要等页面响应，任务链一长，总耗时可能比你手动操作还慢，适合『挂着让它跑』的场景，不适合赶时间。</p></blockquote>
+<p>总结一句：Unsloth 这次把浏览器控制权交给了本地模型，方向是对的，演示是真的，但离『装上就解放双手』还有距离。内存够、场景简单、时间不敏感——同时满足这三条，再动手不迟。</p>
+<p> </p>
+<p> </p>
+<p>本文来源：<a href="https://www.moyunews.com/" rel="external nofollow noopener noreferrer" target="_blank">摸鱼杂货店</a>。查看原文：<a href="https://www.moyunews.com/unsloth-browser-use-local-llm/" rel="external nofollow noopener noreferrer" target="_blank">Unsloth Desktop v0.1.912 让本地模型浏览器自主下棋绘画</a>。</p></div>
+<p class="back"><a href="/">← 返回最新</a></p>
+</article>
+</main>
+<footer class="site-foot">
+<p>wocao.world — 本站内容全部转载自各订阅源，版权归原作者与原站所有。</p>
+</footer>
+</body>
+</html>
