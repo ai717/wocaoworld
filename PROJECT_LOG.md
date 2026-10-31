@@ -1,5 +1,16 @@
 # PROJECT_LOG
 
+## 2026-11-01 · 增加 Google 搜索控制台验证文件与推送触发
+
+### 做了什么
+
+- 将 Google 验证文件 `google866db18e376db9e8.html` 加入 `public/` 目录，构建时自动打包到 `dist/` 根路径。
+- 在 `.github/workflows/sync.yml` 中添加 `push` 触发，向 `main` 分支推送后自动构建并发布到 `gh-pages`。
+
+### 修改文件
+
+`public/google866db18e376db9e8.html`、`google866db18e376db9e8.html`、`.github/workflows/sync.yml`、`PROJECT_LOG.md`。
+
 ## 2026-10-12 · GitHub Actions 云端定时抓取与发布
 
 ### 做了什么
