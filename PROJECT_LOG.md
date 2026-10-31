@@ -1,5 +1,15 @@
 # PROJECT_LOG
 
+## 2026-11-01 · 增加 Google Analytics (gtag.js) 统计代码
+
+### 做了什么
+
+- 在 `src/render.mjs` 的通用 `layout` 模板 `<head>` 中嵌入 Google Analytics (gtag.js: `G-8TX501TYGH`) 统计代码，覆盖全站页面。
+
+### 修改文件
+
+`src/render.mjs`、`PROJECT_LOG.md`。
+
 ## 2026-11-01 · 增加 Google 搜索控制台验证文件与推送触发
 
 ### 做了什么
