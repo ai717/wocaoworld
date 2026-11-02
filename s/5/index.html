@@ -41,7 +41,27 @@
 </header>
 <main id="main">
 <h1 class="list-heading">摸鱼杂货店</h1>
-<p class="note">来自订阅源 <a href="https://www.moyunews.com/" rel="external nofollow noopener noreferrer" target="_blank">摸鱼杂货店</a>（全文镜像）。共 246 篇。</p>
+<p class="note">来自订阅源 <a href="https://www.moyunews.com/" rel="external nofollow noopener noreferrer" target="_blank">摸鱼杂货店</a>（全文镜像）。共 250 篇。</p>
+<article class="post-card">
+<h2 class="post-card-title"><a href="/p/ba073877902c/">Claude 剪片新玩法：先看 706 条爆款，不开 CapCut</a></h2>
+<p class="meta"><time datetime="2026-11-02T15:30:46.000Z">2026/11/02</time></p>
+<p class="excerpt">剪片之前，先让 Claude 当两天“片儿警” 多数人用 AI 剪片的姿势是：丢一段原片进去，说“剪得燃一点”，然后对着平庸的成片叹气。Ola Ξlixir（@thegreatola）把顺序反过来了：剪之前，先让 Claude 研究你喜欢什么样的视频。他给 Claude 一个 X 主页，让它找出表现超过该主页平均水平的帖子，拆解 hooks（钩子）、cuts（剪辑）、pacing（节奏）、sound（声音），最后沉淀成一个可复用的 Skill。他的 launch video（产品发布视频）skill 分析了 706 个视频，talking heads（口播）也做了同款。实测战绩：1 分 39 …</p>
+</article>
+<article class="post-card">
+<h2 class="post-card-title"><a href="/p/cd99c744d3b9/">DeepSeek的dsh-superagent：两天7600星，自己找活干</a></h2>
+<p class="meta"><time datetime="2026-11-02T15:26:49.000Z">2026/11/02</time></p>
+<p class="excerpt">两天狂揽七千星，DeepSeek把Agent做成了常驻后台 10月31号GitHub上悄无声息冒出个deepseek-ai/dsh-superagent-prototype，MIT协议、TypeScript写就，创建时间锁死在2026-10-31T09:32:46Z。到11月2号北京时间早9点40分，GitHub实时星标已破7671，约7600+。官方一句话简介「Towards a More Autonomous Agent System」——直指更自主的Agent系统。别被「原型」俩字骗了，这玩意儿上手就是干活的：常驻Router盯着GitHub事件流和群聊消息，发现Issue、收到指令立马…</p>
+</article>
+<article class="post-card">
+<h2 class="post-card-title"><a href="/p/6a2a6e1175e7/">OpenCode直连Claude订阅：2.2.3 的捷径与封号风险</a></h2>
+<p class="meta"><time datetime="2026-11-02T15:23:23.000Z">2026/11/02</time></p>
+<p class="excerpt">先说结论：能接，但 Anthropic 没点头 10 月 30 日，OpenCode 2.2.3 的 release notes 只扔了一句话：Use Claude Code in OpenCode: Install Claude Code, run `claude auth login`, then select Claude Agent in `/connect`。翻译成人话：装好 Claude Code、跑一次登录，OpenCode 里就能直接调用你的 Claude 订阅跑模型了。官方 X 公告帖约 51 万浏览（help.apiyi.com 11 月 1 日转述），评论区一片欢呼。 但…</p>
+</article>
+<article class="post-card">
+<h2 class="post-card-title"><a href="/p/1e937f763a01/">49 秒出品牌 kit、5 分钟产 6 条广告，Krea Ad Studio</a></h2>
+<p class="meta"><time datetime="2026-11-02T15:19:47.000Z">2026/11/02</time></p>
+<p class="excerpt">粘贴官网链接，49 秒吐出品牌 kit 做过品牌广告的人都知道，最磨人的不是画图，而是前期的品牌研究：logo 怎么摆、主色是哪几个、文案用什么语气、目标受众是谁——这些活儿过去要跟客户来回扯好几轮。Krea 在 10 月 29 日发布的 Ad Studio 把这一步直接砍掉了：粘贴品牌官网 URL，它自己去爬、去读、去研究，49 秒吐出一套完整的 brand kit，logo、颜色、字体、品牌描述、语气、受众、卖点全齐活。 Ad Studio 是首个「Krea 3 Expert」——也就是把新一代 Krea 3 图像模型专精调教成「只干广告这一件事」的版本。不搞大而全，就赌一个场景：帮中小品…</p>
+</article>
 <article class="post-card">
 <h2 class="post-card-title"><a href="/p/73ed6cc00482/">Telegram里养8个AI打工仔：n8n智能体军团省出20小时</a></h2>
 <p class="meta"><time datetime="2026-10-31T18:42:31.000Z">2026/10/31</time></p>
@@ -171,26 +191,6 @@
 <h2 class="post-card-title"><a href="/p/30d1a9f6ec77/">多智能体并行跑任务：Orca 让 30 多个 agent 各干各的只留最优解</a></h2>
 <p class="meta"><time datetime="2026-10-29T14:14:29.000Z">2026/10/29</time></p>
 <p class="excerpt">别让几个 agent 在同一个目录里打架 同时派几个 coding agent 改同一份代码，最常见的下场就是互相覆盖、冲突满屏。而且它们读的是同一份上下文，犯错还容易撞车，所谓集思广益最后变成集体翻车。Orca 换了个思路：不拼谁的模型更强，而是给每个 agent 一个独立的 git worktree，各自在完整检出里干活，最后把结果并排摆出来，只合并最优解，其余丢弃。 一个任务派出去，Orca 在后台干了什么 桌面端新建任务、写清需求、勾选要上场的 agent：内置 30+ CLI agent 预设，覆盖 Claude Code、Codex、Grok、Cursor、GitHub Copil…</p>
-</article>
-<article class="post-card">
-<h2 class="post-card-title"><a href="/p/adc99f20bc7b/">34 家免费额度拼成本地 OpenAI 兼容接口：免费模型路由实测</a></h2>
-<p class="meta"><time datetime="2026-10-29T14:12:25.000Z">2026/10/29</time></p>
-<p class="excerpt">一条命令，34 家免费额度到手 手里攥着一堆免费 key，却每次都要手动换接口、改配置，免费额度用起来比花钱还累。FreeLLMAPI 的解法很直接：一条命令 curl -fsSL https://freellmapi.co/install.sh | bash，脚本拉取 Docker 镜像、在 3001 端口把服务跑起来，http://localhost:3001/v1 就成了一个标准的 OpenAI 兼容端点。一个统一 key，就能调用官方口径里 34 家供应商的 635 个免费端点，不用再给每个供应商各写一套配置。 这个项目定位是个人实验用途，MIT 协议开源。免费这件事它玩的是聚合：单家…</p>
-</article>
-<article class="post-card">
-<h2 class="post-card-title"><a href="/p/aaac4b88c6ec/">界面技能包治 Agent 的 UI 糙病：8,530 星开源评审</a></h2>
-<p class="meta"><time datetime="2026-10-29T14:09:56.000Z">2026/10/29</time></p>
-<p class="excerpt">Agent 写界面像盲人摸象，逻辑通了样子难看 让 Cursor 或 Claude Code 写个后台管理页，接口调通、状态机跑顺全靠提示词堆，一到『对齐』、『对比度过 WCAG 2.2』、『文案别用『点击这里』这种废话』，模型要么装瞎要么胡编。GitHub 上 jakubkrehel/skills 仓库 8,530 星、MIT 协议，直戳这个痛点：把排版、颜色、无障碍、布局、文案、UI 六大领域收成一套可安装的 Agent 技能，专治 coding agent『逻辑顺、界面能用就行』的毛病。 动手前：编辑器就位，评审范围先划清 别急着敲命令。先确认两件事：你要用的编辑器或 Agent 能装技…</p>
-</article>
-<article class="post-card">
-<h2 class="post-card-title"><a href="/p/fcef1a9e2235/">Claude Code 远程给电视去广告：禁 25 个小米包换苹果风主屏</a></h2>
-<p class="meta"><time datetime="2026-10-29T14:07:56.000Z">2026/10/29</time></p>
-<p class="excerpt">开机先看赞助广告？这回连包名都不用你背 父母屋里的小米电视，开机先看赞助广告，桌面上还堆着推荐行。2017 年 Vizio 就因未经同意追踪 1100 万台电视观看行为赔了 220 万美元。Gathin T. 受不了这套，直接把 Claude Code 扔进同一 Wi-Fi，丢个电视型号和 IP，让 AI 自己顺着 ADB 把 25 个小米包 pm disable-user 了，再装一个 Apple TV 风格启动器 当默认主屏。提示词整理成 cleanyourtv 开源，两天几千人照着跑通。 先把电视调成「可被 AI 摆布」的状态 动手前只需三样东西：同一 Wi-Fi 下的电脑、电视型号、电…</p>
-</article>
-<article class="post-card">
-<h2 class="post-card-title"><a href="/p/8f16df228c96/">Godot助手接入：把Claude塞进编辑器只需63MB</a></h2>
-<p class="meta"><time datetime="2026-10-29T14:06:16.000Z">2026/10/29</time></p>
-<p class="excerpt">别再手动复制粘贴代码了，AI该直接进编辑器改场景树 写Godot游戏时最烦什么？不是逻辑难，是改个节点属性、重构个脚本、排查个报错，全得在编辑器和聊天窗口来回横跳。Godot-MCP Community Edition 10月25号刚发社区版 1.0.0，作者 Unsigned Exe Studios 走 MIT 协议，Windows 版压缩包才 63MB，.NET 8 自包含二进制，解压双击就能跑，连 Python 运行时都省了。核心思路很简单：在编辑器里跑个 WebSocket 服务（ws://127.0.0.1:6505），桌面端做个 Hub，把 Claude Desktop、LM St…</p>
 </article>
 <nav class="pagination" aria-label="分页">
 <span class="disabled">← 上一页</span>

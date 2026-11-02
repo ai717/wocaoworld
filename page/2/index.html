@@ -43,6 +43,26 @@
 
 
 <article class="post-card">
+<h2 class="post-card-title"><a href="/p/adc99f20bc7b/">34 家免费额度拼成本地 OpenAI 兼容接口：免费模型路由实测</a></h2>
+<p class="meta"><time datetime="2026-10-29T14:12:25.000Z">2026/10/29</time></p>
+<p class="excerpt">一条命令，34 家免费额度到手 手里攥着一堆免费 key，却每次都要手动换接口、改配置，免费额度用起来比花钱还累。FreeLLMAPI 的解法很直接：一条命令 curl -fsSL https://freellmapi.co/install.sh | bash，脚本拉取 Docker 镜像、在 3001 端口把服务跑起来，http://localhost:3001/v1 就成了一个标准的 OpenAI 兼容端点。一个统一 key，就能调用官方口径里 34 家供应商的 635 个免费端点，不用再给每个供应商各写一套配置。 这个项目定位是个人实验用途，MIT 协议开源。免费这件事它玩的是聚合：单家…</p>
+</article>
+<article class="post-card">
+<h2 class="post-card-title"><a href="/p/aaac4b88c6ec/">界面技能包治 Agent 的 UI 糙病：8,530 星开源评审</a></h2>
+<p class="meta"><time datetime="2026-10-29T14:09:56.000Z">2026/10/29</time></p>
+<p class="excerpt">Agent 写界面像盲人摸象，逻辑通了样子难看 让 Cursor 或 Claude Code 写个后台管理页，接口调通、状态机跑顺全靠提示词堆，一到『对齐』、『对比度过 WCAG 2.2』、『文案别用『点击这里』这种废话』，模型要么装瞎要么胡编。GitHub 上 jakubkrehel/skills 仓库 8,530 星、MIT 协议，直戳这个痛点：把排版、颜色、无障碍、布局、文案、UI 六大领域收成一套可安装的 Agent 技能，专治 coding agent『逻辑顺、界面能用就行』的毛病。 动手前：编辑器就位，评审范围先划清 别急着敲命令。先确认两件事：你要用的编辑器或 Agent 能装技…</p>
+</article>
+<article class="post-card">
+<h2 class="post-card-title"><a href="/p/fcef1a9e2235/">Claude Code 远程给电视去广告：禁 25 个小米包换苹果风主屏</a></h2>
+<p class="meta"><time datetime="2026-10-29T14:07:56.000Z">2026/10/29</time></p>
+<p class="excerpt">开机先看赞助广告？这回连包名都不用你背 父母屋里的小米电视，开机先看赞助广告，桌面上还堆着推荐行。2017 年 Vizio 就因未经同意追踪 1100 万台电视观看行为赔了 220 万美元。Gathin T. 受不了这套，直接把 Claude Code 扔进同一 Wi-Fi，丢个电视型号和 IP，让 AI 自己顺着 ADB 把 25 个小米包 pm disable-user 了，再装一个 Apple TV 风格启动器 当默认主屏。提示词整理成 cleanyourtv 开源，两天几千人照着跑通。 先把电视调成「可被 AI 摆布」的状态 动手前只需三样东西：同一 Wi-Fi 下的电脑、电视型号、电…</p>
+</article>
+<article class="post-card">
+<h2 class="post-card-title"><a href="/p/8f16df228c96/">Godot助手接入：把Claude塞进编辑器只需63MB</a></h2>
+<p class="meta"><time datetime="2026-10-29T14:06:16.000Z">2026/10/29</time></p>
+<p class="excerpt">别再手动复制粘贴代码了，AI该直接进编辑器改场景树 写Godot游戏时最烦什么？不是逻辑难，是改个节点属性、重构个脚本、排查个报错，全得在编辑器和聊天窗口来回横跳。Godot-MCP Community Edition 10月25号刚发社区版 1.0.0，作者 Unsigned Exe Studios 走 MIT 协议，Windows 版压缩包才 63MB，.NET 8 自包含二进制，解压双击就能跑，连 Python 运行时都省了。核心思路很简单：在编辑器里跑个 WebSocket 服务（ws://127.0.0.1:6505），桌面端做个 Hub，把 Claude Desktop、LM St…</p>
+</article>
+<article class="post-card">
 <h2 class="post-card-title"><a href="/p/a2b36475b638/">Strata 0.2.5 把 125B Qwen 塞进本地大模型引擎</a></h2>
 <p class="meta"><time datetime="2026-10-29T14:04:49.000Z">2026/10/29</time></p>
 <p class="excerpt">一条安装包，几分钟跑起 125B 专家混合模型 以前想在自家游戏本上跑百亿级 MoE，得先折腾 Docker、再手动下载权重、还要调显存分层。现在 Strata 0.2.5 直接给每个系统打包一个安装程序，首次启动自动拉取对应推理引擎，点一下就能把 Qwen 团队发布的 Qwen3.8‑Flash‑Next（总参数 125B、单 token 激活约 6B、24 576 个专家、每词约 10 个工作专家）塞进 12 GB 显存里跑起来。 专家缓存进显存、全量专家住内存、CPU 补位、SSD 做 n‑gram 查表 核心思路不是传统的层卸载，而是把热门专家常驻显存、把全部 24 576 个专家放进…</p>
@@ -171,26 +191,6 @@
 <h2 class="post-card-title"><a href="/p/36dfa78a3452/">ClaudeSEO插件实战：用 Claude Code 做全站 SEO 审计</a></h2>
 <p class="meta"><time datetime="2026-10-22T16:20:45.000Z">2026/10/22</time></p>
 <p class="excerpt">前置条件 在动手之前，确认本地已经装好 Python 3.10+、Git 以及 Claude Code CLI。如果你还没把 claude-seo 克隆下来，先跑一下安装脚本。 安装与初始化 打开终端，执行下面这条命令，脚本会自动拉取依赖并把 26 个子技能、19 个专家智能体注册到 Claude Code： git clone --depth 1 https://github.com/AgriciDaniel/claude-seo.git &amp;amp;&amp;amp; bash claude-seo/install.sh 安装完成后，可以用 claude --version 确认 CLI 已就绪，顺…</p>
-</article>
-<article class="post-card">
-<h2 class="post-card-title"><a href="/p/3393753d8148/">微软 Scope 开源：编程智能体评测横评 Copilot 与 Claude</a></h2>
-<p class="meta"><time datetime="2026-10-22T16:16:20.000Z">2026/10/22</time></p>
-<p class="excerpt">以前没法横向比谁强 写代码时最头疼的是，市面上一堆号称「最强」的编程智能体，却没一个统一的跑分标准。开发者只能凭感觉选工具，结果往往买了订阅才发现根本跑不动复杂任务。 事实梳理：Scope 是什么、怎么跑 Scope 由微软开发者关系团队在 2026-10-19 以 MIT 许可证 开源，定位为 Research preview 级的编程智能体评测平台。它的发布延续了微软 10 月 6 日提出的 Agent Experience（AX）理念，以及 10 月 9 日发布的 AX Practitioner Playbook——把智能体体验的讨论从口号落到了可跑分的工具上。它把 GitHub Cop…</p>
-</article>
-<article class="post-card">
-<h2 class="post-card-title"><a href="/p/03fdbdeb9312/">OptScale Kompressor 词元压缩把 AI 编程账单砍 22.7%</a></h2>
-<p class="meta"><time datetime="2026-10-22T16:13:53.000Z">2026/10/22</time></p>
-<p class="excerpt">为什么账单会飙升？ 写过 Codex CLI 或 GPT-5.5 的同学都知道，编程智能体把构建日志、编译器报错、测试堆栈一次性塞进上下文，动辄几十万词元。官方 报道 里提到，Terminal‑Bench 2.1 跑出来的数据显示，超 200000 词元的请求占比从 1.9% 降到 0.13% 才勉强能吃下折扣。没压缩前，账单按 token 计费，动不动就几百刀。 Kompressor 怎么把词元“压”下去 OptScale Kompressor 是 Hystax 放出的单 Rust 二进制，体积只有几 MB，零外部网络调用，1 KB 输出约 0.2 ms。它不改智能体任何一行代码，只在请求进…</p>
-</article>
-<article class="post-card">
-<h2 class="post-card-title"><a href="/p/e06e6f30223a/">VoiceStudio：本地免费替代 ElevenLabs 的开源神器</a></h2>
-<p class="meta"><time datetime="2026-10-21T16:53:12.000Z">2026/10/21</time></p>
-<p class="excerpt">云端配音又贵又不自由 做视频、做播客、做多语言教程，最让人头大的是每分钟都在烧钱，还得全程联网排队。ElevenLabs 音质确实好，但它是云端按量/订阅制，音频还得上传到对方服务器，隐私这块只能信人家的承诺。很多创作者只是想克隆几句台词、给视频配个音，结果被迫绑卡订阅、看网络脸色。 VoiceStudio 是什么 VoiceStudio（仓库 debpalash/VoiceStudio）是一个开源免费的本地语音工作站，协议 AGPL-3.0，前身叫 OmniVoice-Studio。它是 Electron 桌面应用，支持 macOS 和 Linux，把语音克隆、声音设计、视频配音、听写、转录…</p>
-</article>
-<article class="post-card">
-<h2 class="post-card-title"><a href="/p/101b93a0041b/">VideoGen Model 1：一句话生成 10 分钟多镜头成片</a></h2>
-<p class="meta"><time datetime="2026-10-21T16:51:36.000Z">2026/10/21</time></p>
-<p class="excerpt">一句话写完，十分钟拍完：这个跨度大到不真实 现在市面上你能用到的 AI 视频工具，大多数还停留在「给几句描述，吐出几秒钟的单镜头片段」这个阶段。想要一个完整的故事？自己动手剪，对白另配，音乐另找，镜头衔接全靠人工。VideoGen 的 Model 1 偏偏反着来：它宣称一句话提示词，或者几张参考图，就能直接输出最长 10 分钟的多镜头成片，对白、配乐、音效一次配齐。这家来自旧金山的 Y Combinator 系 AI 视频公司，在 2026-10-20 拿出了自己的首款自研视频生成模型，一上来就把时间尺度拉到了「成片」级别。 先泼一瓢冷水：今天起你还用不上它。Model 1 从 10-20 开…</p>
 </article>
 <nav class="pagination" aria-label="分页">
 <a href="/" rel="prev">← 上一页</a>

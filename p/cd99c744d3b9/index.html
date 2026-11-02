@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-8TX501TYGH"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-8TX501TYGH');
+</script>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>DeepSeek的dsh-superagent：两天7600星，自己找活干 · wocao.world</title>
+<meta name="description" content="两天狂揽七千星，DeepSeek把Agent做成了常驻后台 10月31号GitHub上悄无声息冒出个deepseek-ai/dsh-superagent-prototype，MIT协议、TypeScript写就，创建时间锁死在2026-10-31T09:32:46Z。到11月2号北京时间早9点40分，GitHub实时星标已破7671，约7600+。官方一句话简介「Towards a More Autonomous Agent System」——直指更自主的Agent系统。别被「原型」俩字骗了，这玩意儿上手就是干活的：常驻Router盯着GitHub事件流和群聊消息，发现Issue、收到指令立马…">
+<link rel="canonical" href="https://wocao.world/p/cd99c744d3b9/">
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="wocao.world">
+<meta property="og:title" content="DeepSeek的dsh-superagent：两天7600星，自己找活干 · wocao.world">
+<meta property="og:description" content="两天狂揽七千星，DeepSeek把Agent做成了常驻后台 10月31号GitHub上悄无声息冒出个deepseek-ai/dsh-superagent-prototype，MIT协议、TypeScript写就，创建时间锁死在2026-10-31T09:32:46Z。到11月2号北京时间早9点40分，GitHub实时星标已破7671，约7600+。官方一句话简介「Towards a More Autonomous Agent System」——直指更自主的Agent系统。别被「原型」俩字骗了，这玩意儿上手就是干活的：常驻Router盯着GitHub事件流和群聊消息，发现Issue、收到指令立马…">
+<meta property="og:url" content="https://wocao.world/p/cd99c744d3b9/">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="DeepSeek的dsh-superagent：两天7600星，自己找活干 · wocao.world">
+<meta name="twitter:description" content="两天狂揽七千星，DeepSeek把Agent做成了常驻后台 10月31号GitHub上悄无声息冒出个deepseek-ai/dsh-superagent-prototype，MIT协议、TypeScript写就，创建时间锁死在2026-10-31T09:32:46Z。到11月2号北京时间早9点40分，GitHub实时星标已破7671，约7600+。官方一句话简介「Towards a More Autonomous Agent System」——直指更自主的Agent系统。别被「原型」俩字骗了，这玩意儿上手就是干活的：常驻Router盯着GitHub事件流和群聊消息，发现Issue、收到指令立马…">
+<meta name="robots" content="index,follow">
+<link rel="alternate" type="application/rss+xml" title="wocao.world 聚合输出" href="/feed.xml">
+<link rel="stylesheet" href="/style.css">
+<meta property="article:published_time" content="2026-11-02T15:26:49.000Z">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","headline":"DeepSeek的dsh-superagent：两天7600星，自己找活干","description":"两天狂揽七千星，DeepSeek把Agent做成了常驻后台 10月31号GitHub上悄无声息冒出个deepseek-ai/dsh-superagent-prototype，MIT协议、TypeScript写就，创建时间锁死在2026-10-31T09:32:46Z。到11月2号北京时间早9点40分，GitHub实时星标已破7671，约7600+。官方一句话简介「Towards a More Autonomous Agent System」——直指更自主的Agent系统。别被「原型」俩字骗了，这玩意儿上手就是干活的：常驻Router盯着GitHub事件流和群聊消息，发现Issue、收到指令立马…","url":"https://wocao.world/p/cd99c744d3b9/","datePublished":"2026-11-02T15:26:49.000Z","dateModified":"2026-11-02T20:55:12.393Z","mainEntityOfPage":{"@type":"WebPage","@id":"https://wocao.world/p/cd99c744d3b9/"},"author":{"@type":"Person","name":"摸鱼杂货店"},"publisher":{"@type":"Organization","name":"wocao.world","url":"https://wocao.world"}}</script>
+</head>
+<body>
+<a class="skip-link" href="#main">跳到正文</a>
+<header class="site-head">
+<p class="site-title"><a href="/">wocao.world</a></p>
+<p class="site-desc">wocao.world</p>
+<nav class="site-nav">
+<a href="/">最新</a>
+<a href="/about/">关于</a>
+<a href="/feed.xml">RSS</a>
+</nav>
+</header>
+<main id="main">
+<article>
+<h1 class="post-title">DeepSeek的dsh-superagent：两天7600星，自己找活干</h1>
+<div class="post-body"><p> </p>
+<h2>两天狂揽七千星，DeepSeek把Agent做成了常驻后台</h2>
+<p>10月31号GitHub上悄无声息冒出个<a href="https://github.com/deepseek-ai/dsh-superagent-prototype" rel="external nofollow noopener noreferrer" target="_blank">deepseek-ai/dsh-superagent-prototype</a>，MIT协议、TypeScript写就，创建时间锁死在2026-10-31T09:32:46Z。到11月2号北京时间早9点40分，GitHub实时星标已破7671，约7600+。官方一句话简介「Towards a More Autonomous Agent System」——直指更自主的Agent系统。别被「原型」俩字骗了，这玩意儿上手就是干活的：常驻Router盯着GitHub事件流和群聊消息，发现Issue、收到指令立马拆任务，丢给隔离Worker各自在独立环境里复现Bug、写代码、跑测试、提PR，全程人类不用守着屏幕。</p>
+<p><img src="https://moyu.18uk.uk/2026/20261102-dba05642-3006-4f31-9fcc-822a462b5d05.webp" alt="dsh-superagent" width="800" loading="lazy" referrerpolicy="no-referrer" /></p>
+<h2>架构里的「俩当家」：一个盯梢一个干活</h2>
+<p>核心就俩角色。常驻的 Executor（大家转述时叫它 Router）像个永不下班的项目经理，长连接挂在 GitHub Webhook 和飞书消息上，事件一来——新 Issue、评论 @、PR 审查请求——就开一张 Ticket，把任务推进队列。干活的 Worker 则是真正的苦力：按架构文档的说法，每个 Ticket 配一个独立的 Session 和独立目录（<code>DshExecutor</code> 负责调度），Worker 在自己的地盘里复现 Bug、写代码、跑测试，产出 Diff 和测试报告，再统一推回 GitHub 提 PR 或回评论。调度器和执行者解耦：WorkerSlots 管着并发名额，失败了指数退避重试，炸了一个不拖垮整条流水线。说白了就是「一个盯梢派活，一个关起门来干活」，互不干扰。</p>
+<h2>官方自测p95砍半，但别急着扔掉Claude Code</h2>
+<p><a href="https://www.marktechpost.com/2026/11/01/deepseek-dsh-superagent-router-worker-coding-agent/" rel="external nofollow noopener noreferrer" target="_blank">MarkTechPost</a>援引官方仿真数据：p95任务完成15.7分钟，单会话基线29.5分钟，看起来漂亮。可得盯紧字眼——这是「DeepSeek自有仿真」，真实代码质量、边缘案例、冲突合并、大仓库索引建立耗时，统统没第三方独立验证。官方README里红字写着「研究原型（research prototype），非DeepSeek正式产品」，翻译成人话：别指望生产环境直接上、别指望有SLA、别指望有人帮你兜底安全审计。<a href="https://www.threads.com/@bloombergbusiness/post/DfL4NE0jiIW" rel="external nofollow noopener noreferrer" target="_blank">Bloomberg官方Threads</a>甚至直呼它是「对Claude Code的直接挑战」，可Claude Code背后是Anthropic整条模型-工具-基建链路，dsh-superagent目前只是把现成LLM（文档里写兼容OpenAI兼容接口）塞进Router-Worker框架，模型能力短板、上下文窗口爆炸、工具调用幻觉，框架本身解决不了。</p>
+<h2>能白嫖啥、踩坑在哪、别拿生产环境赌</h2>
+<ul>
+<li><strong>能白嫖</strong>：把仓库clone下来、配上GitHub App私钥、填上兼容OpenAI的API Key，跑<code>pnpm install &amp;&amp; pnpm build &amp;&amp; pnpm start</code>，Router就能在本地或服务器常驻，自动盯你指定的Repo/Org。适合想自己搭「自动修Bug机器人」的个人开发者、小团队、爱折腾的数字游民。</li>
+<li><strong>踩坑预警</strong>：Worker沙箱默认给的网络/文件系统权限极宽，真要跑外部贡献者的代码、安装npm包、跑数据库迁移，得自己加网络策略、Seccomp、资源配额，否则就是裸奔。Router端的事件去重、幂等、退避重试全靠自己补，文档里只给了个<code>config.yaml</code>示例，连死信队列都没有。</li>
+<li><strong>别赌生产</strong>：没有Release版本号、没有语义化版本、没有安全响应流程。要是明天DeepSeek把Repo归档或改License，你自建的那套全靠自己维护。想上生产，起码得自己加：审计日志、Diff人工复核Gate、增量索引缓存、多模型回退、成本熔断——这些框架里一行没有。</li>
+</ul>
+<h2>这事儿对咱们意味着啥</h2>
+<p>Agent从「单轮对话式写代码」进化成「常驻事件驱动式干活」，Router-Worker这套解耦范式本身比模型更有参考价值。下次你自己搭自动化流水线、写GitHub Action替代品、给Discord群整个代码助手，直接抄这个架构：长连接盯事件、任务入队、隔离沙箱跑、结果回写。模型层是可换的，框架照样转。星标7600+说明大家都在盯着这套骨架，下一个把骨架长成肉的，可能就是某个周末不想睡觉的你。</p>
+<p> </p>
+<p> </p>
+<p>本文来源：<a href="https://www.moyunews.com/" rel="external nofollow noopener noreferrer" target="_blank">摸鱼杂货店</a>。查看原文：<a href="https://www.moyunews.com/deepseek-superagent-open-source/" rel="external nofollow noopener noreferrer" target="_blank">DeepSeek的dsh-superagent：两天7600星，自己找活干</a>。</p></div>
+<p class="back"><a href="/">← 返回最新</a></p>
+</article>
+</main>
+<footer class="site-foot">
+<p>wocao.world — 本站内容全部转载自各订阅源，版权归原作者与原站所有。</p>
+</footer>
+</body>
+</html>

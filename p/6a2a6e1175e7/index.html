@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-8TX501TYGH"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-8TX501TYGH');
+</script>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>OpenCode直连Claude订阅：2.2.3 的捷径与封号风险 · wocao.world</title>
+<meta name="description" content="先说结论：能接，但 Anthropic 没点头 10 月 30 日，OpenCode 2.2.3 的 release notes 只扔了一句话：Use Claude Code in OpenCode: Install Claude Code, run `claude auth login`, then select Claude Agent in `/connect`。翻译成人话：装好 Claude Code、跑一次登录，OpenCode 里就能直接调用你的 Claude 订阅跑模型了。官方 X 公告帖约 51 万浏览（help.apiyi.com 11 月 1 日转述），评论区一片欢呼。 但…">
+<link rel="canonical" href="https://wocao.world/p/6a2a6e1175e7/">
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="wocao.world">
+<meta property="og:title" content="OpenCode直连Claude订阅：2.2.3 的捷径与封号风险 · wocao.world">
+<meta property="og:description" content="先说结论：能接，但 Anthropic 没点头 10 月 30 日，OpenCode 2.2.3 的 release notes 只扔了一句话：Use Claude Code in OpenCode: Install Claude Code, run `claude auth login`, then select Claude Agent in `/connect`。翻译成人话：装好 Claude Code、跑一次登录，OpenCode 里就能直接调用你的 Claude 订阅跑模型了。官方 X 公告帖约 51 万浏览（help.apiyi.com 11 月 1 日转述），评论区一片欢呼。 但…">
+<meta property="og:url" content="https://wocao.world/p/6a2a6e1175e7/">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="OpenCode直连Claude订阅：2.2.3 的捷径与封号风险 · wocao.world">
+<meta name="twitter:description" content="先说结论：能接，但 Anthropic 没点头 10 月 30 日，OpenCode 2.2.3 的 release notes 只扔了一句话：Use Claude Code in OpenCode: Install Claude Code, run `claude auth login`, then select Claude Agent in `/connect`。翻译成人话：装好 Claude Code、跑一次登录，OpenCode 里就能直接调用你的 Claude 订阅跑模型了。官方 X 公告帖约 51 万浏览（help.apiyi.com 11 月 1 日转述），评论区一片欢呼。 但…">
+<meta name="robots" content="index,follow">
+<link rel="alternate" type="application/rss+xml" title="wocao.world 聚合输出" href="/feed.xml">
+<link rel="stylesheet" href="/style.css">
+<meta property="article:published_time" content="2026-11-02T15:23:23.000Z">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","headline":"OpenCode直连Claude订阅：2.2.3 的捷径与封号风险","description":"先说结论：能接，但 Anthropic 没点头 10 月 30 日，OpenCode 2.2.3 的 release notes 只扔了一句话：Use Claude Code in OpenCode: Install Claude Code, run `claude auth login`, then select Claude Agent in `/connect`。翻译成人话：装好 Claude Code、跑一次登录，OpenCode 里就能直接调用你的 Claude 订阅跑模型了。官方 X 公告帖约 51 万浏览（help.apiyi.com 11 月 1 日转述），评论区一片欢呼。 但…","url":"https://wocao.world/p/6a2a6e1175e7/","datePublished":"2026-11-02T15:23:23.000Z","dateModified":"2026-11-02T20:55:12.393Z","mainEntityOfPage":{"@type":"WebPage","@id":"https://wocao.world/p/6a2a6e1175e7/"},"author":{"@type":"Person","name":"摸鱼杂货店"},"publisher":{"@type":"Organization","name":"wocao.world","url":"https://wocao.world"}}</script>
+</head>
+<body>
+<a class="skip-link" href="#main">跳到正文</a>
+<header class="site-head">
+<p class="site-title"><a href="/">wocao.world</a></p>
+<p class="site-desc">wocao.world</p>
+<nav class="site-nav">
+<a href="/">最新</a>
+<a href="/about/">关于</a>
+<a href="/feed.xml">RSS</a>
+</nav>
+</header>
+<main id="main">
+<article>
+<h1 class="post-title">OpenCode直连Claude订阅：2.2.3 的捷径与封号风险</h1>
+<div class="post-body"><p> </p>
+<h2>先说结论：能接，但 Anthropic 没点头</h2>
+<p>10 月 30 日，<a href="https://github.com/sst/opencode/releases" rel="external nofollow noopener noreferrer" target="_blank">OpenCode 2.2.3</a> 的 release notes 只扔了一句话：<code>Use Claude Code in OpenCode: Install Claude Code, run `claude auth login`, then select Claude Agent in `/connect`</code>。翻译成人话：装好 Claude Code、跑一次登录，OpenCode 里就能直接调用你的 Claude 订阅跑模型了。官方 X 公告帖约 51 万浏览（help.apiyi.com 11 月 1 日转述），评论区一片欢呼。</p>
+<p>但先别急着欢呼。<a href="https://cellcog.ai/blog/opencode-claude-subscription/" rel="external nofollow noopener noreferrer" target="_blank">cellcog.ai 的追踪</a>挖出两个扎眼的事实：第一，Anthropic 曾于 2026 年 1 月表示，第三方 harness 使用 Claude 订阅属于违反服务条款；第二，OpenCode 方面称自己「已获 Anthropic 许可」，但截至目前，Anthropic 在官网、博客、X、帮助中心的任一渠道都没有公开确认过。顺带一提，OpenCode 的 GitHub 地址已从 sst 跳转到 anomalyco，疑似组织更名，成稿时顺手提一句。</p>
+<p><img src="https://moyu.18uk.uk/2026/20261102-3e355ec6-10a1-4179-b3aa-22915fee2a30.webp" alt="OpenCode直连" width="800" loading="lazy" referrerpolicy="no-referrer" /></p>
+<h2>三步接上：命令照着 release notes 抄</h2>
+<p>动手前准备：一台电脑、一个正常可用的 Claude 订阅账号。</p>
+<p>第一步，装 Claude Code。按 Claude Code 官网的安装指引装好 CLI，终端跑 <code>claude --version</code> 确认能跑。</p>
+<p>第二步，跑登录流。终端执行 <code>claude auth login</code>，浏览器弹窗完成授权，回到终端看到登录成功提示才算数。这一步走的是 OAuth，OpenCode 后续就是读这份登录态。</p>
+<p>第三步，进 OpenCode 选 Agent。启动 OpenCode，输入 <code>/connect</code>，列表里多出来的 Claude Agent 就是目标，选中回车，等状态灯变绿，搞定。<a href="https://help.apiyi.com/en/opencode-claude-subscription-claude-agent-guide-en.html" rel="external nofollow noopener noreferrer" target="_blank">这份英文上手指南</a>把全流程截了图，卡住可以对照着看。</p>
+<h2>钱走哪条账：OpenCode 不收钱，烧的是你的订阅</h2>
+<p>OpenCode 本体开源免费，它不抽成、不加价。费用 100% 走你自己的 Claude 订阅：终端里跑的每一轮对话，扣的都是你订阅里的用量。想清楚一件事就行：订阅的额度是所有客户端共用的，终端里跑个大型重构，几十轮对话下去，配额肉眼可见地掉。别抱「无限量」的幻想，也别信「省了别的订阅费」的鬼话——你只是把花钱的地方挪到了终端里。</p>
+<h2>风险清单：账号是你自己的，赌注也是</h2>
+<blockquote>
+<p>风险一：条款灰色地带。Anthropic 2026 年 1 月的表态（cellcog.ai 转述）是第三方 harness 走订阅违规在先，OpenCode 的「已获许可」说法又没有公开佐证。万一哪天 Anthropic 较真，封号不是没可能。</p>
+<p>风险二：没有回头路。订阅一旦因违规被封，历史对话、项目配置、绑定的支付方式都会受牵连，申诉通道基本指望不上。</p>
+<p>风险三：组织主体变了。仓库从 sst 跳转到 anomalyco，万一后续出纠纷，找谁扯皮都得多绕一圈。</p>
+</blockquote>
+<h2>值不值得上：三类人三种答案</h2>
+<p>个人轻度玩家：写点脚本、改改样式、配配 dotfiles，风险敞口小，可以尝鲜，但别把主力账号押上。</p>
+<p>终端重度用户：天天在终端里泡着的，先小规模试两周，观察账号有无异常提示，同时留好网页版当退路。</p>
+<p>公司项目、客户数据、生产环境：别碰。老老实实走 Anthropic 官方 API 按量付费，合规有发票，睡得安稳。等 Anthropic 哪天公开点头了，再重度投入也不迟。</p>
+<p>OpenCode 2.2.3 给了一条诱人的捷径：终端里直接烧自己的 Claude 订阅，体感确实爽。但捷径之所以是捷径，就是因为它绕过了某些东西。能不能走、敢不敢走、走多远，自己掂量——反正 release notes 里没逼你升级。</p>
+<p> </p>
+<p> </p>
+<p>本文来源：<a href="https://www.moyunews.com/" rel="external nofollow noopener noreferrer" target="_blank">摸鱼杂货店</a>。查看原文：<a href="https://www.moyunews.com/opencode-claude-agent-subscription/" rel="external nofollow noopener noreferrer" target="_blank">OpenCode直连Claude订阅：2.2.3 的捷径与封号风险</a>。</p></div>
+<p class="back"><a href="/">← 返回最新</a></p>
+</article>
+</main>
+<footer class="site-foot">
+<p>wocao.world — 本站内容全部转载自各订阅源，版权归原作者与原站所有。</p>
+</footer>
+</body>
+</html>
