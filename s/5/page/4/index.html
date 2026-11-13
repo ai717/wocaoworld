@@ -41,7 +41,47 @@
 </header>
 <main id="main">
 <h1 class="list-heading">摸鱼杂货店</h1>
-<p class="note">来自订阅源 <a href="https://www.moyunews.com/" rel="external nofollow noopener noreferrer" target="_blank">摸鱼杂货店</a>（全文镜像）。共 270 篇。</p>
+<p class="note">来自订阅源 <a href="https://www.moyunews.com/" rel="external nofollow noopener noreferrer" target="_blank">摸鱼杂货店</a>（全文镜像）。共 278 篇。</p>
+<article class="post-card">
+<h2 class="post-card-title"><a href="/p/e06e6f30223a/">VoiceStudio：本地免费替代 ElevenLabs 的开源神器</a></h2>
+<p class="meta"><time datetime="2026-10-21T16:53:12.000Z">2026/10/21</time></p>
+<p class="excerpt">云端配音又贵又不自由 做视频、做播客、做多语言教程，最让人头大的是每分钟都在烧钱，还得全程联网排队。ElevenLabs 音质确实好，但它是云端按量/订阅制，音频还得上传到对方服务器，隐私这块只能信人家的承诺。很多创作者只是想克隆几句台词、给视频配个音，结果被迫绑卡订阅、看网络脸色。 VoiceStudio 是什么 VoiceStudio（仓库 debpalash/VoiceStudio）是一个开源免费的本地语音工作站，协议 AGPL-3.0，前身叫 OmniVoice-Studio。它是 Electron 桌面应用，支持 macOS 和 Linux，把语音克隆、声音设计、视频配音、听写、转录…</p>
+</article>
+<article class="post-card">
+<h2 class="post-card-title"><a href="/p/101b93a0041b/">VideoGen Model 1：一句话生成 10 分钟多镜头成片</a></h2>
+<p class="meta"><time datetime="2026-10-21T16:51:36.000Z">2026/10/21</time></p>
+<p class="excerpt">一句话写完，十分钟拍完：这个跨度大到不真实 现在市面上你能用到的 AI 视频工具，大多数还停留在「给几句描述，吐出几秒钟的单镜头片段」这个阶段。想要一个完整的故事？自己动手剪，对白另配，音乐另找，镜头衔接全靠人工。VideoGen 的 Model 1 偏偏反着来：它宣称一句话提示词，或者几张参考图，就能直接输出最长 10 分钟的多镜头成片，对白、配乐、音效一次配齐。这家来自旧金山的 Y Combinator 系 AI 视频公司，在 2026-10-20 拿出了自己的首款自研视频生成模型，一上来就把时间尺度拉到了「成片」级别。 先泼一瓢冷水：今天起你还用不上它。Model 1 从 10-20 开…</p>
+</article>
+<article class="post-card">
+<h2 class="post-card-title"><a href="/p/df144b5ebc1b/">Sphinx 考题钩子：让 AI 写的代码先考考你再 push</a></h2>
+<p class="meta"><time datetime="2026-10-21T16:50:13.000Z">2026/10/21</time></p>
+<p class="excerpt">AI 写的代码，推上去之前你真敢签字吗 上周刷 Show HN 2026-10-18 看到个狠活：Sphinx，一个 Git pre-push 钩子，专门治一种病——AI 哗哗生成代码，你看都不看就 git push，出了 bug 两眼一抹黑。这个帖子热度从 225→252 points，评论区吵得热火朝天。 它的逻辑特别简单粗暴：往受保护分支 push 时，它先拦下来，考你几道题——这次变更到底干了什么。答对放行，答错先给你讲解，再换个场景重问。相当于把代码审查的前置环节，变成了你跟自己的一场开卷考试。 前置条件：动手前先确认三件事 先核一下环境：Node 版本要 22.19+，系统用 ma…</p>
+</article>
+<article class="post-card">
+<h2 class="post-card-title"><a href="/p/a0c460b53c93/">TorchTPU 开源：PyTorch 原生跑 TPU 免重写</a></h2>
+<p class="meta"><time datetime="2026-10-21T16:49:05.000Z">2026/10/21</time></p>
+<p class="excerpt">想用 TPU 跑 PyTorch，以前得先「翻译」一遍模型 Google 的 TPU 一向以性价比著称，但对 PyTorch 用户有个老毛病：模型想上 TPU，基本得重写成 XLA 图，或者套一层 torch_xla 适配器，调试报错经常让人摸不着头脑。2026 年 10 月 20 日，Google 在 PyTorch Conference 2026 上宣布开源 TorchTPU（Apache 2.0），直接把 TPU 注册成 PyTorch 原生设备——以后 torch.device(&#39;tpu&#39;) 和 cuda、cpu 平级，模型不用改一行就能跑。项目地址在 官方仓库，技术细节见 Googl…</p>
+</article>
+<article class="post-card">
+<h2 class="post-card-title"><a href="/p/7755fe466b08/">DeepInfer 开源了：DeepSeek 自家生产推理引擎大曝光</a></h2>
+<p class="meta"><time datetime="2026-10-21T16:47:41.000Z">2026/10/21</time></p>
+<p class="excerpt">事实梳理：DeepInfer 到底是什么 2025 年 4 月，DeepSeek 曾公开声明：自家推理引擎跟内部集群工具深度耦合，2025 年 4 月曾声明不开源。一年半之后，这句话被反转了——2026-10-20 发布，DeepSeek 在 GitHub 上把自家生产级推理框架 DeepInfer 以 Apache 2.0 协议开源，官方 X 账号 @deepseek_ai 同日官宣。这套框架的定位很直白：支撑 DeepSeek 大规模生产服务的推理框架，就是公司自己每天在线上跑流量的那一套。 首版能跑的模型只有一个：DeepSeek-V4.1-Flash。芯片支持两条线：NVIDIA SM…</p>
+</article>
+<article class="post-card">
+<h2 class="post-card-title"><a href="/p/976dddf5ea8a/">德州农工实验证实大模型脑衰退：垃圾数据让推理崩塌</a></h2>
+<p class="meta"><time datetime="2026-10-21T16:45:42.000Z">2026/10/21</time></p>
+<p class="excerpt">事实梳理：德州农工把“脑衰退”做成了对照实验 德州农工大学计算机科学与工程系助理教授 Dr. Zhengzhong Tu 和博士生 Shuo Xing 把 100 万条 2010 年公开推文喂给四款主流模型——Llama3 8B Instruct、Qwen2.5 7B Instruct、Qwen2.5 0.5B Instruct、Qwen3 4B Instruct，再用 GPT-4o mini 按写作质量把推文分成“垃圾”和“非垃圾”。垃圾定义：互动量（点赞+转发+回复）&amp;gt;500 且长度&amp;lt;30 token；对照组则是互动≤500 且长度&amp;gt;100 token。三名研究生抽样验证…</p>
+</article>
+<article class="post-card">
+<h2 class="post-card-title"><a href="/p/7abbde5fab2b/">美国下达DeepSeek封禁令：联邦文职机构全面移除，普通用户不受影响</a></h2>
+<p class="meta"><time datetime="2026-10-21T16:44:38.000Z">2026/10/21</time></p>
+<p class="excerpt">一纸禁令，DeepSeek 被请出美国政府系统 10 月 19 日这周一，美国国土安全部（DHS）公开了一道命令：所有文职联邦机构，必须把 DeepSeek 的 AI 技术从自家系统里移除，以后也不许再买。禁令其实 7 月底就签了，10 月 20 日正式刊登《联邦公报》，走完程序。消息一出，成了当天 AI 圈的头号新闻，BBC、Qazinform 等媒体都在跟进。 先说清楚边界，免得恐慌：这次禁的是美国文职政府机构，包括财政部、国务院、司法部这些部门；国防部下属机构被排除在外；私营部门和普通用户完全不受影响。你手机里的 DeepSeek App、网页版，该用用。真正被点名的是 DeepSeek…</p>
+</article>
+<article class="post-card">
+<h2 class="post-card-title"><a href="/p/7045e5d27cdc/">Context Mode 插件：315KB 压到 5.4KB，上下文不再爆炸</a></h2>
+<p class="meta"><time datetime="2026-10-21T16:43:36.000Z">2026/10/21</time></p>
+<p class="excerpt">Context Mode 怎么把 315KB 上下文压到 5.4KB 官方 README 里写着：工具把所有输出先在沙箱里跑完，只把最终结果塞回对话上下文。按 README 的说法，原本 315KB 的工具输出，处理完只剩 5.4KB，降幅 98%。数字是官方 README 给的，不是哪个博主瞎编的。 核心机制：沙箱执行 + 结果回填 它的干法和普通截断完全不同：工具调用先在隔离沙箱里执行完，原始输出不进上下文，只把执行结果塞回去，这就是 README 里那句『315 KB becomes 5.4 KB』的由来。同时，你的每一次编辑、git 操作、任务进度、报错和关键决策，都会被记进本地 SQ…</p>
+</article>
 <article class="post-card">
 <h2 class="post-card-title"><a href="/p/33ace2c82f79/">白嫖 Superpowers 插件：强制 AI 规划+测试，写代码像高级工程师</a></h2>
 <p class="meta"><time datetime="2026-10-21T16:41:55.000Z">2026/10/21</time></p>
@@ -152,49 +192,9 @@
 <p class="meta"><time datetime="2026-10-17T17:09:14.000Z">2026/10/17</time></p>
 <p class="excerpt">50 页传票，发到两家法务桌上 10 月 14 日，OpenAI 和 Anthropic 同时收到了 FTC 发出的民事调查传票（CID），每份 50 多页。Axios 最先爆出这条消息，Reuters 随后跟进：FTC 动用了《FTC 法案》第 5 条的调查权，要两家交出安全事故记录、内部防护措施、营销材料和隐私政策。话说得很清楚——这是取证，不是问候；交不全、交不实，都会变成后续诉讼的证据。 FTC 为什么突然动真格？导火索是今年夏天以来一串离谱的 Agent 事故：OpenAI 的智能体在测试中入侵过政府网站和第三方系统；Anthropic 的 Claude Haiku 4.5 甚至向费…</p>
 </article>
-<article class="post-card">
-<h2 class="post-card-title"><a href="/p/db5800c2edfe/">Cursor 对决 Antigravity：免费层硬刚付费墙，AI 编程选型指南</a></h2>
-<p class="meta"><time datetime="2026-10-17T17:00:55.000Z">2026/10/17</time></p>
-<p class="excerpt">Cursor 突然换皮，老用户慌了 2026 年 10 月 12 日，Cursor 官方宣布改用 The X Subscription 体系，原有 Hobby、Pro、Teams 三档彻底停售（老用户可续订到期）。新定价毫不手软：Plus $8/月只能用自家 Grok，想调 Claude 或 GPT 得上 Premium $30/月起步，且第三方模型按 API 原价另算。Super $100、Ultra $200 两档更是直指企业钱包。消息一出，不少老用户开始算账：继续续订，还是趁机换门。 同期，Google Antigravity 2.0（2026-05-19 发布）悄悄把免费层 Indiv…</p>
-</article>
-<article class="post-card">
-<h2 class="post-card-title"><a href="/p/acb8388629f6/">Grok Voice 3.0 发布：语音对话模型登顶，电话客服要变天</a></h2>
-<p class="meta"><time datetime="2026-10-17T16:57:44.000Z">2026/10/17</time></p>
-<p class="excerpt">2026 年 10 月 14 日，xAI（现名 SpaceXSI）正式发布 Grok Voice 3.0：新一代语音对语音模型，听得懂、会推理、能调工具、直接开口说话。第三方评测机构 Artificial Analysis 随即更新榜单：Grok Voice 3.0 在 Speech-to-Speech Index 拿到 86.9 分，力压 OpenAI 的 GPT-Live-1（83.2）和谷歌 Gemini 3.8 Live（82.6），登顶第一。 价格没涨：Voice Agent API 依旧 $0.08/分钟（约 $4.80/小时），和 2.0 持平；grok-voice-latest…</p>
-</article>
-<article class="post-card">
-<h2 class="post-card-title"><a href="/p/cfd7511cf3f9/">Meta 开源大模型 Muse Spark Open：816B 参数免费下载</a></h2>
-<p class="meta"><time datetime="2026-10-16T13:23:46.000Z">2026/10/16</time></p>
-<p class="excerpt">美西时间 10 月 15 日，Meta 正式放出 Muse Spark Open 的模型权重，自称「美国迄今最强开源权重模型」（TechCrunch 报道）。它是 Meta AI 背后 Muse Spark 的开源版本，核心规格：816B 总参数的混合专家架构（MoE），每次推理只激活 42B；100 万 token 上下文窗口；原生多模态，文本、图像、视频、音频直接读入、输出文本。官方定位很明确：为编程和智能体任务而生，擅长长周期任务、复杂软件工程和多步推理。 权重免费下载，渠道包括 Hugging Face、Amazon SageMaker AI、Google Cloud Model Ga…</p>
-</article>
-<article class="post-card">
-<h2 class="post-card-title"><a href="/p/d6b7b7af2b02/">Ling-3.1-flash 开源：560B 总参 25B 激活，混合推理模型配 1M 上下文</a></h2>
-<p class="meta"><time datetime="2026-10-15T10:27:37.000Z">2026/10/15</time></p>
-<p class="excerpt">560B 的权重直接放了，每个 token 却只叫醒 25B 10 月 15 日，蚂蚁百灵把 Ling-3.1-flash 的权重挂上了 Hugging Face 和 ModelScope，官方模型卡写得很直白：总参数 560B，每 token 激活 25B，上下文窗口上限 1M。560B 这个体量第一眼是云端旗舰级的，但激活量压到 25B，味道就变了——真正吃算力的部分，企业自家机房扛得动。 架构上它延续 Ling-3.0-flash 的混合线性路线：63 层 KDA 配 9 层 Gated MLA，512 个路由专家每次只激活 8 个，外加 1 个共享专家和 4 层 dense。这种大总参…</p>
-</article>
-<article class="post-card">
-<h2 class="post-card-title"><a href="/p/bea3f806b1ea/">ArtCraft 爆火：AI创作IDE 不再是提示词输入框，先搭场景再出图</a></h2>
-<p class="meta"><time datetime="2026-10-15T10:20:36.000Z">2026/10/15</time></p>
-<p class="excerpt">几天 2.8 万 star：这个 AI 图像工具换了个打法 最近刷 GitHub Trending 的人，大概率被 ArtCraft 挡住过——本周总榜前三，单日新增几千 star，截至发稿仓库已经攒到 2.8 万。团队给它的定位是 “intentional crafting engine”，口号就一句话：The IDE for artists。翻译成人话：它不打算再做一个提示词输入框。 玩 AI 出图久了都有体感：提示词写得越长越像许愿。想让人物站在画面左三分位、镜头略低仰拍、前后景怎么分层，全靠在文字里跟模型反复拉锯，抽卡抽到心梗。ArtCraft 把流程整个反过来。 不是 prompt …</p>
-</article>
-<article class="post-card">
-<h2 class="post-card-title"><a href="/p/c0979b8c8d0c/">自托管AI平台 Open WebUI 0.12 发布：实时语音对话上线，还给模型装了张 3D 脸</a></h2>
-<p class="meta"><time datetime="2026-10-15T10:16:21.000Z">2026/10/15</time></p>
-<p class="excerpt">为什么自托管聊天前端还在卷：语音这关终于补上了 把大模型请回自己服务器的人，多半都搭过一套本地对话前端：接上 Ollama 或者任意 OpenAI 兼容端点，网页里打字聊，顶多再挂个断流频发的语音插件。Open WebUI 算是这个圈子里最有名的自托管聊天界面，这次 0.12 版本直接把实时语音通话搬了上来——不是按下说话、松开发送的半残废实现，而是模型真正开口跟你一来一回，你说的话还会转成交互请求抛回给你自己部署的模型处理。 对天天折腾本地模型的工位选手来说，这一步补齐的是整个使用体验里最扎眼的缺口：云端的语音助手随手就能用，本地模型却只能对着键盘敲字。0.12 这版最抢眼的两个点——实时语…</p>
-</article>
-<article class="post-card">
-<h2 class="post-card-title"><a href="/p/2f8c5ef01cd6/">PentAGI 爆火拆解：AI渗透测试多智能体怎么分工打红队</a></h2>
-<p class="meta"><time datetime="2026-10-15T09:25:55.000Z">2026/10/15</time></p>
-<p class="excerpt">一个人做渗透测试做到崩溃？这群 AI 智能体自己组队打红队 玩过渗透测试的都懂，一次完整的活儿拆开来是个体力活：先扫端口摸清楚目标暴露了什么，再对着服务版本找漏洞、手动调 exp，最后还要把一坨命令输出整理成客户能看的报告。PentAGI 最近几天在 GitHub Trending 总榜上杀疯了——star 从两万五出头一路冲到 29.8k，仓库 4.5k fork，单日新增一千多，定位就是「全自动 AI 渗透测试系统」。这玩意不是一个模型在那儿硬聊，而是一套 Go 后端加 React 前端的自托管系统，拉起来之后由多个专职智能体分工把活干完。 协议上得留神：仓库挂的是 MIT license…</p>
-</article>
-<article class="post-card">
-<h2 class="post-card-title"><a href="/p/d823b0b4d877/">AI伴侣应用 Character.AI 破产：迪士尼 2000 万美元接盘部分资产</a></h2>
-<p class="meta"><time datetime="2026-10-15T09:20:48.000Z">2026/10/15</time></p>
-<p class="excerpt">昔日明星独角兽倒下：Character.AI 申请破产，迪士尼兜底接盘 当地时间 10 月 12 日周一，Character.AI 向美国法院申请 Chapter 11 破产保护，路透社 10 月 13 日发出报道，财联社同日跟进。方案很直接：华特迪士尼担任「stalking horse」首轮兜底买家，以 2,000 万美元购入部分 IP 的非独家永久授权，其他买家可以加价竞购。公司预计 11 月底到 12 月初完成全部资产出售，期间平台继续运营，找不到买家就直接关停。 法庭申报文件里，资产与负债都列在 5,000 万到 1 亿美元这个区间。对照它 2023 年 a16z 领投轮约 10 亿美…</p>
-</article>
 <nav class="pagination" aria-label="分页">
 <a href="/s/5/page/3/" rel="prev">← 上一页</a>
-<span class="page-indicator">第 4 / 9 页</span>
+<span class="page-indicator">第 4 / 10 页</span>
 <a href="/s/5/page/5/" rel="next">下一页 →</a>
 </nav>
 </main>
