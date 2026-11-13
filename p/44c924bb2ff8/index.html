@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-8TX501TYGH"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-8TX501TYGH');
+</script>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Skill 装多了不会用？v2.1.0 让 Claude Code 学会技能路由 · wocao.world</title>
+<meta name="description" content="Skill 装了 30 个，Claude Code 还是每回都问“这活谁来干” 玩 Claude Code 的人迟早会掉进同一个坑：Skill 越装越多，agent 反而越不会干活。写 API 的时候它去翻部署文档，修 bug 的时候它先给你出一份“重构计划”。你只好在每个任务开头复读一遍：“这个阶段听 api-designer 的，别的不许插嘴。”说三遍之后，你开始怀疑到底是谁在给谁打工。 台湾独立开发者 eric861129 写的 Workflow Skill Router 就是来治这个毛病的。它的思路很直白：开工之前，先按阶段挑一个主导 Skill，只给这个阶段配真正需要的辅助 Skil…">
+<link rel="canonical" href="https://wocao.world/p/44c924bb2ff8/">
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="wocao.world">
+<meta property="og:title" content="Skill 装多了不会用？v2.1.0 让 Claude Code 学会技能路由 · wocao.world">
+<meta property="og:description" content="Skill 装了 30 个，Claude Code 还是每回都问“这活谁来干” 玩 Claude Code 的人迟早会掉进同一个坑：Skill 越装越多，agent 反而越不会干活。写 API 的时候它去翻部署文档，修 bug 的时候它先给你出一份“重构计划”。你只好在每个任务开头复读一遍：“这个阶段听 api-designer 的，别的不许插嘴。”说三遍之后，你开始怀疑到底是谁在给谁打工。 台湾独立开发者 eric861129 写的 Workflow Skill Router 就是来治这个毛病的。它的思路很直白：开工之前，先按阶段挑一个主导 Skill，只给这个阶段配真正需要的辅助 Skil…">
+<meta property="og:url" content="https://wocao.world/p/44c924bb2ff8/">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Skill 装多了不会用？v2.1.0 让 Claude Code 学会技能路由 · wocao.world">
+<meta name="twitter:description" content="Skill 装了 30 个，Claude Code 还是每回都问“这活谁来干” 玩 Claude Code 的人迟早会掉进同一个坑：Skill 越装越多，agent 反而越不会干活。写 API 的时候它去翻部署文档，修 bug 的时候它先给你出一份“重构计划”。你只好在每个任务开头复读一遍：“这个阶段听 api-designer 的，别的不许插嘴。”说三遍之后，你开始怀疑到底是谁在给谁打工。 台湾独立开发者 eric861129 写的 Workflow Skill Router 就是来治这个毛病的。它的思路很直白：开工之前，先按阶段挑一个主导 Skill，只给这个阶段配真正需要的辅助 Skil…">
+<meta name="robots" content="index,follow">
+<link rel="alternate" type="application/rss+xml" title="wocao.world 聚合输出" href="/feed.xml">
+<link rel="stylesheet" href="/style.css">
+<meta property="article:published_time" content="2026-11-13T09:12:23.000Z">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","headline":"Skill 装多了不会用？v2.1.0 让 Claude Code 学会技能路由","description":"Skill 装了 30 个，Claude Code 还是每回都问“这活谁来干” 玩 Claude Code 的人迟早会掉进同一个坑：Skill 越装越多，agent 反而越不会干活。写 API 的时候它去翻部署文档，修 bug 的时候它先给你出一份“重构计划”。你只好在每个任务开头复读一遍：“这个阶段听 api-designer 的，别的不许插嘴。”说三遍之后，你开始怀疑到底是谁在给谁打工。 台湾独立开发者 eric861129 写的 Workflow Skill Router 就是来治这个毛病的。它的思路很直白：开工之前，先按阶段挑一个主导 Skill，只给这个阶段配真正需要的辅助 Skil…","url":"https://wocao.world/p/44c924bb2ff8/","datePublished":"2026-11-13T09:12:23.000Z","dateModified":"2026-11-13T11:38:47.201Z","mainEntityOfPage":{"@type":"WebPage","@id":"https://wocao.world/p/44c924bb2ff8/"},"author":{"@type":"Person","name":"摸鱼杂货店"},"publisher":{"@type":"Organization","name":"wocao.world","url":"https://wocao.world"}}</script>
+</head>
+<body>
+<a class="skip-link" href="#main">跳到正文</a>
+<header class="site-head">
+<p class="site-title"><a href="/">wocao.world</a></p>
+<p class="site-desc">wocao.world</p>
+<nav class="site-nav">
+<a href="/">最新</a>
+<a href="/about/">关于</a>
+<a href="/feed.xml">RSS</a>
+</nav>
+</header>
+<main id="main">
+<article>
+<h1 class="post-title">Skill 装多了不会用？v2.1.0 让 Claude Code 学会技能路由</h1>
+<div class="post-body"><p> </p>
+<h2>Skill 装了 30 个，Claude Code 还是每回都问“这活谁来干”</h2>
+<p>玩 Claude Code 的人迟早会掉进同一个坑：Skill 越装越多，agent 反而越不会干活。写 API 的时候它去翻部署文档，修 bug 的时候它先给你出一份“重构计划”。你只好在每个任务开头复读一遍：“这个阶段听 api-designer 的，别的不许插嘴。”说三遍之后，你开始怀疑到底是谁在给谁打工。</p>
+<p>台湾独立开发者 eric861129 写的 <a href="https://github.com/eric861129/Workflow-skill-router" rel="external nofollow noopener noreferrer" target="_blank">Workflow Skill Router</a> 就是来治这个毛病的。它的思路很直白：开工之前，先按阶段挑一个主导 Skill，只给这个阶段配真正需要的辅助 Skill，还把路由摊开给你看。11 月 1 日发布的 <a href="https://github.com/eric861129/Workflow-skill-router/releases/tag/v2.1.0" rel="external nofollow noopener noreferrer" target="_blank">v2.1.0</a> 最大的变化，是这套东西终于原生支持 Claude Code 了——以前它只给 Codex 用。</p>
+<p><img src="https://moyu.18uk.uk/2026/20261113-9da1df5e-dd08-4ece-9376-45dd2857628e.webp" alt="技能路由" width="700" loading="lazy" referrerpolicy="no-referrer" /></p>
+<h2>动手前先看一眼：你的机器够不够格</h2>
+<p>装之前确认两样东西。第一，终端 PATH 里有 <code>Node.js 24</code> 以上版本；第二，有 <code>Python 3.11</code> 以上。插件自带编译好的 MCP bundle 和 Python Runtime，安装时不会跑 npm，也不会顺手给你装别的 Skill，这点很干净。</p>
+<p>另外想清楚你是不是目标用户：如果你同时在用 Claude Code 和 Codex，或者 Skill 已经装了一大堆、每次开工都要重新交代谁主导，这插件就是为你写的。如果你只用 Claude Code 且 Skill 就三四个，那它帮你省的那句话还不够回本，可以直接划走。</p>
+<h2>两行命令，把同一套 Skill Tree 交给 Claude Code</h2>
+<p>在 Claude Code 里敲这两行：</p>
+<p><code>/plugin marketplace add eric861129/Workflow-skill-router</code></p>
+<p><code>/plugin install workflow-skill-router@workflow-skill-router</code></p>
+<p>装完之后，Claude Code 会优先读工作区里的 <code>.claude/workflow-skill-router.json</code> 这份个人路由配置，找不到才回退到 <code>.codex/workflow-skill-router.json</code>。你的个人 Skill Tree、本地状态，Codex 那边装了同一个插件的话是完全共用的——在一边调好的工作流，换到另一边直接生效，不用再讲一遍规则。</p>
+<p>装完先验货：新开一个 Claude Code 会话，直接问它“Show the Workflow Skill Router status and explain which capabilities are available in this environment.”如果它报出 <code>bundled-local-r0</code> 这个运行时，说明本地 MCP Server 正常启动，路由能力就绪。</p>
+<h2>它到底替你省了哪句话：每阶段只点一个主将</h2>
+<p>Router 的核心动作就一个：分阶段点将。比如你要“交付 API 的契约、实现和测试”，它会拆成三段——契约阶段主将是 <code>api-designer</code>，配一个 <code>api-guidelines-skill</code> 打辅助，出口条件是 <code>contract-reviewed</code>；实现阶段换将，验证阶段再换。任何时候都只有当前阶段的 Skill 生效，进下一阶段重新路由。</p>
+<p>还有两处细节很对味。第一是“点名锁定”：你在任务里点名要某个 Skill，它就当主将，Router 想加辅助必须先说明目的、范围、拒绝的后果和上下文成本，你点头才算数。第二是“先验后信”：计划里的每个 Skill 都会先标成 <code>intended-unverified</code>，等运行时确认环境里真的装了、真的可用，才转正——计划里写了不等于真有，这话实在。</p>
+<p>v2.1.0 还带了个默认关闭的 <a href="https://huangchiyu.com/ChiYu-Blog/posts/workflow-skill-router-claude-code/" rel="external nofollow noopener noreferrer" target="_blank">Workflow Memory</a>：新增 8 个 MCP 工具，能记录完成的路由、提出可审查的 Profile 更新，还能回滚和清除。想让它越用越懂你，就把这个开关打开。</p>
+<h2>先别急着吹：作者自己都没敢打包票的三件事</h2>
+<p>这个项目最难得的是诚实。README 里专门有一节讲证据和边界，翻译成人话就是三盆冷水。第一，完整指令包会让输入 token 增加约 26% 到 28%，省没省钱、快没快、代码变没变好，一律没测出来，别自己脑补。第二，路由评测测的是“选 Skill 选得对不对”，不是“软件做得好不好”，36 次评测跑的是 <code>claude-sonnet-5-5</code>，结论别外推到别的模型。第三，插件的完整功能只在能加载本地 MCP Server 的地方有——终端、IDE、桌面版 Claude 的 Code 分页；在 <code>claude.ai</code> 网页版里只有 Skill 会加载，以无状态的降级模式运行。</p>
+<p>还有个版本小坑：给 Codex 用的最新发布其实是 v2.1.2，修了 <code>plan_work</code> 的一个解析问题；v2.1.0 是 Claude Code 支持的首个版本。两边都用的人，记得各装各的新版。</p>
+<h2>什么人现在就该装</h2>
+<p>排第一的是双持党：Codex 里调好的 Personal Routing Profile，Claude Code 这边直接读到，这是 v2.1.0 最实在的价值。排第二的是 Skill 囤积党：每次开工都要交代“这个阶段谁主导”的，配一份个人路由配置一劳永逸。至于只用 Claude Code、Skill 屈指可数的人——等你的 Skill 多到自己都记不清再回来，完全来得及。</p>
+<p>项目本身很小，<a href="https://github.com/eric861129/Workflow-skill-router" rel="external nofollow noopener noreferrer" target="_blank">GitHub 上只有十几个 star</a>，MIT 开源，作者还准备了繁体中文文档。这种体量的个人项目能自己做 36 次模型评测、把“没证明的东西”写进 README，比很多大厂通告都值得信一次。原文参考：<a href="https://github.com/eric861129/Workflow-skill-router/releases/tag/v2.1.0" rel="external nofollow noopener noreferrer" target="_blank">v2.1.0 Release</a>、<a href="https://huangchiyu.com/ChiYu-Blog/posts/workflow-skill-router-claude-code/" rel="external nofollow noopener noreferrer" target="_blank">ChiYu Code Journey 完整评测</a>。</p>
+<p> </p>
+<p> </p>
+<p>本文来源：<a href="https://www.moyunews.com/" rel="external nofollow noopener noreferrer" target="_blank">摸鱼杂货店</a>。查看原文：<a href="https://www.moyunews.com/workflow-skill-router-claude-code/" rel="external nofollow noopener noreferrer" target="_blank">Skill 装多了不会用？v2.1.0 让 Claude Code 学会技能路由</a>。</p></div>
+<p class="back"><a href="/">← 返回最新</a></p>
+</article>
+</main>
+<footer class="site-foot">
+<p>wocao.world — 本站内容全部转载自各订阅源，版权归原作者与原站所有。</p>
+</footer>
+</body>
+</html>

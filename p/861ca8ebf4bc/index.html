@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-8TX501TYGH"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-8TX501TYGH');
+</script>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Kaggle免费GPU：2 张 T4 每周 30 小时，V4-Pro 塞不进 · wocao.world</title>
+<meta name="description" content="帖子吹的旗舰模型，偏偏是唯一跑不起来的那个 刷到 这条 X 帖子 时，评论区全在喊「白嫖爽了」「旗舰模型随便跑」。我当场在 Kaggle Notebook 文档 里核对了一遍硬件参数：双 Tesla T4、单卡标称 16GB 显存（帖子说的 15GB）、每周 GPU 配额约 30 小时、单次会话最长 12 小时。再一看 DeepSeek-V4-Pro-0813 的配置——1.6T 总参数、49B 激活参数、官方部署示例直接上 4×GB300 或 B200 做张量并行 TP=8。这玩意儿连单张 H100（80GB）都装不下，指望两张 T4 共 30GB 显存跑起来？做梦都别醒太早。帖子点名的另外…">
+<link rel="canonical" href="https://wocao.world/p/861ca8ebf4bc/">
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="wocao.world">
+<meta property="og:title" content="Kaggle免费GPU：2 张 T4 每周 30 小时，V4-Pro 塞不进 · wocao.world">
+<meta property="og:description" content="帖子吹的旗舰模型，偏偏是唯一跑不起来的那个 刷到 这条 X 帖子 时，评论区全在喊「白嫖爽了」「旗舰模型随便跑」。我当场在 Kaggle Notebook 文档 里核对了一遍硬件参数：双 Tesla T4、单卡标称 16GB 显存（帖子说的 15GB）、每周 GPU 配额约 30 小时、单次会话最长 12 小时。再一看 DeepSeek-V4-Pro-0813 的配置——1.6T 总参数、49B 激活参数、官方部署示例直接上 4×GB300 或 B200 做张量并行 TP=8。这玩意儿连单张 H100（80GB）都装不下，指望两张 T4 共 30GB 显存跑起来？做梦都别醒太早。帖子点名的另外…">
+<meta property="og:url" content="https://wocao.world/p/861ca8ebf4bc/">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Kaggle免费GPU：2 张 T4 每周 30 小时，V4-Pro 塞不进 · wocao.world">
+<meta name="twitter:description" content="帖子吹的旗舰模型，偏偏是唯一跑不起来的那个 刷到 这条 X 帖子 时，评论区全在喊「白嫖爽了」「旗舰模型随便跑」。我当场在 Kaggle Notebook 文档 里核对了一遍硬件参数：双 Tesla T4、单卡标称 16GB 显存（帖子说的 15GB）、每周 GPU 配额约 30 小时、单次会话最长 12 小时。再一看 DeepSeek-V4-Pro-0813 的配置——1.6T 总参数、49B 激活参数、官方部署示例直接上 4×GB300 或 B200 做张量并行 TP=8。这玩意儿连单张 H100（80GB）都装不下，指望两张 T4 共 30GB 显存跑起来？做梦都别醒太早。帖子点名的另外…">
+<meta name="robots" content="index,follow">
+<link rel="alternate" type="application/rss+xml" title="wocao.world 聚合输出" href="/feed.xml">
+<link rel="stylesheet" href="/style.css">
+<meta property="article:published_time" content="2026-11-13T09:40:37.000Z">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","headline":"Kaggle免费GPU：2 张 T4 每周 30 小时，V4-Pro 塞不进","description":"帖子吹的旗舰模型，偏偏是唯一跑不起来的那个 刷到 这条 X 帖子 时，评论区全在喊「白嫖爽了」「旗舰模型随便跑」。我当场在 Kaggle Notebook 文档 里核对了一遍硬件参数：双 Tesla T4、单卡标称 16GB 显存（帖子说的 15GB）、每周 GPU 配额约 30 小时、单次会话最长 12 小时。再一看 DeepSeek-V4-Pro-0813 的配置——1.6T 总参数、49B 激活参数、官方部署示例直接上 4×GB300 或 B200 做张量并行 TP=8。这玩意儿连单张 H100（80GB）都装不下，指望两张 T4 共 30GB 显存跑起来？做梦都别醒太早。帖子点名的另外…","url":"https://wocao.world/p/861ca8ebf4bc/","datePublished":"2026-11-13T09:40:37.000Z","dateModified":"2026-11-13T11:38:47.201Z","mainEntityOfPage":{"@type":"WebPage","@id":"https://wocao.world/p/861ca8ebf4bc/"},"author":{"@type":"Person","name":"摸鱼杂货店"},"publisher":{"@type":"Organization","name":"wocao.world","url":"https://wocao.world"}}</script>
+</head>
+<body>
+<a class="skip-link" href="#main">跳到正文</a>
+<header class="site-head">
+<p class="site-title"><a href="/">wocao.world</a></p>
+<p class="site-desc">wocao.world</p>
+<nav class="site-nav">
+<a href="/">最新</a>
+<a href="/about/">关于</a>
+<a href="/feed.xml">RSS</a>
+</nav>
+</header>
+<main id="main">
+<article>
+<h1 class="post-title">Kaggle免费GPU：2 张 T4 每周 30 小时，V4-Pro 塞不进</h1>
+<div class="post-body"><p> </p>
+<h2>帖子吹的旗舰模型，偏偏是唯一跑不起来的那个</h2>
+<p>刷到 <a href="https://x.com/EastgoCC/status/2119400389682536823" rel="external nofollow noopener noreferrer" target="_blank">这条 X 帖子</a> 时，评论区全在喊「白嫖爽了」「旗舰模型随便跑」。我当场在 <a href="https://www.kaggle.com/docs/notebooks" rel="external nofollow noopener noreferrer" target="_blank">Kaggle Notebook 文档</a> 里核对了一遍硬件参数：双 <code>Tesla T4</code>、单卡标称 16GB 显存（帖子说的 15GB）、每周 GPU 配额约 30 小时、单次会话最长 12 小时。再一看 <a href="https://huggingface.co/deepseek-ai/DeepSeek-V4-Pro-0813" rel="external nofollow noopener noreferrer" target="_blank">DeepSeek-V4-Pro-0813</a> 的配置——1.6T 总参数、49B 激活参数、官方部署示例直接上 4×GB300 或 B200 做张量并行 TP=8。这玩意儿连单张 H100（80GB）都装不下，指望两张 T4 共 30GB 显存跑起来？做梦都别醒太早。帖子点名的另外三个模型 <a href="https://huggingface.co/Qwen/Qwen3.5-9B" rel="external nofollow noopener noreferrer" target="_blank">Qwen3.5-9B</a>、<a href="https://huggingface.co/Qwen/Qwen-Image-2.1" rel="external nofollow noopener noreferrer" target="_blank">Qwen-Image-2.1</a>、<a href="https://huggingface.co/Wan-AI/Wan2.2-TI2V-5B" rel="external nofollow noopener noreferrer" target="_blank">Wan2.2-TI2V-5B</a> 才是这套硬件够得着的——但也得挑对版本。</p>
+<p><img src="https://moyu.18uk.uk/2026/20261113-083d0521-03be-488a-b576-76b8f88f23db.webp" alt="Kaggle免费GPU" width="800" loading="lazy" referrerpolicy="no-referrer" /></p>
+<h2>两张 T4 到底啥水平：额度透明、显存刚够、闲置超时有坑</h2>
+<p><a href="https://www.kaggle.com/docs/efficient-gpu-usage" rel="external nofollow noopener noreferrer" target="_blank">官方高效用卡文档</a> 写得明明白白：每周约 30 小时 GPU 配额（按需分配，有时更高，每周重置，具体重置日以账号设置页显示为准），单次会话 GPU 最长 12 小时、TPU 9 小时，后端挂 4 核 CPU、29GB 内存，<code>/kaggle/working</code> 目录自动保存 20GB。但闲置超时两份文档对不上号：Notebook 文档写 20 分钟，高效用卡文档写 60 分钟。按最严的 20 分钟规划才不翻车——你去倒杯咖啡回来，实例没准就被回收了。显存方面，T4 单卡标称 16GB（帖子按 15GB 算），双卡合计约 30GB。跑 4-bit 量化的 9B/7B/5B 模型绰绰有余，30B 以上的稠密模型基本不用想，MoE 激活参数超 20B 也大概率 OOM。</p>
+<h2>领取门槛与隐形设置：手机验证、联网开关、数据怎么进</h2>
+<p>想薅这羊毛，先把账号绑手机号验证通过，否则 GPU 选项根本不显示。新建 Notebook 后，右侧面板 Accelerator 选 <code>GPU T4 x2</code>，再把 <code>Internet</code> 开关拨开——默认关网，不开你连 <code>pip install</code> 都拉不下来包。模型权重别想着 <code>git clone</code> 巨型仓库，走 Kaggle 侧边栏 <code>Add Input → Models</code> 搜官方托管的 <code>Qwen/Qwen3.5-9B</code> 之类，或者把量化好的 GGUF / Safetensors 传到 Dataset 再挂载，开卡前把东西备齐，别等卡跑起来再下载，那是在烧你宝贵的 30 小时。高峰期排队是常态，刷新几次「No GPU available」别急，换个时间段再来。滥用多开、挖矿、跑违规内容，封号快得像闪电，官方条款写得清清楚楚。</p>
+<h2>实战核心：三个真能跑的模型与最小可用命令</h2>
+<p>先装通用依赖，终端跑：</p>
+<pre><code>pip install -q transformers accelerate bitsandbytes diffusers peft sentencepiece</code></pre>
+<p><strong>Qwen3.5-9B（9B 稠密、Apache 2.0、262K 上下文、4-bit 约 7GB 显存）</strong> 用 <code>transformers</code> 两行搞定：</p>
+<pre><code>from transformers import AutoModelForCausalLM, AutoTokenizer
+import torch
+model = AutoModelForCausalLM.from_pretrained(
+    'Qwen/Qwen3.5-9B',
+    device_map='auto',
+    load_in_4bit=True,
+    torch_dtype=torch.bfloat16
+)
+tokenizer = AutoTokenizer.from_pretrained('Qwen/Qwen3.5-9B')
+inputs = tokenizer('你好，介绍下你自己', return_tensors='pt').to(model.device)
+print(tokenizer.decode(model.generate(**inputs, max_new_tokens=128)[0]))</code></pre>
+<p><strong>Qwen-Image-2.1（7B 视觉生成、Qwen 研究许可仅限非商业、BF16 全量约 30GB——7B 视觉部分加 8B 文本编码器，单卡跑 BF16 不够，须开 CPU offload 或用 4-bit 量化版）</strong> 用 <code>diffusers</code> 骨架：</p>
+<pre><code>from diffusers import DiffusionPipeline
+import torch
+pipe = DiffusionPipeline.from_pretrained(
+    'Qwen/Qwen-Image-2.1',
+    torch_dtype=torch.bfloat16
+).to('cuda')
+image = pipe(prompt='一只在代码海洋里冲浪的猫', num_inference_steps=30, guidance_scale=4.0).images[0]
+image.save('qwen_image.png')</code></pre>
+<p><strong>Wan2.2-TI2V-5B（5B 视频生成、Apache 2.0，BF16 仅主模型约 10GB、加上 UMT5-XXL 文本编码器后单卡不够，须开 CPU offload 或用 GGUF 4-bit 量化版约 6GB）</strong> 同理 <code>diffusers</code> 调用：</p>
+<pre><code>from diffusers import WanPipeline
+import torch
+pipe = WanPipeline.from_pretrained(
+    'Wan-AI/Wan2.2-TI2V-5B-Diffusers',
+    torch_dtype=torch.bfloat16
+).to('cuda')
+pipe.enable_model_cpu_offload()  # 双 T4 必开
+video = pipe(prompt='极光下的雪山', num_frames=81, guidance_scale=5.0).frames[0]
+</code></pre>
+<p>三个模型里，Qwen3.5-9B 的 4-bit 版能稳在单卡 15GB 以内；Qwen-Image-2.1 与 Wan2.2 跑 BF16 都须开 CPU offload 兜底，想省事直接上 GGUF 4-bit 量化版。双卡并行推理用 <code>device_map='auto'</code> 能把权重分摊到两张 T4 上，显存实在不够再开 CPU offload，不用自己写并行代码。存视频用 diffusers 自带的 export_to_video。</p>
+<h2>翻车现场：闲置超时、显存碎片、社区魔改版风险</h2>
+<blockquote>
+<p><img src="https://s.w.org/images/core/emoji/17.0.2/72x72/26a0.png" alt="⚠" loading="lazy" referrerpolicy="no-referrer" /> <strong>闲置 20 分钟实例就回收</strong>：跑长视频或大批量推理，别只开着页面干等，交互会话闲置会被回收；长任务改用 Save &amp; Run All 走后台批量跑，别指望 60 分钟宽限。<br /><img src="https://s.w.org/images/core/emoji/17.0.2/72x72/26a0.png" alt="⚠" loading="lazy" referrerpolicy="no-referrer" /> <strong>显存碎片化会炸</strong>：连续跑多个 pipeline 记得 <code>del pipe; torch.cuda.empty_cache(); gc.collect()</code>，不然第二发必 OOM。<br /><img src="https://s.w.org/images/core/emoji/17.0.2/72x72/26a0.png" alt="⚠" loading="lazy" referrerpolicy="no-referrer" /> <strong>「无审查/无审核」版本全是社区魔改</strong>：如 <code>HauhauCS/Qwen3.5-9B-Uncensored</code>、<code>AtomicChat/Qwen-Image-2.1-Turbo-Uncensored-GGUF</code>，非官方发布，权重来源不明、安全性未知，生产环境别碰，自己玩自行甄别风险。<br /><img src="https://s.w.org/images/core/emoji/17.0.2/72x72/26a0.png" alt="⚠" loading="lazy" referrerpolicy="no-referrer" /> <strong>DeepSeek-V4-Pro 别想了</strong>：哪怕你搞 8-bit 量化、CPU 卸载、磁盘换存，激活参数 49B + KV Cache 依然远超 30GB 物理上限，硬上只有被 Kill 进程的份。</p>
+</blockquote>
+<h2>Colab 互补视角：额度透明度差异与双平台叠加</h2>
+<p>Kaggle 这波最大的良心是把「每周 30 小时」写进官方文档，<a href="https://www.kaggle.com/docs/efficient-gpu-usage" rel="external nofollow noopener noreferrer" target="_blank">白纸黑字</a>摆着，不像 Colab 免费版从来不公布具体小时数，靠玩家众包统计才知道大概多少。两者互补关系很明显：Colab 适合交互式调试、前端可视化、临时起个 Gradio Demo；Kaggle 适合跑长任务、批量推理、训练微调，且输出目录 <code>/kaggle/working</code> 自动持久化 20GB，关机不丢数据。更绝的是实验性联动：如果你手里有 <a href="https://colab.google/pricing/" rel="external nofollow noopener noreferrer" target="_blank">Colab Pro</a>，绑定同一 Google 账号的 Kaggle 邮箱，每周能再加 15 小时 GPU 额度；Pro+ 用户直接加 30 小时。相当于双平台额度叠加，白嫖上限直接拉满。本站 11 月 8 日发的两篇 Colab 羊毛文侧重免费版生存技巧，这篇主攻 Kaggle 免费额度的实战落地，三篇配合阅读，免费算力拼图才算凑齐。</p>
+<p> </p>
+<p> </p>
+<div>
+<div> </div>
+</div>
+<p>本文来源：<a href="https://www.moyunews.com/" rel="external nofollow noopener noreferrer" target="_blank">摸鱼杂货店</a>。查看原文：<a href="https://www.moyunews.com/kaggle-free-t4-gpu/" rel="external nofollow noopener noreferrer" target="_blank">Kaggle免费GPU：2 张 T4 每周 30 小时，V4-Pro 塞不进</a>。</p></div>
+<p class="back"><a href="/">← 返回最新</a></p>
+</article>
+</main>
+<footer class="site-foot">
+<p>wocao.world — 本站内容全部转载自各订阅源，版权归原作者与原站所有。</p>
+</footer>
+</body>
+</html>

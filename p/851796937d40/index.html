@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-8TX501TYGH"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-8TX501TYGH');
+</script>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>10 个开源仓库拼成 AI内容工厂：调研到分发全链路实测 · wocao.world</title>
+<meta name="description" content="别再手动拼凑工作流了，这 10 个仓库直接给你一条龙 刷到 @Zara__Ai 的那条推 时，我正盯着硬盘里七八个半吊子脚本发呆：一个跑 Whisper 转字幕、一个调 Edge-TTS 配旁白、再手动套 CapCut 模板、最后还得人工上传排期。中间断点多、格式对不齐、API 账单更是查无此人。她甩出来的 10 个仓库，恰好把「调研→脚本→配图→配音→配乐→剪辑→分发」七个环节全覆盖，且大多走本地推理、只在 LLM 调用处掏钱。下面不废话，直接上实测对比与避坑要点。 前置调研层：别让大模型瞎编，先喂它真数据 Social Media Research Skills 不是传统爬虫，而是给 So…">
+<link rel="canonical" href="https://wocao.world/p/851796937d40/">
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="wocao.world">
+<meta property="og:title" content="10 个开源仓库拼成 AI内容工厂：调研到分发全链路实测 · wocao.world">
+<meta property="og:description" content="别再手动拼凑工作流了，这 10 个仓库直接给你一条龙 刷到 @Zara__Ai 的那条推 时，我正盯着硬盘里七八个半吊子脚本发呆：一个跑 Whisper 转字幕、一个调 Edge-TTS 配旁白、再手动套 CapCut 模板、最后还得人工上传排期。中间断点多、格式对不齐、API 账单更是查无此人。她甩出来的 10 个仓库，恰好把「调研→脚本→配图→配音→配乐→剪辑→分发」七个环节全覆盖，且大多走本地推理、只在 LLM 调用处掏钱。下面不废话，直接上实测对比与避坑要点。 前置调研层：别让大模型瞎编，先喂它真数据 Social Media Research Skills 不是传统爬虫，而是给 So…">
+<meta property="og:url" content="https://wocao.world/p/851796937d40/">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="10 个开源仓库拼成 AI内容工厂：调研到分发全链路实测 · wocao.world">
+<meta name="twitter:description" content="别再手动拼凑工作流了，这 10 个仓库直接给你一条龙 刷到 @Zara__Ai 的那条推 时，我正盯着硬盘里七八个半吊子脚本发呆：一个跑 Whisper 转字幕、一个调 Edge-TTS 配旁白、再手动套 CapCut 模板、最后还得人工上传排期。中间断点多、格式对不齐、API 账单更是查无此人。她甩出来的 10 个仓库，恰好把「调研→脚本→配图→配音→配乐→剪辑→分发」七个环节全覆盖，且大多走本地推理、只在 LLM 调用处掏钱。下面不废话，直接上实测对比与避坑要点。 前置调研层：别让大模型瞎编，先喂它真数据 Social Media Research Skills 不是传统爬虫，而是给 So…">
+<meta name="robots" content="index,follow">
+<link rel="alternate" type="application/rss+xml" title="wocao.world 聚合输出" href="/feed.xml">
+<link rel="stylesheet" href="/style.css">
+<meta property="article:published_time" content="2026-11-13T09:05:05.000Z">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","headline":"10 个开源仓库拼成 AI内容工厂：调研到分发全链路实测","description":"别再手动拼凑工作流了，这 10 个仓库直接给你一条龙 刷到 @Zara__Ai 的那条推 时，我正盯着硬盘里七八个半吊子脚本发呆：一个跑 Whisper 转字幕、一个调 Edge-TTS 配旁白、再手动套 CapCut 模板、最后还得人工上传排期。中间断点多、格式对不齐、API 账单更是查无此人。她甩出来的 10 个仓库，恰好把「调研→脚本→配图→配音→配乐→剪辑→分发」七个环节全覆盖，且大多走本地推理、只在 LLM 调用处掏钱。下面不废话，直接上实测对比与避坑要点。 前置调研层：别让大模型瞎编，先喂它真数据 Social Media Research Skills 不是传统爬虫，而是给 So…","url":"https://wocao.world/p/851796937d40/","datePublished":"2026-11-13T09:05:05.000Z","dateModified":"2026-11-13T11:38:47.201Z","mainEntityOfPage":{"@type":"WebPage","@id":"https://wocao.world/p/851796937d40/"},"author":{"@type":"Person","name":"摸鱼杂货店"},"publisher":{"@type":"Organization","name":"wocao.world","url":"https://wocao.world"}}</script>
+</head>
+<body>
+<a class="skip-link" href="#main">跳到正文</a>
+<header class="site-head">
+<p class="site-title"><a href="/">wocao.world</a></p>
+<p class="site-desc">wocao.world</p>
+<nav class="site-nav">
+<a href="/">最新</a>
+<a href="/about/">关于</a>
+<a href="/feed.xml">RSS</a>
+</nav>
+</header>
+<main id="main">
+<article>
+<h1 class="post-title">10 个开源仓库拼成 AI内容工厂：调研到分发全链路实测</h1>
+<div class="post-body"><p> </p>
+<h2>别再手动拼凑工作流了，这 10 个仓库直接给你一条龙</h2>
+<p>刷到 <a href="https://x.com/Zara__Ai/status/2117572889411260457" rel="external nofollow noopener noreferrer" target="_blank">@Zara__Ai 的那条推</a> 时，我正盯着硬盘里七八个半吊子脚本发呆：一个跑 Whisper 转字幕、一个调 Edge-TTS 配旁白、再手动套 CapCut 模板、最后还得人工上传排期。中间断点多、格式对不齐、API 账单更是查无此人。她甩出来的 10 个仓库，恰好把「调研→脚本→配图→配音→配乐→剪辑→分发」七个环节全覆盖，且大多走本地推理、只在 LLM 调用处掏钱。下面不废话，直接上实测对比与避坑要点。</p>
+<p><img src="https://moyu.18uk.uk/2026/20261113-36f641fb-1b79-4920-a9ef-fd07f28e9d23.webp" alt="AI内容工厂" width="600" loading="lazy" referrerpolicy="no-referrer" /></p>
+<h2>前置调研层：别让大模型瞎编，先喂它真数据</h2>
+<p><a href="https://github.com/ScrapeCreators/social-media-research-skills" rel="external nofollow noopener noreferrer" target="_blank">Social Media Research Skills</a> 不是传统爬虫，而是给 <a href="https://github.com/langchain-ai/social-media-agent" rel="external nofollow noopener noreferrer" target="_blank">Social Media Agent</a> 这类 Agent 预置的 13 个「技能包」：爆款挖掘、评论挖矿、竞品拆解、广告库拆解、趋势发现……仓库 <a href="https://github.com/ScrapeCreators/social-media-research-skills" rel="external nofollow noopener noreferrer" target="_blank">MIT 协议免费</a>，但底层数据全走 ScrapeCreators 付费 API，别看到「免费」就以为能白嫖全网数据。配合 <a href="https://github.com/LearningCircuit/local-deep-research" rel="external nofollow noopener noreferrer" target="_blank">Local Deep Research</a> 用：后者 Docker 一键起（<code>curl -O docker-compose.yml &amp;&amp; docker compose up -d</code> 打开 <code>http://localhost:5000</code>），挂本地 Ollama 模型多轮搜索、迭代推理，最后吐带引用的调研报告，纯本地零成本。再接 <a href="https://github.com/langchain-ai/social-media-agent" rel="external nofollow noopener noreferrer" target="_blank">Social Media Agent</a>，扔进竞品 URL 自动出 X/LinkedIn 草稿，带人工审核与定时发布。注意：Agent 仓库免费，跑起来得绑 Anthropic LLM、FireCrawl（新用户 500 点数）、Arcade 授权，隐形账单别忽视。</p>
+<h2>生成层：图文声乐视频，哪个环节最烧显存？</h2>
+<p>配图环节 <a href="https://github.com/black-forest-labs/flux2" rel="external nofollow noopener noreferrer" target="_blank">FLUX.2</a> 是 Black Forest Labs 官方最小推理库。<strong>klein 4B 版 Apache-2.0 可免费商用</strong>，消费级显存亚秒出图；但 9B 与 32B dev 版走 <strong>FLUX Non-Commercial License 禁商用</strong>，官方 API 另收费——这点搞错直接侵权。配音用 <a href="https://github.com/hexgrad/kokoro" rel="external nofollow noopener noreferrer" target="_blank">Kokoro</a>，82M 参数、<code>pip install kokoro</code> 即用，8 语言 54 音色，本地免费跑；第三方托管 API 大约 $0.65~0.80/百万字符，量大可算账。配乐直接上 <a href="https://github.com/ace-step/ACE-Step-1.5" rel="external nofollow noopener noreferrer" target="_blank">ACE-Step 1.5</a>，2B turbo 版 &lt;4GB 显存就能跑完整带人声歌曲，<code>git clone &amp;&amp; uv sync &amp;&amp; uv run acestep</code> 打开 <code>http://localhost:7860</code>，另有在线站 <a href="https://acemusic.ai/" rel="external nofollow noopener noreferrer" target="_blank">acemusic.ai</a> 免费试水。视频剪辑有两条路：<a href="https://github.com/YILS-LIN/short-video-factory" rel="external nofollow noopener noreferrer" target="_blank">Short Video Factory</a> 是国人写的 Electron 桌面端，Releases 下载即用，提示词+素材一键批量出营销短视频，Edge-TTS 免费语音+自动剪辑+字幕全本地；<a href="https://github.com/Anil-matcha/AI-Youtube-Shorts-Generator" rel="external nofollow noopener noreferrer" target="_blank">AI YouTube Shorts Generator</a> 专攻长视频转竖屏 Shorts，LLM 判高光+Whisper 转录+9:16 自动裁剪无水印，本地模式仅 LLM 调用花钱（默认 gpt-4o-mini 或 gemini-2.5-flash）。想把上游全串起来，<a href="https://github.com/krillinai/OpenCreator" rel="external nofollow noopener noreferrer" target="_blank">OpenCreator</a>（原 KrillinAI）是目前唯一把下载/翻译/配音、图片生成、语音、Avatar、剪辑全塞进一个本地优先工作区的项目，约 14000 stars，Apache-2.0。桌面版去 Releases 拿安装包，Web 版 <code>git clone</code> 后访问 <code>http://127.0.0.1:19861/</code>，软件免费，跑模型需 Codex 登录（ChatGPT 账号或 API Key）。</p>
+<h2>打包分发层：把成品变成播客、Shorts、定时帖</h2>
+<p><a href="https://github.com/souzatharsis/podcastfy" rel="external nofollow noopener noreferrer" target="_blank">Podcastfy</a> 是 NotebookLM 播客功能的开源平替，<code>pip install podcastfy</code> 后把 PDF、网页、视频、音频扔进去，多语言双人对话播客直接出。包免费，需自备 LLM 与 TTS Key（或用免费 Edge TTS）。配合前面的 Short Video Factory 或 AI YouTube Shorts Generator 出竖屏，再走 Social Media Agent 排期发布，基本形成「素材进、成品出、自动发」的一条龙。</p>
+<h2>横向对比：协议、显存、隐形钱包、上手曲线一眼看穿</h2>
+<table>
+<thead>
+<tr>
+<th>仓库</th>
+<th>覆盖环节</th>
+<th>协议/商用</th>
+<th>真实成本</th>
+<th>上手难度</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="https://github.com/ScrapeCreators/social-media-research-skills" rel="external nofollow noopener noreferrer" target="_blank">Social Media Research Skills</a></td>
+<td>选题调研/竞品拆解</td>
+<td>MIT（仓库免费）</td>
+<td>底层 ScrapeCreators API 按量付费</td>
+<td>低（npx 安装技能包）</td>
+</tr>
+<tr>
+<td><a href="https://github.com/LearningCircuit/local-deep-research" rel="external nofollow noopener noreferrer" target="_blank">Local Deep Research</a></td>
+<td>深度调研报告</td>
+<td>MIT</td>
+<td>纯本地 Ollama 零成本</td>
+<td>中（Docker+配置模型）</td>
+</tr>
+<tr>
+<td><a href="https://github.com/langchain-ai/social-media-agent" rel="external nofollow noopener noreferrer" target="_blank">Social Media Agent</a></td>
+<td>文案生成/排期发布</td>
+<td>MIT</td>
+<td>Anthropic+FireCrawl+Arcade 组合付费</td>
+<td>高（需多平台授权）</td>
+</tr>
+<tr>
+<td><a href="https://github.com/black-forest-labs/flux2" rel="external nofollow noopener noreferrer" target="_blank">FLUX.2</a></td>
+<td>配图生成</td>
+<td>klein 4B Apache-2.0 可商用；9B/32B 禁商用</td>
+<td>本地免费/官方 API 付费</td>
+<td>中（需部署推理库）</td>
+</tr>
+<tr>
+<td><a href="https://github.com/hexgrad/kokoro" rel="external nofollow noopener noreferrer" target="_blank">Kokoro</a></td>
+<td>配音/TTS</td>
+<td>Apache-2.0</td>
+<td>本地免费/第三方 API ~$0.65/百万字符</td>
+<td>极低（pip install 即用）</td>
+</tr>
+<tr>
+<td><a href="https://github.com/ace-step/ACE-Step-1.5" rel="external nofollow noopener noreferrer" target="_blank">ACE-Step 1.5</a></td>
+<td>配乐/带人声歌曲</td>
+<td>MIT</td>
+<td>本地免费/在线站免费试用</td>
+<td>中（uv 环境+显存≥4GB）</td>
+</tr>
+<tr>
+<td><a href="https://github.com/YILS-LIN/short-video-factory" rel="external nofollow noopener noreferrer" target="_blank">Short Video Factory</a></td>
+<td>短视频批量剪辑</td>
+<td>AGPL-3.0</td>
+<td>全本地免费</td>
+<td>低（Releases 下载双击）</td>
+</tr>
+<tr>
+<td><a href="https://github.com/Anil-matcha/AI-Youtube-Shorts-Generator" rel="external nofollow noopener noreferrer" target="_blank">AI YouTube Shorts Generator</a></td>
+<td>长转短/高光裁剪</td>
+<td>MIT</td>
+<td>仅 LLM 调用成本（gpt-4o-mini 等）</td>
+<td>中（需配置 Whisper+LLM Key）</td>
+</tr>
+<tr>
+<td><a href="https://github.com/krillinai/OpenCreator" rel="external nofollow noopener noreferrer" target="_blank">OpenCreator</a></td>
+<td>全链路工作区</td>
+<td>Apache-2.0</td>
+<td>软件免费/Codex 登录跑模型</td>
+<td>中（桌面版开箱/Web 版需 Node）</td>
+</tr>
+<tr>
+<td><a href="https://github.com/souzatharsis/podcastfy" rel="external nofollow noopener noreferrer" target="_blank">Podcastfy</a></td>
+<td>多模态转播客</td>
+<td>Apache-2.0</td>
+<td>包免费/自备 LLM+TTS Key</td>
+<td>低（pip install+填 Key）</td>
+</tr>
+</tbody>
+</table>
+<h2>四类创作者的组装清单，别再全买全装</h2>
+<p><strong>个人博主/周更视频号</strong>：Local Deep Research 做选题 → Kokoro 配旁白 → FLUX.2 klein 出封面 → Short Video Factory 批量剪 → Social Media Agent 定时发。全链路本地跑，月成本约等于几杯咖啡钱。<br /><strong>带货切片/矩阵号运营</strong>：AI YouTube Shorts Generator 批量切竞品长视频 → OpenCreator 统一翻译/配音/水印 → Short Video Factory 加字幕/钩子 → Social Media Agent 多账号排期。重点利用 OpenCreator 的批量翻译与 Avatar 功能省人工。<br /><strong>播客主/知识付费讲师</strong>：Local Deep Research 生成大纲 → Podcastfy 直接把文档/网页变双人对话播客 → ACE-Step 1.5 生成片头曲/转场音乐 → OpenCreator 做视频版切片分发小红书/视频号。<br /><strong>社媒运营/代运营团队</strong>：Social Media Research Skills 挖爆款/挖评论 → Local Deep Research 出竞品分析报告 → Social Media Agent 批量产出 X/LinkedIn 草稿 → 人工审核 → 定时发布。核心成本在 FireCrawl 与 Anthropic，建议先跑免费额度验证 ROI 再扩量。</p>
+<p>别被「全自动」忽悠，每个仓库都有各自的坑：FLUX.2 版本许可证别搞错、Social Media 类工具底层 API 才是大头、OpenCreator 依赖 Codex 登录意味着得有 ChatGPT 账号或 API Key。先按场景挑 3~4 个跑通最短路径，再考虑往工厂里加机器。代码都在 GitHub，手快有、手慢无，克隆完记得给颗星再改代码。</p>
+<p> </p>
+<p> </p>
+<p>本文来源：<a href="https://www.moyunews.com/" rel="external nofollow noopener noreferrer" target="_blank">摸鱼杂货店</a>。查看原文：<a href="https://www.moyunews.com/ai-content-factory-10-repos/" rel="external nofollow noopener noreferrer" target="_blank">10 个开源仓库拼成 AI内容工厂：调研到分发全链路实测</a>。</p></div>
+<p class="back"><a href="/">← 返回最新</a></p>
+</article>
+</main>
+<footer class="site-foot">
+<p>wocao.world — 本站内容全部转载自各订阅源，版权归原作者与原站所有。</p>
+</footer>
+</body>
+</html>

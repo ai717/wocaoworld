@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-8TX501TYGH"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-8TX501TYGH');
+</script>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Colab免费版 T4 16G 显存：10 种玩法全跑通 · wocao.world</title>
+<meta name="description" content="一张 T4 白送到浏览器里 沐阳在 X 上发的那条帖子火得有道理：67.2K 次查看、1019 次收藏，核心就一句话——Google Colab 免费版能直接用上 16G 显存的云端 NVIDIA T4，一分钱不用花。Google 官方 FAQ 也写得明白：Colab 是免费的托管 Jupyter 笔记本服务，免费提供 GPU 和 TPU，免费版笔记本单次最长能跑 12 小时。T4 这张卡本身不弱：16GB GDDR6 显存、2560 个 CUDA 核心、65 FP16 TFLOPS，跑 7B 级别的开源大模型、Stable Diffusion 生图都够用。先把丑话说在前面：官方只承诺“at …">
+<link rel="canonical" href="https://wocao.world/p/8953bf641f72/">
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="wocao.world">
+<meta property="og:title" content="Colab免费版 T4 16G 显存：10 种玩法全跑通 · wocao.world">
+<meta property="og:description" content="一张 T4 白送到浏览器里 沐阳在 X 上发的那条帖子火得有道理：67.2K 次查看、1019 次收藏，核心就一句话——Google Colab 免费版能直接用上 16G 显存的云端 NVIDIA T4，一分钱不用花。Google 官方 FAQ 也写得明白：Colab 是免费的托管 Jupyter 笔记本服务，免费提供 GPU 和 TPU，免费版笔记本单次最长能跑 12 小时。T4 这张卡本身不弱：16GB GDDR6 显存、2560 个 CUDA 核心、65 FP16 TFLOPS，跑 7B 级别的开源大模型、Stable Diffusion 生图都够用。先把丑话说在前面：官方只承诺“at …">
+<meta property="og:url" content="https://wocao.world/p/8953bf641f72/">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Colab免费版 T4 16G 显存：10 种玩法全跑通 · wocao.world">
+<meta name="twitter:description" content="一张 T4 白送到浏览器里 沐阳在 X 上发的那条帖子火得有道理：67.2K 次查看、1019 次收藏，核心就一句话——Google Colab 免费版能直接用上 16G 显存的云端 NVIDIA T4，一分钱不用花。Google 官方 FAQ 也写得明白：Colab 是免费的托管 Jupyter 笔记本服务，免费提供 GPU 和 TPU，免费版笔记本单次最长能跑 12 小时。T4 这张卡本身不弱：16GB GDDR6 显存、2560 个 CUDA 核心、65 FP16 TFLOPS，跑 7B 级别的开源大模型、Stable Diffusion 生图都够用。先把丑话说在前面：官方只承诺“at …">
+<meta name="robots" content="index,follow">
+<link rel="alternate" type="application/rss+xml" title="wocao.world 聚合输出" href="/feed.xml">
+<link rel="stylesheet" href="/style.css">
+<meta property="article:published_time" content="2026-11-13T09:38:49.000Z">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","headline":"Colab免费版 T4 16G 显存：10 种玩法全跑通","description":"一张 T4 白送到浏览器里 沐阳在 X 上发的那条帖子火得有道理：67.2K 次查看、1019 次收藏，核心就一句话——Google Colab 免费版能直接用上 16G 显存的云端 NVIDIA T4，一分钱不用花。Google 官方 FAQ 也写得明白：Colab 是免费的托管 Jupyter 笔记本服务，免费提供 GPU 和 TPU，免费版笔记本单次最长能跑 12 小时。T4 这张卡本身不弱：16GB GDDR6 显存、2560 个 CUDA 核心、65 FP16 TFLOPS，跑 7B 级别的开源大模型、Stable Diffusion 生图都够用。先把丑话说在前面：官方只承诺“at …","url":"https://wocao.world/p/8953bf641f72/","datePublished":"2026-11-13T09:38:49.000Z","dateModified":"2026-11-13T11:38:47.201Z","mainEntityOfPage":{"@type":"WebPage","@id":"https://wocao.world/p/8953bf641f72/"},"author":{"@type":"Person","name":"摸鱼杂货店"},"publisher":{"@type":"Organization","name":"wocao.world","url":"https://wocao.world"}}</script>
+</head>
+<body>
+<a class="skip-link" href="#main">跳到正文</a>
+<header class="site-head">
+<p class="site-title"><a href="/">wocao.world</a></p>
+<p class="site-desc">wocao.world</p>
+<nav class="site-nav">
+<a href="/">最新</a>
+<a href="/about/">关于</a>
+<a href="/feed.xml">RSS</a>
+</nav>
+</header>
+<main id="main">
+<article>
+<h1 class="post-title">Colab免费版 T4 16G 显存：10 种玩法全跑通</h1>
+<div class="post-body"><p> </p>
+<h2>一张 T4 白送到浏览器里</h2>
+<p>沐阳在 X 上发的那条帖子火得有道理：67.2K 次查看、1019 次收藏，核心就一句话——<a href="https://x.com/yyyole/status/2119096607752781869" rel="external nofollow noopener noreferrer" target="_blank">Google Colab 免费版</a>能直接用上 16G 显存的云端 NVIDIA T4，一分钱不用花。<a href="https://research.google.com/colaboratory/faq.html" rel="external nofollow noopener noreferrer" target="_blank">Google 官方 FAQ</a> 也写得明白：Colab 是免费的托管 Jupyter 笔记本服务，免费提供 GPU 和 TPU，免费版笔记本单次最长能跑 12 小时。T4 这张卡本身不弱：16GB GDDR6 显存、2560 个 CUDA 核心、65 FP16 TFLOPS，跑 7B 级别的开源大模型、Stable Diffusion 生图都够用。先把丑话说在前面：官方只承诺“at most 12 hours”，GPU 型号随时间变化、资源不保证，高峰期分不到卡是常事。</p>
+<p><img src="https://moyu.18uk.uk/2026/20261113-3546472e-c803-4163-a5e2-54bf9c554e02.webp" alt="Colab免费版" width="800" loading="lazy" referrerpolicy="no-referrer" /></p>
+<h2>开局三步：账号、Drive 与 GPU 开关</h2>
+<p>动手前只要三样东西：一个 Google 账号、Drive 里至少 5GB 空闲（模型和数据都放这里，会话回收也不丢）、一个浏览器。打开 <a href="https://colab.research.google.com/" rel="external nofollow noopener noreferrer" target="_blank">Colab</a> 新建笔记本，点「运行时」→「更改运行时类型」，把硬件加速器选成 GPU，系统就会给你分配加速器。先跑一行 <code>!nvidia-smi</code> 确认拿到的是 T4 而不是旧卡，没拿到就断开重连再试。模型和数据别放虚拟机自带硬盘里，会话一回收就全清空，挂载 Drive 才是正路：</p>
+<pre><code>from google.colab import drive
+drive.mount('/content/drive')</code></pre>
+<p>第一次挂载要手动授权，之后读写都在 <code>/content/drive/MyDrive</code> 下面。官方 FAQ 提醒过：Drive 根目录文件太多（大约一万个以上）挂载会超时，分文件夹存放能少很多麻烦。</p>
+<h2>原帖 10 种玩法，分四组跑一遍</h2>
+<p>原帖列了 10 种玩法，按上手难度分成四组，每组都给能直接抄的命令。</p>
+<h3>开源大模型当本地助手</h3>
+<p>这是最值的两种玩法。装 <a href="https://github.com/ollama/ollama" rel="external nofollow noopener noreferrer" target="_blank">Ollama</a>，一行命令就能在 T4 上跑 <a href="https://qwen.ai/" rel="external nofollow noopener noreferrer" target="_blank">Qwen</a>、<a href="https://www.llama.com/" rel="external nofollow noopener noreferrer" target="_blank">Llama</a>、<a href="https://www.deepseek.com/" rel="external nofollow noopener noreferrer" target="_blank">DeepSeek</a> 这类开源模型：</p>
+<pre><code>!curl -fsSL https://ollama.com/install.sh | sh
+!ollama pull llama3.1:8b
+!ollama run llama3.1:8b '用中文写一首七言绝句'</code></pre>
+<p><a href="https://localaimaster.com/blog/run-llm-google-colab-free" rel="external nofollow noopener noreferrer" target="_blank">第三方实测</a>里 llama3.1:8b 下载约 4.9GB，7–8B 模型用默认 4-bit 量化是甜点区，下载量 4.4–5.2GB，剩下的显存还能留给上下文。模型文件记得放 Drive，虚拟机回收后不用重新下载。</p>
+<h3>生图和语音：SDXL 与 Whisper</h3>
+<p>生图直接拉 <a href="https://github.com/AUTOMATIC1111/stable-diffusion-webui" rel="external nofollow noopener noreferrer" target="_blank">Stable Diffusion WebUI</a>，SDXL 的 checkpoint 也放 Drive，用符号链接指过去，省得每次重下。语音这条线分两段：<a href="https://github.com/openai/whisper" rel="external nofollow noopener noreferrer" target="_blank">Whisper</a> 把录音批量转成文字，再接开源 TTS 模型生成配音，播客逐字稿、视频字幕都能这么批量做。先拿 small 模型试水，large-v3 更准但更吃显存，别一上来就拉满。</p>
+<h3>视频和微调：小步试水</h3>
+<p>视频生成、视频增强、超分辨率这三个玩法在免费版上只能当“试吃”：能跑通流程、验证效果，但 12 小时上限和显存天花板摆在那里，别指望批量出片。微调同理，<a href="https://huggingface.co/docs/peft/index" rel="external nofollow noopener noreferrer" target="_blank">LoRA/QLoRA</a> 是免费版上最现实的路子：4-bit 量化加载 7B 模型只占 16GB 显存的一部分，配合梯度检查点，小数据集微调能跑完，大模型全参数微调就别想了。</p>
+<h3>整活与干活：项目、Agent、表格与量化</h3>
+<p>剩下四种玩法都是一句话能讲清的。<a href="https://github.com/" rel="external nofollow noopener noreferrer" target="_blank">GitHub</a> 项目测试：git clone 下来装依赖直接跑，等于白嫖一台带 GPU 的试车场。AI Agent 实验：把模型和工具拼成自动化工作流，先在小任务上验证链路，别一上来就搞长流程。数据分析：<a href="https://pandas.pydata.org/" rel="external nofollow noopener noreferrer" target="_blank">pandas</a> 批量读 Excel、CSV，顺手用 matplotlib 出统计图，数据放 Drive、结果存回 Drive。模型量化测试：同一模型分别试 FP16、INT8、GPTQ，记下显存占用和推理速度，再决定生产环境用哪种精度。</p>
+<h2>免费额度也有脾气</h2>
+<p>免费的东西都有边界，Colab 也不例外。官方 FAQ 写明的只有三条硬的：单次最长 12 小时、资源不保证、用量限制不公布。<a href="https://projectech.in/guides/google-colab-free-gpu-ml-student-guide/" rel="external nofollow noopener noreferrer" target="_blank">第三方实测</a>补了两个数字：空闲约 90 分钟回收会话，系统内存标准档约 12GB——这两个都是第三方口径，官方没认过，只能当参考。2026 年 9 月，<a href="https://developers.googleblog.com/colab-is-now-part-of-your-google-ai-plan/" rel="external nofollow noopener noreferrer" target="_blank">Google 官方博客</a>宣布 Colab 纳入 Google AI 会员权益，付费会员优先用更快加速器；免费版的定位没变，还是先到先得的共享池。还有几条红线别碰：挖矿、BT、SSH 远程控制、深度伪造都在官方禁止清单里，违规直接封号；想长时间挂机跑 WebUI 赚外快，免费版会优先掐掉这类会话。长任务的正确姿势是拆成 checkpoint，定期存 Drive，断了再续。</p>
+<h2>这台云电脑适合谁</h2>
+<p>偶尔跑跑 7B 模型、生成几张图、转写几段语音、试试微调——<strong>Colab免费版</strong>就是白捡的 16G 显存，不用买显卡、不用装驱动，浏览器里点两下就能用。想拿它当 24 小时不间断的服务器、批量出视频、训大模型，那就别勉强：要么买张二手显卡，要么上 Colab Pro（9.99 美元/月）或 Pro+（49.99 美元/月）拿更强的卡和计算单元。免费版的正确用法就一句话：把它当试车场，验证想法、跑通流程，值得长期投入的再花钱。</p>
+<p> </p>
+<p> </p>
+<div>
+<div></div>
+</div>
+<p>本文来源：<a href="https://www.moyunews.com/" rel="external nofollow noopener noreferrer" target="_blank">摸鱼杂货店</a>。查看原文：<a href="https://www.moyunews.com/google-colab-free-t4-guide/" rel="external nofollow noopener noreferrer" target="_blank">Colab免费版 T4 16G 显存：10 种玩法全跑通</a>。</p></div>
+<p class="back"><a href="/">← 返回最新</a></p>
+</article>
+</main>
+<footer class="site-foot">
+<p>wocao.world — 本站内容全部转载自各订阅源，版权归原作者与原站所有。</p>
+</footer>
+</body>
+</html>

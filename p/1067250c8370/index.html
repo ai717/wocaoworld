@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-8TX501TYGH"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-8TX501TYGH');
+</script>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>独立开发者 4 天用 Claude Opus 5.5 搓出恐怖游戏 · wocao.world</title>
+<meta name="description" content="先别急着充值，搞清这笔账怎么算 有人在 X 上晒进度：@rewind02 用 Claude Opus 5.5 跑在 Claude Code 里（疑似自动档位），配合 Godot 4.7（免费开源，MIT 协议），4 天把一款恐怖游戏的环境推到接近终版。据原帖作者自述，核心 API 成本约 90 美元，含实验约 180 美元——外部无法审计，别当成标准报价。订阅 Claude Pro 只要 20 美元/月，但 Opus 在 Code 里跑 auto 模式会疯狂吃 token，真要复刻得先掂量钱包。 第 2 天环境已接近终版，约 10 个批次 = 约 100 个道具，每组 10 个道具共享同一材质…">
+<link rel="canonical" href="https://wocao.world/p/1067250c8370/">
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="wocao.world">
+<meta property="og:title" content="独立开发者 4 天用 Claude Opus 5.5 搓出恐怖游戏 · wocao.world">
+<meta property="og:description" content="先别急着充值，搞清这笔账怎么算 有人在 X 上晒进度：@rewind02 用 Claude Opus 5.5 跑在 Claude Code 里（疑似自动档位），配合 Godot 4.7（免费开源，MIT 协议），4 天把一款恐怖游戏的环境推到接近终版。据原帖作者自述，核心 API 成本约 90 美元，含实验约 180 美元——外部无法审计，别当成标准报价。订阅 Claude Pro 只要 20 美元/月，但 Opus 在 Code 里跑 auto 模式会疯狂吃 token，真要复刻得先掂量钱包。 第 2 天环境已接近终版，约 10 个批次 = 约 100 个道具，每组 10 个道具共享同一材质…">
+<meta property="og:url" content="https://wocao.world/p/1067250c8370/">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="独立开发者 4 天用 Claude Opus 5.5 搓出恐怖游戏 · wocao.world">
+<meta name="twitter:description" content="先别急着充值，搞清这笔账怎么算 有人在 X 上晒进度：@rewind02 用 Claude Opus 5.5 跑在 Claude Code 里（疑似自动档位），配合 Godot 4.7（免费开源，MIT 协议），4 天把一款恐怖游戏的环境推到接近终版。据原帖作者自述，核心 API 成本约 90 美元，含实验约 180 美元——外部无法审计，别当成标准报价。订阅 Claude Pro 只要 20 美元/月，但 Opus 在 Code 里跑 auto 模式会疯狂吃 token，真要复刻得先掂量钱包。 第 2 天环境已接近终版，约 10 个批次 = 约 100 个道具，每组 10 个道具共享同一材质…">
+<meta name="robots" content="index,follow">
+<link rel="alternate" type="application/rss+xml" title="wocao.world 聚合输出" href="/feed.xml">
+<link rel="stylesheet" href="/style.css">
+<meta property="article:published_time" content="2026-11-13T09:07:40.000Z">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","headline":"独立开发者 4 天用 Claude Opus 5.5 搓出恐怖游戏","description":"先别急着充值，搞清这笔账怎么算 有人在 X 上晒进度：@rewind02 用 Claude Opus 5.5 跑在 Claude Code 里（疑似自动档位），配合 Godot 4.7（免费开源，MIT 协议），4 天把一款恐怖游戏的环境推到接近终版。据原帖作者自述，核心 API 成本约 90 美元，含实验约 180 美元——外部无法审计，别当成标准报价。订阅 Claude Pro 只要 20 美元/月，但 Opus 在 Code 里跑 auto 模式会疯狂吃 token，真要复刻得先掂量钱包。 第 2 天环境已接近终版，约 10 个批次 = 约 100 个道具，每组 10 个道具共享同一材质…","url":"https://wocao.world/p/1067250c8370/","datePublished":"2026-11-13T09:07:40.000Z","dateModified":"2026-11-13T11:38:47.201Z","mainEntityOfPage":{"@type":"WebPage","@id":"https://wocao.world/p/1067250c8370/"},"author":{"@type":"Person","name":"摸鱼杂货店"},"publisher":{"@type":"Organization","name":"wocao.world","url":"https://wocao.world"}}</script>
+</head>
+<body>
+<a class="skip-link" href="#main">跳到正文</a>
+<header class="site-head">
+<p class="site-title"><a href="/">wocao.world</a></p>
+<p class="site-desc">wocao.world</p>
+<nav class="site-nav">
+<a href="/">最新</a>
+<a href="/about/">关于</a>
+<a href="/feed.xml">RSS</a>
+</nav>
+</header>
+<main id="main">
+<article>
+<h1 class="post-title">独立开发者 4 天用 Claude Opus 5.5 搓出恐怖游戏</h1>
+<div class="post-body"><p> </p>
+<h2>先别急着充值，搞清这笔账怎么算</h2>
+<p>有人在 X 上晒进度：<a href="https://x.com/rewind02/status/2117586491350135052" rel="external nofollow noopener noreferrer" target="_blank">@rewind02</a> 用 <strong>Claude Opus 5.5</strong> 跑在 <a href="https://claude.ai/code" rel="external nofollow noopener noreferrer" target="_blank">Claude Code</a> 里（疑似自动档位），配合 <a href="https://godotengine.org/" rel="external nofollow noopener noreferrer" target="_blank"><strong>Godot 4.7</strong></a>（免费开源，MIT 协议），4 天把一款恐怖游戏的环境推到接近终版。据原帖作者自述，核心 API 成本约 90 美元，含实验约 180 美元——外部无法审计，别当成标准报价。订阅 <strong>Claude Pro</strong> 只要 20 美元/月，但 Opus 在 Code 里跑 auto 模式会疯狂吃 token，真要复刻得先掂量钱包。</p>
+<blockquote>
+<p>第 2 天环境已接近终版，约 10 个批次 = 约 100 个道具，每组 10 个道具共享同一材质（省 credits 且风格统一）</p>
+</blockquote>
+<p>灵感来源直指《寂静岭》与《零》，Pinterest 收参考图定调性，再扔给 Opus 让它自己跑。这不是「一键生成」，是把 AI 当成会写代码、会启动引擎、会截图迭代的超级实习生。</p>
+<p><img src="https://my.18uk.uk/file/AgACAgUAAyEGAATpoe1oAANcavbTQFifoLKGVznKTAbVkO-JI1AAArITaxsDv7FXaeZA9zkHxfwBAAMCAAN5AAM9BA.webp" alt="恐怖游戏" width="650" loading="lazy" referrerpolicy="no-referrer" /></p>
+<h2>环境真装起来：Godot、Blender、Meshy 账号一个不少</h2>
+<p>动手前把这几样备齐：<br /><strong>Godot 4.7</strong> 官网直接下，免费开源 MIT 协议，别下错版本；<br /><a href="https://www.blender.org/" rel="external nofollow noopener noreferrer" target="_blank"><strong>Blender 5.2 LTS</strong></a> 官网下，免费开源 GPL，用来手工拆分 Meshy 出来的批次模型（省 Claude 用量）；<br /><strong>Meshy 账号</strong> 注册 <a href="https://www.meshy.ai/" rel="external nofollow noopener noreferrer" target="_blank">官网</a>，免费档每月 100 credits、约 10 个资产，产出为 <strong>CC BY 4.0 必须署名</strong>，商用授权得升 <strong>Pro 20 美元/月起</strong>——别等上架 Steam 才发现版权不清；<br /><a href="https://deepmind.google/technologies/gemini/" rel="external nofollow noopener noreferrer" target="_blank"><strong>Nano Banana</strong></a> 即 <strong>Gemini 2.5 Flash Image</strong>，Gemini App 内免费有额度，API 按量约 0.039 美元/张，用来批量出道具参考图和 2×2 网格贴图；<br /><strong>Claude Pro 订阅</strong> 20 美元/月，Opus 5.5 在 Code 里跑 auto 模式（改文件、跑脚本、启动 Godot、截图、持续迭代）才是核心引擎。</p>
+<h2>8 步走完：从 Pinterest 找调性到烘 AO 进道具</h2>
+<p><strong>Step 1</strong> 上 Pinterest 搜《寂静岭》《零》关键词，存一堆氛围图扔给 Opus 定基调。<br /><strong>Step 2</strong> 开启 <strong>Claude Code 里跑 Opus（疑似自动档位）</strong>，让它自动改文件、跑脚本、启动 Godot、截图、持续迭代——别指望它全自动到底，关键节点得人盯着。<br /><strong>Step 3</strong> 建筑和大结构直接用代码建，Godot 里写 GDScript 生成楼层、走廊、房间，比手搬模型快十倍。<br /><strong>Step 4</strong> Opus 为每组 10 个相关道具写提示词，<strong>Nano Banana</strong> 每组出一张参考图，10 组约 100 个道具的视觉基准定下来。<br /><strong>Step 5</strong> 每张参考图进 <strong>Meshy t2.5</strong>（image-to-3d，smart topology）转成带贴图的批次，免费档够跑完但得署名。<br /><strong>Step 6</strong> 在 <strong>Blender</strong> 里手工拆分批次（省 Claude 用量），再由 Opus 按位置摆放进 Godot 场景。<br /><strong>Step 7</strong> 贴图：Nano Banana 出 2×2 网格图，Opus 裁成 4 张，法线与粗糙度从颜色推导，<strong>triplanar mapping 免 UV 展开</strong>——这招省下大把美术时间。<br /><strong>Step 8</strong> 做旧：Opus 沿墙角布置污渍贴花，把 AO 烘进道具，氛围感直接拉满。</p>
+<h2>哪里最容易翻车：免费档署名坑、credits 烧法、Blender 手工拆分的取舍</h2>
+<p><strong>Meshy 免费档 CC BY 4.0 必须署名</strong>，商用必须买 Pro，别把免费产出直接塞进商业项目；<strong>Nano Banana API 约 0.039 美元/张</strong>，批量 100 多张道具图 + 贴图网格，钱包会痛；<strong>Opus auto 模式疯狂吃 token</strong>，作者自报 90 美元核心成本、180 美元含实验，真复刻别只算订阅费；<strong>Blender 手工拆分批次</strong> 是省 token 的关键取舍——不拆让 Opus 干，上下文窗口炸裂、账单飞涨；<strong>每组 10 个道具共享材质</strong> 是技巧（出处 dev: One_Cheek_8843），省 credits 还能统一风格，别贪多材质。Godot 版本作者未披露具体小版本，别强行对号入座。</p>
+<h2>想复刻的先掂量掂量：token 预算、美术风格锁死、商用授权另算账</h2>
+<p>这套流程核心优势是「代码搭结构 + AI 批量出美术 + 免 UV 贴图」，适合程序员主导、美术预算为零的小团队。但三个硬伤绕不开：<strong>Opus 在 Code 里跑 auto 模式不是官方功能名</strong>，随时可能变行为；<strong>Meshy 免费档产出 CC BY 4.0 必须署名</strong>，商用另付费；<strong>Nano Banana 批量出图的风格一致性</strong> 靠提示词锁死，一旦跑偏重来极贵。真要上手，建议先跑通 Step 1-3 验证代码生成质量，再砸钱跑 Step 4-8。别被「4 天出环境」冲昏头，那是大佬配合全套工具链的极限数据，普通人预留 2 周才现实。</p>
+<p> </p>
+<p> </p>
+<p>本文来源：<a href="https://www.moyunews.com/" rel="external nofollow noopener noreferrer" target="_blank">摸鱼杂货店</a>。查看原文：<a href="https://www.moyunews.com/horror-game-4days-opus-godot/" rel="external nofollow noopener noreferrer" target="_blank">独立开发者 4 天用 Claude Opus 5.5 搓出恐怖游戏</a>。</p></div>
+<p class="back"><a href="/">← 返回最新</a></p>
+</article>
+</main>
+<footer class="site-foot">
+<p>wocao.world — 本站内容全部转载自各订阅源，版权归原作者与原站所有。</p>
+</footer>
+</body>
+</html>
