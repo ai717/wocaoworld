@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-8TX501TYGH"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-8TX501TYGH');
+</script>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>AI短片制作 7 步全流程：一个人指挥一支 AI 剧组 · wocao.world</title>
+<meta name="description" content="7 步流程先看全景再抠细节 一个人拍 AI 剧情短片，流程得先拆干净。刘老板在 11 月 11 日的分享里给了一套 7 步走法：剧本、分镜、视频提示词与避坑、浏览器批量生成、本地重配音加 Whisper 质检、Python 与 ffmpeg 字幕后期、全片复核。他拿监控视角的西游记喜剧当例子，从第一步走到最后一步，一个人就是一支剧组。 这套流程的工具链是 Gemini、Omni、VoxCPM2、Whisper 和 ffmpeg，分别管生成、配音、质检和后期。重点不在工具多新，而在每一步都有明确的交付物：剧本定故事，分镜定镜头，提示词定画面，批量生成定效率，重配音定声音，字幕后期定成片，全片复核…">
+<link rel="canonical" href="https://wocao.world/p/9046ed3d46e7/">
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="wocao.world">
+<meta property="og:title" content="AI短片制作 7 步全流程：一个人指挥一支 AI 剧组 · wocao.world">
+<meta property="og:description" content="7 步流程先看全景再抠细节 一个人拍 AI 剧情短片，流程得先拆干净。刘老板在 11 月 11 日的分享里给了一套 7 步走法：剧本、分镜、视频提示词与避坑、浏览器批量生成、本地重配音加 Whisper 质检、Python 与 ffmpeg 字幕后期、全片复核。他拿监控视角的西游记喜剧当例子，从第一步走到最后一步，一个人就是一支剧组。 这套流程的工具链是 Gemini、Omni、VoxCPM2、Whisper 和 ffmpeg，分别管生成、配音、质检和后期。重点不在工具多新，而在每一步都有明确的交付物：剧本定故事，分镜定镜头，提示词定画面，批量生成定效率，重配音定声音，字幕后期定成片，全片复核…">
+<meta property="og:url" content="https://wocao.world/p/9046ed3d46e7/">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="AI短片制作 7 步全流程：一个人指挥一支 AI 剧组 · wocao.world">
+<meta name="twitter:description" content="7 步流程先看全景再抠细节 一个人拍 AI 剧情短片，流程得先拆干净。刘老板在 11 月 11 日的分享里给了一套 7 步走法：剧本、分镜、视频提示词与避坑、浏览器批量生成、本地重配音加 Whisper 质检、Python 与 ffmpeg 字幕后期、全片复核。他拿监控视角的西游记喜剧当例子，从第一步走到最后一步，一个人就是一支剧组。 这套流程的工具链是 Gemini、Omni、VoxCPM2、Whisper 和 ffmpeg，分别管生成、配音、质检和后期。重点不在工具多新，而在每一步都有明确的交付物：剧本定故事，分镜定镜头，提示词定画面，批量生成定效率，重配音定声音，字幕后期定成片，全片复核…">
+<meta name="robots" content="index,follow">
+<link rel="alternate" type="application/rss+xml" title="wocao.world 聚合输出" href="/feed.xml">
+<link rel="stylesheet" href="/style.css">
+<meta property="article:published_time" content="2026-11-13T20:03:11.000Z">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","headline":"AI短片制作 7 步全流程：一个人指挥一支 AI 剧组","description":"7 步流程先看全景再抠细节 一个人拍 AI 剧情短片，流程得先拆干净。刘老板在 11 月 11 日的分享里给了一套 7 步走法：剧本、分镜、视频提示词与避坑、浏览器批量生成、本地重配音加 Whisper 质检、Python 与 ffmpeg 字幕后期、全片复核。他拿监控视角的西游记喜剧当例子，从第一步走到最后一步，一个人就是一支剧组。 这套流程的工具链是 Gemini、Omni、VoxCPM2、Whisper 和 ffmpeg，分别管生成、配音、质检和后期。重点不在工具多新，而在每一步都有明确的交付物：剧本定故事，分镜定镜头，提示词定画面，批量生成定效率，重配音定声音，字幕后期定成片，全片复核…","url":"https://wocao.world/p/9046ed3d46e7/","datePublished":"2026-11-13T20:03:11.000Z","dateModified":"2026-11-14T00:30:22.685Z","mainEntityOfPage":{"@type":"WebPage","@id":"https://wocao.world/p/9046ed3d46e7/"},"author":{"@type":"Person","name":"摸鱼杂货店"},"publisher":{"@type":"Organization","name":"wocao.world","url":"https://wocao.world"}}</script>
+</head>
+<body>
+<a class="skip-link" href="#main">跳到正文</a>
+<header class="site-head">
+<p class="site-title"><a href="/">wocao.world</a></p>
+<p class="site-desc">wocao.world</p>
+<nav class="site-nav">
+<a href="/">最新</a>
+<a href="/about/">关于</a>
+<a href="/feed.xml">RSS</a>
+</nav>
+</header>
+<main id="main">
+<article>
+<h1 class="post-title">AI短片制作 7 步全流程：一个人指挥一支 AI 剧组</h1>
+<div class="post-body"><p> </p>
+<h2>7 步流程先看全景再抠细节</h2>
+<p>一个人拍 AI 剧情短片，流程得先拆干净。刘老板在 11 月 11 日的<a href="https://x.com/leo_xiaolei/status/2120353779455512776" rel="external nofollow noopener noreferrer" target="_blank">分享</a>里给了一套 7 步走法：剧本、分镜、视频提示词与避坑、浏览器批量生成、本地重配音加 Whisper 质检、Python 与 ffmpeg 字幕后期、全片复核。他拿监控视角的西游记喜剧当例子，从第一步走到最后一步，一个人就是一支剧组。</p>
+<p>这套流程的工具链是 Gemini、Omni、VoxCPM2、Whisper 和 ffmpeg，分别管生成、配音、质检和后期。重点不在工具多新，而在每一步都有明确的交付物：剧本定故事，分镜定镜头，提示词定画面，批量生成定效率，重配音定声音，字幕后期定成片，全片复核定能不能发。</p>
+<p><img src="https://moyu.18uk.uk/2026/20261113-321c2037-37a2-4cc2-add2-f3dd3b6b901d.webp" alt="AI短片制作" width="800" loading="lazy" referrerpolicy="no-referrer" /></p>
+<h2>人物一致性靠逐镜复制描述锁死</h2>
+<p>AI 短片最容易翻车的地方是人物三镜变三张脸。刘老板的做法是把人物描述逐镜复制，分镜阶段就锁死每个角色的外貌、服装和道具，之后每一镜都沿用同一份描述，不给模型自由发挥的空间。分镜不是画个大概，是给每一镜写清景别、动作、台词和衔接点。</p>
+<p>视频提示词也有避坑清单：写清楚不要什么，比写清楚要什么更重要。镜头运动、光线方向、画面比例这些参数要在提示词里一次定死，生成阶段就别再改了。改提示词的正确时机是分镜阶段，不是生成了一半才发现风格跑偏。</p>
+<h2>批量生成与重配音的省时组合</h2>
+<p>生成环节走浏览器批量生成，不用一镜一镜守在屏幕前。批量跑的时候，人可以同步准备配音和字幕的素材，时间不浪费。生成出来的片段先按镜头归档，标好采用、待修、重做三档，复核时直接按档处理。</p>
+<p>配音走本地重配音，VoxCPM2 负责生成，Whisper 负责质检。做法是先用 <code>whisper audio.wav --model large --language zh --output_format srt</code> 把配音转成字幕文本，对照剧本逐句检查，口型对不上、语气不对的镜头直接标出来重录。质检这一步不能省，配音错了观众第一秒就能听出来。</p>
+<h2>字幕后期与全片复核别省</h2>
+<p>字幕和后期用 Python 加 ffmpeg 做，命令要写进脚本里复用。比如把字幕烧进成片：<code>ffmpeg -i input.mp4 -vf subtitles=subs.srt -c:a copy output.mp4</code>，一镜一命令，批量跑完再合片。全片复核是最后一道门：按时间线从头看到尾，检查动作方向、视线、道具状态、对白节奏和音乐衔接，任何一个点对不上都要回炉。</p>
+<p>这套流程真正值钱的地方不是工具清单，是每一步都有检查点。剧本阶段检查故事，分镜阶段检查一致性，生成阶段检查画面，配音阶段检查声音，后期阶段检查字幕，复核阶段检查全片。检查点越往后，返工成本越高，所以前面的功夫不能省。想对照另一份 7 步指南，可以参考<a href="https://elserstudio.ai/zh/blog/how-to-make-an-ai-short-film-from-script-to-final-cut" rel="external nofollow noopener noreferrer" target="_blank">从剧本到成片的 AI 短剧流程</a>。</p>
+<blockquote><p><strong>老法师避坑提醒</strong>：人物描述不锁死，同一角色三镜变三张脸，整段戏直接报废。重配音不做 Whisper 质检，口型对不上、错字进成片，观众第一秒就出戏。字幕别手打，ffmpeg 批量烧录才是正道，手工贴字幕又慢又容易错行。</p></blockquote>
+<p> </p>
+<p> </p>
+<p>本文来源：<a href="https://www.moyunews.com/" rel="external nofollow noopener noreferrer" target="_blank">摸鱼杂货店</a>。查看原文：<a href="https://www.moyunews.com/ai-short-film-crew-workflow/" rel="external nofollow noopener noreferrer" target="_blank">AI短片制作 7 步全流程：一个人指挥一支 AI 剧组</a>。</p></div>
+<p class="back"><a href="/">← 返回最新</a></p>
+</article>
+</main>
+<footer class="site-foot">
+<p>wocao.world — 本站内容全部转载自各订阅源，版权归原作者与原站所有。</p>
+</footer>
+</body>
+</html>

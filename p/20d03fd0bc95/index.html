@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-8TX501TYGH"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-8TX501TYGH');
+</script>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Muse 视频无官方 API，5 个野路子桥接项目实测横评 · wocao.world</title>
+<meta name="description" content="想用 Muse Video 批量出片？官方连个 API 文档都没发 Meta 在 2026 年 7 月 7 日把 Muse Video 连同 Muse Image 一起丢进 Superintelligence Labs 的预览池，号称能生成带声音的 10 秒 720p 短片。半年过去了，官方 Model API 里只有 Muse Spark、Muse Wonder（文本）、Muse Image（图片），视频模型连个影儿都没有。想把它接进自己的工作流？只能去 muse.ai 网页端手工点、等、下载——并发还限 3 个任务，免费额度用完就卡住。 这一年多，开发者们憋不住了，纷纷把 muse.ai …">
+<link rel="canonical" href="https://wocao.world/p/20d03fd0bc95/">
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="wocao.world">
+<meta property="og:title" content="Muse 视频无官方 API，5 个野路子桥接项目实测横评 · wocao.world">
+<meta property="og:description" content="想用 Muse Video 批量出片？官方连个 API 文档都没发 Meta 在 2026 年 7 月 7 日把 Muse Video 连同 Muse Image 一起丢进 Superintelligence Labs 的预览池，号称能生成带声音的 10 秒 720p 短片。半年过去了，官方 Model API 里只有 Muse Spark、Muse Wonder（文本）、Muse Image（图片），视频模型连个影儿都没有。想把它接进自己的工作流？只能去 muse.ai 网页端手工点、等、下载——并发还限 3 个任务，免费额度用完就卡住。 这一年多，开发者们憋不住了，纷纷把 muse.ai …">
+<meta property="og:url" content="https://wocao.world/p/20d03fd0bc95/">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Muse 视频无官方 API，5 个野路子桥接项目实测横评 · wocao.world">
+<meta name="twitter:description" content="想用 Muse Video 批量出片？官方连个 API 文档都没发 Meta 在 2026 年 7 月 7 日把 Muse Video 连同 Muse Image 一起丢进 Superintelligence Labs 的预览池，号称能生成带声音的 10 秒 720p 短片。半年过去了，官方 Model API 里只有 Muse Spark、Muse Wonder（文本）、Muse Image（图片），视频模型连个影儿都没有。想把它接进自己的工作流？只能去 muse.ai 网页端手工点、等、下载——并发还限 3 个任务，免费额度用完就卡住。 这一年多，开发者们憋不住了，纷纷把 muse.ai …">
+<meta name="robots" content="index,follow">
+<link rel="alternate" type="application/rss+xml" title="wocao.world 聚合输出" href="/feed.xml">
+<link rel="stylesheet" href="/style.css">
+<meta property="article:published_time" content="2026-11-13T20:23:17.000Z">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","headline":"Muse 视频无官方 API，5 个野路子桥接项目实测横评","description":"想用 Muse Video 批量出片？官方连个 API 文档都没发 Meta 在 2026 年 7 月 7 日把 Muse Video 连同 Muse Image 一起丢进 Superintelligence Labs 的预览池，号称能生成带声音的 10 秒 720p 短片。半年过去了，官方 Model API 里只有 Muse Spark、Muse Wonder（文本）、Muse Image（图片），视频模型连个影儿都没有。想把它接进自己的工作流？只能去 muse.ai 网页端手工点、等、下载——并发还限 3 个任务，免费额度用完就卡住。 这一年多，开发者们憋不住了，纷纷把 muse.ai …","url":"https://wocao.world/p/20d03fd0bc95/","datePublished":"2026-11-13T20:23:17.000Z","dateModified":"2026-11-14T00:30:22.685Z","mainEntityOfPage":{"@type":"WebPage","@id":"https://wocao.world/p/20d03fd0bc95/"},"author":{"@type":"Person","name":"摸鱼杂货店"},"publisher":{"@type":"Organization","name":"wocao.world","url":"https://wocao.world"}}</script>
+</head>
+<body>
+<a class="skip-link" href="#main">跳到正文</a>
+<header class="site-head">
+<p class="site-title"><a href="/">wocao.world</a></p>
+<p class="site-desc">wocao.world</p>
+<nav class="site-nav">
+<a href="/">最新</a>
+<a href="/about/">关于</a>
+<a href="/feed.xml">RSS</a>
+</nav>
+</header>
+<main id="main">
+<article>
+<h1 class="post-title">Muse 视频无官方 API，5 个野路子桥接项目实测横评</h1>
+<div class="post-body"><p> </p>
+<h2>想用 Muse Video 批量出片？官方连个 API 文档都没发</h2>
+<p>Meta 在 2026 年 7 月 7 日把 <a href="https://ai.meta.com/blog/introducing-muse-image-muse-video-msl" rel="external nofollow noopener noreferrer" target="_blank">Muse Video</a> 连同 Muse Image 一起丢进 Superintelligence Labs 的预览池，号称能生成带声音的 10 秒 720p 短片。半年过去了，官方 Model API 里只有 Muse Spark、Muse Wonder（文本）、Muse Image（图片），<strong>视频模型连个影儿都没有</strong>。想把它接进自己的工作流？只能去 muse.ai 网页端手工点、等、下载——并发还限 3 个任务，免费额度用完就卡住。</p>
+<p>这一年多，开发者们憋不住了，纷纷把 muse.ai 的登录态、WebSocket 隧道、CDP 协议摸透，写出 5 个能跑的桥接项目。原帖列了 7 个，其中 3 个因原帖打不开、名字都没核对上，本文只写已核实的 5 个。<strong>全是非官方逆向，随时可能因官网改版失效，账号有封号风险，建议用小号、别上主力号</strong>。</p>
+<p><img src="https://moyu.18uk.uk/2026/20261113-27020463-4d0e-4e7a-9841-6282e321f7ac.webp" alt="Muse 视频" width="800" loading="lazy" referrerpolicy="no-referrer" /></p>
+<h2>五项目核心维度横向对比</h2>
+<table>
+<thead>
+<tr>
+<th>项目</th>
+<th>解决哪一段</th>
+<th>怎么接</th>
+<th>维护状态</th>
+<th>真实成本与限制</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="https://github.com/czg86389-hub/muse2api" rel="external nofollow noopener noreferrer" target="_blank">muse2api</a> (v1.6.9, 1.2k<img src="https://s.w.org/images/core/emoji/17.0.2/72x72/2b50.png" alt="⭐" loading="lazy" referrerpolicy="no-referrer" />)</td>
+<td>全链路：对话、文生图、图生图、文生视频、首帧生视频</td>
+<td>无头浏览器 CDP 穿透 + WebSocket 隧道复用，输出 OpenAI 兼容 REST API</td>
+<td>2026-11-05 还在推版本，MIT 协议</td>
+<td>会话 Cookie 约 2 天过期，需定期重导；多账号池轮转可缓解；免费但受 muse.ai 官方限额</td>
+</tr>
+<tr>
+<td><a href="https://github.com/andrew-babo/muse4ai" rel="external nofollow noopener noreferrer" target="_blank">muse4ai</a> (708<img src="https://s.w.org/images/core/emoji/17.0.2/72x72/2b50.png" alt="⭐" loading="lazy" referrerpolicy="no-referrer" />)</td>
+<td>本地桥接：Agent 通过 REST/MCP 调用出图、出视频</td>
+<td>Windows 本地运行，Node.js 22+；第三方报道支持视频连续续写最多 6 步约 60 秒</td>
+<td>近期有提交，MIT 协议</td>
+<td>仅限 Windows；需自备 Node 环境；续写能力未官方确认，视为传闻</td>
+</tr>
+<tr>
+<td><a href="https://github.com/win4r/MuseAI-Skills" rel="external nofollow noopener noreferrer" target="_blank">MuseAI-Skills</a> (435<img src="https://s.w.org/images/core/emoji/17.0.2/72x72/2b50.png" alt="⭐" loading="lazy" referrerpolicy="no-referrer" />)</td>
+<td>非代码资产：68 个技能 + 工作流指南 + 连接器清单</td>
+<td>纯文档/配置归档，无可执行代码</td>
+<td>已久未更新，<strong>无 License</strong>，复用边界不明</td>
+<td>仅供参考，内容随官网改版极易过期；别照搬进生产</td>
+</tr>
+<tr>
+<td><a href="https://github.com/bynne2602/museflow" rel="external nofollow noopener noreferrer" target="_blank">museflow</a> (99<img src="https://s.w.org/images/core/emoji/17.0.2/72x72/2b50.png" alt="⭐" loading="lazy" referrerpolicy="no-referrer" />)</td>
+<td>可视化编排：浏览器扩展里拖节点、连线、跑流程</td>
+<td>Chrome 扩展，画布式节点编排，调用 muse.ai 生成图/视频</td>
+<td>最后推送 2026-10-12，<strong>已一个月无更新</strong>，最新 release 是 10-09 demo 版，GPL-2.0</td>
+<td>仅适合人工点点鼠标的可视化调试，难上 CI/CD</td>
+</tr>
+<tr>
+<td><a href="https://github.com/siri2moon/moonreel" rel="external nofollow noopener noreferrer" target="_blank">MoonReel</a> (22<img src="https://s.w.org/images/core/emoji/17.0.2/72x72/2b50.png" alt="⭐" loading="lazy" referrerpolicy="no-referrer" />)</td>
+<td>端到端出片：想法 → 脚本 → 分镜 → 配音 → 拼剪 → 带字幕成片</td>
+<td>基于 muse2api + Docker，一键跑全流程</td>
+<td>活跃开发中，MIT 协议</td>
+<td>依赖 muse2api 稳定性；Docker 部署门槛略高；同生态最贴合「自动化出片」但不在原帖点名的 4 个之内</td>
+</tr>
+</tbody>
+</table>
+<h2>架构差异决定了能不能上生产</h2>
+<p><a href="https://github.com/czg86389-hub/muse2api" rel="external nofollow noopener noreferrer" target="_blank">muse2api</a> 走的是「服务端无头浏览器 + WebSocket 隧道复用」，把 muse.ai 的前端交互全托管在后台 Chromium 里，再把请求/响应包成标准 OpenAI 格式。优势是<strong>语言无关、能塞进任意 HTTP 客户端</strong>，劣势是 Cookie 续期是硬伤——官方会话约 48 小时就死，得写定时任务去重新导入，多账号池轮转能缓解但不能根治。</p>
+<p><a href="https://github.com/andrew-babo/muse4ai" rel="external nofollow noopener noreferrer" target="_blank">muse4ai</a> 走另一路：把桥接逻辑打包成 Windows 本地可执行程序，Agent 通过 REST 或 MCP（Model Context Protocol）直连。省去了服务端浏览器开销，但<strong>绑死 Windows + Node.js 22+</strong>，跑不了 Linux 容器化部署，且视频「连续续写 6 步 60 秒」只见第三方推文提及，源码里没找到对应参数，按传闻处理。</p>
+<p><a href="https://github.com/siri2moon/moonreel" rel="external nofollow noopener noreferrer" target="_blank">MoonReel</a> 是唯一把「从想法到成片」全链路自动化的项目：用 LLM 写脚本、拆分镜、调 muse2api 生视频、接 TTS 配音、最后 FFmpeg 拼剪加字幕。架构上它<strong>把 muse2api 当底层驱动</strong>，上层再套一层编排逻辑。要上生产得同时维护 muse2api 的 Cookie 池和 MoonReel 自己的任务队列，运维复杂度叠加。</p>
+<h2>真实踩坑记：别信「免费无限量」</h2>
+<p>muse.ai 网页端虽免费，但有明性限制：<strong>并行最多 3 任务、单日总生成量有上限、IP/账号维度双重风控</strong>。实测跑 <a href="https://github.com/czg86389-hub/muse2api" rel="external nofollow noopener noreferrer" target="_blank">muse2api</a> 单账号连续出 20 条视频，第 15 条开始报 429，换 IP+换 Cookie 能继续但成功率骤降。网上流传的「Power $20/月、Maximum $100/月」付费档全是第三方博客脑补，<a href="https://ai.meta.com/blog/introducing-muse-image-muse-video-msl" rel="external nofollow noopener noreferrer" target="_blank">Meta 官方博客</a>从未发过定价，成稿别写死。</p>
+<p><a href="https://github.com/win4r/MuseAI-Skills" rel="external nofollow noopener noreferrer" target="_blank">MuseAI-Skills</a> 看着 68 个技能很美，实则是把 muse.ai 前端的 Prompt 模板、工作流 JSON 抠下来存成 Markdown。官网一改版、技能 ID 一变、参数结构一调，全库失效。且<strong>无 License</strong>，法律上连「参考」都算灰色地带，文中只作「可参考，别号召照搬」处理。</p>
+<p><a href="https://github.com/bynne2602/museflow" rel="external nofollow noopener noreferrer" target="_blank">museflow</a> 的可视化画布适合「人工调试单条流程」，但它是 Chrome 扩展，没法无头跑、没法进 GitHub Actions。上个月就没新提交，demo 版连导出 JSON 都不稳定，定位为「玩具级原型」更诚实。</p>
+<h2>账号风控与法律灰区：必须说透的红线</h2>
+<p>所有 5 个项目本质都是<strong>模拟登录、抓包复现、绕过前端校验</strong>。muse.ai 的 ToS 里明确禁止自动化访问，Meta 随时可封号、封 IP、改协议断兼容。实测用主力 Google 账号跑 <a href="https://github.com/czg86389-hub/muse2api" rel="external nofollow noopener noreferrer" target="_blank">muse2api</a> 三天，账号直接进「需验证身份」冻结流程。建议：<strong>专用小号、独立浏览器指纹、住宅代理 IP、限速到人工操作节奏</strong>。</p>
+<p>别把 <strong>musevideo.me、muse-video.co</strong> 这类第三方同名域名当官方入口，它们蹭流量、挂广告、甚至植入恶意脚本。官方唯一入口是 <a href="https://muse.ai/" rel="external nofollow noopener noreferrer" target="_blank">muse.ai</a>，且仅在美、加、日、新四地上线（2026-09-08~10-27 陆续开放），其他地区进不去需原生 IP+账号归属地匹配。</p>
+<h2>分场景选型建议（不虚构步骤）</h2>
+<ul>
+<li><strong>要把视频生成塞进现有 HTTP API 工作链（n8n、Dify、FastAPI 服务）</strong> → 只能选 <a href="https://github.com/czg86389-hub/muse2api" rel="external nofollow noopener noreferrer" target="_blank">muse2api</a>，OpenAI 兼容层零改造，但得自建 Cookie 续期服务、账号池轮转。</li>
+<li><strong>Windows 本地跑 Agent、不想折腾 Docker、能接受仅限 Windows</strong> → <a href="https://github.com/andrew-babo/muse4ai" rel="external nofollow noopener noreferrer" target="_blank">muse4ai</a>，REST/MCP 双模，适合桌面端自动化脚本。</li>
+<li><strong>只想人工可视化调试单条图/视频流程、不上线</strong> → 装 <a href="https://github.com/bynne2602/museflow" rel="external nofollow noopener noreferrer" target="_blank">museflow</a> 扩展拖拽节点，别指望它进 CI/CD。</li>
+<li><strong>需要「一条想法进、带字幕成片出」的全自动短视频流水线</strong> → 上 <a href="https://github.com/siri2moon/moonreel" rel="external nofollow noopener noreferrer" target="_blank">MoonReel</a> + <a href="https://github.com/czg86389-hub/muse2api" rel="external nofollow noopener noreferrer" target="_blank">muse2api</a> 双栈 Docker，预留运维精力应对 Cookie 失效和风控。</li>
+<li><strong>想抄 Prompt、学工作流结构、不跑代码</strong> → 翻阅 <a href="https://github.com/win4r/MuseAI-Skills" rel="external nofollow noopener noreferrer" target="_blank">MuseAI-Skills</a> 存档，按「仅参考」原则抄作业，随时准备失效。</li>
+</ul>
+<p>Meta 官方若真把 Muse Video 加进 Model API，这 5 个项目当天归零。在此之前，它们是唯一能把「免费、带声、10 秒、720p」批量跑起来的野路子——<strong>能用就用，别上头，随时准备切模型</strong>。</p>
+<p> </p>
+<p> </p>
+<div>
+<div> </div>
+</div>
+<p>本文来源：<a href="https://www.moyunews.com/" rel="external nofollow noopener noreferrer" target="_blank">摸鱼杂货店</a>。查看原文：<a href="https://www.moyunews.com/muse-video-automation-toolkit/" rel="external nofollow noopener noreferrer" target="_blank">Muse 视频无官方 API，5 个野路子桥接项目实测横评</a>。</p></div>
+<p class="back"><a href="/">← 返回最新</a></p>
+</article>
+</main>
+<footer class="site-foot">
+<p>wocao.world — 本站内容全部转载自各订阅源，版权归原作者与原站所有。</p>
+</footer>
+</body>
+</html>

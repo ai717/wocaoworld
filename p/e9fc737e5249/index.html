@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-8TX501TYGH"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-8TX501TYGH');
+</script>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Decider 决策模型开源了：专判是非选择题的 AI · wocao.world</title>
+<meta name="description" content="为什么把决策模型当“裁判”而不是“写手” 大多数 LLM 还在比拼生成长文，但 Perplexity 把目标锁定在“判断”上：给一段上下文，直接输出是非、打分或选项。这种 pplx-decider-v1.3 不会帮你写代码，只会帮你把成百上千个 Agent 会话里的隐患挑出来。 模型规格与开源协议 基座 Qwen3.8-27B 微调，约 27B 参数，BF16 权重约 49 GiB 蒸馏版 pplx-decider-flash-v1.3 基于 Qwen3.5-4B，约 4B 参数，BF16 约 8.5 GiB 协议 Apache-2.0，权重托管在 Hugging Face OpenRoute…">
+<link rel="canonical" href="https://wocao.world/p/e9fc737e5249/">
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="wocao.world">
+<meta property="og:title" content="Decider 决策模型开源了：专判是非选择题的 AI · wocao.world">
+<meta property="og:description" content="为什么把决策模型当“裁判”而不是“写手” 大多数 LLM 还在比拼生成长文，但 Perplexity 把目标锁定在“判断”上：给一段上下文，直接输出是非、打分或选项。这种 pplx-decider-v1.3 不会帮你写代码，只会帮你把成百上千个 Agent 会话里的隐患挑出来。 模型规格与开源协议 基座 Qwen3.8-27B 微调，约 27B 参数，BF16 权重约 49 GiB 蒸馏版 pplx-decider-flash-v1.3 基于 Qwen3.5-4B，约 4B 参数，BF16 约 8.5 GiB 协议 Apache-2.0，权重托管在 Hugging Face OpenRoute…">
+<meta property="og:url" content="https://wocao.world/p/e9fc737e5249/">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Decider 决策模型开源了：专判是非选择题的 AI · wocao.world">
+<meta name="twitter:description" content="为什么把决策模型当“裁判”而不是“写手” 大多数 LLM 还在比拼生成长文，但 Perplexity 把目标锁定在“判断”上：给一段上下文，直接输出是非、打分或选项。这种 pplx-decider-v1.3 不会帮你写代码，只会帮你把成百上千个 Agent 会话里的隐患挑出来。 模型规格与开源协议 基座 Qwen3.8-27B 微调，约 27B 参数，BF16 权重约 49 GiB 蒸馏版 pplx-decider-flash-v1.3 基于 Qwen3.5-4B，约 4B 参数，BF16 约 8.5 GiB 协议 Apache-2.0，权重托管在 Hugging Face OpenRoute…">
+<meta name="robots" content="index,follow">
+<link rel="alternate" type="application/rss+xml" title="wocao.world 聚合输出" href="/feed.xml">
+<link rel="stylesheet" href="/style.css">
+<meta property="article:published_time" content="2026-11-13T20:15:52.000Z">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","headline":"Decider 决策模型开源了：专判是非选择题的 AI","description":"为什么把决策模型当“裁判”而不是“写手” 大多数 LLM 还在比拼生成长文，但 Perplexity 把目标锁定在“判断”上：给一段上下文，直接输出是非、打分或选项。这种 pplx-decider-v1.3 不会帮你写代码，只会帮你把成百上千个 Agent 会话里的隐患挑出来。 模型规格与开源协议 基座 Qwen3.8-27B 微调，约 27B 参数，BF16 权重约 49 GiB 蒸馏版 pplx-decider-flash-v1.3 基于 Qwen3.5-4B，约 4B 参数，BF16 约 8.5 GiB 协议 Apache-2.0，权重托管在 Hugging Face OpenRoute…","url":"https://wocao.world/p/e9fc737e5249/","datePublished":"2026-11-13T20:15:52.000Z","dateModified":"2026-11-14T00:30:22.685Z","mainEntityOfPage":{"@type":"WebPage","@id":"https://wocao.world/p/e9fc737e5249/"},"author":{"@type":"Person","name":"摸鱼杂货店"},"publisher":{"@type":"Organization","name":"wocao.world","url":"https://wocao.world"}}</script>
+</head>
+<body>
+<a class="skip-link" href="#main">跳到正文</a>
+<header class="site-head">
+<p class="site-title"><a href="/">wocao.world</a></p>
+<p class="site-desc">wocao.world</p>
+<nav class="site-nav">
+<a href="/">最新</a>
+<a href="/about/">关于</a>
+<a href="/feed.xml">RSS</a>
+</nav>
+</header>
+<main id="main">
+<article>
+<h1 class="post-title">Decider 决策模型开源了：专判是非选择题的 AI</h1>
+<div class="post-body"><p> </p>
+<h2>为什么把决策模型当“裁判”而不是“写手”</h2>
+<p>大多数 LLM 还在比拼生成长文，但 <a href="https://www.perplexity.ai/hub/blog/perplexity-decider" rel="external nofollow noopener noreferrer" target="_blank">Perplexity</a> 把目标锁定在“判断”上：给一段上下文，直接输出是非、打分或选项。这种 <code>pplx-decider-v1.3</code> 不会帮你写代码，只会帮你把成百上千个 Agent 会话里的隐患挑出来。</p>
+<h3>模型规格与开源协议</h3>
+<ul>
+<li>基座 <code>Qwen3.8-27B</code> 微调，约 27B 参数，BF16 权重约 49 GiB</li>
+<li>蒸馏版 <code>pplx-decider-flash-v1.3</code> 基于 <code>Qwen3.5-4B</code>，约 4B 参数，BF16 约 8.5 GiB</li>
+<li>协议 <code>Apache-2.0</code>，权重托管在 <a href="https://huggingface.co/perplexity-ai/pplx-decider-v1.3" rel="external nofollow noopener noreferrer" target="_blank">Hugging Face</a></li>
+</ul>
+<p><img src="https://my.18uk.uk/file/AgACAgUAAyEGAATpoe1oAANnavdv4diUenH1I2yVVxwWPhEvsxYAAhQVaxsDv7lXJNbCtJcDf2UBAAMCAAN5AAM9BA.webp" alt="Decider 决策模型" width="800" loading="lazy" referrerpolicy="no-referrer" /></p>
+<h2>OpenRouter 上的零成本调用细节</h2>
+<p>截至 <strong>2026-11-13</strong> 在 <a href="https://openrouter.ai/perplexity/" rel="external nofollow noopener noreferrer" target="_blank">OpenRouter</a> 页面显示输入输出均为 $0/M，页面未标注截止日，免费随时可能结束，以页面实时价格为准。模型 ID 分别为 <code>perplexity/pplx-decider-v1.3:free</code> 与 <code>perplexity/pplx-decider-flash-v1.3:free</code>，上下文窗口 262,144 tokens。</p>
+<h3>专用 /api/alpha/decisions 端点</h3>
+<p>调用时不能走通用 Chat Completions，必须 POST 到 <code>/api/alpha/decisions</code>，请求体里带上 <code>model</code> 与 <code>messages</code>，返回结构里直接包含 <code>decision</code>、<code>score</code> 等字段，省去二次解析。</p>
+<h2>核心新能力 locate：按指令抽取原文位置</h2>
+<p>新增 <code>locate</code> 参数可让模型把判断依据的原文片段连同起止字符位置一并返回，单次最多 128 个 locate 问题。这在做合规审计、安全规则定位时比人工 grep 快一个数量级。</p>
+<h2>自报评测数字怎么读</h2>
+<p>厂商自报：63 个查询分类任务平均准确率 91.6%，100 万真实 API 请求与前沿模型裁判一致率 93.98%。这些数字均为 <strong>Perplexity 自报</strong>，未经独立第三方复现，拿来做选型参考可行，做 SLA 承诺则需自行跑测。</p>
+<h2>自托管门槛与真实成本</h2>
+<p>权重开源不等于“下载即用”。自托管需要 CUDA GPU、Python 3.12+ 环境，且 27B 版本显存占用约 49 GiB，4B 版本约 8.5 GiB。没有现成 GPU 集群的团队，直接用 OpenRouter 免费额度更划算；等免费窗口关闭再评估自建 ROI。</p>
+<h2>它和聊天模型根本不是一回事</h2>
+<p>Decider 决策模型和大家天天用的聊天模型走的是两条路：聊天模型负责生成文本，Decider 只负责下判断。它不写句子，只对你给的输入返回一个概率结果：这件事是还是不是、这 255 个选项里选哪个、这段内容打几分。一次请求里可以塞多个问题，批量判完一次返回，省掉了来回对话的开销。想让它干活，不能走通用的 Chat Completions 接口，得调 OpenRouter 专门的 <code>/api/alpha/decisions</code> 端点，请求体里带上模型名和问题，返回里直接就是 decision 和 score 字段，拿回来就能用，不用再写解析代码抠答案。</p>
+<p>价格上也有个参照系：上一代 v1.2 在 OpenRouter 上是输入每百万 token 0.02 美元，Flash 版 0.01 美元，输出免费；v1.3 这次直接标到 0 美元，等于是把决策这件事的边际成本先打到零。对个人开发者来说，这意味着以前舍不得上的批量判断——比如给爬回来的几千条内容打标签、给 Agent 的每一步做合规检查、给客服对话做意图分类——现在可以先跑起来再算账。免费窗口能开多久没人打包票，OpenRouter 页面上也没写截止日，先用起来、把调用封装成独立模块，万一哪天收费了再换模型，改动最小。</p>
+<h3>别和另外两个同名决策接口搞混</h3>
+<p>最近决策模型这个赛道有点热闹，名字还撞车：Google 刚上了 Gemini Decisions API，OpenAI 也有一个 Decisions API，加上 Perplexity 的 Decider，三个完全是不同产品。Google 的是自家云上的决策接口服务，OpenAI 的是另一套，Perplexity 这次是把权重本身按 Apache-2.0 开源了，能下载、能自托管、也能走 OpenRouter。认准模型 ID <code>perplexity/pplx-decider-v1.3:free</code> 再动手，别在别的平台上搜个 Decision 就当成同一个东西。</p>
+<p> </p>
+<p>本文来源：<a href="https://www.moyunews.com/" rel="external nofollow noopener noreferrer" target="_blank">摸鱼杂货店</a>。查看原文：<a href="https://www.moyunews.com/perplexity-decider-v1-3-free/" rel="external nofollow noopener noreferrer" target="_blank">Decider 决策模型开源了：专判是非选择题的 AI</a>。</p></div>
+<p class="back"><a href="/">← 返回最新</a></p>
+</article>
+</main>
+<footer class="site-foot">
+<p>wocao.world — 本站内容全部转载自各订阅源，版权归原作者与原站所有。</p>
+</footer>
+</body>
+</html>

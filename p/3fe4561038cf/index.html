@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-8TX501TYGH"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-8TX501TYGH');
+</script>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>7 个开源 Skill 解锁 Claude Code 游戏开发与 3D 全流程 · wocao.world</title>
+<meta name="description" content="别再把 Claude Code 只当代码助手，它连 Blender 骨架都能帮你绑上 上周在群里看见有人甩出一张截图：Claude-Code-Game-Studios 以「工作室模式」跑了 19 分钟，账单 约 $5，却直接吐出一个能在 Godot 4 里跑的完整小游戏原型。同一个人把同一需求扔给普通 Claude Code，38 秒、$0.15 就结束了——区别不在模型，而在那 49 个 Agent 和 72 个工作流技能组成的「虚拟工作室」是否被调度起来。这事儿戳中痛点：大家手里攥着 3.8 万星 的开源技能库，却把它当成普通聊天机器人用，Token 白烧、能力白浪费。 这篇不讲「如何入门…">
+<link rel="canonical" href="https://wocao.world/p/3fe4561038cf/">
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="wocao.world">
+<meta property="og:title" content="7 个开源 Skill 解锁 Claude Code 游戏开发与 3D 全流程 · wocao.world">
+<meta property="og:description" content="别再把 Claude Code 只当代码助手，它连 Blender 骨架都能帮你绑上 上周在群里看见有人甩出一张截图：Claude-Code-Game-Studios 以「工作室模式」跑了 19 分钟，账单 约 $5，却直接吐出一个能在 Godot 4 里跑的完整小游戏原型。同一个人把同一需求扔给普通 Claude Code，38 秒、$0.15 就结束了——区别不在模型，而在那 49 个 Agent 和 72 个工作流技能组成的「虚拟工作室」是否被调度起来。这事儿戳中痛点：大家手里攥着 3.8 万星 的开源技能库，却把它当成普通聊天机器人用，Token 白烧、能力白浪费。 这篇不讲「如何入门…">
+<meta property="og:url" content="https://wocao.world/p/3fe4561038cf/">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="7 个开源 Skill 解锁 Claude Code 游戏开发与 3D 全流程 · wocao.world">
+<meta name="twitter:description" content="别再把 Claude Code 只当代码助手，它连 Blender 骨架都能帮你绑上 上周在群里看见有人甩出一张截图：Claude-Code-Game-Studios 以「工作室模式」跑了 19 分钟，账单 约 $5，却直接吐出一个能在 Godot 4 里跑的完整小游戏原型。同一个人把同一需求扔给普通 Claude Code，38 秒、$0.15 就结束了——区别不在模型，而在那 49 个 Agent 和 72 个工作流技能组成的「虚拟工作室」是否被调度起来。这事儿戳中痛点：大家手里攥着 3.8 万星 的开源技能库，却把它当成普通聊天机器人用，Token 白烧、能力白浪费。 这篇不讲「如何入门…">
+<meta name="robots" content="index,follow">
+<link rel="alternate" type="application/rss+xml" title="wocao.world 聚合输出" href="/feed.xml">
+<link rel="stylesheet" href="/style.css">
+<meta property="article:published_time" content="2026-11-13T20:19:28.000Z">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","headline":"7 个开源 Skill 解锁 Claude Code 游戏开发与 3D 全流程","description":"别再把 Claude Code 只当代码助手，它连 Blender 骨架都能帮你绑上 上周在群里看见有人甩出一张截图：Claude-Code-Game-Studios 以「工作室模式」跑了 19 分钟，账单 约 $5，却直接吐出一个能在 Godot 4 里跑的完整小游戏原型。同一个人把同一需求扔给普通 Claude Code，38 秒、$0.15 就结束了——区别不在模型，而在那 49 个 Agent 和 72 个工作流技能组成的「虚拟工作室」是否被调度起来。这事儿戳中痛点：大家手里攥着 3.8 万星 的开源技能库，却把它当成普通聊天机器人用，Token 白烧、能力白浪费。 这篇不讲「如何入门…","url":"https://wocao.world/p/3fe4561038cf/","datePublished":"2026-11-13T20:19:28.000Z","dateModified":"2026-11-14T00:30:22.685Z","mainEntityOfPage":{"@type":"WebPage","@id":"https://wocao.world/p/3fe4561038cf/"},"author":{"@type":"Person","name":"摸鱼杂货店"},"publisher":{"@type":"Organization","name":"wocao.world","url":"https://wocao.world"}}</script>
+</head>
+<body>
+<a class="skip-link" href="#main">跳到正文</a>
+<header class="site-head">
+<p class="site-title"><a href="/">wocao.world</a></p>
+<p class="site-desc">wocao.world</p>
+<nav class="site-nav">
+<a href="/">最新</a>
+<a href="/about/">关于</a>
+<a href="/feed.xml">RSS</a>
+</nav>
+</header>
+<main id="main">
+<article>
+<h1 class="post-title">7 个开源 Skill 解锁 Claude Code 游戏开发与 3D 全流程</h1>
+<div class="post-body"><p> </p>
+<h2>别再把 Claude Code 只当代码助手，它连 Blender 骨架都能帮你绑上</h2>
+<p>上周在群里看见有人甩出一张截图：<a href="https://github.com/Donchitos/Claude-Code-Game-Studios" rel="external nofollow noopener noreferrer" target="_blank">Claude-Code-Game-Studios</a> 以「工作室模式」跑了 19 分钟，账单 <a href="https://x.com/HeLi8866/status/2121075716716683380" rel="external nofollow noopener noreferrer" target="_blank">约 $5</a>，却直接吐出一个能在 Godot 4 里跑的完整小游戏原型。同一个人把同一需求扔给普通 Claude Code，38 秒、$0.15 就结束了——区别不在模型，而在那 49 个 Agent 和 72 个工作流技能组成的「虚拟工作室」是否被调度起来。这事儿戳中痛点：大家手里攥着 <a href="https://github.com/Donchitos/Claude-Code-Game-Studios" rel="external nofollow noopener noreferrer" target="_blank">3.8 万星</a> 的开源技能库，却把它当成普通聊天机器人用，Token 白烧、能力白浪费。</p>
+<p>这篇不讲「如何入门」，直接把 GitHub 上能找到的 7 个面向「做游戏、做 3D」的开源 Skill 库摊开对比：<a href="https://github.com/Donchitos/Claude-Code-Game-Studios" rel="external nofollow noopener noreferrer" target="_blank">Claude-Code-Game-Studios</a>、<a href="https://github.com/0x0funky/agent-sprite-forge" rel="external nofollow noopener noreferrer" target="_blank">agent-sprite-forge</a>、<a href="https://github.com/elvarofficial/teardown" rel="external nofollow noopener noreferrer" target="_blank">teardown</a>、<a href="https://github.com/arjun988/blender-skills" rel="external nofollow noopener noreferrer" target="_blank">blender-skills</a>、<a href="https://github.com/scenario-labs/skills" rel="external nofollow noopener noreferrer" target="_blank">3D OS (scenario-labs/skills)</a>、<a href="https://github.com/blendi-remade/prompt2rig" rel="external nofollow noopener noreferrer" target="_blank">prompt2rig</a>、<a href="https://github.com/Moh4696/open-3d-skills" rel="external nofollow noopener noreferrer" target="_blank">open-3d-skills</a>。星数均为 2026-11-13 核查约数，全是 MIT/Apache-2.0 协议，**技能本身免费**，但跑起来要吃 Claude Code 订阅（Pro 起步 $20/月）+ 可能触发的图片/视频/3D 模型 API 费，成文前把「技能免费、用量不免费」讲清楚。</p>
+<p><img src="https://moyu.18uk.uk/2026/20261113-5a64320b-17ed-4f16-a634-271011d609b6.webp" alt="Claude Code 游戏开发" width="800" loading="lazy" referrerpolicy="no-referrer" /></p>
+<h2>7 个 Skill 逐个拆解：能干啥、怎么装、藏着啥坑</h2>
+<h3>1. <a href="https://github.com/Donchitos/Claude-Code-Game-Studios" rel="external nofollow noopener noreferrer" target="_blank">Claude-Code-Game-Studios</a> —— 把 Claude 变成「虚拟游戏工作室」</h3>
+<p>约 38,780 星，MIT，v1.3.0（2026-11-09）。49 个 Agent、72 个工作流技能，覆盖需求分析、架构设计、代码生成、资源管线、测试打包全链路。原生支持 <strong>Godot 4、Unity、Unreal Engine 5</strong> 三大引擎。安装就是三行：<code>git clone https://github.com/Donchitos/Claude-Code-Game-Studios.git my-game</code> → <code>cd my-game</code> → <code>claude</code> 进交互后输入 <code>/start</code>。前置只有 Git + Claude Code 订阅。README 自己承认「不是自动驾驶」，复杂项目仍需人类把关架构与美术风格。第三方实测：工作室模式 19 分钟约 $5，普通模式 38 秒约 $0.15，差价全在 Agent 协作与多轮迭代的 Token 上。</p>
+<h3>2. <a href="https://github.com/0x0funky/agent-sprite-forge" rel="external nofollow noopener noreferrer" target="_blank">agent-sprite-forge</a> —— 一句话生成「游戏级」精灵帧</h3>
+<p>约 5,589 星，MIT，v0.6.0（2026-11-13）。核心能力：自然语言 → 2D 精灵图 + 动作帧 + 透明 PNG 序列 + GIF/WebM/MP4。导出格式直接对接 <strong>Godot (SpriteFrames/Sprite3D)、Unity、Aseprite JSON、Tiled/LDtk 地图编辑器</strong>。关键细节：图片/视频生成走外部模型（OpenAI、Gemini、xAI、fal.ai 等），**按各家计费**，Skill 只负责编排 Prompt、切帧、重命名、打包。想白嫖只能自己接本地 Stable Diffusion / ComfyUI，官方没内置。</p>
+<h3>3. <a href="https://github.com/elvarofficial/teardown" rel="external nofollow noopener noreferrer" target="_blank">teardown</a> —— 把发动机、机械表、挖掘机臂变成「可拆解的离线 HTML 3D 模拟器」</h3>
+<p>约 3,348 星，MIT。输出单文件 HTML，拖进浏览器就能拆、转、看爆炸视图，还带真实读数面板（转速、压力、扭矩等），支持录视频导出。安装走 Skills 协议：<code>npx skills add elvarofficial/teardown -g -a claude-code</code> → <code>npm install &amp;&amp; npx playwright install chromium</code>，需 Node.js 20+。作者明示：**生成的是示意模拟器，不是工程仿真，面板数字是演示用的**，别拿去做真受力分析。</p>
+<h3>4. <a href="https://github.com/arjun988/blender-skills" rel="external nofollow noopener noreferrer" target="_blank">blender-skills</a> —— 94 个 Blender 专家技能，但得配 MCP 插件才能「真动刀」</h3>
+<p>约 2,500 星，MIT，v1.3.0。技能覆盖建模、材质、绑定、动画、渲染、几何节点等 94 个细分场景，兼容 <strong>Cursor / Claude Code / Kiro / Codex</strong>。关键前置：必须装 <strong>MCP for Blender 插件</strong>，Skill 才能通过 MCP 协议真正在 Blender 里增删改查对象、跑脚本。安装方式：<code>git clone</code> 后把 <code>.claude/skills</code> 文件夹复制到项目或全局配置目录。没有 MCP 插件时，它只能给你吐 Python 代码片段，人工复制粘贴进 Blender 控制台跑。</p>
+<h3>5. <a href="https://github.com/scenario-labs/skills" rel="external nofollow noopener noreferrer" target="_blank">3D OS (Scenario 官方)</a> —— 6 部门 80 技能，直驱 Blender/Maya/ZBrush/Unreal/Unity/Godot/Roblox</h3>
+<p>MIT，Scenario 公司维护。架构按「美术、技术美术、动画、引擎集成、管线、审核」六部门拆分，80 个技能。最大区别：**专家工具直接驱动本机 DCC 软件与引擎**，不走「生成代码再人工粘贴」这套。内容生成走 <strong>Scenario 账号（Scenario MCP）</strong>，意味着模型费用绑定 Scenario 订阅/额度，不再是各家 API 任选。安装：<code>npx skills add scenario-labs/skills</code>。适合已有 Scenario 企业版或团队订阅的工作室，个人开发者算账时要把 Scenario 订阅费摊进去。</p>
+<h3>6. <a href="https://github.com/blendi-remade/prompt2rig" rel="external nofollow noopener noreferrer" target="_blank">prompt2rig</a> —— 文字 → 视频演动作 → 本地 GPU 提 3D 动作 → 重定向到 Mixamo 骨架 → 导出带动画 .glb</h3>
+<p>约 575 星，Apache-2.0。链路很硬核：Prompt → 视频模型（如 Gen-3、Luma 等，需 <strong>fal API key，按量付费</strong>）生成参考视频 → 本地跑 <strong>GVHMR / SMPL-X</strong> 提取 3D 动作 → 重定向到 Mixamo 标准骨架 → 输出 <code>.glb</code>。自带角色仅 <strong>X Bot、Michelle、Soldier</strong> 三个。大坑：**HQ 路线用的 GVHMR、SMPL-X 等为研究/非商业授权，商用不能直接用**，得自己换商业友好模型或买授权。适合原型验证、非商业短片、教学演示，商业游戏上线前请务必确权。</p>
+<h3>7. <a href="https://github.com/Moh4696/open-3d-skills" rel="external nofollow noopener noreferrer" target="_blank">open-3d-skills</a> —— 8 个面向「网页 3D」的技能，不碰游戏引擎</h3>
+<p>约 360 星，MIT。技能列表：Three.js 场景搭建、滚动驱动叙事影片、透明视频合成、光标交互绑定、爆炸视图展示等。定位 **Web 3D / 交互网页 / 产品落地页**，不生成游戏引擎资产。安装同 Skills 协议。适合前端做可视化、电商 3D 展示、数据大屏，别指望它帮你出 Unity Prefab。</p>
+<h2>核心对比：一张表看穿「谁干啥、靠啥跑、装多麻烦、真花多少钱」</h2>
+<table>
+<thead>
+<tr>
+<th>Skill</th>
+<th>核心产出</th>
+<th>支持引擎 / 宿主</th>
+<th>安装方式</th>
+<th>真实成本构成</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="https://github.com/Donchitos/Claude-Code-Game-Studios" rel="external nofollow noopener noreferrer" target="_blank">Claude-Code-Game-Studios</a></td>
+<td>完整游戏原型（代码+场景+资源管线）</td>
+<td>Godot 4 / Unity / UE5</td>
+<td>git clone → claude → /start</td>
+<td>Claude Code 订阅 + Token 用量（工作室模式 ~$5/19min）</td>
+</tr>
+<tr>
+<td><a href="https://github.com/0x0funky/agent-sprite-forge" rel="external nofollow noopener noreferrer" target="_blank">agent-sprite-forge</a></td>
+<td>2D 精灵帧、透明 PNG 序列、GIF/MP4</td>
+<td>Godot / Unity / Aseprite / Tiled / LDtk</td>
+<td>Skills 协议安装</td>
+<td>Claude Code 订阅 + 图片/视频模型 API 按量（OpenAI/Gemini/fal 等）</td>
+</tr>
+<tr>
+<td><a href="https://github.com/elvarofficial/teardown" rel="external nofollow noopener noreferrer" target="_blank">teardown</a></td>
+<td>可拆解离线 HTML 3D 模拟器</td>
+<td>浏览器（单文件 HTML）</td>
+<td>npx skills add → npm install + playwright chromium</td>
+<td>Claude Code 订阅 + Node 环境（本地免费）</td>
+</tr>
+<tr>
+<td><a href="https://github.com/arjun988/blender-skills" rel="external nofollow noopener noreferrer" target="_blank">blender-skills</a></td>
+<td>Blender Python 脚本 / MCP 直驱操作</td>
+<td>Blender（需 MCP for Blender 插件）</td>
+<td>git clone 复制 .claude/skills</td>
+<td>Claude Code 订阅 + Blender 免费</td>
+</tr>
+<tr>
+<td><a href="https://github.com/scenario-labs/skills" rel="external nofollow noopener noreferrer" target="_blank">3D OS (Scenario)</a></td>
+<td>全管线 3D 资产、引擎集成代码</td>
+<td>Blender / Maya / ZBrush / Unreal / Unity / Godot / Roblox</td>
+<td>npx skills add scenario-labs/skills</td>
+<td>Claude Code 订阅 + Scenario 订阅/额度</td>
+</tr>
+<tr>
+<td><a href="https://github.com/blendi-remade/prompt2rig" rel="external nofollow noopener noreferrer" target="_blank">prompt2rig</a></td>
+<td>带动画 .glb（Mixamo 骨架）</td>
+<td>通用 .glb → 任意支持 glTF 的引擎</td>
+<td>Skills 协议安装</td>
+<td>Claude Code 订阅 + fal API 视频模型费 + 本地 GPU 算力</td>
+</tr>
+<tr>
+<td><a href="https://github.com/Moh4696/open-3d-skills" rel="external nofollow noopener noreferrer" target="_blank">open-3d-skills</a></td>
+<td>Three.js 场景、滚动叙事、交互网页</td>
+<td>Web (Three.js / 原生 JS)</td>
+<td>Skills 协议安装</td>
+<td>Claude Code 订阅（本地跑，无额外模型费）</td>
+</tr>
+</tbody>
+</table>
+<h2>真实成本与隐形门槛：别被「开源免费」忽悠了</h2>
+<p>七个仓库代码全免费、协议宽松，**但跑起来的钱包出血点在三层**：</p>
+<ul>
+<li><strong>基础订阅</strong>：Claude Code Pro $20/月是门槛，想跑工作室模式、多 Agent 协作，Token 消耗指数级上涨，实测单次 19 分钟 $5，按天算就是 $150+，月费不止 $20。</li>
+<li><strong>模型 API 费</strong>：<a href="https://github.com/0x0funky/agent-sprite-forge" rel="external nofollow noopener noreferrer" target="_blank">agent-sprite-forge</a> 要调图片/视频模型，<a href="https://github.com/blendi-remade/prompt2rig" rel="external nofollow noopener noreferrer" target="_blank">prompt2rig</a> 要买 fal 视频模型额度，<a href="https://github.com/scenario-labs/skills" rel="external nofollow noopener noreferrer" target="_blank">3D OS</a> 绑定 Scenario 订阅。这些费用**完全不在 Skill 仓库控制范围内**，官方文档也不会帮你算账。</li>
+<li><strong>本地算力与授权</strong>：<a href="https://github.com/blendi-remade/prompt2rig" rel="external nofollow noopener noreferrer" target="_blank">prompt2rig</a> HQ 模式跑 GVHMR/SMPL-X 需要像样的 N 卡显存（建议 12GB+），且模型授权多为非商业，**商用必须自行置换模型或买授权**，这是隐形法律成本。</li>
+</ul>
+<p>对比一下：<a href="https://github.com/elvarofficial/teardown" rel="external nofollow noopener noreferrer" target="_blank">teardown</a> 和 <a href="https://github.com/Moh4696/open-3d-skills" rel="external nofollow noopener noreferrer" target="_blank">open-3d-skills</a> 仅消耗 Claude Code Token，本地跑完无额外模型费，属于「边际成本最低」的两个；<a href="https://github.com/arjun988/blender-skills" rel="external nofollow noopener noreferrer" target="_blank">blender-skills</a> 装上 MCP for Blender 后也是本地跑 Python，只要显存够 Blender 跑几何节点就行，额外成本为零。</p>
+<h2>架构差异：谁在本地跑、谁在云端调、谁靠 MCP 直连</h2>
+<p>把 7 个 Skill 按「运行拓扑」分三派：</p>
+<ol>
+<li><strong>纯云端编排派</strong>：<a href="https://github.com/Donchitos/Claude-Code-Game-Studios" rel="external nofollow noopener noreferrer" target="_blank">Claude-Code-Game-Studios</a>、<a href="https://github.com/0x0funky/agent-sprite-forge" rel="external nofollow noopener noreferrer" target="_blank">agent-sprite-forge</a>、<a href="https://github.com/scenario-labs/skills" rel="external nofollow noopener noreferrer" target="_blank">3D OS</a>。核心逻辑在 LLM 推理侧，本地只跑构建脚本或导出器，重资产生成（图/视频/3D）全靠外部 API。</li>
+<li><strong>MCP 直连本地 DCC/引擎派</strong>：<a href="https://github.com/arjun988/blender-skills" rel="external nofollow noopener noreferrer" target="_blank">blender-skills</a>、<a href="https://github.com/scenario-labs/skills" rel="external nofollow noopener noreferrer" target="_blank">3D OS</a>（双轨）。通过 MCP 协议把 Blender、Maya、Unity Editor 当成「工具函数」暴露给 LLM，**LLM 直接下指令「新建立方体、加材质、导出 FBX」**，中间零人工复制粘贴，但要求本地装全套软件且版本对齐。</li>
+<li><strong>本地推理 + 本地导出派</strong>：<a href="https://github.com/elvarofficial/teardown" rel="external nofollow noopener noreferrer" target="_blank">teardown</a>、<a href="https://github.com/blendi-remade/prompt2rig" rel="external nofollow noopener noreferrer" target="_blank">prompt2rig</a>（部分）、<a href="https://github.com/Moh4696/open-3d-skills" rel="external nofollow noopener noreferrer" target="_blank">open-3d-skills</a>。核心计算（GVHMR、Three.js 渲染、Playwright 录屏）在本机跑，LLM 只负责写胶水代码/配置参数，离线可用、数据不出门。</li>
+</ol>
+<p>选哪派取决于你的管线现状：已有全套正版 DCC + 稳定 GPU → 选 MCP 直连派；团队轻量、靠云端模型出图 → 选纯云端编排派；做网页交互、教学演示、不想装几十 G 软件 → 选本地导出派。</p>
+<h2>按场景选工具，别全装</h2>
+<ul>
+<li><strong>想从零跑通一个 Godot/Unity/UE5 小游戏原型</strong> → 直接上 <a href="https://github.com/Donchitos/Claude-Code-Game-Studios" rel="external nofollow noopener noreferrer" target="_blank">Claude-Code-Game-Studios</a> 工作室模式，接受 $5/次 的 Token 账单，别试图用普通模式省钱，省不出完整管线。</li>
+<li><strong>只缺 2D 美术：角色走跑跳、UI 图标、地图瓦片</strong> → <a href="https://github.com/0x0funky/agent-sprite-forge" rel="external nofollow noopener noreferrer" target="_blank">agent-sprite-forge</a>，自己接本地 ComfyUI 能省模型费，接云端 API 算单张成本约 $0.02-$0.15，批量出图算账再决定。</li>
+<li><strong>做机械原理演示、产品拆解视频、教学课件</strong> → <a href="https://github.com/elvarofficial/teardown" rel="external nofollow noopener noreferrer" target="_blank">teardown</a>，输出单 HTML 扔给甲方/学生/网页端，零部署成本，记得在页面加水印「数据仅供演示」。</li>
+<li><strong>Blender 重度用户，想让 LLM 帮你跑几何节点、批量重拓扑、一键导出引擎格式</strong> → 装 <a href="https://github.com/arjun988/blender-skills" rel="external nofollow noopener noreferrer" target="_blank">blender-skills</a> + MCP for Blender，前置花半小时配环境，后续每天省小时级重复操作。</li>
+<li><strong>工作室已买 Scenario 企业版，要把美术→技术美术→引擎集成全自动化</strong> → <a href="https://github.com/scenario-labs/skills" rel="external nofollow noopener noreferrer" target="_blank">3D OS</a>，别自己拼 MCP，官方维护的 80 技能覆盖全管线，订阅费摊到项目里算 ROIs。</li>
+<li><strong>需要「文字生带动画 3D 角色」用于原型/短片/非商业演示</strong> → <a href="https://github.com/blendi-remade/prompt2rig" rel="external nofollow noopener noreferrer" target="_blank">prompt2rig</a>，准备好 fal API key 和 12GB+ 显存，**商用项目前把 GVHMR/SMPL-X 换成商业授权模型**，否则交付就是侵权。</li>
+<li><strong>前端做 3D 产品页、数据可视化大屏、滚动叙事长图</strong> → <a href="https://github.com/Moh4696/open-3d-skills" rel="external nofollow noopener noreferrer" target="_blank">open-3d-skills</a>，直接生成 Three.js 代码粘进 Vue/React/Next.js，无需引擎运行时，包体最小。</li>
+</ul>
+<p>最后唠句实在的：这 7 个 Skill 像 7 把瑞士军刀，刀刃锋利但得你自己会拧螺丝。**不要一次性全 clone 进项目**，会把 <code>.claude/skills</code> 目录塞成垃圾场，Token 还会因上下文污染乱跳。按当前冲刺目标选一把，跑通最小可玩版本，再考虑下一把。技能免费，你的时间和 Token 不免费。</p>
+<p> </p>
+<p> </p>
+<div>
+<div> </div>
+</div>
+<p>本文来源：<a href="https://www.moyunews.com/" rel="external nofollow noopener noreferrer" target="_blank">摸鱼杂货店</a>。查看原文：<a href="https://www.moyunews.com/claude-code-game-3d-skills/" rel="external nofollow noopener noreferrer" target="_blank">7 个开源 Skill 解锁 Claude Code 游戏开发与 3D 全流程</a>。</p></div>
+<p class="back"><a href="/">← 返回最新</a></p>
+</article>
+</main>
+<footer class="site-foot">
+<p>wocao.world — 本站内容全部转载自各订阅源，版权归原作者与原站所有。</p>
+</footer>
+</body>
+</html>
