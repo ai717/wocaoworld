@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-8TX501TYGH"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-8TX501TYGH');
+</script>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>本地大模型新选择：Qwen3.8-27B量化版12GB内存就能跑 · wocao.world</title>
+<meta name="description" content="31个尺寸：1-bit 到 BF16 全家福 27B 的模型想本地跑，第一个问题永远是：塞得进我的机器吗？Unsloth 的 Qwen3.8-27B GGUF 给的答案是 31 个文件：从 1-bit 到 16-bit，UD-IQ、UD-Q_K 两个系列，BF16 分片、MTP、多 token 预测文件、imatrix、视觉投影 mmproj，全在里面。上个月下载 6,566,295 次——这个仓库是目前 Qwen3.8-27B 本地部署最热的入口。 挑尺寸的思路很简单：内存小的选低比特，显存够的选高比特。最小的 1-bit 文件只有 6.19 GB；4-bit 的 UD-Q4_K_M 是大多…">
+<link rel="canonical" href="https://wocao.world/p/eef62f3ee2fe/">
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="wocao.world">
+<meta property="og:title" content="本地大模型新选择：Qwen3.8-27B量化版12GB内存就能跑 · wocao.world">
+<meta property="og:description" content="31个尺寸：1-bit 到 BF16 全家福 27B 的模型想本地跑，第一个问题永远是：塞得进我的机器吗？Unsloth 的 Qwen3.8-27B GGUF 给的答案是 31 个文件：从 1-bit 到 16-bit，UD-IQ、UD-Q_K 两个系列，BF16 分片、MTP、多 token 预测文件、imatrix、视觉投影 mmproj，全在里面。上个月下载 6,566,295 次——这个仓库是目前 Qwen3.8-27B 本地部署最热的入口。 挑尺寸的思路很简单：内存小的选低比特，显存够的选高比特。最小的 1-bit 文件只有 6.19 GB；4-bit 的 UD-Q4_K_M 是大多…">
+<meta property="og:url" content="https://wocao.world/p/eef62f3ee2fe/">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="本地大模型新选择：Qwen3.8-27B量化版12GB内存就能跑 · wocao.world">
+<meta name="twitter:description" content="31个尺寸：1-bit 到 BF16 全家福 27B 的模型想本地跑，第一个问题永远是：塞得进我的机器吗？Unsloth 的 Qwen3.8-27B GGUF 给的答案是 31 个文件：从 1-bit 到 16-bit，UD-IQ、UD-Q_K 两个系列，BF16 分片、MTP、多 token 预测文件、imatrix、视觉投影 mmproj，全在里面。上个月下载 6,566,295 次——这个仓库是目前 Qwen3.8-27B 本地部署最热的入口。 挑尺寸的思路很简单：内存小的选低比特，显存够的选高比特。最小的 1-bit 文件只有 6.19 GB；4-bit 的 UD-Q4_K_M 是大多…">
+<meta name="robots" content="index,follow">
+<link rel="alternate" type="application/rss+xml" title="wocao.world 聚合输出" href="/feed.xml">
+<link rel="stylesheet" href="/style.css">
+<meta property="article:published_time" content="2026-11-21T19:51:37.000Z">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","headline":"本地大模型新选择：Qwen3.8-27B量化版12GB内存就能跑","description":"31个尺寸：1-bit 到 BF16 全家福 27B 的模型想本地跑，第一个问题永远是：塞得进我的机器吗？Unsloth 的 Qwen3.8-27B GGUF 给的答案是 31 个文件：从 1-bit 到 16-bit，UD-IQ、UD-Q_K 两个系列，BF16 分片、MTP、多 token 预测文件、imatrix、视觉投影 mmproj，全在里面。上个月下载 6,566,295 次——这个仓库是目前 Qwen3.8-27B 本地部署最热的入口。 挑尺寸的思路很简单：内存小的选低比特，显存够的选高比特。最小的 1-bit 文件只有 6.19 GB；4-bit 的 UD-Q4_K_M 是大多…","url":"https://wocao.world/p/eef62f3ee2fe/","datePublished":"2026-11-21T19:51:37.000Z","dateModified":"2026-11-21T21:14:34.075Z","mainEntityOfPage":{"@type":"WebPage","@id":"https://wocao.world/p/eef62f3ee2fe/"},"author":{"@type":"Person","name":"摸鱼杂货店"},"publisher":{"@type":"Organization","name":"wocao.world","url":"https://wocao.world"}}</script>
+</head>
+<body>
+<a class="skip-link" href="#main">跳到正文</a>
+<header class="site-head">
+<p class="site-title"><a href="/">wocao.world</a></p>
+<p class="site-desc">wocao.world</p>
+<nav class="site-nav">
+<a href="/">最新</a>
+<a href="/about/">关于</a>
+<a href="/feed.xml">RSS</a>
+</nav>
+</header>
+<main id="main">
+<article>
+<h1 class="post-title">本地大模型新选择：Qwen3.8-27B量化版12GB内存就能跑</h1>
+<div class="post-body"><p><strong> </strong></p>
+<h2>31个尺寸：1-bit 到 BF16 全家福</h2>
+<p>27B 的模型想本地跑，第一个问题永远是：塞得进我的机器吗？<a href="https://huggingface.co/unsloth/Qwen3.8-27B-GGUF" rel="external nofollow noopener noreferrer" target="_blank">Unsloth 的 Qwen3.8-27B GGUF</a> 给的答案是 31 个文件：从 1-bit 到 16-bit，UD-IQ、UD-Q_K 两个系列，BF16 分片、MTP、多 token 预测文件、imatrix、视觉投影 mmproj，全在里面。上个月下载 6,566,295 次——这个仓库是目前 Qwen3.8-27B 本地部署最热的入口。</p>
+<p>挑尺寸的思路很简单：内存小的选低比特，显存够的选高比特。最小的 1-bit 文件只有 6.19 GB；4-bit 的 UD-Q4_K_M 是大多数人先试的那档；想尽量保真就上 8-bit 或者 BF16 分片。文件清单在模型页上都列着，下载前先对一下名字，别下错。</p>
+<p><img src="https://my.18uk.uk/file/AgACAgUAAyEGAATpoe1oAANsawH2LMm-i722OFMiOa2wOfYGMlcAAqIeaxu9WwhUpW61E4xp6qsBAAMCAAN5AAM9BA.webp" alt="Qwen3.8-27B" width="500" loading="lazy" referrerpolicy="no-referrer" /></p>
+<h2>262K上下文：原生支持，还能扩到100万</h2>
+<p>上下文是这个模型的卖点之一：262,144 Token 原生支持，RoPE 扩展（YaRN）能拉到 1,000,000。模型本身是 27B 稠密、64 层，原生视觉语言模型：图片能看，小时级的视频也能看。思考模式默认开着，可以按请求关掉；推理深度用 reasoning_effort 调，历史消息里的推理过程用 preserve_thinking 留着。长任务、Agent 干活，这套配置就是冲着“别中途掉链子”去的。</p>
+<h2>跑分高5%到10%：这句话到底是谁说的</h2>
+<p>“跑分高 5% 到 10%”这句话，先说清楚是谁说的：是 Unsloth 自己，不是第三方。2026 年 11 月 11 日，Unsloth 发布 Dynamic V3.1（预览版）量化，说同尺寸下平均准确率比上一代 UD3 和竞品 GSQ-RCO 高 5% 到 10%，测试集包括 Terminal Bench 2.1、DeepSWE v1.1、LiveCodeBench v6 这些。基模（没量化之前）的分数，Unsloth 也贴出来了：</p>
+<table>
+<thead>
+<tr>
+<th>基模跑分</th>
+<th>分数</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Terminal Bench 2.1</td>
+<td>73.0</td>
+</tr>
+<tr>
+<td>LiveCodeBench v6</td>
+<td>90.3</td>
+</tr>
+<tr>
+<td>SWE-bench Pro</td>
+<td>61.7</td>
+</tr>
+<tr>
+<td>DeepSWE 1.1</td>
+<td>42.2</td>
+</tr>
+</tbody>
+</table>
+<p>提醒一句：<a href="https://huggingface.co/unsloth/Qwen3.8-27B-GGUF" rel="external nofollow noopener noreferrer" target="_blank">HF 模型卡</a>上没有任何跑分数字，这些分数全是 Unsloth 自己的测试，没有第三方独立验证过。拿它当选型参考可以，当成定论不行。真要比，拿自己的任务跑一遍才算数。更多细节看 <a href="https://unsloth.ai/docs/models/qwen3.8" rel="external nofollow noopener noreferrer" target="_blank">Unsloth 的 Qwen3.8 指南</a>，第三方报道可以看 <a href="https://alphasignal.ai/news/unsloth-shrinks-qwen3-8-27b-to-6gb-for-local-coding-on-consumer-hardware" rel="external nofollow noopener noreferrer" target="_blank">AlphaSignal 的分析</a>，里面也写了这些数字是发布方自测。</p>
+<h2>本地跑起来：12GB内存够不够</h2>
+<p>能不能跑，先看内存。最小的 1-bit 量化 6.19 GB，Unsloth 说 12GB 以上内存的机器能跑；文档里写的是 17GB 内存/显存的配置可本地跑。两个说法不冲突：12GB 是“能跑起来”的下限，17GB 是“跑得舒服”的配置。下载一个文件就行：<code>huggingface-cli download unsloth/Qwen3.8-27B-GGUF Qwen3.8-27B-UD-Q4_K_M.gguf</code>。Ollama 也能直接跑：<code>ollama run hf.co/unsloth/Qwen3.8-27B-GGUF:Q4_K_M</code>。上下文开多大、显存 offload 多少，都会影响实际占用，别只看文件大小。</p>
+<h2>上手前先看：采样参数和许可证两处提醒</h2>
+<p>采样参数按模型卡的建议来：思考模式 temperature 1.0、top_p 0.95、top_k 20；非思考模式 temperature 0.7、top_p 0.80。Agent 任务记得把输出长度给够：推理内容最多 262,144 Token，最终回答最多 131,072 Token，留少了模型会把话说一半。</p>
+<p>还有一处提醒：这个 GGUF 仓库的模型卡没标注许可证，HF API 返回也是空。商用部署之前，先到原仓库确认授权，别直接默认。</p>
+<blockquote><p><strong>老法师避坑提醒</strong>：跑分高 5% 到 10% 是 Unsloth 自家测的，模型卡上没贴跑分表，别当成第三方结论；许可证模型卡上没写，商用前先确认；1-bit 最小不等于最好用，精度和速度的取舍，先拿 Q4_K_M 跑自己的任务试手感。</p></blockquote>
+<p> </p>
+<p> </p>
+<p>本文来源：<a href="https://www.moyunews.com/" rel="external nofollow noopener noreferrer" target="_blank">摸鱼杂货店</a>。查看原文：<a href="https://www.moyunews.com/qwen3-8-27b-dynamic-gguf/" rel="external nofollow noopener noreferrer" target="_blank">本地大模型新选择：Qwen3.8-27B量化版12GB内存就能跑</a>。</p></div>
+<p class="back"><a href="/">← 返回最新</a></p>
+</article>
+</main>
+<footer class="site-foot">
+<p>wocao.world — 本站内容全部转载自各订阅源，版权归原作者与原站所有。</p>
+</footer>
+</body>
+</html>

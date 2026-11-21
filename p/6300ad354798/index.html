@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-8TX501TYGH"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-8TX501TYGH');
+</script>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>AI画的图总透着一股丑味？Diagram Design专治图表设计 · wocao.world</title>
+<meta name="description" content="AI画的流程图为什么总透着丑 你肯定见过这种图：让 AI 给文档画一张架构图，出来的是一堆圆角框框套渐变阴影，配色跟正文完全不搭，字还小得看不清。改两版还是那副样子，干脆把图删了，只留文字。问题不在模型不懂内容——内容它都懂，缺的是审美。Diagram Design 的作者 Cathryn Lavery 就是被这事逼急了：她给自己的博客画图，每次问 Claude 要来的都是一张“通用圆角框”，跟网站风格完全不搭，要么花 30 分钟跟 Figma 较劲，要么干脆不画图。于是她把审美写成了规则：一个强调色只留给一两处重点，1px 细线，不要阴影，所有坐标落在 4px 网格上。 这个仓库现在 67,…">
+<link rel="canonical" href="https://wocao.world/p/6300ad354798/">
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="wocao.world">
+<meta property="og:title" content="AI画的图总透着一股丑味？Diagram Design专治图表设计 · wocao.world">
+<meta property="og:description" content="AI画的流程图为什么总透着丑 你肯定见过这种图：让 AI 给文档画一张架构图，出来的是一堆圆角框框套渐变阴影，配色跟正文完全不搭，字还小得看不清。改两版还是那副样子，干脆把图删了，只留文字。问题不在模型不懂内容——内容它都懂，缺的是审美。Diagram Design 的作者 Cathryn Lavery 就是被这事逼急了：她给自己的博客画图，每次问 Claude 要来的都是一张“通用圆角框”，跟网站风格完全不搭，要么花 30 分钟跟 Figma 较劲，要么干脆不画图。于是她把审美写成了规则：一个强调色只留给一两处重点，1px 细线，不要阴影，所有坐标落在 4px 网格上。 这个仓库现在 67,…">
+<meta property="og:url" content="https://wocao.world/p/6300ad354798/">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="AI画的图总透着一股丑味？Diagram Design专治图表设计 · wocao.world">
+<meta name="twitter:description" content="AI画的流程图为什么总透着丑 你肯定见过这种图：让 AI 给文档画一张架构图，出来的是一堆圆角框框套渐变阴影，配色跟正文完全不搭，字还小得看不清。改两版还是那副样子，干脆把图删了，只留文字。问题不在模型不懂内容——内容它都懂，缺的是审美。Diagram Design 的作者 Cathryn Lavery 就是被这事逼急了：她给自己的博客画图，每次问 Claude 要来的都是一张“通用圆角框”，跟网站风格完全不搭，要么花 30 分钟跟 Figma 较劲，要么干脆不画图。于是她把审美写成了规则：一个强调色只留给一两处重点，1px 细线，不要阴影，所有坐标落在 4px 网格上。 这个仓库现在 67,…">
+<meta name="robots" content="index,follow">
+<link rel="alternate" type="application/rss+xml" title="wocao.world 聚合输出" href="/feed.xml">
+<link rel="stylesheet" href="/style.css">
+<meta property="article:published_time" content="2026-11-21T19:33:18.000Z">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","headline":"AI画的图总透着一股丑味？Diagram Design专治图表设计","description":"AI画的流程图为什么总透着丑 你肯定见过这种图：让 AI 给文档画一张架构图，出来的是一堆圆角框框套渐变阴影，配色跟正文完全不搭，字还小得看不清。改两版还是那副样子，干脆把图删了，只留文字。问题不在模型不懂内容——内容它都懂，缺的是审美。Diagram Design 的作者 Cathryn Lavery 就是被这事逼急了：她给自己的博客画图，每次问 Claude 要来的都是一张“通用圆角框”，跟网站风格完全不搭，要么花 30 分钟跟 Figma 较劲，要么干脆不画图。于是她把审美写成了规则：一个强调色只留给一两处重点，1px 细线，不要阴影，所有坐标落在 4px 网格上。 这个仓库现在 67,…","url":"https://wocao.world/p/6300ad354798/","datePublished":"2026-11-21T19:33:18.000Z","dateModified":"2026-11-21T21:14:34.075Z","mainEntityOfPage":{"@type":"WebPage","@id":"https://wocao.world/p/6300ad354798/"},"author":{"@type":"Person","name":"摸鱼杂货店"},"publisher":{"@type":"Organization","name":"wocao.world","url":"https://wocao.world"}}</script>
+</head>
+<body>
+<a class="skip-link" href="#main">跳到正文</a>
+<header class="site-head">
+<p class="site-title"><a href="/">wocao.world</a></p>
+<p class="site-desc">wocao.world</p>
+<nav class="site-nav">
+<a href="/">最新</a>
+<a href="/about/">关于</a>
+<a href="/feed.xml">RSS</a>
+</nav>
+</header>
+<main id="main">
+<article>
+<h1 class="post-title">AI画的图总透着一股丑味？Diagram Design专治图表设计</h1>
+<div class="post-body"><p><strong> </strong></p>
+<h2>AI画的流程图为什么总透着丑</h2>
+<p>你肯定见过这种图：让 AI 给文档画一张架构图，出来的是一堆圆角框框套渐变阴影，配色跟正文完全不搭，字还小得看不清。改两版还是那副样子，干脆把图删了，只留文字。问题不在模型不懂内容——内容它都懂，缺的是审美。<a href="https://github.com/cathrynlavery/diagram-design" rel="external nofollow noopener noreferrer" target="_blank">Diagram Design</a> 的作者 Cathryn Lavery 就是被这事逼急了：她给自己的博客画图，每次问 Claude 要来的都是一张“通用圆角框”，跟网站风格完全不搭，要么花 30 分钟跟 Figma 较劲，要么干脆不画图。于是她把审美写成了规则：一个强调色只留给一两处重点，1px 细线，不要阴影，所有坐标落在 4px 网格上。</p>
+<p>这个仓库现在 67,431 星，就是靠这套死磕的审美攒起来的。它是个 Agent Skill，装一次，Claude Code、Codex、GitHub Copilot、Cursor、Factory Droid、Qoder、Pi 这些能读 Agent Skills 的工具都能用。用法就是一句话：“给我画一张应用架构图：前端、后端、数据库、Redis 缓存。”Agent 自己挑图型、定方案，最后交给你一个双击就能打开的 .html 文件。</p>
+<p><img src="https://moyu.18uk.uk/2026/20261121-a14b1bf3-b385-40ab-9f63-0b8682f8b352.webp" alt="图表设计" width="900" loading="lazy" referrerpolicy="no-referrer" /></p>
+<h2>50种图型：从架构图到鱼骨图都有</h2>
+<p>仓库里现在有 50 种图型（README 正文的数字；仓库简介还写着旧的 45 种），每种三个静态变体：浅色极简、深色极简、完整编辑版。架构图、流程图、时序图、状态机、ER 图、泳道图、象限图、甘特图、桑基图、鱼骨图、沃德利地图、看板、用户旅程、部署图、依赖图、UML 类图、热力图、服务蓝图……写文档、做汇报、画产品架构，基本都在这 50 种里。打开<a href="https://cathrynlavery.github.io/diagram-design" rel="external nofollow noopener noreferrer" target="_blank">画廊</a>翻一遍，比看文字介绍快得多。</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>Mermaid / PlantUML</th>
+<th>draw.io / Excalidraw</th>
+<th>Diagram Design</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>怎么做出来的</td>
+<td>写文本</td>
+<td>手拖形状</td>
+<td>跟 Agent 说一句话</td>
+</tr>
+<tr>
+<td>版式</td>
+<td>自动排</td>
+<td>手动排</td>
+<td>Agent 按 4px 网格排，CI 检查重叠和裁切</td>
+</tr>
+<tr>
+<td>样子</td>
+<td>渲染器的主题</td>
+<td>你手绘成什么样就是什么样</td>
+<td>一套固定的编辑级风格，跟你的品牌对齐</td>
+</tr>
+<tr>
+<td>产出</td>
+<td>在 GitHub 上渲染的文本</td>
+<td>可编辑的 .drawio 或 .excalidraw 文件</td>
+<td>单个 HTML 文件，内联 SVG，能导出 SVG 或 PNG</td>
+</tr>
+<tr>
+<td>以后怎么改</td>
+<td>改文本</td>
+<td>改画布</td>
+<td>再跟 Agent 说一句话，或者直接改 SVG</td>
+</tr>
+</tbody>
+</table>
+<p>输出是个自包含的 HTML+SVG 文件：没有构建步骤，没有 JavaScript，没有外部图片依赖。想直接用模板也行，仓库里给了三份模板，复制一份改改就能用。</p>
+<h2>品牌色对齐：60秒 onboarding 干了什么</h2>
+<p>默认皮肤是墨黑加橘红，纸是米白，墨是纯黑，强调色是压暗过的橘红——直接截图就能用。但真正值钱的是 onboarding：60 秒，Skill 去你的网站首页抓主导配色和字体栈，映射成 paper、ink、muted、accent、link 这几个语义角色，改之前先给你看一份 diff，你点头才写进 style-guide.md。以后每张图都用你网站的纸色当底、CTA 色当强调色、正文字体当节点字体。</p>
+<p>对比度是自动验的：按 WCAG AA 标准，ink 在 paper 上要过 4.5:1，9 到 12px 的小字不合格就给你调一个能过的数值，并告诉你为什么。无障碍也是默认带的：每个内联 SVG 都有 role=img 和 aria 描述，多个图 inline 在同一页也不会撞 ID。字体默认从 Google Fonts 拉 Instrument Serif、Geist 和 Geist Mono，这是文件唯一的网络请求；想要完全离线，改成系统字体就行。</p>
+<p>装法就两行命令：<code>npx skills add cathrynlavery/diagram-design</code>，Claude Code 里再加一条：<code>/plugin marketplace add cathrynlavery/diagram-design</code>。多个客户的项目也不怕串色：一个品牌 onboarding 一次，存成具名 profile，每个项目里放一个 .diagram-design 标记写上 profile 名，各自读各自的配色。</p>
+<h2>旧图不用重画：Mermaid 都能重绘</h2>
+<p>手里已经有一堆 Mermaid、draw.io、Excalidraw、PlantUML 的旧图？不用重画，Skill 会按这套设计系统给你重绘一遍：内容不变，样子换成这套，尺寸按你要的来。命令也是一句话的事：<code>/diagram-design:import-mermaid README.md --diagram=all</code>，或者 <code>/diagram-design:import-drawio platform.drawio --size=slide-16x9</code>。导出也一样，一句话出 PNG 或 SVG。</p>
+<h2>三处短板：装之前先看清楚</h2>
+<p>README 自己把短板写得很实在。出图质量看你用的模型，模型不行，审美规则也救不了。同一句话跑两次，版式可能不一样——它不是确定性的。产出不是可编辑的源格式：PR 里没法 diff 文本，画布上也没法拖框。文档每个迭代都改的，还是 Mermaid 更合适；Diagram Design 是给“要发表的那张图”准备的。更多细节看<a href="https://github.com/cathrynlavery/diagram-design" rel="external nofollow noopener noreferrer" target="_blank">仓库 README</a>和<a href="https://diagramdesign.dev/" rel="external nofollow noopener noreferrer" target="_blank">官网</a>。</p>
+<blockquote><p><strong>老法师避坑提醒</strong>：别指望它替代 Mermaid 管日常文档——版式两次跑可能不一样，产出在 PR 里没法 diff；先去画廊翻一遍 50 种图型，确认你要的图型在里面，再决定装不装；品牌 onboarding 第一次会停下来问你，别跳过，60 秒换以后每张图都对味，值。</p></blockquote>
+<p> </p>
+<p> </p>
+<p>本文来源：<a href="https://www.moyunews.com/" rel="external nofollow noopener noreferrer" target="_blank">摸鱼杂货店</a>。查看原文：<a href="https://www.moyunews.com/diagram-design-agent-skill/" rel="external nofollow noopener noreferrer" target="_blank">AI画的图总透着一股丑味？Diagram Design专治图表设计</a>。</p></div>
+<p class="back"><a href="/">← 返回最新</a></p>
+</article>
+</main>
+<footer class="site-foot">
+<p>wocao.world — 本站内容全部转载自各订阅源，版权归原作者与原站所有。</p>
+</footer>
+</body>
+</html>
