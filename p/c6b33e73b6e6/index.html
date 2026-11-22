@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-8TX501TYGH"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-8TX501TYGH');
+</script>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Hetzner免费推理API：Qwen 35B 与 27B 白嫖 · wocao.world</title>
+<meta name="description" content="Hetzner 免费推理 API：两个开源模型先白嫖 德国主机商 Hetzner 悄悄上线了一个实验性推理 API：免费调用 Qwen3.6-35B-A3B-FP8 与 Qwen3.8-27B 两个开源模型，262K 上下文，OpenAI 兼容接口。官方文档写明，实验期内免费，用 OpenAI 兼容的 REST API 就能接，三个标准端点是 /v1/models、/v1/completions 与 /v1/chat/completions，基础地址是 https://inference.hetzner.com/api/v1。要绑一个 Hetzner 账号拿 Token，不用绑卡也能先跑起来。…">
+<link rel="canonical" href="https://wocao.world/p/c6b33e73b6e6/">
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="wocao.world">
+<meta property="og:title" content="Hetzner免费推理API：Qwen 35B 与 27B 白嫖 · wocao.world">
+<meta property="og:description" content="Hetzner 免费推理 API：两个开源模型先白嫖 德国主机商 Hetzner 悄悄上线了一个实验性推理 API：免费调用 Qwen3.6-35B-A3B-FP8 与 Qwen3.8-27B 两个开源模型，262K 上下文，OpenAI 兼容接口。官方文档写明，实验期内免费，用 OpenAI 兼容的 REST API 就能接，三个标准端点是 /v1/models、/v1/completions 与 /v1/chat/completions，基础地址是 https://inference.hetzner.com/api/v1。要绑一个 Hetzner 账号拿 Token，不用绑卡也能先跑起来。…">
+<meta property="og:url" content="https://wocao.world/p/c6b33e73b6e6/">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Hetzner免费推理API：Qwen 35B 与 27B 白嫖 · wocao.world">
+<meta name="twitter:description" content="Hetzner 免费推理 API：两个开源模型先白嫖 德国主机商 Hetzner 悄悄上线了一个实验性推理 API：免费调用 Qwen3.6-35B-A3B-FP8 与 Qwen3.8-27B 两个开源模型，262K 上下文，OpenAI 兼容接口。官方文档写明，实验期内免费，用 OpenAI 兼容的 REST API 就能接，三个标准端点是 /v1/models、/v1/completions 与 /v1/chat/completions，基础地址是 https://inference.hetzner.com/api/v1。要绑一个 Hetzner 账号拿 Token，不用绑卡也能先跑起来。…">
+<meta name="robots" content="index,follow">
+<link rel="alternate" type="application/rss+xml" title="wocao.world 聚合输出" href="/feed.xml">
+<link rel="stylesheet" href="/style.css">
+<meta property="article:published_time" content="2026-11-22T10:51:38.000Z">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","headline":"Hetzner免费推理API：Qwen 35B 与 27B 白嫖","description":"Hetzner 免费推理 API：两个开源模型先白嫖 德国主机商 Hetzner 悄悄上线了一个实验性推理 API：免费调用 Qwen3.6-35B-A3B-FP8 与 Qwen3.8-27B 两个开源模型，262K 上下文，OpenAI 兼容接口。官方文档写明，实验期内免费，用 OpenAI 兼容的 REST API 就能接，三个标准端点是 /v1/models、/v1/completions 与 /v1/chat/completions，基础地址是 https://inference.hetzner.com/api/v1。要绑一个 Hetzner 账号拿 Token，不用绑卡也能先跑起来。…","url":"https://wocao.world/p/c6b33e73b6e6/","datePublished":"2026-11-22T10:51:38.000Z","dateModified":"2026-11-22T12:02:07.334Z","mainEntityOfPage":{"@type":"WebPage","@id":"https://wocao.world/p/c6b33e73b6e6/"},"author":{"@type":"Person","name":"摸鱼杂货店"},"publisher":{"@type":"Organization","name":"wocao.world","url":"https://wocao.world"}}</script>
+</head>
+<body>
+<a class="skip-link" href="#main">跳到正文</a>
+<header class="site-head">
+<p class="site-title"><a href="/">wocao.world</a></p>
+<p class="site-desc">wocao.world</p>
+<nav class="site-nav">
+<a href="/">最新</a>
+<a href="/about/">关于</a>
+<a href="/feed.xml">RSS</a>
+</nav>
+</header>
+<main id="main">
+<article>
+<h1 class="post-title">Hetzner免费推理API：Qwen 35B 与 27B 白嫖</h1>
+<div class="post-body"><p> </p>
+<h2>Hetzner 免费推理 API：两个开源模型先白嫖</h2>
+<p>德国主机商 Hetzner 悄悄上线了一个实验性推理 API：免费调用 Qwen3.6-35B-A3B-FP8 与 Qwen3.8-27B 两个开源模型，262K 上下文，OpenAI 兼容接口。<a href="https://docs.hetzner.com/general/company-and-policy/experiments/inference/" rel="external nofollow noopener noreferrer" target="_blank">官方文档</a>写明，实验期内免费，用 OpenAI 兼容的 REST API 就能接，三个标准端点是 <code>/v1/models</code>、<code>/v1/completions</code> 与 <code>/v1/chat/completions</code>，基础地址是 <code>https://inference.hetzner.com/api/v1</code>。要绑一个 Hetzner 账号拿 Token，不用绑卡也能先跑起来。</p>
+<p><img src="https://moyu.18uk.uk/2026/20261122-03e22090-65d1-4fc4-83cb-55bf8b68277b.avif" alt="Hetzner免费推理" width="800" loading="lazy" referrerpolicy="no-referrer" /></p>
+<h2>两个模型怎么选：35B 稀疏与 27B 稠密</h2>
+<p>Qwen3.6-35B-A3B-FP8 是 MoE 稀疏模型，总参数 35B、每次激活 3B，还带视觉能力，能看图；Qwen3.8-27B 是 27B 稠密模型，同样支持文本与图像。两个模型上下文都是 262144 Token，许可证都是 Apache 2.0。选哪个看任务：要速度与成本低，35B 的稀疏结构每次只激活 3B 参数更划算；要稳定输出，27B 的稠密结构更可预期。两个都是通义团队的开源权重，Hetzner 只提供算力与接口。</p>
+<h2>限流先看清：每分钟 10 次请求是硬顶</h2>
+<p>免费归免费，限流写得很清楚：每个 API Key 每 60 秒最多 400 万输入 Token、10 万输出 Token、10 次请求，超了返回 429。10 次请求每分钟的上限很紧，批量任务要自己排队，别一口气并发打爆。调用方式跟 OpenAI 一样，Python SDK 改个 base_url 就能用：<code>client = OpenAI(base_url='https://inference.hetzner.com/api/v1', api_key='你的 Token')</code>，再传 <code>model='Qwen/Qwen3.6-35B-A3B-FP8'</code>。curl 也能直接调，文档里给了完整示例。</p>
+<h2>免费期能干什么：先拿这三类用法试水</h2>
+<p>第一类是本地开发的免费后端：写应用、调提示词、跑测试，先用 Hetzner 的免费接口顶着，跑通再决定要不要上付费推理服务。第二类是长上下文任务：262K 上下文一次能塞几十万字，文档问答与代码库分析都够用。第三类是多模型对比：同样的提示词跑 Qwen3.6 与 Qwen3.8，看稀疏与稠密在自己的任务上差多少。实验期结束会提前邮件通知，到时再决定去留，现在先用起来。</p>
+<p> </p>
+<p> </p>
+<p>本文来源：<a href="https://www.moyunews.com/" rel="external nofollow noopener noreferrer" target="_blank">摸鱼杂货店</a>。查看原文：<a href="https://www.moyunews.com/hetzner-inference-api-free/" rel="external nofollow noopener noreferrer" target="_blank">Hetzner免费推理API：Qwen 35B 与 27B 白嫖</a>。</p></div>
+<p class="back"><a href="/">← 返回最新</a></p>
+</article>
+</main>
+<footer class="site-foot">
+<p>wocao.world — 本站内容全部转载自各订阅源，版权归原作者与原站所有。</p>
+</footer>
+</body>
+</html>

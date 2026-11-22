@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-8TX501TYGH"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-8TX501TYGH');
+</script>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Colab Playground：把 Colab 配额装进桌面点几下就开跑 · wocao.world</title>
+<meta name="description" content="Colab CLI 套了个壳：先讲清它到底管什么 Colab Playground 是官方 Colab CLI 的桌面图形界面，用 Rust 与 GPUI 写成，支持 Windows、macOS Apple silicon 与 Linux，免安装。它不是笔记本编辑器，也不替代命令行，所有操作都走 colab 命令，本质是把开运行时、选硬件、看余额这些命令行操作搬进图形界面。项目 2026 年 11 月 16 日才建仓，到 11 月 19 日已有 274 个 star，MIT 协议，尝鲜属性很明显。 多账号余额一眼看完：切换之前先看清影响 手里不止一个 Google 账号的人最懂这个痛点：哪个账…">
+<link rel="canonical" href="https://wocao.world/p/1c69d608492a/">
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="wocao.world">
+<meta property="og:title" content="Colab Playground：把 Colab 配额装进桌面点几下就开跑 · wocao.world">
+<meta property="og:description" content="Colab CLI 套了个壳：先讲清它到底管什么 Colab Playground 是官方 Colab CLI 的桌面图形界面，用 Rust 与 GPUI 写成，支持 Windows、macOS Apple silicon 与 Linux，免安装。它不是笔记本编辑器，也不替代命令行，所有操作都走 colab 命令，本质是把开运行时、选硬件、看余额这些命令行操作搬进图形界面。项目 2026 年 11 月 16 日才建仓，到 11 月 19 日已有 274 个 star，MIT 协议，尝鲜属性很明显。 多账号余额一眼看完：切换之前先看清影响 手里不止一个 Google 账号的人最懂这个痛点：哪个账…">
+<meta property="og:url" content="https://wocao.world/p/1c69d608492a/">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Colab Playground：把 Colab 配额装进桌面点几下就开跑 · wocao.world">
+<meta name="twitter:description" content="Colab CLI 套了个壳：先讲清它到底管什么 Colab Playground 是官方 Colab CLI 的桌面图形界面，用 Rust 与 GPUI 写成，支持 Windows、macOS Apple silicon 与 Linux，免安装。它不是笔记本编辑器，也不替代命令行，所有操作都走 colab 命令，本质是把开运行时、选硬件、看余额这些命令行操作搬进图形界面。项目 2026 年 11 月 16 日才建仓，到 11 月 19 日已有 274 个 star，MIT 协议，尝鲜属性很明显。 多账号余额一眼看完：切换之前先看清影响 手里不止一个 Google 账号的人最懂这个痛点：哪个账…">
+<meta name="robots" content="index,follow">
+<link rel="alternate" type="application/rss+xml" title="wocao.world 聚合输出" href="/feed.xml">
+<link rel="stylesheet" href="/style.css">
+<meta property="article:published_time" content="2026-11-22T10:48:36.000Z">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","headline":"Colab Playground：把 Colab 配额装进桌面点几下就开跑","description":"Colab CLI 套了个壳：先讲清它到底管什么 Colab Playground 是官方 Colab CLI 的桌面图形界面，用 Rust 与 GPUI 写成，支持 Windows、macOS Apple silicon 与 Linux，免安装。它不是笔记本编辑器，也不替代命令行，所有操作都走 colab 命令，本质是把开运行时、选硬件、看余额这些命令行操作搬进图形界面。项目 2026 年 11 月 16 日才建仓，到 11 月 19 日已有 274 个 star，MIT 协议，尝鲜属性很明显。 多账号余额一眼看完：切换之前先看清影响 手里不止一个 Google 账号的人最懂这个痛点：哪个账…","url":"https://wocao.world/p/1c69d608492a/","datePublished":"2026-11-22T10:48:36.000Z","dateModified":"2026-11-22T12:02:07.334Z","mainEntityOfPage":{"@type":"WebPage","@id":"https://wocao.world/p/1c69d608492a/"},"author":{"@type":"Person","name":"摸鱼杂货店"},"publisher":{"@type":"Organization","name":"wocao.world","url":"https://wocao.world"}}</script>
+</head>
+<body>
+<a class="skip-link" href="#main">跳到正文</a>
+<header class="site-head">
+<p class="site-title"><a href="/">wocao.world</a></p>
+<p class="site-desc">wocao.world</p>
+<nav class="site-nav">
+<a href="/">最新</a>
+<a href="/about/">关于</a>
+<a href="/feed.xml">RSS</a>
+</nav>
+</header>
+<main id="main">
+<article>
+<h1 class="post-title">Colab Playground：把 Colab 配额装进桌面点几下就开跑</h1>
+<div class="post-body"><p> </p>
+<h2>Colab CLI 套了个壳：先讲清它到底管什么</h2>
+<p><a href="https://github.com/scarletkc/colab-playground" rel="external nofollow noopener noreferrer" target="_blank">Colab Playground</a> 是官方 Colab CLI 的桌面图形界面，用 Rust 与 GPUI 写成，支持 Windows、macOS Apple silicon 与 Linux，免安装。它不是笔记本编辑器，也不替代命令行，所有操作都走 <code>colab</code> 命令，本质是把开运行时、选硬件、看余额这些命令行操作搬进图形界面。项目 2026 年 11 月 16 日才建仓，到 11 月 19 日已有 274 个 star，MIT 协议，尝鲜属性很明显。</p>
+<p><img src="https://my.18uk.uk/file/AgACAgUAAyEGAATpoe1oAAN2awLIY6xTk3IH9jY1IPNpi6bATTUAAicWaxv1-hhUt7sX7CbEXxkBAAMCAAN5AAM9BA.webp" alt="Colab Playground" width="800" loading="lazy" referrerpolicy="no-referrer" /></p>
+<h2>多账号余额一眼看完：切换之前先看清影响</h2>
+<p>手里不止一个 Google 账号的人最懂这个痛点：哪个账号还有 Colab 计算单元，哪个已经烧空，切来切去全靠猜。Colab Playground 把多个账号统一管起来，余额总览一次看完，切换前还会列出这次切换会影响什么。开运行时能选 CPU、GPU、TPU 与高内存，还能设最低显存；Colab 随机给 A100 40GB 或 80GB，显存不够就退回重开，不用手动反复试。浏览器里开的运行时也会列出来，可以顺手停掉。本地跑源码也很直接：<code>cargo run -p colab-playground</code> 是演示数据模式，不会产生账单；<code>cargo run -p colab-playground --release</code> 才是接真实 Colab CLI 的模式。</p>
+<h2>费用保护分两层：运行时自动停才是真兜底</h2>
+<p>Colab 的计费规则很实在：运行时存在多久就收多久的计算单元，忙不忙都算钱，关掉应用与端口转发都不会停费，只有停机、自动停机或 Colab 自己回收才停。Colab Playground 的费用保护分两层：定时与闲置自动停止跑在运行时一侧，关掉应用也管用；花费上限与余额下限只在应用运行时才检查。两层别搞混，真兜底的是运行时侧的自动停止，上限与下限只是应用开着时的提醒线。余额、烧钱速度与剩余时间都在总览页实时显示。</p>
+<h2>填个 GGUF 仓库：Colab GPU 秒变聊天接口</h2>
+<p>插件机制是这个项目最讨喜的部分。自带 llama.cpp 插件，填一个 Hugging Face GGUF 仓库地址，就能在 Colab GPU 上一键部署模型，给出 OpenAI 兼容 API 与网页聊天界面，不用自己写部署脚本。插件脚本只跑在 Colab 运行时上，不跑在本机，装插件之前先认准来源。端口转发也顺手：运行时端口映射到本机的 127.0.0.1，部署好的模型在本机浏览器里就能直接用。</p>
+<h2>三天大的项目：尝鲜之前先认清这三点</h2>
+<p>第一，项目非常新，2026 年 11 月 16 日建仓，功能与文档都还在长，遇到小毛病别意外。第二，它管的是你自己的 Colab 账号与账单，CLI 在整台机器上只有一个登录账号，应用里切换账号会影响其他地方的 <code>colab</code> 使用，旧账号下没停的运行时会继续计费。第三，Windows 上 Colab CLI 跑在 WSL 里，装之前先确认 WSL 就绪。认清这三点再装，尝鲜才不会变成踩坑。</p>
+<p> </p>
+<p>本文来源：<a href="https://www.moyunews.com/" rel="external nofollow noopener noreferrer" target="_blank">摸鱼杂货店</a>。查看原文：<a href="https://www.moyunews.com/colab-playground-desktop-gui/" rel="external nofollow noopener noreferrer" target="_blank">Colab Playground：把 Colab 配额装进桌面点几下就开跑</a>。</p></div>
+<p class="back"><a href="/">← 返回最新</a></p>
+</article>
+</main>
+<footer class="site-foot">
+<p>wocao.world — 本站内容全部转载自各订阅源，版权归原作者与原站所有。</p>
+</footer>
+</body>
+</html>

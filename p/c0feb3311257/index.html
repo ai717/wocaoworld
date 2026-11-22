@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-8TX501TYGH"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-8TX501TYGH');
+</script>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>羊毛实时看板复刻指南：5个来源每2小时自动刷48条 · wocao.world</title>
+<meta name="description" content="羊毛帖刷得再勤，还是会漏掉限免 限免和低价信息散在好几个论坛和频道里，手动刷一遍半小时过去了，还总有漏网的。X 上这位作者的做法帖 换了条路：让 AI 把 5 个来源的帖子自动汇到一张看板上，每 2 小时刷新一次，单轮能抓到 48 条，按免费、限免、低价三类分好，点标题直接跳回原帖。帖子把做法、复刻路径和翻车点都拆开写了，这篇就按他的拆解，把这套看板怎么搭、哪里容易翻车讲清楚。先声明：这是别人做的聚合看板，本文是做法拆解，不是站里自家的产品。 五路来源汇到一处，中间隔着三道工序 看板的结构不复杂：抓取层定时去 5 个来源拉新帖，清洗层去重和提取标题链接，分类层让 AI 按免费、限免、低价打标签…">
+<link rel="canonical" href="https://wocao.world/p/c0feb3311257/">
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="wocao.world">
+<meta property="og:title" content="羊毛实时看板复刻指南：5个来源每2小时自动刷48条 · wocao.world">
+<meta property="og:description" content="羊毛帖刷得再勤，还是会漏掉限免 限免和低价信息散在好几个论坛和频道里，手动刷一遍半小时过去了，还总有漏网的。X 上这位作者的做法帖 换了条路：让 AI 把 5 个来源的帖子自动汇到一张看板上，每 2 小时刷新一次，单轮能抓到 48 条，按免费、限免、低价三类分好，点标题直接跳回原帖。帖子把做法、复刻路径和翻车点都拆开写了，这篇就按他的拆解，把这套看板怎么搭、哪里容易翻车讲清楚。先声明：这是别人做的聚合看板，本文是做法拆解，不是站里自家的产品。 五路来源汇到一处，中间隔着三道工序 看板的结构不复杂：抓取层定时去 5 个来源拉新帖，清洗层去重和提取标题链接，分类层让 AI 按免费、限免、低价打标签…">
+<meta property="og:url" content="https://wocao.world/p/c0feb3311257/">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="羊毛实时看板复刻指南：5个来源每2小时自动刷48条 · wocao.world">
+<meta name="twitter:description" content="羊毛帖刷得再勤，还是会漏掉限免 限免和低价信息散在好几个论坛和频道里，手动刷一遍半小时过去了，还总有漏网的。X 上这位作者的做法帖 换了条路：让 AI 把 5 个来源的帖子自动汇到一张看板上，每 2 小时刷新一次，单轮能抓到 48 条，按免费、限免、低价三类分好，点标题直接跳回原帖。帖子把做法、复刻路径和翻车点都拆开写了，这篇就按他的拆解，把这套看板怎么搭、哪里容易翻车讲清楚。先声明：这是别人做的聚合看板，本文是做法拆解，不是站里自家的产品。 五路来源汇到一处，中间隔着三道工序 看板的结构不复杂：抓取层定时去 5 个来源拉新帖，清洗层去重和提取标题链接，分类层让 AI 按免费、限免、低价打标签…">
+<meta name="robots" content="index,follow">
+<link rel="alternate" type="application/rss+xml" title="wocao.world 聚合输出" href="/feed.xml">
+<link rel="stylesheet" href="/style.css">
+<meta property="article:published_time" content="2026-11-22T11:11:10.000Z">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","headline":"羊毛实时看板复刻指南：5个来源每2小时自动刷48条","description":"羊毛帖刷得再勤，还是会漏掉限免 限免和低价信息散在好几个论坛和频道里，手动刷一遍半小时过去了，还总有漏网的。X 上这位作者的做法帖 换了条路：让 AI 把 5 个来源的帖子自动汇到一张看板上，每 2 小时刷新一次，单轮能抓到 48 条，按免费、限免、低价三类分好，点标题直接跳回原帖。帖子把做法、复刻路径和翻车点都拆开写了，这篇就按他的拆解，把这套看板怎么搭、哪里容易翻车讲清楚。先声明：这是别人做的聚合看板，本文是做法拆解，不是站里自家的产品。 五路来源汇到一处，中间隔着三道工序 看板的结构不复杂：抓取层定时去 5 个来源拉新帖，清洗层去重和提取标题链接，分类层让 AI 按免费、限免、低价打标签…","url":"https://wocao.world/p/c0feb3311257/","datePublished":"2026-11-22T11:11:10.000Z","dateModified":"2026-11-22T12:02:07.334Z","mainEntityOfPage":{"@type":"WebPage","@id":"https://wocao.world/p/c0feb3311257/"},"author":{"@type":"Person","name":"摸鱼杂货店"},"publisher":{"@type":"Organization","name":"wocao.world","url":"https://wocao.world"}}</script>
+</head>
+<body>
+<a class="skip-link" href="#main">跳到正文</a>
+<header class="site-head">
+<p class="site-title"><a href="/">wocao.world</a></p>
+<p class="site-desc">wocao.world</p>
+<nav class="site-nav">
+<a href="/">最新</a>
+<a href="/about/">关于</a>
+<a href="/feed.xml">RSS</a>
+</nav>
+</header>
+<main id="main">
+<article>
+<h1 class="post-title">羊毛实时看板复刻指南：5个来源每2小时自动刷48条</h1>
+<div class="post-body"><p> </p>
+<h2>羊毛帖刷得再勤，还是会漏掉限免</h2>
+<p>限免和低价信息散在好几个论坛和频道里，手动刷一遍半小时过去了，还总有漏网的。<a href="https://x.com/btc5767/status/2123597305404092758" rel="external nofollow noopener noreferrer" target="_blank">X 上这位作者的做法帖</a> 换了条路：让 AI 把 5 个来源的帖子自动汇到一张看板上，每 2 小时刷新一次，单轮能抓到 48 条，按免费、限免、低价三类分好，点标题直接跳回原帖。帖子把做法、复刻路径和翻车点都拆开写了，这篇就按他的拆解，把这套看板怎么搭、哪里容易翻车讲清楚。先声明：这是别人做的聚合看板，本文是做法拆解，不是站里自家的产品。</p>
+<p><img src="https://moyu.18uk.uk/2026/20261122-0664a807-1e9f-4da8-996e-d7fbe8476768.webp" alt="羊毛实时看板" width="800" loading="lazy" referrerpolicy="no-referrer" /></p>
+<h2>五路来源汇到一处，中间隔着三道工序</h2>
+<p>看板的结构不复杂：抓取层定时去 5 个来源拉新帖，清洗层去重和提取标题链接，分类层让 AI 按免费、限免、低价打标签，最后渲染成一张能点的列表。定时任务用系统自带的调度器就能跑，比如 <code>*/120 * * * * python3 fetch_deals.py</code> 每 2 小时触发一次抓取；去重靠链接做唯一键，同一帖子在两个来源出现时只留一条，可以用 <code>seen_links</code> 集合在入库前先挡一遍。分类这步最适合交给模型：把标题和摘要喂进去，让它只回三个标签之一，比写一堆关键词规则省事得多。</p>
+<table>
+<thead>
+<tr>
+<th>工序</th>
+<th>干什么</th>
+<th>用什么</th>
+<th>容易翻车的地方</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>定时抓取</td>
+<td>每2小时拉5个来源新帖</td>
+<td>调度器加抓取脚本</td>
+<td>来源改版导致抓空</td>
+</tr>
+<tr>
+<td>去重清洗</td>
+<td>按链接去重、提取标题</td>
+<td>链接唯一键</td>
+<td>跳转链接去重失效</td>
+</tr>
+<tr>
+<td>AI分类</td>
+<td>分免费、限免、低价</td>
+<td>大模型打标签</td>
+<td>标题党误判价格</td>
+</tr>
+<tr>
+<td>看板展示</td>
+<td>列表呈现、点回原帖</td>
+<td>静态页面即可</td>
+<td>原帖删除后链接失效</td>
+</tr>
+</tbody>
+</table>
+<p>单轮 48 条这个量级，说明 5 个来源两小时内的新增帖子就这么多，看板不是越多越好，刷得太勤反而全是重复。2 小时一轮的节奏刚好卡在「限免帖子还没过期、人又不用一直盯着」的中间点。</p>
+<h2>照着复刻，顺序别乱</h2>
+<p>想自己搭一个，作者拆解的路径大致是：先选 3 到 5 个你常看的来源，确认每个来源能稳定拿到标题和链接；再写抓取和去重，跑通一轮看看数据干不干净；然后接 AI 分类，先拿几十条人工标好的帖子测准确率；最后套个简单页面展示，挂上定时任务。页面不用花哨，能按分类筛选、能点回原帖就够了，羊毛信息的价值在时效，不在排版。</p>
+<p>成本方面，抓取和展示几乎不花钱，主要开销在 AI 分类那一步。48 条帖子一轮、一天 12 轮，量不大，用便宜的小模型足够，甚至可以先用关键词粗筛、只把拿不准的丢给模型。作者在帖子里也提到，分类提示词要写死输出格式，只回标签名，不然模型多说一句废话，解析就得跟着改。</p>
+<blockquote><p><strong>老法师提醒</strong>：抓取别人的站点先看对方的规则和频率限制，2小时一轮别改成2分钟一轮；AI分类会把「免费试用」误判成真免费，看到心动的羊毛点回原帖核对价格和期限，别只信标签就下单。</p></blockquote>
+<h2>这套做法解决不了什么问题</h2>
+<p>看板解决的是「漏看」，解决不了「真假」：来源帖子本身是广告还是真羊毛，AI 分类分不出来，还得人点开看。另外来源一旦改版或加验证，抓取就会断，维护成本是长期的，搭之前想清楚自己愿不愿意一直修。48 条一轮的数据量也决定了它适合个人自用，拿去做公开聚合站，版权和流量都是问题。</p>
+<p>对天天找免费额度和限免工具的人，这套 5 源加 AI 分类的轻量方案值得抄：半天搭好，之后每天省下刷论坛的时间。抄的时候把来源换成你自己的常看清单，分类标签按你的需求改，骨架照搬就行。</p>
+<p> </p>
+<p> </p>
+<p>本文来源：<a href="https://www.moyunews.com/" rel="external nofollow noopener noreferrer" target="_blank">摸鱼杂货店</a>。查看原文：<a href="https://www.moyunews.com/ai-deal-dashboard-5sources/" rel="external nofollow noopener noreferrer" target="_blank">羊毛实时看板复刻指南：5个来源每2小时自动刷48条</a>。</p></div>
+<p class="back"><a href="/">← 返回最新</a></p>
+</article>
+</main>
+<footer class="site-foot">
+<p>wocao.world — 本站内容全部转载自各订阅源，版权归原作者与原站所有。</p>
+</footer>
+</body>
+</html>
