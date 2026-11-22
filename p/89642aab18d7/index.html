@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-8TX501TYGH"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-8TX501TYGH');
+</script>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>免费AI视频链：两份开源清单拼出一条出片流水线 · wocao.world</title>
+<meta name="description" content="两份清单拼在一起：先看整条链长什么样 想做一条 AI 短视频，打开收藏夹一看，工具散在 20 个仓库里：生视频的、做动画的、对口型的、搞超分的、管剪辑的，哪个先装、哪个后装，全凭感觉摸索。replay_0x 这条帖子一次列出 20 个开源工具，从 Prompt 到成片排了一条全链；DN_degen 那条帖子又补了 10 个高星开源项目，覆盖脚本、语音、画面、剪辑与出片。两份清单合在一起，正好拼成一条脚本到成片的免费流水线，下面按环节拆开讲。 环节 工具 干什么 链接 脚本 MoneyPrinterTurbo 文字稿排成带配音与字幕的短视频 仓库 配音 fish-speech、kokoro 文字…">
+<link rel="canonical" href="https://wocao.world/p/89642aab18d7/">
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="wocao.world">
+<meta property="og:title" content="免费AI视频链：两份开源清单拼出一条出片流水线 · wocao.world">
+<meta property="og:description" content="两份清单拼在一起：先看整条链长什么样 想做一条 AI 短视频，打开收藏夹一看，工具散在 20 个仓库里：生视频的、做动画的、对口型的、搞超分的、管剪辑的，哪个先装、哪个后装，全凭感觉摸索。replay_0x 这条帖子一次列出 20 个开源工具，从 Prompt 到成片排了一条全链；DN_degen 那条帖子又补了 10 个高星开源项目，覆盖脚本、语音、画面、剪辑与出片。两份清单合在一起，正好拼成一条脚本到成片的免费流水线，下面按环节拆开讲。 环节 工具 干什么 链接 脚本 MoneyPrinterTurbo 文字稿排成带配音与字幕的短视频 仓库 配音 fish-speech、kokoro 文字…">
+<meta property="og:url" content="https://wocao.world/p/89642aab18d7/">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="免费AI视频链：两份开源清单拼出一条出片流水线 · wocao.world">
+<meta name="twitter:description" content="两份清单拼在一起：先看整条链长什么样 想做一条 AI 短视频，打开收藏夹一看，工具散在 20 个仓库里：生视频的、做动画的、对口型的、搞超分的、管剪辑的，哪个先装、哪个后装，全凭感觉摸索。replay_0x 这条帖子一次列出 20 个开源工具，从 Prompt 到成片排了一条全链；DN_degen 那条帖子又补了 10 个高星开源项目，覆盖脚本、语音、画面、剪辑与出片。两份清单合在一起，正好拼成一条脚本到成片的免费流水线，下面按环节拆开讲。 环节 工具 干什么 链接 脚本 MoneyPrinterTurbo 文字稿排成带配音与字幕的短视频 仓库 配音 fish-speech、kokoro 文字…">
+<meta name="robots" content="index,follow">
+<link rel="alternate" type="application/rss+xml" title="wocao.world 聚合输出" href="/feed.xml">
+<link rel="stylesheet" href="/style.css">
+<meta property="article:published_time" content="2026-11-22T14:42:13.000Z">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","headline":"免费AI视频链：两份开源清单拼出一条出片流水线","description":"两份清单拼在一起：先看整条链长什么样 想做一条 AI 短视频，打开收藏夹一看，工具散在 20 个仓库里：生视频的、做动画的、对口型的、搞超分的、管剪辑的，哪个先装、哪个后装，全凭感觉摸索。replay_0x 这条帖子一次列出 20 个开源工具，从 Prompt 到成片排了一条全链；DN_degen 那条帖子又补了 10 个高星开源项目，覆盖脚本、语音、画面、剪辑与出片。两份清单合在一起，正好拼成一条脚本到成片的免费流水线，下面按环节拆开讲。 环节 工具 干什么 链接 脚本 MoneyPrinterTurbo 文字稿排成带配音与字幕的短视频 仓库 配音 fish-speech、kokoro 文字…","url":"https://wocao.world/p/89642aab18d7/","datePublished":"2026-11-22T14:42:13.000Z","dateModified":"2026-11-22T21:20:56.232Z","mainEntityOfPage":{"@type":"WebPage","@id":"https://wocao.world/p/89642aab18d7/"},"author":{"@type":"Person","name":"摸鱼杂货店"},"publisher":{"@type":"Organization","name":"wocao.world","url":"https://wocao.world"}}</script>
+</head>
+<body>
+<a class="skip-link" href="#main">跳到正文</a>
+<header class="site-head">
+<p class="site-title"><a href="/">wocao.world</a></p>
+<p class="site-desc">wocao.world</p>
+<nav class="site-nav">
+<a href="/">最新</a>
+<a href="/about/">关于</a>
+<a href="/feed.xml">RSS</a>
+</nav>
+</header>
+<main id="main">
+<article>
+<h1 class="post-title">免费AI视频链：两份开源清单拼出一条出片流水线</h1>
+<div class="post-body"><p> </p>
+<h2>两份清单拼在一起：先看整条链长什么样</h2>
+<p>想做一条 AI 短视频，打开收藏夹一看，工具散在 20 个仓库里：生视频的、做动画的、对口型的、搞超分的、管剪辑的，哪个先装、哪个后装，全凭感觉摸索。<a href="https://x.com/replay_0x/status/2121698897819041839" rel="external nofollow noopener noreferrer" target="_blank">replay_0x 这条帖子</a>一次列出 20 个开源工具，从 Prompt 到成片排了一条全链；<a href="https://x.com/DN_degen/status/2121757615856538033" rel="external nofollow noopener noreferrer" target="_blank">DN_degen 那条帖子</a>又补了 10 个高星开源项目，覆盖脚本、语音、画面、剪辑与出片。两份清单合在一起，正好拼成一条脚本到成片的免费流水线，下面按环节拆开讲。</p>
+<p><img src="https://moyu.18uk.uk/2026/20261122-47a11a55-b381-4fe9-8e4a-bfa287b03376.webp" alt="免费AI视频链" width="900" loading="lazy" referrerpolicy="no-referrer" /></p>
+<table>
+<thead>
+<tr>
+<th>环节</th>
+<th>工具</th>
+<th>干什么</th>
+<th>链接</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>脚本</td>
+<td>MoneyPrinterTurbo</td>
+<td>文字稿排成带配音与字幕的短视频</td>
+<td><a href="https://github.com/harry0703/MoneyPrinterTurbo" rel="external nofollow noopener noreferrer" target="_blank">仓库</a></td>
+</tr>
+<tr>
+<td>配音</td>
+<td>fish-speech、kokoro</td>
+<td>文字转语音，克隆音色或轻量合成</td>
+<td><a href="https://github.com/fishaudio/fish-speech" rel="external nofollow noopener noreferrer" target="_blank">仓库</a></td>
+</tr>
+<tr>
+<td>画面</td>
+<td>Wan 2.2、HunyuanVideo</td>
+<td>文生视频或图生视频</td>
+<td><a href="https://github.com/Wan-Video/Wan2.2" rel="external nofollow noopener noreferrer" target="_blank">仓库</a></td>
+</tr>
+<tr>
+<td>动画</td>
+<td>FramePack、LivePortrait</td>
+<td>让静帧动起来，让照片开口说话</td>
+<td><a href="https://github.com/lllyasviel/FramePack" rel="external nofollow noopener noreferrer" target="_blank">仓库</a></td>
+</tr>
+<tr>
+<td>口型</td>
+<td>LatentSync</td>
+<td>把配音和嘴型对齐</td>
+<td><a href="https://github.com/ByteDance/LatentSync" rel="external nofollow noopener noreferrer" target="_blank">仓库</a></td>
+</tr>
+<tr>
+<td>超分</td>
+<td>Real-ESRGAN</td>
+<td>放大修复模糊画面</td>
+<td><a href="https://github.com/xinntao/Real-ESRGAN" rel="external nofollow noopener noreferrer" target="_blank">仓库</a></td>
+</tr>
+<tr>
+<td>剪辑导出</td>
+<td>Remotion、motion-canvas</td>
+<td>用代码拼剪辑、加字幕、导出成片</td>
+<td><a href="https://github.com/remotion-dev/remotion" rel="external nofollow noopener noreferrer" target="_blank">仓库</a></td>
+</tr>
+</tbody>
+</table>
+<p>这张表就是全文的地图：后文按表里的顺序，一个环节一个环节讲，工具名第一次出现时给仓库链接，后面直接叫名字。</p>
+<h2>脚本与配音先行：文字变成能听的声音</h2>
+<p>写脚本不用从空白文档开始。<a href="https://github.com/harry0703/MoneyPrinterTurbo" rel="external nofollow noopener noreferrer" target="_blank">MoneyPrinterTurbo</a>是第二条帖子点名的短视频流水线工具，输入一段文字稿，它负责把稿子排成带配音与字幕的短视频结构，适合先把一期视频的骨架立起来，再决定画面怎么配。</p>
+<p>配音一环有两个选择。<a href="https://github.com/fishaudio/fish-speech" rel="external nofollow noopener noreferrer" target="_blank">fish-speech</a>是开源语音合成项目，能按参考音频克隆音色；<a href="https://github.com/hexgrad/Kokoro-82M" rel="external nofollow noopener noreferrer" target="_blank">kokoro</a>是轻量语音模型，跑起来负担小，适合先出一条能听的旁白验证节奏。两条帖子都把语音放在画面之前：声音定下来，画面的时长与节奏才有依据。</p>
+<p>先把脚本工具装好，跑一条样片，确认稿子、配音、字幕能对上，再往下加画面工具。装法就是常规的拉仓库：<code>git clone https://github.com/harry0703/MoneyPrinterTurbo.git</code></p>
+<h2>画面与动画接力：从静帧到会动的镜头</h2>
+<p>画面是整条链最吃资源的一环，也是两条帖子重合最多的地方。<a href="https://github.com/Wan-Video/Wan2.2" rel="external nofollow noopener noreferrer" target="_blank">Wan 2.2</a>与<a href="https://github.com/Tencent/HunyuanVideo" rel="external nofollow noopener noreferrer" target="_blank">HunyuanVideo</a>负责文生视频与图生视频，<a href="https://github.com/Lightricks/LTX-Video" rel="external nofollow noopener noreferrer" target="_blank">LTX-Video</a>与<a href="https://github.com/THUDM/CogVideo" rel="external nofollow noopener noreferrer" target="_blank">CogVideoX</a>是同类备选，第二条帖子还点名了<a href="https://github.com/Wan-Video/Wan2.1" rel="external nofollow noopener noreferrer" target="_blank">Wan2.1</a>。不用几个全装：先挑一个跑通，再按画质与速度留一个主力。</p>
+<p>画面生成之后，动画把静帧变活。<a href="https://github.com/comfyanonymous/ComfyUI" rel="external nofollow noopener noreferrer" target="_blank">ComfyUI</a>是节点式工作台，上面这些视频模型大多能接进来，拼成一条可视化的生成管线；<a href="https://github.com/lllyasviel/FramePack" rel="external nofollow noopener noreferrer" target="_blank">FramePack</a>负责让图片动起来，<a href="https://github.com/KwaiVGI/LivePortrait" rel="external nofollow noopener noreferrer" target="_blank">LivePortrait</a>让一张照片开口说话、带上表情。三个工具分工不同：ComfyUI 是总装台，FramePack 与 LivePortrait 是专攻动画的零件。</p>
+<p>工作台的装法同样是拉仓库：<code>git clone https://github.com/comfyanonymous/ComfyUI.git</code>装好之后先跑官方自带的基础流程，确认能出图，再把视频模型接进来，别一上来就拼复杂节点。</p>
+<h2>口型超分与剪辑：把粗糙成片打磨干净</h2>
+<p>画面动起来之后，口型与画质是两道关。<a href="https://github.com/ByteDance/LatentSync" rel="external nofollow noopener noreferrer" target="_blank">LatentSync</a>把配音和嘴型对齐，人物说话不再对不上嘴；<a href="https://github.com/xinntao/Real-ESRGAN" rel="external nofollow noopener noreferrer" target="_blank">Real-ESRGAN</a>负责放大与修复，把模糊、带噪点的画面拉干净。这两个工具都不产生新画面，只修已经生成的画面，放在剪辑之前跑效果最好。</p>
+<p>剪辑与导出是最后一环。<a href="https://github.com/remotion-dev/remotion" rel="external nofollow noopener noreferrer" target="_blank">Remotion</a>用代码写视频：字幕、转场、片头都能写成可复用的组件；<a href="https://github.com/motion-canvas/motion-canvas" rel="external nofollow noopener noreferrer" target="_blank">motion-canvas</a>走同一路子，适合做带动画讲解的视频。习惯写代码的人用这对组合，比在时间轴上拖片段更快改版。</p>
+<blockquote><p>避坑提醒：本地跑视频模型很吃显存与硬盘，权重文件往往很大，下载前先看清仓库里的硬件说明。免费指的是工具本身不收钱，时间与电费照样是成本。先拿小模型跑通一小段，确认口型与画质能接受，再放大规模，别一上来就拉满参数。</p></blockquote>
+<h2>照着跑一遍：先搭最小配置再慢慢加料</h2>
+<p>整条链不用一次搭完。最小配置可以只有四件：MoneyPrinterTurbo 立脚本骨架，fish-speech 或 kokoro 出旁白，Wan 2.2 或 HunyuanVideo 出画面，Remotion 剪辑导出。跑通一期之后，再按短板补零件：口型对不上加 LatentSync，画面糊加 Real-ESRGAN，想玩动画再接 FramePack 与 LivePortrait。</p>
+<p>两条帖子合在一起的价值不在工具多，而在顺序清楚：脚本定方向，配音定节奏，画面定卖相，动画、口型、超分做打磨，剪辑收尾。按这个顺序走，免费工具也能拼出一条能出片的流水线；顺序乱了，再好的工具也只是一堆散件。</p>
+<p> </p>
+<p> </p>
+<p>本文来源：<a href="https://www.moyunews.com/" rel="external nofollow noopener noreferrer" target="_blank">摸鱼杂货店</a>。查看原文：<a href="https://www.moyunews.com/free-ai-video-studio-chain/" rel="external nofollow noopener noreferrer" target="_blank">免费AI视频链：两份开源清单拼出一条出片流水线</a>。</p></div>
+<p class="back"><a href="/">← 返回最新</a></p>
+</article>
+</main>
+<footer class="site-foot">
+<p>wocao.world — 本站内容全部转载自各订阅源，版权归原作者与原站所有。</p>
+</footer>
+</body>
+</html>
