@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-8TX501TYGH"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-8TX501TYGH');
+</script>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>零基础AI做游戏流水线：Godot原型先行少花钱 · wocao.world</title>
+<meta name="description" content="先让Claude写原型：Godot和Love2D二选一 零基础做游戏最容易死在第一步：引擎还没装，美术先劝退。这条流水线的顺序反过来：先用 Godot 或 Love2D 让 Claude 写出能玩的原型，玩法跑通了再补美术、动作和音乐，最后让 AI 把素材接回去。Godot 是免费开源引擎，MIT 许可，官网下载解压即跑、不需要安装，2D 和 3D 都能做；Love2D 是轻量 2D 框架，用 Lua 写，适合小体量 2D 游戏。原型阶段只验证一件事：这个玩法按下去有没有反馈、输赢条件清不清楚。 给 Claude 的指令要写成可验收的样子：角色怎么移动、碰到什么得分、什么情况结束、界面上显示哪…">
+<link rel="canonical" href="https://wocao.world/p/0f7a6c2c74e1/">
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="wocao.world">
+<meta property="og:title" content="零基础AI做游戏流水线：Godot原型先行少花钱 · wocao.world">
+<meta property="og:description" content="先让Claude写原型：Godot和Love2D二选一 零基础做游戏最容易死在第一步：引擎还没装，美术先劝退。这条流水线的顺序反过来：先用 Godot 或 Love2D 让 Claude 写出能玩的原型，玩法跑通了再补美术、动作和音乐，最后让 AI 把素材接回去。Godot 是免费开源引擎，MIT 许可，官网下载解压即跑、不需要安装，2D 和 3D 都能做；Love2D 是轻量 2D 框架，用 Lua 写，适合小体量 2D 游戏。原型阶段只验证一件事：这个玩法按下去有没有反馈、输赢条件清不清楚。 给 Claude 的指令要写成可验收的样子：角色怎么移动、碰到什么得分、什么情况结束、界面上显示哪…">
+<meta property="og:url" content="https://wocao.world/p/0f7a6c2c74e1/">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="零基础AI做游戏流水线：Godot原型先行少花钱 · wocao.world">
+<meta name="twitter:description" content="先让Claude写原型：Godot和Love2D二选一 零基础做游戏最容易死在第一步：引擎还没装，美术先劝退。这条流水线的顺序反过来：先用 Godot 或 Love2D 让 Claude 写出能玩的原型，玩法跑通了再补美术、动作和音乐，最后让 AI 把素材接回去。Godot 是免费开源引擎，MIT 许可，官网下载解压即跑、不需要安装，2D 和 3D 都能做；Love2D 是轻量 2D 框架，用 Lua 写，适合小体量 2D 游戏。原型阶段只验证一件事：这个玩法按下去有没有反馈、输赢条件清不清楚。 给 Claude 的指令要写成可验收的样子：角色怎么移动、碰到什么得分、什么情况结束、界面上显示哪…">
+<meta name="robots" content="index,follow">
+<link rel="alternate" type="application/rss+xml" title="wocao.world 聚合输出" href="/feed.xml">
+<link rel="stylesheet" href="/style.css">
+<meta property="article:published_time" content="2026-11-26T15:19:26.000Z">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","headline":"零基础AI做游戏流水线：Godot原型先行少花钱","description":"先让Claude写原型：Godot和Love2D二选一 零基础做游戏最容易死在第一步：引擎还没装，美术先劝退。这条流水线的顺序反过来：先用 Godot 或 Love2D 让 Claude 写出能玩的原型，玩法跑通了再补美术、动作和音乐，最后让 AI 把素材接回去。Godot 是免费开源引擎，MIT 许可，官网下载解压即跑、不需要安装，2D 和 3D 都能做；Love2D 是轻量 2D 框架，用 Lua 写，适合小体量 2D 游戏。原型阶段只验证一件事：这个玩法按下去有没有反馈、输赢条件清不清楚。 给 Claude 的指令要写成可验收的样子：角色怎么移动、碰到什么得分、什么情况结束、界面上显示哪…","url":"https://wocao.world/p/0f7a6c2c74e1/","datePublished":"2026-11-26T15:19:26.000Z","dateModified":"2026-11-26T17:55:35.595Z","mainEntityOfPage":{"@type":"WebPage","@id":"https://wocao.world/p/0f7a6c2c74e1/"},"author":{"@type":"Person","name":"摸鱼杂货店"},"publisher":{"@type":"Organization","name":"wocao.world","url":"https://wocao.world"}}</script>
+</head>
+<body>
+<a class="skip-link" href="#main">跳到正文</a>
+<header class="site-head">
+<p class="site-title"><a href="/">wocao.world</a></p>
+<p class="site-desc">wocao.world</p>
+<nav class="site-nav">
+<a href="/">最新</a>
+<a href="/about/">关于</a>
+<a href="/feed.xml">RSS</a>
+</nav>
+</header>
+<main id="main">
+<article>
+<h1 class="post-title">零基础AI做游戏流水线：Godot原型先行少花钱</h1>
+<div class="post-body"><p> </p>
+<h2>先让Claude写原型：Godot和Love2D二选一</h2>
+<p>零基础做游戏最容易死在第一步：引擎还没装，美术先劝退。这条流水线的顺序反过来：先用 <a href="https://godotengine.org/download/windows/" rel="external nofollow noopener noreferrer" target="_blank">Godot</a> 或 Love2D 让 Claude 写出能玩的原型，玩法跑通了再补美术、动作和音乐，最后让 AI 把素材接回去。Godot 是免费开源引擎，MIT 许可，官网下载解压即跑、不需要安装，2D 和 3D 都能做；Love2D 是轻量 2D 框架，用 Lua 写，适合小体量 2D 游戏。原型阶段只验证一件事：这个玩法按下去有没有反馈、输赢条件清不清楚。</p>
+<p>给 Claude 的指令要写成可验收的样子：角色怎么移动、碰到什么得分、什么情况结束、界面上显示哪些数字。原型先用色块和占位图，跑通后再换素材。帖中提到的提示词 gist 没有给出具体链接，本文不虚构提示词内容，只给分工顺序，提示词按你自己的玩法写。</p>
+<p><img loading="lazy" src="https://moyu.18uk.uk/2026/20261126-ea77a065-aacf-4bc0-8224-27c1e895792f.webp" alt="零基础AI做游戏流水线" width="1000" height="526" referrerpolicy="no-referrer" /></p>
+<h2>美术动作音乐分开补：每步只换一层</h2>
+<p>原型可玩后分三层补素材。生图层：用 Gemini 生成角色、背景和道具图，统一画风关键词，尺寸按引擎里预留的槽位出图。动作层：用 Grok 做动作参考或动效素材，动作幅度先小后大，循环点要对齐。去背层：用 Blender 处理需要透明背景或 3D 转 2D 的素材，导出带透明通道的图。配乐层：用 Suno 生成背景音乐，循环段落单独导出，音量压到不盖音效。</p>
+<p>每补一层就回引擎跑一遍，只换一层出问题才知道是哪层坏的。素材命名按用途分文件夹：角色、背景、道具、音效、音乐各一个目录，文件名带尺寸或用途，AI 接素材时按路径引用，少出现「图换了但引用还是旧的」这类低级翻车。引擎入口用官网下载，别从不明镜像站下带改动的包。</p>
+<h2>少花钱的账：免费引擎加按需生图</h2>
+<p>这条流水线的省钱点在引擎免费、原型先行。Godot 官网的 Windows 版解压即跑，导出模板在编辑器里装；Love2D 体积小，2D 小游戏够用。真正花钱的是生图和音乐的生成额度，所以顺序才重要：原型不好玩就停在色块阶段，损失只有几轮对话；玩法成立再逐层买素材，每层先出小样确认画风再批量。</p>
+<p>零基础还要预留调试轮次。AI 写的原型常见问题是按键没响应、碰撞判定偏、界面元素挡住操作区，这些靠逐条描述现象让它改，比自己啃引擎文档快。但改的时候一次只报一个问题，附上期望结果，改完立刻复测，攒一堆问题一起报容易越改越乱。</p>
+<h2>成品标准先定死：能玩和好看分开验收</h2>
+<p>验收分两条线：能玩线看移动、得分、结束、重开四件事是否完整；好看线看画风统一、动作不跳帧、音乐不抢戏。两条线分开验收，先过能玩线再谈好看线，顺序反了就会在不好玩的原型上花美术钱。导出时按目标平台选模板，网页版先给朋友试玩收集反馈，再决定要不要上架移动端。</p>
+<blockquote><p><strong> </strong>帖中提示词 gist 无链接，网上流传的「同款提示词」不要轻信出处。生图和音乐的商用权利看各平台当日条款，免费额度生成的素材商用范围要单独确认。引擎从官网下，Godot 数字商店版不含 .NET 支持，需要 C# 时用官网版。</p></blockquote>
+<p>适合照做的人：有玩法点子但不会写代码、预算有限的人。先用色块原型验证乐趣，再逐层补素材，这是整条流水线最值钱的一条顺序。</p>
+<p> </p>
+<p> </p>
+<p>本文来源：<a href="https://www.moyunews.com/" rel="external nofollow noopener noreferrer" target="_blank">摸鱼杂货店</a>。查看原文：<a href="https://www.moyunews.com/ai-game-pipeline-godot-first/" rel="external nofollow noopener noreferrer" target="_blank">零基础AI做游戏流水线：Godot原型先行少花钱</a>。</p></div>
+<p class="back"><a href="/">← 返回最新</a></p>
+</article>
+</main>
+<footer class="site-foot">
+<p>wocao.world — 本站内容全部转载自各订阅源，版权归原作者与原站所有。</p>
+</footer>
+</body>
+</html>

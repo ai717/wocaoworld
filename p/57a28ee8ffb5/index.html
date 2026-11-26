@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-8TX501TYGH"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-8TX501TYGH');
+</script>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>资料变视频实操：14个免费仓库端到端工作流拆解 · wocao.world</title>
+<meta name="description" content="一堆资料变短视频，难在中间环节 把文章、报告、网页资料变成一条能发的短视频，卡点从来不是最后导出，而是中间：提炼观点、写脚本、配画面、配音、加字幕，每一步都要换工具。这组被转发的 14 个免费 GitHub 仓库，主打的就是把「研究到成片」整条链路端到端打通。原始帖在这里：RoundtableSpace 的 14 仓库工作流帖。这篇按实操顺序拆，你照着搭就能跑通第一条。 资料进门：先把文本洗干净 工作流的入口是资料清洗：网页抓取、PDF 转文本、去重去噪，把乱七八糟的来源整理成结构化文本。这一步的仓库大多是爬虫和文档解析类工具，核心要求是输出纯文本或 Markdown，后面喂给大模型提炼时不带…">
+<link rel="canonical" href="https://wocao.world/p/57a28ee8ffb5/">
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="wocao.world">
+<meta property="og:title" content="资料变视频实操：14个免费仓库端到端工作流拆解 · wocao.world">
+<meta property="og:description" content="一堆资料变短视频，难在中间环节 把文章、报告、网页资料变成一条能发的短视频，卡点从来不是最后导出，而是中间：提炼观点、写脚本、配画面、配音、加字幕，每一步都要换工具。这组被转发的 14 个免费 GitHub 仓库，主打的就是把「研究到成片」整条链路端到端打通。原始帖在这里：RoundtableSpace 的 14 仓库工作流帖。这篇按实操顺序拆，你照着搭就能跑通第一条。 资料进门：先把文本洗干净 工作流的入口是资料清洗：网页抓取、PDF 转文本、去重去噪，把乱七八糟的来源整理成结构化文本。这一步的仓库大多是爬虫和文档解析类工具，核心要求是输出纯文本或 Markdown，后面喂给大模型提炼时不带…">
+<meta property="og:url" content="https://wocao.world/p/57a28ee8ffb5/">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="资料变视频实操：14个免费仓库端到端工作流拆解 · wocao.world">
+<meta name="twitter:description" content="一堆资料变短视频，难在中间环节 把文章、报告、网页资料变成一条能发的短视频，卡点从来不是最后导出，而是中间：提炼观点、写脚本、配画面、配音、加字幕，每一步都要换工具。这组被转发的 14 个免费 GitHub 仓库，主打的就是把「研究到成片」整条链路端到端打通。原始帖在这里：RoundtableSpace 的 14 仓库工作流帖。这篇按实操顺序拆，你照着搭就能跑通第一条。 资料进门：先把文本洗干净 工作流的入口是资料清洗：网页抓取、PDF 转文本、去重去噪，把乱七八糟的来源整理成结构化文本。这一步的仓库大多是爬虫和文档解析类工具，核心要求是输出纯文本或 Markdown，后面喂给大模型提炼时不带…">
+<meta name="robots" content="index,follow">
+<link rel="alternate" type="application/rss+xml" title="wocao.world 聚合输出" href="/feed.xml">
+<link rel="stylesheet" href="/style.css">
+<meta property="article:published_time" content="2026-11-26T14:51:00.000Z">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","headline":"资料变视频实操：14个免费仓库端到端工作流拆解","description":"一堆资料变短视频，难在中间环节 把文章、报告、网页资料变成一条能发的短视频，卡点从来不是最后导出，而是中间：提炼观点、写脚本、配画面、配音、加字幕，每一步都要换工具。这组被转发的 14 个免费 GitHub 仓库，主打的就是把「研究到成片」整条链路端到端打通。原始帖在这里：RoundtableSpace 的 14 仓库工作流帖。这篇按实操顺序拆，你照着搭就能跑通第一条。 资料进门：先把文本洗干净 工作流的入口是资料清洗：网页抓取、PDF 转文本、去重去噪，把乱七八糟的来源整理成结构化文本。这一步的仓库大多是爬虫和文档解析类工具，核心要求是输出纯文本或 Markdown，后面喂给大模型提炼时不带…","url":"https://wocao.world/p/57a28ee8ffb5/","datePublished":"2026-11-26T14:51:00.000Z","dateModified":"2026-11-26T17:55:35.595Z","mainEntityOfPage":{"@type":"WebPage","@id":"https://wocao.world/p/57a28ee8ffb5/"},"author":{"@type":"Person","name":"摸鱼杂货店"},"publisher":{"@type":"Organization","name":"wocao.world","url":"https://wocao.world"}}</script>
+</head>
+<body>
+<a class="skip-link" href="#main">跳到正文</a>
+<header class="site-head">
+<p class="site-title"><a href="/">wocao.world</a></p>
+<p class="site-desc">wocao.world</p>
+<nav class="site-nav">
+<a href="/">最新</a>
+<a href="/about/">关于</a>
+<a href="/feed.xml">RSS</a>
+</nav>
+</header>
+<main id="main">
+<article>
+<h1 class="post-title">资料变视频实操：14个免费仓库端到端工作流拆解</h1>
+<div class="post-body"><p> </p>
+<h2>一堆资料变短视频，难在中间环节</h2>
+<p>把文章、报告、网页资料变成一条能发的短视频，卡点从来不是最后导出，而是中间：提炼观点、写脚本、配画面、配音、加字幕，每一步都要换工具。这组被转发的 14 个免费 GitHub 仓库，主打的就是把「研究到成片」整条链路端到端打通。原始帖在这里：<a href="https://x.com/RoundtableSpace/status/2122166518041767999" rel="external nofollow noopener noreferrer" target="_blank">RoundtableSpace 的 14 仓库工作流帖</a>。这篇按实操顺序拆，你照着搭就能跑通第一条。</p>
+<p><img loading="lazy" src="https://moyu.18uk.uk/2026/20261126-da8a5e01-fcb7-4871-8085-c7c9eb18bdff.webp" alt="资料变视频" width="900" height="450" referrerpolicy="no-referrer" /></p>
+<h2>资料进门：先把文本洗干净</h2>
+<p>工作流的入口是资料清洗：网页抓取、PDF 转文本、去重去噪，把乱七八糟的来源整理成结构化文本。这一步的仓库大多是爬虫和文档解析类工具，核心要求是输出纯文本或 Markdown，后面喂给大模型提炼时不带垃圾。本地先用 <code>pip install</code> 装好解析库，拿一篇长文试跑，看输出是否丢段落、丢表格。</p>
+<h2>脚本生成：让模型按时长写分镜</h2>
+<p>清洗后的文本交给大模型做两件事：提炼三到五个核心观点，再按目标时长写成分镜脚本，每镜标注画面描述和口播文案。提示词里写死约束：总时长 60 秒内、每句口播不超过 20 字、画面描述能直接当生图提示词用。脚本质量决定成片下限，这一步别省人工审，观点提炼错了后面全白干。</p>
+<h2>画面配音字幕：三件套自动对齐</h2>
+<p>画面按分镜描述批量生成或检索素材，配音用语音合成把口播读出来，字幕用语音识别对齐时间轴自动生成。三个环节都可以用开源仓库本地跑，命令形态基本是 <code>python main.py --input script.json</code> 这类读配置文件的批处理。关键是让脚本文件成为唯一数据源：改一处文案，画面、配音、字幕全部跟着重跑，不用手工对齐。</p>
+<blockquote><p><strong> </strong>端到端工作流最容易翻车在版本兼容，14 个仓库各自依赖不同，装环境时建议每个环节单独建虚拟环境。先把单环节跑通再串联，一次全装出问题都不知道卡在哪。</p></blockquote>
+<h2>跑通第一条，再谈批量</h2>
+<p>正确顺序是先用一篇资料跑完整条链，导出一条能看的视频，哪怕粗糙。确认每个环节的输入输出格式对得上，再把脚本文件换成批量模式，一次喂十篇资料。批量之前把模板定死：片头、字幕样式、配音音色全部固定，账号视觉一致性比单条精致更重要。</p>
+<p>这条工作流省的不是创意，是重复劳动。观点提炼和分镜取舍仍然要人把关，机器负责把洗稿、配音、字幕、合成这些体力活一次干完。</p>
+<p> </p>
+<p> </p>
+<p>本文来源：<a href="https://www.moyunews.com/" rel="external nofollow noopener noreferrer" target="_blank">摸鱼杂货店</a>。查看原文：<a href="https://www.moyunews.com/research-to-video-14-repos/" rel="external nofollow noopener noreferrer" target="_blank">资料变视频实操：14个免费仓库端到端工作流拆解</a>。</p></div>
+<p class="back"><a href="/">← 返回最新</a></p>
+</article>
+</main>
+<footer class="site-foot">
+<p>wocao.world — 本站内容全部转载自各订阅源，版权归原作者与原站所有。</p>
+</footer>
+</body>
+</html>

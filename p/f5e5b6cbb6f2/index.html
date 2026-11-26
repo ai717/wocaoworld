@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-8TX501TYGH"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-8TX501TYGH');
+</script>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>AI视频流水线补齐：8个GitHub仓库按环节分工一次讲清 · wocao.world</title>
+<meta name="description" content="八个仓库拼成一条视频生产流水线 AI 视频工具满天飞，真正卡人的不是单个模型行不行，而是每个环节都要单独折腾。这组被转发的 8 个 GitHub 仓库，刚好把一条完整生产流水线补齐：从生成、驱动、抠像到合成、字幕，每段都有开源件可用。原始汇总帖在这里：beginnersblog1 的 8 仓库汇总帖。这篇不按工具罗列，按流水线环节讲谁干什么活。 生成环节：三个引擎各管一摊 ComfyUI 是总调度台，用节点连线把生图、生视频的步骤串起来，换模型不用重写流程。Wan2.2 和 LTX-Video 是视频生成引擎，一个偏质量、一个偏速度，本地跑要看显存家底。把它们挂进 ComfyUI 节点图，同一…">
+<link rel="canonical" href="https://wocao.world/p/f5e5b6cbb6f2/">
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="wocao.world">
+<meta property="og:title" content="AI视频流水线补齐：8个GitHub仓库按环节分工一次讲清 · wocao.world">
+<meta property="og:description" content="八个仓库拼成一条视频生产流水线 AI 视频工具满天飞，真正卡人的不是单个模型行不行，而是每个环节都要单独折腾。这组被转发的 8 个 GitHub 仓库，刚好把一条完整生产流水线补齐：从生成、驱动、抠像到合成、字幕，每段都有开源件可用。原始汇总帖在这里：beginnersblog1 的 8 仓库汇总帖。这篇不按工具罗列，按流水线环节讲谁干什么活。 生成环节：三个引擎各管一摊 ComfyUI 是总调度台，用节点连线把生图、生视频的步骤串起来，换模型不用重写流程。Wan2.2 和 LTX-Video 是视频生成引擎，一个偏质量、一个偏速度，本地跑要看显存家底。把它们挂进 ComfyUI 节点图，同一…">
+<meta property="og:url" content="https://wocao.world/p/f5e5b6cbb6f2/">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="AI视频流水线补齐：8个GitHub仓库按环节分工一次讲清 · wocao.world">
+<meta name="twitter:description" content="八个仓库拼成一条视频生产流水线 AI 视频工具满天飞，真正卡人的不是单个模型行不行，而是每个环节都要单独折腾。这组被转发的 8 个 GitHub 仓库，刚好把一条完整生产流水线补齐：从生成、驱动、抠像到合成、字幕，每段都有开源件可用。原始汇总帖在这里：beginnersblog1 的 8 仓库汇总帖。这篇不按工具罗列，按流水线环节讲谁干什么活。 生成环节：三个引擎各管一摊 ComfyUI 是总调度台，用节点连线把生图、生视频的步骤串起来，换模型不用重写流程。Wan2.2 和 LTX-Video 是视频生成引擎，一个偏质量、一个偏速度，本地跑要看显存家底。把它们挂进 ComfyUI 节点图，同一…">
+<meta name="robots" content="index,follow">
+<link rel="alternate" type="application/rss+xml" title="wocao.world 聚合输出" href="/feed.xml">
+<link rel="stylesheet" href="/style.css">
+<meta property="article:published_time" content="2026-11-26T14:30:41.000Z">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","headline":"AI视频流水线补齐：8个GitHub仓库按环节分工一次讲清","description":"八个仓库拼成一条视频生产流水线 AI 视频工具满天飞，真正卡人的不是单个模型行不行，而是每个环节都要单独折腾。这组被转发的 8 个 GitHub 仓库，刚好把一条完整生产流水线补齐：从生成、驱动、抠像到合成、字幕，每段都有开源件可用。原始汇总帖在这里：beginnersblog1 的 8 仓库汇总帖。这篇不按工具罗列，按流水线环节讲谁干什么活。 生成环节：三个引擎各管一摊 ComfyUI 是总调度台，用节点连线把生图、生视频的步骤串起来，换模型不用重写流程。Wan2.2 和 LTX-Video 是视频生成引擎，一个偏质量、一个偏速度，本地跑要看显存家底。把它们挂进 ComfyUI 节点图，同一…","url":"https://wocao.world/p/f5e5b6cbb6f2/","datePublished":"2026-11-26T14:30:41.000Z","dateModified":"2026-11-26T17:55:35.595Z","mainEntityOfPage":{"@type":"WebPage","@id":"https://wocao.world/p/f5e5b6cbb6f2/"},"author":{"@type":"Person","name":"摸鱼杂货店"},"publisher":{"@type":"Organization","name":"wocao.world","url":"https://wocao.world"}}</script>
+</head>
+<body>
+<a class="skip-link" href="#main">跳到正文</a>
+<header class="site-head">
+<p class="site-title"><a href="/">wocao.world</a></p>
+<p class="site-desc">wocao.world</p>
+<nav class="site-nav">
+<a href="/">最新</a>
+<a href="/about/">关于</a>
+<a href="/feed.xml">RSS</a>
+</nav>
+</header>
+<main id="main">
+<article>
+<h1 class="post-title">AI视频流水线补齐：8个GitHub仓库按环节分工一次讲清</h1>
+<div class="post-body"><p> </p>
+<h2>八个仓库拼成一条视频生产流水线</h2>
+<p>AI 视频工具满天飞，真正卡人的不是单个模型行不行，而是每个环节都要单独折腾。这组被转发的 8 个 GitHub 仓库，刚好把一条完整生产流水线补齐：从生成、驱动、抠像到合成、字幕，每段都有开源件可用。原始汇总帖在这里：<a href="https://x.com/beginnersblog1/status/2122179973230579834" rel="external nofollow noopener noreferrer" target="_blank">beginnersblog1 的 8 仓库汇总帖</a>。这篇不按工具罗列，按流水线环节讲谁干什么活。</p>
+<p><img loading="lazy" src="https://moyu.18uk.uk/2026/20261126-77793d6b-5204-4f72-8176-60b344b53f40.webp" alt="AI视频流水线" width="800" height="1000" referrerpolicy="no-referrer" /></p>
+<h2>生成环节：三个引擎各管一摊</h2>
+<p><a href="https://github.com/comfyanonymous/ComfyUI" rel="external nofollow noopener noreferrer" target="_blank">ComfyUI</a> 是总调度台，用节点连线把生图、生视频的步骤串起来，换模型不用重写流程。<a href="https://github.com/Wan-Video/Wan2.2" rel="external nofollow noopener noreferrer" target="_blank">Wan2.2</a> 和 <a href="https://github.com/Lightricks/LTX-Video" rel="external nofollow noopener noreferrer" target="_blank">LTX-Video</a> 是视频生成引擎，一个偏质量、一个偏速度，本地跑要看显存家底。把它们挂进 ComfyUI 节点图，同一套工作流就能切换引擎出片。</p>
+<h2>驱动环节：让静态脸动起来开口说话</h2>
+<p><a href="https://github.com/KwaiVGI/LivePortrait" rel="external nofollow noopener noreferrer" target="_blank">LivePortrait</a> 负责表情和头部动作驱动，一张照片就能跟着参考视频动。<a href="https://github.com/TMElyralab/MuseTalk" rel="external nofollow noopener noreferrer" target="_blank">MuseTalk</a> 管口型对齐，喂一段音频，嘴型跟着台词走。数字人短视频的「会说话」基本就靠这两件，本地部署命令大致是 <code>git clone</code> 拉仓库后按 README 装依赖，显卡不够就先用云端试跑再决定要不要本地化。</p>
+<h2>合成与字幕：最后两公里别掉链子</h2>
+<p><a href="https://github.com/facebookresearch/sam2" rel="external nofollow noopener noreferrer" target="_blank">SAM2</a> 做视频抠像和主体跟踪，换背景、加特效都靠它先把主体分出来。<a href="https://github.com/remotion-dev/remotion" rel="external nofollow noopener noreferrer" target="_blank">Remotion</a> 用代码批量合成视频，片头、字幕样式、转场都能模板化，适合日更账号批量出片。<a href="https://github.com/m-bain/whisperX" rel="external nofollow noopener noreferrer" target="_blank">WhisperX</a> 负责语音转字幕并对齐时间轴，自动字幕的准确率比纯语音识别高一截，命令入口是 <code>whisperx audio.mp3 --model large-v2</code> 这类一行调用。</p>
+<table>
+<thead>
+<tr>
+<th>环节</th>
+<th>仓库</th>
+<th>干什么活</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>调度</td>
+<td>ComfyUI</td>
+<td>节点工作流总控</td>
+</tr>
+<tr>
+<td>生成</td>
+<td>Wan2.2 / LTX-Video</td>
+<td>文生视频与图生视频</td>
+</tr>
+<tr>
+<td>驱动</td>
+<td>LivePortrait / MuseTalk</td>
+<td>表情驱动与口型对齐</td>
+</tr>
+<tr>
+<td>合成字幕</td>
+<td>SAM2 / Remotion / WhisperX</td>
+<td>抠像、批量合成、字幕对齐</td>
+</tr>
+</tbody>
+</table>
+<blockquote><p><strong> </strong>这八件全装本地对显卡和硬盘是硬考验，生成类模型动辄几十 GB。先用云端或小模型把流程跑通，确认哪个环节真是你的瓶颈，再决定本地部署哪几件，别一上来全家桶。</p></blockquote>
+<h2>拼流水线之前先想清产量</h2>
+<p>日更一条和周更一条，工具选型完全不同。产量低就用现成平台省心，产量高、要批量套模板的，Remotion 加 WhisperX 这类代码化合成才划算。流水线的价值不在仓库数量，在每个环节都不用手工返工。</p>
+<p> </p>
+<p> </p>
+<p>本文来源：<a href="https://www.moyunews.com/" rel="external nofollow noopener noreferrer" target="_blank">摸鱼杂货店</a>。查看原文：<a href="https://www.moyunews.com/ai-video-8-repos-pipeline/" rel="external nofollow noopener noreferrer" target="_blank">AI视频流水线补齐：8个GitHub仓库按环节分工一次讲清</a>。</p></div>
+<p class="back"><a href="/">← 返回最新</a></p>
+</article>
+</main>
+<footer class="site-foot">
+<p>wocao.world — 本站内容全部转载自各订阅源，版权归原作者与原站所有。</p>
+</footer>
+</body>
+</html>

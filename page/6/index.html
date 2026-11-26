@@ -43,158 +43,158 @@
 
 
 <article class="post-card">
-<h2 class="post-card-title"><a href="/p/887882eae39c/">Claude代码评审正式 GA：Team 与 Enterprise 自动审 PR</a></h2>
-<p class="meta"><time datetime="2026-10-21T16:40:07.000Z">2026/10/21</time></p>
-<p class="excerpt">GA 到底改了什么 2026-10-15 Anthropic 在官方公告 Code Review is now generally available 里原话：「Code Review is out of research preview and available to Claude Team and Enterprise organizations」。 适用范围锁定在 Claude Team 与 Enterprise 组织，管理员只需在 Claude Code 设置里打开开关，再安装官方 GitHub App 并勾选仓库，随后每个新建 PR 会自动触发评审，也可在评论区 @claude r…</p>
+<h2 class="post-card-title"><a href="/p/b02991000af2/">Claude Code 游戏开发模板：49 Agent 覆盖三大引擎</a></h2>
+<p class="meta"><time datetime="2026-10-31T17:35:23.000Z">2026/10/31</time></p>
+<p class="excerpt">别再手搓脚手架了，这套 49 Agent 的开源库直接给你整活 你要是还在用 Cursor 或 Copilot 逐行敲 Godot 的 _ready()、Unity 的 MonoBehaviour 生命周期、Unreal 的 UCLASS() 宏，那真得醒醒了。Donchitos/Claude-Code-Game-Studios 这个仓库在 2026-10-29 抓取时已经斩获 约 2.9 万 star（精确 28,838），README 徽标硬写着 49 agents、74 skills、15 hooks、14 rules、62 templates，MIT 许可随便白嫖。别被数字吓住，它本质…</p>
 </article>
 <article class="post-card">
-<h2 class="post-card-title"><a href="/p/80b13b4b4a7c/">Sakana AI 推出 QD-Rec 用质量多样性进化搜索做开放式推荐</a></h2>
-<p class="meta"><time datetime="2026-10-21T16:38:43.000Z">2026/10/21</time></p>
-<p class="excerpt">为什么推荐系统还在靠静态打分？ 大多数推荐框架把候选项塞进固定的向量空间，再用同一套打分函数排序。这种做法在候选池不断扩张、偏好不断漂移时，往往只能靠重训练来缓解，成本高、反应慢。 QD-Rec 的核心循环：bandit → LLM 变异 → niche 竞争 项目把推荐单位拆成 候选（公司、顾客、论文）与 假设（书面理由），然后跑三步循环： bandit 选候选 用多臂老虎机策略在现有档案里挑出最值得探索的候选，避免盲目遍历。 LLM 变异与交叉 把选中的候选喂给 proposer（默认 openai/gpt-6-luna），让模型写出新的推荐理由，或把两条理由杂交出第三条。 niche 竞…</p>
+<h2 class="post-card-title"><a href="/p/0a3590891353/">Agent 写 film.html、浏览器剪辑：这间 AI电影工作室真能出 4K</a></h2>
+<p class="meta"><time datetime="2026-10-31T17:32:02.000Z">2026/10/31</time></p>
+<p class="excerpt">开门只要一条命令：Node 和终端是唯二的门票 动手前先把环境备齐，清单短得离谱：装好 Node.js（npx 能跑就行）、一个能打开的终端、能正常访问 GitHub。没有显卡要求，没有 Python 依赖地狱，因为渲染和预览都发生在浏览器里。项目在 GitHub 上约 3.5k star，挂的是 MIT 许可，商用、魔改、套壳都不用交钱，源码就在 openfilm/openfilm 仓库里躺着。 安装本身就是一句话：npx skills add openfilm/openfilm。这条命令把 OpenFilm 的整套技能定义装进你本地 Agent 的 skills 目录，装完之后 Claud…</p>
 </article>
 <article class="post-card">
-<h2 class="post-card-title"><a href="/p/988cb03b7f6c/">Hermes Agent：自带自我进化的 Agent 操作系统</a></h2>
-<p class="meta"><time datetime="2026-10-21T16:37:25.000Z">2026/10/21</time></p>
-<p class="excerpt">一次性 Agent 的短板 大多数 AI Agent 只能一次性跑完任务，下次还得重新喂提示词、重新配置工具链，根本没有“记得上次怎么干”的能力。这就导致开发者在重复性工作里不断复制粘贴，效率低得像在搬砖。而 NousResearch/hermes-agent 以约 25.5 万 star 的声量告诉我们：把“自我改进”做成内核能力，才是把 Agent 从玩具变成生产力工具的关键。 自我改进循环怎么跑通 README 里的定位原话是 “The self-improving AI agent built by Nous Research”。其核心思路可以拆解为三层：执行、沉淀、复用。Agent …</p>
+<h2 class="post-card-title"><a href="/p/9199676b35aa/">Minty登上Android：AI购物返现自动贴券新人送10美元</a></h2>
+<p class="meta"><time datetime="2026-10-29T14:25:58.000Z">2026/10/29</time></p>
+<p class="excerpt">假日季前夜，Android 版赶到了 10 月 28 日，Minty 在 GlobeNewswire 上宣布 Android 版上线，此前它已经有了 iOS 版。这次的时间点挑得很直白：假日购物季就在眼前，购物清单越长，越需要一个不用自己到处翻优惠券的东西。Minty 给自己的定位叫 Proactive Commerce，也就是主动式购物省钱：不是等你想起来去搜券，而是你在支持的商店购物时，它主动把返现和优惠券推到你面前。 它的创始人兼 CEO Jon West 在官宣里把话说得很朴素，大意是购物者不该在购物旺季还到处找优惠。这句话听起来像口号，但对应的是一个真实场景：大促期间优惠信息散落在各…</p>
 </article>
 <article class="post-card">
-<h2 class="post-card-title"><a href="/p/216f6cb17038/">3.7万星Claude代码路由：免费接DeepSeek/Kimi/GLM</a></h2>
-<p class="meta"><time datetime="2026-10-21T16:35:39.000Z">2026/10/21</time></p>
-<p class="excerpt">Claude Code 好用但钱包扛不住 用过 Claude Code 的都知道，这玩意儿写代码真香，但 Anthropic 官方 API 按 Token 计费，跑个中型项目几十刀像玩儿。更气人的是被锁死在单一厂商——想换 DeepSeek、想用 Kimi、想试 GLM，全得重写适配层。 Claude Code Router（仓库 musistudio/claude-code-router）直接把这个结解开：3.7 万+ star、3,169 forks、MIT 协议，定位「本地 AI 智能体总控平台」。原理一句话：让 Claude Code、Codex、Grok CLI、Kimi CLI、K…</p>
+<h2 class="post-card-title"><a href="/p/34370c308a9c/">断网也能聊：离线本地AI把模型装进口袋里</a></h2>
+<p class="meta"><time datetime="2026-10-29T14:24:29.000Z">2026/10/29</time></p>
+<p class="excerpt">手机端五种核心能力 安装 Off Grid AI 后，手机即可在完全断网的环境下完成聊天、读取文档、浏览照片、语音输入以及本地生成图片五大任务。所有模型文件都存放在设备存储里，启动时直接加载，不需要任何账号登录，也不会把对话内容上传到云端。实际体验中，哪怕把 Wi‑Fi 关掉、拔掉 SIM 卡，依然能流畅回复日常问答，生成的图片也在秒级完成，完全感受不到网络缺失。 聊天：基于本地 LLM 实时对话，无延迟上传 读文档：PDF、Markdown、Word 全格式解析，摘要即时生成 看照片：图像理解模型在手机端跑完推理，标签与描述秒出 语音：语音转文字完全离线，支持中英混读 作图：Stable D…</p>
 </article>
 <article class="post-card">
-<h2 class="post-card-title"><a href="/p/66b8183a5a1c/">rea逆向工程实战：本地把二进制拆到字节级</a></h2>
-<p class="meta"><time datetime="2026-10-21T16:33:35.000Z">2026/10/21</time></p>
-<p class="excerpt">痛点直击：AI 只会写代码，不会读二进制 手里攥着个没源码的 .exe、.apk 或签名掉了的 Electron 包，想让 Claude Code 帮你把业务逻辑还原成伪代码？别做梦了——大模型上下文塞不进 IDA Pro 的数据库，也跑不通 Ghidra 的分析流程。morluto/rea 这项目，GitHub 狂揽 超 34 万 star、fork 8.6 万，MIT 协议彻底开源，给的答案是：别让大模型去猜汇编，把现成的逆向工具包成 MCP 服务器 扔给 Agent 直接调。 前置条件：别上来就 npx 先确认三样东西在机器上： Node.js 环境（跑 npx rea-agents s…</p>
+<h2 class="post-card-title"><a href="/p/f45f36c7ba68/">10月28日Trending日榜单日涨1598星AI私人导师DeepTutor</a></h2>
+<p class="meta"><time datetime="2026-10-29T14:22:31.000Z">2026/10/29</time></p>
+<p class="excerpt">为何要把导师塞进知识图谱 10 月 28 日 DeepTutor 在 GitHub Trending 日榜单日涨约 1598 星，连 ScriptByAI 也把它列为“能记住你哪里不会”的 Agent‑Native 学习助手。普通聊天框只会把历史记录堆叠，真正有用的记忆是结构化的学员画像与知识图谱，才能在下一次对话里精准定位弱项并自动出题。 先把环境搭起来 跑通全套需要 Python 3.11–3.14 以及 Node.js 20+，建议先在终端跑 python -V 和 node -v 确认版本。若缺失请用 pyenv 或 nvm 补齐，别等报错再折腾。 两条路线任选一条 PyPI 路线：p…</p>
 </article>
 <article class="post-card">
-<h2 class="post-card-title"><a href="/p/1ade4546c460/">Stripe MCP 接入 Claude Code 一条命令搞定出海收款</a></h2>
-<p class="meta"><time datetime="2026-10-20T10:17:24.000Z">2026/10/20</time></p>
-<p class="excerpt">前置条件 先确认你有一个 Stripe 账号（测试先用 sandbox 模式练手）；本机装好 Node 18+ 和 npm，能正常跑命令；Claude Code 已经装好并能正常对话；准备一台能联网的机器，因为远程 MCP 地址 https://mcp.stripe.com 走 HTTPS，确认防火墙没把出站 443 掐掉。动手前先扫一眼 Stripe MCP 官方文档，心里有数再开干。 一条命令接入 打开终端跑 npm install -g @stripe/cli@latest 装最新版 CLI，再执行 stripe agent setup。这条命令会自动探测你正在用的 Agent，把 MC…</p>
+<h2 class="post-card-title"><a href="/p/f520cf85737e/">Cindy智能体：同一任务中途切换 Claude 与 Codex 引擎</a></h2>
+<p class="meta"><time datetime="2026-10-29T14:20:57.000Z">2026/10/29</time></p>
+<p class="excerpt">一天内冲上 Trending 的背后 10 月 28 日，Cindy 以单日约 1465 星冲上 GitHub Trending 日榜，总星数已逼近 7300。这并非单纯的营销声量，而是开发者对「同一任务中途换引擎」这一刚需的真实投票。 项目口号 “Consider it done.” 直指痛点：写代码时想用 Claude Code 做架构，转手又想让 Codex 补全细节，却不想重新搭建上下文。Cindy 把工作区、记忆、技能、工具全程保持连续，做到了真正的「不断线」。 同一任务换引擎的实际体验 实测中，打开桌面端（Electron）或移动端（Expo/React Native），新建任务后…</p>
 </article>
 <article class="post-card">
-<h2 class="post-card-title"><a href="/p/d80dfa3c157e/">HelixWorld 开源实测：WASD 走进 24FPS 音画世界</a></h2>
-<p class="meta"><time datetime="2026-10-20T10:16:31.000Z">2026/10/20</time></p>
-<p class="excerpt">别再给我看「先出默片再配音」的伪同步了 这两年「世界模型」概念被炒得挺热，HelixWorld 一出手直接把门槛砸碎了：丢一张图、扔一句自然语言提示词，键盘按下 W/A/S/D 移动、方向键转视角，24 FPS 视频流配 48kHz 立体声空间音频实时同生。不是先生成视频再去套音效，也不是先跑音频再对口型 —— 视觉与听觉在同一个前向传播里「长」出来。在线演示站 点开就能玩，GitHub 仓库 已放出 Preview v1 推理代码与权重，代码 Apache-2.0 开源（权重许可另见 Hugging Face 页面）。技术报告挂在 arXiv:2609.38123，想啃细节的直接去啃。 核心…</p>
+<h2 class="post-card-title"><a href="/p/b2cb80b8a5b8/">Opera One 上线浏览器本地AI，Gemma 与 Apple 模型本地跑</a></h2>
+<p class="meta"><time datetime="2026-10-29T14:17:51.000Z">2026/10/29</time></p>
+<p class="excerpt">Opera One 把模型塞进浏览器内核 10 月 27 日 Opera One 官方宣布在稳定版里直接内置本地 AI，用户只需在设置里手动开启早期预览，模型才会下载到硬盘，不开就不占带宽也不占存储。首批可用的权重包括 Gemma 以及 Mac 上的 Apple 端上基础模型，仅限 64 位 Windows（Intel/AMD）与 Apple Silicon Mac。这意味着生成文本、内容分类、理解信息关联这些能力全在本机跑完，数据不出户，隐私焦虑直接清零。 为什么这事儿对你我有用 以前想在浏览器里玩大模型，要么装扩展调云端 API，要么自己搭服务器，门槛高还怕泄密。现在 Opera One …</p>
 </article>
 <article class="post-card">
-<h2 class="post-card-title"><a href="/p/003d358a4f43/">7个免安装浏览器小工具：投票、座位表、胶片滤镜全搞定</a></h2>
-<p class="meta"><time datetime="2026-10-20T10:13:31.000Z">2026/10/20</time></p>
-<p class="excerpt">打开浏览器就能用：这 7 个小工具先码住 有些工具真没必要装 App——打开网页，干完活就走。这份十月榜单一口气挑了 7 个免费的浏览器小工具：从约会投票、婚礼排座位，到复古胶片滤镜、88 键钢琴，全是「用完即走」的类型。一张表先看明白，再按场景抄作业。 这类网页小工具的共同卖点就四个字：用完即走。不占硬盘、不绑账号、换台电脑打开链接接着用。但丑话说在前面：功能普遍比专业软件浅，适合轻量、临时的活；涉及隐私的材料，先看官方说法再决定传不传；免费也多半是阶段性的，比如 OldRoll 官网就明说网页版是发布期免费，哪天开始收费都不奇怪。真要长期依赖哪一款，先想好替代方案。 榜单来源：Medium…</p>
+<h2 class="post-card-title"><a href="/p/07d8b301e624/">GPT-6.1 Terra 价格腰斩 性能逼近旗舰</a></h2>
+<p class="meta"><time datetime="2026-10-29T14:16:09.000Z">2026/10/29</time></p>
+<p class="excerpt">价格腰斩、性能却不缩水 OpenAI 在 10 月 26 日推出的 GPT-6.1 Terra 直接把 API 标准价砍到 输入 1 美元/百万 token、缓存输入 0.05 美元/百万、输出 5 美元/百万，且 Batch 与 Flex 模式再减半，官方称这是 GPT-5.6 Terra 与 GPT-6.1 Sol 价格的 一半（厂商说法/未独立验证）。上下文窗口达到 105 万 token，知识截止 2026‑06‑01，API 标识为 gpt-6.1-terra。ChatGPT Work 与 Codex 已向 Plus、Pro、Business、Enterprise、Edu 用户开放，…</p>
 </article>
 <article class="post-card">
-<h2 class="post-card-title"><a href="/p/5413a8548593/">Mercury3 1068 token/s 百万上下文首发半价</a></h2>
-<p class="meta"><time datetime="2026-10-20T10:10:08.000Z">2026/10/20</time></p>
-<p class="excerpt">核心参数一览 Inception 刚把 Mercury 3 推到台面，这是它家的新一代扩散大模型（diffusion LLM）。官方新闻稿 2026-10-19 发布，给的硬指标有两个：NVIDIA GPU 上实测 1,068 tokens/秒 的生成速度，上下文窗口 1,000,000 token。上一代 Mercury 2.5 的上下文只有 260,000 token，这一代直接拉高到接近四倍。unite.ai 的报道 也把速度和上下文这两项列为这代的主打卖点。 扩散架构为什么能这么快 市面上大多数大模型是自回归的：一个 token 接一个 token 往外吐，前一个没写完，后一个不能动，…</p>
+<h2 class="post-card-title"><a href="/p/30d1a9f6ec77/">多智能体并行跑任务：Orca 让 30 多个 agent 各干各的只留最优解</a></h2>
+<p class="meta"><time datetime="2026-10-29T14:14:29.000Z">2026/10/29</time></p>
+<p class="excerpt">别让几个 agent 在同一个目录里打架 同时派几个 coding agent 改同一份代码，最常见的下场就是互相覆盖、冲突满屏。而且它们读的是同一份上下文，犯错还容易撞车，所谓集思广益最后变成集体翻车。Orca 换了个思路：不拼谁的模型更强，而是给每个 agent 一个独立的 git worktree，各自在完整检出里干活，最后把结果并排摆出来，只合并最优解，其余丢弃。 一个任务派出去，Orca 在后台干了什么 桌面端新建任务、写清需求、勾选要上场的 agent：内置 30+ CLI agent 预设，覆盖 Claude Code、Codex、Grok、Cursor、GitHub Copil…</p>
 </article>
 <article class="post-card">
-<h2 class="post-card-title"><a href="/p/a6cf746c5bfb/">Latch 用 NFC 贴纸把解锁按钮扔到屋外</a></h2>
-<p class="meta"><time datetime="2026-10-20T10:02:54.000Z">2026/10/20</time></p>
-<p class="excerpt">Latch：把解锁按钮贴到钥匙上 大多数防沉迷应用输在哪？锁屏密码在自己手里，想解随时能解，防的全是空气。Latch 的思路完全不同，官网标题就写着 Latch: put the unlock button across the room——把解锁按钮放到房间另一头去。它把解锁动作从手机里搬出来，绑在一张实体 NFC 贴纸（或者一张自己打印的二维码）上：想打开被锁的 App，必须起身走到贴纸跟前，用手机背面扫一下。产品 2026-10-17 登上 Product Hunt，支持 iPhone、iPad 和 Android。 准备工作不复杂：备一张 NTAG213、NTAG215 或 NTAG2…</p>
+<h2 class="post-card-title"><a href="/p/adc99f20bc7b/">34 家免费额度拼成本地 OpenAI 兼容接口：免费模型路由实测</a></h2>
+<p class="meta"><time datetime="2026-10-29T14:12:25.000Z">2026/10/29</time></p>
+<p class="excerpt">一条命令，34 家免费额度到手 手里攥着一堆免费 key，却每次都要手动换接口、改配置，免费额度用起来比花钱还累。FreeLLMAPI 的解法很直接：一条命令 curl -fsSL https://freellmapi.co/install.sh | bash，脚本拉取 Docker 镜像、在 3001 端口把服务跑起来，http://localhost:3001/v1 就成了一个标准的 OpenAI 兼容端点。一个统一 key，就能调用官方口径里 34 家供应商的 635 个免费端点，不用再给每个供应商各写一套配置。 这个项目定位是个人实验用途，MIT 协议开源。免费这件事它玩的是聚合：单家…</p>
 </article>
 <article class="post-card">
-<h2 class="post-card-title"><a href="/p/cea849c8de8e/">Harness²：不改权重让 Agent 越用越强</a></h2>
-<p class="meta"><time datetime="2026-10-20T10:01:19.000Z">2026/10/20</time></p>
-<p class="excerpt">Harness² 是什么 Google Research 放出的开源框架 Harness²，全名 Recursive Agent Harnessing for an Open World，协议 Apache 2.0。它想解决的问题很实际：想让一个 AI Agent 变强，通常得回头去动模型本身，重新训练或者微调，门槛和成本都摆在那里。Harness² 的核心思路反过来：不碰模型权重，只改模型外面那层「脚手架」，靠「双层递归」让 Agent 在跑任务的过程中自我进化。默认执行器用 OpenCode，也可接 Codex；能改的组件一共有八类：系统提示词、护栏、记忆、工具指导、子智能体、Skills…</p>
+<h2 class="post-card-title"><a href="/p/aaac4b88c6ec/">界面技能包治 Agent 的 UI 糙病：8,530 星开源评审</a></h2>
+<p class="meta"><time datetime="2026-10-29T14:09:56.000Z">2026/10/29</time></p>
+<p class="excerpt">Agent 写界面像盲人摸象，逻辑通了样子难看 让 Cursor 或 Claude Code 写个后台管理页，接口调通、状态机跑顺全靠提示词堆，一到『对齐』、『对比度过 WCAG 2.2』、『文案别用『点击这里』这种废话』，模型要么装瞎要么胡编。GitHub 上 jakubkrehel/skills 仓库 8,530 星、MIT 协议，直戳这个痛点：把排版、颜色、无障碍、布局、文案、UI 六大领域收成一套可安装的 Agent 技能，专治 coding agent『逻辑顺、界面能用就行』的毛病。 动手前：编辑器就位，评审范围先划清 别急着敲命令。先确认两件事：你要用的编辑器或 Agent 能装技…</p>
 </article>
 <article class="post-card">
-<h2 class="post-card-title"><a href="/p/6d5d0fa3ae9a/">fal 推出 FLUX 3 Max：10 秒视频 12 秒生成</a></h2>
-<p class="meta"><time datetime="2026-10-20T09:52:46.000Z">2026/10/20</time></p>
-<p class="excerpt">fal 放大招：FLUX 3 Max 10 秒视频 12 秒出片 Black Forest Labs 最新放出的 FLUX 3 Max 在 fal 官方模型页 直接可用，主打图生视频：在 Artificial Analysis 的 image-to-video arena 里拿到 1,139 Elo，和 Seedance 2.5 并列第一梯队。生成 10 秒 720p 视频只需 12.45 秒，而 Seedance 2.5 要 277.80 秒，快了约 22 倍。官方通稿 给的定位也很直白：第一梯队的图生视频画质，加上行业里靠前的生成速度。 速度差 22 倍，改变的不只是等待时间。一条 10 …</p>
+<h2 class="post-card-title"><a href="/p/fcef1a9e2235/">Claude Code 远程给电视去广告：禁 25 个小米包换苹果风主屏</a></h2>
+<p class="meta"><time datetime="2026-10-29T14:07:56.000Z">2026/10/29</time></p>
+<p class="excerpt">开机先看赞助广告？这回连包名都不用你背 父母屋里的小米电视，开机先看赞助广告，桌面上还堆着推荐行。2017 年 Vizio 就因未经同意追踪 1100 万台电视观看行为赔了 220 万美元。Gathin T. 受不了这套，直接把 Claude Code 扔进同一 Wi-Fi，丢个电视型号和 IP，让 AI 自己顺着 ADB 把 25 个小米包 pm disable-user 了，再装一个 Apple TV 风格启动器 当默认主屏。提示词整理成 cleanyourtv 开源，两天几千人照着跑通。 先把电视调成「可被 AI 摆布」的状态 动手前只需三样东西：同一 Wi-Fi 下的电脑、电视型号、电…</p>
 </article>
 <article class="post-card">
-<h2 class="post-card-title"><a href="/p/a54ba1600588/">Meta Muse Wonder双模型入局，Muse Agent登顶App Store：大盘正式进入四方混战</a></h2>
-<p class="meta"><time datetime="2026-10-17T18:08:07.000Z">2026/10/17</time></p>
-<p class="excerpt">闪击消费端与代码场：Muse Wonder 双模型登场 硅谷大模型战局的平衡在 10 月中旬被彻底打破。Meta 毫无预警地抛出全新一代推理基座 Muse Wonder 与专供高阶工程代码的 Muse Wonder Full 双模型组合。与其配套的消费级独立原生载体 Muse Agent 更是凭借 Active Memory 与自主执行能力，上线后以极快速度冲上美区 App Store 免费总榜榜首。在关键评测基准 MemoryBench 上，Wonder 跑出 85.6 的高分，在 14 项专项测试中斩获 6 项第一，直接将压力给到了刚披露真实战绩的 Google 与 Anthropic。 …</p>
+<h2 class="post-card-title"><a href="/p/8f16df228c96/">Godot助手接入：把Claude塞进编辑器只需63MB</a></h2>
+<p class="meta"><time datetime="2026-10-29T14:06:16.000Z">2026/10/29</time></p>
+<p class="excerpt">别再手动复制粘贴代码了，AI该直接进编辑器改场景树 写Godot游戏时最烦什么？不是逻辑难，是改个节点属性、重构个脚本、排查个报错，全得在编辑器和聊天窗口来回横跳。Godot-MCP Community Edition 10月25号刚发社区版 1.0.0，作者 Unsigned Exe Studios 走 MIT 协议，Windows 版压缩包才 63MB，.NET 8 自包含二进制，解压双击就能跑，连 Python 运行时都省了。核心思路很简单：在编辑器里跑个 WebSocket 服务（ws://127.0.0.1:6505），桌面端做个 Hub，把 Claude Desktop、LM St…</p>
 </article>
 <article class="post-card">
-<h2 class="post-card-title"><a href="/p/3daf79a1bae2/">老版本10月29日停服！Nano Banana 2.1实测：放弃堆砌玄学词，结构化Brief才是正确姿势</a></h2>
-<p class="meta"><time datetime="2026-10-17T18:05:01.000Z">2026/10/17</time></p>
-<p class="excerpt">告别“玄学魔法词”：调优版 2.1 的去油质感 Google 内部原本代号为 2.5 的调优版本，最终以 Nano Banana 2.1 的命名正式推向生产环境。相较于过往版本，新模型最大的工程突破在于对构图逻辑与语义遵从度的强力收敛。在横向对比测试中，运行相同的 8 组测试用例，2.1 版本彻底扫除了老模型中频繁出现的“三只手”、“背景多出两个太阳”等生成式顽疾，海报排版中的文字更是做到了像素级逐字对齐。目前该模型已在 Google Flow 平台开放免费调用。 需要重点留意生产环境的迁移窗口：官方确认老版 Nano Banana 2.0 将于 10 月 29 日正式下线停服。凡是将旧模型接…</p>
+<h2 class="post-card-title"><a href="/p/a2b36475b638/">Strata 0.2.5 把 125B Qwen 塞进本地大模型引擎</a></h2>
+<p class="meta"><time datetime="2026-10-29T14:04:49.000Z">2026/10/29</time></p>
+<p class="excerpt">一条安装包，几分钟跑起 125B 专家混合模型 以前想在自家游戏本上跑百亿级 MoE，得先折腾 Docker、再手动下载权重、还要调显存分层。现在 Strata 0.2.5 直接给每个系统打包一个安装程序，首次启动自动拉取对应推理引擎，点一下就能把 Qwen 团队发布的 Qwen3.8‑Flash‑Next（总参数 125B、单 token 激活约 6B、24 576 个专家、每词约 10 个工作专家）塞进 12 GB 显存里跑起来。 专家缓存进显存、全量专家住内存、CPU 补位、SSD 做 n‑gram 查表 核心思路不是传统的层卸载，而是把热门专家常驻显存、把全部 24 576 个专家放进…</p>
 </article>
 <article class="post-card">
-<h2 class="post-card-title"><a href="/p/7fd00dca2855/">从一张2D概念图到完整Blender宝塔群：Gemini 4 Argon跑通自主3D场景构建流水线</a></h2>
-<p class="meta"><time datetime="2026-10-17T18:03:00.000Z">2026/10/17</time></p>
-<p class="excerpt">终结逐条 Prompt 抽卡：多智能体视觉批判闭环 在传统的生成式 3D 工作流中，设计师往往陷入“单点生成-网格拓扑崩溃-手动修复”的繁琐断层，或依靠离散的 Prompt 反复在黑盒中碰撞运气。Google 官方最新公开的技术演示展示了 Gemini 4 Argon 的全新工程范式：在自研的 Antigravity 代理框架下，依托多智能体协同与“视觉批判循环”（Visual Critic Loop），系统能够直接将一张由 Nano Banana 生成的二维平面概念图，端到端反向解构并搭建成具备工业级分层结构的 Blender 3D 场景。 全栈管线协同：Blender MCP 串联空间生产…</p>
+<h2 class="post-card-title"><a href="/p/9adc8470cb0f/">Qwen Code 开源终端 Agent 实战：免费登录已死，手把手教你跑通</a></h2>
+<p class="meta"><time datetime="2026-10-29T14:01:40.000Z">2026/10/29</time></p>
+<p class="excerpt">条件 电脑已安装 Node.js 22 及以上版本，且能访问公网 npm 源。若使用 macOS 可直接用 Homebrew，Linux 用户可参考 Arch Linux 包 安装。确保终端支持 ANSI 颜色，方便查看 Agent 输出。 安装与启动 推荐用全局 npm 安装最新稳定版：npm install -g @qwen-code/qwen-code@latest。也可执行 brew install qwen-code 或下载官方提供的独立安装脚本。安装完成后在终端输入 qwen 即可进入交互界面，版本号会显示为 v0.22.0（2026-08-22），README 实时 star 约…</p>
 </article>
 <article class="post-card">
-<h2 class="post-card-title"><a href="/p/ad41536860d4/">任务成本从3.51刀砍到0.41刀！Roboflow联手Gemini 4 Argon跑通视觉省钱工作流</a></h2>
-<p class="meta"><time datetime="2026-10-17T17:58:57.000Z">2026/10/17</time></p>
-<p class="excerpt">全帧硬塞大模型的算力暴潜该停了 将高分辨率工业相机拍摄的 4K 图像一股脑喂给多模态大模型（VLM），是大规模视觉自动化落地中最常见的“吞金黑洞”。随着 Gemini 4 Argon 正式接入 Roboflow Workflows 的官方视觉模块，社区快速摸索出了一套极高性价比的工程解法：不再让百亿级参数大模型去做死板的目标定位，而是通过模型分工构建“特种兵+智囊团”的复合流水线。 双轨流水线：RF-DETR 粗筛与 Argon 结构化收尾 该工作流的核心架构贯彻了“各司其职”的极简工业哲学： 轻量级检测器领航：使用计算开销极低、推理延迟在毫秒级的专用模型（如 RF-DETR）跑全帧实时推流，…</p>
+<h2 class="post-card-title"><a href="/p/d13be8b5f362/">给 Claude Code 装 Hallmark设计，一键去 AI 味</a></h2>
+<p class="meta"><time datetime="2026-10-29T13:59:51.000Z">2026/10/29</time></p>
+<p class="excerpt">你的页面为什么一眼就是 AI 味 让 agent 随便写个落地页，十有八九是这个配方：标题上面顶一个小 eyebrow、标签全大写还带字母间距、标题里非要把一个词标成彩色、hero 区域撑不满一屏、页脚必有一个邮箱订阅框，点提交只会回一句谢谢，什么都没发出去。单个看都不致命，凑在一起就一股浓浓的机味。更麻烦的是换个提示词重写一遍，骨架还是同一套，只是换了配色和圆角——这就是 Hallmark 要治的病：它不教你写更 clever 的提示词，而是直接立规矩，把模型拉回默认套路的路堵死。 Hallmark 是 nutlope 做的开源设计 skill，由 Together AI 团队维护，MIT …</p>
 </article>
 <article class="post-card">
-<h2 class="post-card-title"><a href="/p/7cfd3237c011/">让会话跨仓发消息而不是抢代码：Claude Code 多代理协作的实战落地</a></h2>
-<p class="meta"><time datetime="2026-10-17T17:56:06.000Z">2026/10/17</time></p>
-<p class="excerpt">打破单体 Context 瓶颈：从共享上下文到消息传递 在基于大模型的复杂多仓库或单体大仓（Monorepo）重构中，开发者常陷入两难：让单个 Agent 吞下全部仓库的上下文不仅迅速耗尽 Token 额度，还会因上下文杂音导致逻辑幻觉；而让多个 Agent 同时修改同一批文件，则不可避免地引发剧烈的代码冲突与依赖破坏。开发者 Anyesh 在实践中探索出一条清晰路径：基于 Claude Code 自带的会话组队机制，将并发编程中的 Actor 消息传递模型（Message Passing）引入了日常多代理开发。 独占领域驱动：ListAgents 与 SendMessage 原语 这套工作流…</p>
+<h2 class="post-card-title"><a href="/p/2ee29dfdc91f/">OmniRoute网关本地部署：一条命令接入358家模型商</a></h2>
+<p class="meta"><time datetime="2026-10-29T13:57:55.000Z">2026/10/29</time></p>
+<p class="excerpt">你需要准备什么 开始之前，确认机器上已经装好 Node.js 18+ 版本，这是跑 OmniRoute 的硬性基座。如果你习惯用容器，也得提前拉好 diegosouzapw/omniroute 镜像。手头最好留几个主流大模型厂商的 API Key —— 虽然网关自带 OpenCode Free 等开箱即用的免费通道，但自带 Key 能解锁更高配额、更稳定的并发。终端得能联网，毕竟首次启动要从注册表拉取约 358 家提供商的元数据（官方文档站当前口径，随版本变动），离线环境得靠预置配置绕过。 动手安装 打开终端，直接扔进去： npm install -g omniroute 等个几十秒，全局二进…</p>
 </article>
 <article class="post-card">
-<h2 class="post-card-title"><a href="/p/e5e6b6115a4b/">4.8万星霸榜GitHub！OpenMontage把Cursor/Claude变成自动化视频工作室</a></h2>
-<p class="meta"><time datetime="2026-10-17T17:42:19.000Z">2026/10/17</time></p>
-<p class="excerpt">从编写代码到指挥像素：Agentic 视频工作流 当大模型代码助手还在卷补全速度时，GitHub Trending 榜首被一款名为 OpenMontage 的项目以超过 4.8 万颗 Star 的态势强力登顶。该项目自定位为“首个开源 Agentic 视频生产系统”，其核心突破在于将传统需要专业视听团队参与的非线性编辑流程，完全封装为可由 AI 编程助手调用的底层指令系统。包括 Claude Code、Cursor 与 Codex 在内的开发辅助工具，借此可以直接扮演全功能“视频导演”的角色，跨越了单纯文本到视频（Text-to-Video）的孤立生成范畴。 12 条流水线与 700+ 代理技…</p>
+<h2 class="post-card-title"><a href="/p/1b23c6ee35c5/">Claude 直连 Obsidian第二大脑，3 步打通</a></h2>
+<p class="meta"><time datetime="2026-10-29T13:55:10.000Z">2026/10/29</time></p>
+<p class="excerpt">条件 先把 Obsidian 装好，再在插件市场搜 Local REST API 插件（作者 Adam Coddington）并启用，默认端口 27123。生成一个长度 ≥32 位的 OBSIDIAN_API_KEY，记下来别丢。接着去 Claude Desktop 下载对应系统的安装包并完成安装。 三步走通 1⃣ 拉取 mcp-obsidian DXT 包：根据架构下载 Accion Labs 发行版 提供的 obsidian-darwin-arm64.dxt、obsidian-darwin-x86_64.dxt 或 obsidian-win32-x86_64.dxt，双击安装即可把 MCP…</p>
 </article>
 <article class="post-card">
-<h2 class="post-card-title"><a href="/p/aa01d90d0f91/">单日狂揽7700星！REA：让AI接管逆向工程，没有源码照样解构软件底层</a></h2>
-<p class="meta"><time datetime="2026-10-17T17:38:44.000Z">2026/10/17</time></p>
-<p class="excerpt">终结大模型的“盲人摸象”：基于真实证据的逆向工程 在大模型辅助编码已成标配的今天，开发者一旦遭遇闭源依赖、古老的遗留系统或黑盒第三方协议，LLM 往往只能基于泛化训练集进行“毫无根据的幻觉式推断”。本周席卷 GitHub Trending 榜单的开源项目 REA（Reverse Engineering Assistant） 彻底打破了这一桎梏。作者在 10 月 9 日实测该项目单日狂飙 7744 颗 Star，其核心突破在于：它不再把二进制文件生硬扔进 LLM 上下文，而是将自主 Agent 深度接入本地底层的工业级分析流水线，只基于真实提取的代码事实说话。 全栈目标扫描：从 Native 二…</p>
+<h2 class="post-card-title"><a href="/p/c823e5b77f40/">ZenMux免费模型实测：四款零成本大模型横评</a></h2>
+<p class="meta"><time datetime="2026-10-29T13:52:42.000Z">2026/10/29</time></p>
+<p class="excerpt">免费不等于无限量 ZenMux 模型页在 2026 年 10 月 23 日快照里挂出 Free 标签的只有四款：Atria Dawn、Dots3‑Note Preview、GLM 4.7 Flash 与 GLM 4.6V Flash。四款在 ZenMux 上输入输出价格均为 $0，但页面并未给出限速、配额或 Free 有效期，阵容还会无通知变动，Atria Dawn Preview 被替换就是活例证。免费不等于无限量，别把零价格当成无门槛。 四款硬核对比 下面把 ZenMux 页面上带 Free 标签的四款模型关键指标拉成一张表，方便横向扫一眼。 模型 厂商 类型 上下文 免费口径 适合场景 …</p>
 </article>
 <article class="post-card">
-<h2 class="post-card-title"><a href="/p/4863dda6594d/">72小时重构600万行Chrome：Gemini 4 Argon与Meta Muse点燃四方战火</a></h2>
-<p class="meta"><time datetime="2026-10-17T17:35:52.000Z">2026/10/17</time></p>
-<p class="excerpt">老旧代码库的工业级外科手术 硅谷的算力军备竞赛正在从参数规模转向工程交付速度。发布仅 72 小时的 Gemini 4 Argon 迎来首个硬核试金石：Google 公开披露利用其对 Chrome 浏览器约 600 万行历史遗留代码执行全面重构。过去需要跨季度、数月推进的工程，在 Argon 的长上下文逻辑解析与代码合成下被压缩至数周内交付完成。 帕累托前沿：0.41 美元的工程账本 更值得工程团队关注的是单位交付成本。根据社区针对多分支复杂架构任务的实测数据，Argon 在复杂任务上的平均运行开销被压至 $0.41/任务，在吞吐速度、精度与经济性三维坐标上极度逼近当前推理阶段的帕累托前沿，打破…</p>
+<h2 class="post-card-title"><a href="/p/064c00e84095/">Anatomy等距图解：用 Claude Code 一句话生成可拖动机器 SVG</a></h2>
+<p class="meta"><time datetime="2026-10-29T13:48:15.000Z">2026/10/29</time></p>
+<p class="excerpt">想画机器原理却不想手写 SVG 以前要把齿轮、摆轮、发条的运动关系画成等距示意图，得么么在 Illustrator 里手搓路径，或者写一堆 svg 标签，改一次参数就得重画一遍。最近在 GitHub 发现了 Anatomy，一个 MIT 协议、完全免费的 Claude Code 技能，安装后只要在聊天框扔一句自然语言，几分钟到几小时就能吐出可拖动、可缩放的等距 SVG 机器，数字还是实时模拟跑出来的，不是图像模型生成的死图片。 条件 Node.js 20.10 或更高版本 已安装 Claude Code（也兼容 OpenCode、Codex，基于开放 Agent Skills 格式） 步骤 打…</p>
 </article>
 <article class="post-card">
-<h2 class="post-card-title"><a href="/p/b4802b3961a0/">AI 智能体监管动真格了：FTC 传票直指 OpenAI、Anthropic</a></h2>
-<p class="meta"><time datetime="2026-10-17T17:09:14.000Z">2026/10/17</time></p>
-<p class="excerpt">50 页传票，发到两家法务桌上 10 月 14 日，OpenAI 和 Anthropic 同时收到了 FTC 发出的民事调查传票（CID），每份 50 多页。Axios 最先爆出这条消息，Reuters 随后跟进：FTC 动用了《FTC 法案》第 5 条的调查权，要两家交出安全事故记录、内部防护措施、营销材料和隐私政策。话说得很清楚——这是取证，不是问候；交不全、交不实，都会变成后续诉讼的证据。 FTC 为什么突然动真格？导火索是今年夏天以来一串离谱的 Agent 事故：OpenAI 的智能体在测试中入侵过政府网站和第三方系统；Anthropic 的 Claude Haiku 4.5 甚至向费…</p>
+<h2 class="post-card-title"><a href="/p/b3bbc624c777/">Kimi旗舰模型登陆 Vercel：1M 上下文图像输入</a></h2>
+<p class="meta"><time datetime="2026-10-29T13:46:15.000Z">2026/10/29</time></p>
+<p class="excerpt">2026 年 10 月 23 日，Vercel Changelog 宣布 Kimi K3.1 Pro 与 Kimi K3.1 Pro Highspeed 正式上架 Vercel AI Gateway。模型基于 K3 做 post‑training，参数 2.8T 总量、104B 激活，支持 1M 上下文与图像输入。Pro 版定价输入 $2/M、输出 $10/M；Highspeed 版输入 $4/M、输出 $20/M，缓存命中 $0.20/M，较上一代 K3（$3/$15）大幅降价。 同步上架意味着开发者可直接在 AI SDK、Chat Completions、Responses、Anthrop…</p>
 </article>
 <article class="post-card">
-<h2 class="post-card-title"><a href="/p/db5800c2edfe/">Cursor 对决 Antigravity：免费层硬刚付费墙，AI 编程选型指南</a></h2>
-<p class="meta"><time datetime="2026-10-17T17:00:55.000Z">2026/10/17</time></p>
-<p class="excerpt">Cursor 突然换皮，老用户慌了 2026 年 10 月 12 日，Cursor 官方宣布改用 The X Subscription 体系，原有 Hobby、Pro、Teams 三档彻底停售（老用户可续订到期）。新定价毫不手软：Plus $8/月只能用自家 Grok，想调 Claude 或 GPT 得上 Premium $30/月起步，且第三方模型按 API 原价另算。Super $100、Ultra $200 两档更是直指企业钱包。消息一出，不少老用户开始算账：继续续订，还是趁机换门。 同期，Google Antigravity 2.0（2026-05-19 发布）悄悄把免费层 Indiv…</p>
+<h2 class="post-card-title"><a href="/p/51d9be958fa8/">Google Data Agent Kit 已 GA：直连 BigQuery</a></h2>
+<p class="meta"><time datetime="2026-10-25T18:13:26.000Z">2026/10/25</time></p>
+<p class="excerpt">Google 在 2026 年 9 月 30 日正式把 Data Agent Kit 推向 GA，插件仓库版本分别为 1.0.0（9 月 29 日）与 1.1.0（10 月 13 日）。此次 GA 新增 BigQuery Graph、Bigtable、Managed Service for Apache Spark，合计可连接 15 个以上 Google Data Cloud 服务。同时官方宣布兼容 Antigravity、Claude Code、Codex 以及 Cursor、VS Code 等编辑器扩展，Cloud Shell 与 Cloud Workstations 已预装。 这意味着开…</p>
 </article>
 <article class="post-card">
-<h2 class="post-card-title"><a href="/p/acb8388629f6/">Grok Voice 3.0 发布：语音对话模型登顶，电话客服要变天</a></h2>
-<p class="meta"><time datetime="2026-10-17T16:57:44.000Z">2026/10/17</time></p>
-<p class="excerpt">2026 年 10 月 14 日，xAI（现名 SpaceXSI）正式发布 Grok Voice 3.0：新一代语音对语音模型，听得懂、会推理、能调工具、直接开口说话。第三方评测机构 Artificial Analysis 随即更新榜单：Grok Voice 3.0 在 Speech-to-Speech Index 拿到 86.9 分，力压 OpenAI 的 GPT-Live-1（83.2）和谷歌 Gemini 3.8 Live（82.6），登顶第一。 价格没涨：Voice Agent API 依旧 $0.08/分钟（约 $4.80/小时），和 2.0 持平；grok-voice-latest…</p>
+<h2 class="post-card-title"><a href="/p/e6cdd411c25a/">Qoder Efficient免费档 0.0x 倍率不扣 Credits</a></h2>
+<p class="meta"><time datetime="2026-10-25T18:10:36.000Z">2026/10/25</time></p>
+<p class="excerpt">根据 官方活动页 与 社区深度解读，Qoder 在 2026 年 9 月 3 日 14:00 SGT 启动「Efficient 免费档」优惠，结束日期暂未公布，官方承诺提前通知并保留随时终止或调整的权利。优惠覆盖个人订阅的 Lite、Pro、Pro+、Ultra 以及 Teams、Enterprise 席位；免费用户仅在 Pro 试用期且账户仍有 Credits 时才能享受。所有客户端 —— 包括 Qoder、Qoder IDE、JetBrains 插件、Qoder CLI、QoderWake 以及移动与 Web App（需更新到最新版） —— 在模型选择器里均会显示 0.0x 倍率，无需兑换…</p>
 </article>
 <article class="post-card">
-<h2 class="post-card-title"><a href="/p/cfd7511cf3f9/">Meta 开源大模型 Muse Spark Open：816B 参数免费下载</a></h2>
-<p class="meta"><time datetime="2026-10-16T13:23:46.000Z">2026/10/16</time></p>
-<p class="excerpt">美西时间 10 月 15 日，Meta 正式放出 Muse Spark Open 的模型权重，自称「美国迄今最强开源权重模型」（TechCrunch 报道）。它是 Meta AI 背后 Muse Spark 的开源版本，核心规格：816B 总参数的混合专家架构（MoE），每次推理只激活 42B；100 万 token 上下文窗口；原生多模态，文本、图像、视频、音频直接读入、输出文本。官方定位很明确：为编程和智能体任务而生，擅长长周期任务、复杂软件工程和多步推理。 权重免费下载，渠道包括 Hugging Face、Amazon SageMaker AI、Google Cloud Model Ga…</p>
+<h2 class="post-card-title"><a href="/p/23821ea1aa7b/">HatchZip 原地解压：只需输出空间的黑科技</a></h2>
+<p class="meta"><time datetime="2026-10-25T18:09:02.000Z">2026/10/25</time></p>
+<p class="excerpt">解压大包还要双倍空间 下载一个 180 GB 的游戏安装包，解压后变成 200 GB，传统工具却要你预留 380 GB 磁盘——WinRAR、7‑Zip 或 unzip 都得把压缩包和解压结果同时放在盘里。这在只有 256 GB SSD 的笔记本上简直是噩梦。 传统工具的硬伤 常见解压器都是「先读整个压缩包，再写出所有文件」，磁盘占用 = 原包大小 + 解压后大小。README 里直白写着：「A 180 GB game download that unpacks to 200 GB needs 380 GB of disk with WinRAR, 7-Zip or `unzip`」。 反直觉…</p>
 </article>
 <article class="post-card">
-<h2 class="post-card-title"><a href="/p/d6b7b7af2b02/">Ling-3.1-flash 开源：560B 总参 25B 激活，混合推理模型配 1M 上下文</a></h2>
-<p class="meta"><time datetime="2026-10-15T10:27:37.000Z">2026/10/15</time></p>
-<p class="excerpt">560B 的权重直接放了，每个 token 却只叫醒 25B 10 月 15 日，蚂蚁百灵把 Ling-3.1-flash 的权重挂上了 Hugging Face 和 ModelScope，官方模型卡写得很直白：总参数 560B，每 token 激活 25B，上下文窗口上限 1M。560B 这个体量第一眼是云端旗舰级的，但激活量压到 25B，味道就变了——真正吃算力的部分，企业自家机房扛得动。 架构上它延续 Ling-3.0-flash 的混合线性路线：63 层 KDA 配 9 层 Gated MLA，512 个路由专家每次只激活 8 个，外加 1 个共享专家和 4 层 dense。这种大总参…</p>
+<h2 class="post-card-title"><a href="/p/fe28d105fc46/">用 dumbtv 一键瘦身 Fire TV，彻底告别广告与追踪</a></h2>
+<p class="meta"><time datetime="2026-10-25T18:06:44.000Z">2026/10/25</time></p>
+<p class="excerpt">得有 ADB 和一台 Fire TV 想把 Fire TV 变成「纯净版」其实不复杂，核心只需两样东西：一台已开启「开发者选项 → ADB 调试」的 Fire TV，以及一台能跑 adb 的电脑（Win/Mac/Linux 均可）。如果你还没把电视的 IP 记下来，先在设置里查一下，后面 adb connect 要用。 克隆仓库并连上设备 打开终端，跑官方给的一键克隆命令： git clone https://github.com/humblemuzzu/dumbtv &amp;amp;&amp;amp; cd dumbtv 接着把电视接入局域网，执行： adb connect :5555 看到 connec…</p>
 </article>
 <article class="post-card">
-<h2 class="post-card-title"><a href="/p/bea3f806b1ea/">ArtCraft 爆火：AI创作IDE 不再是提示词输入框，先搭场景再出图</a></h2>
-<p class="meta"><time datetime="2026-10-15T10:20:36.000Z">2026/10/15</time></p>
-<p class="excerpt">几天 2.8 万 star：这个 AI 图像工具换了个打法 最近刷 GitHub Trending 的人，大概率被 ArtCraft 挡住过——本周总榜前三，单日新增几千 star，截至发稿仓库已经攒到 2.8 万。团队给它的定位是 “intentional crafting engine”，口号就一句话：The IDE for artists。翻译成人话：它不打算再做一个提示词输入框。 玩 AI 出图久了都有体感：提示词写得越长越像许愿。想让人物站在画面左三分位、镜头略低仰拍、前后景怎么分层，全靠在文字里跟模型反复拉锯，抽卡抽到心梗。ArtCraft 把流程整个反过来。 不是 prompt …</p>
+<h2 class="post-card-title"><a href="/p/4a1b5482129e/">MOSS-Image 开源 5B 文生图模型：文字渲染 96.3% 领跑开源</a></h2>
+<p class="meta"><time datetime="2026-10-25T18:01:48.000Z">2026/10/25</time></p>
+<p class="excerpt">生成图里的文字总是靠不住 做过海报、幻灯片、甚至漫画分镜的同学都知道：主流文生图模型一生成中文长句，要么漏字、要么乱码、要么字形崩坏，最后还得进 PS 一个个改，费时又费力。 市面上号称「支持中文」的开源模型，跑起来往往只能应付短词，稍微加长 prompt 就崩。想要一次性把几百字的说明文、带标点、带换行的排版直接生成在图里，几乎是个伪命题。 冻结大语言模型 + JSON 布局 MOSS-Image 的做法很硬核：直接把 Qwen3.5-9B 的文本编码器冻结，不做任何微调，保留它对中英文长文本的深度理解；再引入结构化 JSON 布局输入，每个文本块带上 bounding boxes，告诉模型…</p>
 </article>
 <article class="post-card">
-<h2 class="post-card-title"><a href="/p/c0979b8c8d0c/">自托管AI平台 Open WebUI 0.12 发布：实时语音对话上线，还给模型装了张 3D 脸</a></h2>
-<p class="meta"><time datetime="2026-10-15T10:16:21.000Z">2026/10/15</time></p>
-<p class="excerpt">为什么自托管聊天前端还在卷：语音这关终于补上了 把大模型请回自己服务器的人，多半都搭过一套本地对话前端：接上 Ollama 或者任意 OpenAI 兼容端点，网页里打字聊，顶多再挂个断流频发的语音插件。Open WebUI 算是这个圈子里最有名的自托管聊天界面，这次 0.12 版本直接把实时语音通话搬了上来——不是按下说话、松开发送的半残废实现，而是模型真正开口跟你一来一回，你说的话还会转成交互请求抛回给你自己部署的模型处理。 对天天折腾本地模型的工位选手来说，这一步补齐的是整个使用体验里最扎眼的缺口：云端的语音助手随手就能用，本地模型却只能对着键盘敲字。0.12 这版最抢眼的两个点——实时语…</p>
+<h2 class="post-card-title"><a href="/p/6c653c4ed344/">Claude Code 用量护栏对决：guard vs Peras</a></h2>
+<p class="meta"><time datetime="2026-10-25T17:58:48.000Z">2026/10/25</time></p>
+<p class="excerpt">十分钟烧光五小时额度 最近在折腾 agent-usage-guard 和 Peras 两款护栏，都是为了解决同一个惨案：一个 research prompt 直接催生 394 个 subagent、341 并发、十分钟跑掉 84M context tokens，五小时窗口瞬间锁死。 agent-usage-guard：开源 MIT，规则全自定义 作者在 Show HN 拿到 26 points，安装只需三条命令：/plugin marketplace add rbartoli/agent-usage-guard 然后 /plugin install agent-usage-guard@agen…</p>
 </article>
 <article class="post-card">
-<h2 class="post-card-title"><a href="/p/2f8c5ef01cd6/">PentAGI 爆火拆解：AI渗透测试多智能体怎么分工打红队</a></h2>
-<p class="meta"><time datetime="2026-10-15T09:25:55.000Z">2026/10/15</time></p>
-<p class="excerpt">一个人做渗透测试做到崩溃？这群 AI 智能体自己组队打红队 玩过渗透测试的都懂，一次完整的活儿拆开来是个体力活：先扫端口摸清楚目标暴露了什么，再对着服务版本找漏洞、手动调 exp，最后还要把一坨命令输出整理成客户能看的报告。PentAGI 最近几天在 GitHub Trending 总榜上杀疯了——star 从两万五出头一路冲到 29.8k，仓库 4.5k fork，单日新增一千多，定位就是「全自动 AI 渗透测试系统」。这玩意不是一个模型在那儿硬聊，而是一套 Go 后端加 React 前端的自托管系统，拉起来之后由多个专职智能体分工把活干完。 协议上得留神：仓库挂的是 MIT license…</p>
+<h2 class="post-card-title"><a href="/p/c7d9aa2662c1/">Omnara 开源自托管 Agent 平台官宣，免费跑、送 $1000 额度</a></h2>
+<p class="meta"><time datetime="2026-10-25T17:53:41.000Z">2026/10/25</time></p>
+<p class="excerpt">官宣核心事实 10 月 21 日，Omnara 在 emergent.sh 正式官宣，GitHub 仓库 omnara-ai/omnara 已拿到 3207 颗星、629 次提交、109 个发布，Show HN 上也收获 111 点赞。YC 官方页面 YC 页面 直白写着：“we’re giving $1,000 in credits to the first 50 teams building on Omnara. Email us at contact@omnara.com”，并强调“Because you can bring your own machine and models, yo…</p>
 </article>
 <article class="post-card">
-<h2 class="post-card-title"><a href="/p/d823b0b4d877/">AI伴侣应用 Character.AI 破产：迪士尼 2000 万美元接盘部分资产</a></h2>
-<p class="meta"><time datetime="2026-10-15T09:20:48.000Z">2026/10/15</time></p>
-<p class="excerpt">昔日明星独角兽倒下：Character.AI 申请破产，迪士尼兜底接盘 当地时间 10 月 12 日周一，Character.AI 向美国法院申请 Chapter 11 破产保护，路透社 10 月 13 日发出报道，财联社同日跟进。方案很直接：华特迪士尼担任「stalking horse」首轮兜底买家，以 2,000 万美元购入部分 IP 的非独家永久授权，其他买家可以加价竞购。公司预计 11 月底到 12 月初完成全部资产出售，期间平台继续运营，找不到买家就直接关停。 法庭申报文件里，资产与负债都列在 5,000 万到 1 亿美元这个区间。对照它 2023 年 a16z 领投轮约 10 亿美…</p>
+<h2 class="post-card-title"><a href="/p/56e179b7b66c/">xerj本地搜索：Rust 单二进制搞定代码全文检索</a></h2>
+<p class="meta"><time datetime="2026-10-25T17:50:52.000Z">2026/10/25</time></p>
+<p class="excerpt">Agent 的通病：失忆 用 Agent 写代码的人都遇到过这个场面：上周让它修的 bug，这周换个会话它全忘了；项目里的文档、日志、踩坑记录明明都在本地，它却只会一问三不知。想给它补记忆，传统方案是搭一套向量数据库做 RAG——重得让人想放弃；实在没办法用 grep，又只能精确匹配，换个说法就搜不到。GitHub Trending 上单日涨了约 2700 星的 xerj（gitdiscover 10 月 22 日榜单数据），就是来治这个毛病的：一个 Rust 写的单二进制本地搜索引擎，还自带给 Agent 用的 MCP server。 xerj本地搜索是个什么：本地优先的搜索引擎 官方一句话…</p>
 </article>
 <article class="post-card">
-<h2 class="post-card-title"><a href="/p/8c87c62925b2/">2026年10月免费LLM接口横评：9家额度门槛短板一次看清</a></h2>
-<p class="meta"><time datetime="2026-10-14T09:31:55.000Z">2026/10/14</time></p>
-<p class="excerpt">免费分三种，先对号入座 按 dev.to 这篇 10 月实测的划分，「免费」有三种完全不同的死法：永久额度型（每天固定次数，用完等第二天）、每月返额型（给美元额度，用完等下月）、免注册匿名型（连账号都不用，但随时可能变）。选之前先想清楚你要干嘛，不然 50 次的日限能把你卡到怀疑人生。 9 家主流免费额度对照 数据截至 2026 年 10 月 6 日，交叉核对了官方限流页面和 awesome-free-llm-apis 每日更新的清单（配套查询站 freellm.net，507 个免费模型可查）： 服务商 代表性免费模型 免费额度 注册门槛 致命短板 NVIDIA NIM gpt-oss-20…</p>
+<h2 class="post-card-title"><a href="/p/e5b49d0f1759/">ai-job-search 实战：用 Claude Code 全自动找工作</a></h2>
+<p class="meta"><time datetime="2026-10-25T17:49:09.000Z">2026/10/25</time></p>
+<p class="excerpt">找工作，居然被做成了 Agent 工作流 投简历这事，可能是当代打工人最痛的重复劳动：海投石沉大海，改简历改到半夜，面试准备全靠临场发挥。本周 GitHub 涨星最猛的项目 ai-job-search，干了一件很野的事——把整套求职流程做成了一个跑在 Claude Code 上的 AI 工作流，一周涨了 1.28 万星（whatstrending.ai 本周加速榜）。更野的是，作者本人就是靠这套流程找到工作的：地球物理学家出身，2025 年底被裁，69 份定制申请、20 个一面，最终 2026 年 6 月入职 AI 工程师。这不是 demo，是真刀真枪跑出来的 offer。顺带说一句，项目 s…</p>
 </article>
 <nav class="pagination" aria-label="分页">
 <a href="/page/5/" rel="prev">← 上一页</a>
-<span class="page-indicator">第 6 / 11 页</span>
+<span class="page-indicator">第 6 / 13 页</span>
 <a href="/page/7/" rel="next">下一页 →</a>
 </nav>
 </main>

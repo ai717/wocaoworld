@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-8TX501TYGH"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-8TX501TYGH');
+</script>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>只用ChatGPT做微信小游戏：30万人围观的上架路 · wocao.world</title>
+<meta name="description" content="五步从一句话点子走到可玩的版本 只用ChatGPT、不用自己写代码，把一款微信小游戏做出来上架，据原帖作者称围观量达到30万人次。整个流程被拆成五步：把玩法点子用一句话说清，让ChatGPT输出完整玩法规则和数值表；接着让它生成可运行的游戏代码，入口文件就是game.js；然后在开发者工具里导入调试，报错就把日志贴回去让它改，比如直接发一句帮我修掉这个报错并给出完整代码；再补上美术素材和音效；最后打包提交审核。每一步都是对话驱动，作者本人只做判断和粘贴。 这套打法里最关键的其实是第一步。点子说得越具体，后面返工越少。原帖的经验是把核心循环写成一句话，比如「点一下小球弹跳、躲开障碍得分」这种粒度…">
+<link rel="canonical" href="https://wocao.world/p/512bc16777bb/">
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="wocao.world">
+<meta property="og:title" content="只用ChatGPT做微信小游戏：30万人围观的上架路 · wocao.world">
+<meta property="og:description" content="五步从一句话点子走到可玩的版本 只用ChatGPT、不用自己写代码，把一款微信小游戏做出来上架，据原帖作者称围观量达到30万人次。整个流程被拆成五步：把玩法点子用一句话说清，让ChatGPT输出完整玩法规则和数值表；接着让它生成可运行的游戏代码，入口文件就是game.js；然后在开发者工具里导入调试，报错就把日志贴回去让它改，比如直接发一句帮我修掉这个报错并给出完整代码；再补上美术素材和音效；最后打包提交审核。每一步都是对话驱动，作者本人只做判断和粘贴。 这套打法里最关键的其实是第一步。点子说得越具体，后面返工越少。原帖的经验是把核心循环写成一句话，比如「点一下小球弹跳、躲开障碍得分」这种粒度…">
+<meta property="og:url" content="https://wocao.world/p/512bc16777bb/">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="只用ChatGPT做微信小游戏：30万人围观的上架路 · wocao.world">
+<meta name="twitter:description" content="五步从一句话点子走到可玩的版本 只用ChatGPT、不用自己写代码，把一款微信小游戏做出来上架，据原帖作者称围观量达到30万人次。整个流程被拆成五步：把玩法点子用一句话说清，让ChatGPT输出完整玩法规则和数值表；接着让它生成可运行的游戏代码，入口文件就是game.js；然后在开发者工具里导入调试，报错就把日志贴回去让它改，比如直接发一句帮我修掉这个报错并给出完整代码；再补上美术素材和音效；最后打包提交审核。每一步都是对话驱动，作者本人只做判断和粘贴。 这套打法里最关键的其实是第一步。点子说得越具体，后面返工越少。原帖的经验是把核心循环写成一句话，比如「点一下小球弹跳、躲开障碍得分」这种粒度…">
+<meta name="robots" content="index,follow">
+<link rel="alternate" type="application/rss+xml" title="wocao.world 聚合输出" href="/feed.xml">
+<link rel="stylesheet" href="/style.css">
+<meta property="article:published_time" content="2026-11-26T14:38:05.000Z">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","headline":"只用ChatGPT做微信小游戏：30万人围观的上架路","description":"五步从一句话点子走到可玩的版本 只用ChatGPT、不用自己写代码，把一款微信小游戏做出来上架，据原帖作者称围观量达到30万人次。整个流程被拆成五步：把玩法点子用一句话说清，让ChatGPT输出完整玩法规则和数值表；接着让它生成可运行的游戏代码，入口文件就是game.js；然后在开发者工具里导入调试，报错就把日志贴回去让它改，比如直接发一句帮我修掉这个报错并给出完整代码；再补上美术素材和音效；最后打包提交审核。每一步都是对话驱动，作者本人只做判断和粘贴。 这套打法里最关键的其实是第一步。点子说得越具体，后面返工越少。原帖的经验是把核心循环写成一句话，比如「点一下小球弹跳、躲开障碍得分」这种粒度…","url":"https://wocao.world/p/512bc16777bb/","datePublished":"2026-11-26T14:38:05.000Z","dateModified":"2026-11-26T17:55:35.595Z","mainEntityOfPage":{"@type":"WebPage","@id":"https://wocao.world/p/512bc16777bb/"},"author":{"@type":"Person","name":"摸鱼杂货店"},"publisher":{"@type":"Organization","name":"wocao.world","url":"https://wocao.world"}}</script>
+</head>
+<body>
+<a class="skip-link" href="#main">跳到正文</a>
+<header class="site-head">
+<p class="site-title"><a href="/">wocao.world</a></p>
+<p class="site-desc">wocao.world</p>
+<nav class="site-nav">
+<a href="/">最新</a>
+<a href="/about/">关于</a>
+<a href="/feed.xml">RSS</a>
+</nav>
+</header>
+<main id="main">
+<article>
+<h1 class="post-title">只用ChatGPT做微信小游戏：30万人围观的上架路</h1>
+<div class="post-body"><p> </p>
+<h2>五步从一句话点子走到可玩的版本</h2>
+<p>只用ChatGPT、不用自己写代码，把一款微信小游戏做出来上架，据<a href="https://x.com/MasoNKai720/status/2123244282610069625" rel="external nofollow noopener noreferrer" target="_blank">原帖作者</a>称围观量达到30万人次。整个流程被拆成五步：把玩法点子用一句话说清，让ChatGPT输出完整玩法规则和数值表；接着让它生成可运行的游戏代码，入口文件就是<code>game.js</code>；然后在开发者工具里导入调试，报错就把日志贴回去让它改，比如直接发一句<code>帮我修掉这个报错并给出完整代码</code>；再补上美术素材和音效；最后打包提交审核。每一步都是对话驱动，作者本人只做判断和粘贴。</p>
+<p>这套打法里最关键的其实是第一步。点子说得越具体，后面返工越少。原帖的经验是把核心循环写成一句话，比如「点一下小球弹跳、躲开障碍得分」这种粒度，ChatGPT才好往下拆规则。点子太模糊，生成出来的代码东拼西凑，调试阶段会反复打转。</p>
+<p><img loading="lazy" src="https://moyu.18uk.uk/2026/20261126-21263282-37ee-42d1-a6a6-7ab31cd699e8.webp" alt="微信小游戏" width="750" height="1000" referrerpolicy="no-referrer" /></p>
+<h2>广告变现路线可以免版号先跑起来</h2>
+<p>游戏做出来只是开始，上架才是真正的关卡。按原帖整理的平台实践口径，微信小游戏如果只靠广告变现、不开虚拟支付，可以走免版号路线先上线跑起来。也就是说，新手完全可以先用广告分成验证玩法有没有人玩，等数据跑出来了再考虑要不要往深里走。</p>
+<p>这条路线对个人开发者非常友好：不用一上来就啃版号申请的硬骨头，先把产品放出去测真实用户反馈。玩法不行就换，数据好再投入，试错成本被压到最低。原帖这款游戏走的正是这条路，先上线、后迭代。</p>
+<blockquote><p><strong> </strong>文中上架口径来自原帖的实践整理，不是微信官方结论。平台规则会调整，正式提交前务必以微信官方文档和审核后台的最新要求为准，别拿帖子里的说法当通行证。</p></blockquote>
+<h2>软著和自审报告是上架的硬门槛</h2>
+<p>免版号不等于免手续。按原帖口径，上架前有两道硬门槛绕不过去：一是软件著作权登记，证明这个游戏是你自己的作品；二是自审报告，自己先把内容合规性过一遍，包括素材版权、敏感词、未成年人保护这些项。两样材料备齐，审核才有得谈。</p>
+<p>软著这块，个人开发者可以自己走登记流程，周期不算短，最好在开发早期就启动，别等游戏做完了才想起这茬，干等一个月。素材方面同理，用AI生成的图也要确认授权范围，来路不明的素材是审核被打回的常见原因。原帖作者在评论区提到，第一次提交就是栽在素材说明不全上。</p>
+<h2>想开虚拟支付就必须先拿到版号</h2>
+<p>第四关是付费。如果游戏想开虚拟支付、卖道具收钱，按原帖口径就必须先拿到版号，这是硬性前置条件，没有商量余地。版号申请周期长、材料多，对个人开发者来说是道真正的分水岭：只想赚点广告分成，免版号路线足够；想做内购生意，就得做好长期投入的准备。</p>
+<p>把四关连起来看，这条路径的真实面貌是：ChatGPT负责把「做出来」这件事变便宜，但「上架合规」这件事一分没便宜，软著、自审、备案、原创审核一样不少。想入场的人建议按顺序走：先用广告变现路线验证玩法，数据成立再补齐资质往深里做。所有口径最终以微信官方文档为准。</p>
+<p> </p>
+<p> </p>
+<p>本文来源：<a href="https://www.moyunews.com/" rel="external nofollow noopener noreferrer" target="_blank">摸鱼杂货店</a>。查看原文：<a href="https://www.moyunews.com/chatgpt-wechat-mini-game-300k/" rel="external nofollow noopener noreferrer" target="_blank">只用ChatGPT做微信小游戏：30万人围观的上架路</a>。</p></div>
+<p class="back"><a href="/">← 返回最新</a></p>
+</article>
+</main>
+<footer class="site-foot">
+<p>wocao.world — 本站内容全部转载自各订阅源，版权归原作者与原站所有。</p>
+</footer>
+</body>
+</html>

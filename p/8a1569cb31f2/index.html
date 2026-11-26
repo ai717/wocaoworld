@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-8TX501TYGH"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-8TX501TYGH');
+</script>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>自建WireGuard一条命令搞定：扫码就连的私人 VPN · wocao.world</title>
+<meta name="description" content="一条命令搭好 VPN 服务端：脚本到底替你干了什么 想在国外访问家里的服务，或者出门在外走自己的加密通道，最省事的办法是自己搭一个 WireGuard VPN。wireguard-install 就是干这个的开源脚本：在自己的 Linux 服务器上一条命令，全自动装好 WireGuard 服务端，配置自动生成，客户端配置与手机扫码二维码自动导出，还支持增删用户、IPv4 与 IPv6 双栈、sysctl 性能优化。装完手机扫个码就能连，不用手动抄密钥。 装之前先备好服务器：脚本免费不等于零成本 先把账算清楚：脚本本身免费，但它要跑在你自己的服务器上，服务器或 VPS 是要付费的，不是零成本。装…">
+<link rel="canonical" href="https://wocao.world/p/8a1569cb31f2/">
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="wocao.world">
+<meta property="og:title" content="自建WireGuard一条命令搞定：扫码就连的私人 VPN · wocao.world">
+<meta property="og:description" content="一条命令搭好 VPN 服务端：脚本到底替你干了什么 想在国外访问家里的服务，或者出门在外走自己的加密通道，最省事的办法是自己搭一个 WireGuard VPN。wireguard-install 就是干这个的开源脚本：在自己的 Linux 服务器上一条命令，全自动装好 WireGuard 服务端，配置自动生成，客户端配置与手机扫码二维码自动导出，还支持增删用户、IPv4 与 IPv6 双栈、sysctl 性能优化。装完手机扫个码就能连，不用手动抄密钥。 装之前先备好服务器：脚本免费不等于零成本 先把账算清楚：脚本本身免费，但它要跑在你自己的服务器上，服务器或 VPS 是要付费的，不是零成本。装…">
+<meta property="og:url" content="https://wocao.world/p/8a1569cb31f2/">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="自建WireGuard一条命令搞定：扫码就连的私人 VPN · wocao.world">
+<meta name="twitter:description" content="一条命令搭好 VPN 服务端：脚本到底替你干了什么 想在国外访问家里的服务，或者出门在外走自己的加密通道，最省事的办法是自己搭一个 WireGuard VPN。wireguard-install 就是干这个的开源脚本：在自己的 Linux 服务器上一条命令，全自动装好 WireGuard 服务端，配置自动生成，客户端配置与手机扫码二维码自动导出，还支持增删用户、IPv4 与 IPv6 双栈、sysctl 性能优化。装完手机扫个码就能连，不用手动抄密钥。 装之前先备好服务器：脚本免费不等于零成本 先把账算清楚：脚本本身免费，但它要跑在你自己的服务器上，服务器或 VPS 是要付费的，不是零成本。装…">
+<meta name="robots" content="index,follow">
+<link rel="alternate" type="application/rss+xml" title="wocao.world 聚合输出" href="/feed.xml">
+<link rel="stylesheet" href="/style.css">
+<meta property="article:published_time" content="2026-11-26T14:33:55.000Z">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","headline":"自建WireGuard一条命令搞定：扫码就连的私人 VPN","description":"一条命令搭好 VPN 服务端：脚本到底替你干了什么 想在国外访问家里的服务，或者出门在外走自己的加密通道，最省事的办法是自己搭一个 WireGuard VPN。wireguard-install 就是干这个的开源脚本：在自己的 Linux 服务器上一条命令，全自动装好 WireGuard 服务端，配置自动生成，客户端配置与手机扫码二维码自动导出，还支持增删用户、IPv4 与 IPv6 双栈、sysctl 性能优化。装完手机扫个码就能连，不用手动抄密钥。 装之前先备好服务器：脚本免费不等于零成本 先把账算清楚：脚本本身免费，但它要跑在你自己的服务器上，服务器或 VPS 是要付费的，不是零成本。装…","url":"https://wocao.world/p/8a1569cb31f2/","datePublished":"2026-11-26T14:33:55.000Z","dateModified":"2026-11-26T17:55:35.595Z","mainEntityOfPage":{"@type":"WebPage","@id":"https://wocao.world/p/8a1569cb31f2/"},"author":{"@type":"Person","name":"摸鱼杂货店"},"publisher":{"@type":"Organization","name":"wocao.world","url":"https://wocao.world"}}</script>
+</head>
+<body>
+<a class="skip-link" href="#main">跳到正文</a>
+<header class="site-head">
+<p class="site-title"><a href="/">wocao.world</a></p>
+<p class="site-desc">wocao.world</p>
+<nav class="site-nav">
+<a href="/">最新</a>
+<a href="/about/">关于</a>
+<a href="/feed.xml">RSS</a>
+</nav>
+</header>
+<main id="main">
+<article>
+<h1 class="post-title">自建WireGuard一条命令搞定：扫码就连的私人 VPN</h1>
+<div class="post-body"><p> </p>
+<h2>一条命令搭好 VPN 服务端：脚本到底替你干了什么</h2>
+<p>想在国外访问家里的服务，或者出门在外走自己的加密通道，最省事的办法是自己搭一个 WireGuard VPN。<a href="https://github.com/hwdsl2/wireguard-install" rel="external nofollow noopener noreferrer" target="_blank">wireguard-install</a> 就是干这个的开源脚本：在自己的 Linux 服务器上一条命令，全自动装好 WireGuard 服务端，配置自动生成，客户端配置与手机扫码二维码自动导出，还支持增删用户、IPv4 与 IPv6 双栈、sysctl 性能优化。装完手机扫个码就能连，不用手动抄密钥。</p>
+<p><img loading="lazy" src="https://moyu.18uk.uk/2026/20261126-09ac91b5-b4d3-418a-8f60-b2e8a1533159.webp" alt="自建WireGuard" width="1000" height="634" referrerpolicy="no-referrer" /></p>
+<h2>装之前先备好服务器：脚本免费不等于零成本</h2>
+<p>先把账算清楚：脚本本身免费，但它要跑在你自己的服务器上，服务器或 VPS 是要付费的，不是零成本。装法很直接：<code>curl -O https://raw.githubusercontent.com/hwdsl2/wireguard-install/master/wireguard-install.sh</code>，再 <code>chmod +x wireguard-install.sh &amp;&amp; ./wireguard-install.sh</code>，按提示选端口与 DNS 就能装完。装好之后管理用户也不用改配置文件，脚本带交互菜单，加人、删人、导出配置都在菜单里点几下完成。</p>
+<h2>手机扫码就能连：客户端配置一次给齐</h2>
+<p>脚本装完会给每个用户生成客户端配置文件，手机端扫二维码就能导入，电脑端把配置文件丢进 WireGuard 客户端即可。IPv4 与 IPv6 双栈都支持，家里宽带只有 IPv4 也能用；sysctl 性能优化已经写进脚本，转发性能不用自己调内核参数。出门在外连上自己的 VPN，流量先回自己的服务器再出去，公共 Wi-Fi 下的嗅探风险小得多。</p>
+<blockquote><p><strong>老法师避坑提醒</strong>：自建 VPN 的安全取决于服务器本身，系统不打补丁、SSH 弱密码、密钥泄露，哪个都能让加密通道白搭；另外留意你所在地的网络规则，合规使用，别把自建 VPN 当成绕过管制的工具。</p></blockquote>
+<h2>什么时候值得自建：三类人最划算</h2>
+<p>第一类是已有 VPS 的人，服务器反正闲着，搭个 VPN 是顺手的事。第二类是常出差、常连公共 Wi-Fi 的人，自己的加密通道比酒店与机场的裸 Wi-Fi 踏实。第三类是想远程访问家里 NAS 与开发机的人，VPN 连回家比把端口暴露在公网安全得多。三类之外，单纯想换个 IP 看视频的人，用商业 VPN 更省事，没必要自己运维一台服务器。</p>
+<p>客户端用官方的 WireGuard 应用就行，手机扫二维码导入，电脑把配置文件拖进去，连接开关一拨即通。日常维护别偷懒：服务器系统补丁要定期打，脚本有新版就跟着升，密钥文件只存自己手里。用户多了就再开配置，离职或设备丢了马上在菜单里删掉对应用户，通道立刻失效。</p>
+<p> </p>
+<p> </p>
+<p>本文来源：<a href="https://www.moyunews.com/" rel="external nofollow noopener noreferrer" target="_blank">摸鱼杂货店</a>。查看原文：<a href="https://www.moyunews.com/wireguard-install-one-command-vpn/" rel="external nofollow noopener noreferrer" target="_blank">自建WireGuard一条命令搞定：扫码就连的私人 VPN</a>。</p></div>
+<p class="back"><a href="/">← 返回最新</a></p>
+</article>
+</main>
+<footer class="site-foot">
+<p>wocao.world — 本站内容全部转载自各订阅源，版权归原作者与原站所有。</p>
+</footer>
+</body>
+</html>

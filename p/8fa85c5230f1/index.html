@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-8TX501TYGH"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-8TX501TYGH');
+</script>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Muse策划Codex写代码：七阶段上线微信小游戏 · wocao.world</title>
+<meta name="description" content="七阶段分工：Muse策划Codex写代码 一个人做微信小游戏，卡点通常不在写代码，而在立项、备案材料、验收和提交这些杂活。一篇长文把 7 篇公开教程编成七阶段工作流：Muse 做立项、备案材料和验收，Codex 在 Cocos Creator 里做原型和批量关卡，人负责注册付款和点提交。原帖在 X，长文在 X 文章，文内附上线检查表，并链到发布 Skill 与微信 IAA、广告开通和 Cocos 构建的官方文档。 分工的逻辑是按确定性切：立项和验收是文本活，交给 Muse 出清单和判据；原型和关卡是工程活，交给 Codex 在 Cocos Creator 里批量产出；注册、付款、点提交涉及账号…">
+<link rel="canonical" href="https://wocao.world/p/8fa85c5230f1/">
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="wocao.world">
+<meta property="og:title" content="Muse策划Codex写代码：七阶段上线微信小游戏 · wocao.world">
+<meta property="og:description" content="七阶段分工：Muse策划Codex写代码 一个人做微信小游戏，卡点通常不在写代码，而在立项、备案材料、验收和提交这些杂活。一篇长文把 7 篇公开教程编成七阶段工作流：Muse 做立项、备案材料和验收，Codex 在 Cocos Creator 里做原型和批量关卡，人负责注册付款和点提交。原帖在 X，长文在 X 文章，文内附上线检查表，并链到发布 Skill 与微信 IAA、广告开通和 Cocos 构建的官方文档。 分工的逻辑是按确定性切：立项和验收是文本活，交给 Muse 出清单和判据；原型和关卡是工程活，交给 Codex 在 Cocos Creator 里批量产出；注册、付款、点提交涉及账号…">
+<meta property="og:url" content="https://wocao.world/p/8fa85c5230f1/">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Muse策划Codex写代码：七阶段上线微信小游戏 · wocao.world">
+<meta name="twitter:description" content="七阶段分工：Muse策划Codex写代码 一个人做微信小游戏，卡点通常不在写代码，而在立项、备案材料、验收和提交这些杂活。一篇长文把 7 篇公开教程编成七阶段工作流：Muse 做立项、备案材料和验收，Codex 在 Cocos Creator 里做原型和批量关卡，人负责注册付款和点提交。原帖在 X，长文在 X 文章，文内附上线检查表，并链到发布 Skill 与微信 IAA、广告开通和 Cocos 构建的官方文档。 分工的逻辑是按确定性切：立项和验收是文本活，交给 Muse 出清单和判据；原型和关卡是工程活，交给 Codex 在 Cocos Creator 里批量产出；注册、付款、点提交涉及账号…">
+<meta name="robots" content="index,follow">
+<link rel="alternate" type="application/rss+xml" title="wocao.world 聚合输出" href="/feed.xml">
+<link rel="stylesheet" href="/style.css">
+<meta property="article:published_time" content="2026-11-26T15:33:23.000Z">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","headline":"Muse策划Codex写代码：七阶段上线微信小游戏","description":"七阶段分工：Muse策划Codex写代码 一个人做微信小游戏，卡点通常不在写代码，而在立项、备案材料、验收和提交这些杂活。一篇长文把 7 篇公开教程编成七阶段工作流：Muse 做立项、备案材料和验收，Codex 在 Cocos Creator 里做原型和批量关卡，人负责注册付款和点提交。原帖在 X，长文在 X 文章，文内附上线检查表，并链到发布 Skill 与微信 IAA、广告开通和 Cocos 构建的官方文档。 分工的逻辑是按确定性切：立项和验收是文本活，交给 Muse 出清单和判据；原型和关卡是工程活，交给 Codex 在 Cocos Creator 里批量产出；注册、付款、点提交涉及账号…","url":"https://wocao.world/p/8fa85c5230f1/","datePublished":"2026-11-26T15:33:23.000Z","dateModified":"2026-11-26T17:55:35.595Z","mainEntityOfPage":{"@type":"WebPage","@id":"https://wocao.world/p/8fa85c5230f1/"},"author":{"@type":"Person","name":"摸鱼杂货店"},"publisher":{"@type":"Organization","name":"wocao.world","url":"https://wocao.world"}}</script>
+</head>
+<body>
+<a class="skip-link" href="#main">跳到正文</a>
+<header class="site-head">
+<p class="site-title"><a href="/">wocao.world</a></p>
+<p class="site-desc">wocao.world</p>
+<nav class="site-nav">
+<a href="/">最新</a>
+<a href="/about/">关于</a>
+<a href="/feed.xml">RSS</a>
+</nav>
+</header>
+<main id="main">
+<article>
+<h1 class="post-title">Muse策划Codex写代码：七阶段上线微信小游戏</h1>
+<div class="post-body"><p> </p>
+<h2>七阶段分工：Muse策划Codex写代码</h2>
+<p>一个人做微信小游戏，卡点通常不在写代码，而在立项、备案材料、验收和提交这些杂活。一篇长文把 7 篇公开教程编成七阶段工作流：Muse 做立项、备案材料和验收，Codex 在 Cocos Creator 里做原型和批量关卡，人负责注册付款和点提交。原帖在 <a href="https://x.com/andyfeng2016/status/2125243018005602468" rel="external nofollow noopener noreferrer" target="_blank">X</a>，长文在 <a href="https://x.com/i/article/2125240205934469120" rel="external nofollow noopener noreferrer" target="_blank">X 文章</a>，文内附上线检查表，并链到发布 Skill 与微信 IAA、广告开通和 Cocos 构建的官方文档。</p>
+<p>分工的逻辑是按确定性切：立项和验收是文本活，交给 Muse 出清单和判据；原型和关卡是工程活，交给 Codex 在 Cocos Creator 里批量产出；注册、付款、点提交涉及账号与钱，留给人。七阶段的顺序感比工具本身重要：先有立项判据，原型才知道做到什么算过；先有检查表，提交前才不用临场想漏了什么。</p>
+<p><img src="https://moyu.18uk.uk/2026/20261126-5bd728bc-9e98-4d58-8d5a-e0e68792c9b9.webp" alt="Muse策划Codex写代码" width="900" height="600" loading="lazy" referrerpolicy="no-referrer" /></p>
+<h2>发布Skill已开源：70星Cocos专用</h2>
+<p>文内链的 <a href="https://github.com/oscargzh/wechat-minigame-publisher-skill" rel="external nofollow noopener noreferrer" target="_blank">wechat-minigame-publisher-skill</a> 是给 Codex 用的发布 Skill，70 星、24 个 Fork，面向已授权的 Cocos Creator 项目与微信小游戏发布，仓库含 agents、references、scripts 与 SKILL.md。它解决的是构建与发布环节的重复劳动，不替代平台审核，AppID、开发者工具和真机验证仍要自己备齐。</p>
+<p>关卡批量生产是 Codex 在这套分工里的主场：原型验证玩法后，按关卡参数表批量生成难度递增的关卡，再由 Muse 按验收判据逐关检查可解性与数值曲线。人只在参数表定版和抽检时介入。批量生成前先把关卡参数写成表：每关目标、障碍密度、通关条件，表定版后再批量，免得生成一堆风格漂移的关卡返工。</p>
+<h2>收入与软著说法：以官方当日页面为准</h2>
+<p>长文里的收入、审核和「可不办软著」等说法均为原作者自述或转述，本文不背书。微信小游戏的资质、备案、广告开通门槛以微信公众平台与 IAA 官方文档当日页面为准，动手前逐项对官方。收入数字没有独立出处时只当个案参考，别按别人的流水规划自己的投入。</p>
+<p>上线检查表的用法是提交前逐项打勾：包体大小、胶囊遮挡、真机黑屏、广告位触发、隐私弹窗、备案材料。检查表从 7 篇教程里汇总，价值在防漏不在创新。属开发方法与上线流程情报，不是游戏候选，不走 doin 立项线。</p>
+<h2>照抄顺序：先判据后原型再批量</h2>
+<p>照抄这套分工的顺序：Muse 先出立项判据和验收清单，Codex 按判据做单关卡原型，人真机试玩确认乐趣，再批量关卡，最后按检查表提交。顺序反了最常见的后果是关卡生成了一百关，核心玩法却不好玩，批量产出全作废。</p>
+<blockquote><p><strong> </strong>发布 Skill 只管构建与发布动作，平台审核是独立一步。软著与备案要求以官方当日页面为准，别把长文转述当规则。账号注册、付款和最终提交留给人，Agent 给清单和草稿，人做决定。</p></blockquote>
+<p>适合谁：已经有小游戏点子、想一个人跑完上线全流程的人。先把立项判据写死，再让 Codex 动手，七阶段的价值全在顺序。</p>
+<p> </p>
+<p> </p>
+<p>本文来源：<a href="https://www.moyunews.com/" rel="external nofollow noopener noreferrer" target="_blank">摸鱼杂货店</a>。查看原文：<a href="https://www.moyunews.com/claude-codex-wechat-minigame/" rel="external nofollow noopener noreferrer" target="_blank">Muse策划Codex写代码：七阶段上线微信小游戏</a>。</p></div>
+<p class="back"><a href="/">← 返回最新</a></p>
+</article>
+</main>
+<footer class="site-foot">
+<p>wocao.world — 本站内容全部转载自各订阅源，版权归原作者与原站所有。</p>
+</footer>
+</body>
+</html>
